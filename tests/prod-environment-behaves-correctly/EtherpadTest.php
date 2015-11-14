@@ -1,6 +1,6 @@
 <?php
 
-require 'traits/assertHttp.php';
+require_once 'traits/assertHttp.php';
 
 class EtherpadTest extends PHPUnit_Framework_TestCase {
 	use assertHttp;
