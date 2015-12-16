@@ -32,7 +32,7 @@ class DevCentralDockerTest extends PHPUnit_Framework_TestCase {
 		];
 
 		foreach ($expectedProcesses as $expectedProcess) {
-			$this->assertContains($expectedProcess, $processes);
+			$this->assertContains($expectedProcess, $processes, "The process $expectedProcess isn't currently launched.");
 		}
 	}
 }
