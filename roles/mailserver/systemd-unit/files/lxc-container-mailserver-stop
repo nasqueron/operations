@@ -1,0 +1,32 @@
+#!/bin/sh
+#Let systemd stop the lxc mail container through /usr/lib/systemd/system/lxc-containers.service
+#Stop the lxc container, and create iptable rules
+
+IPTABLES="/usr/sbin/iptables"
+LXC_STOP="/usr/bin/lxc-stop"
+CONTAINER_NAME="mailserver"
+HOST_INTERFACE="ens192"
+DOCKER_INTERFACE="docker0"
+HOST_IP="212.129.32.223"
+CONTAINER_IP="10.0.3.8"
+PORTS="25 110 143 465 587"
+DOCKER_PORTS="25 143 465 587"
+NGINX_PORT="21080"
+
+#Web rules
+for PORT in $PORTS
+do
+	$IPTABLES -t nat -D PREROUTING -i $HOST_INTERFACE -p TCP -d $HOST_IP/32 --dport $PORT -j DNAT --to-destination $CONTAINER_IP:$PORT
+done
+
+#Need 80 port for main nginx
+$IPTABLES -t nat -D PREROUTING -i $HOST_INTERFACE -p TCP -d $HOST_IP/32 --dport $NGINX_PORT -j DNAT --to-destination $CONTAINER_IP:80
+
+
+#Docker rules
+for PORT in $DOCKER_PORTS
+do
+	$IPTABLES -t nat -D PREROUTING -i $DOCKER_INTERFACE -p TCP -d $HOST_IP/32 --dport $PORT -j DNAT --to-destination $CONTAINER_IP:$PORT
+done
+
+$LXC_STOP -n $CONTAINER_NAME

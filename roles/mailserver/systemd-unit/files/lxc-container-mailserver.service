@@ -1,0 +1,11 @@
+[Unit]
+Description=LXC mail server container
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/lib/systemd/system/lxc-container-mailserver-start
+ExecStop=/usr/lib/systemd/system/lxc-container-mailserver-stop
+
+[Install]
+WantedBy=multi-user.target
