@@ -1,0 +1,3 @@
+#!/bin/sh
+get-containers --reverse | xargs docker stop
+

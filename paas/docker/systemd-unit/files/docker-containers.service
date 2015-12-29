@@ -1,0 +1,5 @@
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=docker_start
+ExecStop=docker_stop

@@ -1,0 +1,3 @@
+#!/bin/sh
+get-containers-list | xargs docker start
+
