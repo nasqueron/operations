@@ -1,5 +1,5 @@
 #!/bin/sh
-#Let systemd stop the lxc mail container through /usr/lib/systemd/system/lxc-containers.service
+#Let systemd stop the lxc mail container through /usr/lib/systemd/system/lxc-container-mailserver.service
 #Stop the lxc container, and create iptable rules
 
 IPTABLES="/usr/sbin/iptables"
