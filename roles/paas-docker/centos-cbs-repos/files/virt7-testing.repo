@@ -1,0 +1,11 @@
+[virt7-common-testing]
+name=virt7-common-testing
+baseurl=http://cbs.centos.org/repos/virt7-common-testing/x86_64/os/
+enabled=1
+gpgcheck=0
+
+[virt7-docker-common-testing]
+name=virt7-docker-common-testing
+baseurl=http://cbs.centos.org/repos/virt7-docker-common-testing/x86_64/os/
+enabled=1
+gpgcheck=0
