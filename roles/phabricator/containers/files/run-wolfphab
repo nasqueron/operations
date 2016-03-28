@@ -1,0 +1,73 @@
+#!/bin/sh
+
+#   -------------------------------------------------------------
+#   Phabricator — Wolfplex instance
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Author:         Sébastien Santoro aka Dereckson
+#   Project:        Nasqueron
+#   Created:        2015-10-25
+#   Description:    Phabricator instance for Nasqueron
+#   License:        Trivial work, not eligible to copyright
+#   Image:          nasqueron/phabricator
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Container parameters
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+INSTANCE_NAME=wolfphab
+PORT=35080
+DOMAIN=phabricator.wolfplex.be
+DATA_DIRECTORY=/data/$INSTANCE_NAME
+MYSQL_INSTANCE=acquisitariat
+MYSQL_NAMESPACE=wolfphab
+
+#   -------------------------------------------------------------
+#   Phabricator parameters
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+PHABRICATOR_URL=https://$DOMAIN
+PHABRICATOR_TITLE="Wolfplex Phabricator"
+PHABRICATOR_ALT_FILE_DOMAIN="https://phabricator-files-for-wolfplex.nasqueron.org"
+
+#   -------------------------------------------------------------
+#   Ensure container isn't already running
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker-container-status $INSTANCE_NAME > /dev/null
+if [ "$?" -lt 2 ]; then
+	echo "Container is already running."
+	echo "To force relaunch, try docker stop $INSTANCE_NAME ; docker rm $INSTANCE_NAME ; $0"
+	exit 1
+fi
+
+#   -------------------------------------------------------------
+#   Container launch
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker run -t -d \
+	--link $MYSQL_INSTANCE:mysql \
+	-v $DATA_DIRECTORY/repo:/var/repo \
+	-v $DATA_DIRECTORY/conf:/opt/phabricator/conf \
+	-p $PORT:80 \
+	-e PHABRICATOR_URL=$PHABRICATOR_URL \
+	-e PHABRICATOR_TITLE="$PHABRICATOR_TITLE" \
+	-e PHABRICATOR_ALT_FILE_DOMAIN="$PHABRICATOR_ALT_FILE_DOMAIN" \
+	-e PHABRICATOR_STORAGE_NAMESPACE="$MYSQL_NAMESPACE" \
+	--name $INSTANCE_NAME nasqueron/phabricator
+
+docker exec $INSTANCE_NAME sh -c 'cd /opt/phabricator && \
+	bin/config set mysql.host mysql && \
+	bin/config set mysql.pass $MYSQL_ENV_MYSQL_ROOT_PASSWORD && \
+	bin/config set storage.default-namespace $PHABRICATOR_STORAGE_NAMESPACE && \
+	bin/config set phabricator.base-uri $PHABRICATOR_URL && \
+	bin/config set security.alternate-file-domain "$PHABRICATOR_ALT_FILE_DOMAIN" && \
+	bin/config set mailgun.domain $DOMAIN && \
+	rm -f /etc/nginx/sites-enabled/default && \
+	chown -R app /var/repo'
+
+# Fixes bug phd doesn't run at the very first container launch
+docker exec $INSTANCE_NAME sv restart phd
+
+echo "Deployment done at `date`."
+exit 0

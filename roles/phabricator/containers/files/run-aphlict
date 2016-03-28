@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#   -------------------------------------------------------------
+#   Phabricator — Aphlict notifications server
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Author:         Sébastien Santoro aka Dereckson
+#   Project:        Nasqueron
+#   Created:        2016-03-28
+#   Description:    Node application to get real time notifications
+#                   through websockets for Phabricator instances.
+#   License:        Trivial work, not eligible to copyright
+#   Image:          nasqueron/aphlict
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Container parameters
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+INSTANCE_NAME=aphlict
+
+#   -------------------------------------------------------------
+#   Container launch
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker run -dt --name $INSTANCE_NAME -p 22280:22280 -p 22281:22281 nasqueron/aphlict
