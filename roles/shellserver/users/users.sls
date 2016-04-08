@@ -35,6 +35,12 @@
 #   Active accounts
 #   -------------------------------------------------------------
 
+tomjerr:
+  user.present:
+    - fullname: Tommy Aditya
+    - shell: /bin/bash
+    - uid: 2001
+
 #   -------------------------------------------------------------
 #   Groups
 #   -------------------------------------------------------------
@@ -43,7 +49,14 @@ shell:
   group.present:
     - system: True
     - gid: 200
+    - members:
+      - tomjerr
     
 #   -------------------------------------------------------------
 #   Managed SSH keys
 #   -------------------------------------------------------------
+
+sshkeys:
+  ssh_auth.present:
+    - user: tomjerr
+    - source: salt://roles/shellserver/users/files/ssh_keys/tomjerr
