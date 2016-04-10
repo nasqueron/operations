@@ -1,0 +1,4 @@
+Cmnd_Alias SALT = /usr/local/bin/salt, /usr/local/bin/salt-api, /usr/local/bin/salt-call, /usr/local/bin/salt-cloud, /usr/local/bin/salt-cp, /usr/local/bin/salt-key, /usr/local/bin/salt-master, /usr/local/bin/salt-minion, /usr/local/bin/salt-proxy, /usr/local/bin/salt-run, /usr/local/bin/salt-ssh, /usr/local/bin/salt-syndic, /usr/local/etc/rc.d/salt_master
+
+%salt ALL=(salt) NOPASSWD: SALT
+
