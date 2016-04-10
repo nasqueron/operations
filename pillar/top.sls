@@ -7,6 +7,5 @@
 #   -------------------------------------------------------------
 
 base:
-  'eglide':
-    - roles/shellserver/userland-software
-    - roles/shellserver/users
+  eglide:
+    - users.shellusers

@@ -35,11 +35,13 @@
 #   Active accounts
 #   -------------------------------------------------------------
 
-tomjerr:
+{% for user, args in pillar.get('shellusers', {}).iteritems() %}
+{{user}}:
   user.present:
-    - fullname: Tommy Aditya
+    - fullname: {{ args['fullname'] }}
     - shell: /bin/bash
-    - uid: 2001
+    - uid: {{ args['uid'] }}
+{% endfor %}
 
 #   -------------------------------------------------------------
 #   Groups
@@ -50,13 +52,18 @@ shell:
     - system: True
     - gid: 200
     - members:
-      - tomjerr
+{% for user, args in pillar.get('shellusers', {}).iteritems() %}
+      - {{user}}
+{% endfor %}
     
 #   -------------------------------------------------------------
 #   Managed SSH keys
 #   -------------------------------------------------------------
 
-sshkeys:
+{% for user, args in pillar.get('shellusers', {}).iteritems() %}
+sshkey_{{user}}:
   ssh_auth.present:
-    - user: tomjerr
-    - source: salt://roles/shellserver/users/files/ssh_keys/tomjerr
+    - user: {{user}}
+    - source: salt://roles/shellserver/users/files/ssh_keys/{{user}}
+{% endfor %}
+
