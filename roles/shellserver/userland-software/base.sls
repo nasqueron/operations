@@ -48,6 +48,7 @@ utilities:
   pkg:
     - installed
     - pkgs:
+      - nmap
       - tree
       - whois
 
