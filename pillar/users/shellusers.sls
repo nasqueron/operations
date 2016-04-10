@@ -17,3 +17,6 @@ shellusers:
   fedai:
     fullname: Erol Unutmaz
     uid: 2002
+  rashk0:
+    fullname: Rashk0
+    uid: 2003
