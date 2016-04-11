@@ -1,8 +1,8 @@
 #   -------------------------------------------------------------
-#   Salt — Users accounts list
+#   Salt — Revoked users accounts list
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-04-08
+#   Created:        2016-04-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
@@ -10,13 +10,6 @@
 #   Users accounts
 #   -------------------------------------------------------------
 
-shellusers:
-  tomjerr:
-    fullname: Tommy Aditya
-    uid: 2001
-  erol:
-    fullname: Erol Unutmaz
-    uid: 2002
-  rashk0:
-    fullname: Rashk0
-    uid: 2003
+revokedusers:
+  # Account renamed to erol // T808
+  - fedai

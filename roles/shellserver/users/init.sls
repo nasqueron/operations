@@ -23,13 +23,10 @@
 #   Disabled accounts
 #   -------------------------------------------------------------
 
-#   Currently, there is no revoked accounts on Eglide.
-#
-#   To disable an account, remove it from the active section and
-#   add here the following block:
-#
-#   orkaevash:
-#     user.absent
+{% for user in pillar.get('revokedusers') %}
+{{user}}:
+  user.absent
+{% endfor %}
 
 #   -------------------------------------------------------------
 #   Active accounts

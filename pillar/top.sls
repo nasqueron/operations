@@ -8,4 +8,5 @@
 
 base:
   eglide:
+    - users.revokedusers
     - users.shellusers
