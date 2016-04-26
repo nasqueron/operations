@@ -22,10 +22,9 @@ env:
   DISCOURSE_DEVELOPER_EMAILS: "dereckson+nasqueron+discourse@espace-win.org"
   DISCOURSE_HOSTNAME: forum.nasqueron.org
 
-  DISCOURSE_SMTP_ADDRESS: smtp.mandrillapp.com
-  DISCOURSE_SMTP_PORT: 587
-  DISCOURSE_SMTP_USER_NAME: %%`getcredentials 1 username`%%
-  DISCOURSE_SMTP_PASSWORD:  %%`getcredentials 1 password`%%
+  DISCOURSE_SMTP_ADDRESS: smtp.mailgun.org
+  DISCOURSE_SMTP_USER_NAME: %%`getcredentials 63 username`%%
+  DISCOURSE_SMTP_PASSWORD:  %%`getcredentials 63 password`%%
   DISCOURSE_SMTP_ENABLE_START_TLS: true
 
 ## These containers are stateless, all data is stored in /shared
