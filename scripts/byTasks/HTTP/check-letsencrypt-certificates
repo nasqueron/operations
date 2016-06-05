@@ -1,0 +1,108 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+
+#   -------------------------------------------------------------
+#   Let's encrypt — Certificates web server configuration checker
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Created:        2016-06-05
+#   Description:    Check if /.well-known/acme-challenge works
+#                   for the mapping directory webserver for each
+#                   certificate to renew.
+#   License:        BSD-2-Clause
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Table of contents
+#   -------------------------------------------------------------
+#
+#   :: Configuration
+#   :: Checker code
+#   :: Run task
+#
+#   -------------------------------------------------------------
+
+
+import os
+import random
+import string
+import urllib2
+
+
+#   -------------------------------------------------------------
+#   Configuration
+#   -------------------------------------------------------------
+
+
+dirs = {
+    "/usr/local/etc/letsencrypt/renewal",
+    "/data/letsencrypt/etc/renewal"
+}
+
+
+#   -------------------------------------------------------------
+#   Checker code
+#   -------------------------------------------------------------
+
+
+def checkDirectories(dirs):
+    for dir in dirs:
+        if os.path.isdir(dir):
+            checkDirectory(dir)
+
+
+def checkDirectory(dir):
+    for file in os.listdir(dir):
+        if file.endswith(".conf"):
+            fullpath = os.path.join(dir, file)
+            checkCertificate(fullpath)
+
+
+def checkCertificate(file):
+    lines = [line.rstrip('\n') for line in open(file)]
+    skip = True
+    for line in lines:
+        if not skip:
+            checkMappingLine(line)
+        if line == "[[webroot_map]]":
+            skip = False
+
+
+def checkMappingLine(line):
+    params = line.split(' = ')
+    checkMapping(params[0], params[1])
+
+
+def getChallenge():
+    chars = string.ascii_letters + string.digits
+    return ''.join([random.choice(chars) for n in xrange(32)])
+
+
+def checkMapping(domain, dir):
+    challenge = getChallenge()
+    writeChallengeFile(dir, challenge)
+    checkChallenge(domain, challenge)
+
+
+def writeChallengeFile(dir, challenge):
+    challengeFile = os.path.join(dir, ".well-known", "acme-challenge", "qa")
+    with open(challengeFile, "w") as file:
+        file.write(challenge)
+
+
+def checkChallenge(domain, challenge):
+    url = 'http://' + domain + '/.well-known/acme-challenge/qa'
+    try:
+        content = urllib2.urlopen(url).read()
+        if not content == challenge:
+            print domain, "DOES NOT MATCH"
+    except urllib2.HTTPError as err:
+        print domain, err.code
+
+
+#   -------------------------------------------------------------
+#   Run task
+#   -------------------------------------------------------------
+
+
+checkDirectories(dirs)
