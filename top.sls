@@ -8,5 +8,5 @@
 
 base:
   'eglide':
-    - roles/shellserver/userland-software
     - roles/shellserver/users
+    - roles/shellserver/userland-software

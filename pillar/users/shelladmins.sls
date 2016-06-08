@@ -1,28 +1,15 @@
 #   -------------------------------------------------------------
-#   Salt — Users accounts list
+#   Salt — Admins accounts list
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-04-08
+#   Created:        2016-06-08
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
-#   Users accounts
+#   Admin accounts
 #   -------------------------------------------------------------
 
-shellusers:
-  tomjerr:
-    fullname: Tommy Aditya
-    uid: 2001
-  erol:
-    fullname: Erol Unutmaz
-    uid: 2002
-  rashk0:
-    fullname: Rashk0
-    uid: 2003
-  dereckson:
-    fullname: Sebastien Santoro
-    uid: 5001
-  kalix:
-    fullname: Yassine Hadj Messaoud
-    uid: 5002
+shelladmins:
+  - dereckson
+  - kalix
