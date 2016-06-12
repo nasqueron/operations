@@ -48,9 +48,19 @@ utilities:
   pkg:
     - installed
     - pkgs:
+      - figlet
       - nmap
+      - toilet
       - tree
       - whois
+      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      - bsdmainutils
+      - sysvbanner
+      - toilet-fonts
+      {% endif %}
+      {% if grains['os'] == 'FreeBSD' %}
+      - figlet-fonts
+      {% endif %}
 
 #   -------------------------------------------------------------
 #   Development
