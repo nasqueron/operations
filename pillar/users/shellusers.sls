@@ -20,6 +20,9 @@ shellusers:
   rashk0:
     fullname: Rashk0
     uid: 2003
+  kazuya:
+    fullname: Kazuya
+    uid: 2004
   dereckson:
     fullname: Sebastien Santoro
     uid: 5001
