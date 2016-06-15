@@ -1,0 +1,2 @@
+hostnames:
+  eglide: eglide.org

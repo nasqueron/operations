@@ -7,6 +7,8 @@
 #   -------------------------------------------------------------
 
 base:
+  '*':
+    - core.hostnames
   eglide:
     - users.revokedusers
     - users.shellusers

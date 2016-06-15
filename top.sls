@@ -9,6 +9,7 @@
 base:
   '*':
     - roles/core/rc
+    - roles/core/hostname
     - roles/core/network
   'eglide':
     - roles/shellserver/users
