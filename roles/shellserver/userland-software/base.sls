@@ -73,6 +73,13 @@ dev:
       - git
       - arcanist
       - colordiff
+      - strace
+      - cmake
+      - valgrind
+      {% if grains['os'] != 'FreeBSD' %}
+      - clang
+      - llvm
+      {% endif %}
 
 #   -------------------------------------------------------------
 #   Languages
