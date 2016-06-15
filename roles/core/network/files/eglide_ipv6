@@ -1,0 +1,37 @@
+#!/bin/sh
+
+#   -------------------------------------------------------------
+#   IPv6 connectivity
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Eglide
+#   Created:        2016-06-15
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+$IFCONFIG=/sbin/ifconfig
+$ROUTE=/sbin/route
+
+#   -------------------------------------------------------------
+#   Hurricane Electric tunnel
+#   nasqueron-3.tunnel.tserv10.par1.ipv6.he.net
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$IFCONFIG sit0 up
+$IFCONFIG sit0 inet6 tunnel ::216.66.84.42
+$IFCONFIG sit1 up
+$IFCONFIG sit1 inet6 add 2001:470:1f12:896::2/64
+$ROUTE -A inet6 add ::/0 dev sit1
+
+#   -------------------------------------------------------------
+#   Canonical IP
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$IFCONFIG sit1 inet6 add 2001:470:1f13:896::c0de:15:11fe/64
+
+#   -------------------------------------------------------------
+#   Additional IP addresses
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for n in range (1, 20) %}
+$IFCONFIG sit1 inet6 add 2001:470:1f13:896::{{n}}/64
+{% endfor %}

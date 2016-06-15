@@ -7,6 +7,9 @@
 #   -------------------------------------------------------------
 
 base:
+  '*':
+    - roles/core/rc
+    - roles/core/network
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software

@@ -1,0 +1,24 @@
+#!/bin/sh -e
+
+#   -------------------------------------------------------------
+#   rc.local
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Created:        2016-06-15
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   IPv6
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/usr/sbin/ipv6-setup-tunnel
+
+#   -------------------------------------------------------------
+#   Return value
+#
+#   Should be 0 on success, not 0 on failure. Current rc process
+#   requires this value to be set accordingly.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+exit 0
