@@ -48,13 +48,16 @@ utilities:
   pkg:
     - installed
     - pkgs:
+      - cmatrix
       - figlet
       - nmap
       - toilet
       - tree
       - whois
+      - woof
       {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
       - bsdmainutils
+      - sockstat
       - sysvbanner
       - toilet-fonts
       {% endif %}
