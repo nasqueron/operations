@@ -9,3 +9,4 @@
 include:
   - .base
   - .irc
+  - .web
