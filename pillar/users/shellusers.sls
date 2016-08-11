@@ -26,6 +26,9 @@ shellusers:
   amj:
     fullname: Amaury J.
     uid: 2005
+  amjtest:
+    fullname: Amaury J. (test)
+    uid: 2006
   dereckson:
     fullname: Sebastien Santoro
     uid: 5001
