@@ -13,3 +13,6 @@
 revokedusers:
   # Account renamed to erol // T808
   - fedai
+  # Temporary test account // D608, D609
+  - amjtest
+
