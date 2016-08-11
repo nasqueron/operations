@@ -23,6 +23,9 @@ shellusers:
   kazuya:
     fullname: Kazuya
     uid: 2004
+  amj:
+    fullname: Amaury J.
+    uid: 2005
   dereckson:
     fullname: Sebastien Santoro
     uid: 5001
