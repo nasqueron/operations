@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+nginx_test() {
+	nginx_output="$(nginx -t 2>&1)"
+	nginx_returncode="$?"
+
+	if [ "$nginx_returncode" -eq 0 ] && [ -n "$(echo "${nginx_output}" | grep warn)" ]; then
+		return 2;
+	else
+		return "$nginx_returncode";
+	fi;
+}
+
+
+letsencrypt renew && nginx_test && service nginx restart
