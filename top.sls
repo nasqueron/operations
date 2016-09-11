@@ -12,6 +12,7 @@ base:
     - roles/core/hostname
     - roles/core/network
     - roles/core/motd
+    - roles/core/rsyslog
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software
