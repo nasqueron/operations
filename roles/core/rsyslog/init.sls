@@ -13,7 +13,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if salt['file.directory_exists' ]('/etc/rsyslog.d') %}
-rc:
+/etc/rsyslog.d/50-default.conf:
   file.managed:
     - name : /etc/rsyslog.d/50-default.conf
     - source: salt://roles/core/rsyslog/files/default.conf
