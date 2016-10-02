@@ -100,3 +100,18 @@ languages:
       - tcl86
       - php70
       {% endif %}
+
+#   -------------------------------------------------------------
+#   Spelling and language utilities
+#   -------------------------------------------------------------
+
+spelling:
+  pkg:
+    - installed
+    - pkgs:
+        - verbiste
+      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+        - aspell-fr
+      {% elif grains['os'] == 'FreeBSD' %}
+        - fr-aspell
+      {% endif %}
