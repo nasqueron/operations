@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#   -------------------------------------------------------------
+#   Deploy mail certificate to SMTP server
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Created:        2016-11-03
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+: ${CONTAINER_NAME='mailserver'}
+: ${CERT_DIR='/data/letsencrypt/etc/live/mail.nasqueron.org-0001'}
+: ${CONTAINER_DIR="/var/lib/lxc/$CONTAINER_NAME/rootfs"}
+
+cp $CERT_DIR/fullchain.pem $CONTAINER_DIR/etc/ssl/certs/mailserver.crt
+cp $CERT_DIR/privkey.pem $CONTAINER_DIR/etc/ssl/private/mailserver.key
+
+# postfix runs as root
+chown 0:0 $CONTAINER_DIR/etc/ssl/private/mailserver.key
+chmod 400 $CONTAINER_DIR/etc/ssl/private/mailserver.key
+
+lxc-attach -n $CONTAINER_NAME -- service postfix restart
