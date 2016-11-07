@@ -34,11 +34,13 @@ irc_bouncers:
 
 #   -------------------------------------------------------------
 #   Bots
-#
-#   Don't bother installing eggdrop, everyone loves to compile it.
 #   -------------------------------------------------------------
 
-#   So we don't really have anything to install here.
+eggdrop_installer:
+  file.managed:
+    - name: /usr/local/bin/install-eggdrop
+    - source: salt://roles/shellserver/userland-software/files/install-eggdrop
+    - mode: 755
 
 #   -------------------------------------------------------------
 #   Misc
