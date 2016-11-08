@@ -14,6 +14,7 @@ base:
     - roles/core/motd
     - roles/core/rsyslog
   'eglide':
-    - roles/shellserver/eglide-website
     - roles/shellserver/users
     - roles/shellserver/userland-software
+    - roles/shellserver/eglide-website
+    - roles/shellserver/web-hosting
