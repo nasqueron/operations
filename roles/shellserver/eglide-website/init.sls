@@ -20,3 +20,13 @@
     - group: www-data
     - dir_mode: 711
     - file_mode: 644
+
+#   -------------------------------------------------------------
+#   Nginx logs
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/log/www/eglide.org:
+  file.directory:
+    - user: root
+    - group: www-data
+    - dir_mode: 750
