@@ -58,11 +58,13 @@ utilities:
       {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
       - bsdmainutils
       - sockstat
+      - dnsutils
       - sysvbanner
       - toilet-fonts
       {% endif %}
       {% if grains['os'] == 'FreeBSD' %}
       - figlet-fonts
+      - bind-tools
       {% endif %}
 
 #   -------------------------------------------------------------
