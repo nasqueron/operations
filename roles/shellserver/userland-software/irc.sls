@@ -51,4 +51,15 @@ irc_misc:
     - installed
     - pkgs:
       - bitlbee
+      - oidentd
       - pisg
+
+oidentd_config:
+  file.managed:
+    {% if grains['os'] == 'FreeBSD' %}
+    - name: /usr/local/etc/oidentd.conf
+    {% else %}
+    - name: /etc/oidentd.conf
+    {% endif %}
+    - source: salt://roles/shellserver/userland-software/files/oidentd.conf
+    - mode: 644
