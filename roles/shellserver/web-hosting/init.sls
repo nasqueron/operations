@@ -23,7 +23,7 @@ nginx_config_files:
     - dir_mode: 755
     - file_mode: 644
     - cmd.run:
-      - name: nginx -t reload
+      - name: nginx -s reload
       - onchanges:
         {% if grains['os'] == 'FreeBSD' %}
         - file: /usr/local/etc/nginx/nginx.conf
