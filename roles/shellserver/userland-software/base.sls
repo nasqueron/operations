@@ -104,6 +104,21 @@ languages:
       {% endif %}
 
 #   -------------------------------------------------------------
+#   De facto standard libraries for languages
+#   -------------------------------------------------------------
+
+languages_libs:
+  pkg:
+    - installed
+    - pkgs:
+      - tcllib
+      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      - tcl-tls
+      {% elif grains['os'] == 'FreeBSD' %}
+      - tcltls
+      {% endif %}
+
+#   -------------------------------------------------------------
 #   Spelling and language utilities
 #   -------------------------------------------------------------
 
