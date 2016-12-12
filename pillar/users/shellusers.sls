@@ -32,3 +32,6 @@ shellusers:
   kalix:
     fullname: Yassine Hadj Messaoud
     uid: 5002
+  shark:
+    fullname: Shark
+    uid: 2006
