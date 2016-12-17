@@ -8,8 +8,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-$IFCONFIG=/sbin/ifconfig
-$ROUTE=/sbin/route
+IFCONFIG=/sbin/ifconfig
+ROUTE=/sbin/route
 
 #   -------------------------------------------------------------
 #   Hurricane Electric tunnel
