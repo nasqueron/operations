@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -f /etc/vhosts ]; then
+	cat /etc/vhosts
+else
+	echo "No vhosts data file found. Please create /etc/vhosts file."
+fi

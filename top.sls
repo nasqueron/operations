@@ -17,4 +17,5 @@ base:
     - roles/shellserver/users
     - roles/shellserver/userland-software
     - roles/shellserver/eglide-website
+    - roles/shellserver/vhosts
     - roles/shellserver/web-hosting
