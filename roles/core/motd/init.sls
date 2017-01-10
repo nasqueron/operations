@@ -19,3 +19,8 @@ motd:
 get_rid_of_scaleway_motd:
   file.absent:
     - name: /etc/update-motd.d/50-scw
+
+/usr/local/bin/motd:
+  file.managed:
+    - source: salt://roles/core/motd/files/motd
+    - mode: 755
