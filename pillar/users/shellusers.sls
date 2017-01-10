@@ -35,3 +35,6 @@ shellusers:
   shark:
     fullname: Shark
     uid: 2006
+  rix:
+    fullname: Rix
+    uid: 2007
