@@ -15,4 +15,3 @@ revokedusers:
   - fedai
   # Temporary test account // D608, D609
   - amjtest
-
