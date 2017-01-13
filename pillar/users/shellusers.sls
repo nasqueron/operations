@@ -28,6 +28,11 @@ shellusers:
     uid: 2005
   dereckson:
     fullname: Sebastien Santoro
+    {% if grains['os'] == 'FreeBSD' %}
+    shell: /bin/tcsh
+    {% else %}
+    shell: /usr/bin/tcsh
+    {% endif %}
     uid: 5001
   kalix:
     fullname: Yassine Hadj Messaoud

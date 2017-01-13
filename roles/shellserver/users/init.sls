@@ -36,7 +36,7 @@
 {{user}}:
   user.present:
     - fullname: {{ args['fullname'] }}
-    - shell: /bin/bash
+    - shell: {{ args['shell']|default('/bin/bash') }}
     - uid: {{ args['uid'] }}
 {% endfor %}
 
