@@ -15,6 +15,7 @@ shells:
     - installed
     - pkgs:
       - bash
+      - fish
       - tcsh
       - zsh
 
