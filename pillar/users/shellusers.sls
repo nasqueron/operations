@@ -34,7 +34,7 @@ shellusers:
     shell: /usr/bin/tcsh
     {% endif %}
     uid: 5001
-  kalix:
+  sandlayth:
     fullname: Yassine Hadj Messaoud
     uid: 5002
   shark:

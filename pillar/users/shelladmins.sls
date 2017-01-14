@@ -12,4 +12,4 @@
 
 shelladmins:
   - dereckson
-  - kalix
+  - sandlayth
