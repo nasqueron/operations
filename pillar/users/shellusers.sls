@@ -46,3 +46,6 @@ shellusers:
   kumkum:
     fullname: Kumkum
     uid: 2008
+  chan:
+    fullname: Chanel
+    uid: 2009
