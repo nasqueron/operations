@@ -43,3 +43,6 @@ shellusers:
   rix:
     fullname: Rix
     uid: 2007
+  kumkum:
+    fullname: Kumkum
+    uid: 2008
