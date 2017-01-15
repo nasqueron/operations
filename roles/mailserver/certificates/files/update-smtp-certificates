@@ -15,8 +15,9 @@
 cp $CERT_DIR/fullchain.pem $CONTAINER_DIR/etc/ssl/certs/mailserver.crt
 cp $CERT_DIR/privkey.pem $CONTAINER_DIR/etc/ssl/private/mailserver.key
 
-# postfix runs as root
+# Mail servers can read the certificate as root before dropping privileges
 chown 0:0 $CONTAINER_DIR/etc/ssl/private/mailserver.key
 chmod 400 $CONTAINER_DIR/etc/ssl/private/mailserver.key
 
 lxc-attach -n $CONTAINER_NAME -- service postfix restart
+lxc-attach -n $CONTAINER_NAME -- service dovecot restart
