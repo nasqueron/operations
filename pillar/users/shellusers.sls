@@ -49,3 +49,6 @@ shellusers:
   chan:
     fullname: Chanel
     uid: 2009
+  ringa:
+    fullname: Ringa
+    uid: 2010
