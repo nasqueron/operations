@@ -52,3 +52,6 @@ shellusers:
   ringa:
     fullname: Ringa
     uid: 2010
+  xray:
+    fullname: xray
+    uid: 2011
