@@ -33,7 +33,7 @@ IcannNet - IPv6
 
    IPv6 tunnel is provided by Hurricane Electric.
    We can add custom vhosts on request on 2001:470:1f13/64 space.
-   You only need to create a AAAA DNS record from your vhost to one 1f09 IP
+   You only need to create a AAAA DNS record from your vhost to one 1f13 IP
    and notify dereckson or fill a task, they'll then create the PTR record.
 
 ===============================================================================
