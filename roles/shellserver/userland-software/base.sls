@@ -91,6 +91,16 @@ dev:
 #   Languages
 #   -------------------------------------------------------------
 
+languages_removed:
+  pkg:
+    - removed
+    - pkgs:
+      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      - php7.0
+      {% elif grains['os'] == 'FreeBSD' %}
+      - php70
+      {% endif %}
+
 languages:
   pkg:
     - installed
@@ -98,10 +108,10 @@ languages:
       - python3
       {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
       - tcl8.6-dev
-      - php7.0
+      - php7.1
       {% elif grains['os'] == 'FreeBSD' %}
       - tcl86
-      - php70
+      - php71
       {% endif %}
 
 #   -------------------------------------------------------------
