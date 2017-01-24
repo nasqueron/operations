@@ -19,3 +19,4 @@ base:
     - roles/shellserver/eglide-website
     - roles/shellserver/vhosts
     - roles/shellserver/web-hosting
+    - roles/shellserver/odderon
