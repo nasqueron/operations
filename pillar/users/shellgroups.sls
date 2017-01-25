@@ -16,3 +16,4 @@ shellgroups:
     description: Manages IRC bots used for Nasqueron projects
     members:
       - dereckson
+      - sandlayth
