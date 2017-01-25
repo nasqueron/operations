@@ -20,8 +20,8 @@ darkbot_repo:
     - unless: test -f /opt/odderon/LOCKED
 
 darkbot_build:
-  cmd.run:
-    - name: sh build.sh
+  cmd.script:
+    - source: salt://roles/shellserver/odderon/files/build.sh
     - cwd: /opt/darkbot
     - runas: odderon
     - require:
