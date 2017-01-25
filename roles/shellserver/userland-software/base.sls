@@ -76,6 +76,8 @@ dev:
   pkg:
     - installed
     - pkgs:
+      - autoconf
+      - automake
       - git
       - arcanist
       - colordiff
