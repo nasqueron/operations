@@ -13,3 +13,4 @@ base:
     - users.revokedusers
     - users.shellusers
     - users.shelladmins
+    - users.shellgroups

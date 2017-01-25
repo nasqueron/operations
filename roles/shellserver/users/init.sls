@@ -53,6 +53,15 @@ shell:
       - {{user}}
 {% endfor %}
 
+{% for group, args in pillar.get('shellgroups', {}).iteritems() %}
+group_{{group}}:
+  group.present:
+    - name: {{group}}
+    - system: False
+    - gid: {{ args['gid'] }}
+    - members: {{ args['members'] }}
+{% endfor %}
+
 {% if salt['group.info']('root') and salt['group.info']('root')['gid'] == 0 %}
 rename_root_group_to_wheel:
   cmd.run:
