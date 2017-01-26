@@ -9,3 +9,4 @@
 include:
   - .account
   - .code
+  - .service
