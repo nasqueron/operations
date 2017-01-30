@@ -22,6 +22,7 @@ darkbot_repo:
 darkbot_build:
   cmd.script:
     - source: salt://roles/shellserver/odderon/files/build.sh
+    - args: "--with-sleep=0 --with-add=0 --with-del=0 --with-random=0"
     - cwd: /opt/darkbot
     - runas: odderon
     - require:
