@@ -5,6 +5,7 @@ Description=Odderon darkbot
 User=odderon
 
 Type=Simple
+WorkingDirectory=/opt/odderon
 ExecStart=/opt/odderon/bin/darkbot
 ExecReload= kill -HUP `cat /opt/odderon/darkbot.pid`
 PIDFile=/opt/odderon/darkbot.pid
