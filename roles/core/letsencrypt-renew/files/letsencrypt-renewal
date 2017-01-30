@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 nginx_test() {
 	nginx_output="$(nginx -t 2>&1)"
