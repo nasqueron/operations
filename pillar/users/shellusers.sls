@@ -57,4 +57,9 @@ shellusers:
     uid: 2011
   c2c:
     fullname: c2c
+    {% if grains['os'] == 'FreeBSD' %}
+    shell: /usr/local/bin/fish
+    {% else %}
+    shell: /usr/bin/fish
+    {% endif %}
     uid: 2012
