@@ -33,3 +33,4 @@ odderon_sudo_capabilities_file:
     - name: /etc/sudoers.d/odderon
     {% endif %}
     - source: salt://roles/shellserver/odderon/files/odderon.sudoers
+    - template: jinja

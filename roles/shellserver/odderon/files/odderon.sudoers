@@ -1,1 +1,6 @@
 %nasqueron-irc ALL=(odderon) NOPASSWD: ALL
+
+# Service management
+{% for command in ["start", "stop", "restart", "reload"] %}
+%nasqueron-irc ALL= NOPASSWD: /bin/systemctl {{ command }} odderon
+{% endfor %}
