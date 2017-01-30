@@ -55,3 +55,6 @@ shellusers:
   xray:
     fullname: xray
     uid: 2011
+  c2c:
+    fullname: c2c
+    uid: 2012
