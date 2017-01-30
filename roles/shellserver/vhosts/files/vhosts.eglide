@@ -20,6 +20,12 @@ IcannNet - IPv6
 2001:470:1f13:896::7             ipv6.us.death-knight.org
 2001:470:1f13:896::8             Bunga-from-Kotamobagu.69.mu
 2001:470:1f13:896::9             turn.back.cyber-crime.ml [31m*** NOT WORKING ***[0m
+2001:470:1f13:896::a
+2001:470:1f13:896::b
+2001:470:1f13:896::c
+2001:470:1f13:896::d
+2001:470:1f13:896::e
+2001:470:1f13:896::f
 2001:470:1f13:896::10            T-R-O-J-A-N.69.mu
 2001:470:1f13:896::11            r-i-x-from-Pakistan.69.mu [30m*** PRIVATE ***[0m
 2001:470:1f13:896::12            admin.okezone.web.id
@@ -30,6 +36,12 @@ IcannNet - IPv6
 2001:470:1f13:896::17            quantum.chromodynamics.at.nasqueron.org [30m*** PRIVATE ***[0m
 2001:470:1f13:896::18
 2001:470:1f13:896::19
+2001:470:1f13:896::1a
+2001:470:1f13:896::1b
+2001:470:1f13:896::1c
+2001:470:1f13:896::1d
+2001:470:1f13:896::1e
+2001:470:1f13:896::1f
 
    IPv6 tunnel is provided by Hurricane Electric.
    We can add custom vhosts on request on 2001:470:1f13/64 space.
