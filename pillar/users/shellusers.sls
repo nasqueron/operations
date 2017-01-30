@@ -63,3 +63,6 @@ shellusers:
     shell: /usr/bin/fish
     {% endif %}
     uid: 2012
+  rama:
+    fullname: Rama
+    uid: 2013
