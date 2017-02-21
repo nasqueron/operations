@@ -66,3 +66,6 @@ shellusers:
   rama:
     fullname: Rama
     uid: 2013
+  thrx:
+    fullname: ThrX
+    uid: 2014
