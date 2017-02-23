@@ -8,6 +8,7 @@
 
 base:
   '*':
+    - core.dirs
     - core.hostnames
   eglide:
     - users.revokedusers
