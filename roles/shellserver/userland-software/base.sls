@@ -76,7 +76,6 @@ dev:
   pkg:
     - installed
     - pkgs:
-      - silversearcher-ag
       - autoconf
       - automake
       - git
