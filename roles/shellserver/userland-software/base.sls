@@ -86,9 +86,11 @@ dev:
       - cmake
       - valgrind
       {% if grains['os_family'] == 'Debian' %}
+      - libcppunit-dev
       - silversearcher-ag
       {% endif %}
       {% if grains['os'] == 'FreeBSD' %}
+      - cppunit
       - the_silver_searcher
       {% else %}
       - clang
