@@ -76,6 +76,7 @@ dev:
   pkg:
     - installed
     - pkgs:
+      - silversearcher-ag
       - autoconf
       - automake
       - git
@@ -84,7 +85,12 @@ dev:
       - strace
       - cmake
       - valgrind
-      {% if grains['os'] != 'FreeBSD' %}
+      {% if grains['os_family'] == 'Debian' %}
+      - silversearcher-ag
+      {% endif %}
+      {% if grains['os'] == 'FreeBSD' %}
+      - the_silver_searcher
+      {% else %}
       - clang
       - llvm
       {% endif %}
