@@ -96,6 +96,14 @@ dev:
       - llvm
       {% endif %}
 
+dev_popular_libs:
+  pkg:
+    - installed
+    - pkgs:
+      {% if grains['os_family'] == 'Debian' %}
+      - libssl-dev
+      {% endif %}
+
 #   -------------------------------------------------------------
 #   Languages
 #   -------------------------------------------------------------
