@@ -25,5 +25,6 @@ odderon_unit:
 odderon_running:
   service.running:
     - name: odderon
+    - enable: true
     - watch:
       - module: odderon_unit
