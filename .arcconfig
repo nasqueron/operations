@@ -1,4 +1,7 @@
 {
   "phabricator.uri": "https://devcentral.nasqueron.org/",
-  "repository.callsign": "OPS"
+  "repository.callsign": "OPS",
+  "load": [
+    "shellcheck-linter"
+  ]
 }
