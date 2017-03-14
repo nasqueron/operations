@@ -9,5 +9,4 @@
 mumble_certificates_update_script:
   file.managed:
     - name: /usr/local/bin/update-mumble-certificates
-    - source: salt://roles/mumble/certificates/files/update-mumble-certificates
-
+    - source: salt://roles/mumble/certificates/files/update-mumble-certificates.sh

@@ -22,5 +22,5 @@ get_rid_of_scaleway_motd:
 
 /usr/local/bin/motd:
   file.managed:
-    - source: salt://roles/core/motd/files/motd
+    - source: salt://roles/core/motd/files/motd.sh
     - mode: 755

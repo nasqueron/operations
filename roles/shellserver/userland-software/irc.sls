@@ -39,7 +39,7 @@ irc_bouncers:
 eggdrop_installer:
   file.managed:
     - name: /usr/local/bin/install-eggdrop
-    - source: salt://roles/shellserver/userland-software/files/install-eggdrop
+    - source: salt://roles/shellserver/userland-software/files/install-eggdrop.sh
     - mode: 755
 
 #   -------------------------------------------------------------

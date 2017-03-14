@@ -14,7 +14,7 @@
 network_ipv6:
   file.managed:
     - name : /usr/sbin/ipv6-setup-tunnel
-    - source: salt://roles/core/network/files/{{ grains['id'] }}_ipv6
+    - source: salt://roles/core/network/files/{{ grains['id'] }}_ipv6.sh
     - template: jinja
     - mode: 755
 {% endif %}

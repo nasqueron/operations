@@ -2,4 +2,4 @@ INSTALL=install
 PREFIX=/usr/local
 
 install:
-	${INSTALL} files/arc ${PREFIX}/bin/
+	${INSTALL} files/arc.sh ${PREFIX}/bin/arc

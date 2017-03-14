@@ -14,5 +14,5 @@
 rc:
   file.managed:
     - name : /etc/rc.local
-    - source: salt://roles/core/rc/files/rc.local
+    - source: salt://roles/core/rc/files/rc.local.sh
 {% endif %}

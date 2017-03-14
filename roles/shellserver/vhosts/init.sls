@@ -21,5 +21,5 @@
 
 /usr/local/bin/vhosts:
   file.managed:
-    - source: salt://roles/shellserver/vhosts/files/vhosts
+    - source: salt://roles/shellserver/vhosts/files/vhosts.sh
     - mode: 755

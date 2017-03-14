@@ -9,4 +9,4 @@
 smtp_certificates_update_script:
   file.managed:
     - name: /usr/local/bin/update-smtp-certificates
-    - source: salt://roles/mailserver/certificates/files/update-smtp-certificates
+    - source: salt://roles/mailserver/certificates/files/update-smtp-certificates.sh
