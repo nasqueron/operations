@@ -20,6 +20,6 @@ PREFIX=/opt/odderon
 
 test ! -r build/configure && sh bootstrap.sh
 
-cd build
+cd build || exit 2
 sh configure -C --prefix=$PREFIX "$@"
 make
