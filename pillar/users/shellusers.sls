@@ -72,4 +72,6 @@ shellusers:
   akoe:
     fullname: akoe
     uid: 2015
-
+  tarik:
+    fullname: tarik
+    uid: 2016
