@@ -69,3 +69,7 @@ shellusers:
   thrx:
     fullname: ThrX
     uid: 2014
+  akoe:
+    fullname: akoe
+    uid: 2015
+
