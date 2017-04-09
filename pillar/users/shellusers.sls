@@ -75,3 +75,6 @@ shellusers:
   tarik:
     fullname: tarik
     uid: 2016
+  xcombelle:
+    fullname: xcombelle
+    uid: 2017
