@@ -78,3 +78,6 @@ shellusers:
   xcombelle:
     fullname: xcombelle
     uid: 2017
+  hlp:
+    fullname: hlp
+    uid: 2018
