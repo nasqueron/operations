@@ -85,6 +85,7 @@ dev:
       - cmake
       - valgrind
       {% if grains['os_family'] == 'Debian' %}
+      - php7.1-curl
       - libcppunit-dev
       - silversearcher-ag
       {% endif %}
