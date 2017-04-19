@@ -21,6 +21,13 @@
     - dir_mode: 711
     - file_mode: 644
 
+/var/wwwroot/paysannerebelle.com/robot/:
+  file.directory:
+    - user: hlp
+    - group: www-data
+    - dir_mode: 711
+    - makedirs: True
+
 #   -------------------------------------------------------------
 #   Nginx logs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -28,5 +35,11 @@
 /var/log/www/eglide.org:
   file.directory:
     - user: root
+    - group: www-data
+    - dir_mode: 750
+
+/var/log/www/paysannerebelle.com:
+  file.directory:
+    - user: hlp
     - group: www-data
     - dir_mode: 750
