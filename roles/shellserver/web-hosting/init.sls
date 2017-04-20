@@ -22,14 +22,10 @@ nginx_config_files:
     - clean: False
     - dir_mode: 755
     - file_mode: 644
-    - cmd.run:
-      - name: nginx -s reload
-      - onchanges:
-        {% if grains['os'] == 'FreeBSD' %}
-        - file: /usr/local/etc/nginx/nginx.conf
-        {% else %}
-        - file: /etc/nginx/nginx.conf
-        {% endif %}
+  cmd.run:
+    - name: nginx -s reload
+    - onchanges:
+      - file: nginx_config_files
 
 #   -------------------------------------------------------------
 #   Nginx logs
