@@ -17,3 +17,6 @@ revokedusers:
   - amjtest
   # Account renamed to sandlayth // T789
   - kalix
+  # Users who never have connected to Eglide's accounts (SSH key issues)
+  - akoe
+  - tarik
