@@ -22,7 +22,7 @@ openssl_src:
     - runas: builder
     - require:
         - file: openssl_src
-    - unless: test -f /usr/local/src/openssl-legacy/Makefile
+    - creates: /usr/local/src/openssl-legacy/Makefile
 
 #   -------------------------------------------------------------
 #   Build
@@ -38,7 +38,7 @@ openssl_build:
     - runas: builder
     - require:
         - file: openssl_src
-    - unless: test -f /usr/local/src/openssl-legacy/libcrypto.so
+    - creates: /usr/local/src/openssl-legacy/libcrypto.so
 
 #   -------------------------------------------------------------
 #   Install
@@ -50,4 +50,4 @@ openssl_install:
     - cwd: /usr/local/src/openssl-legacy
     - require:
         - cmd: openssl_build
-    - unless: test -f /opt/openssl-legacy/bin/openssl
+    - creates: /opt/openssl-legacy/bin/openssl
