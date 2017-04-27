@@ -6,17 +6,15 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   Nginx configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 nginx_config_files:
   file.recurse:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/nginx
-    {% else %}
-    - name: /etc/nginx
-    {% endif %}
+    - name: {{ dirs.etc }}/nginx
     - source: salt://roles/shellserver/web-hosting/files/{{ grains['id'] }}/nginx
     - include_empty: True
     - clean: False

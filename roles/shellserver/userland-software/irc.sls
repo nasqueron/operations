@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   IRC clients
 #   -------------------------------------------------------------
@@ -56,10 +58,6 @@ irc_misc:
 
 oidentd_config:
   file.managed:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/oidentd.conf
-    {% else %}
-    - name: /etc/oidentd.conf
-    {% endif %}
+    - name: {{ dirs.etc }}/oidentd.conf
     - source: salt://roles/shellserver/userland-software/files/oidentd.conf
     - mode: 644

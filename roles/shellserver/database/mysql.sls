@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   Software
 #   -------------------------------------------------------------
@@ -27,9 +29,5 @@ full_text_search_stopwords_file:
 
 mysql_config:
   file.managed:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/my.cnf
-    {% else %}
-    - name: /etc/my.cnf
-    {% endif %}
+    - name: {{ dirs.etc }}/my.cnf
     - source: salt://roles/shellserver/database/files/my.cnf

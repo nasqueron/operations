@@ -1,0 +1,14 @@
+{% set dirs = salt['grains.filter_by']({
+    'Debian': {
+        'etc': '/etc',
+        'bin': '/usr/bin',
+        'include': '/usr/include',
+        'lib': '/usr/lib',
+    },
+    'FreeBSD' : {
+        'etc': '/usr/local/etc',
+        'bin': '/usr/local/bin',
+        'include': '/usr/local/include',
+        'lib': '/usr/local/lib',
+    },
+}, default='Debian') %}

@@ -6,17 +6,15 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   OpenDKIM configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 opendkim_config_files:
   file.recurse:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/opendkim
-    {% else %}
-    - name: /etc/opendkim
-    {% endif %}
+    - name: {{ dirs.etc }}/opendkim
     - source: salt://roles/mailserver/dkim/files/etc
     - include_empty: True
     - clean: False
@@ -25,11 +23,7 @@ opendkim_config_files:
 
 opendkim_keys_directory:
   file.directory:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/opendkim/keys
-    {% else %}
-    - name: /etc/opendkim/keys
-    {% endif %}
+    - name: {{ dirs.etc }}/opendkim/keys
     - dir_mode: 711
     - user: opendkim
     - group: opendkim

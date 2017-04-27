@@ -7,6 +7,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   Service account
 #   -------------------------------------------------------------
@@ -27,10 +29,6 @@ builder_account:
 
 builder_sudo_capabilities_file:
   file.managed:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/sudoers.d/builder
-    {% else %}
-    - name: /etc/sudoers.d/builder
-    {% endif %}
+    - name: {{ dirs.etc }}/sudoers.d/builder
     - source: salt://roles/shellserver/userland-software/files/builder.sudoers
     - template: jinja
