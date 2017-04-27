@@ -11,6 +11,11 @@
 #   -------------------------------------------------------------
 
 shellgroups:
+  chaton-dev:
+    gid: 827
+    description: Bonjour chaton
+    members:
+      - hlp 
   deployment:
     gid: 828
     description: Build softwares to be installed on the servers
