@@ -34,7 +34,7 @@ editors:
       - vim
       - nano
       - joe
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - emacs-nox
       {% elif grains['os'] == 'FreeBSD' %}
       - emacs-nox11
@@ -56,7 +56,7 @@ utilities:
       - tree
       - whois
       - woof
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - bsdmainutils
       - sockstat
       - dnsutils
@@ -113,7 +113,7 @@ languages_removed:
   pkg:
     - removed
     - pkgs:
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - php7.0
       {% elif grains['os'] == 'FreeBSD' %}
       - php70
@@ -124,7 +124,7 @@ languages:
     - installed
     - pkgs:
       - python3
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - tcl8.6-dev
       - php7.1
       {% elif grains['os'] == 'FreeBSD' %}
@@ -141,7 +141,7 @@ languages_libs:
     - installed
     - pkgs:
       - tcllib
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - tcl-tls
       {% elif grains['os'] == 'FreeBSD' %}
       - tcltls
@@ -156,7 +156,7 @@ spelling:
     - installed
     - pkgs:
         - verbiste
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
         - aspell-fr
       {% elif grains['os'] == 'FreeBSD' %}
         - fr-aspell

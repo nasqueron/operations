@@ -10,7 +10,7 @@
 #   IPv6
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+{% if grains['os_family'] == 'Debian' %}
 network_ipv6:
   file.managed:
     - name : /usr/sbin/ipv6-setup-tunnel

@@ -8,7 +8,7 @@
 
 motd:
   file.managed:
-    {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+    {% if grains['os_family'] == 'Debian' %}
     - name: /etc/motd.tail
     {% else %}
     - name: /etc/motd

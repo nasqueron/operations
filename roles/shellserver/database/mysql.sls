@@ -16,7 +16,7 @@ mysql:
   pkg:
     - installed
     - pkgs:
-      {% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+      {% if grains['os_family'] == 'Debian' %}
       - mariadb-server
       {% elif grains['os'] == 'FreeBSD' %}
       - mariadb101-server

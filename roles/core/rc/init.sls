@@ -10,7 +10,7 @@
 #   IPv6
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+{% if grains['os_family'] == 'Debian' %}
 rc:
   file.managed:
     - name : /etc/rc.local

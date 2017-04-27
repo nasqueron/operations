@@ -26,7 +26,7 @@ after_hostname_change:
     - onchanges:
       - file: /etc/hostname
 
-{% if grains['os'] == 'Debian' or grains['os'] == 'Ubuntu' %}
+{% if grains['os_family'] == 'Debian' %}
 after_hostname_change_debian:
   cmd.run:
     - name: invoke-rc.d hostname.sh start
