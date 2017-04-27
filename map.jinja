@@ -12,3 +12,12 @@
         'lib': '/usr/local/lib',
     },
 }, default='Debian') %}
+
+{% set services = salt['grains.filter_by']({
+    'Debian': {
+        'manager': 'systemd',
+    },
+    'FreeBSD' : {
+        'manager': 'rc',
+    },
+}, default='Debian') %}

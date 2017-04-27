@@ -7,9 +7,13 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import services with context %}
+
 #   -------------------------------------------------------------
 #   Unit configuration 
 #   -------------------------------------------------------------
+
+{% if services['manager'] == 'systemd' %}
 
 odderon_unit:
   file.managed:
@@ -28,3 +32,5 @@ odderon_running:
     - enable: true
     - watch:
       - module: odderon_unit
+
+{% endif %}
