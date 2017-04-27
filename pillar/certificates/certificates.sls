@@ -6,7 +6,11 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .service
-  - .certificates
+#   -------------------------------------------------------------
+#   Certificates
+#   -------------------------------------------------------------
+
+certificates_letsencrypt:
+  eglide:
+    - www.eglide.org
+    - robot.paysannerebelle.com

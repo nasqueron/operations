@@ -9,6 +9,7 @@
 base:
   '*':
     - core.hostnames
+    - certificates.certificates
   eglide:
     - users.revokedusers
     - users.shellusers
