@@ -15,6 +15,8 @@ base:
     - roles/core/rsyslog
     - roles/core/sshd
     - roles/core/letsencrypt
+  'local':
+    - roles/saltmaster/sudo
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software
