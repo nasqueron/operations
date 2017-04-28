@@ -7,6 +7,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   Service account
 #   -------------------------------------------------------------
@@ -27,10 +29,6 @@ odderon_account:
 
 odderon_sudo_capabilities_file:
   file.managed:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: /usr/local/etc/sudoers.d/odderon
-    {% else %}
-    - name: /etc/sudoers.d/odderon
-    {% endif %}
+    - name: {{ dirs.etc }}/sudoers.d/odderon
     - source: salt://roles/shellserver/odderon/files/odderon.sudoers
     - template: jinja
