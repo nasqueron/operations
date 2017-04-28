@@ -1,0 +1,3 @@
+dwellers-lxc:
+  target: dwellers.nasqueron.org
+  driver: lxc  
