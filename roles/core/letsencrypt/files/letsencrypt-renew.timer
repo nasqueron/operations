@@ -20,4 +20,6 @@ Description=Runs letsencrypt-renewal every month
 [Timer]
 OnCalendar=*-*-26 12:15:00
 Persistent=yes
-Unit=letsencrypt.service
+
+[Install]
+WantedBy=timers.target

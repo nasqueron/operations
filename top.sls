@@ -14,6 +14,7 @@ base:
     - roles/core/motd
     - roles/core/rsyslog
     - roles/core/sshd
+    - roles/core/letsencrypt
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software
