@@ -17,6 +17,8 @@ base:
     - roles/core/letsencrypt
   'local':
     - roles/saltmaster/sudo
+  'dwellers.nasqueron.org':
+    - roles/paas-lxc/lxc
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software
