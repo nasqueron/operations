@@ -17,4 +17,5 @@ lxc_packages:
       - lxc
       {% if grains['os_family'] == 'RedHat' %}
       - lxc-extra
+      - lxc-templates
       {% endif %}
