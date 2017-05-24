@@ -18,6 +18,7 @@ base:
   'local':
     - roles/saltmaster/sudo
   'dwellers.nasqueron.org':
+    - roles/paas-docker/docker
     - roles/paas-lxc/lxc
   'eglide':
     - roles/shellserver/users
