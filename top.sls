@@ -13,6 +13,7 @@ base:
     - roles/core/network
     - roles/core/motd
     - roles/core/rsyslog
+    - roles/core/salt
     - roles/core/sshd
     - roles/core/letsencrypt
   'local':

@@ -1,18 +1,12 @@
 #   -------------------------------------------------------------
-#   Salt configuration for Nasqueron servers
+#   Salt — Salt configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-04-10
+#   Created:        2017-06-12
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-base:
-  '*':
-    - core.hostnames
-    - certificates.certificates
-    - salt.roles
-  eglide:
-    - users.revokedusers
-    - users.shellusers
-    - users.shelladmins
-    - users.shellgroups
+salt_roles:
+  grains.list_present:
+    - name: roles
+    - value: {{ pillar.get('roles')[grains['id']] }}
