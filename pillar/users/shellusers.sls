@@ -78,3 +78,6 @@ shellusers:
   axe:
     fullname: axe
     uid: 2019
+  harshcrop:
+    fullname: Harsh Shah
+    uid: 2020
