@@ -81,3 +81,6 @@ shellusers:
   harshcrop:
     fullname: Harsh Shah
     uid: 2020
+  ariel:
+    fullname: ariel
+    uid: 2021
