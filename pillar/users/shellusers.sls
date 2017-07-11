@@ -84,3 +84,6 @@ shellusers:
   ariel:
     fullname: ariel
     uid: 2021
+  pkuz:
+    fullname: PK of UZ
+    uid: 2022
