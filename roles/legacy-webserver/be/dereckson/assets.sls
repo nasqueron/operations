@@ -19,7 +19,7 @@
     - exclude_pat: E@.git
     - include_empty: True
     - clean: False
-    - dir_mode: 711
+    - dir_mode: 755
     - file_mode: 644
     - user: dereckson.be
     - group: web
