@@ -19,7 +19,7 @@ Description=Odderon darkbot
 [Service]
 User=odderon
 
-Type=Simple
+Type=simple
 WorkingDirectory=/opt/odderon
 ExecStart=/opt/odderon/bin/darkbot
 ExecReload= kill -HUP `cat /opt/odderon/darkbot.pid`
