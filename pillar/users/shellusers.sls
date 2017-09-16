@@ -28,11 +28,7 @@ shellusers:
     uid: 2005
   dereckson:
     fullname: Sebastien Santoro
-    {% if grains['os'] == 'FreeBSD' %}
-    shell: /bin/tcsh
-    {% else %}
-    shell: /usr/bin/tcsh
-    {% endif %}
+    shell: tcsh
     uid: 5001
   sandlayth:
     fullname: Yassine Hadj Messaoud
@@ -57,11 +53,7 @@ shellusers:
     uid: 2011
   c2c:
     fullname: c2c
-    {% if grains['os'] == 'FreeBSD' %}
-    shell: /usr/local/bin/fish
-    {% else %}
-    shell: /usr/bin/fish
-    {% endif %}
+    shell: fish
     uid: 2012
   rama:
     fullname: Rama

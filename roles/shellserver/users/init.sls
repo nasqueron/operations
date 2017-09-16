@@ -19,6 +19,8 @@
 #
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import shells with context %}
+
 #   -------------------------------------------------------------
 #   Disabled accounts
 #   -------------------------------------------------------------
@@ -36,7 +38,7 @@
 {{user}}:
   user.present:
     - fullname: {{ args['fullname'] }}
-    - shell: {{ args['shell']|default('/bin/bash') }}
+    - shell: {{ shells[args['shell']|default('bash')] }}
     - uid: {{ args['uid'] }}
 {% endfor %}
 

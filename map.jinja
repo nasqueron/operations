@@ -21,3 +21,16 @@
         'manager': 'rc',
     },
 }, default='Debian') %}
+
+{% set shells = salt['grains.filter_by']({
+    'Debian': {
+        'bash': '/bin/bash',
+        'fish': '/usr/bin/fish',
+        'tcsh': '/usr/bin/tcsh',
+    },
+    'FreeBSD' : {
+        'bash': '/usr/local/bin/bash',
+        'fish': '/usr/local/bin/fish',
+        'tcsh': '/bin/tcsh',
+    },
+}, default='Debian') %}
