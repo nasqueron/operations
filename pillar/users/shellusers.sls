@@ -79,3 +79,6 @@ shellusers:
   pkuz:
     fullname: PK of UZ
     uid: 2022
+  khmerboy:
+    fullname: khmerboy
+    uid: 2023
