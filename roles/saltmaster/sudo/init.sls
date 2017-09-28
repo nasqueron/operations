@@ -12,9 +12,12 @@
 #   Sudo capabilities
 #
 #   Ops should be able to sudo -u salt …
+#   Deployers should be able to sudo -u deploy <anything>
 #   -------------------------------------------------------------
 
-saltmaster_sudo_capabilities_file:
+{% for sudofile in ['salt', 'deploy'] %}
+saltmaster_sudo_capabilities_{{ sudofile }}:
   file.managed:
-    - name: {{ dirs.etc }}/sudoers.d/salt
-    - source: salt://roles/saltmaster/sudo/files/salt
+    - name: {{ dirs.etc }}/sudoers.d/{{ sudofile }}
+    - source: salt://roles/saltmaster/sudo/files/{{ sudofile }}
+{% endfor %}
