@@ -18,6 +18,7 @@ base:
     - roles/core/letsencrypt
   'local':
     - roles/saltmaster/sudo
+    - roles/saltmaster/salt-wrapper
   'dwellers.nasqueron.org':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
