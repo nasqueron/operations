@@ -34,3 +34,18 @@
         'tcsh': '/bin/tcsh',
     },
 }, default='Debian') %}
+
+{% set packages = salt['grains.filter_by']({
+    'Debian' : {
+        'sphinx': 'python3-sphinx',
+    },
+    'RedHat': {
+        'sphinx': 'python3-sphinx',
+    },
+    'Arch': {
+        'sphinx': 'python-sphinx',
+    },
+    'FreeBSD' : {
+        'sphinx': 'py27-sphinx',
+    },
+}, default='Debian') %}
