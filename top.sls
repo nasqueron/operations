@@ -21,6 +21,7 @@ base:
     - roles/saltmaster/salt-wrapper
   'ysul.nasqueron.org':
     - roles/webserver-legacy
+    - roles/webserver-varnish
   'dwellers.nasqueron.org':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc

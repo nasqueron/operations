@@ -40,14 +40,18 @@
 {% set packages = salt['grains.filter_by']({
     'Debian' : {
         'sphinx': 'python3-sphinx',
+        'varnish': 'varnish',
     },
     'RedHat': {
         'sphinx': 'python3-sphinx',
+        'varnish': 'varnish',
     },
     'Arch': {
         'sphinx': 'python-sphinx',
+        'varnish': 'varnish',
     },
     'FreeBSD' : {
         'sphinx': 'py27-sphinx',
+        'varnish': 'varnish5',
     },
 }, default='Debian') %}
