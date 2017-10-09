@@ -19,6 +19,8 @@ base:
   'local':
     - roles/saltmaster/sudo
     - roles/saltmaster/salt-wrapper
+  'ysul.nasqueron.org':
+    - roles/webserver-legacy
   'dwellers.nasqueron.org':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
