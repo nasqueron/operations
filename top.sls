@@ -25,6 +25,7 @@ base:
   'dwellers.nasqueron.org':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
+    - roles/mastodon
   'eglide':
     - roles/shellserver/users
     - roles/shellserver/userland-software
