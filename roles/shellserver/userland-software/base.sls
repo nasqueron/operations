@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import packages with context %}
+
 #   -------------------------------------------------------------
 #   Shells
 #   -------------------------------------------------------------
@@ -34,12 +36,7 @@ editors:
       - vim
       - nano
       - joe
-      {% if grains['os_family'] == 'Debian' %}
-      - emacs-nox
-      {% elif grains['os'] == 'FreeBSD' %}
-      - emacs-nox11
-      {% endif %}
-
+      - {{ packages.emacs }}
 
 #   -------------------------------------------------------------
 #   General UNIX utilities
@@ -84,15 +81,12 @@ dev:
       - strace
       - cmake
       - valgrind
+      - {{ packages.cppunit }}
+      - {{ packages.ag }}
       {% if grains['os_family'] == 'Debian' %}
       - php7.1-curl
-      - libcppunit-dev
-      - silversearcher-ag
       {% endif %}
-      {% if grains['os'] == 'FreeBSD' %}
-      - cppunit
-      - the_silver_searcher
-      {% else %}
+      {% if grains['os'] != 'FreeBSD' %}
       - clang
       - llvm
       {% endif %}
@@ -141,11 +135,7 @@ languages_libs:
     - installed
     - pkgs:
       - tcllib
-      {% if grains['os_family'] == 'Debian' %}
-      - tcl-tls
-      {% elif grains['os'] == 'FreeBSD' %}
-      - tcltls
-      {% endif %}
+      - {{ packages.tcltls }}
 
 #   -------------------------------------------------------------
 #   Spelling and language utilities
@@ -156,8 +146,4 @@ spelling:
     - installed
     - pkgs:
         - verbiste
-      {% if grains['os_family'] == 'Debian' %}
-        - aspell-fr
-      {% elif grains['os'] == 'FreeBSD' %}
-        - fr-aspell
-      {% endif %}
+        - {{ packages['aspell-fr'] }}

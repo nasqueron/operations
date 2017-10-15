@@ -7,7 +7,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   Software
@@ -15,12 +15,7 @@
 
 letsencrypt_software:
   pkg.installed:
-    {% if grains['os'] == 'FreeBSD' %}
-    - name: py27-certbot
-    {% else %}
-    - name: certbot
-    {% endif %}
-
+    - name: {{ packages.certbot }}
 
 #   -------------------------------------------------------------
 #   Working directory

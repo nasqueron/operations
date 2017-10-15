@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   Software
@@ -16,11 +16,7 @@ mysql:
   pkg:
     - installed
     - pkgs:
-      {% if grains['os_family'] == 'Debian' %}
-      - mariadb-server
-      {% elif grains['os'] == 'FreeBSD' %}
-      - mariadb101-server
-      {% endif %}
+      - {{ packages.mariadb }}
 
 full_text_search_stopwords_file:
   file.managed:
