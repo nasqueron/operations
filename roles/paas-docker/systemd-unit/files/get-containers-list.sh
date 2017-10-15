@@ -34,7 +34,7 @@ mapfile -t array < "$file"
 
 # Test argument to know in wich order return names
 if [[ $1 == "--reverse" ]]; then
-    for ((i="${#array[*]}"; i > 0; i--)); do
+    for ((i="${#array[*]}" - 1; i >= 0; i--)); do
         echo "${array[i]}"
     done
 elif [[ -z "$1" ]]; then
