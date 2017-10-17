@@ -15,7 +15,6 @@ base:
     - roles/core/rsyslog
     - roles/core/salt
     - roles/core/sshd
-    - roles/core/letsencrypt
   'local':
     - roles/saltmaster/sudo
     - roles/saltmaster/salt-wrapper
@@ -27,6 +26,7 @@ base:
     - roles/paas-lxc/lxc
     - roles/mastodon
   'eglide':
+    - roles/webserver-core/letsencrypt
     - roles/shellserver/users
     - roles/shellserver/userland-software
     - roles/shellserver/eglide-website
