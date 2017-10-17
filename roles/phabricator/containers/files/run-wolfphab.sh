@@ -26,7 +26,7 @@
 INSTANCE_NAME=wolfphab
 PORT=35080
 DOMAIN=phabricator.wolfplex.be
-DATA_DIRECTORY=/data/$INSTANCE_NAME
+DATA_DIRECTORY=/srv/data/$INSTANCE_NAME
 MYSQL_INSTANCE=acquisitariat
 MYSQL_NAMESPACE=wolfphab
 

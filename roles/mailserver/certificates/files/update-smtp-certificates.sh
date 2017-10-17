@@ -17,7 +17,7 @@
 #   </auto-generated>
 
 : ${CONTAINER_NAME='mailserver'}
-: ${CERT_DIR='/data/letsencrypt/etc/live/mail.nasqueron.org-0001'}
+: ${CERT_DIR='/srv/data/letsencrypt/etc/live/mail.nasqueron.org-0001'}
 : ${CONTAINER_DIR="/var/lib/lxc/$CONTAINER_NAME/rootfs"}
 
 cp $CERT_DIR/fullchain.pem $CONTAINER_DIR/etc/ssl/certs/mailserver.crt

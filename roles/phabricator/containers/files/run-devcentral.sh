@@ -26,7 +26,7 @@
 INSTANCE_NAME=devcentral
 PORT=31080
 DOMAIN=$INSTANCE_NAME.nasqueron.org
-DATA_DIRECTORY=/data/$INSTANCE_NAME
+DATA_DIRECTORY=/srv/data/$INSTANCE_NAME
 MYSQL_INSTANCE=acquisitariat
 
 #   -------------------------------------------------------------

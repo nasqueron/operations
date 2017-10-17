@@ -8,3 +8,4 @@
 
 include:
   - .CVE-2017-6074
+  - .T1261-srv-data
