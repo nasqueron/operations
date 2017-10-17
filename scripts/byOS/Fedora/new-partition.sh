@@ -30,5 +30,5 @@ pvcreate "$DEVICE"
 vgextend "$VG" "$DEVICE"
 lvcreate -l 100%FREE -n "$LVNAME" "$VG"
 mkfs -t xfs "/dev/$VG/$LVNAME"
-cat "/dev/mapper/$VG-$LVNAME $MOUNTING_POINT xfs defaults 1 2" >> /etc/ftab
+echo "/dev/mapper/$VG-$LVNAME $MOUNTING_POINT xfs defaults 1 2" >> /etc/ftab
 mount "$MOUNTING_POINT"
