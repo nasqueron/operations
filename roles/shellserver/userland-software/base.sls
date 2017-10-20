@@ -18,8 +18,10 @@ shells:
     - pkgs:
       - bash
       - fish
-      - tcsh
       - zsh
+      {% if grains['os'] != 'FreeBSD' %}
+      - tcsh
+      {% endif %}
 
 #   -------------------------------------------------------------
 #   Editors
@@ -46,10 +48,12 @@ utilities:
   pkg:
     - installed
     - pkgs:
+      - mosh
       - cmatrix
       - figlet
       - nmap
       - toilet
+      - tmux
       - tree
       - whois
       - woof
@@ -63,6 +67,9 @@ utilities:
       {% if grains['os'] == 'FreeBSD' %}
       - figlet-fonts
       - bind-tools
+      - sudo
+      - coreutils
+      - wget
       {% endif %}
 
 #   -------------------------------------------------------------
@@ -76,9 +83,7 @@ dev:
       - autoconf
       - automake
       - git
-      - arcanist
       - colordiff
-      - strace
       - cmake
       - valgrind
       - {{ packages.cppunit }}
@@ -87,17 +92,19 @@ dev:
       - php7.1-curl
       {% endif %}
       {% if grains['os'] != 'FreeBSD' %}
+      - arcanist
       - clang
       - llvm
+      - strace
       {% endif %}
 
+{% if grains['os_family'] == 'Debian' %}
 dev_popular_libs:
   pkg:
     - installed
     - pkgs:
-      {% if grains['os_family'] == 'Debian' %}
       - libssl-dev
-      {% endif %}
+{% endif %}
 
 #   -------------------------------------------------------------
 #   Languages
@@ -145,5 +152,6 @@ spelling:
   pkg:
     - installed
     - pkgs:
-        - verbiste
+        - {{ packages.verbiste }}
         - {{ packages['aspell-fr'] }}
+        - {{ packages['aspell-en'] }}

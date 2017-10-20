@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import packages with context %}
+
 #   -------------------------------------------------------------
 #   nginx
 #   -------------------------------------------------------------
@@ -22,4 +24,4 @@ nginx:
 
 letsencrypt:
   pkg.installed:
-    - name: letsencrypt
+    - name: {{ packages.certbot }}

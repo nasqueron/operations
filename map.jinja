@@ -54,17 +54,37 @@
     },
 }, default='FreeBSD') %}
 
+{% set packages_prefixes = salt['grains.filter_by']({
+    'Debian': {
+        'python2': '',
+        'python3': 'python3-',
+    },
+    'RedHat': {
+        'python2': 'python2-',
+        'python3': 'python3-',
+    },
+    'FreeBSD' : {
+        'python2': 'py27-',
+        'python3': 'py36-',
+        'rubygem': 'rubygem-',
+    },
+}, default='Debian') %}
+
 {% set packages = salt['grains.filter_by']({
     'Debian' : {
         'ag': 'silversearcher-ag',
         'aspell-fr': 'aspell-fr',
+        'aspell-en': 'aspell-en',
         'certbot': 'certbot',
         'cppunit': 'libcppunit-dev',
         'emacs': 'emacs-nox',
         'mariadb': 'mariadb-server',
+        'node': 'nodejs',
         'sphinx': 'python3-sphinx',
         'tcltls': 'tcl-tls',
+        'tdom': 'tdom',
         'varnish': 'varnish',
+        'verbiste': 'verbiste',
     },
     'RedHat': {
         'ag': 'the_silver_searcher',
@@ -72,7 +92,9 @@
         'certbot': 'python2-certbot',
         'cppunit': 'cppunit-devel',
         'emacs': 'emacs-nox',
+        'exiftool': 'perl-Image-ExifTool',
         'mariadb': 'mariadb-server',
+        'node': 'nodejs',
         'sphinx': 'python3-sphinx',
         'tcltls': 'tcltls',
         'varnish': 'varnish',
@@ -91,12 +113,17 @@
     'FreeBSD' : {
         'ag': 'the_silver_searcher',
         'aspell-fr': 'fr-aspell',
+        'aspell-en': 'en-aspell',
         'certbot': 'py27-certbot',
         'cppunit': 'cppunit',
         'emacs': 'emacs-nox11',
+        'exiftool': 'p5-Image-ExifTool-devel',
         'mariadb': 'mariadb101-server',
+        'node': 'node',
         'sphinx': 'py27-sphinx',
         'tcltls': 'tcltls',
+        'tdom': 'tDOM',
         'varnish': 'varnish5',
+        'verbiste': 'fr-verbiste',
     },
 }, default='Debian') %}
