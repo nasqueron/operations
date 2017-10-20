@@ -19,7 +19,7 @@
 AuthorizedKeysFile	.ssh/authorized_keys
 
 # Nasqueron servers authentication should only occur through SSH keys
-# but PAM can offer extrea capabilities if needed like OTP.
+# but PAM can offer extra capabilities if needed like OTP.
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 UsePAM yes
