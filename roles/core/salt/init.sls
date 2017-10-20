@@ -9,4 +9,4 @@
 salt_roles:
   grains.list_present:
     - name: roles
-    - value: {{ pillar.get('roles')[grains['id']] }}
+    - value: {{ salt['pillar.get']("nodes:" + grains['id'] + ":roles", []) }}

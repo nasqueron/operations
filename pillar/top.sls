@@ -11,7 +11,6 @@ base:
     - core.hostnames
     - certificates.certificates
     - nodes.nodes
-    - salt.roles
   eglide:
     - users.revokedusers
     - users.shellusers
