@@ -29,4 +29,4 @@ PrintMotd no
 AcceptEnv LANG LC_*
 
 # SFTP
-Subsystem	sftp	/usr/lib/openssh/sftp-server
+Subsystem	sftp	{{ sftp }}

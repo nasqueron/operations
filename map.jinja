@@ -39,6 +39,21 @@
     },
 }, default='Debian') %}
 
+{% set paths = salt['grains.filter_by']({
+    'FreeBSD': {
+        'sftp': '/usr/libexec/sftp-server',
+    },
+    'Debian': {
+        'sftp': '/usr/lib/openssh/sftp-server',
+    },
+    'RedHat': {
+        'sftp': '/usr/libexec/openssh/sftp-server',
+    },
+    'Arch': {
+        'sftp': '/usr/lib/ssh/sftp-server',
+    },
+}, default='FreeBSD') %}
+
 {% set packages = salt['grains.filter_by']({
     'Debian' : {
         'ag': 'silversearcher-ag',

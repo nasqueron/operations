@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import paths with context %}
+
 #   -------------------------------------------------------------
 #   OpenSSH
 #   -------------------------------------------------------------
@@ -13,6 +15,9 @@
 /etc/ssh/sshd_config:
   file.managed:
     - source: salt://roles/core/sshd/files/sshd_config
+    - template: jinja
+    - context:
+        sftp: {{ paths.sftp }}
 
 #   -------------------------------------------------------------
 #   PAM
