@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages with context %}
+{% from "map.jinja" import packages, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Shells
@@ -88,9 +88,6 @@ dev:
       - valgrind
       - {{ packages.cppunit }}
       - {{ packages.ag }}
-      {% if grains['os_family'] == 'Debian' %}
-      - php7.1-curl
-      {% endif %}
       {% if grains['os'] != 'FreeBSD' %}
       - arcanist
       - clang
@@ -141,6 +138,25 @@ languages_libs:
   pkg:
     - installed
     - pkgs:
+      # PHP
+      - {{ packages_prefixes.php }}bcmath
+      - {{ packages_prefixes.php }}curl
+      - {{ packages_prefixes.php }}dom
+      - {{ packages_prefixes.php }}gd
+      - {{ packages_prefixes.php }}intl
+      - {{ packages_prefixes.php }}json
+      - {{ packages_prefixes.php }}mbstring
+      - {{ packages_prefixes.php }}mysqli
+      - {{ packages_prefixes.php }}pcntl
+      - {{ packages_prefixes.php }}phar
+      - {{ packages_prefixes.php }}pdo
+      - {{ packages_prefixes.php }}pdo_mysql
+      - {{ packages_prefixes.php }}pdo_sqlite
+      - {{ packages_prefixes.php }}simplexml
+      - {{ packages_prefixes.php }}soap
+      - {{ packages_prefixes.php }}wddx
+      - {{ packages_prefixes.php }}xsl
+      # TCL
       - tcllib
       - {{ packages.tcltls }}
 
