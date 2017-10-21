@@ -8,6 +8,16 @@
 {% from "map.jinja" import packages with context %}
 
 #   -------------------------------------------------------------
+#   Base directroy
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/wwwroot/nasqueron.org/docs:
+  file.directory:
+    - user: deploy
+    - group: web
+    - dir_mode: 755
+
+#   -------------------------------------------------------------
 #   Deploy a rSW docs dir HTML build to docs.n.o/salt-wrapper
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
