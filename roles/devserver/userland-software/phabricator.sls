@@ -28,6 +28,15 @@ phabricator_repository:
     - target: /opt/phabricator/phabricator
 
 #   -------------------------------------------------------------
+#   Extra phutil libraries
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+shellcheck_linter_repository:
+  git.latest:
+    - name: https://devcentral.nasqueron.org/source/shellcheck-linter.git
+    - target: /opt/phabricator/shellcheck-linter
+
+#   -------------------------------------------------------------
 #   Aliases
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
