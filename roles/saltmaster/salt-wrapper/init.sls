@@ -14,10 +14,12 @@
 
 {{ dirs.bin }}/salt-wrapper:
   file.managed:
+    - mode: 755
     - source: salt://software/salt-wrapper/salt-wrapper.sh
 
 {{ dirs.bin }}/salt-get-config-dir:
   file.managed:
+    - mode: 755
     - source: salt://software/salt-wrapper/salt-get-config-dir.py
 
 #   -------------------------------------------------------------
