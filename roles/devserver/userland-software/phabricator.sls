@@ -21,11 +21,13 @@ arcanist_repository:
   git.latest:
     - name: https://secure.phabricator.com/diffusion/ARC/arcanist.git
     - target: /opt/phabricator/arcanist
+    - update_head: False
 
 phabricator_repository:
   git.latest:
     - name: https://secure.phabricator.com/source/phabricator.git
     - target: /opt/phabricator/phabricator
+    - update_head: False
 
 #   -------------------------------------------------------------
 #   Extra phutil libraries
