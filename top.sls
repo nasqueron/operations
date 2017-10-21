@@ -16,8 +16,7 @@ base:
     - roles/core/salt
     - roles/core/sshd
   'local':
-    - roles/saltmaster/sudo
-    - roles/saltmaster/salt-wrapper
+    - roles/saltmaster
   'ysul.nasqueron.org':
     - roles/webserver-legacy
     - roles/webserver-varnish
