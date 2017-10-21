@@ -9,4 +9,5 @@
 include:
   - .account
   - .cloud
+  - .staging
   - .salt-wrapper

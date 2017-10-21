@@ -42,8 +42,9 @@ deploy_account:
     - fullname: Deployment and management of the Salt staging area
     - uid: 9002
     - gid: 9002
-    - home: /opt/salt/staging
+    - home: /var/run/deploy
 
+# Allow to repair ownership if the account is created after the staging
 deploy_account_ownership:
   cmd.run:
     - name: chown -R salt /opt/salt/staging /opt/salt/private/staging
