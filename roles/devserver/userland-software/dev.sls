@@ -60,7 +60,7 @@ devserver_software_dev_php:
   pkg:
     - installed
     - pkgs:
-      - phpunit
+      - {{ packages.phpunit }}
 
 #   -------------------------------------------------------------
 #   Python
