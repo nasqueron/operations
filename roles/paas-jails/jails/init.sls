@@ -37,13 +37,21 @@ jails_rc_ezjail:
     - source: salt://roles/paas-jails/jails/files/ezjail.rc
 
 #   -------------------------------------------------------------
-#   Build jails
+#   Build master jail
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 generate_basejail:
   cmd.run:
     - name: ezjail-admin install -p
     - creates: /usr/jails/basejail
+
+/usr/jails/newjail/etc/resolv.conf:
+  file.managed:
+    - source: salt://roles/paas-jails/jails/files/resolv.conf
+
+#   -------------------------------------------------------------
+#   Build applications/services jails
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for jail in salt['jails.list']() %}
 {% set ips = salt['jails.get_ezjail_ips_parameter'](jail) %}
