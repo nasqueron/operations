@@ -17,11 +17,11 @@ base:
     - roles/core/sshd
   'local':
     - roles/saltmaster
-  'ysul.nasqueron.org':
+  'ysul':
     - roles/paas-jails
     - roles/webserver-legacy
     - roles/webserver-varnish
-  'dwellers.nasqueron.org':
+  'dwellers':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
     - roles/mastodon
