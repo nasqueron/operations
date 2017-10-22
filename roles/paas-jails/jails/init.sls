@@ -28,7 +28,8 @@ jails_rc_jail:
 
 jails_rc_netif:
   file.managed:
-    - name: /etc/rc.conf.d/netif
+    - name: /etc/rc.conf.d/netif/jails
+    - makedirs: True
     - source: salt://roles/paas-jails/jails/files/netif.rc
 
 jails_rc_ezjail:

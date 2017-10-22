@@ -33,6 +33,11 @@ nodes:
       - devserver
       - saltmaster
     network:
+      ipv4_interface: igb0
+      ipv4_address: 163.172.49.16
+      ipv4_gateway: 163.172.49.1
+      ipv4_aliases:
+        - 213.83.187.132
       ipv6_tunnel: True
   ##
   ## Forest:         Eglide
