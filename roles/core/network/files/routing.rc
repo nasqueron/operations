@@ -14,3 +14,6 @@
 #   </auto-generated>
 
 defaultrouter="{{ ipv4_gateway }}"
+{% if ipv6_gateway != "" %}
+ipv6_defaultrouter="{{ ipv6_gateway }}"
+{% endif %}

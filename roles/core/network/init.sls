@@ -33,6 +33,7 @@
     - template: jinja
     - context:
         ipv4_gateway: {{ network['ipv4_gateway'] }}
+        ipv6_gateway: {{ network['ipv6_gateway'] | default('') }}
 {% endif %}
 
 #   -------------------------------------------------------------

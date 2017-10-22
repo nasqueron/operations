@@ -36,6 +36,7 @@ nodes:
       ipv4_interface: igb0
       ipv4_address: 163.172.49.16
       ipv4_gateway: 163.172.49.1
+      ipv6_gateway: 2001:470:1f12:9e1::1
       ipv4_aliases:
         - 212.83.187.132
       ipv6_tunnel: True
