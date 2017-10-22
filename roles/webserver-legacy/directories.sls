@@ -7,9 +7,18 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .account
-  - .directories
-  - .static-sites
-  - .be/dereckson
-  - .org/nasqueron
+/var/wwwroot:
+  file.directory:
+     - group: web
+     - dir_mode: 711
+
+{% for domains_group in pillar['web_domains'] %}
+{% for domain in pillar['web_domains'][domains_group] %}
+webserver_directory_{{ domain }}:
+  file.directory:
+    - name: /var/wwwroot/{{ domain }}
+    - user: {{ domain }}
+    - group: web
+    - dir_mode: 711
+{% endfor %}
+{% endfor %}

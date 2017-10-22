@@ -7,9 +7,19 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .account
-  - .directories
-  - .static-sites
-  - .be/dereckson
-  - .org/nasqueron
+webserver_legacy_group:
+  group.present:
+    - name: web
+    - gid: 9003
+    - system: True
+
+{% for domains_group in pillar['web_domains'] %}
+{% for domain in pillar['web_domains'][domains_group] %}
+webserver_user_{{ domain }}:
+  user.present:
+    - name: {{ domain }}
+    - gid: 9003
+    - createhome: False
+    - fullname: Websites account for {{ domain }}
+{% endfor %}
+{% endfor %}

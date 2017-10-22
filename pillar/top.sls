@@ -11,6 +11,8 @@ base:
     - core.hostnames
     - certificates.certificates
     - nodes.nodes
+  ysul:
+    - webserver-legacy.sites
   eglide:
     - users.revokedusers
     - users.shellusers
