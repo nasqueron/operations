@@ -18,6 +18,7 @@ base:
   'local':
     - roles/saltmaster
   'ysul.nasqueron.org':
+    - roles/paas-jails
     - roles/webserver-legacy
     - roles/webserver-varnish
   'dwellers.nasqueron.org':

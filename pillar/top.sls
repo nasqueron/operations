@@ -12,6 +12,7 @@ base:
     - certificates.certificates
     - nodes.nodes
   ysul:
+    - paas-jails.jails
     - webserver-legacy.sites
   eglide:
     - users.revokedusers
