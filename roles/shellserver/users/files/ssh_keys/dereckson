@@ -19,7 +19,7 @@
 #       https://devcentral.nasqueron.org/maniphest/task/edit/form/3/
 #   </auto-generated>
 
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMKBin4bpJpIkWVVjmYbivtNmWo3KgBLmx0/KXaw8QUl dereckson@ysul.nasqueron.org
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL5FbV1PjQmAX2fpgBKg8FnnInnVVSd9NH4PPUFlhaVO dereckson@xyrogh
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzD5VzetMFTUHLWrLyBsnZ6bdwDa4Ip9WWAh5nLxKyR dereckson@ysul.nasqueron.org
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 dereckson@orin.dereckson.drake
-
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh dereckson@graywell.dereckson.drake
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m dereckson@yakin.dereckson.drake
