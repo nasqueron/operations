@@ -148,19 +148,22 @@ languages_libs:
       - {{ packages_prefixes.php }}dom
       - {{ packages_prefixes.php }}filter
       - {{ packages_prefixes.php }}gd
+      - {{ packages_prefixes.php }}hash
       - {{ packages_prefixes.php }}intl
       - {{ packages_prefixes.php }}json
       - {{ packages_prefixes.php }}mbstring
       - {{ packages_prefixes.php }}mysqli
       - {{ packages_prefixes.php }}openssl
       - {{ packages_prefixes.php }}pcntl
-      - {{ packages_prefixes.php }}phar
       - {{ packages_prefixes.php }}pdo
       - {{ packages_prefixes.php }}pdo_mysql
       - {{ packages_prefixes.php }}pdo_sqlite
+      - {{ packages_prefixes.php }}phar
+      - {{ packages_prefixes.php }}session
       - {{ packages_prefixes.php }}simplexml
       - {{ packages_prefixes.php }}soap
       - {{ packages_prefixes.php }}wddx
+      - {{ packages_prefixes.php }}xml
       - {{ packages_prefixes.php }}xsl
       - {{ packages.composer }}
       # TCL
