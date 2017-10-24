@@ -86,6 +86,7 @@ dev:
       - colordiff
       - cmake
       - valgrind
+      - jq
       - {{ packages.cppunit }}
       - {{ packages.ag }}
       {% if grains['os'] == 'FreeBSD' %}
