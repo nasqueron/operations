@@ -127,3 +127,15 @@ devserver_software_dev_web:
     - installed
     - pkgs:
       - memcached
+
+#   -------------------------------------------------------------
+#   Tools like code review utilities
+#
+#   Arcanist is installed in the Phabricator states
+#   -------------------------------------------------------------
+
+devserver_software_dev_misctools:
+  pkg:
+    - installed
+    - pkgs:
+      - git-review
