@@ -88,7 +88,9 @@ dev:
       - valgrind
       - {{ packages.cppunit }}
       - {{ packages.ag }}
-      {% if grains['os'] != 'FreeBSD' %}
+      {% if grains['os'] == 'FreeBSD' %}
+      - hub
+      {% else %}
       - arcanist
       - clang
       - llvm
