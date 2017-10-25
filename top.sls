@@ -26,7 +26,7 @@ base:
     - roles/paas-lxc/lxc
     - roles/mastodon
   'eglide':
-    - roles/webserver-core/letsencrypt
+    - roles/webserver-core
     - roles/shellserver/users
     - roles/shellserver/userland-software
     - roles/shellserver/eglide-website
