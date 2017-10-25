@@ -32,4 +32,4 @@ letsencrypt_software:
 
 {{ dirs.etc }}/letsencrypt/cli.ini:
   file.managed:
-    - source: salt://roles/core/letsencrypt/files/cli.ini
+    - source: salt://roles/webserver-core/letsencrypt/files/cli.ini
