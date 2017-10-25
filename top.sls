@@ -19,6 +19,7 @@ base:
     - roles/saltmaster
   'ysul':
     - roles/paas-jails
+    - roles/webserver-core
     - roles/webserver-legacy
     - roles/webserver-varnish
   'dwellers':
