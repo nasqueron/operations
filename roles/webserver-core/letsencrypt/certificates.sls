@@ -12,7 +12,7 @@
 #   Certificates
 #   -------------------------------------------------------------
 
-{% for domain in pillar.get('certificates_letsencrypt')[grains['id']] %}
+{% for domain in salt['pillar.get']("certificates_letsencrypt:" + grains['id'], []) %}
 certificate_{{ domain }}:
   cmd.run:
     - name: certbot certonly -d {{ domain }}
