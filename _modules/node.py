@@ -78,4 +78,5 @@ def has(key, nodename=None):
 
         salt * node.has network:ipv6_tunnel
     '''
-    return _get_property(bool(key), nodename, False)
+    value = _get_property(key, nodename, False)
+    return bool(value)
