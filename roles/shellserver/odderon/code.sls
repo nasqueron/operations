@@ -27,3 +27,4 @@ darkbot_build:
     - runas: odderon
     - require:
         - git: darkbot_repo
+    - unless: test -f /opt/odderon/LOCKED
