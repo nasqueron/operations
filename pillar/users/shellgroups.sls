@@ -11,6 +11,12 @@
 #   -------------------------------------------------------------
 
 shellgroups:
+  ops:
+    gid: 3001
+    description: Nasqueron Operations
+    members:
+      - dereckson
+      - sandlayth
   chaton-dev:
     gid: 827
     description: Bonjour chaton
