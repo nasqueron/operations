@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import paths with context %}
+{% from "map.jinja" import paths, capabilities with context %}
 
 #   -------------------------------------------------------------
 #   OpenSSH
@@ -18,6 +18,7 @@
     - template: jinja
     - context:
         sftp: {{ paths.sftp }}
+        print_motd: {{ not capabilities['MOTD-printed-at-login'] }}
 
 #   -------------------------------------------------------------
 #   PAM

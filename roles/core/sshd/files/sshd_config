@@ -25,7 +25,7 @@ ChallengeResponseAuthentication no
 UsePAM yes
 
 # Misc options
-PrintMotd no
+PrintMotd {{ "yes" if print_motd else "no" }}
 AcceptEnv LANG LC_*
 
 # SFTP

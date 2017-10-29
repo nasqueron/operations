@@ -142,3 +142,22 @@
         'verbiste': 'fr-verbiste',
     },
 }, default='Debian') %}
+
+{#  -------------------------------------------------------------
+    Capabilities of OS and distributions
+
+      :: MOTD-printed-at-login
+          Login mechanism, through PAM or dotfiles,
+          prints the MOTD when a session is opened.
+
+          When at False, OpenSSH will take care of it.
+    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #}
+
+{% set capabilities = salt['grains.filter_by']({
+  'Debian': {
+    'MOTD-printed-at-login': True,
+  },
+  'FreeBSD' : {
+    'MOTD-printed-at-login': False,
+  },
+}, default='Debian') %}
