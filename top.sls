@@ -33,4 +33,6 @@ base:
     - roles/shellserver/eglide-website
     - roles/shellserver/vhosts
     - roles/shellserver/web-hosting
+    - roles/shellserver/database
     - roles/shellserver/odderon
+    - roles/shellserver/bonjour-chaton
