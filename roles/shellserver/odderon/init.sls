@@ -9,4 +9,5 @@
 include:
   - .account
   - .code
+  - .config
   - .service
