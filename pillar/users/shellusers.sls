@@ -25,10 +25,11 @@ shellusers:
     uid: 2004
   amj:
     fullname: Amaury J.
+    shell: zsh
     uid: 2005
   dereckson:
     fullname: Sebastien Santoro
-    shell: tcsh
+    shell: zsh
     uid: 5001
   sandlayth:
     fullname: Yassine Hadj Messaoud
