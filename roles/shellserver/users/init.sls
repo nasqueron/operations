@@ -63,22 +63,6 @@ group_{{group}}:
     - gid: {{ args['gid'] }}
     - members: {{ args['members'] }}
 {% endfor %}
-
-{% if salt['group.info']('root') and salt['group.info']('root')['gid'] == 0 %}
-rename_root_group_to_wheel:
-  cmd.run:
-    - name: sed -i 's/root:x:0:/wheel:x:0:/' /etc/group
-{% endif %}
-
-wheel:
-  group.present:
-    - system: True
-    - gid: 0
-    - members:
-{% for user in pillar.get('shelladmins') %}
-      - {{user}}
-{% endfor %}
-
     
 #   -------------------------------------------------------------
 #   Managed SSH keys
