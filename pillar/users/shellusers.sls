@@ -83,3 +83,6 @@ shellusers:
   khmerboy:
     fullname: khmerboy
     uid: 2023
+  akoe:
+    fullname: akoe
+    uid: 2024
