@@ -24,7 +24,6 @@ devserver_software_misc_media:
   pkg:
     - installed
     - pkgs:
-      - {{ packages.exiftool }}
       - ffmpeg2theora
       - opencore-amr
       - opus

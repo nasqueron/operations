@@ -25,3 +25,12 @@ nginx:
 letsencrypt:
   pkg.installed:
     - name: {{ packages.certbot }}
+
+#   -------------------------------------------------------------
+#   Web utilities
+#   -------------------------------------------------------------
+
+web_utilities:
+  pkg.installed:
+    - pkgs:
+      - igal2

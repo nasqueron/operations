@@ -194,3 +194,14 @@ spelling:
         - {{ packages.verbiste }}
         - {{ packages['aspell-fr'] }}
         - {{ packages['aspell-en'] }}
+
+#   -------------------------------------------------------------
+#   Media utilities
+#   -------------------------------------------------------------
+
+media:
+  pkg:
+    - installed
+    - pkgs:
+      - {{ packages.exiftool }}
+      - {{ packages.imagemagick }}
