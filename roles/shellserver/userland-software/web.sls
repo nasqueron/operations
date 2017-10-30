@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   nginx
@@ -34,3 +34,8 @@ web_utilities:
   pkg.installed:
     - pkgs:
       - igal2
+
+{{ dirs.bin }}/html-directories:
+  file.managed:
+    - source: salt://roles/shellserver/userland-software/files/html-directories.sh
+    - mode: 755
