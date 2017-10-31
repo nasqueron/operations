@@ -73,6 +73,14 @@ devserver_software_misc_ports:
       - portshaker
       - porttools
       - poudriere
+      - portsearch
+
+portsearch_database:
+  cmd.run:
+    - name: portsearch -u
+    - creates: /var/db/portsearch
+    - require:
+      - pkg: devserver_software_misc_ports
 
 /etc/make.conf:
   file.managed:
