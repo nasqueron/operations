@@ -73,6 +73,10 @@ devserver_software_misc_ports:
       - portshaker
       - porttools
       - poudriere
+
+/etc/make.conf:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/make.conf
 {% endif %}
 
 devserver_software_misc_gadgets:
