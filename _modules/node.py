@@ -80,3 +80,16 @@ def has(key, nodename=None):
     '''
     value = _get_property(key, nodename, False)
     return bool(value)
+
+
+def has_role(role, nodename=None):
+    '''
+    A function to determine if a node has the specified role.
+
+    Returns a boolean, False if not found.
+
+    CLI Example:
+
+        salt * node.has_role devserver
+    '''
+    return role in list('roles', nodename)
