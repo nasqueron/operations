@@ -10,6 +10,7 @@
 include:
   - .account
   - .directories
+  - .zr
   - .static-sites
   - .be/dereckson
   - .org/nasqueron
