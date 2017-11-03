@@ -87,6 +87,13 @@ portsearch_database:
     - source: salt://roles/devserver/userland-software/files/make.conf
 {% endif %}
 
+devserver_software_misc_p2p:
+  pkg:
+    - installed
+    - pkgs:
+      - transmission-daemon
+      - transmission-web
+
 devserver_software_misc_gadgets:
   pkg:
     - installed
