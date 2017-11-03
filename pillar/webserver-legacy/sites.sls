@@ -33,6 +33,7 @@ web_domains:
 web_static_sites:
   nasqueron.org:
     - www
+    - assets
     - docker
     - ftp
     - trustspace
