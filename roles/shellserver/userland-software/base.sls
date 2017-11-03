@@ -55,6 +55,7 @@ utilities:
       - toilet
       - tmux
       - tree
+      - unrar
       - whois
       - woof
       {% if grains['os_family'] == 'Debian' %}
