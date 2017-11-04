@@ -15,3 +15,4 @@ include:
   - .dev
   - .misc
   - .phabricator
+  - .psysh
