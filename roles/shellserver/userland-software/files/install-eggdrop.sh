@@ -30,7 +30,7 @@ TCL_VERSION=8.6
 
 wget ftp://ftp.eggheads.org/pub/eggdrop/source/${EGGDROP_VERSION_MAJOR}/eggdrop-${EGGDROP_VERSION}.tar.gz
 tar xzf eggdrop-${EGGDROP_VERSION}.tar.gz
-cd eggdrop-${EGGDROP_VERSION}
+cd eggdrop-${EGGDROP_VERSION} || exit 1
 
 #   -------------------------------------------------------------
 #   Configure step
@@ -40,11 +40,11 @@ cd eggdrop-${EGGDROP_VERSION}
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ -f /etc/debian_version ]; then
-	ARCH=`dpkg-architecture -qDEB_HOST_MULTIARCH`
-	CFLAGS="-std=gnu89" ./configure --with-tclinc=/usr/include/tcl${TCL_VERSION}/tcl.h --with-tcllib=/usr/lib/$ARCH/libtcl${TCL_VERSION}.so
-elif [ `uname` = "FreeBSD" ]; then
-	TCL_VERSION_LIB=`echo $TCL_VERSION | tr -d .`
-	./configure --with-tclinc=/usr/local/include/tcl${TCL_VERSION}/tcl.h -with-tcllib=/usr/local/lib/libtcl${TCL_VERSION_LIB}.so
+	ARCH=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
+	CFLAGS="-std=gnu89" ./configure --with-tclinc=/usr/include/tcl${TCL_VERSION}/tcl.h --with-tcllib="/usr/lib/$ARCH/libtcl${TCL_VERSION}.so"
+elif [ "$(uname)" = "FreeBSD" ]; then
+	TCL_VERSION_LIB=$(echo $TCL_VERSION | tr -d .)
+	./configure --with-tclinc=/usr/local/include/tcl${TCL_VERSION}/tcl.h -with-tcllib="/usr/local/lib/libtcl${TCL_VERSION_LIB}.so"
 else
 	./configure
 fi
