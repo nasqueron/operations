@@ -5,7 +5,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-10-21
-#   Description:    Functions related to FreeBSD jails
+#   Description:    Functions related to the nodes pillar entry
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------
 
