@@ -8,7 +8,7 @@
 
 {% from "map.jinja" import dirs with context %}
 
-{% set network = salt['node.get']()['network'] %}
+{% set network = salt['node.get']('network') %}
 
 #   -------------------------------------------------------------
 #   IPv4

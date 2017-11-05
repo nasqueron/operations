@@ -10,23 +10,45 @@
 #   -------------------------------------------------------------
 
 
+from salt.exceptions import CommandExecutionError, SaltCloudConfigError
+
+
 def _get_all_nodes():
     return __pillar__.get('nodes', {})
 
 
-def get(nodename=None):
+def get_all_properties(nodename=None):
     '''
     A function to get a node pillar configuration.
 
     CLI Example:
 
-        salt * node.get
+        salt * node.get_all_properties
     '''
     if nodename is None:
         nodename = __grains__['id']
 
     all_nodes = _get_all_nodes()
+
+    if nodename not in all_nodes:
+        raise CommandExecutionError(
+            SaltCloudConfigError(
+                "Node {0} not declared in pillar.".format(nodename)
+            )
+        )
+
     return all_nodes[nodename]
+
+
+def get(key, nodename=None):
+    '''
+    A function to get a node pillar configuration key.
+
+    CLI Example:
+
+        salt * node.get hostname
+    '''
+    return _get_property(key, nodename, None)
 
 
 def _explode_key(k): return k.split(':')
@@ -40,7 +62,7 @@ def _strip_first_key(k): return ':'.join(_explode_key(k)[1:])
 
 def _get_property(key, nodename, default_value, parent=None):
     if parent is None:
-        parent = get(nodename)
+        parent = get_all_properties(nodename)
 
     if ':' in key:
         first_key = _get_first_key(key)
