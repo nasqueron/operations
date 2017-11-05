@@ -20,17 +20,17 @@
 #   TCL and eggdrop versions
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-EGGDROP_VERSION_MAJOR=1.6
-EGGDROP_VERSION=1.6.21
+EGGDROP_VERSION_MAJOR=1.8
+EGGDROP_VERSION=1.8.2rc2
 TCL_VERSION=8.6
 
 #   -------------------------------------------------------------
 #   Fetch, extract
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-wget ftp://ftp.eggheads.org/pub/eggdrop/source/${EGGDROP_VERSION_MAJOR}/eggdrop${EGGDROP_VERSION}.tar.gz
-tar xzf eggdrop${EGGDROP_VERSION}.tar.gz
-cd eggdrop${EGGDROP_VERSION}
+wget ftp://ftp.eggheads.org/pub/eggdrop/source/${EGGDROP_VERSION_MAJOR}/eggdrop-${EGGDROP_VERSION}.tar.gz
+tar xzf eggdrop-${EGGDROP_VERSION}.tar.gz
+cd eggdrop-${EGGDROP_VERSION}
 
 #   -------------------------------------------------------------
 #   Configure step
