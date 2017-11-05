@@ -23,6 +23,12 @@ shells:
       - tcsh
       {% endif %}
 
+/usr/local/share/zsh/site-functions/_pm:
+  file.managed:
+    # At commit 683d331 - 2017-11-05
+    - source: https://raw.githubusercontent.com/Angelmmiguel/pm/master/zsh/_pm
+    - source_hash: deea33968be713cdbd8385d3a72df2dd09c444e42499531893133f009f0ce0ea
+
 #   -------------------------------------------------------------
 #   Editors
 #
