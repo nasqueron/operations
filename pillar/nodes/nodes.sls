@@ -32,6 +32,9 @@ nodes:
     roles:
       - devserver
       - saltmaster
+      - dbserver-mysql
+    zfs:
+      pool: arcology
     network:
       ipv4_interface: igb0
       ipv4_address: 163.172.49.16

@@ -1,0 +1,16 @@
+#   -------------------------------------------------------------
+#   Database server — MySQL — rc configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Created:        2017-11-05
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+mysql_enable="YES"
+mysql_pidfile="/var/run/mysqld/mysqld.pid"
+
+{% if use_zfs %}
+mysql_dbdir=/var/db/mysql/mysql-root
+{% else %}
+mysql_dbdir=/var/db/mysql
+{% endif %}
