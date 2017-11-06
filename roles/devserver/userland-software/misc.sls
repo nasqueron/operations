@@ -85,6 +85,19 @@ portsearch_database:
 /etc/make.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/make.conf
+
+freebsd_kernel_modules:
+  pkg.installed:
+    - pkgs:
+      - pefs-kmod
+
+freebsd_kernel_modules_enable:
+  module.wait:
+    - name: freebsdkmod.load
+    - mod: pefs
+    - persist: True
+    - watch:
+        - pkg: freebsd_kernel_modules
 {% endif %}
 
 devserver_software_misc_p2p:
