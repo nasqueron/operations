@@ -15,6 +15,7 @@ base:
     - roles/core/rsyslog
     - roles/core/salt
     - roles/core/sshd
+    - roles/core/sysctl
   'local':
     - roles/saltmaster
   'ysul':
