@@ -40,7 +40,7 @@
 #   IPv6
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has']('network.ipv6_tunnel') %}
+{% if salt['node.has']('network:ipv6_tunnel') %}
 network_ipv6:
   file.managed:
     - name : {{ dirs.sbin }}/ipv6-setup-tunnel
