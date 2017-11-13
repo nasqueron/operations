@@ -1,0 +1,6 @@
+jails:
+  host:
+    guest1: {}
+    guest2: {}
+  anotherhost:
+    guest3: {}
