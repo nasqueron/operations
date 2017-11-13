@@ -12,7 +12,7 @@ nodes:
   ## Semantic field: https://devcentral.nasqueron.org/P27
   ##
   dwellers:
-    forest: nasqueron
+    forest: nasqueron-infra
     hostname: dwellers.nasqueron.org
     roles:
       - paas-lxc
@@ -20,14 +20,14 @@ nodes:
     network:
       ipv6_tunnel: True
   equatower:
-    forest: nasqueron
+    forest: nasqueron-infra
     hostname: equatower.nasqueron.org
     roles:
       - paas-docker
     network:
       ipv6_tunnel: False
   ysul:
-    forest: nasqueron
+    forest: nasqueron-dev
     hostname: ysul.nasqueron.org
     roles:
       - devserver

@@ -9,12 +9,11 @@
 base:
   '*':
     - core.hostnames
+    - core.users
+    - core.groups
     - certificates.certificates
     - nodes.nodes
+    - nodes.forests
   ysul:
     - paas-jails.jails
     - webserver-legacy.sites
-  eglide:
-    - users.revokedusers
-    - users.shellusers
-    - users.shellgroups

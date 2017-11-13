@@ -16,6 +16,7 @@ base:
     - roles/core/salt
     - roles/core/sshd
     - roles/core/sysctl
+    - roles/core/users
   'local':
     - roles/saltmaster
   'ysul':
@@ -30,7 +31,6 @@ base:
     - roles/mastodon
   'eglide':
     - roles/webserver-core
-    - roles/shellserver/users
     - roles/shellserver/userland-software
     - roles/shellserver/eglide-website
     - roles/shellserver/vhosts

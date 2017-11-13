@@ -13,7 +13,7 @@ indent_style = space
 indent_size = 4
 
 # 2 space indentation
-[*.{sls,jinja,json,yml}]
+[*.{sls,jinja,json,yml,yaml}]
 indent_style = space
 indent_size = 2
 

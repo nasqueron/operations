@@ -1,0 +1,29 @@
+forests:
+  - brethil
+  - fangorn
+  - lothlorien
+
+nodes:
+  egladil:
+    forest: lothlorien
+  entwash:
+    forest: fangorn
+
+shellgroups_ubiquity:
+  - ubiquity
+
+shellgroups_by_forest:
+  lothlorien:
+    - caras_galadhon
+
+shellgroups:
+  ubiquity: {}
+  caras_galadhon:
+    members:
+      - amdir
+      - amroth
+
+shellusers:
+  amdir: {}
+  amroth: {}
+  galadriel: {}

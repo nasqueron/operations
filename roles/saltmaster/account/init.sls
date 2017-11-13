@@ -17,7 +17,6 @@ salt_account:
   group.present:
     - name: salt
     - gid: 9001
-    - system: True
   user.present:
     - name: salt
     - fullname: SaltStack master account
@@ -33,15 +32,11 @@ salt_account_ownership:
 
 # Deployment account
 deploy_account:
-  group.present:
-    - name: deploy
-    - gid: 9002
-    - system: True
   user.present:
     - name: deploy
     - fullname: Deployment and management of the Salt staging area
     - uid: 9002
-    - gid: 9002
+    - gid: 3003
     - home: /var/run/deploy
 
 # Allow to repair ownership if the account is created after the staging

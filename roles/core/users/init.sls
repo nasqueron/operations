@@ -1,8 +1,8 @@
 #   -------------------------------------------------------------
 #   Salt — Provision users accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Eglide
-#   Created:        2016-04-08
+#   Project:        Nasqueron
+#   Created:        2017-11-09
 #   Description:    Adds and revokes user accounts, in the relevant
 #                   groups and with their stable SSH keys.
 #   License:        Trivial work, not eligible to copyright
@@ -15,7 +15,7 @@
 #   :: Disabled accounts
 #   :: Active accounts
 #   :: Groups
-#   :: Managed SSH keys
+#   :: SSH keys
 #
 #   -------------------------------------------------------------
 
@@ -25,8 +25,8 @@
 #   Disabled accounts
 #   -------------------------------------------------------------
 
-{% for user in pillar.get('revokedusers') %}
-{{user}}:
+{% for username in pillar.get('revokedusers') %}
+{{ username }}:
   user.absent
 {% endfor %}
 
@@ -34,44 +34,46 @@
 #   Active accounts
 #   -------------------------------------------------------------
 
-{% for user, args in pillar.get('shellusers', {}).iteritems() %}
-{{user}}:
+{% for username, user in salt['forest.get_users']().iteritems() %}
+{{ username }}:
   user.present:
-    - fullname: {{ args['fullname'] }}
-    - shell: {{ shells[args['shell']|default('bash')] }}
-    - uid: {{ args['uid'] }}
+    - fullname: {{ user['fullname'] }}
+    - shell: {{ shells[user['shell']|default('bash')] }}
+    - uid: {{ user['uid'] }}
 {% endfor %}
 
 #   -------------------------------------------------------------
 #   Groups
 #   -------------------------------------------------------------
 
-shell:
+{% for groupname, group in salt['forest.get_groups']().iteritems() %}
+group_{{ groupname }}:
   group.present:
-    - system: True
-    - gid: 200
-    - members:
-{% for user, args in pillar.get('shellusers', {}).iteritems() %}
-      - {{user}}
+    - name: {{ groupname }}
+    - gid: {{ group['gid'] }}
+    - members: {{ group['members'] }}
 {% endfor %}
 
-{% for group, args in pillar.get('shellgroups', {}).iteritems() %}
-group_{{group}}:
-  group.present:
-    - name: {{group}}
-    - system: False
-    - gid: {{ args['gid'] }}
-    - members: {{ args['members'] }}
-{% endfor %}
-    
 #   -------------------------------------------------------------
-#   Managed SSH keys
+#   SSH keys
 #   -------------------------------------------------------------
 
-{% for user, args in pillar.get('shellusers', {}).iteritems() %}
-sshkey_{{user}}:
-  ssh_auth.present:
-    - user: {{user}}
-    - source: salt://roles/shellserver/users/files/ssh_keys/{{user}}
-{% endfor %}
+{% for username, user in salt['forest.get_users']().iteritems() %}
 
+/home/{{ username }}/.ssh:
+  file.directory:
+    - user: {{ username }}
+    - group: {{ username }}
+    - dir_mode: 700
+
+/home/{{ username}}/.ssh/authorized_keys:
+  file.managed:
+    - source: salt://roles/core/users/files/authorized_keys
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 600
+    - template: jinja
+    - context:
+        keys: {{ user['ssh_keys']|default([]) }}
+
+{% endfor %}
