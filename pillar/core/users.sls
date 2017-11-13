@@ -77,6 +77,7 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 dereckson@orin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh dereckson@graywell.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m dereckson@yakin.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILuwVOEPtcMRE/G0uKbMs5WS6poTT70yjC9dB8kb5Hw3 dereckson@yggdrasil.dereckson.drake
     uid: 5001
   erol:
     fullname: Erol Unutmaz
