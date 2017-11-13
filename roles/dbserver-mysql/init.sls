@@ -8,3 +8,4 @@
 
 include:
   - .mysql-server
+  - .grc

@@ -57,6 +57,7 @@ utilities:
       - mosh
       - cmatrix
       - figlet
+      - grc
       - nmap
       - toilet
       - tmux
