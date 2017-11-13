@@ -42,5 +42,4 @@ $IFCONFIG sit1 inet6 add 2001:470:1f13:896::c0de:15:11fe/64
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for n in range (1, 26) %}
-$IP addr add 2001:470:1f13:896::{{ '%x' | format(n) }}/64 dev sit1 preferred_lft 0
-{% endfor %}
+$IP addr add 2001:470:1f13:896::{{ '%x' | format(n) }}/64 dev sit1 preferred_lft 0{% endfor %}

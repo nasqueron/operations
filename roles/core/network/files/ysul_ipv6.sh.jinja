@@ -41,9 +41,7 @@ $IFCONFIG gif0 inet6 add 2001:470:1f13:9e1:0:c0ff:ee:1/64
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for n in range (2, 16) %}
-$IFCONFIG gif0 inet6 add 2001:470:1f13:9e1:0:c0ff:ee:{{ '%x' | format(n) }}/64 alias
-{% endfor %}
+$IFCONFIG gif0 inet6 add 2001:470:1f13:9e1:0:c0ff:ee:{{ '%x' | format(n) }}/64 alias{% endfor %}
 
 {% for n in range (1, 26) %}
-$IFCONFIG gif0 inet6 add 2001:470:1f13:9e1::{{ '%x' | format(n) }}/64 alias
-{% endfor %}
+$IFCONFIG gif0 inet6 add 2001:470:1f13:9e1::{{ '%x' | format(n) }}/64 alias{% endfor %}
