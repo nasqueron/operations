@@ -107,6 +107,7 @@ shellusers:
     fullname: Kumkum
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJnCIiESqqsGOhaS16jwboLplQIP0FwKMhk0oRF7EP55 kumkum@kumkum-E200HA
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDjGAJrUHKDTNnd6fpypm2A09lScdK6jAA4w5BRQZvx mobile
     uid: 2008
   pkuz:
     fullname: PK of UZ
