@@ -17,9 +17,9 @@ builder_account:
   user.present:
     - name: builder
     - fullname: Software builder account for configure and make
-    - createhome: False
     - uid: 831
     - gid: deployment
+    - home: /var/run/builder
 
 #   -------------------------------------------------------------
 #   Sudo capabilities
