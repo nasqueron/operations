@@ -19,3 +19,4 @@ include:
   - .account
   - .eggdrop
   - .fantoir
+  - .wikidata-access-layer
