@@ -30,5 +30,5 @@ builder_account:
 builder_sudo_capabilities_file:
   file.managed:
     - name: {{ dirs.etc }}/sudoers.d/builder
-    - source: salt://roles/shellserver/userland-software/files/builder.sudoers
+    - source: salt://roles/builder/account/files/builder.sudoers
     - template: jinja

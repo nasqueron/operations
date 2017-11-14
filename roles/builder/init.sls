@@ -1,13 +1,10 @@
 #   -------------------------------------------------------------
-#   Salt — Provision software
+#   Salt — Builder role
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Eglide
-#   Created:        2016-04-10
+#   Project:        Nasqueron
+#   Created:        2017-11-13
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  - roles/builder/account
-  - .base
-  - .irc
-  - .web
+  - .account

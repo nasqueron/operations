@@ -11,6 +11,8 @@ include:
   - roles/shellserver/userland-software/base
   - roles/shellserver/userland-software/irc
   - roles/shellserver/userland-software/web
+  # Builder role content
+  - roles/builder
   # Software specific for development servers
   - .dev
   - .misc
