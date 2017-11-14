@@ -18,3 +18,4 @@
 include:
   - .account
   - .eggdrop
+  - .fantoir

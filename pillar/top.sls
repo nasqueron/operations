@@ -18,3 +18,4 @@ base:
     - paas-jails.jails
     - webserver-legacy.sites
     - viperserv.bots
+    - viperserv.fantoir
