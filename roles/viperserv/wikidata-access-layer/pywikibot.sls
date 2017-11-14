@@ -14,13 +14,13 @@ pywikibot_dependencies:
       - {{ packages_prefixes.python3 }}requests
 
 pywikibot_software:
-    file.directory:
-      - name: /opt/pywikibot
-      - user: deploy
-    git.latest:
-      - name:  https://gerrit.wikimedia.org/r/pywikibot/core.git
-      - submodules: True
-      - target: /opt/pywikibot
-      - user: deploy
-      - require:
-        - pkg: pywikibot_dependencies
+  file.directory:
+    - name: /opt/pywikibot
+    - user: deploy
+  git.latest:
+    - name:  https://gerrit.wikimedia.org/r/pywikibot/core.git
+    - submodules: True
+    - target: /opt/pywikibot
+    - user: deploy
+    - require:
+      - pkg: pywikibot_dependencies
