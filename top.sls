@@ -22,6 +22,7 @@ base:
   'ysul':
     - roles/paas-jails
     - roles/dbserver-mysql
+    - roles/devserver
     - roles/webserver-core
     - roles/webserver-legacy
     - roles/webserver-varnish
