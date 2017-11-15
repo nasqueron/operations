@@ -58,6 +58,7 @@ devserver_node_packages:
       - browserify
       - gulp
       - grunt
+      - jsonlint
       - react-tools
     - require:
       - pkg: devserver_software_dev_node
