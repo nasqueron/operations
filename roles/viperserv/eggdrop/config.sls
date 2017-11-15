@@ -46,6 +46,14 @@
     - user: viperserv
     - group: nasqueron-irc
 
+/srv/viperserv/.credentials:
+  file.managed:
+    - source: salt://roles/viperserv/eggdrop/files/dot.credentials
+    - user: viperserv
+    - group: nasqueron-irc
+    - replace: False
+    - mode: 660
+
 {% for botname, bot in pillar['viperserv_bots'].iteritems() %}
 
 /srv/viperserv/{{ botname }}/eggdrop.conf:
