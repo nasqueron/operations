@@ -1,0 +1,3 @@
+This connection is in clear text, so ensure you use a SSH tunnel to the server.
+
+[ {{ server }} ]-[ ViperServ ]-[ {{ bot }} ]

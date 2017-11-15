@@ -8,3 +8,4 @@
 
 include:
   - .software
+  - .config

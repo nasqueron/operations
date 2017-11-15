@@ -1,0 +1,23 @@
+# ===============================================
+# =========       ====      ======   ============
+# ============  ======  ===  ===   =   ==========
+# ============  =====  ========   ===   =========
+# ============  =====  =============   ==========
+# ============  =====  ============   ===========
+# == DcK =====  =====  ===========   ============
+# ============  =====  ==========   =============
+# ============  ======  ===  ===   ==============
+# ============  =======     ===        ==========
+# ===============================================
+# ===============================================
+# == Tau Ceti Central == Server administration ==
+# ==  This is a very dangerous product to use  ==
+# ==   Don't deploy it in stable environment   ==
+# ==    Or say goodbye to the serv security    ==
+# ==     This warning will not be repeated     ==
+# ==      All your base are belong to us!      ==
+# ===============================================
+
+As we're transitionning Ysul to use Salt states,
+what does TC2 is probably open to debates and
+should be updated.

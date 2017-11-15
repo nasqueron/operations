@@ -11,9 +11,8 @@ viperserv_accounts:
 
 viperserv_bots:
   Daeghrefn:
+    realname: https://daeghrefn.nasqueron.org
     scripts:
-      - Core.tcl
-      - Tech.tcl
       - Daeghrefn/Time.tcl
       - Daeghrefn/Wolfplex.tcl
       - Daeghrefn/Server.tcl
@@ -26,17 +25,19 @@ viperserv_bots:
       - Daeghrefn/Tools.tcl
       - Daeghrefn/Channel.tcl
       - vendor/proxycheck.tcl
+    modules:
+      - transfer
+      - filesys
+      - seen
   Wearg:
+    realname: RabbitMQ broker client
     scripts:
-      - Core.tcl
-      - Tech.tcl
       - Wearg/Broker.tcl
       - Wearg/Time.tcl
       - Wearg/Notifications.tcl
   TC2:
+    realname: Tau Ceti Central
     runas: tc2
     scripts:
-      - Core.tcl
-      - Tech.tcl
       - TC2/Time.tcl
       - TC2/Server.tcl

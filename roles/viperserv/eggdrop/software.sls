@@ -32,6 +32,8 @@ eggdrop_software:
 
 #   -------------------------------------------------------------
 #   ViperServ directory
+#
+#   Bots specific subdirectories are managed in config.sls
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /srv/viperserv:
@@ -48,3 +50,26 @@ viperserv_scripts:
     - user: viperserv
     - require:
       - file: /srv/viperserv
+
+{% for eggdir in ['doc', 'help', 'language'] %}
+/srv/viperserv/{{ eggdir }}:
+  file.symlink:
+    - target: /opt/eggdrop/{{ eggdir }}
+    - user: viperserv
+    - group: nasqueron-irc
+    - require:
+      - cmd: eggdrop_software
+{% endfor %}
+
+/srv/viperserv/logs:
+  file.directory:
+    - user: viperserv
+    - group: nasqueron-irc
+    - dir_mode: 770
+
+/srv/viperserv/filesys/incoming:
+  file.directory:
+    - user: viperserv
+    - group: nasqueron-irc
+    - makedirs: True
+    - dir_mode: 770
