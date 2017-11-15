@@ -24,3 +24,10 @@ pywikibot_software:
     - user: deploy
     - require:
       - pkg: pywikibot_dependencies
+
+pywikibot_install_package:
+  cmd.run:
+    - name: python3 setup.py install
+    - cwd: /opt/pywikibot
+    - onchanges:
+      - git: pywikibot_software

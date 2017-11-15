@@ -2,11 +2,13 @@
 #   Salt — Deploy eggdrop park
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-06
+#   Created:        2017-11-15
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .pywikibot
-  - .code
-  - .config
+/srv/viperserv/user-config.py:
+  file.managed:
+    - source: salt://roles/viperserv/wikidata-access-layer/files/user-config.py
+    - user: viperserv
+    - group: nasqueron-irc
+    - chmod: 644
