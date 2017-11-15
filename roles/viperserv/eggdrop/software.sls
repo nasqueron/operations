@@ -61,6 +61,12 @@ viperserv_scripts:
       - cmd: eggdrop_software
 {% endfor %}
 
+/srv/viperserv/lib:
+  file.directory:
+    - user: viperserv
+    - group: nasqueron-irc
+    - dir_mode: 770
+
 /srv/viperserv/logs:
   file.directory:
     - user: viperserv

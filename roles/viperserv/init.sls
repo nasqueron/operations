@@ -18,5 +18,6 @@
 include:
   - .account
   - .eggdrop
+  - .fbsql
   - .fantoir
   - .wikidata-access-layer
