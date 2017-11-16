@@ -18,7 +18,8 @@ pywikibot_software:
     - name: /opt/pywikibot
     - user: deploy
   git.latest:
-    - name:  https://gerrit.wikimedia.org/r/pywikibot/core.git
+    - name: https://github.com/nasqueron/pywikibot.git
+    - branch: production
     - submodules: True
     - target: /opt/pywikibot
     - user: deploy
