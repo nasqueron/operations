@@ -33,8 +33,11 @@ viperserv_bots:
     realname: RabbitMQ broker client
     scripts:
       - Wearg/Broker.tcl
-      - Wearg/Time.tcl
       - Wearg/Notifications.tcl
+      # This one should be last as it initializes
+      # startup components, with broker/Notifications
+      # dependencies
+      - Wearg/Time.tcl
   TC2:
     realname: Tau Ceti Central
     runas: tc2
