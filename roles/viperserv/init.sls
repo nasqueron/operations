@@ -20,4 +20,5 @@ include:
   - .eggdrop
   - .fbsql
   - .fantoir
+  - .rabbitmq-tcl
   - .wikidata-access-layer

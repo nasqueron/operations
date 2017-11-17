@@ -1,0 +1,40 @@
+diff --git a/src/Makefile b/src/Makefile
+index f0f0a0b..932876b 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -37,13 +37,13 @@ TCLVERSION=8.6
+
+ # Headers to include
+
+-TCL_INCLUDE=/usr/include/tcl${TCLVERSION}
+-RABBITMQ_INCLUDE=/usr/include
++TCL_INCLUDE=/usr/local/include/tcl$(TCLVERSION)
++RABBITMQ_INCLUDE=/usr/local/include
+ INCLUDES=-I$(TCL_INCLUDE) -I$(RABBITMQ_INCLUDE)
+
+ # Libraries to use
+
+-LIBS=-ltcl${TCLVERSION} -lrabbitmq
++LIBS=-L/usr/local/lib -ltcl$(subst .,,${TCLVERSION}) -lrabbitmq
+
+ # Features
+
+diff --git a/tests/Makefile b/tests/Makefile
+index 758220d..9df280a 100644
+--- a/tests/Makefile
++++ b/tests/Makefile
+@@ -30,12 +30,11 @@ TCLVERSION=8.6
+
+ # Headers to include
+
+-TCL_INCLUDE=/usr/include/tcl${TCLVERSION}
+-INCLUDES=-I$(TCL_INCLUDE)
++TCL_INCLUDE=/usr/local/include/tcl$(TCLVERSION)
++INCLUDES=-I/usr/local/include -I$(TCL_INCLUDE)
+
+ # Libraries to use
+-
+-LIBS=-lcmocka -ltcl -lrabbitmq
++LIBS=-L/usr/local/lib -lcmocka -ltcl${TCLVERSION:S/.//} -lrabbitmq
+
+ # Commands to use
