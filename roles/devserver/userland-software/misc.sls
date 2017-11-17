@@ -123,3 +123,9 @@ devserver_software_misc_games:
     - pkgs:
       - bsdgames
       - textmaze
+
+devserver_software_misc_network:
+  pkg:
+    - installed
+    - pkgs:
+      - getdns
