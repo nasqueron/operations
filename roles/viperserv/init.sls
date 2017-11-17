@@ -21,4 +21,5 @@ include:
   - .fbsql
   - .fantoir
   - .rabbitmq-tcl
+  - .software
   - .wikidata-access-layer
