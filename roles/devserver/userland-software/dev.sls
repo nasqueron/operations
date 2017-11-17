@@ -17,6 +17,8 @@ devserver_software_dev_c:
     - installed
     - pkgs:
       - {{ packages.boost }}
+      - cmocka
+      - {{ packages.librabbitmq }}
 
 #   -------------------------------------------------------------
 #   Java
