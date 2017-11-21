@@ -12,6 +12,8 @@
 #   Build eggdrop
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% set manpage = dirs.man + "/man1/eggdrop.1.gz" %}
+
 eggdrop_software:
   file.directory:
     - name: /opt/eggdrop
@@ -27,6 +29,13 @@ eggdrop_software:
 {{ dirs.bin }}/eggdrop:
   file.symlink:
     - target: /opt/eggdrop/eggdrop
+    - require:
+      - cmd: eggdrop_software
+
+eggdrop_man:
+  cmd.run:
+    - name: gzip < /opt/eggdrop/doc/man1/eggdrop.1 > {{ manpage }}
+    - creates: {{ manpage }}
     - require:
       - cmd: eggdrop_software
 
