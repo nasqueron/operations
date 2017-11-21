@@ -19,11 +19,11 @@ viperserv_bots:
       - Daeghrefn/Last.fm.tcl
       - Daeghrefn/Wikimedia.tcl
       - Daeghrefn/Bureautique.tcl
-      - Daeghrefn/oauth.tcl
       - Daeghrefn/Communication.tcl
       - Daeghrefn/GIS.tcl
       - Daeghrefn/Tools.tcl
       - Daeghrefn/Channel.tcl
+      - vendor/oauth.tcl
       - vendor/proxycheck.tcl
     modules:
       - transfer
