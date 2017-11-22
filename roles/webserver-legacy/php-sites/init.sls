@@ -8,3 +8,4 @@
 include:
   - .account
   - .files
+  - .php-fpm

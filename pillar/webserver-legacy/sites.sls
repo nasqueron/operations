@@ -44,12 +44,18 @@ web_static_sites:
 #   Username must be unique and use max 31 characters.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+php_fpm_instances:
+  # PHP 7.1, generally installed as package/port
+  prod:
+    command: /usr/local/sbin/php-fpm
+
 web_php_sites:
   www.dereckson.be:
     user: web-be-dereckson-www
     source: wwwroot/dereckson.be/www
     target: /var/wwwroot/dereckson.be/www
     autochmod: True
+    php-fpm: prod
 
 #   -------------------------------------------------------------
 #   Tweaks

@@ -1,0 +1,125 @@
+#!/bin/sh
+
+# PROVIDE: php-fpm
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf to enable php-fpm:
+# php_fpm_(instance_)?enable (bool):	Set to "NO" by default.
+#			Set it to "YES" to enable php-fpm.
+# php_fpm_(instance_)?umask (str): Custom PID file path and name.
+#			Set it to to define umask before process start
+# php_fpm_(instance_)?command (str): Command to run
+#			Default to /usr/local/sbin/php-fpm (port binary)
+# php_fpm_instances (str): Set to "" by default.
+#			If defined, list of instances to enable
+
+. /etc/rc.subr
+
+name="php_fpm"
+rcvar=php_fpm_enable
+
+start_precmd="php_fpm_prestart"
+restart_precmd="php_fpm_checkconfig"
+reload_precmd="php_fpm_checkconfig"
+configtest_cmd="php_fpm_checkconfig"
+
+load_rc_config "$name"
+
+: ${php_fpm_enable="NO"}
+: ${php_fpm_umask=""}
+: ${php_fpm_command="/usr/local/sbin/php-fpm"}
+
+extra_commands="reload configtest logrotate"
+
+sig_stop="QUIT"
+sig_reload="USR2"
+logrotate_cmd="php_fpm_logrotate"
+
+# Instances logic has been forked from the MySQL port rc service code.
+if [ -n "$2" ]; then
+	instance="$2"
+	load_rc_config ${name}_${instance}
+	case "$php_fpm_instances" in
+	"$2 "*|*" $2 "*|*" $2"|"$2")
+        eval php_fpm_umask="\${php_fpm_${instance}_umask:-\"${php_fpm_umask}\"}"
+		eval php_fpm_command="\${php_fpm_${instance}_command:-\"${php_fpm_command}\"}"
+        php_fpm_pidfile="/var/run/php-fpm-${instance}.pid"
+		php_fpm_conf="/usr/local/etc/php-fpm.d/${instance}.conf"
+		php_fpm_name=${instance}
+	;;
+	*)
+		err 1 "$2 not found in php_fpm_instances" ;;
+	esac
+else
+	if [ -n "${php_fpm_instances}" -a -n "$1" ]; then
+		for instance in ${php_fpm_instances}; do
+			eval _enable="\${php_fpm_${instance}_enable}"
+			case "${_enable:-${php_fpm_enable}}" in
+			[Nn][Oo]|[Ff][Aa][Ll][Ss][Ee]|[Oo][Ff][Ff]|0)
+				continue
+			;;
+			[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
+			;;
+			*)
+				if [ -z "$_enable" ]; then
+					_var=php_fpm_enable
+				else
+					_var=php_fpm_${instance}_enable
+				fi
+				warn "Bad value" \
+					"'${_enable:-${php_fpm_enable}}'" \
+					"for ${_var}. " \
+					"Instance ${instance} skipped."
+				continue
+			;;
+			esac
+			echo "===> php-fpm instance: ${instance}"
+			if /usr/local/etc/rc.d/php-fpm $1 ${instance}; then
+				success="${instance} ${success}"
+			else
+				failed="${instance} (${retcode}) ${failed}"
+			fi
+		done
+		exit 0
+	else
+		php_fpm_pidfile=/var/run/php-fpm.pid
+		php_fpm_conf=/usr/local/etc/php-fpm.conf
+	fi
+fi
+
+command=${php_fpm_command}
+pidfile="${php_fpm_pidfile}"
+
+required_files="${php_fpm_conf}"
+
+php_fpm_logrotate() {
+        if [ -z "$rc_pid" ]; then
+                _run_rc_notrunning
+                return 1
+        fi
+        echo "Rotating logs $name."
+        kill -USR1 $rc_pid
+}
+
+php_fpm_checkconfig()
+{
+        echo "Performing sanity check on php-fpm configuration:"
+        eval ${command} -t --fpm-config "${php_fpm_conf}"
+}
+
+php_fpm_prestart()
+{
+        php_fpm_checkconfig
+        checkconfig=$?
+        if [ $checkconfig -ne 0  ]; then
+                return $checkconfig
+        fi
+
+        if [ ! -z "$php_fpm_umask"  ]; then
+                echo "Setting umask to: ${php_fpm_umask}"
+                umask $php_fpm_umask
+        fi
+}
+
+run_rc_command "$1"
