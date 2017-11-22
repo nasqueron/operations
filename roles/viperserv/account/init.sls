@@ -27,7 +27,7 @@ viperserv_account_{{ username }}:
   file.directory:
     - user: {{ user['uid'] }}
     - group: nasqueron-irc
-    - dir_mode: 700
+    - dir_mode: 711
 
 {% endfor %}
 

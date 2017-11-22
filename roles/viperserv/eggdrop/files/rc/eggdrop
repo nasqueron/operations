@@ -1,0 +1,101 @@
+#!/bin/sh
+
+# PROVIDE: eggdrop
+# REQUIRE: mysql
+#
+# Add the following line to /etc/rc.conf to enable mysql:
+# eggdrop_(instance_)?enable (bool):	Set to "NO" by default.
+#			Set it to "YES" to enable eggdrop.
+# eggdrop_(instance_)?pidfile (str): Custom PID file path and name.
+#			Default to "/var/run/${eggdrop_user}/${eggdrop_username}.pid" in lowercase.
+# eggdrop_(instance_)?conf (str): Path to the configuration file
+#			Default to "/srv/viperserv(/${instance})/eggdrop.conf"
+# eggdrop_(instance_)?user (str): User to run eggdrop as
+#			Default to "viperserv"
+# eggdrop_instances (str): Set to "" by default.
+#			If defined, list of instances to enable
+# eggdrop_basedir (str): The working directory of the eggdrop process
+#			Default to "/srv/viperserv"
+
+. /etc/rc.subr
+
+name="eggdrop"
+rcvar=eggdrop_enable
+
+load_rc_config $name
+
+: ${eggdrop_enable="NO"}
+: ${eggdrop_user="viperserv"}
+: ${eggdrop_basedir="/srv/viperserv"}
+
+command="/usr/sbin/daemon"
+procname="/usr/local/bin/eggdrop"
+start_precmd="${name}_prestart"
+
+# Instances logic has been forked from the MySQL port rc service code.
+if [ -n "$2" ]; then
+	instance="$2"
+	load_rc_config ${name}_${instance}
+	case "$eggdrop_instances" in
+	"$2 "*|*" $2 "*|*" $2"|"$2")
+		eval eggdrop_user="\${eggdrop_${instance}_user:-\"${eggdrop_user}\"}"
+		eval eggdrop_pidfile="\${eggdrop_${instance}_pidfile:-\"/var/run/${eggdrop_user}/$(echo $instance | awk '{print tolower($0)}').pid\"}"
+		eval eggdrop_conf="\${eggdrop_${instance}_conf:-\"${eggdrop_basedir}/${instance}/eggdrop.conf\"}"
+		eggdrop_name=${instance}
+	;;
+	*)
+		err 1 "$2 not found in eggdrop_instances" ;;
+	esac
+else
+	if [ -n "${eggdrop_instances}" -a -n "$1" ]; then
+		for instance in ${eggdrop_instances}; do
+			eval _enable="\${eggdrop_${instance}_enable}"
+			case "${_enable:-${eggdrop_enable}}" in
+			[Nn][Oo]|[Ff][Aa][Ll][Ss][Ee]|[Oo][Ff][Ff]|0)
+				continue
+			;;
+			[Yy][Ee][Ss]|[Tt][Rr][Uu][Ee]|[Oo][Nn]|1)
+			;;
+			*)
+				if [ -z "$_enable" ]; then
+					_var=eggdrop_enable
+				else
+					_var=eggdrop_${instance}_enable
+				fi
+				warn "Bad value" \
+					"'${_enable:-${eggdrop_enable}}'" \
+					"for ${_var}. " \
+					"Instance ${instance} skipped."
+				continue
+			;;
+			esac
+			echo "===> eggdrop instance: ${instance}"
+			if /usr/local/etc/rc.d/eggdrop $1 ${instance}; then
+				success="${instance} ${success}"
+			else
+				failed="${instance} (${retcode}) ${failed}"
+			fi
+		done
+		exit 0
+	else
+		eggdrop_pidfile=${eggdrop_pidfile:-"/var/run/eggdrop.pid"}
+		eggdrop_conf=${eggdrop_basedir}/eggdrop.conf
+		eggdrop_name=eggdrop
+	fi
+fi
+
+eggdrop_chdir=${eggdrop_basedir}
+home_directory=$(getent passwd $eggdrop_user | cut -d: -f6)
+eggdrop_env="HOME=$home_directory PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$home_directory/bin"
+pidfile=$eggdrop_pidfile
+command_args="$eggdrop_conf"
+
+eggdrop_prestart()
+{
+	if [ ! -f "${eggdrop_basedir}/${eggdrop_name}/user" ]; then
+		echo "No userfile for ${eggdrop_name}. Setting option to create one."
+		command_args="${procname} -m $eggdrop_conf"
+	fi
+}
+
+run_rc_command "$1"
