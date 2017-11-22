@@ -77,7 +77,6 @@ utilities:
       - bind-tools
       - sudo
       - coreutils
-      - gnugrep
       - gsed
       - wget
       {% endif %}
