@@ -46,6 +46,12 @@ deploy_account_ownership:
     - onchanges:
       - user: deploy_account
 
+deploy_account_ssh_key:
+  cmd.run:
+    - name: ssh-keygen -t ed25519 -N "" -f /var/run/deploy/.ssh/id_ed25519
+    - runas: deploy
+    - creates: /var/run/deploy/.ssh/id_ed25519
+
 #   -------------------------------------------------------------
 #   Sudo capabilities
 #
