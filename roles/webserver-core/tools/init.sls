@@ -12,3 +12,8 @@
   file.managed:
     - mode: 755
     - source: salt://roles/webserver-core/tools/files/list-nginx-vhosts.tcl
+
+{{ dirs.bin }}/autochmod:
+  file.managed:
+    - mode: 755
+    - source: salt://roles/webserver-core/tools/files/autochmod.sh
