@@ -37,3 +37,10 @@ web_static_sites:
     - docker
     - ftp
     - trustspace
+
+#   -------------------------------------------------------------
+#   Tweaks
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+web_autochmod:
+  - /var/wwwroot/dereckson.be/www
