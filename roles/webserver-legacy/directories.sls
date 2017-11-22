@@ -12,11 +12,22 @@
      - group: web
      - dir_mode: 711
 
+/var/log/www:
+  file.directory:
+     - group: web
+     - dir_mode: 711
+
 {% for domains_group in pillar['web_domains'] %}
 {% for domain in pillar['web_domains'][domains_group] %}
 webserver_directory_{{ domain }}:
   file.directory:
     - name: /var/wwwroot/{{ domain }}
+    - user: {{ domain }}
+    - group: web
+    - dir_mode: 711
+
+/var/log/www/{{ domain }}:
+  file.directory:
     - user: {{ domain }}
     - group: web
     - dir_mode: 711
