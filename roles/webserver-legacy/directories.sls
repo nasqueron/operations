@@ -22,3 +22,8 @@ webserver_directory_{{ domain }}:
     - dir_mode: 711
 {% endfor %}
 {% endfor %}
+
+/var/run/web:
+  file.directory:
+     - group: web
+     - dir_mode: 711

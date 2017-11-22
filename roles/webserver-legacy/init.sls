@@ -12,6 +12,7 @@ include:
   - .directories
   - .zr
   - .static-sites
+  - .php-sites
   - .tweaks
   - .be/dereckson
   - .org/nasqueron

@@ -1,10 +1,10 @@
 #   -------------------------------------------------------------
-#   Salt — Provision *.dereckson.be sites
+#   Salt — Provision PHP websites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        DcK Area
+#   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  - .assets
-  - .www
+  - .account
+  - .files

@@ -39,6 +39,19 @@ web_static_sites:
     - trustspace
 
 #   -------------------------------------------------------------
+#   PHP sites
+#
+#   Username must be unique and use max 31 characters.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+web_php_sites:
+  www.dereckson.be:
+    user: web-be-dereckson-www
+    source: wwwroot/dereckson.be/www
+    target: /var/wwwroot/dereckson.be/www
+    autochmod: True
+
+#   -------------------------------------------------------------
 #   Tweaks
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
