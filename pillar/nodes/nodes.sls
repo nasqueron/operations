@@ -33,6 +33,7 @@ nodes:
       - devserver
       - saltmaster
       - dbserver-mysql
+      - webserver-legacy
     zfs:
       pool: arcology
     network:
