@@ -6,8 +6,10 @@ forests:
 nodes:
   egladil:
     forest: lothlorien
+    hostname: egladil.lothlorien.forest
   entwash:
     forest: fangorn
+    hostname: entwash.node
 
 shellgroups_ubiquity:
   - ubiquity

@@ -10,21 +10,25 @@
 #   Deploy /opt/staging/wwwroot/eglide.org/www to www.eglide.org
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% set wwwroot = salt['node.get_wwwroot']() %}
+{% set wwwuser = "www-data" %}
+{% set wwwgroup = "www-data" %}
+
 /var/www/html:
   file.recurse:
-    - source: salt://wwwroot/eglide.org/www
+    - source: salt://{{ wwwroot }}
     - exclude_pat: E@.git
     - include_empty: True
     - clean: True
-    - user: www-data
-    - group: www-data
+    - user: {{ wwwuser }}
+    - group: {{ wwwgroup }}
     - dir_mode: 711
     - file_mode: 644
 
 /var/wwwroot/paysannerebelle.com/robot/:
   file.directory:
     - user: hlp
-    - group: www-data
+    - group: {{ wwwgroup }}
     - dir_mode: 711
     - makedirs: True
 
@@ -35,11 +39,11 @@
 /var/log/www/eglide.org:
   file.directory:
     - user: root
-    - group: www-data
+    - group: {{ wwwgroup }}
     - dir_mode: 750
 
 /var/log/www/paysannerebelle.com:
   file.directory:
     - user: hlp
-    - group: www-data
+    - group: {{ wwwgroup }}
     - dir_mode: 750

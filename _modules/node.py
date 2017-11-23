@@ -115,3 +115,32 @@ def has_role(role, nodename=None):
         salt * node.has_role devserver
     '''
     return role in list('roles', nodename)
+
+
+def get_wwwroot(nodename=None):
+    '''
+    A function to determine the wwwroot folder to use.
+
+    Returns a string depending of the FQDN.
+
+    CLI Example:
+
+        salt * node.get_wwwroot
+    '''
+    hostname = _get_property("hostname", nodename, None)
+
+    if hostname is None:
+        raise CommandExecutionError(
+            SaltCloudConfigError(
+                "Node {0} doesn't have a hostname property".format(nodename)
+            )
+        )
+
+    if hostname.count('.') < 2:
+        return "wwwroot/{0}/www".format(hostname)
+
+    fqdn = hostname.split(".")
+    return "wwwroot/{1}/{0}".format(
+        ".".join(fqdn[0:-2]),
+        ".".join(fqdn[-2:])
+    )
