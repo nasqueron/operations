@@ -14,8 +14,16 @@
 {% set wwwuser = "www-data" %}
 {% set wwwgroup = "www-data" %}
 
-/var/www/html:
+/var/{{ wwwroot }}:
+  file.directory:
+    - user: {{ wwwuser }}
+    - group: {{ wwwgroup }}
+    - dir_mode: 711
+    - makedirs: True
+
+wwwroot_server:
   file.recurse:
+    - name: /var/{{ wwwroot }}
     - source: salt://{{ wwwroot }}
     - exclude_pat: E@.git
     - include_empty: True
