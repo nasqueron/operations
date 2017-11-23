@@ -22,3 +22,25 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
                          node.get_wwwroot())
         self.assertEqual("wwwroot/entwash.node/www",
                          node.get_wwwroot('entwash'))
+
+    def test_filter_by_role(self):
+        node_key = self.grains['id']
+
+        self.assertEqual(['Caras Galadhon'],
+                         node.filter_by_role('items_by_role'))
+
+        self.assertEqual(['Onodlo'],
+                         node.filter_by_role('items_by_role', 'entwash'))
+
+        # No role
+        self.pillar['nodes'][node_key]['roles'] = []
+        self.assertEqual([],
+                         node.filter_by_role('items_by_role'))
+
+        # More than one role
+        self.pillar['nodes'][node_key]['roles'] = [
+            'border',
+            'treecity'
+        ]
+        self.assertEqual(['Caras Galadhon', 'Onodlo'],
+                         sorted(node.filter_by_role('items_by_role')))

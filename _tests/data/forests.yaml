@@ -7,9 +7,19 @@ nodes:
   egladil:
     forest: lothlorien
     hostname: egladil.lothlorien.forest
+    roles:
+      - treecity
   entwash:
     forest: fangorn
     hostname: entwash.node
+    roles:
+      - border
+
+items_by_role:
+  treecity:
+    - Caras Galadhon
+  border:
+    - Onodlo
 
 shellgroups_ubiquity:
   - ubiquity

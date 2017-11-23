@@ -117,6 +117,31 @@ def has_role(role, nodename=None):
     return role in list('roles', nodename)
 
 
+def filter_by_role(pillar_key, nodename=None):
+    '''
+    A function to filter a dictionary by roles.
+
+    The dictionary must respect the following structure:
+      - keys are role to check the current node against
+      - values are list of items
+
+    Returns a list, extending all the filtered lists.
+
+    CLI Example:
+
+        salt * node.filter_by_role web_content_sls
+    '''
+    roles = list('roles', nodename)
+    dictionary = __pillar__.get(pillar_key, {})
+    filtered_list = []
+
+    for role, items in dictionary.iteritems():
+        if role in roles:
+            filtered_list.extend(items)
+
+    return filtered_list
+
+
 def get_wwwroot(nodename=None):
     '''
     A function to determine the wwwroot folder to use.
