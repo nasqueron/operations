@@ -13,6 +13,16 @@ but where some situations can be troublesome, with the workaround to apply.
 
 ## Role: devserver
 
+### PHP 5.6 <> PHP 7.1 roulette
+
+On FreeBSD, PEAR and composer pull PHP 5.6. As such, they will be skipped when
+the state installs PHP 7.1. But if you run again the state, if will downgrade
+to PHP 5.6.
+
+**Workaround**
+
+Run one again the state to restore PHP 7.1 (and deinstall composer and PEAR).
+
 ### pefs-kmod and FreeBSD 11
 
 The pefs-kmod binary package is compiled against a version incompatible
