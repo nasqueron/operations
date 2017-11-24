@@ -51,7 +51,7 @@ def flatlist(group=None):
 
         salt-call --local jails.list ysul
     '''
-    return " ".join(list(group))
+    return " ".join(sorted(list(group)))
 
 
 def _get_hardware_network_interfaces():
