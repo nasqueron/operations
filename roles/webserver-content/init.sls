@@ -11,3 +11,4 @@ include:
   - .com/paysannerebelle
   - .org/eglide
   - .org/nasqueron/docs
+  - .org/nasqueron/social

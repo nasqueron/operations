@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% if salt['node.has_web_content'](".org/nasqueron/social") %}
+
 /srv/data/mastodon/public/support:
   file.recurse:
     - source: salt://wwwroot/nasqueron.org/mastodon/support
@@ -15,3 +17,4 @@
     - dir_mode: 711
     - file_mode: 644
 
+{% endif %}

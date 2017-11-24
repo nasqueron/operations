@@ -17,6 +17,7 @@ nodes:
     roles:
       - paas-lxc
       - paas-docker
+      - mastodon
     network:
       ipv6_tunnel: True
   equatower:

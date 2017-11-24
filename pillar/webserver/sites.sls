@@ -77,6 +77,9 @@ web_content_sls:
   #
   # Nasqueron servers
   #
+  mastodon:
+    - .org/nasqueron/social
+
   webserver-legacy:
     # Nasqueron members
     - .be/dereckson
