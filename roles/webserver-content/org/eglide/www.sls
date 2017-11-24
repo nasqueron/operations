@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% if salt['node.has_web_content'](".org/eglide") %}
+
 #   -------------------------------------------------------------
 #   Deploy /opt/staging/wwwroot/eglide.org/www to www.eglide.org
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -33,25 +35,4 @@ wwwroot_server:
     - dir_mode: 711
     - file_mode: 644
 
-/var/wwwroot/paysannerebelle.com/robot/:
-  file.directory:
-    - user: hlp
-    - group: {{ wwwgroup }}
-    - dir_mode: 711
-    - makedirs: True
-
-#   -------------------------------------------------------------
-#   Nginx logs
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-/var/log/www/eglide.org:
-  file.directory:
-    - user: root
-    - group: {{ wwwgroup }}
-    - dir_mode: 750
-
-/var/log/www/paysannerebelle.com:
-  file.directory:
-    - user: hlp
-    - group: {{ wwwgroup }}
-    - dir_mode: 750
+{% endif %}

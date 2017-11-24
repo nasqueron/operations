@@ -58,6 +58,20 @@ web_php_sites:
     php-fpm: prod
 
 #   -------------------------------------------------------------
+#   States
+#
+#   Sites with states documenting how to build them
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+web_content_sls:
+  shellserver:
+    - .com/paysannerebelle
+    - .org/eglide
+  webserver-legacy:
+    - .be/dereckson
+    - .org/nasqueron/docs
+
+#   -------------------------------------------------------------
 #   Tweaks
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

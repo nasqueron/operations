@@ -17,6 +17,7 @@ base:
     - roles/core/sshd
     - roles/core/sysctl
     - roles/core/users
+    - roles/webserver-content
   'local':
     - roles/saltmaster
   'ysul':
@@ -34,7 +35,6 @@ base:
   'eglide':
     - roles/webserver-core
     - roles/shellserver/userland-software
-    - roles/shellserver/eglide-website
     - roles/shellserver/vhosts
     - roles/shellserver/web-hosting
     - roles/shellserver/database

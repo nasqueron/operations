@@ -39,3 +39,9 @@ shellusers:
   amdir: {}
   amroth: {}
   galadriel: {}
+
+web_content_sls:
+  treecity:
+    - .ll/carasgaladhon
+  border:
+    - .arda/onodlo

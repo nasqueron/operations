@@ -1,9 +1,9 @@
 #   -------------------------------------------------------------
-#   Salt — Provision *.nasqueron.org sites
+#   Salt — Provision *.paysannerebelle.com sites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Nasqueron
+#   Project:        Collectif des paysannes et paysans rebelles
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  - .docs
+  - .robot

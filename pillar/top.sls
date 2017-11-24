@@ -14,8 +14,8 @@ base:
     - certificates.certificates
     - nodes.nodes
     - nodes.forests
+    - webserver.sites
   ysul:
     - paas-jails.jails
-    - webserver-legacy.sites
     - viperserv.bots
     - viperserv.fantoir

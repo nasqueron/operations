@@ -142,6 +142,10 @@ def filter_by_role(pillar_key, nodename=None):
     return filtered_list
 
 
+def has_web_content(content, nodename=None):
+    return content in filter_by_role('web_content_sls', nodename)
+
+
 def get_wwwroot(nodename=None):
     '''
     A function to determine the wwwroot folder to use.

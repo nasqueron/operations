@@ -5,6 +5,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% if salt['node.has_web_content'](".org/nasqueron/docs") %}
+
 {% from "map.jinja" import packages with context %}
 
 #   -------------------------------------------------------------
@@ -44,3 +46,5 @@ salt_wrapper_doc_build:
 sphinx:
   pkg.installed:
     - name: {{ packages.sphinx }}
+
+{% endif %}

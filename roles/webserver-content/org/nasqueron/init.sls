@@ -1,10 +1,11 @@
 #   -------------------------------------------------------------
-#   Salt — Provision *.dereckson.be sites
+#   Salt — Provision *.nasqueron.org sites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        DcK Area
+#   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .assets
-  - .www
+#   This section is intentionally left blank.
+
+#   As Nasqueron sites are distributed among several servers,
+#   per domain files should be directly included instead.

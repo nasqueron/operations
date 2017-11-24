@@ -7,6 +7,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set wwwgroup = "www-data" %}
 
 #   -------------------------------------------------------------
 #   Nginx configuration files
@@ -32,7 +33,19 @@ nginx_config_files:
 /var/log/www:
   file.directory:
     - user: root
-    - group: www-data
+    - group: {{ wwwgroup }}
+    - dir_mode: 750
+
+/var/log/www/eglide.org:
+  file.directory:
+    - user: root
+    - group: {{ wwwgroup }}
+    - dir_mode: 750
+
+/var/log/www/paysannerebelle.com:
+  file.directory:
+    - user: hlp
+    - group: {{ wwwgroup }}
     - dir_mode: 750
 
 #   -------------------------------------------------------------
