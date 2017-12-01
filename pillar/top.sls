@@ -8,7 +8,6 @@
 
 base:
   '*':
-    - core.hostnames
     - core.users
     - core.groups
     - certificates.certificates

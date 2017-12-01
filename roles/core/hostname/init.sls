@@ -14,7 +14,7 @@
 hostname:
   file.managed:
     - name: /etc/hostname
-    - contents: {{ pillar.get('hostnames')[grains['id']] }}
+    - contents: {{ salt['node.get']('hostname') }}
 
 #   -------------------------------------------------------------
 #   When the hostname is changed, what to run afterwards?
