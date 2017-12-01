@@ -11,7 +11,7 @@
 #   Store hostname into a configuration file
 #   -------------------------------------------------------------
 
-hostname:
+/etc/hostname:
   file.managed:
     - name: /etc/hostname
     - contents: {{ salt['node.get']('hostname') }}
