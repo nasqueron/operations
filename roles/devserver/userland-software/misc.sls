@@ -129,3 +129,7 @@ devserver_software_misc_network:
     - installed
     - pkgs:
       - getdns
+      - iftop
+      {% if grains['os_family'] == 'Debian' %}
+      - sockstat
+      {% endif %}
