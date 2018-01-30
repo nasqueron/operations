@@ -49,6 +49,7 @@ shellgroups:
       - thrx
       - tomjerr
       - vigilant
+      - windu
       - xcombelle
       - xray
   chaton-dev:
