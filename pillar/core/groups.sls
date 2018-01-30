@@ -48,6 +48,7 @@ shellgroups:
       - shark
       - thrx
       - tomjerr
+      - vigilant
       - xcombelle
       - xray
   chaton-dev:

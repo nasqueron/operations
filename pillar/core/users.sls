@@ -157,6 +157,11 @@ shellusers:
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7WGzb6h6i8H81nkw0E2PvFwi1yqODeltyGwFQxEwL4+bc75LlbxtpIsxS+D4vkervfGjMwgAJSFOv6uimRhubmp1I2Pf85APTf/a9xXmNzAuNnhR8ur93I08cQ2kKlY19q3EX4H4qj2HizRZxgusG8dYyBWuKuq6P7vIn5zn55IzFJKxCekydAjQsDUTOaio5brLD3sY8IfnWtKWDgrszozUOEqZdquJDS6LBEHHDTpWK/Mzuwd6YkpfdG2GVLwuN6Rj43jNoxcvk2W7oJyJQQ7xSpNR3QIFzTAu9VL9AAv4qak4o2AYpmg8HXsgGR2ARvJ0mFzWw8qy/c/5plPgp tomjerr
     uid: 2001
+  vigilant:
+    fullname: Anser Quraishi
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFGEJdMywTtuUcEtk+7JtRvq0zY49NMI885flAl+3FTbjBiCh+ozq0kSaHeFOen/c8ZTYFom9qyoANuAPvifoJeYigI8TPyqz3tQwuL8Fgj36VNcsa/kICZ77HFLWaLFG1//97tPKy8W9VFK0F8YqOYzss1xAav58OsxnLEkpn31B4XPtRNaInUNNJo155WLtOy/h+YrIvy899SLjVH+ui4tBHpmRja7pM2vq/h7ssRFnQGcvkHYKkCXm/BE8sT8yjk4hdxPmOkA2GaCxm5S6YYJeF/SqCEKbJ1tGq7UKq6jooasjQ8PHAvtmVNoXhJczFfNzNN0ybPbKYjxdzAKj12c0eTVclmMDdsGWloqCpeWQsrOFeXUxjjCCO11J8vxHDLaxaMuY3IDclAsePqXQI6zZ6wzedQ5ieEKNF2VIgsUDhyB1jIaklA0Td1MhpogEolm9juEkNaJBR8NHCvQZKByod6dc6cGQ1TFqD8LSXHVhTV7L0MqCVgsgy77wdOSk=
+    uid: 2025
   xcombelle:
     fullname: Xavier Combelle
     ssh_keys:
