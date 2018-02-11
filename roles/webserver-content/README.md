@@ -17,7 +17,7 @@ Instead, it follows a tld/domain/subdomain.sls logic.
 
 For example, the folder for the `*.acme.tld` sites will be `tld/acme`.
 This structure goal is to play nice with the Salt include syntax, as dots
-are a directory spearator.
+are a directory separator.
 
 The bipbip.acme.tld site will be described in `tld/acme/bipbip.sls` file.
 
