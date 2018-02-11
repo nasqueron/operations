@@ -18,3 +18,4 @@ base:
     - paas-jails.jails
     - viperserv.bots
     - viperserv.fantoir
+    - webserver.wwwroot51
