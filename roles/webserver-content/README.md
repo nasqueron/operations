@@ -26,8 +26,8 @@ The bipbip.acme.tld site will be described in `tld/acme/bipbip.sls` file.
   1. Create a new folder hierarchy for the domain
   2. Include a `init.sls` file for your subdomains
   3. Declare the new domain in pillar/webserver/sites.sls
-  4. Regenerate the role index with utils/generate-webcontent-index.py (or make)
-     utils/generate-webcontent-index.py > roles/webserver-content/init.sls
+  4. Regenerate the role index with `make` (from repository root)
+
 
 For example the tld/acme/init.sls file could be:
 ```

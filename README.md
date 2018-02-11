@@ -1,7 +1,8 @@
 Nasqueron operations
 ====================
 
-Welcome to **[rOPS](https://devcentral.nasqueron.org/diffusion/OPS/)**, the Nasqueron operations repository.
+Welcome to **[rOPS](https://devcentral.nasqueron.org/diffusion/OPS/)**,
+the Nasqueron operations repository.
 
 ----------
 
@@ -81,4 +82,3 @@ A lot of configuration as code is trivial, and so ineligible for copyright per
 When this is not the case, the code is licensed under
 [BSD-2-Clause](https://opensource.org/licenses/BSD-2-Clause)
 if not otherwise specified.
-

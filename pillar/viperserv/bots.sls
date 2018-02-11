@@ -1,5 +1,4 @@
-# To regenerate the list of scripts in a folder, try:
-# find . -type f -name '*.tcl' | grep -v tests/ | grep -v Maintenance/ | grep -v ForUsers/ | grep -v PreSurfBoard | sed 's@\./@      - @'
+# To regenerate the list of scripts in a folder, try `make list` from rVIPER.
 
 viperserv_accounts:
   viperserv:

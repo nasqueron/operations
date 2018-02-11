@@ -2,7 +2,8 @@
 #
 # Adds a new partition to a device mapper volume group
 #
-# Usage ..... new-partition <device> <volume group> <logical volume name> [mounting point]
+# Usage ..... new-partition <device> <volume group>
+#                           <logical volume name> [mounting point]
 # Example ... new-partition /dev/sdb1 centos_dwellers wharf /wharf
 #        (or) new-partition /dev/sdb1 centos_dwellers wharf
 #
@@ -12,7 +13,8 @@
 # Parses arguments
 
 if [ $# -lt 3 ] || [ $# -gt 4 ]; then
-    echo 'Usage: new-partition <device> <volume group> <logical volume name> [mounting point]'
+    echo 'Usage: new-partition <device> <volume group>'
+    echo '                     <logical volume name> [mounting point]'
     exit 1
 fi
 

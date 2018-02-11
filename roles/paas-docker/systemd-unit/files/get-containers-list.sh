@@ -29,7 +29,8 @@ elif [[ ! -r "$file" ]]; then
 fi
 
 # Get names in an array
-# 21:42 <geirha> since bash 4, you can use mapfile instead of that while read loop. mapfile -t array < "$file"
+# 21:42 <geirha> since bash 4, you can use mapfile instead of that
+# while read loop. mapfile -t array < "$file"
 mapfile -t array < "$file"
 
 # Test argument to know in wich order return names

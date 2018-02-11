@@ -16,7 +16,9 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-#Let systemd launch a lxc mail container through /usr/lib/systemd/system/lxc-container-mailserver.service
+#Let systemd launch a lxc mail container through
+#/usr/lib/systemd/system/lxc-container-mailserver.service
+#
 #Start a lxc container, and create iptable rules
 
 IPTABLES="/usr/sbin/iptables"
