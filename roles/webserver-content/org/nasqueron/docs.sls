@@ -10,7 +10,7 @@
 {% from "map.jinja" import packages with context %}
 
 #   -------------------------------------------------------------
-#   Base directroy
+#   Base directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /var/wwwroot/nasqueron.org/docs:
