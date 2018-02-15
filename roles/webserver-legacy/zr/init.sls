@@ -104,7 +104,7 @@ zr_account:
 
 {{ zr_home }}/.arcrc:
   file.managed:
-    - source: salt://roles/webserver-legacy/files/dot.arcrc.json
+    - source: salt://roles/webserver-legacy/zr/files/dot.arcrc.json
     - replace: False
     - mode: 600
     - user: 8900
