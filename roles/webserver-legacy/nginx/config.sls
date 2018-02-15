@@ -19,3 +19,13 @@
     - source: salt://roles/webserver-legacy/nginx/files/includes
     - dir_mode: 755
     - file_mode: 644
+
+#   -------------------------------------------------------------
+#   vhosts folder
+#   -------------------------------------------------------------
+
+{{ dirs.etc }}/nginx/vhosts:
+  file.recurse:
+    - source: salt://roles/webserver-legacy/nginx/files/vhosts
+    - dir_mode: 755
+    - file_mode: 644

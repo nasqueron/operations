@@ -85,6 +85,7 @@ web_content_sls:
     - .be/dereckson
 
     # Directly managed by Nasqueron
+    - .org/nasqueron/api
     - .org/nasqueron/docs
 
 #   -------------------------------------------------------------
