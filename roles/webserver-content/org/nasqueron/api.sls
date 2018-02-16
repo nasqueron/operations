@@ -64,5 +64,6 @@ api_servers_log_dependencies:
   file.managed:
     - user: web-org-nasqueron-api-serverslog
     - mode: 644
+    - replace: False
 
 {% endif %}
