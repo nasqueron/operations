@@ -8,7 +8,15 @@
 wwwroot51_basedir: /var/51-wwwroot
 
 wwwroot51_directories:
+  api:
+    user: dereckson
+    group: dereckson
+    repository: ssh://vcs@devcentral.nasqueron.org:5022/source/api.git
   tools:
     user: dereckson
     group: dereckson
     repository: ssh://vcs@devcentral.nasqueron.org:5022/source/tools.git
+  www:
+    user: dereckson
+    group: dereckson
+    repository: ssh://vcs@devcentral.nasqueron.org:5022/source/www.git
