@@ -32,6 +32,12 @@
     - group: web
     - dir_mode: 755
 
+/srv/api/data:
+  file.directory:
+    - user: deploy
+    - group: web
+    - dir_mode: 755
+
 #   -------------------------------------------------------------
 #   /servers-log micro service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,5 +59,10 @@ api_servers_log_dependencies:
     - runas: deploy
     - cwd: /srv/api/servers-log
     - creates: /srv/api/servers-log/vendor
+
+/srv/api/data/servers-log-all.json:
+  file.managed:
+    - user: web-org-nasqueron-api-serverslog
+    - mode: 644
 
 {% endif %}
