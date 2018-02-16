@@ -54,7 +54,6 @@ web_php_sites:
     user: web-be-dereckson-www
     source: wwwroot/dereckson.be/www
     target: /var/wwwroot/dereckson.be/www
-    autochmod: True
     php-fpm: prod
 
 #   -------------------------------------------------------------
