@@ -11,6 +11,8 @@
 
 {% for domain, site in pillar['web_php_sites'].iteritems() %}
 
+{% if 'target' in site %}
+
 {{ site['target'] }}:
   file.recurse:
     - source: salt://{{ site['source'] }}
@@ -20,5 +22,7 @@
     - file_mode: keep
     - user: {{ site['user'] }}
     - group: web
+
+{% endif %}
 
 {% endfor %}

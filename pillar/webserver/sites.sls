@@ -50,11 +50,19 @@ php_fpm_instances:
     command: /usr/local/sbin/php-fpm
 
 web_php_sites:
+  # Nasqueron members
   www.dereckson.be:
     user: web-be-dereckson-www
     source: wwwroot/dereckson.be/www
     target: /var/wwwroot/dereckson.be/www
     php-fpm: prod
+
+  # Directly managed by Nasqueron
+  api.nasqueron.org:
+    user: web-org-nasqueron-api-serverslog
+    php-fpm: prod
+    env:
+      SERVERS_LOG_FILE: /srv/api/data/servers-log-all.json
 
 #   -------------------------------------------------------------
 #   States

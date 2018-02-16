@@ -40,6 +40,7 @@ php-fpm_pool_{{ site['user'] }}:
     - context:
         domain: {{ domain }}
         user: {{ site['user' ]}}
+        env : {{ site['env']|default({}) }}
 
 {% endfor %}
 
