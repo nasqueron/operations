@@ -8,7 +8,7 @@
 {% if salt['node.has_web_content'](".org/nasqueron/api") %}
 
 #   -------------------------------------------------------------
-#   Base  part from rOPS
+#   Base part from rOPS
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /var/wwwroot/nasqueron.org/api:
