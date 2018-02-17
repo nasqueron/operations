@@ -52,6 +52,8 @@ php_fpm_instances:
 web_php_sites:
   # Nasqueron members
   www.dereckson.be:
+    domain: dereckson.be
+    subdomain: www
     user: web-be-dereckson-www
     source: wwwroot/dereckson.be/www
     target: /var/wwwroot/dereckson.be/www
@@ -59,6 +61,8 @@ web_php_sites:
 
   # Directly managed by Nasqueron
   api.nasqueron.org:
+    domain: nasqueron.org
+    subdomain: api
     user: web-org-nasqueron-api-serverslog
     php-fpm: prod
     env:

@@ -30,7 +30,7 @@ php-fpm_config_{{ instance }}:
 #   Configuration : pools
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for domain, site in pillar['web_php_sites'].iteritems() %}
+{% for fqdn, site in pillar['web_php_sites'].iteritems() %}
 
 php-fpm_pool_{{ site['user'] }}:
   file.managed:
@@ -38,9 +38,18 @@ php-fpm_pool_{{ site['user'] }}:
     - source: salt://roles/webserver-legacy/php-sites/files/php-fpm-pool.conf
     - template: jinja
     - context:
-        domain: {{ domain }}
+        fqdn: {{ fqdn }}
+        domain: {{ site['domain'] }}
+        subdomain: {{ site['subdomain'] }}
         user: {{ site['user' ]}}
+        display_errors: {{ site['display_errors']|default('off') }}
         env : {{ site['env']|default({}) }}
+
+/var/log/www/{{ site['domain' ]}}/{{ site['subdomain' ]}}-php.log:
+  file.managed:
+    - user: {{ site['user'] }}
+    - group: web
+    - chmod: 600
 
 {% endfor %}
 
