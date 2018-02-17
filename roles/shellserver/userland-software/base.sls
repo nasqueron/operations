@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages, packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Shells
@@ -158,7 +158,7 @@ languages_libs:
   pkg:
     - installed
     - pkgs:
-      # PHP
+      # PHP extensions
       - {{ packages_prefixes.php }}bcmath
       - {{ packages_prefixes.php }}ctype
       - {{ packages_prefixes.php }}curl
@@ -177,9 +177,6 @@ languages_libs:
       - {{ packages_prefixes.php }}xml
       - {{ packages_prefixes.php }}xmlwriter
       - {{ packages_prefixes.php }}xsl
-      - {{ packages.composer }}
-      - {{ packages.pear }}
-      - {{ packages.phpcs }}
       {% if grains['os_family'] == 'Debian' %}
       # On Debian, these PDO extensions doesn't follow regular names
       # but are installed if you require the legacy extension name.
@@ -193,15 +190,45 @@ languages_libs:
       - {{ packages_prefixes.php }}pcntl
       - {{ packages_prefixes.php }}session
       - {{ packages_prefixes.php }}zlib
-
       # On Debian, these PDO extensions doesn't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
       - {{ packages_prefixes.php }}pdo_sqlite
       {% endif %}
 
+      # PHP utilities
+      - {{ packages.composer }}
+      {% if grains['os'] != 'FreeBSD' %}
+      # On FreeBSD, PEAR is still a PHP 5.6 package (last tested 2018-02-17).
+      - {{ packages.pear }}
+      - {{ packages.phpcs }}
+      {% endif %}
+
       # TCL
       - tcllib
       - {{ packages.tcltls }}
+
+#   -------------------------------------------------------------
+#   Workaround : install phpcs on FreeBSD
+#   -------------------------------------------------------------
+
+{% if grains['os'] == 'FreeBSD' %}
+/opt/phpcs:
+  file.directory
+
+{% for command in ['phpcs', 'phpcbf'] %}
+/opt/phpcs/{{ command }}:
+  file.managed:
+    - source: https://squizlabs.github.io/PHP_CodeSniffer/{{ command }}.phar
+    - skip_verify: True
+    - mode: 755
+
+{{ dirs.bin }}/{{ command }}:
+  file.symlink:
+    - target: /opt/phpcs/{{ command }}
+    - require:
+      - file: /opt/phpcs/{{ command }}
+{% endfor %}
+{% endif %}
 
 #   -------------------------------------------------------------
 #   Spelling and language utilities

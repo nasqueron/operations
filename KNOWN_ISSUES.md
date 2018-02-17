@@ -21,7 +21,7 @@ to PHP 5.6.
 
 **Workaround**
 
-Run one again the state to restore PHP 7.1 (and deinstall composer and PEAR).
+On FreeBSD, we currently install phpcs manually, and skip PEAR.
 
 ### pefs-kmod and FreeBSD 11
 
