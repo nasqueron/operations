@@ -10,3 +10,4 @@
 
 include:
   - .authorized_yubikeys
+  - .selinux
