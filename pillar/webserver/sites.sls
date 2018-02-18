@@ -36,6 +36,7 @@ web_static_sites:
     - assets
     - docker
     - ftp
+    - infra
     - trustspace
 
 #   -------------------------------------------------------------
