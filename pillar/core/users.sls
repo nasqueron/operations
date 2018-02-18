@@ -80,6 +80,8 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYKQdGZ2ZWZ6IvSDlre8rRBGep/9YY8l8Z2Rdb62exK dereckson@tigraki.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ dereckson@xyrogh.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE dereckson@yakin.dereckson.drake
+    yubico_keys:
+      - ccccccbjncrt
     uid: 5001
   erol:
     fullname: Erol Unutmaz
