@@ -45,15 +45,19 @@
 
 {% set paths = salt['grains.filter_by']({
     'FreeBSD': {
+        'sshd': '/usr/sbin/sshd',
         'sftp': '/usr/libexec/sftp-server',
     },
     'Debian': {
+        'sshd': '/usr/sbin/sshd',
         'sftp': '/usr/lib/openssh/sftp-server',
     },
     'RedHat': {
+        'sshd': '/sbin/sshd',
         'sftp': '/usr/libexec/openssh/sftp-server',
     },
     'Arch': {
+        'sshd': '/usr/sbin/sshd',
         'sftp': '/usr/lib/ssh/sftp-server',
     },
 }, default='FreeBSD') %}
