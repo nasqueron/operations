@@ -10,4 +10,5 @@
 
 include:
   - .authorized_yubikeys
+  - .pam
   - .selinux
