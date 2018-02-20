@@ -22,7 +22,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 notifications_dependencies:
-  pkg.installed
+  pkg.installed:
     - pkgs:
       - {{ packages_prefixes.python3 }}pika
 
