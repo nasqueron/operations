@@ -16,5 +16,6 @@ include:
   # Software specific for development servers
   - .dev
   - .misc
+  - .notifications
   - .phabricator
   - .psysh
