@@ -8,7 +8,7 @@
 
 #   -------------------------------------------------------------
 #   T1325
-#   We now provision /var/wwwwroot/<domain></<subdomain> for
+#   We now provision /var/wwwroot/<domain></<subdomain> for
 #   all servers and not only for the web servers.
 #
 #   As such, /var/www/html nginx default directory on shellserver
