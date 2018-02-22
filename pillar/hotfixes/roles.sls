@@ -2,20 +2,11 @@
 #   Salt configuration for Nasqueron servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-04-10
+#   Created:        2018-02-22
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-base:
-  '*':
-    - core.users
-    - core.groups
-    - certificates.certificates
-    - nodes.nodes
-    - nodes.forests
-    - hotfixes.roles
-    - webserver.sites
-  ysul:
-    - viperserv.bots
-    - viperserv.fantoir
-    - webserver.wwwroot51
+roles_disabled:
+  paas_jails:
+    # T1345
+    - ysul

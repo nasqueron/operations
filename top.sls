@@ -21,7 +21,6 @@ base:
   'local':
     - roles/saltmaster
   'ysul':
-    - roles/paas-jails
     - roles/dbserver-mysql
     - roles/devserver
     - roles/viperserv
