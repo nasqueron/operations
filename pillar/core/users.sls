@@ -80,6 +80,7 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBYKQdGZ2ZWZ6IvSDlre8rRBGep/9YY8l8Z2Rdb62exK dereckson@tigraki.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ dereckson@xyrogh.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE dereckson@yakin.dereckson.drake
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDqWONhKh4+7o6C4wXV8QPsChqq7RYwg6oWSeBf0Ydom7QweAlkxYISJ2H24IrhKI2pXoxOZjz659/DeuhYMKZ3Djfuci1Ch3ZGyzD3w1Gdz0gXJXyqYFstfIvQBkUi8ET/lr2B6V7T7fEwb7CZq0T8NtkZpBiMRn9LdP6D+TT+YfPRiBg7gBeWUlU0rLP+kcT+7UQV2Nblh4yuxJMIgmhlZEKD6a8KMGOLQI4m0gunf6MvWy4eKurxfgM14c75e86fjUakwpfTPrPpeulR4Y9a0Cjbery38ws6ubRThnG4XNtCQHGwZ/+bJ5nzMnG887fzSocWPZSx8IctP9FuiwVCSDKOPn55wMgF490NcBaqadVtUTj5hVN73ojVvNr3vtTO/LVDt0GiKc9XkPRSiXbE4JZ2LzpPybUwkw/pSQuwgQ4Dvabv9OQsV9bzXQdRhOih0jqlMYAOpfXopk2rKBtvb930yBTgTnPxsyAtHmTkiWdvzAJ2gSjbgWdkGNRB48dL3HzJyaZXLUOyDIZquLmzXltd0ArYe1YcShfYncCXS3RtVxrj5Fj/bJoOvnhTe/aVXAa6eaOkAi5uZeoGZ7WbtlgL+ybohOOMcYDXlrM5QxYYf1uiArxFAfukk/7df0wSaP14qXDwKYaQIbMdIUs/Y08JBEooOGtrOcQXrKDBKw== Yggdrasil
     yubico_keys:
       - ccccccbjncrt
     uid: 5001
