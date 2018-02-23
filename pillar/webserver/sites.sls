@@ -99,6 +99,7 @@ web_content_sls:
     # Directly managed by Nasqueron
     - .org/nasqueron/api
     - .org/nasqueron/docs
+    - .org/nasqueron/labs
 
 #   -------------------------------------------------------------
 #   Tweaks

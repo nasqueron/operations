@@ -18,4 +18,5 @@ base:
   ysul:
     - viperserv.bots
     - viperserv.fantoir
+    - webserver.labs
     - webserver.wwwroot51

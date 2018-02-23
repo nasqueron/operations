@@ -1,16 +1,10 @@
 #   -------------------------------------------------------------
-#   Salt — Webserver content
+#   Salt — Sites to provision on the devserver labs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Eglide
-#   Created:        2017-11-23
+#   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .be/dereckson
-  - .com/paysannerebelle
-  - .org/eglide
-  - .org/nasqueron/api
-  - .org/nasqueron/docs
-  - .org/nasqueron/labs
-  - .org/nasqueron/social
+web_labs:
+  - HexGL
+  - corporate-name-generator
