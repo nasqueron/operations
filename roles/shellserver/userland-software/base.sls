@@ -203,6 +203,12 @@ languages_libs:
       - {{ packages.phpcs }}
       {% endif %}
 
+      # Standard Python modules
+      {% if grains['os'] == 'FreeBSD' %}
+      - {{ packages_prefixes.python3 }}gbdm
+      - {{ packages_prefixes.python3 }}sqlite3
+      {% endif %}
+
       # TCL
       - tcllib
       - {{ packages.tcltls }}
