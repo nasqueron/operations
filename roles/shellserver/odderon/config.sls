@@ -12,7 +12,9 @@
 #   -------------------------------------------------------------
 
 odderon_fix_permissions_and_ownership:
-  cmd.run:
-    - names:
-      - chown odderon:nasqueron-irc /opt/odderon/var/darkbot/userlist.db
-      - chmod 640 /opt/odderon/var/darkbot/userlist.db
+  file.managed:
+    - name: /opt/odderon/var/darkbot/userlist.db
+    - user: odderon
+    - group: nasqueron-irc
+    - chmod: 640
+    - replace: False

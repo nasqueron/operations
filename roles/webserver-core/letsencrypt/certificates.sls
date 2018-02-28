@@ -16,5 +16,5 @@
 certificate_{{ domain }}:
   cmd.run:
     - name: certbot certonly -d {{ domain }}
-    - unless: test -f {{ dirs.etc }}/letsencrypt/live/{{ domain }}/fullchain.pem
+    - creates: {{ dirs.etc }}/letsencrypt/live/{{ domain }}/fullchain.pem
 {% endfor %}
