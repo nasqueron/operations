@@ -21,7 +21,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 EGGDROP_VERSION_MAJOR=1.8
-EGGDROP_VERSION=1.8.2rc2
+EGGDROP_VERSION=1.8.3rc2
 TCL_VERSION=8.6
 
 #   -------------------------------------------------------------
