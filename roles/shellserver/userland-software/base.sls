@@ -196,9 +196,11 @@ languages_libs:
       {% endif %}
 
       # PHP utilities
-      - {{ packages.composer }}
+
       {% if grains['os'] != 'FreeBSD' %}
       # On FreeBSD, PEAR is still a PHP 5.6 package (last tested 2018-02-17).
+      # Same for Composer (last tested 2018-02-28)
+      - {{ packages.composer }}
       - {{ packages.pear }}
       - {{ packages.phpcs }}
       {% endif %}
@@ -214,10 +216,25 @@ languages_libs:
       - {{ packages.tcltls }}
 
 #   -------------------------------------------------------------
-#   Workaround : install phpcs on FreeBSD
+#   Workaround : install composer and phpcs on FreeBSD
 #   -------------------------------------------------------------
 
 {% if grains['os'] == 'FreeBSD' %}
+/opt/composer:
+  file.directory
+
+/opt/composer/composer.phar:
+  file.managed:
+    - source: https://raw.githubusercontent.com/composer/getcomposer.org/c1ad3667731e/web/download/1.6.3/composer.phar
+    - source_hash: 52cb7bbbaee720471e3b34c8ae6db53a38f0b759c06078a80080db739e4dcab6
+    - mode: 755
+
+{{ dirs.bin }}/composer:
+  file.symlink:
+    - target: /opt/composer/composer.phar
+    - require:
+      - file: /opt/composer/composer.phar
+
 /opt/phpcs:
   file.directory
 

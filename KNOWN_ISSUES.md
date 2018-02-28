@@ -21,7 +21,10 @@ to PHP 5.6.
 
 **Workaround**
 
-On FreeBSD, we currently install phpcs manually, and skip PEAR.
+On FreeBSD, we currently install composer and phpcs manually. We also skip PEAR.
+
+That forces to track explicitly Composer versions for hashes
+in roles/shellserver/userland-software/base.sls file.
 
 ### pefs-kmod and FreeBSD 11
 
