@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().iteritems() %}
+{% for username, user in salt['forest.get_users']().items() %}
 
 {% if 'yubico_keys' in user %}
 /home/{{ username }}/.yubico:

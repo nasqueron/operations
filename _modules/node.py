@@ -135,7 +135,7 @@ def filter_by_role(pillar_key, nodename=None):
     dictionary = __pillar__.get(pillar_key, {})
     filtered_list = []
 
-    for role, items in dictionary.iteritems():
+    for role, items in dictionary.items():
         if role in roles:
             filtered_list.extend(items)
 

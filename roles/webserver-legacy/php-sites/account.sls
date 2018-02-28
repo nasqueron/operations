@@ -9,7 +9,7 @@
 #   Sites user accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for domain, site in pillar['web_php_sites'].iteritems() %}
+{% for domain, site in pillar['web_php_sites'].items() %}
 
 web_account_{{ site['user'] }}:
   user.present:

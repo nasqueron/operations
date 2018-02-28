@@ -11,7 +11,7 @@
 #   Configuration : instances
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, config in pillar['php_fpm_instances'].iteritems() %}
+{% for instance, config in pillar['php_fpm_instances'].items() %}
 
 php-fpm_config_{{ instance }}:
   file.managed:
@@ -30,7 +30,7 @@ php-fpm_config_{{ instance }}:
 #   Configuration : pools
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for fqdn, site in pillar['web_php_sites'].iteritems() %}
+{% for fqdn, site in pillar['web_php_sites'].items() %}
 
 php-fpm_pool_{{ site['user'] }}:
   file.managed:
@@ -78,7 +78,7 @@ php-fpm_pool_{{ site['user'] }}:
     - context:
         instances: {{ instances }}
 
-{% for instance, config in pillar['php_fpm_instances'].iteritems() %}
+{% for instance, config in pillar['php_fpm_instances'].items() %}
 /etc/rc.conf.d/php_fpm/{{ instance }}:
   file.managed:
     - source: salt://roles/webserver-legacy/php-sites/files/rc/per_instance

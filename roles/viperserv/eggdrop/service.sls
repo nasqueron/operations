@@ -35,7 +35,7 @@
     - context:
         bots: {{ bots }}
 
-{% for botname, bot in pillar['viperserv_bots'].iteritems() %}
+{% for botname, bot in pillar['viperserv_bots'].items() %}
 /etc/rc.conf.d/eggdrop/{{ botname }}:
   file.managed:
     - source: salt://roles/viperserv/eggdrop/files/rc/per_instance

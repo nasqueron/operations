@@ -13,7 +13,7 @@
 #   and specific configuration file.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for botname, bot in pillar['viperserv_bots'].iteritems() %}
+{% for botname, bot in pillar['viperserv_bots'].items() %}
 
 /srv/viperserv/{{ botname }}:
   file.directory:
@@ -27,7 +27,7 @@
 #   Logs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for botname, bot in pillar['viperserv_bots'].iteritems() %}
+{% for botname, bot in pillar['viperserv_bots'].items() %}
 
 /srv/viperserv/logs/{{ botname }}.log:
   file.managed:
@@ -54,7 +54,7 @@
     - replace: False
     - mode: 660
 
-{% for botname, bot in pillar['viperserv_bots'].iteritems() %}
+{% for botname, bot in pillar['viperserv_bots'].items() %}
 
 /srv/viperserv/{{ botname }}/eggdrop.conf:
   file.managed:

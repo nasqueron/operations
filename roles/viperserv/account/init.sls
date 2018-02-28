@@ -13,7 +13,7 @@
 #   Service accounts
 #   -------------------------------------------------------------
 
-{% for username, user in pillar['viperserv_accounts'].iteritems() %}
+{% for username, user in pillar['viperserv_accounts'].items() %}
 
 viperserv_account_{{ username }}:
   user.present:
@@ -43,5 +43,5 @@ viperserv_sudo_capabilities_file:
     - source: salt://roles/viperserv/account/files/viperserv.sudoers
     - template: jinja
     - context:
-        accounts: {{ pillar['viperserv_accounts'].keys() }}
-        bots: {{ pillar['viperserv_bots'].keys() }}
+        accounts: {{ pillar['viperserv_accounts'] }}
+        bots: {{ pillar['viperserv_bots'] }}

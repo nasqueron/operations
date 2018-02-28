@@ -20,7 +20,7 @@
 #   51 sites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for sitename, site in pillar['wwwroot51_directories'].iteritems() %}
+{% for sitename, site in pillar['wwwroot51_directories'].items() %}
 {{ basedir }}/{{ sitename }}:
   file.directory:
     - dir_mode: 711

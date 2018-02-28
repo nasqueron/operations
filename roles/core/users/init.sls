@@ -34,7 +34,7 @@
 #   Active accounts
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().iteritems() %}
+{% for username, user in salt['forest.get_users']().items() %}
 {{ username }}:
   user.present:
     - fullname: {{ user['fullname'] }}
@@ -46,7 +46,7 @@
 #   Groups
 #   -------------------------------------------------------------
 
-{% for groupname, group in salt['forest.get_groups']().iteritems() %}
+{% for groupname, group in salt['forest.get_groups']().items() %}
 group_{{ groupname }}:
   group.present:
     - name: {{ groupname }}
@@ -58,7 +58,7 @@ group_{{ groupname }}:
 #   SSH keys
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().iteritems() %}
+{% for username, user in salt['forest.get_users']().items() %}
 
 /home/{{ username }}/.ssh:
   file.directory:
