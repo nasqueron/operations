@@ -33,6 +33,7 @@ viperserv_bots:
     scripts:
       - Wearg/Broker.tcl
       - Wearg/Notifications.tcl
+      - Wearg/ServersLog.tcl
       # This one should be last as it initializes
       # startup components, with broker/Notifications
       # dependencies
