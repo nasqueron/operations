@@ -34,6 +34,7 @@
     - user: {{ bot['runas'] | default('viperserv') }}
     - group: nasqueron-irc
     - mode: 660
+    - replace: False
 {% endfor %}
 
 #   -------------------------------------------------------------
