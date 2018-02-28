@@ -30,7 +30,6 @@ base:
   'dwellers':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
-    - roles/mastodon
   'eglide':
     - roles/webserver-core
     - roles/shellserver/userland-software
