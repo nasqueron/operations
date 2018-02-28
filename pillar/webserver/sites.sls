@@ -46,7 +46,7 @@ web_static_sites:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 php_fpm_instances:
-  # PHP 7.1, generally installed as package/port
+  # PHP 7.2, generally installed as package/port
   prod:
     command: /usr/local/sbin/php-fpm
 

@@ -13,10 +13,10 @@ but where some situations can be troublesome, with the workaround to apply.
 
 ## Role: devserver
 
-### PHP 5.6 <> PHP 7.1 roulette
+### PHP 5.6 <> PHP 7.x roulette
 
 On FreeBSD, PEAR and composer pull PHP 5.6. As such, they will be skipped when
-the state installs PHP 7.1. But if you run again the state, if will downgrade
+the state installs PHP 7.x. But if you run again the state, if will downgrade
 to PHP 5.6.
 
 **Workaround**

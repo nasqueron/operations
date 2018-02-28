@@ -133,8 +133,10 @@ languages_removed:
     - pkgs:
       {% if grains['os_family'] == 'Debian' %}
       - php7.0
+      - php7.1
       {% elif grains['os'] == 'FreeBSD' %}
       - php70
+      - php71
       {% endif %}
 
 languages:
@@ -144,10 +146,10 @@ languages:
       - python3
       {% if grains['os_family'] == 'Debian' %}
       - tcl8.6-dev
-      - php7.1
+      - php7.2
       {% elif grains['os'] == 'FreeBSD' %}
       - tcl86
-      - php71
+      - php72
       {% endif %}
 
 #   -------------------------------------------------------------
