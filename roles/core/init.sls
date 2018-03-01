@@ -13,5 +13,7 @@ include:
   - .rsyslog
   - .salt
   - .sshd
+  - .sudo
   - .sysctl
+  - .timezone
   - .users
