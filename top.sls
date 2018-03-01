@@ -8,15 +8,7 @@
 
 base:
   '*':
-    - roles/core/rc
-    - roles/core/hostname
-    - roles/core/network
-    - roles/core/motd
-    - roles/core/rsyslog
-    - roles/core/salt
-    - roles/core/sshd
-    - roles/core/sysctl
-    - roles/core/users
+    - roles/core
     - roles/webserver-content
   'local':
     - roles/saltmaster
