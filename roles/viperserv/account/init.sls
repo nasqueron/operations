@@ -21,7 +21,7 @@ viperserv_account_{{ username }}:
     - fullname: {{ user['fullname'] }}
     - uid: {{ user['uid'] }}
     - gid: nasqueron-irc
-    - home: /var/run/{{ username }}
+    - home: {{ dirs.share }}/{{ username }}
 
 /var/run/{{ username }}:
   file.directory:

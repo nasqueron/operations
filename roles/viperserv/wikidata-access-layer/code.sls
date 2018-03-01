@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 daeghrefn_wikidata_access_layer:
   file.directory:
     - name: /srv/wikidata-access-layer
@@ -15,13 +17,13 @@ daeghrefn_wikidata_access_layer:
     - target: /srv/wikidata-access-layer
     - user: deploy
 
-/var/run/viperserv/bin:
+{{ dirs.share }}/viperserv/bin:
   file.directory:
     - user: viperserv
     - group: nasqueron-irc
 
 {% for script in ['create_given_name', 'create_surname'] %}
-/var/run/viperserv/bin/{{ script }}:
+{{ dirs.share }}/viperserv/bin/{{ script }}:
   file.symlink:
     - target: /srv/wikidata-access-layer/{{ script }}
     - user: viperserv
