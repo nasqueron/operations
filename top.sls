@@ -24,9 +24,4 @@ base:
     - roles/paas-lxc/lxc
   'eglide':
     - roles/webserver-core
-    - roles/shellserver/userland-software
-    - roles/shellserver/vhosts
-    - roles/shellserver/web-hosting
-    - roles/shellserver/database
-    - roles/shellserver/odderon
-    - roles/shellserver/bonjour-chaton
+    - roles/shellserver
