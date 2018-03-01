@@ -59,3 +59,5 @@ nodes:
       - shellserver
     network:
       ipv6_tunnel: True
+    fixes:
+      rsyslog_xconsole: True
