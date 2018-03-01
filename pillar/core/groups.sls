@@ -76,7 +76,7 @@ shellgroups:
     gid: 3003
     title: Nasqueron Deployment
     description: >
-        Build softwares to be installed on the servers.
+        Build software to be installed on the servers.
         Deploy web sites and services files.
     members:
       - dereckson
