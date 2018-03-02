@@ -30,5 +30,5 @@ install_docker_engine:
     - pkgs:
       - device-mapper-persistent-data
       - lvm2
-      - docker-ce  
+      - docker-ce
 {% endif %}
