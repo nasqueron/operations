@@ -80,6 +80,7 @@ dev:
       - autoconf
       - automake
       - git
+      - git-lfs
       - colordiff
       - cmake
       - valgrind
