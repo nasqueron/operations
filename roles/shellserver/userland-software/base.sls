@@ -9,27 +9,6 @@
 {% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
-#   Shells
-#   -------------------------------------------------------------
-
-shells:
-  pkg:
-    - installed
-    - pkgs:
-      - bash
-      - fish
-      - zsh
-      {% if grains['os'] != 'FreeBSD' %}
-      - tcsh
-      {% endif %}
-
-/usr/local/share/zsh/site-functions/_pm:
-  file.managed:
-    # At commit 683d331 - 2017-11-05
-    - source: https://raw.githubusercontent.com/Angelmmiguel/pm/master/zsh/_pm
-    - source_hash: deea33968be713cdbd8385d3a72df2dd09c444e42499531893133f009f0ce0ea
-
-#   -------------------------------------------------------------
 #   Editors
 #
 #   Disclaimer: We don't caution the views of Richard Stallman

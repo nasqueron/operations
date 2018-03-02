@@ -16,4 +16,5 @@ include:
   - .sudo
   - .sysctl
   - .timezone
+  - .userland-software
   - .users
