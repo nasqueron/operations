@@ -16,7 +16,6 @@ remove_legacy_docker_packages:
     - removed
     - pkgs:
       - docker-common
-      - container-selinux
       - docker-selinux
       - docker-engine
 
