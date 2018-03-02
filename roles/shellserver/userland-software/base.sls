@@ -257,3 +257,4 @@ media:
     - pkgs:
       - {{ packages.exiftool }}
       - {{ packages.imagemagick }}
+      - sox
