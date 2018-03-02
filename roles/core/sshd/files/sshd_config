@@ -18,6 +18,13 @@
 # but this is overridden so installations will only check .ssh/authorized_keys
 AuthorizedKeysFile	.ssh/authorized_keys
 
+{% if grains['os'] == 'CentOS' -%}
+# Don't use host DSA key (CentOS by default uses it, see T1352)
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ecdsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+{%- endif %}
+
 # Nasqueron servers authentication should only occur through SSH keys
 # but PAM can offer extra capabilities if needed like OTP.
 PasswordAuthentication no
