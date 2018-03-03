@@ -12,6 +12,9 @@ wwwroot51_directories:
     user: dereckson
     group: dereckson
     repository: ssh://vcs@devcentral.nasqueron.org:5022/source/api.git
+  rain:
+    user: dereckson
+    group: dereckson
   tools:
     user: dereckson
     group: dereckson

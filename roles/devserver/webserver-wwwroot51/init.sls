@@ -26,9 +26,11 @@
     - dir_mode: 711
     - user: {{ site['user'] }}
     - group: {{ site['group'] }}
+{% if 'repository' in site %}
   git.latest:
     - name: {{ site['repository'] }}
     - target: {{ basedir }}/{{ sitename }}
     - user: {{ site['user'] }}
     - update_head: False
+{% endif %}
 {% endfor %}
