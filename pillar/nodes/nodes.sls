@@ -26,6 +26,8 @@ nodes:
     roles:
       - paas-docker
     network:
+      ipv4_address: 51.255.124.10
+      ipv4_gateway: 91.121.86.254
       ipv6_tunnel: False
   ysul:
     forest: nasqueron-dev
