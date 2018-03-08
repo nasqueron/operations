@@ -1,0 +1,12 @@
+aliases:
+  acquisitariat:
+    command: ['ssh', '-t', 'dwellers.nasqueron.org', 'mysql-acquisitariat-client']
+  devcentral:
+    handler: docker
+    args: ['devcentral']
+
+handlers:
+  docker:
+    server: "dwellers.nasqueron.org"
+    command: ['docker', 'exec', '-it', '{{%s}}', '{{%s-|bash}}']
+    interactive: True

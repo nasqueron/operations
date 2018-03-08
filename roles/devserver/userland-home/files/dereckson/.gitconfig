@@ -1,0 +1,14 @@
+[user]
+	name = Sébastien Santoro
+	email = dereckson@espace-win.org
+[achievement]
+	upload = false
+[core]
+	editor = nano
+[achievements]
+	upload = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

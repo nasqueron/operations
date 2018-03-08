@@ -1,0 +1,164 @@
+#!/usr/bin/env tclsh8.6
+
+# FreeBSD ports patches generator
+# (c) 2012, Sébastien Santoro aka Dereckson. Released under BSD license.
+#
+# You have:
+#     - a Git repository, where HEAD is a stable version of the code
+#       (ie the result of make extract)
+#
+#     - your working directory contained the modified files
+#
+# You want:
+#     - generate patches for your FreeBSD port
+#
+# This script will:
+#     - get from git status the list of modified files
+#
+#     - write the relevant patch for each file in files/ port directory
+#
+# So an offered workflow is:
+#     1. cd <port directory>
+#     2. make extract
+#     3. cd work/<your application directory)
+#     4. git init .
+#     5. git add *
+#     6. git commit -a -m "dist version"
+#     7. (modify your files, so it compiles under FreeBSD)
+#     8. port-patches-generator
+#
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  Section I - Configuration                                                  #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# Path to git executable
+set config(git) git
+
+# Verbose mode
+set config(verbose) 0
+
+# Overwrite existing patch files?
+set config(overwriteExistingPatches) 0
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  Section II - Helper procedures                                             #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+###
+### FreeBSD ports
+### 
+
+## Gets FreeBSD port's patch filename
+##
+## @param $file the files the patch modifies
+## @return the patch filename
+proc get_patch_filename {file} {
+	return patch-[string map {_ __ / -} $file]
+}
+
+###
+### Git
+### 
+
+## Creates a patch from a modified file in a Git repository
+proc create_patch_from_git_file {file patchfile {useStagingArea 0}} {
+	global config
+	if $useStagingArea {
+		set command "$config(git) diff --no-prefix --cached $file"
+	} {
+		set command "$config(git) diff --no-prefix $file"
+	}
+	exec -- {*}$command > $patchfile
+}
+
+## Gets modified file from git status
+proc get_modified_files {} {
+	global config
+	set files {}
+	foreach "operation file" [exec $config(git) status --porcelain] {
+		if {$operation == "M"} {
+			lappend files $file
+		}
+	}
+	return $files
+}
+
+## Generates patches from Git working directory
+##
+## @param $patchesdir the patches directory
+##
+## @todo handle created files (A)
+## @todo handle copied files (C)
+## @todo handle renamed files (R)
+## @todo handle deleted files (D)
+proc generate_patches_from_git_working_directory {patchesdir} {
+	global config
+	foreach file [get_modified_files] {
+		# Determines the FreeBSD port file name and call git diff
+		set patchfile $patchesdir/[get_patch_filename $file]
+		if {!$config(overwriteExistingPatches) && [file exists $patchfile]} {
+			puts "* Ignoring $file ($patchfile already exists)"
+		} {
+			create_patch_from_git_file $file $patchfile
+			if $config(verbose) {puts "* Patching $file ($patchfile)"}
+		}
+	}
+}
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+#                                                                             #
+#  Section III - Procedural code                                              #
+#                                                                             #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+###
+### Step 1 - We need a patches directory
+###
+###   The script will do one of the following operation
+###   - create a files directory in the port, if this doesn't exist
+###   - use an existing port files directory
+###   - use the directory specified as script argument
+###
+
+set wrksrc [exec pwd]
+if {$argc == 0} {
+	# Autodetect the directory 
+	#
+	# We're probably in /usr/ports/quux/foo/work/foo-a.b
+	# Patches directory is so ../../files
+	set pos [string first /work/ $wrksrc]
+	if {$pos == -1} {
+		puts "Please specify the directory where to save the patches."
+		exit
+	}
+	set patchesdir [string range $wrksrc 0 $pos]files
+	if [file isdirectory $patchesdir] {
+		# All rules!
+	} elseif [file exists $patchesdir] {
+		# Achievement unlocked: the weird error the developer tooks care of
+		puts "Your port patches directory should be $patchesdir but this is currently a file."
+		exit
+	} {
+		# Create the directory
+		file mkdir $patchesdir
+	}
+} {
+	# Patches directory specified as argument
+	if ![file isdirectory [set patchesdir [lindex $argv 0]]] {
+		puts "Directory not found: $patchesdir"
+		exit
+	}
+}
+
+###
+### Step 2 - Generate patches
+### 
+###   Currently, we use git status
+###
+
+generate_patches_from_git_working_directory $patchesdir

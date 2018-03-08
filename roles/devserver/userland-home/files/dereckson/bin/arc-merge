@@ -1,0 +1,8 @@
+#!/bin/sh
+DIFF=$1
+
+git diff-index --quiet --cached HEAD -- && \
+git diff-files --quiet && \
+git pull && \
+arc patch --nobranch "$DIFF" && \
+git push
