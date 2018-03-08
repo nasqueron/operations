@@ -27,3 +27,14 @@ shells:
     # At commit 683d331 - 2017-11-05
     - source: https://raw.githubusercontent.com/Angelmmiguel/pm/master/zsh/_pm
     - source_hash: deea33968be713cdbd8385d3a72df2dd09c444e42499531893133f009f0ce0ea
+
+#   -------------------------------------------------------------
+#   tmux
+#   -------------------------------------------------------------
+
+tmux:
+  pkg.installed
+
+/root/.tmux.conf:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/tmux.conf
