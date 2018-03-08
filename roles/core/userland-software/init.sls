@@ -17,7 +17,6 @@ shells:
     - installed
     - pkgs:
       - bash
-      - fish
       - zsh
       {% if grains['os'] != 'FreeBSD' %}
       - tcsh
