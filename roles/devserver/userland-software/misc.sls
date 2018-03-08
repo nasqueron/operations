@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages, packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 devserver_software_misc_vcs:
   pkg:
@@ -133,3 +133,12 @@ devserver_software_misc_network:
       {% if grains['os_family'] == 'Debian' %}
       - sockstat
       {% endif %}
+
+#   -------------------------------------------------------------
+#   Custom simple binaries
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/shell:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/shell.py
+    - mode: 755
