@@ -8,3 +8,4 @@
 
 include:
   - .homefiles
+  - .repos
