@@ -33,6 +33,6 @@ staging_private_repository:
     - name: ssh://vcs@devcentral.nasqueron.org:5022/source/private-staging.git
     - target: /opt/salt/private/staging
     - user: deploy
-    - identity: /var/run/deploy/.ssh/id_ed25519
+    - identity: /opt/salt/security/id_ed25519
     - update_head: False
     - submodules: True
