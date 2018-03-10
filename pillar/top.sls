@@ -15,6 +15,10 @@ base:
     - nodes.forests
     - hotfixes.roles
     - webserver.sites
+  dwellers:
+    - paas.docker
+  equatower:
+    - paas.docker
   ysul:
     - devserver.repos
     - viperserv.bots
