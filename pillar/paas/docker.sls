@@ -22,6 +22,6 @@ docker_images:
     - nasqueron/notifications
     - nasqueron/phabricator
   equatower:
-    # Continous deployment jobs
+    # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
