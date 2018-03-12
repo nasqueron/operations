@@ -30,4 +30,7 @@ docker_images:
 
 docker_containers:
    equatower:
-    - jenkins # CD
+     # CD
+     jenkins:
+       host: cd.nasqueron.org
+       app_port: 38080
