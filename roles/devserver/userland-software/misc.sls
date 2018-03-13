@@ -93,7 +93,7 @@ freebsd_kernel_modules:
 
 freebsd_kernel_modules_enable:
   module.wait:
-    - name: freebsdkmod.load
+    - name: kmod.load
     - mod: pefs
     - persist: True
     - watch:
