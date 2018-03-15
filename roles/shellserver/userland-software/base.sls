@@ -135,11 +135,10 @@ languages:
     - installed
     - pkgs:
       - python3
+      - {{ packages.tcl }}
       {% if grains['os_family'] == 'Debian' %}
-      - tcl8.6-dev
       - php7.2
       {% elif grains['os'] == 'FreeBSD' %}
-      - tcl86
       - php72
       {% endif %}
 
