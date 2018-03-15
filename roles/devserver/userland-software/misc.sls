@@ -82,6 +82,9 @@ portsearch_database:
     - require:
       - pkg: devserver_software_misc_ports
 
+/var/cache/ccache:
+  file.directory
+
 /etc/make.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/make.conf
