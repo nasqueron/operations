@@ -9,4 +9,4 @@
 salt_roles:
   grains.list_present:
     - name: roles
-    - value: {{ salt['node.list']("roles") }}
+    - value: {{ salt['node.get_list']("roles") }}

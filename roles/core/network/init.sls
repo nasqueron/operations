@@ -24,7 +24,7 @@
         interface: {{ network['ipv4_interface'] }}
         ipv4_address: {{ network['ipv4_address'] }}
         ipv4_netmask: {{ network['ipv4_netmask'] | default('255.255.255.0') }}
-        ipv4_aliases: {{ salt['node.list']('network:ipv4_aliases') }}
+        ipv4_aliases: {{ salt['node.get_list']('network:ipv4_aliases') }}
         dhcp_required: {{ salt['node.has']('network:dhcp_required') }}
 
 /etc/rc.conf.d/routing:

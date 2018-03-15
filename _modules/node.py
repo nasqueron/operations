@@ -77,7 +77,7 @@ def _get_property(key, nodename, default_value, parent=None):
     return default_value
 
 
-def list(key, nodename=None):
+def get_list(key, nodename=None):
     '''
     A function to get a node pillar configuration.
 
@@ -114,7 +114,7 @@ def has_role(role, nodename=None):
 
         salt * node.has_role devserver
     '''
-    return role in list('roles', nodename)
+    return role in get_list('roles', nodename)
 
 
 def filter_by_role(pillar_key, nodename=None):
@@ -134,7 +134,7 @@ def filter_by_role(pillar_key, nodename=None):
 
         salt * node.filter_by_role web_content_sls
     '''
-    roles = list('roles', nodename)
+    roles = get_list('roles', nodename)
     dictionary = __pillar__.get(pillar_key, {})
     filtered_list = []
 
