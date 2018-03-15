@@ -42,6 +42,7 @@ psysh_permissions:
   file.managed:
     - name: /opt/psysh/psysh
     - mode: 755
+    - replace: False
     - require:
       - archive: psysh_software
 
