@@ -69,6 +69,7 @@
         realname: {{ bot['realname'] | default(botname) }}
         scripts: {{ bot['scripts'] }}
         modules: {{ bot['modules'] | default([]) }}
+        runas: {{ bot['runas'] | default('viperserv') }}
 
 /srv/viperserv/{{ botname }}/motd:
   file.managed:
