@@ -25,3 +25,7 @@ docker_images:
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
+
+docker_containers:
+   equatower:
+    - jenkins # CD
