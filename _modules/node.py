@@ -125,6 +125,9 @@ def filter_by_role(pillar_key, nodename=None):
       - keys are role to check the current node against
       - values are list of items
 
+    If a key '*' is also present, it will be included
+    for every role.
+
     Returns a list, extending all the filtered lists.
 
     CLI Example:
@@ -136,7 +139,7 @@ def filter_by_role(pillar_key, nodename=None):
     filtered_list = []
 
     for role, items in dictionary.items():
-        if role in roles:
+        if role == '*' or role in roles:
             filtered_list.extend(items)
 
     return filtered_list

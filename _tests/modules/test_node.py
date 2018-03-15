@@ -52,3 +52,30 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         ]
         self.assertEqual(['Caras Galadhon', 'Onodlo'],
                          sorted(node.filter_by_role('items_by_role')))
+
+    def test_filter_by_role_with_star(self):
+        node_key = self.grains['id']
+
+        self.assertEqual(['Air', 'Caras Galadhon'],
+                         node.filter_by_role('items_by_role_with_star'))
+
+        self.assertEqual(['Air', 'Onodlo'],
+                         node.filter_by_role(
+                            'items_by_role_with_star',
+                            'entwash'
+                        ))
+
+        # No role
+        self.pillar['nodes'][node_key]['roles'] = []
+        self.assertEqual(['Air'],
+                         node.filter_by_role('items_by_role_with_star'))
+
+        # More than one role
+        self.pillar['nodes'][node_key]['roles'] = [
+            'border',
+            'treecity'
+        ]
+        self.assertEqual(
+            ['Air', 'Caras Galadhon', 'Onodlo'],
+            sorted(node.filter_by_role('items_by_role_with_star'))
+        )

@@ -21,6 +21,14 @@ items_by_role:
   border:
     - Onodlo
 
+items_by_role_with_star:
+  '*':
+    - Air
+  treecity:
+    - Caras Galadhon
+  border:
+    - Onodlo
+
 shellgroups_ubiquity:
   - ubiquity
 
