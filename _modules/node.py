@@ -145,6 +145,36 @@ def filter_by_role(pillar_key, nodename=None):
     return filtered_list
 
 
+def filter_by_name(pillar_key, nodename=None):
+    '''
+    A function to filter a dictionary by node name.
+
+    The dictionary must respect the following structure:
+      - keys are names to check the current node against
+      - values are list of items
+
+    If a key '*' is also present, it will be included
+    for every node.
+
+    Returns a list, extending all the filtered lists.
+
+    CLI Example:
+
+        salt * node.filter_by_name mars
+    '''
+    if nodename is None:
+        nodename = __grains__['id']
+
+    dictionary = __pillar__.get(pillar_key, {})
+    filtered_list = []
+
+    for name, items in dictionary.items():
+        if name == '*' or name == nodename:
+            filtered_list.extend(items)
+
+    return filtered_list
+
+
 def has_web_content(content, nodename=None):
     return content in filter_by_role('web_content_sls', nodename)
 

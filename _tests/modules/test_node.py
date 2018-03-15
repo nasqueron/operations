@@ -79,3 +79,40 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             ['Air', 'Caras Galadhon', 'Onodlo'],
             sorted(node.filter_by_role('items_by_role_with_star'))
         )
+
+    def test_filter_by_name(self):
+        node_key = self.grains['id']
+        self.assertEqual(
+            ['Caras Galadhon'],
+            node.filter_by_name('items_by_name')
+        )
+
+        self.assertEqual(
+            ['Caras Galadhon'],
+            node.filter_by_name('items_by_name', 'egladil')
+        )
+
+        self.grains['id'] = 'entwash'
+        self.assertEqual(
+            [],
+            node.filter_by_name('items_by_name')
+        )
+
+
+    def test_filter_by_name_with_star(self):
+        node_key = self.grains['id']
+        self.assertEqual(
+            ['Air', 'Caras Galadhon'],
+            node.filter_by_name('items_by_name_with_star')
+        )
+
+        self.assertEqual(
+            ['Air', 'Caras Galadhon'],
+            node.filter_by_name('items_by_name_with_star', 'egladil')
+        )
+
+        self.grains['id'] = 'entwash'
+        self.assertEqual(
+            ['Air'],
+            node.filter_by_name('items_by_name_with_star')
+        )

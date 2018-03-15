@@ -29,6 +29,16 @@ items_by_role_with_star:
   border:
     - Onodlo
 
+items_by_name:
+  egladil:
+    - Caras Galadhon
+
+items_by_name_with_star:
+  '*':
+    - Air
+  egladil:
+    - Caras Galadhon
+
 shellgroups_ubiquity:
   - ubiquity
 
