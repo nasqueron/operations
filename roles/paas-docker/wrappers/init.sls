@@ -2,17 +2,19 @@
 #   Salt — Provision Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-10
+#   Created:        2018-03-15
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set images = salt['node.filter_by_name']('docker_images', []) %}
+{% from "map.jinja" import dirs with context %}
 
 #   -------------------------------------------------------------
-#   Fetch Docker images
-#   -------------------------------------------------------------
+#   Wrapper binaries
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for image in images %}
-{{ image }}:
-  docker_image.present
+{% for command in ['certbot'] %}
+{{ dirs.bin }}/{{ command }}:
+  file.managed:
+    - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
+    - mode: 755
 {% endfor %}

@@ -11,6 +11,8 @@
 # See https://docs.saltstack.com/en/latest/ref/states/all/salt.states.docker_image.html
 
 docker_images:
+  '*':
+    - certbot/certbot
   dwellers:
     # Core services
     - nasqueron/mysql
