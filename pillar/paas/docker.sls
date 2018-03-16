@@ -34,3 +34,8 @@ docker_containers:
      jenkins:
        host: cd.nasqueron.org
        app_port: 38080
+     jenkins_slave:
+       apsile:
+         ip: 172.17.0.100
+       elapsi:
+         ip: 172.17.0.101
