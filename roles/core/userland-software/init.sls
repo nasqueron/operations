@@ -15,6 +15,10 @@
 {% if grains['os'] == 'CentOS' %}
 epel-release:
   pkg.installed
+
+/etc/yum.repos.d/nasqueron.repo:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/nasqueron.repo
 {% endif %}
 
 #   -------------------------------------------------------------
