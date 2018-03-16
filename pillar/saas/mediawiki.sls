@@ -6,6 +6,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .account
-  - .mediawiki
+mediawiki_extensions:
+  - Cite
+
+mediawiki_skins:
+  - MonoBook
+  - Timeless
+  - Vector

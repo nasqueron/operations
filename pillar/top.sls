@@ -21,6 +21,7 @@ base:
     - paas.docker
   ysul:
     - devserver.repos
+    - saas.mediawiki
     - viperserv.bots
     - viperserv.fantoir
     - webserver.labs
