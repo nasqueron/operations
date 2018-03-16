@@ -17,7 +17,7 @@
 #   </auto-generated>
 
 docker run -it --rm \
-	-v /data/letsencrypt/etc:/etc/letsencrypt \
-	-v /data/letsencrypt/var:/var/lib/letsencrypt \
-	-v /data/letsencrypt/www:/www \
+	-v /srv/letsencrypt/etc:/etc/letsencrypt \
+	-v /srv/letsencrypt/var:/var/lib/letsencrypt \
+	-v /srv/letsencrypt/www:/www \
 	certbot/certbot:latest "$*"
