@@ -51,3 +51,13 @@ tmux:
 /root/.tmux.conf:
   file.managed:
     - source: salt://roles/core/userland-software/files/tmux.conf
+
+#   -------------------------------------------------------------
+#   System administration utilities
+#   -------------------------------------------------------------
+
+sysadmin_utilities:
+  pkg.installed:
+    - pkgs:
+      - tree
+      - wget
