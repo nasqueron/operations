@@ -37,6 +37,7 @@ web_static_sites:
     - docker
     - ftp
     - infra
+    - packages
     - trustspace
 
 #   -------------------------------------------------------------
