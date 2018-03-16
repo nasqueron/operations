@@ -4,7 +4,7 @@
 #   Author:         Sébastien Santoro aka Dereckson
 #   Created:        2016-01-05
 #   License:        Trivial work, not eligible for copyright.
-#   Source file:    roles/webserver-legacy/nginx/files/includes/tls
+#   Source file:    roles/webserver-core/nginx/files/includes/tls
 #   -------------------------------------------------------------
 
 listen 443 ssl http2;

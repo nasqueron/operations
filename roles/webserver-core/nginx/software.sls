@@ -2,13 +2,8 @@
 #   Salt — Webserver core units for all webservers roles
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-25
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .nginx
-  - .tools
-  {% if 'paas-docker' not in salt['node.get_list']('roles') %}
-  - .letsencrypt
-  {% endif %}
+nginx:
+  pkg.installed

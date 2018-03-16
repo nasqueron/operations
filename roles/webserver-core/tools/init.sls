@@ -6,7 +6,18 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, packages with context %}
+
+#   -------------------------------------------------------------
+#   Dependencies
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ packages.tcl }}:
+  pkg.installed
+
+#   -------------------------------------------------------------
+#   Salt — Helper tools for nginx
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.bin }}/list-nginx-vhosts-conf:
   file.managed:
