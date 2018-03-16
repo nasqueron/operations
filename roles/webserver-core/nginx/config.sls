@@ -20,3 +20,12 @@ webserver_core_nginx_includes:
     - source: salt://roles/webserver-core/nginx/files/includes
     - dir_mode: 755
     - file_mode: 644
+
+#   -------------------------------------------------------------
+#   vhost folder
+#
+#   To be filled by the specific web role or unit
+#   -------------------------------------------------------------
+
+{{ dirs.etc }}/nginx/vhosts:
+  file.directory
