@@ -176,6 +176,7 @@ languages_libs:
       - {{ packages_prefixes.php }}sqlite3
       {% else %}
       # On Debian, these extensions are now shipped by default:
+      - {{ packages_prefixes.php }}fileinfo
       - {{ packages_prefixes.php }}filter
       - {{ packages_prefixes.php }}hash
       - {{ packages_prefixes.php }}iconv
