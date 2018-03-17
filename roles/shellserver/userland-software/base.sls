@@ -178,6 +178,7 @@ languages_libs:
       # On Debian, these extensions are now shipped by default:
       - {{ packages_prefixes.php }}filter
       - {{ packages_prefixes.php }}hash
+      - {{ packages_prefixes.php }}iconv
       - {{ packages_prefixes.php }}openssl
       - {{ packages_prefixes.php }}pcntl
       - {{ packages_prefixes.php }}session
