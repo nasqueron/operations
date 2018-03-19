@@ -48,3 +48,17 @@ mediawiki_{{ type }}_repository_{{ item }}:
     - user: mediawiki
 {% endfor %}
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   MediaWiki configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/srv/mediawiki/LocalSettings.php:
+  file.managed:
+    - source: salt://roles/saas-mediawiki/mediawiki/files/LocalSettings.php
+    - user: mediawiki
+    - group: mediawiki
+    - mode: 644
+    - template: jinja
+    - context:
+        directory: {{ pillar['mediawiki_saas']['directory'] }}

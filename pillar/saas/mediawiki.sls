@@ -13,3 +13,6 @@ mediawiki_skins:
   - MonoBook
   - Timeless
   - Vector
+
+mediawiki_saas:
+  directory: /var/51-wwwroot/saas-mediawiki
