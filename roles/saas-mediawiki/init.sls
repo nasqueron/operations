@@ -9,3 +9,4 @@
 include:
   - .account
   - .mediawiki
+  - .software
