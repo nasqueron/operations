@@ -15,6 +15,10 @@ wwwroot51_directories:
   rain:
     user: dereckson
     group: dereckson
+  saas-mediawiki:
+    user: dereckson
+    group: mediawiki
+    repository: ssh://vcs@devcentral.nasqueron.org:5022/source/saas-mediawiki.git
   tools:
     user: dereckson
     group: dereckson
