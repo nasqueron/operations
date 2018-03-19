@@ -16,3 +16,16 @@ mediawiki_skins:
 
 mediawiki_saas:
   directory: /var/51-wwwroot/saas-mediawiki
+
+mediawiki_datastores:
+  ###
+  ### Nasqueron
+  ###
+  - agora.nasqueron.org
+
+  ###
+  ### Other wikis hosted on the Nasqueron servers
+  ###
+  - arsmagica.espace-win.org
+  - utopia.espace-win.org
+  - www.wolfplex.org
