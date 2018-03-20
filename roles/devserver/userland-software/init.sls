@@ -19,3 +19,4 @@ include:
   - .notifications
   - .phabricator
   - .psysh
+  - .wordpress
