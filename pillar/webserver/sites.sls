@@ -70,6 +70,17 @@ web_php_sites:
     env:
       SERVERS_LOG_FILE: /srv/api/data/servers-log-all.json
 
+  wikis.nasqueron.org:
+    domain: nasqueron.org
+    subdomain: wikis
+    user: mediawiki
+    php-fpm: prod
+    skipCreateAccount: True
+    env:
+      MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
+      DB_HOST: 127.0.0.1
+      DB_USER: mediawiki-saas
+
 #   -------------------------------------------------------------
 #   States
 #
