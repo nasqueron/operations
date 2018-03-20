@@ -20,3 +20,4 @@ mediawiki_software_dependencies:
       - git
       - {{ packages.imagemagick }}
       - {{ packages['jpeg-turbo'] }}
+      - {{ packages.lua }}
