@@ -8,6 +8,10 @@
 
 mediawiki_extensions:
   - Cite
+  - WikiEditor
+  - SyntaxHighlight
+  - CodeEditor
+  - Scribunto
 
 mediawiki_skins:
   - MonoBook
