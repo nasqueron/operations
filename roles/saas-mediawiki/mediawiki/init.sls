@@ -62,3 +62,13 @@ mediawiki_{{ type }}_repository_{{ item }}:
     - template: jinja
     - context:
         directory: {{ pillar['mediawiki_saas']['directory'] }}
+
+#   -------------------------------------------------------------
+#   MediaWiki logs
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/log/mediawiki:
+  file.directory:
+    - user: mediawiki
+    - group: mediawiki
+    - mode: 755
