@@ -26,6 +26,10 @@ wwwroot51_directories:
     user: dereckson
     group: dereckson
     repository: ssh://vcs@devcentral.nasqueron.org:5022/source/tools.git
+  wolfplex-api:
+    user: dereckson
+    group: dereckson
+    repository: git@github.com:wolfplex/api-www.git
   www:
     user: dereckson
     group: dereckson

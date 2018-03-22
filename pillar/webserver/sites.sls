@@ -97,6 +97,7 @@ web_php_sites:
     php-fpm: prod
     env:
       DATASTORE: /var/dataroot/wolfplex
+      CREDENTIAL_PATH_DATASOURCES_SECURITYDATA: /var/dataroot/wolfplex/secrets.json
 
 #   -------------------------------------------------------------
 #   States
@@ -131,6 +132,7 @@ web_content_sls:
     - .org/nasqueron/labs
 
     # Wolfplex Hackerspace
+    - .org/wolfplex/api
     - .org/wolfplex/www
 
 #   -------------------------------------------------------------
