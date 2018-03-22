@@ -183,6 +183,7 @@ languages_libs:
       - {{ packages_prefixes.php }}openssl
       - {{ packages_prefixes.php }}pcntl
       - {{ packages_prefixes.php }}session
+      - {{ packages_prefixes.php }}xmlreader
       - {{ packages_prefixes.php }}zlib
       # On Debian, these PDO extensions doesn't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
