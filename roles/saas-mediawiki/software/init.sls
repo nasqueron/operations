@@ -6,10 +6,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
-#   Software required by MediaWiki
+#   Software required by MediaWiki or other tools
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 mediawiki_software_dependencies:
@@ -21,3 +21,16 @@ mediawiki_software_dependencies:
       - {{ packages.imagemagick }}
       - {{ packages['jpeg-turbo'] }}
       - {{ packages.lua }}
+      - rlwrap
+
+#   -------------------------------------------------------------
+#   Administration tool
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/mw:
+  file.managed:
+    - source: roles/saas-mediawiki/software/files/mw.sh.jinja
+    - mode: 755
+    - template: jinja
+    - context:
+        saas: {{ pillar['mediawiki_saas'] }}

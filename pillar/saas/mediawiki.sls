@@ -20,6 +20,10 @@ mediawiki_skins:
 
 mediawiki_saas:
   directory: /var/51-wwwroot/saas-mediawiki
+  mediawiki_directory: /srv/mediawiki
+  db:
+    host: 127.0.0.1
+    user: mediawiki-saas
 
 mediawiki_datastores:
   ###
