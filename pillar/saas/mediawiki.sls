@@ -12,6 +12,7 @@ mediawiki_extensions:
   - SyntaxHighlight_GeSHi
   - CodeEditor
   - Scribunto
+  - ParserFunctions
 
 mediawiki_skins:
   - MonoBook
