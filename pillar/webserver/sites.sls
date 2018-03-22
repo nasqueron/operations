@@ -24,7 +24,7 @@ web_domains:
   # Wolfplex
   #
   wolfplex:
-    - wolfplex.be
+    - wolfplex.org
 
 #   -------------------------------------------------------------
 #   Static sites
@@ -39,6 +39,8 @@ web_static_sites:
     - infra
     - packages
     - trustspace
+  wolfplex.org:
+    - www
 
 #   -------------------------------------------------------------
 #   PHP sites
