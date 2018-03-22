@@ -16,5 +16,7 @@
     - clean: True
     - dir_mode: 755
     - file_mode: 644
+    - user: wolfplex.org
+    - group: web
 
 {% endif %}
