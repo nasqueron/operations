@@ -53,6 +53,12 @@ php_fpm_instances:
 
 web_php_sites:
   # Nasqueron members
+  mediawiki.dereckson.be:
+    domain: dereckson.be
+    subdomain: mediawiki
+    user: web-be-dereckson-mw
+    php-fpm: prod
+
   www.dereckson.be:
     domain: dereckson.be
     subdomain: www
