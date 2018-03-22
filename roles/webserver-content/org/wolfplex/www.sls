@@ -19,4 +19,9 @@
     - user: wolfplex.org
     - group: web
 
+/var/dataroot/wolfplex:
+  file.directory:
+    - user: wolfplex.org
+    - group: web
+
 {% endif %}
