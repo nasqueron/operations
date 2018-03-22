@@ -9,7 +9,7 @@
 mediawiki_extensions:
   - Cite
   - WikiEditor
-  - SyntaxHighlight
+  - SyntaxHighlight_GeSHi
   - CodeEditor
   - Scribunto
 
