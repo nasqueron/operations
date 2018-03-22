@@ -14,3 +14,4 @@ include:
   - .org/nasqueron/docs
   - .org/nasqueron/labs
   - .org/nasqueron/social
+  - .org/wolfplex/www

@@ -121,6 +121,9 @@ web_content_sls:
     - .org/nasqueron/docs
     - .org/nasqueron/labs
 
+    # Wolfplex Hackerspace
+    - .org/wolfplex/www
+
 #   -------------------------------------------------------------
 #   Tweaks
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
