@@ -21,7 +21,7 @@
 
 /var/dataroot/wolfplex:
   file.directory:
-    - user: wolfplex.org
+    - user: web-org-wolfplex-www
     - group: web
 
 {% endif %}
