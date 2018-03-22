@@ -89,6 +89,15 @@ web_php_sites:
       DB_HOST: 127.0.0.1
       DB_USER: mediawiki-saas
 
+  # Wolfplex Hackerspace
+  www.wolfplex.org:
+    domain: wolfplex.org
+    subdomain: www
+    user: web-org-wolfplex-www
+    php-fpm: prod
+    env:
+      DATASTORE: /var/dataroot/wolfplex
+
 #   -------------------------------------------------------------
 #   States
 #
