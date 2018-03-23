@@ -7,6 +7,6 @@
 
 {% from "map.jinja" import dirs with context %}
 
-{{ dirs.etc }}/php.ini
+{{ dirs.etc }}/php.ini:
   file.managed:
     - source: salt://roles/webserver-legacy/php-sites/files/php.ini
