@@ -9,3 +9,4 @@
 include:
   - .config
   - .selinux
+  - .firewall
