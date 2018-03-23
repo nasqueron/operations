@@ -27,6 +27,7 @@
 #   -------------------------------------------------------------
 
 {% for container, args in containers.items() %}
+{% if 'host' in args %}
 
 {{ dirs.etc }}/nginx/vhosts/{{ container }}.conf:
   file.managed:
@@ -37,4 +38,5 @@
         fqdn: {{ args['host'] }}
         app_port: {{ args['app_port'] }}
 
+{% endif %}
 {% endfor %}
