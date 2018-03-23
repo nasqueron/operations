@@ -7,6 +7,10 @@
 
 {% from "map.jinja" import dirs with context %}
 
+#   -------------------------------------------------------------
+#   PHP global configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 {{ dirs.etc }}/php.ini:
   file.managed:
     - source: salt://roles/webserver-legacy/php-sites/files/php.ini
