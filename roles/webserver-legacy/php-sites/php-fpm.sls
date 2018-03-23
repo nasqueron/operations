@@ -43,6 +43,7 @@ php-fpm_pool_{{ site['user'] }}:
         subdomain: {{ site['subdomain'] }}
         user: {{ site['user' ]}}
         display_errors: {{ site['display_errors']|default('off') }}
+        slow_delay: {{ site['slow_delay']|default('5s') }}
         env : {{ site['env']|default({}) }}
 
 /var/log/www/{{ site['domain' ]}}/{{ site['subdomain' ]}}-php.log:
