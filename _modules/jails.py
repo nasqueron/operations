@@ -49,7 +49,7 @@ def flatlist(group=None):
 
     CLI Example::
 
-        salt-call --local jails.list ysul
+        salt-call --local jails.flatlist ysul
     '''
     return " ".join(sorted(list(group)))
 
@@ -80,7 +80,7 @@ def guess_ipv4_network_interface():
 def guess_ipv6_network_interface():
     '''
     A function tu guess to what network interface bind the
-    public IPv4 jail IP.
+    public IPv6 jail IP.
     '''
     interfaces = _get_ipv6_network_interfaces()
 
@@ -104,13 +104,13 @@ def guess_ipv6_network_interface():
     return interfaces[0]
 
 
-def get_jail(jailname, group=None):
+def get(jailname, group=None):
     '''
     A function to get a jail pillar configuration
 
     CLI Example::
 
-        salt-call --local jails.list mumble ysul
+        salt-call --local jails.get mumble ysul
     '''
     if group is None:
         group = _get_default_group()
@@ -128,7 +128,7 @@ def get_ezjail_ips_parameter(jailname, group=None):
 
         salt * jails.get_ezjail_ips_parameter ftp
     '''
-    jail = get_jail(jailname, group)
+    jail = get(jailname, group)
 
     config = [
         ["lo1", jail['lo']],
