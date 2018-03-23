@@ -86,7 +86,7 @@ web_php_sites:
     skipCreateAccount: True
     env:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
-      DB_HOST: 127.0.0.1
+      DB_HOST: localhost
       DB_USER: mediawiki-saas
 
   # Wolfplex Hackerspace

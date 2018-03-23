@@ -24,7 +24,7 @@ mediawiki_saas:
   mediawiki_directory: /srv/mediawiki
   fastcgi_url: unix:/var/run/web/wikis.nasqueron.org/php-fpm.sock
   db:
-    host: 127.0.0.1
+    host: localhost
     user: mediawiki-saas
 
 mediawiki_datastores:
