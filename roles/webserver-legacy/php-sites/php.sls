@@ -16,7 +16,7 @@
     - source: salt://roles/webserver-legacy/php-sites/files/php.ini
 
 #   -------------------------------------------------------------
-#   Session directory
+#   Sessions directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /var/tmp/php:
@@ -28,3 +28,10 @@
   file.directory:
     - mode: 1770
     - group: web
+
+{% for domain, site in pillar['web_php_sites'].items() %}
+/var/tmp/php/sessions/{{ domain }}:
+  file.directory:
+    - mode: 0700
+    - user: {{ site['user']}}
+{% endfor %}
