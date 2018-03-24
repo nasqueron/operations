@@ -20,6 +20,7 @@ mediawiki_software_dependencies:
       - git
       - {{ packages.imagemagick }}
       - {{ packages['jpeg-turbo'] }}
+      - librsvg2
       - {{ packages.lua }}
       - {{ packages_prefixes.php }}opcache
       - rlwrap
