@@ -7,12 +7,17 @@
 #   -------------------------------------------------------------
 
 mediawiki_extensions:
+  - CategoryTree
   - Cite
-  - WikiEditor
-  - SyntaxHighlight_GeSHi
   - CodeEditor
-  - Scribunto
+  - ConfirmEdit
+  - ContactPage
+  - Gadgets
   - ParserFunctions
+  - Poem
+  - Scribunto
+  - SyntaxHighlight_GeSHi
+  - WikiEditor
 
 mediawiki_skins:
   - MonoBook
