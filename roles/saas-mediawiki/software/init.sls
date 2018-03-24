@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs, packages with context %}
+{% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Software required by MediaWiki or other tools
@@ -21,6 +21,7 @@ mediawiki_software_dependencies:
       - {{ packages.imagemagick }}
       - {{ packages['jpeg-turbo'] }}
       - {{ packages.lua }}
+      - {{ packages_prefixes.php }}opcache
       - rlwrap
 
 #   -------------------------------------------------------------
