@@ -24,16 +24,15 @@ location /wiki {
     try_files $uri $uri/ /w/index.php?$query_string;
 }
 
-location ~ ^/w/images/thumb/(archive/)?[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ {
-    #Note: this doesn't work with InstantCommons.
-    if (!-f $request_filename) {
-        rewrite ^/w/images/thumb/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ /w/thumb.php?f=$1&width=$2;
-        rewrite ^/w/images/thumb/archive/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ /w/thumb.php?f=$1&width=$2&archived=1;
-    }
-}
-
 location /w/images {
     alias /var/dataroot/$server_name/images;
+
+    try_files $uri @thumbnail;
+}
+
+location @thumbnail {
+    rewrite ^/w/images/thumb/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ /w/thumb.php?f=$1&width=$2;
+    rewrite ^/w/images/thumb/archive/[0-9a-f]/[0-9a-f][0-9a-f]/([^/]+)/([0-9]+)px-.*$ /w/thumb.php?f=$1&width=$2&archived=1;
 }
 
 location /w/images/deleted    { deny all; }
