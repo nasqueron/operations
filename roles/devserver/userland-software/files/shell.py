@@ -225,6 +225,9 @@ def main():
     connection = ServerConnection(config, sys.argv[1:])
     try:
         subprocess_args = connection.parse_connection()
+    except IndexError:
+        print_error("Required argument is missing.")
+        exit(8)
     except ValueError as e:
         print_error(e)
         exit(4)
