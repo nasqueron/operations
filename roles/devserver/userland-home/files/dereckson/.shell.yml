@@ -10,3 +10,7 @@ handlers:
     server: "dwellers.nasqueron.org"
     command: ['docker', 'exec', '-it', '{{%s}}', '{{%s-|bash}}']
     interactive: True
+  tools:
+    server: "dev.tools.wmflabs.org"
+    command: ['become', '{{%s}}', '{{%s-|}}']
+    interactive: True
