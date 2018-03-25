@@ -204,6 +204,7 @@ alias n=nano
 alias si='french-conjugator --mode=subjunctive --tense=imperfect'
 alias t='t --task-dir ~/.tasks --list tasks'
 
+alias mw='sudo -u mediawiki mw'
 alias tclsh='rlwrap tclsh8.6'
 alias psysh='rlwrap psysh'
 
