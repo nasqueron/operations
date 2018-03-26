@@ -45,7 +45,7 @@ location ~ /.ht               { deny all; }
 location /w/mw-config         { deny all; }
 
 location = /w {
-    return 301 https://www.wolfplex.org/w/index.php;
+    return 301 https://$host/w/index.php;
 }
 
 location /w {
