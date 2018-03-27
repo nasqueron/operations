@@ -12,11 +12,14 @@ mediawiki_extensions:
   - CodeEditor
   - ConfirmEdit
   - ContactPage
+  - Echo
+  - Flow
   - Gadgets
   - ParserFunctions
   - Poem
   - Scribunto
   - SyntaxHighlight_GeSHi
+  - Thanks
   - WikiEditor
 
 mediawiki_skins:
