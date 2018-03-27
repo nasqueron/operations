@@ -12,7 +12,7 @@
 #   Wrapper binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for command in ['certbot'] %}
+{% for command in ['certbot', 'phpbb'] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
