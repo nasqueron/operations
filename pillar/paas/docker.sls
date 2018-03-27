@@ -27,6 +27,8 @@ docker_images:
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
+    # phpBB SaaS
+    -  nasqueron/mysql
 
 docker_containers:
    equatower:
@@ -39,3 +41,5 @@ docker_containers:
          ip: 172.17.0.100
        elapsi:
          ip: 172.17.0.101
+     # phpBB SaaS
+     phpbb_db: {}
