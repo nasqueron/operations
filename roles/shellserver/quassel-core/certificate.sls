@@ -6,25 +6,26 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "roles/shellserver/quassel-core/map.jinja" import quassel with context %}
+
 #   -------------------------------------------------------------
 #   Certificate
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /var/lib/quassel:
   file.directory:
-    - user: quassel
-    - group: quassel
+    - user: {{ quassel.user }}
+    - group: {{ quassel.group }}
 
 quassel_certificate:
   cmd.run:
     - name: cat privkey.pem cert.pem > /var/lib/quassel/quasselCert.pem
     - cwd: /etc/letsencrypt/live/quassel.eglide.org
-    - creates: /var/lib/quassel/quasselCert.pem
 
 quassel_certificate_rights:
   file.managed:
     - name: /var/lib/quassel/quasselCert.pem
     - replace: False
-    - user: quassel
-    - group: quassel
+    - user: {{ quassel.user }}
+    - group: {{ quassel.group }}
     - mode: 400

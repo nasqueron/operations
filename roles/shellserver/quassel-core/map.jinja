@@ -6,6 +6,13 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .certificate
-  - .software
+{% set quassel = salt['grains.filter_by']({
+    'Arch' : {
+      'user': 'quassel',
+      'group': 'quassel',
+    },
+    'Debian': {
+      'user': 'quasselcore',
+      'group': 'quassel',
+    },
+}, default='Arch') %}
