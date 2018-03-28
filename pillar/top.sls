@@ -19,6 +19,7 @@ base:
     - paas.docker
   equatower:
     - paas.docker
+    - saas.phpbb
   ysul:
     - devserver.repos
     - saas.mediawiki
