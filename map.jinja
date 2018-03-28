@@ -32,14 +32,23 @@
     'Debian': {
         'bash': '/bin/bash',
         'fish': '/usr/bin/fish',
+        'nologin': '/usr/sbin/nologin',
         'tcsh': '/usr/bin/tcsh',
         'zsh': '/bin/zsh',
     },
     'FreeBSD' : {
         'bash': '/usr/local/bin/bash',
         'fish': '/usr/local/bin/fish',
+        'nologin': '/sbin/nologin',
         'tcsh': '/bin/tcsh',
         'zsh': '/usr/local/bin/zsh',
+    },
+    'Arch': {
+        'bash': '/bin/bash',
+        'fish': '/usr/bin/fish',
+        'nologin': '/sbin/nologin',
+        'tcsh': '/usr/bin/tcsh',
+        'zsh': '/bin/zsh',
     },
 }, default='Debian') %}
 

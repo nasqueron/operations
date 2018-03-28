@@ -1,18 +1,12 @@
 #   -------------------------------------------------------------
-#   Salt — Shell server's units
+#   Salt — Provision Quassel core
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Nasqueron
+#   Project:        Eglide
+#   Created:        2018-03-28
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  # System features
-  - .userland-software
-  - .vhosts
-  - .web-hosting
-  - .database
-  - .quassel-core
-
-  # Services hosted
-  - .odderon
-  - .bonjour-chaton
+  - .account
+  - .certificate
+  - .software
