@@ -58,6 +58,12 @@ shellusers:
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjrcYXZ2/bfTdxVI1ZMXknB7WJa8uY1RLZ5Vrs2LPRTzBqaXzpY6/Iw5Ibiy8KMbVo/vQtAWrGY00ucHE+swS2VEtWIZc72kSznkL65bKtqHbZa+IqktRUBsg6ay/3Xups0DBfZ1T+SRSiLh0rya1dXd2NyIrvSo5eCxEPqAPm87rOrgC95GRxqlJUZ5ZOjV92K9v6TcTQWn61nGl2DQviAugNGtHGXhq0Xk98lWkLeGhDLedJOqFmHvqGrkSQpEps7ivlh3Mstv49pXqH1dIA7UhnyX5DTR6YjhIKehZnCfsl8wt6FMCs5QMor1giY4ZpUhY2D4ezvzFD2kqbOUvQQ== 2017-06-14
     uid: 2019
+  balaji:
+    fullname: Balaji Ramasubramanian
+    shell: bash
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9mJZLoqSiPgMxChZxkfkqLxjZw/WuqUC1m7jn93jZp Balaji@Balajis-MacBook-Air.local
+    uid: 2027
   c2c:
     fullname: c2c
     shell: fish
