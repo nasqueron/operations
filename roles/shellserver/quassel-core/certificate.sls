@@ -19,7 +19,7 @@
 
 quassel_certificate:
   cmd.run:
-    - name: cat privkey.pem cert.pem > /var/lib/quassel/quasselCert.pem
+    - name: cat privkey.pem fullchain.pem > /var/lib/quassel/quasselCert.pem
     - cwd: /etc/letsencrypt/live/quassel.eglide.org
 
 quassel_certificate_rights:
