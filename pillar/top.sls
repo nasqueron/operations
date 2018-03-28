@@ -17,6 +17,8 @@ base:
     - webserver.sites
   dwellers:
     - paas.docker
+  eglide:
+    - shellserver.quassel
   equatower:
     - paas.docker
     - saas.phpbb
