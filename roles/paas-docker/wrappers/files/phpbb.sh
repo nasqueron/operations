@@ -48,7 +48,6 @@ unknown_command() {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 phpbb_storage() {
-    # shellcheck disable=SC2016
     docker run -it --rm --link $MYSQL_CONTAINER:mysql $MYSQL_IMAGE \
         sh -c 'exec mysql -h"$MYSQL_PORT_3306_TCP_ADDR" -P"$MYSQL_PORT_3306_TCP_PORT" -uroot -p"$MYSQL_ENV_MYSQL_ROOT_PASSWORD"'
 }
