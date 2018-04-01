@@ -47,12 +47,12 @@ getcommandname() {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ $# -lt 2 ]; then
-    echo "Usage: $0 <wiki> <maintenance script to call> [arguments]" >&2
+    echo "Usage: $0 <maintenance script to call> <wiki> [arguments]" >&2
     exit 1
 fi
 
-WIKI=$1
-SCRIPT=$2
+SCRIPT=$1
+WIKI=$2
 
 # Other arguments are for the maintenance script
 shift 2
