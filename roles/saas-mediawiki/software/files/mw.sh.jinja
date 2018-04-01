@@ -68,6 +68,8 @@ if [ $HTTP_HOST_EXIT_CODE -ne 0 ]; then
     exit $HTTP_HOST_EXIT_CODE
 fi
 
+SERVER_NAME=$HTTP_HOST
+
 #   -------------------------------------------------------------
 #   Determine script path
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -95,6 +97,7 @@ export MEDIAWIKI_ENTRY_POINT
 export DB_HOST
 export DB_USER
 export HTTP_HOST
+export SERVER_NAME
 export MW_INSTALL_PATH
 
 rlwrap php "$FULL_SCRIPT_PATH" "$@"
