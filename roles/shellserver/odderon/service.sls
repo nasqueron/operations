@@ -21,8 +21,8 @@ odderon_unit:
     - source: salt://roles/shellserver/odderon/files/odderon.service
     - mode: 0644
   module.run:
-    - name: service.force_reload
-    - m_name: odderon
+    - service.force_reload:
+      - name: odderon
     - onchanges:
        - file: odderon_unit
 

@@ -30,8 +30,8 @@ letsencrypt_renew_unit:
     - source: salt://roles/webserver-core/letsencrypt/files/letsencrypt-renew.service
     - mode: 0644
   module.run:
-    - name: service.force_reload
-    - m_name: letsencrypt-renew
+    - service.force_reload:
+      - name: letsencrypt-renew
     - onchanges:
        - file: letsencrypt_renew_unit
 
