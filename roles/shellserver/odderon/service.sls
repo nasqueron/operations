@@ -10,7 +10,7 @@
 {% from "map.jinja" import services with context %}
 
 #   -------------------------------------------------------------
-#   Unit configuration 
+#   Unit configuration
 #   -------------------------------------------------------------
 
 {% if services['manager'] == 'systemd' %}
