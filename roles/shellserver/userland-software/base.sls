@@ -38,6 +38,7 @@ utilities:
       - figlet
       - {{ packages.gpg }}
       - grc
+      - moreutils
       - nmap
       - toilet
       - tmux
