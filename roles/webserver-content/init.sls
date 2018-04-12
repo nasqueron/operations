@@ -16,3 +16,4 @@ include:
   - .org/nasqueron/social
   - .org/wolfplex/api
   - .org/wolfplex/www
+  - .space/hypership

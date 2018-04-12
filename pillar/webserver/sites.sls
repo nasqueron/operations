@@ -126,6 +126,9 @@ web_content_sls:
     # Nasqueron members
     - .be/dereckson
 
+    # Projects hosted
+    - .space/hypership
+
     # Directly managed by Nasqueron
     - .org/nasqueron/api
     - .org/nasqueron/docs
