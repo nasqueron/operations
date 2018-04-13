@@ -230,6 +230,8 @@ vault_secrets_by_role:
     - ops/secrets/dbserver/cluster-B/users/dereckson_www
     - ops/secrets/dbserver/cluster-B/users/zed
 
+    - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/github/hypership/content_users
+
     - ops/secrets/zed/hypership/secret_key
 
     #

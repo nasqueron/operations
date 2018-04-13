@@ -25,7 +25,7 @@ web_content_sls:
   mastodon:
     - .org/nasqueron/social
 
-  webserver-legacy:
+  webserver-legacy: &legacy_to_migrate_to_alkane
     # Nasqueron members
     - .be/dereckson
 
@@ -44,6 +44,8 @@ web_content_sls:
     # Wolfplex Hackerspace
     - .org/wolfplex/api
     - .org/wolfplex/www
+
+  webserver-alkane: *legacy_to_migrate_to_alkane
 
 #   -------------------------------------------------------------
 #   Sites deployed through Jenkins CD
