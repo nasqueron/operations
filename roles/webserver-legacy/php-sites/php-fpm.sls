@@ -48,6 +48,7 @@ php-fpm_pool_{{ site['user'] }}:
 
 /var/log/www/{{ site['domain' ]}}/{{ site['subdomain' ]}}-php.log:
   file.managed:
+    - replace: False
     - user: {{ site['user'] }}
     - group: web
     - chmod: 600
