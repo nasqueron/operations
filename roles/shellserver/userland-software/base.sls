@@ -271,4 +271,5 @@ media:
     - pkgs:
       - {{ packages.exiftool }}
       - {{ packages.imagemagick }}
+      - optipng
       - sox
