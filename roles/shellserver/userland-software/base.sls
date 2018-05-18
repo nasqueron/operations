@@ -46,6 +46,7 @@ utilities:
       - unrar
       - whois
       - woof
+      - zip
       {% if grains['os_family'] == 'Debian' %}
       - bsdmainutils
       - sockstat
