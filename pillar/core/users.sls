@@ -37,7 +37,7 @@ shellusers:
   akoe:
     fullname: akoe
     ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtnI3DulZXnSH8A0E6KbKl9IlmDD7uvInT4s44/dW293RqraKLgV6ItnuIevin6XZqLiR3XhHePcs4qQlAQ0DPFW68BbMns04Bh8OPBBLJPBDzmzYXwpotzRnTtEsBBx4WpTGz6fAbqsyayIFMVNmWH1GPcLvqXL9vyfB3ITVSTuEj9bY5P41D6Tdzh08jWfae7AzslhD1TCL/ui9CcLRGd9BJ7Egx6R/yiFNqUbVe9mhlClvbQEPEXE7AA1D0/fWczcwLMK2xW4PLQ9FCdkuoCRLkKfx+RD3qCQwWomFaUac9mbSJ2W0yOPAgatf3WVaKEOV0+ygXmAfu2qq5meV3 akoe
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCnHqvG6y/6houv8onS4phfqmg5hlVaAbQxg6tcRRD/HF09Pdt5cHQEA793PqcNcxMIfIMuz8KoqVnwh7ixaSsn6buaTxckDkOzhZCT6uubFCyCKhkkP69xp+HyhlaHEPVIWShQ/nzudTnFmICJsUXt10+bb3oh3gjJHJXOxRaJBAUTFCCuIZxpfERmF+w7wnPxcE9FHGiur/b9Sh3Z/Mhlpnkpp4kqF4/E7A1OGKDrxEKCQdQNjClUCeVyREgaIdxhCY4j/FwSKyfpq7omR5Cldj74+VBsl7bm7HvVJfiN3jJwc7mp1Hs2nrRk2Adm1n43F4f2sYG61Eoy/51QZAAD akoe
     uid: 2024
   amj:
     fullname: Amaury J.
