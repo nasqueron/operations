@@ -6,6 +6,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+#   -------------------------------------------------------------
+#   Images and containers
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # You can append a :tag (by default, latest is used).
 # You can't directly specify a Docker library images.
 # See https://docs.saltstack.com/en/latest/ref/states/all/salt.states.docker_image.html
@@ -41,5 +45,28 @@ docker_containers:
          ip: 172.17.0.100
        elapsi:
          ip: 172.17.0.101
+
      # phpBB SaaS
      phpbb_db: {}
+
+     # Openfire
+     openfire:
+       host: xmpp.nasqueron.org
+
+ #   -------------------------------------------------------------
+ #   Ports listened by XMPP
+ #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+xmpp_ports:
+  - 3478
+  - 5222 # Client to server
+  - 5223 # Client to server (Encrypted (legacy-mode) connections)
+  - 5262 # Cnnections managers
+  - 5269 # Server to server
+  - 5275 # External components
+  - 5276 # External components (Encrypted (legacy-mode) connections)
+  - 7070 # HTTP binding
+  - 7443 # HTTP binding with TLS
+  - 7777 # File transfer proxy
+  - 9090 # Web administration server
+  - 9091 # Web administration server with THLS
