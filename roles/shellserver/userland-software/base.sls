@@ -271,6 +271,7 @@ media:
     - installed
     - pkgs:
       - {{ packages.exiftool }}
+      - id3v2
       - {{ packages.imagemagick }}
       - optipng
       - sox
