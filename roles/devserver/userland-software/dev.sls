@@ -83,6 +83,10 @@ devserver_software_dev_python:
   pkg:
     - installed
     - pkgs:
+      # Modern Python 3 packages
+      - {{ packages_prefixes.python3 }}beautifulsoup
+
+      # Legacy packages
       - {{ packages_prefixes.python2 }}nltk
       - {{ packages_prefixes.python2 }}numpy
       - {{ packages_prefixes.python2 }}virtualenv
