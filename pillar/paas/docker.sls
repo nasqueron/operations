@@ -52,6 +52,10 @@ docker_containers:
        elapsi:
          ip: 172.17.0.101
 
+     # Infrastructure and development services
+     phabricator:
+       devcentral: {}
+
      # phpBB SaaS
      # The SaaS uses a MySQL instance, declared in the MySQL section.
 
