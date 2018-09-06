@@ -19,7 +19,6 @@ docker_images:
     - certbot/certbot
   dwellers:
     # Core services
-    - nasqueron/mysql
     - nasqueron/rabbitmq
     # Infrastructure and development services
     - nasqueron/aphlict
@@ -28,6 +27,8 @@ docker_images:
     - nasqueron/notifications
     - nasqueron/phabricator
   equatower:
+    # Core services
+    - nasqueron/mysql
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
@@ -36,6 +37,11 @@ docker_images:
 
 docker_containers:
    equatower:
+     # MySQL
+     mysql:
+      acquisitariat: {}
+      phpbb_db: {}
+
      # CD
      jenkins:
        host: cd.nasqueron.org
@@ -47,7 +53,7 @@ docker_containers:
          ip: 172.17.0.101
 
      # phpBB SaaS
-     phpbb_db: {}
+     # The SaaS uses a MySQL instance, declared in the MySQL section.
 
      # Openfire
      openfire:
