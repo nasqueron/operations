@@ -23,12 +23,13 @@ docker_images:
     # Infrastructure and development services
     - nasqueron/aphlict
     - dereckson/cachet
-    - nasqueron/etherpad
     - nasqueron/notifications
     - nasqueron/phabricator
   equatower:
     # Core services
     - nasqueron/mysql
+    # Infrastructure and development services
+    - nasqueron/etherpad
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
@@ -55,6 +56,12 @@ docker_containers:
      # Infrastructure and development services
      phabricator:
        devcentral: {}
+     etherpad:
+       app_port: 34080
+       mysql_link: acquisitariat
+       plugins:
+         - ep_ether-o-meter
+         - ep_author_neat
 
      # phpBB SaaS
      # The SaaS uses a MySQL instance, declared in the MySQL section.
