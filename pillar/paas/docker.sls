@@ -21,15 +21,15 @@ docker_images:
     # Core services
     - nasqueron/rabbitmq
     # Infrastructure and development services
-    - nasqueron/aphlict
     - dereckson/cachet
     - nasqueron/notifications
-    - nasqueron/phabricator
   equatower:
     # Core services
     - nasqueron/mysql
     # Infrastructure and development services
+    - nasqueron/aphlict
     - nasqueron/etherpad
+    - nasqueron/phabricator
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
