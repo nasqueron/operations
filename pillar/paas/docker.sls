@@ -56,6 +56,7 @@ docker_containers:
      # Infrastructure and development services
      phabricator:
        devcentral: {}
+     aphlict: {}
      etherpad:
        app_port: 34080
        mysql_link: acquisitariat
