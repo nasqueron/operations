@@ -1,3 +1,3 @@
 paas-docker
-    38080   Jenkins HTTP
-    50000   Jenkins master's port for JNLP-based Jenkins agents
+    38080   Jenkins HTTP - CD
+    50000   Jenkins master's port for JNLP-based Jenkins agents - CD
