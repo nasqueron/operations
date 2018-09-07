@@ -57,6 +57,10 @@ docker_containers:
      phabricator:
        devcentral: {}
      aphlict: {}
+     cachet:
+       app_port: 39080
+       host: status.nasqueron.org
+       mysql_link: acquisitariat
      etherpad:
        app_port: 34080
        mysql_link: acquisitariat

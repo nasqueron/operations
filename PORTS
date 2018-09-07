@@ -4,4 +4,5 @@ paas-docker
     31080   Phabricator HTTP - DevCentral
     34080   Etherpad
     38080   Jenkins HTTP - CD
+    39080   Cachet HTTP
     50000   Jenkins master's port for JNLP-based Jenkins agents - CD
