@@ -84,7 +84,7 @@ xmpp_ports:
   - 3478
   - 5222 # Client to server
   - 5223 # Client to server (Encrypted (legacy-mode) connections)
-  - 5262 # Cnnections managers
+  - 5262 # Connections managers
   - 5269 # Server to server
   - 5275 # External components
   - 5276 # External components (Encrypted (legacy-mode) connections)
@@ -92,7 +92,7 @@ xmpp_ports:
   - 7443 # HTTP binding with TLS
   - 7777 # File transfer proxy
   - 9090 # Web administration server
-  - 9091 # Web administration server with THLS
+  - 9091 # Web administration server with TLS
 
  #   -------------------------------------------------------------
  #   Zemke-Rhyne clients
