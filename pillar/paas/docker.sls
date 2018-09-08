@@ -73,6 +73,7 @@ docker_containers:
 
      # Openfire
      openfire:
+       app_port: 9090
        host: xmpp.nasqueron.org
 
  #   -------------------------------------------------------------
