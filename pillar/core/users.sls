@@ -34,6 +34,11 @@ revokedusers:
   - tarik
 
 shellusers:
+  adrien:
+    fullname: Adrien
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID12BxPqs2pqkhJHZOVUzcbp3KlDsWOBWKxdwnjNFP7S adrien@Adrien-Latitude-E6510
+    uid: 2028
   akoe:
     fullname: akoe
     ssh_keys:

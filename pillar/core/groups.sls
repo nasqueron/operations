@@ -26,6 +26,7 @@ shellgroups:
     description: >
         Provide an account to use on the Eglide shell hosting project servers.
     members:
+      - adrien
       - akoe
       - amj
       - ariel
