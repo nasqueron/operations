@@ -24,6 +24,7 @@ base:
     - saas.phpbb
   ysul:
     - devserver.repos
+    - paas.docker
     - saas.mediawiki
     - viperserv.bots
     - viperserv.fantoir

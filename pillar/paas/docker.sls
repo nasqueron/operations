@@ -88,3 +88,23 @@ xmpp_ports:
   - 7777 # File transfer proxy
   - 9090 # Web administration server
   - 9091 # Web administration server with THLS
+
+ #   -------------------------------------------------------------
+ #   Zemke-Rhyne clients
+ #
+ #   This section should list all the Docker engines server
+ #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+zr_clients:
+  - key: 2
+    allowedConnectionFrom:
+      - 172.27.26.49
+      - dwellers.nasqueron.drake
+      - dwellers.nasqueron.org
+    restrictCommand:
+    comment: Zemke-Rhyne
+  - key: 123
+    allowedConnectionFrom:
+      - equatower.nasqueron.org
+    restrictCommand:
+    comment: Zemke-Rhyne
