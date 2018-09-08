@@ -63,6 +63,7 @@ docker_containers:
        mysql_link: acquisitariat
      etherpad:
        app_port: 34080
+       host: pad.nasqueron.org
        mysql_link: acquisitariat
        plugins:
          - ep_ether-o-meter
