@@ -10,7 +10,6 @@
 include:
   - .account
   - .directories
-  - .zr
   - .nginx
   - .static-sites
   - .php-sites
