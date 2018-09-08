@@ -37,3 +37,4 @@
 include:
   - .directory
   - .key
+  - .utilities
