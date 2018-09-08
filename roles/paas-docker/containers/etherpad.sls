@@ -42,7 +42,7 @@ selinux_context_etherpad_data_applied:
     - links: {{ container['mysql_link'] }}:mysql
     - binds: /srv/etherpad/var:/opt/etherpad-lite/var
     - ports:
-      - {{ container['app_port'] }}
+      - 9001
     - port_bindings:
       - {{ container['app_port'] }}:9001
 
