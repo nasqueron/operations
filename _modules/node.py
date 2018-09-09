@@ -18,13 +18,13 @@ def _get_all_nodes():
 
 
 def get_all_properties(nodename=None):
-    '''
+    """
     A function to get a node pillar configuration.
 
     CLI Example:
 
         salt * node.get_all_properties
-    '''
+    """
     if nodename is None:
         nodename = __grains__['id']
 
@@ -41,13 +41,13 @@ def get_all_properties(nodename=None):
 
 
 def get(key, nodename=None):
-    '''
+    """
     A function to get a node pillar configuration key.
 
     CLI Example:
 
         salt * node.get hostname
-    '''
+    """
     return _get_property(key, nodename, None)
 
 
@@ -78,7 +78,7 @@ def _get_property(key, nodename, default_value, parent=None):
 
 
 def get_list(key, nodename=None):
-    '''
+    """
     A function to get a node pillar configuration.
 
     Returns a list if found, or an empty list if not found.
@@ -86,12 +86,12 @@ def get_list(key, nodename=None):
     CLI Example:
 
         salt * node.list network:ipv4_aliases
-    '''
+    """
     return _get_property(key, nodename, [])
 
 
 def has(key, nodename=None):
-    '''
+    """
     A function to get a node pillar configuration.
 
     Returns a boolean, False if not found.
@@ -99,13 +99,13 @@ def has(key, nodename=None):
     CLI Example:
 
         salt * node.has network:ipv6_tunnel
-    '''
+    """
     value = _get_property(key, nodename, False)
     return bool(value)
 
 
 def has_role(role, nodename=None):
-    '''
+    """
     A function to determine if a node has the specified role.
 
     Returns a boolean, False if not found.
@@ -113,12 +113,12 @@ def has_role(role, nodename=None):
     CLI Example:
 
         salt * node.has_role devserver
-    '''
+    """
     return role in get_list('roles', nodename)
 
 
 def filter_by_role(pillar_key, nodename=None):
-    '''
+    """
     A function to filter a dictionary by roles.
 
     The dictionary must respect the following structure:
@@ -133,7 +133,7 @@ def filter_by_role(pillar_key, nodename=None):
     CLI Example:
 
         salt * node.filter_by_role web_content_sls
-    '''
+    """
     roles = get_list('roles', nodename)
     dictionary = __pillar__.get(pillar_key, {})
     filtered_list = []
@@ -146,7 +146,7 @@ def filter_by_role(pillar_key, nodename=None):
 
 
 def filter_by_name(pillar_key, nodename=None):
-    '''
+    """
     A function to filter a dictionary by node name.
 
     The dictionary must respect the following structure:
@@ -161,7 +161,7 @@ def filter_by_name(pillar_key, nodename=None):
     CLI Example:
 
         salt * node.filter_by_name mars
-    '''
+    """
     if nodename is None:
         nodename = __grains__['id']
 
@@ -180,7 +180,7 @@ def has_web_content(content, nodename=None):
 
 
 def get_wwwroot(nodename=None):
-    '''
+    """
     A function to determine the wwwroot folder to use.
 
     Returns a string depending of the FQDN.
@@ -188,7 +188,7 @@ def get_wwwroot(nodename=None):
     CLI Example:
 
         salt * node.get_wwwroot
-    '''
+    """
     hostname = _get_property("hostname", nodename, None)
 
     if hostname is None:

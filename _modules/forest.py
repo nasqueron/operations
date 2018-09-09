@@ -11,37 +11,37 @@
 
 
 def exists(forest):
-    '''
+    """
     A function to check if a forest exists.
 
     CLI Example::
 
         salt '*' forest.exists eglide
-    '''
+    """
     return forest in __pillar__.get('forests', [])
 
 
 def get():
-    '''
+    """
     A function to get the forest of the current minion
 
     CLI Example::
 
         salt '*' forest.get
-    '''
+    """
     nodes = __pillar__.get('nodes')
     minion = __grains__['id']
     return nodes[minion]['forest']
 
 
 def list_groups(forest=None):
-    '''
+    """
     A function to list groups for a forest.
 
     CLI Example::
 
         salt '*' forest.list_groups
-    '''
+    """
     if forest is None:
         forest = get()
 
@@ -72,13 +72,13 @@ def get_groups(forest=None):
 
 
 def list_users(forest=None):
-    '''
+    """
     A function to list groups for a forest.
 
     CLI Example::
 
         salt '*' forest.list_users
-    '''
+    """
     users = []
 
     for group in get_groups(forest).values():
@@ -89,14 +89,14 @@ def list_users(forest=None):
 
 
 def get_users(forest=None):
-    '''
+    """
     A function to get users for a forest as a dictionary,
     including the users properties.
 
     CLI Example::
 
         salt '*' forest.get_users
-    '''
+    """
     users = {}
 
     for username in list_users(forest):
