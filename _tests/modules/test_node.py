@@ -1,9 +1,9 @@
-import imp
+from importlib.machinery import SourceFileLoader
 import unittest
 
 
-salt_test_case = imp.load_source('salt_test_case', "salt_test_case.py")
-node = imp.load_source('node', "../_modules/node.py")
+salt_test_case = SourceFileLoader('salt_test_case', "salt_test_case.py").load_module()
+node = SourceFileLoader('node', "../_modules/node.py").load_module()
 
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):

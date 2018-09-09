@@ -1,11 +1,11 @@
-import imp
+from importlib.machinery import SourceFileLoader
 import yaml
 
 
 class SaltTestCase:
 
     def initialize_mocks(self):
-        source = imp.load_source('dunder', "mocks/dunder.py")
+        source = SourceFileLoader("dunder", "mocks/dunder.py").load_module()
         self.pillar = source.dunder()
         self.grains = source.dunder()
 
