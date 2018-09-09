@@ -72,7 +72,7 @@ def guess_ipv4_network_interface():
     if len(interfaces) < 1:
         raise "No network interface detected."
 
-    # Nasqueron convention assigns the ICANNn network
+    # Nasqueron convention assigns the ICANNN network
     # to the first card.
     return interfaces[0]
 
@@ -99,7 +99,7 @@ def guess_ipv6_network_interface():
 
     raise "No network interface detected."
 
-    # Nasqueron convention assigns the ICANNn network
+    # Nasqueron convention assigns the ICANNN network
     # to the first card.
     return interfaces[0]
 

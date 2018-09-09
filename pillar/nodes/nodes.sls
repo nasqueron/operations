@@ -52,7 +52,7 @@ nodes:
   ## Semantic field: ? (P27 used for "Eglide" too)
   ##
   ## This forest is intended to separate credentials
-  ## between Eglide and Nasqueron sevrers.
+  ## between Eglide and Nasqueron servers.
   ##
   eglide:
     forest: eglide

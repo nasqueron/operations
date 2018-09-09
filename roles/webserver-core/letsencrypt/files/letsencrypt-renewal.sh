@@ -18,12 +18,12 @@
 
 nginx_test() {
 	nginx_output="$(nginx -t 2>&1)"
-	nginx_returncode="$?"
+	nginx_return_code="$?"
 
-	if [ "$nginx_returncode" -eq 0 ] && [ -n "$(echo "${nginx_output}" | grep warn)" ]; then
+	if [ "$nginx_return_code" -eq 0 ] && [ -n "$(echo "${nginx_output}" | grep warn)" ]; then
 		return 2;
 	else
-		return "$nginx_returncode";
+		return "$nginx_return_code";
 	fi;
 }
 
