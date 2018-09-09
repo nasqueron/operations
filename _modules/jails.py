@@ -75,7 +75,7 @@ def guess_ipv4_network_interface():
     if len(interfaces) < 1:
         raise OSError(errno.ENODEV, "No network interface detected.")
 
-    # Nasqueron convention assigns the ICANNN network
+    # Nasqueron convention assigns the ICANN network
     # to the first card.
     return interfaces[0]
 

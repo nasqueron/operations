@@ -140,7 +140,7 @@ if {$argc == 0} {
 	if [file isdirectory $patchesdir] {
 		# All rules!
 	} elseif [file exists $patchesdir] {
-		# Achievement unlocked: the weird error the developer tooks care of
+		# Achievement unlocked: the weird error the developer has taken care of
 		puts "Your port patches directory should be $patchesdir but this is currently a file."
 		exit
 	} {

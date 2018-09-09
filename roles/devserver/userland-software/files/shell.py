@@ -96,8 +96,8 @@ class ServerConnection:
     def get_alias(self, alias_name):
         return self.get_config_section('aliases', alias_name)
 
-    def get_handler(self, hander_name):
-        return self.get_config_section('handlers', hander_name)
+    def get_handler(self, handler_name):
+        return self.get_config_section('handlers', handler_name)
 
     def get_config_section(self, section, key):
         if section in self.config:
