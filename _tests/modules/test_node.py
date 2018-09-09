@@ -81,7 +81,6 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         )
 
     def test_filter_by_name(self):
-        node_key = self.grains['id']
         self.assertEqual(
             ['Caras Galadhon'],
             node.filter_by_name('items_by_name')
@@ -98,9 +97,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             node.filter_by_name('items_by_name')
         )
 
-
     def test_filter_by_name_with_star(self):
-        node_key = self.grains['id']
         self.assertEqual(
             ['Air', 'Caras Galadhon'],
             node.filter_by_name('items_by_name_with_star')
