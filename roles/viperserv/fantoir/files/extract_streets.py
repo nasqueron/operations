@@ -27,7 +27,7 @@ def extract_streets(filename_source, filename_out):
 
 if __name__ == "__main__":
     argc = len(sys.argv)
-    if (argc != 3):
+    if argc != 3:
         print("Usage: {} <FANTOIR filename> <street filename>"
               .format(sys.argv[0]),
               file=sys.stderr)
