@@ -9,7 +9,8 @@ class SaltTestCase:
         self.pillar = source.dunder()
         self.grains = source.dunder()
 
-    def import_data_from_yaml(self, filename):
+    @staticmethod
+    def import_data_from_yaml(filename):
         with open(filename, 'r') as fd:
             return yaml.load(fd.read())
 
