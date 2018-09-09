@@ -1,6 +1,5 @@
 import imp
 import yaml
-from mock import patch
 
 
 class SaltTestCase:
