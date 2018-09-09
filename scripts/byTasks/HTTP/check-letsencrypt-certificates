@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 #   -------------------------------------------------------------
@@ -26,8 +26,8 @@
 import os
 import random
 import string
-import urllib2
-
+from urllib.error import HTTPError
+from urllib.request import urlopen
 
 #   -------------------------------------------------------------
 #   Configuration
@@ -45,59 +45,60 @@ dirs = {
 #   -------------------------------------------------------------
 
 
-def checkDirectories(dirs):
+def check_directories(dirs):
     for dir in dirs:
         if os.path.isdir(dir):
-            checkDirectory(dir)
+            check_directory(dir)
 
 
-def checkDirectory(dir):
+def check_directory(dir):
     for file in os.listdir(dir):
         if file.endswith(".conf"):
             fullpath = os.path.join(dir, file)
-            checkCertificate(fullpath)
+            check_certificate(fullpath)
 
 
-def checkCertificate(file):
+def check_certificate(file):
     lines = [line.rstrip('\n') for line in open(file)]
     skip = True
     for line in lines:
         if not skip:
-            checkMappingLine(line)
+            check_mapping_line(line)
         if line == "[[webroot_map]]":
             skip = False
 
 
-def checkMappingLine(line):
+def check_mapping_line(line):
     params = line.split(' = ')
-    checkMapping(params[0], params[1])
+    check_mapping(params[0], params[1])
 
 
-def getChallenge():
+def get_challenge():
     chars = string.ascii_letters + string.digits
-    return ''.join([random.choice(chars) for n in xrange(32)])
+    return ''.join([random.choice(chars) for _ in range(32)])
 
 
-def checkMapping(domain, dir):
-    challenge = getChallenge()
-    writeChallengeFile(dir, challenge)
-    checkChallenge(domain, challenge)
+def check_mapping(domain, directory):
+    challenge = get_challenge()
+    write_challenge_file(directory, challenge)
+    check_challenge(domain, challenge)
 
 
-def writeChallengeFile(dir, challenge):
-    challengeFile = os.path.join(dir, ".well-known", "acme-challenge", "qa")
-    with open(challengeFile, "w") as file:
+def write_challenge_file(directory, challenge):
+    challenge_file = os.path.join(
+        directory, ".well-known", "acme-challenge", "qa")
+    with open(challenge_file, "w") as file:
         file.write(challenge)
 
 
-def checkChallenge(domain, challenge):
+def check_challenge(domain, challenge):
     url = 'http://' + domain + '/.well-known/acme-challenge/qa'
     try:
-        content = urllib2.urlopen(url).read()
+        content = urlopen(url).read()
         if not content == challenge:
-            print domain, "DOES NOT MATCH"
-    except urllib2.HTTPError as err:
-        print domain, err.code
+            print(domain, "DOES NOT MATCH")
+    except HTTPError as err:
+        print(domain, err.code)
 
 
 #   -------------------------------------------------------------
@@ -105,4 +106,4 @@ def checkChallenge(domain, challenge):
 #   -------------------------------------------------------------
 
 
-checkDirectories(dirs)
+check_directories(dirs)
