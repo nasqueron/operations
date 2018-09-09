@@ -18,7 +18,7 @@ USERS_CUT = 5000
 def get_shellusers(filename, key):
     with open(filename) as stream:
         data = yaml.load(stream)
-        return data['shellusers']
+        return data[key]
 
 
 def get_uids(users, threshold):
