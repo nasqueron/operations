@@ -10,6 +10,9 @@
 #   -------------------------------------------------------------
 
 
+import errno
+
+
 def _get_all_jails():
     return __pillar__.get('jails', {})
 
@@ -70,7 +73,7 @@ def guess_ipv4_network_interface():
     interfaces = _get_hardware_network_interfaces()
 
     if len(interfaces) < 1:
-        raise "No network interface detected."
+        raise OSError(errno.ENODEV, "No network interface detected.")
 
     # Nasqueron convention assigns the ICANNN network
     # to the first card.
@@ -97,11 +100,7 @@ def guess_ipv6_network_interface():
 
         return interface
 
-    raise "No network interface detected."
-
-    # Nasqueron convention assigns the ICANNN network
-    # to the first card.
-    return interfaces[0]
+    raise OSError(errno.EAFNOSUPPORT, "No network interface detected.")
 
 
 def get(jailname, group=None):
