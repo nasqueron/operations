@@ -47,9 +47,9 @@ def list_groups(forest=None):
 
     groups = __pillar__.get('shellgroups_ubiquity', [])
 
-    groupsByForest = __pillar__.get('shellgroups_by_forest', {})
-    if forest in groupsByForest:
-        groups.extend(groupsByForest[forest])
+    groups_by_forest = __pillar__.get('shellgroups_by_forest', {})
+    if forest in groups_by_forest:
+        groups.extend(groups_by_forest[forest])
 
     return groups
 
