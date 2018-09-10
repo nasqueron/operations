@@ -37,6 +37,9 @@
     - context:
         fqdn: {{ args['host'] }}
         app_port: {{ args['app_port'] }}
+        {% if 'aliases' in args %}
+        aliases: {{ args['aliases']|join(" ") }}
+        {% endif %}
 
 {% endif %}
 {% endfor %}

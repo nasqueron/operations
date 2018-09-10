@@ -64,6 +64,9 @@ docker_containers:
      etherpad:
        app_port: 34080
        host: pad.nasqueron.org
+       aliases:
+         - pad.wolfplex.org
+         - pad.wolfplex.be
        mysql_link: acquisitariat
        plugins:
          - ep_ether-o-meter
