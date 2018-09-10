@@ -63,3 +63,11 @@ pad_deploy_plugins:
   {% endfor %}
         docker restart {{ instance }}
         touch /srv/etherpad/.ok-plugins
+
+pad_deploy_abiword:
+  cmd.run:
+    - creates: /srv/etherpad/.ok-abiword
+    - name: |
+        docker exec {{ instance }} sh -c 'apt update && apt install -y abiword' && \
+        docker restart {{ instance }} && \
+        touch /srv/etherpad/.ok-abiword
