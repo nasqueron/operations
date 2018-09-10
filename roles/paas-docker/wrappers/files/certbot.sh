@@ -19,5 +19,6 @@
 docker run -it --rm \
 	-v /srv/letsencrypt/etc:/etc/letsencrypt \
 	-v /srv/letsencrypt/var:/var/lib/letsencrypt \
+	-v /srv/letsencrypt/log:/var/log/letsencrypt \
 	-v /srv/letsencrypt/www:/www \
 	certbot/certbot:latest "$@"
