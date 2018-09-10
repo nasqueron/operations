@@ -55,14 +55,14 @@ def list_groups(forest=None):
 
 
 def get_groups(forest=None):
-    '''
+    """
     A function to get groups for a forest as a dictionary,
     including the group properties.
 
     CLI Example::
 
         salt '*' forest.get_groups
-    '''
+    """
     groups = {}
 
     for groupname in list_groups(forest):
