@@ -16,5 +16,5 @@
 
         location /.well-known/acme-challenge {
             default_type text/plain;
-            root /data/letsencrypt/www;
+            root /srv/letsencrypt/www;
         }
