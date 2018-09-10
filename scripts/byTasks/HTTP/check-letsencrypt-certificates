@@ -45,16 +45,16 @@ dirs = {
 #   -------------------------------------------------------------
 
 
-def check_directories(dirs):
-    for dir in dirs:
-        if os.path.isdir(dir):
-            check_directory(dir)
+def check_directories(directories):
+    for directory in directories:
+        if os.path.isdir(directory):
+            check_directory(directory)
 
 
-def check_directory(dir):
-    for file in os.listdir(dir):
+def check_directory(directory):
+    for file in os.listdir(directory):
         if file.endswith(".conf"):
-            fullpath = os.path.join(dir, file)
+            fullpath = os.path.join(directory, file)
             check_certificate(fullpath)
 
 
