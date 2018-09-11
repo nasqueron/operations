@@ -26,8 +26,8 @@ cachet:
     - environment:
         - DB_HOST: mysql
         - DB_DATABASE: cachet
-        - DB_USERNAME: {{ salt['zr.get_username'](47) }}
-        - DB_PASSWORD: {{ salt['zr.get_password'](47) }}
+        - DB_USERNAME: {{ salt['zr.get_username'](container['credential']) }}
+        - DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
     - ports:
       - 80
     - port_bindings:
