@@ -91,6 +91,7 @@ docker_containers:
       jenkins_cd:
         host: cd.nasqueron.org
         app_port: 38080
+        jnlp_port: 50000
 
     jenkins_slave:
       # Slaves for CD
