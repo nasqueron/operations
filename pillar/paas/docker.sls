@@ -101,15 +101,16 @@ docker_containers:
     jenkins:
       jenkins_cd:
         host: cd.nasqueron.org
+        network: cd
         app_port: 38080
         jnlp_port: 50000
 
     jenkins_slave:
       # Slaves for CD
       apsile:
-        ip: 172.17.0.100
+        network: cd
       elapsi:
-        ip: 172.17.0.101
+        network: cd
 
     # Infrastructure and development services
 

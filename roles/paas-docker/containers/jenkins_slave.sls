@@ -52,4 +52,6 @@ selinux_context_jenkins_slave_home_applied:
     - interactive: True
     - image: nasqueron/jenkins-slave-php
     - binds: /srv/jenkins/slave_home:/home/app
+    - networks:
+      - {{ container['network'] }}
 {% endfor %}

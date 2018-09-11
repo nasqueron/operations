@@ -42,6 +42,8 @@ selinux_context_jenkins_home_applied:
     - interactive: True
     - image: jenkinsci/jenkins
     - binds: /srv/{{ instance }}/jenkins_home:/var/jenkins_home
+    - networks:
+      - {{ container['network'] }}
     - ports:
       - 8080
       - 50000
