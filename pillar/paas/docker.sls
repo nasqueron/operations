@@ -100,17 +100,17 @@ docker_containers:
 
     jenkins:
       jenkins_cd:
+        realm: cd
         host: cd.nasqueron.org
-        network: cd
         app_port: 38080
         jnlp_port: 50000
 
     jenkins_slave:
       # Slaves for CD
       apsile:
-        network: cd
+        realm: cd
       elapsi:
-        network: cd
+        realm: cd
 
     # Infrastructure and development services
 

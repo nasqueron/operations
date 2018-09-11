@@ -21,6 +21,7 @@ base:
     - shellserver.quassel
   equatower:
     - paas.docker
+    - saas.jenkins
     - saas.phpbb
   ysul:
     - devserver.repos

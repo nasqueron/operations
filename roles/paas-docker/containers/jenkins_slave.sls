@@ -9,35 +9,40 @@
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
+{% for instance, container in containers['jenkins_slave'].items() %}
+
+{% set realm = pillar['jenkins_realms'][container['realm']] %}
+{% set home = "/srv/jenkins/" + container['realm'] + "/slaves_homes/" + instance %}
+
 #   -------------------------------------------------------------
 #   Home directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/jenkins/slave_home:
+{{ home }}:
   file.directory:
     - user: 431
     - group: 433
     - makedirs: True
 
 {% if has_selinux %}
-selinux_context_jenkins_slave_home:
+selinux_context_jenkins_slave_{{  instance }}_home:
   selinux.fcontext_policy_present:
-    - name: /srv/jenkins/slave_home
+    - name: {{ home }}
     - sel_type: svirt_sandbox_file_t
 
-selinux_context_jenkins_slave_home_applied:
+selinux_context_jenkins_slave_{{  instance }}_home_applied:
   selinux.fcontext_policy_applied:
-    - name: /srv/jenkins/slave_home
+    - name: {{ home }}
 {% endif %}
 
-/srv/jenkins/slave_home/.ssh:
+{{ home }}/.ssh:
   file.directory:
       - user: 431
       - group: 433
 
-/srv/jenkins/slave_home/.ssh/authorized_keys:
+{{ home }}/.ssh/authorized_keys:
   file.managed:
-      - source: salt://roles/paas-docker/containers/files/jenkins_slave/authorized_keys
+      - contents: {{ realm['ssh_key'] }}
       - user: 431
       - group: 433
 
@@ -45,13 +50,13 @@ selinux_context_jenkins_slave_home_applied:
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, container in containers['jenkins_slave'].items() %}
 {{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
     - image: nasqueron/jenkins-slave-php
-    - binds: /srv/jenkins/slave_home:/home/app
+    - binds: {{ home }}:/home/app
     - networks:
-      - {{ container['network'] }}
+      - {{ realm['network'] }}
+
 {% endfor %}

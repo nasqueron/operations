@@ -11,11 +11,14 @@
 
 {% for instance, container in containers['jenkins'].items() %}
 
+{% set realm = pillar['jenkins_realms'][container['realm']] %}
+{% set home = "/srv/jenkins/" + container['realm'] + "/jenkins_home" %}
+
 #   -------------------------------------------------------------
 #   Home directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/{{ instance }}/jenkins_home:
+{{ home }}:
   file.directory:
     - user: 1000
     - group: 1000
@@ -24,12 +27,12 @@
 {% if has_selinux %}
 selinux_context_jenkins_home:
   selinux.fcontext_policy_present:
-    - name: /srv/{{ instance }}/jenkins_home
+    - name: {{ home }}
     - sel_type: svirt_sandbox_file_t
 
 selinux_context_jenkins_home_applied:
   selinux.fcontext_policy_applied:
-    - name: /srv/{{ instance }}/jenkins_home
+    - name: {{ home }}
 {% endif %}
 
 #   -------------------------------------------------------------
@@ -41,9 +44,9 @@ selinux_context_jenkins_home_applied:
     - detach: True
     - interactive: True
     - image: jenkinsci/jenkins
-    - binds: /srv/{{ instance }}/jenkins_home:/var/jenkins_home
+    - binds: {{ home }}:/var/jenkins_home
     - networks:
-      - {{ container['network'] }}
+      - {{ realm['network'] }}
     - ports:
       - 8080
       - 50000
