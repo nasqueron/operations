@@ -64,12 +64,4 @@ pad_deploy_plugins:
         docker restart {{ instance }}
         touch /srv/{{ instance }}/.ok-plugins
 
-pad_deploy_abiword:
-  cmd.run:
-    - creates: /srv/{{ instance }}/.ok-abiword
-    - name: |
-        docker exec {{ instance }} sh -c 'apt update && apt install -y abiword' && \
-        docker restart {{ instance }} && \
-        touch /srv/{{ instance }}/.ok-abiword
-
 {%  endfor %}
