@@ -9,9 +9,6 @@
 {% set containers = pillar['docker_containers'][grains['id']] %}
 {% set container = containers['cachet'] %}
 
-{% set db_username = salt['cmd.run']('zr getcredentials 47 username') %}
-{% set db_password = salt['cmd.run']('zr getcredentials 47') %}
-
 #   -------------------------------------------------------------
 #   Container
 #
@@ -29,8 +26,8 @@ cachet:
     - environment:
         - DB_HOST: mysql
         - DB_DATABASE: cachet
-        - DB_USERNAME: {{ db_username }}
-        - DB_PASSWORD: {{ db_password }}
+        - DB_USERNAME: {{ salt['zr.get_username'](47) }}
+        - DB_PASSWORD: {{ salt['zr.get_password'](47) }}
     - ports:
       - 80
     - port_bindings:
