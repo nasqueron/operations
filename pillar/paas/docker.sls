@@ -149,6 +149,7 @@ docker_containers:
         aliases:
           - pad.wolfplex.org
           - pad.wolfplex.be
+        credential: 125
         mysql_link: acquisitariat
 
     # phpBB SaaS

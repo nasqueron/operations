@@ -46,12 +46,24 @@ selinux_context_{{ instance }}_data_applied:
     - port_bindings:
       - {{ container['app_port'] }}:9001
 
-pad_deploy_api:
+#   -------------------------------------------------------------
+#   API key
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set api_key_path = "/srv/" + instance + "/APIKEY.txt" %}
+
+{{ api_key_path }}:
+  file.managed:
+    - mode: 400
+    - contents: {{ salt['zr.get_password'](container['credential']) }}
+
+deploy_api_key_{{ instance }}:
   cmd.run:
-    - creates: /srv/{{ instance }}/.ok-apikey
     - name: |
-        docker cp /srv/{{ instance }}/var/APIKEY.txt {{ instance }}:opt/etherpad-lite/APIKEY.txt
+        docker cp {{ api_key_path }} {{ instance }}:opt/etherpad-lite/APIKEY.txt
         docker restart {{ instance }}
-        touch /srv/{{ instance }}/.ok-apikey
+    - onchanges:
+        - docker_container: {{ instance }}
+        - file: {{ api_key_path }}
 
 {%  endfor %}
