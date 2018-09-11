@@ -44,5 +44,5 @@ openfire:
     - ports: {{ pillar['xmpp_ports'] }}
     - port_bindings:
 {% for port in pillar['xmpp_ports'] %}
-      - {{ port }}:{{ port }}
+      - {{ containers['openfire']['ip'] }}:{{ port }}:{{ port }}
 {% endfor %}

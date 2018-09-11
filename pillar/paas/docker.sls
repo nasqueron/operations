@@ -6,6 +6,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+docker_aliases:
+  - &ipv4_equatower 51.255.124.10
+
 #   -------------------------------------------------------------
 #   Images and containers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -77,6 +80,7 @@ docker_containers:
 
      # Openfire
      openfire:
+       ip: *ipv4_equatower
        app_port: 9090
        host: xmpp.nasqueron.org
 
