@@ -32,7 +32,7 @@ docker_images:
     - nasqueron/mysql
     # Infrastructure and development services
     - nasqueron/aphlict
-    - nasqueron/etherpad
+    - nasqueron/etherpad:production
     - nasqueron/phabricator
     # Continuous deployment jobs
     - jenkinsci/jenkins

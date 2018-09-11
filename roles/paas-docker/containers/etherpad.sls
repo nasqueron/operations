@@ -38,7 +38,7 @@ selinux_context_{{ instance }}_data_applied:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: nasqueron/etherpad
+    - image: nasqueron/etherpad:production
     - links: {{ container['mysql_link'] }}:mysql
     - binds: /srv/{{ instance }}/var:/opt/etherpad-lite/var
     - ports:
