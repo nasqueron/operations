@@ -41,6 +41,17 @@ docker_images:
     -  nasqueron/mysql
 
 #   -------------------------------------------------------------
+#   Networks
+#
+#   Containers can be grouped by network, instead to use links.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker_networks:
+  equatower:
+    cd:
+      subnet: 172.18.1.0/24
+
+#   -------------------------------------------------------------
 #   Containers
 #
 #   The docker_containers entry allow to declare
