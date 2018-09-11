@@ -107,10 +107,10 @@ docker_containers:
 
     jenkins_slave:
       # Slaves for CD
-      apsile:
+      apsile: &php_for_cd
+        image: php
         realm: cd
-      elapsi:
-        realm: cd
+      elapsi: *php_for_cd
 
     # Infrastructure and development services
 

@@ -13,6 +13,7 @@
 
 {% set realm = pillar['jenkins_realms'][container['realm']] %}
 {% set home = "/srv/jenkins/" + container['realm'] + "/slaves_homes/" + instance %}
+{% set image = pillar['jenkins_images'][container['image']] %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -54,7 +55,7 @@ selinux_context_jenkins_slave_{{  instance }}_home_applied:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: nasqueron/jenkins-slave-php
+    - image: {{ image }}
     - binds: {{ home }}:/home/app
     - networks:
       - {{ realm['network'] }}
