@@ -54,14 +54,4 @@ pad_deploy_api:
         docker restart {{ instance }}
         touch /srv/{{ instance }}/.ok-apikey
 
-pad_deploy_plugins:
-  cmd.run:
-    - creates: /srv/{{ instance }}/.ok-plugins
-    - name: |
-  {% for plugin in container['plugins'] %}
-        docker exec {{ instance }} npm install {{  plugin }}
-  {% endfor %}
-        docker restart {{ instance }}
-        touch /srv/{{ instance }}/.ok-plugins
-
 {%  endfor %}

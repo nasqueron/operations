@@ -150,9 +150,6 @@ docker_containers:
           - pad.wolfplex.org
           - pad.wolfplex.be
         mysql_link: acquisitariat
-        plugins:
-          - ep_ether-o-meter
-          - ep_author_neat
 
     # phpBB SaaS
     # The SaaS uses a MySQL instance, declared in the MySQL section.
