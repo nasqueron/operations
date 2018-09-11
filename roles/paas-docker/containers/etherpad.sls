@@ -8,26 +8,26 @@
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 {% set containers = pillar['docker_containers'][grains['id']] %}
-{% set container = containers['etherpad'] %}
-{% set instance = 'pad' %}
+
+{% for instance, container in containers['etherpad'].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/etherpad:
+/srv/{{ instance }}:
   file.directory:
     - makedirs: True
 
 {% if has_selinux %}
-selinux_context_etherpad_data:
+selinux_context_{{ instance }}_data:
   selinux.fcontext_policy_present:
-    - name: /srv/etherpad
+    - name: /srv/{{ instance }}
     - sel_type: svirt_sandbox_file_t
 
-selinux_context_etherpad_data_applied:
+selinux_context_{{ instance }}_data_applied:
   selinux.fcontext_policy_applied:
-    - name: /srv/etherpad
+    - name: /srv/{{ instance }}
 {% endif %}
 
 #   -------------------------------------------------------------
@@ -40,7 +40,7 @@ selinux_context_etherpad_data_applied:
     - interactive: True
     - image: nasqueron/etherpad
     - links: {{ container['mysql_link'] }}:mysql
-    - binds: /srv/etherpad/var:/opt/etherpad-lite/var
+    - binds: /srv/{{ instance }}/var:/opt/etherpad-lite/var
     - ports:
       - 9001
     - port_bindings:
@@ -48,26 +48,28 @@ selinux_context_etherpad_data_applied:
 
 pad_deploy_api:
   cmd.run:
-    - creates: /srv/etherpad/.ok-apikey
+    - creates: /srv/{{ instance }}/.ok-apikey
     - name: |
-        docker cp /srv/etherpad/var/APIKEY.txt {{ instance }}:opt/etherpad-lite/APIKEY.txt
+        docker cp /srv/{{ instance }}/var/APIKEY.txt {{ instance }}:opt/etherpad-lite/APIKEY.txt
         docker restart {{ instance }}
-        touch /srv/etherpad/.ok-apikey
+        touch /srv/{{ instance }}/.ok-apikey
 
 pad_deploy_plugins:
   cmd.run:
-    - creates: /srv/etherpad/.ok-plugins
+    - creates: /srv/{{ instance }}/.ok-plugins
     - name: |
   {% for plugin in container['plugins'] %}
         docker exec {{ instance }} npm install {{  plugin }}
   {% endfor %}
         docker restart {{ instance }}
-        touch /srv/etherpad/.ok-plugins
+        touch /srv/{{ instance }}/.ok-plugins
 
 pad_deploy_abiword:
   cmd.run:
-    - creates: /srv/etherpad/.ok-abiword
+    - creates: /srv/{{ instance }}/.ok-abiword
     - name: |
         docker exec {{ instance }} sh -c 'apt update && apt install -y abiword' && \
         docker restart {{ instance }} && \
-        touch /srv/etherpad/.ok-abiword
+        touch /srv/{{ instance }}/.ok-abiword
+
+{%  endfor %}

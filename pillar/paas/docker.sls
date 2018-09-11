@@ -10,12 +10,13 @@ docker_aliases:
   - &ipv4_equatower 51.255.124.10
 
 #   -------------------------------------------------------------
-#   Images and containers
+#   Images
+#
+#   You can append a :tag (by default, latest is used).
+#
+#   It's not possible to specify Docker library images only by final name.
+#   See https://docs.saltstack.com/en/latest/ref/states/all/salt.states.docker_image.html
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# You can append a :tag (by default, latest is used).
-# You can't directly specify a Docker library images.
-# See https://docs.saltstack.com/en/latest/ref/states/all/salt.states.docker_image.html
 
 docker_images:
   '*':
@@ -39,51 +40,104 @@ docker_images:
     # phpBB SaaS
     -  nasqueron/mysql
 
+#   -------------------------------------------------------------
+#   Containers
+#
+#   The docker_containers entry allow to declare
+#   containers by image by servers
+#
+#   The hierarchy is so as following.
+#
+#   docker_containers:
+#     server with the Docker engine:
+#       service codename:
+#         instance name:
+#            container properties
+#
+#   The service codename must match a state file in
+#   the roles/paas-docker/containers/ directory.
+#
+#   The container will be run with the specified instance name.
+#
+#   **nginx**
+#
+#   The container properties can also describe the information
+#   needed to configure nginx with the host and app_port key.
+#
+#   In such case, a matching vhost file should be declared as
+#   roles/paas-docker/nginx/files/vhosts/<service codename>.sls
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 docker_containers:
-   equatower:
-     # MySQL
-     mysql:
+
+  #
+  # Equatower is the current production engine
+  #
+  equatower:
+
+     #
+     # Core services
+     #
+
+    mysql:
       acquisitariat: {}
       phpbb_db: {}
 
+     #
      # CD
-     jenkins:
-       host: cd.nasqueron.org
-       app_port: 38080
-     jenkins_slave:
-       apsile:
-         ip: 172.17.0.100
-       elapsi:
-         ip: 172.17.0.101
+     #
 
-     # Infrastructure and development services
-     phabricator:
-       devcentral: {}
-     aphlict: {}
-     cachet:
-       app_port: 39080
-       host: status.nasqueron.org
-       credential: 47
-       mysql_link: acquisitariat
-     etherpad:
-       app_port: 34080
-       host: pad.nasqueron.org
-       aliases:
-         - pad.wolfplex.org
-         - pad.wolfplex.be
-       mysql_link: acquisitariat
-       plugins:
-         - ep_ether-o-meter
-         - ep_author_neat
+    jenkins:
+      jenkins_cd:
+        host: cd.nasqueron.org
+        app_port: 38080
 
-     # phpBB SaaS
-     # The SaaS uses a MySQL instance, declared in the MySQL section.
+    jenkins_slave:
+      # Slaves for CD
+      apsile:
+        ip: 172.17.0.100
+      elapsi:
+        ip: 172.17.0.101
 
-     # Openfire
-     openfire:
-       ip: *ipv4_equatower
-       app_port: 9090
-       host: xmpp.nasqueron.org
+    # Infrastructure and development services
+
+    phabricator:
+      devcentral: {}
+
+    aphlict:
+      aphlict:
+        ports:
+          client: 22280
+          admin: 22281
+
+    cachet:
+      cachet:
+        app_port: 39080
+        host: status.nasqueron.org
+        credential: 47
+        mysql_link: acquisitariat
+
+    etherpad:
+      pad:
+        app_port: 34080
+        host: pad.nasqueron.org
+        aliases:
+          - pad.wolfplex.org
+          - pad.wolfplex.be
+        mysql_link: acquisitariat
+        plugins:
+          - ep_ether-o-meter
+          - ep_author_neat
+
+    # phpBB SaaS
+    # The SaaS uses a MySQL instance, declared in the MySQL section.
+
+    # Openfire
+    openfire:
+      openfire:
+        ip: *ipv4_equatower
+        app_port: 9090
+        host: xmpp.nasqueron.org
 
  #   -------------------------------------------------------------
  #   Ports listened by XMPP

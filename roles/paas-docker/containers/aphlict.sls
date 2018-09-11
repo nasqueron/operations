@@ -6,6 +6,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set containers = pillar['docker_containers'][grains['id']] %}
+
+{% for instance, container in containers['aphlict'].items() %}
+
 #   -------------------------------------------------------------
 #   Container
 #
@@ -14,7 +18,7 @@
 #                   through websockets for Phabricator instances.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-aphlict:
+{{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
@@ -23,5 +27,7 @@ aphlict:
       - 22280
       - 22281
     - port_bindings:
-      - 22280:22280
-      - 22281:22281
+      - {{ container['ports']['client'] }}:22280
+      - {{ container['ports']['admin'] }}:22281
+
+{% endfor %}

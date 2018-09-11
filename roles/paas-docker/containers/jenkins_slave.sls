@@ -45,8 +45,8 @@ selinux_context_jenkins_slave_home_applied:
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for name, container in containers['jenkins_slave'].items() %}
-{{ name }}:
+{% for instance, container in containers['jenkins_slave'].items() %}
+{{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True

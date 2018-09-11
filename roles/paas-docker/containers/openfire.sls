@@ -9,11 +9,13 @@
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
+{% for instance, container in containers['openfire'].items() %}
+
 #   -------------------------------------------------------------
 #   Storage directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/openfire:
+/srv/{{ instance }}:
   file.directory:
     - user: 999
     - group: 999
@@ -22,27 +24,29 @@
 {% if has_selinux %}
 selinux_context_openfire_data:
   selinux.fcontext_policy_present:
-    - name: /srv/openfire
+    - name: /srv/{{ instance }}
     - sel_type: svirt_sandbox_file_t
 
 selinux_context_openfire_data_applied:
   selinux.fcontext_policy_applied:
-    - name: /srv/openfire
+    - name: /srv/{{ instance }}
 {% endif %}
 
 #   -------------------------------------------------------------
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-openfire:
+{{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
     - image: gizmotronic/openfire
-    - binds: /srv/openfire:/var/lib/openfire
-    - hostname: {{ containers['openfire']['host'] }}
+    - binds: /srv/{{ instance }}:/var/lib/openfire
+    - hostname: {{ container['host'] }}
     - ports: {{ pillar['xmpp_ports'] }}
     - port_bindings:
 {% for port in pillar['xmpp_ports'] %}
-      - {{ containers['openfire']['ip'] }}:{{ port }}:{{ port }}
+      - {{ container['ip'] }}:{{ port }}:{{ port }}
+{% endfor %}
+
 {% endfor %}

@@ -7,7 +7,8 @@
 #   -------------------------------------------------------------
 
 {% set containers = pillar['docker_containers'][grains['id']] %}
-{% set container = containers['cachet'] %}
+
+{% for instance, container in containers['cachet'].items() %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -17,7 +18,7 @@
 #                   information
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-cachet:
+{{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
@@ -32,3 +33,5 @@ cachet:
       - 80
     - port_bindings:
       - {{ container['app_port'] }}:80
+
+{% endfor %}
