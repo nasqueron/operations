@@ -102,7 +102,19 @@ docker_containers:
     # Infrastructure and development services
 
     phabricator:
-      devcentral: {}
+      devcentral:
+        app_port: 31080
+        host: devcentral.nasqueron.org
+        aliases:
+          - phabricator.nasqueron.org
+        blogs:
+          servers:
+            host: servers.nasqueron.org
+            aliases:
+              - server.nasqueron.org
+              - serveur.nasqueron.org
+              - serveurs.nasqueron.org
+        static_host: phabricator-files-for-devcentral-nasqueron.spacetechnology.net
 
     aphlict:
       aphlict:

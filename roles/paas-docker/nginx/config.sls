@@ -42,6 +42,9 @@
         {% if 'aliases' in container %}
         aliases: {{ container['aliases']|join(" ") }}
         {% endif %}
+        # If the nginx configuration needs more key,
+        # pass directly the container dictionary.
+        args: {{ container }}
 
 {% endif %}
 {% endfor %}
