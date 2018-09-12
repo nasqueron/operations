@@ -17,7 +17,8 @@ def __virtual__():
     '''
     Only load if zr exists on the system
     '''
-    return path_which('zr') is not None, 'The Zemke-Rhyne execution module cannot be loaded: zr not installed.'
+    return path_which('zr') is not None,\
+        "The Zemke-Rhyne execution module cannot be loaded: zr not installed."
 
 
 def _assert_stricly_positive_integer(value):
