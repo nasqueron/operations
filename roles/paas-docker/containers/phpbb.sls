@@ -22,7 +22,7 @@
 selinux_context_phpbb_datastores:
   selinux.fcontext_policy_present:
     - name: /srv/phpbb/data
-    - sel_type: svirt_sandbox_file_t
+    - sel_type: container_file_t
 
 selinux_context_phpbb_datastores_applied:
   selinux.fcontext_policy_applied:

@@ -33,7 +33,7 @@
 selinux_context_jenkins_home:
   selinux.fcontext_policy_present:
     - name: /srv/letsencrypt
-    - sel_type: svirt_sandbox_file_t
+    - sel_type: container_file_t
 
 selinux_context_jenkins_home_applied:
   selinux.fcontext_policy_applied:

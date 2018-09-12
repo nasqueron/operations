@@ -25,7 +25,7 @@
 selinux_context_{{ instance }}_data:
   selinux.fcontext_policy_present:
     - name: /srv/{{  instance }}
-    - sel_type: svirt_sandbox_file_t
+    - sel_type: container_file_t
 
 selinux_context_{{ instance }}_data_applied:
   selinux.fcontext_policy_applied:
