@@ -58,7 +58,7 @@ def get_username(credential_id):
         salt equatower zr.get_username 124
 
     :param credential_id: The credential number (K...) in Phabricator
-    :return: The usenrame
+    :return: The username
     """
     _assert_stricly_positive_integer(credential_id)
 
