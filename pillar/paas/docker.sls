@@ -37,6 +37,7 @@ docker_images:
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
+    - nasqueron/jenkins-slave-rust
     # phpBB SaaS
     -  nasqueron/mysql
 
@@ -110,7 +111,12 @@ docker_containers:
       apsile: &php_for_cd
         image: php
         realm: cd
+
       elapsi: *php_for_cd
+
+      rust_brown:
+        image: rust
+        realm: cd
 
     # Infrastructure and development services
 

@@ -27,3 +27,4 @@ jenkins_realms:
 jenkins_images:
   barebone: nasqueron/jenkins-slave-barebone
   php: nasqueron/jenkins-slave-php
+  rust: nasqueron/jenkins-slave-rust
