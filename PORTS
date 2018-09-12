@@ -1,4 +1,5 @@
 paas-docker
+     9090   Openfire HTTP
     22220   Phabricator Aphlict (client)
     22221   Phabricator Aphlict (admin)
     31080   Phabricator HTTP - DevCentral
