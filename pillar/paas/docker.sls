@@ -139,7 +139,7 @@ docker_containers:
       cachet:
         app_port: 39080
         host: status.nasqueron.org
-        credential: 47
+        credential: nasqueron.cachet.mysql
         mysql_link: acquisitariat
 
     etherpad:
@@ -149,7 +149,7 @@ docker_containers:
         aliases:
           - pad.wolfplex.org
           - pad.wolfplex.be
-        credential: 125
+        credential: nasqueron.etherpad.api
         mysql_link: acquisitariat
 
     # phpBB SaaS

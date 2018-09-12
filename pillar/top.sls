@@ -20,6 +20,7 @@ base:
   eglide:
     - shellserver.quassel
   equatower:
+    - credentials.zr
     - paas.docker
     - saas.jenkins
     - saas.phpbb
