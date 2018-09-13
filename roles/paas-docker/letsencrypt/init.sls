@@ -30,12 +30,12 @@
   file.directory
 
 {% if has_selinux %}
-selinux_context_jenkins_home:
+selinux_context_letsencrypt_home:
   selinux.fcontext_policy_present:
     - name: /srv/letsencrypt
     - sel_type: container_file_t
 
-selinux_context_jenkins_home_applied:
+selinux_context_letsencrypt_home_applied:
   selinux.fcontext_policy_applied:
     - name: /srv/letsencrypt
 {% endif %}
