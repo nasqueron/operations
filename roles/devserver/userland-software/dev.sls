@@ -54,8 +54,12 @@ devserver_node_packages:
     - pkgs:
       - bower
       - browserify
+      - csslint
+      - eslint
       - gulp
       - grunt
+      - jscs
+      - jshint
       - jsonlint
       - react-tools
     - require:
