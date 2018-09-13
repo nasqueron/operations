@@ -13,11 +13,11 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Wrapper script
-#   - wrappers/init.Sls
+#   - wrappers/init.sls
 #   - wrappers/files/certbot.sh
 #
 # Image
-#   - /pillar/paas/docker.Sls
+#   - /pillar/paas/docker.sls
 #
 # Nginx configuration
 #   - nginx/files/includes/letsencrypt
