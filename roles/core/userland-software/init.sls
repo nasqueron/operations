@@ -26,8 +26,7 @@ epel-release:
 #   -------------------------------------------------------------
 
 shells:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - bash
       - zsh

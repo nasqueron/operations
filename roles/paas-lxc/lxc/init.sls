@@ -11,8 +11,7 @@
 #   -------------------------------------------------------------
 
 lxc_packages:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - lxc
       {% if grains['os_family'] == 'RedHat' %}

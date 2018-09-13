@@ -17,8 +17,7 @@
 #   -------------------------------------------------------------
 
 editors:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - vim
       - nano
@@ -30,8 +29,7 @@ editors:
 #   -------------------------------------------------------------
 
 utilities:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - mosh
       - cmatrix
@@ -64,8 +62,7 @@ utilities:
       {% endif %}
 
 utilities_www:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - links
       - w3m
@@ -76,8 +73,7 @@ utilities_www:
 #   -------------------------------------------------------------
 
 userland_software_shells:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - fish
 
@@ -86,8 +82,7 @@ userland_software_shells:
 #   -------------------------------------------------------------
 
 dev:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - autoconf
       - automake
@@ -110,8 +105,7 @@ dev:
 
 {% if grains['os_family'] == 'Debian' %}
 dev_popular_libs:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - libssl-dev
 {% endif %}
@@ -133,8 +127,7 @@ languages_removed:
       {% endif %}
 
 languages:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - python3
       - {{ packages.tcl }}
@@ -149,8 +142,7 @@ languages:
 #   -------------------------------------------------------------
 
 languages_libs:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       # PHP extensions
       - {{ packages_prefixes.php }}bcmath
@@ -255,8 +247,7 @@ languages_libs:
 #   -------------------------------------------------------------
 
 spelling:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
         - {{ packages.verbiste }}
         - {{ packages['aspell-fr'] }}
@@ -267,8 +258,7 @@ spelling:
 #   -------------------------------------------------------------
 
 media:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages.exiftool }}
       - id3v2

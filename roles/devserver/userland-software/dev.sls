@@ -13,8 +13,7 @@
 #   -------------------------------------------------------------
 
 devserver_software_dev_c:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages.boost }}
       - cmocka
@@ -25,8 +24,7 @@ devserver_software_dev_c:
 #   -------------------------------------------------------------
 
 devserver_software_dev_java:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - openjdk8
       - apache-ant
@@ -37,8 +35,7 @@ devserver_software_dev_java:
 #   -------------------------------------------------------------
 
 devserver_software_dev_dotnet:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - mono
 
@@ -47,8 +44,7 @@ devserver_software_dev_dotnet:
 #   -------------------------------------------------------------
 
 devserver_software_dev_node:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages.node }}
       - npm
@@ -70,8 +66,7 @@ devserver_node_packages:
 #   -------------------------------------------------------------
 
 devserver_software_dev_php:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages.phpunit }}
 
@@ -80,8 +75,7 @@ devserver_software_dev_php:
 #   -------------------------------------------------------------
 
 devserver_software_dev_python:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       # Modern Python 3 packages
       - {{ packages_prefixes.python3 }}beautifulsoup
@@ -96,8 +90,7 @@ devserver_software_dev_python:
 #   -------------------------------------------------------------
 
 devserver_software_dev_ruby:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages_prefixes.rubygem }}rubocop
 
@@ -106,8 +99,7 @@ devserver_software_dev_ruby:
 #   -------------------------------------------------------------
 
 devserver_software_dev_rust:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - rust
 
@@ -116,8 +108,7 @@ devserver_software_dev_rust:
 #   -------------------------------------------------------------
 
 devserver_software_dev_shell:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - hs-ShellCheck
 
@@ -126,8 +117,7 @@ devserver_software_dev_shell:
 #   -------------------------------------------------------------
 
 devserver_software_dev_tcl:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - rlwrap
       - tcllib
@@ -140,8 +130,7 @@ devserver_software_dev_tcl:
 #   -------------------------------------------------------------
 
 devserver_software_dev_web:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - memcached
       - phantomjs
@@ -153,7 +142,6 @@ devserver_software_dev_web:
 #   -------------------------------------------------------------
 
 devserver_software_dev_misctools:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - git-review

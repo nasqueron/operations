@@ -13,8 +13,7 @@
 #   -------------------------------------------------------------
 
 irc_clients:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - irssi
       - irssi-scripts
@@ -29,8 +28,7 @@ irc_clients:
 #   -------------------------------------------------------------
 
 irc_bouncers:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - znc
 
@@ -49,8 +47,7 @@ eggdrop_installer:
 #   -------------------------------------------------------------
 
 irc_misc:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - bitlbee
       - oidentd

@@ -13,8 +13,7 @@
 #   -------------------------------------------------------------
 
 mysql:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - {{ packages.mariadb }}
 

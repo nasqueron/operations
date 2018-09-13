@@ -9,8 +9,7 @@
 {% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 devserver_software_misc_vcs:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       # VCS
       - cvs
@@ -21,8 +20,7 @@ devserver_software_misc_vcs:
       - {{ packages_prefixes.python2 }}hg-git
 
 devserver_software_misc_media:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - ffmpeg2theora
       - opencore-amr
@@ -32,24 +30,21 @@ devserver_software_misc_media:
       - x265
 
 devserver_software_misc_text_processing:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - antiword
       - odt2txt
       - texlive-full
 
 devserver_software_misc_security:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - aescrypt
       - pwgen
       - vault
 
 devserver_software_misc_tools:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - boxes
       - cursive
@@ -65,8 +60,7 @@ devserver_software_misc_tools:
 
 {% if grains['os'] == 'FreeBSD' %}
 devserver_software_misc_ports:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - ccache
       - portmaster
@@ -104,15 +98,13 @@ freebsd_kernel_modules_enable:
 {% endif %}
 
 devserver_software_misc_p2p:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - transmission-daemon
       - transmission-web
 
 devserver_software_misc_gadgets:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - asciiquarium
       - binclock
@@ -121,15 +113,13 @@ devserver_software_misc_gadgets:
       - weatherspect
 
 devserver_software_misc_games:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - bsdgames
       - textmaze
 
 devserver_software_misc_network:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - getdns
       - iftop

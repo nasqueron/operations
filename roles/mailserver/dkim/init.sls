@@ -33,8 +33,7 @@ opendkim_keys_directory:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 opendkim_software:
-  pkg:
-    - installed
+  pkg.installed:
     - pkgs:
       - opendkim
       {% if grains['os_family'] == 'Debian' %}
