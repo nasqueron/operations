@@ -44,25 +44,3 @@ $ kldload pefs
 $ grep -q pefs_load /boot/loader.conf || cat >> /boot/loader.conf
 pefs_load="YES"
 ```
-
-## Role: paas-docker
-
-### Set static IP addresses
-
-Docker slave nodes for Jenkins should use known addresses, either static IP,
-either a DNS system. Such advanced network configuration through Salt requires
-2018.3.0.
-
-**Workaround**
-
-Two workarounds are straightforward:
-
-  - `docker inspect apsile | grep 172` and manually set the IP in Jenkins.
-  - run an internal DNS service for the Docker engine and containers,
-    e.g. through the phensley/docker-dns container (see T958 for plan)
-
-The second is recommended if you restart or reprovision often,
-with containers declared in the pillar in a different order each time.
-
-The first should be stable as long as you append new containers
-to the pillar docker_containers entry end.
