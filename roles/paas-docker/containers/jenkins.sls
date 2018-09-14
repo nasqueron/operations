@@ -25,12 +25,12 @@
     - makedirs: True
 
 {% if has_selinux %}
-selinux_context_jenkins_home:
+selinux_context_jenkins_home_{{ instance }}:
   selinux.fcontext_policy_present:
     - name: {{ home }}
     - sel_type: container_file_t
 
-selinux_context_jenkins_home_applied:
+selinux_context_jenkins_home_applied_{{ instance }}:
   selinux.fcontext_policy_applied:
     - name: {{ home }}
 {% endif %}

@@ -50,6 +50,8 @@ docker_networks:
   equatower:
     cd:
       subnet: 172.18.1.0/24
+    ci:
+      subnet: 172.18.2.0/24
 
 #   -------------------------------------------------------------
 #   Docker engine configuration
@@ -125,6 +127,12 @@ docker_containers:
         host: cd.nasqueron.org
         app_port: 38080
         jnlp_port: 50000
+      jenkins_ci:
+        realm: ci
+        host: ci.nasqueron.org
+        app_port: 42080
+        jnlp_port: 55000
+
 
     jenkins_slave:
       # Slaves for CD
@@ -137,6 +145,12 @@ docker_containers:
       rust_brown:
         image: rust
         realm: cd
+
+      zateki: &php_for_ci
+        image: php
+        realm: ci
+
+      zenerre: *php_for_ci
 
     # Infrastructure and development services
 
