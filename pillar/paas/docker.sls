@@ -146,6 +146,7 @@ docker_containers:
         app_port: 39080
         host: status.nasqueron.org
         credential: nasqueron.cachet.mysql
+        app_key: nasqueron.cachet.app_key
         mysql_link: acquisitariat
 
     etherpad:

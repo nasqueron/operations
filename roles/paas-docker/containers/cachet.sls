@@ -22,16 +22,23 @@
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: dereckson/cachet
+    - image: cachethq/docker:latest
     - links: {{ container['mysql_link'] }}:mysql
     - environment:
+        - DB_DRIVER: mysql
         - DB_HOST: mysql
+        - DB_PORT: 3306
         - DB_DATABASE: cachet
         - DB_USERNAME: {{ salt['zr.get_username'](container['credential']) }}
         - DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
+        - DB_PREFIX: ""
+
+        - APP_KEY: {{ salt['zr.get_token'](container['app_key']) }}
+        - APP_LOG: errorlog
+        - APP_DEBUG: "false"
     - ports:
-      - 80
+      - 8000
     - port_bindings:
-      - {{ container['app_port'] }}:80
+      - {{ container['app_port'] }}:8000
 
 {% endfor %}

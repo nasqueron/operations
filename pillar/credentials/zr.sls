@@ -17,6 +17,7 @@ zr_credentials:
     # status.nasqueron.org
     cachet:
       mysql: 47
+      app_key: 126
 
     # pad.nasqueron.org
     etherpad:
