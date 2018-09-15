@@ -88,3 +88,22 @@ def get_username(credential_expression):
 
     zr_command = "zr getcredentials {0} username".format(credential_id)
     return __salt__['cmd.shell'](zr_command)
+
+
+def get_token(credential_expression):
+    """
+    A function to fetch credential through Zemke-Rhyne
+
+
+    CLI Example:
+
+        salt equatower zr.get_token 126
+
+    :param credential_expression: The credential number (K...) in Phabricator
+                                  or a key in zr_credentials pillar entry
+    :return: The secret value
+    """
+    credential_id = get_credential_id(credential_expression)
+
+    zr_command = "zr getcredentials {0} token".format(credential_id)
+    return __salt__['cmd.shell'](zr_command)
