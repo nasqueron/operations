@@ -29,6 +29,7 @@ docker_images:
     - nasqueron/notifications
   equatower:
     # Core services
+    - library/registry
     - nasqueron/mysql
     # Infrastructure and development services
     - nasqueron/aphlict
@@ -92,6 +93,11 @@ docker_containers:
     mysql:
       acquisitariat: {}
       phpbb_db: {}
+
+    registry:
+      registry:
+        app_port: 5000
+        ip: 127.0.0.1
 
      #
      # CD
