@@ -38,8 +38,6 @@ docker_images:
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
-    # phpBB SaaS
-    -  nasqueron/mysql
 
 #   -------------------------------------------------------------
 #   Networks
