@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set images = salt['node.filter_by_name']('docker_images', []) %}
+{% set images = salt['node.filter_by_name']('docker_images') %}
 
 #   -------------------------------------------------------------
 #   Fetch Docker images
