@@ -8,4 +8,6 @@
 
 include:
   - .software
+  - .storage
+  - .config
   - .networks

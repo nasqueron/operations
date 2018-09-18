@@ -52,6 +52,22 @@ docker_networks:
       subnet: 172.18.1.0/24
 
 #   -------------------------------------------------------------
+#   Docker engine configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker_daemon:
+  equatower:
+    storage-driver: devicemapper
+    storage-opts:
+        - "dm.thinpooldev=/dev/mapper/wharf-thinpool"
+        - "dm.use_deferred_removal=true"
+        - "dm.use_deferred_deletion=true"
+
+docker_devicemapper:
+  equatower:
+    thinpool: wharf-thinpool
+
+#   -------------------------------------------------------------
 #   Containers
 #
 #   The docker_containers entry allow to declare
