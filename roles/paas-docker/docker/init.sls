@@ -10,4 +10,5 @@ include:
   - .software
   - .storage
   - .config
+  - .images
   - .networks
