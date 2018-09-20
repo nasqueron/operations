@@ -118,7 +118,7 @@ docker_containers:
         ip: 127.0.0.1
 
      #
-     # CD
+     # CI and CD
      #
 
     jenkins:
