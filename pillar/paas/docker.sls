@@ -39,6 +39,7 @@ docker_images:
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
+    - dereckson/tommy
 
 #   -------------------------------------------------------------
 #   Networks
@@ -151,6 +152,19 @@ docker_containers:
         realm: ci
 
       zenerre: *php_for_ci
+
+    tommy:
+      tommy_ci:
+        app_port: 24080
+        host: builds.nasqueron.org
+        aliases:
+          - build.nasqueron.org
+        jenkins_url: https://ci.nasqueron.org
+
+      tommy_cd:
+        # No host definition, as this dashboard is mounted on infra.nasqueron.org
+        app_port: 24180
+        jenkins_url: https://cd.nasqueron.org
 
     # Infrastructure and development services
 

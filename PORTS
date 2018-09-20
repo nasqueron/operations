@@ -3,6 +3,8 @@ paas-docker
      9090   Openfire HTTP
     22220   Phabricator Aphlict (client)
     22221   Phabricator Aphlict (admin)
+    24080   Tommy HTTP - CI
+    24180   Tommy HTTP - CD
     31080   Phabricator HTTP - DevCentral
     34080   Etherpad
     38080   Jenkins HTTP - CD
