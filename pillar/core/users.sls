@@ -39,11 +39,13 @@ shellusers:
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID12BxPqs2pqkhJHZOVUzcbp3KlDsWOBWKxdwnjNFP7S adrien@Adrien-Latitude-E6510
     uid: 2029
+
   akoe:
     fullname: akoe
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqUZPXnwJ1MwQZDJ3oDbaBG7FL97lWM0zxWPby2BFAJC3UhG+E0uOlgUGRG/IMy3BQZGrmMe/DR6JmlLTCqHqDza3nmhnLOLQal9enxlkf+mERXDNdZv0QI7JpkCuyU20aWsO0N3ZZLXLlJ2BSjTl/5Mh+R09cvrJyeifgc8HLR2MRIA2Y70k15smscXOlD8E1svhUfCvgVB9vT1oute63tPUZHdoSkzGITtKdgo3lmBox8NqflCWKq5HIW97EAMCE+WimEZhu1aZHRC9YAJEcikPHqCzDWwSvuqq/dGZyK8pq5+UdLweCB+ZimzeRkwpIW4DpUvsCIZB//66uoTLd nathan16juli2018
     uid: 2024
+
   amj:
     fullname: Amaury J.
     shell: zsh
@@ -54,33 +56,39 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCCKtSulhB9uva1RYOtwcLMcO+1V5oGti50OXntqG0OZfEauz/oLTQpt+nkKYNUN6MazL+9ienYQ8ZZPgZbOs9WGh0acxBcPM5Dw5b0ZWEJ8h9Dk2M7P144aeRS/HuHVvc/JyI3+gYHgqWGe5ycEzlrFeegX7/Zr76eaFDQPGMnsJCFZVga24TiSPiEBTuyszq0/emsLJe41zFY4J6Y2kbaWuJYbiAvA0mZAD+g6+ltEa6vdUOF1BI2kTPFeKXc2dCnbaJAz00I437zUGdaU4533iyLHygxLPjAsjxO8q4f163VR7Rd2jibvRUW2EXgVoY1mJjkNwi2XLQCCwgG/6G8IuQaMjPAx0v7bf+vAJ3x+esJtVFNa55sgU7uHWPaRAwtovspCFBpTRIsp6J5f+1WLqWQVBVBZHdR+5PC2H5Zwb5Hq33Jn8ksQoPMCWcbIbjgF78a/B4LgtsJpA2x8cGJi6p1DEKT5bC6ROGMxqPwA8pFgI3+0X5ukZvTMDH7BjiXkbdyCaFfwo7UofRrPHIUyPAYh/XD7rUddc/6rjVBzmkXTeyYvevOOlmTxM5BDJZI/w6Gc2/XQchCDoWT9ttw7VWX19fHaHtx8KE/I8JaSS5hW77Kl3PzWJxewOAcJMh9HNza3jBgqZFTHktPCPUBZbsjD27YWJcYPrhzpQErQ== amj@thinbiam
       - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAGTsWhz2x/ONqeMupnd0kQi8aJmMSWDmviNwuZY1WeDuggTylFv9hDUxPUQ+gNydZHEmFRs5qTzcM/P9AYK+0CZOwGluJD5Nfd7LsqgxRVTJ1jb71kOHF2ektjW+OJufWGZv1bTJG5SU/bFXzIgxkDVjwitM0OSeKzERe2PKjQ/ydxqjw== amj@debiam
     uid: 2005
+
   ariel:
     fullname: ariel
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAwaTYlLZ90/oQ5tDYDkhI2mHa1L6Vh+zcekCt8D08N7/CrFI5sUVteTwMWw2ytQlWnyT3HVgHb4IS1EPjpjyuqseRcNW0HYsqBk3E36PCBQIqjLZ0nDAeHQtm6T6pXiKC5qUppghwrvDxVYFpF3lFzAzfYMrF7iugk0xRPTHZWm8df7dqIB/6FfbxSD95yQVAlJefxoFWbo3Yn+exEZQvWv6lQYXnjV5DSwMf8tPGDkc2DRjrnR52ZrXPRZFCqc9JGkA/l8QsYtjmqJdnOgq5raOb56aRulJYdP2j//B4lRJJlglMuj8dSZE/j04zub+P2QhfdqeEHmeaTUqbwcnZZw==
     uid: 2021
+
   axe:
     fullname: axe
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjrcYXZ2/bfTdxVI1ZMXknB7WJa8uY1RLZ5Vrs2LPRTzBqaXzpY6/Iw5Ibiy8KMbVo/vQtAWrGY00ucHE+swS2VEtWIZc72kSznkL65bKtqHbZa+IqktRUBsg6ay/3Xups0DBfZ1T+SRSiLh0rya1dXd2NyIrvSo5eCxEPqAPm87rOrgC95GRxqlJUZ5ZOjV92K9v6TcTQWn61nGl2DQviAugNGtHGXhq0Xk98lWkLeGhDLedJOqFmHvqGrkSQpEps7ivlh3Mstv49pXqH1dIA7UhnyX5DTR6YjhIKehZnCfsl8wt6FMCs5QMor1giY4ZpUhY2D4ezvzFD2kqbOUvQQ== 2017-06-14
     uid: 2019
+
   balaji:
     fullname: Balaji Ramasubramanian
     shell: bash
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9mJZLoqSiPgMxChZxkfkqLxjZw/WuqUC1m7jn93jZp Balaji@Balajis-MacBook-Air.local
     uid: 2027
+
   c2c:
     fullname: c2c
     shell: fish
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPyoC7ekLYc7nsd1QsgfdEatYw1FC7z92miIdXvx0n8O c2c@ender
     uid: 2012
+
   chan:
     fullname: Chanel
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvDcmKHfTrCBRpjJxYyIELMRknrMpDXfcKDhfXqmB09 chan@Calculon
     uid: 2009
+
   dereckson:
     fullname: Sebastien Santoro
     shell: zsh
@@ -96,97 +104,116 @@ shellusers:
       - ccccccbjncrt
     deploy_dotfiles_to_devserver: True
     uid: 5001
+
   erol:
     fullname: Erol Unutmaz
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdHrSRJGwaGFTpoZIvkoWTMpnXgke77emVicMT8b37kcUepeD91pA3UPQ7UOEQl/Af3Ly7ePneymZ6NjAkM06oPeIjxE6Nz+i6p7rVIZhCb9qz+hdKgt4wSEQLWponegFNdCUs6HvMjDGlsI0kajHgIakXiKAwNyxhQzpBoGranO9c2PdAq2HGq7Kcq8ApC1kdKG0W3dT4PWborzmt1jWna2yosEn+TTHj5wi2p/E9BsCbmfokBO3xn491lr1P4shh4zg7Mv3SPD3j4/mZb9EMwD8cl4y9ZIoMEbL8p4s8J7Joqs3gK9hmMN5ZCNUFrNrJu3TCRZre2k7cV3+U3IXT erol@fedai
     uid: 2002
+
   harshcrop:
     fullname: Harsh Shah
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1ANaxVViiL8s2KTdb+p4FWBBZjXz3zH9/es0SSLuXzCjcs1opEeMeb4roQWWgxrZ3j0aOJAj0smSP1THtrwW1xUE5DidmueuqokgbQuvkrsvcDaJYbNjUr/3fAw7/JcWgh4lSSxCLgflpjBr5aTlMQZj/KPrGnlzjr/hPvb8cAomS2HD+hLuC2z26cvOhY811scTZWMoBrxSkmrXOTkutRdZm+TrYJyZy7xQ9ncfsARYzrOZ4be+0mfb6i4tJfMbBvadSu/gyJdOLCfV5SxdjpMLPqIXO9hWkRKYH8SFX5ZWVw8C06iJWcnFCIw1YMTFYe1MNqV8YICiYUmJ2CWaL harshcrop@Harshs-MacBook-Pro.local
     uid: 2020
+
   hlp:
     fullname: hlp
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIP+04Jhq2toJ+RLx41NKrtDGgmSCfOsAY/BnJ6EzNXC hlp@sonny
     uid: 2018
+
   kazuya:
     fullname: Kazuya
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtCcRQ6HVKD5mj602UJkpI/TMGVt1R0yYx1HxP6SWJb6FM2E4wzkxtf0sp2cxW/9Lz/0OsQV8fSSo/qfUhQXfRcL+rxsM+iixD0WMffMC8CrqsYS+VV32HR2sIm8J7yyMweJrfYneErdFisGmMgOFw8vBGX01XfdwGqbSflf3Tal7L3R0g65rclGsg7JckWE6RQMXnvGwXQxv4QahaNtZK74AlyeFgsXYlv14UeaGE4Pz+rkgZKoC4tvAOBQMNxWtCPMcydJOacoCZO7Jcxv0jMUo0y26mulQ6vbz5hqAPS612c47gh8VNDDkQaznQMeiSyIlnvDEkHmzvC8Z3UAeJ eglide
     uid: 2004
+
   khmerboy:
     fullname: khmerboy
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAxg4+y6QxyyeHvmcWHy5Q9pjh8YBNC+Q1w3+QHWH/7WKw9odKHgtpu2hixfOeZl5k/E9+XPw2oGmQzs3pInz/yyegGB57kb3xAftqJkHVuBKsrz+7q3fPjnoqk3VZ62k5II3oqEEjizdVhEVacU+149m3LJWo+FKoRAKxlX39KwEM+UMDfynck7OJvKRWTTP/cbPzR7kaMifQLWZF6stFilRnYBAesK2DzLgO37DovwxmQO1CbBuitgsHwLDXGW0gePyC39REIrntZSte1xdlEfC27rQnXcH3YPcTm9bwNBXnK1Jiwfp3fJ6q6FIz9IaybhO6CGNOOODHN4R4DTbbfQ== rsa-key-20170922
     uid: 2023
+
   kumkum:
     fullname: Kumkum
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJnCIiESqqsGOhaS16jwboLplQIP0FwKMhk0oRF7EP55 kumkum@kumkum-E200HA
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDjGAJrUHKDTNnd6fpypm2A09lScdK6jAA4w5BRQZvx mobile
     uid: 2008
+
   pkuz:
     fullname: PK of UZ
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHIngmKZJUTBgps2LpfrjFwMtW8U5Zd0olKnmG0YZbApN9UHmiVKw6ow0U+KxI6kYGrNi6acKRnZHrnip8io8swW8PnLsgFKoCO2Ywrz/uDFaNJIVdTiNNB1Msm4dd2SiRwtn09SUVwSKBIFQFEoPG7q7v1OgvhIAk13/qbrOV+u6ZgoY8ssYH7qlRElAc4cptjtTen63f87wHFUN65T70ce6nFxOsZfTrB5Y+O7DTO25y7RV6q7CXq+i1uxJutDWDOLhb+dAqQHb5JEqBTF+CElyZtJtK+GxiXfMTWTyNBlv/4up/fRDMRxZ1F69Wowjn3MSnvsFgqxhwxW6Fksr7
     uid: 2022
+
   rama:
     fullname: Rama
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADXRCZ9fFZJAJLOF0PakwhuU9b5Ne4PPr7ESwJzYndn
     uid: 2013
+
   rashk0:
     fullname: Rashk0
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+8OtQsAFaxMrpuyt489w3Tn2U/hj2UBk1PcocLRxRXXhX9KRmwXHa2mjZlJP5zjQh12sm9HWDpMYda/aTmrvm0Y21Jx3a2B8ddbdTYc2RVXvEzQ77Va8VxQNyR/ijvTeRqKK0xMRwzBe9X5BR1yIRSKoHjfsiwj1dvYmy8/oHvQI0nK05SyIBzNelLBXcrSkBKqWEGI/Vx9/ortFh/D2k2Qmq+ti+eT58Th76KoISDmYgWRSHM6MjHHBQONNfUQfvX5CWTy2wnm6k5iDVP0Z5AMQdfk6McJxfMZIKH0N/jF31GSw5b/Wo4riguujPd1y3qS29I4Iy3qeado2a4pqV campari@Alpha
     uid: 2003
+
   ringa:
     fullname: Ringa
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAiTobf2i/IveVlpdntX9M6p9rOe60HuODq5FslTIFxA/RwKQbJKafCQZ3ci+Pt9BKAKtBGSJANNfbxxN7VRB+iO6UZUh2Qjb012CfigC5g1r9MEryqh8LBP27NqTkCqjMZrwUa6pYMBG1/ydbOA0BIr3C72QfpXC/qCSvXNgQzL7DGSR7cgjhGvMDn5ewJuxsvXAcajMLEORxeYooONG9ELGRUMFI4WcX6gmiYcrMVsMF+7ByshIngV5v9esWadi+RdTWUVOYt2yVS7hkYHZwUX/bN1AOfkRiuD1w3DFFiHhSoquCwaOOZjKxAw6VOrV6O/toLGe0kXXfRFzeB29/1w== rsa-key-20170111
     uid: 2010
+
   rix:
     fullname: Rix
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjFnOi4rwBVdw69U9y1xgWXrfNNgxEXAmbXthzHae07COwN190xoWv8VeogKxfMdxE2Tj4E0BDFt2i7Jbk9BploFdNXG46lrnoszmgRsuRx5jERfvMyOPvCAQHbL0N53AL6zH9wXF/51a5bJJ3n4wkmO1nDj9WqrDNk0in+knICiPHQX4TxwRXqBuf61gQMxwy8Aoy1WCCfCeAesZxjdFM47C6X3PPHVaXvF6x6iX8OzIHqoVT18yQAQxbET+PWMtlmNFJFx76+Sov4eQm/d2KeRg0aqw49gKLpigYnHfd2uitmSQixBNl5jyvDMoR92vZmZnScmqA9cXQikQ9HCW6Q== rsa-key-20170110
     uid: 2007
+
   sandlayth:
     fullname: Yassine Hadj Messaoud
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4H4SF3NZ0/o5uTYhIUKUEzP7hlZ0mGqMxs6wt/dhQs kalix@arch-laptop
     uid: 5002
+
   shark:
     fullname: Shark
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAjKehL1PdhcpLNiGdWLuVCUpNawUhQoxon3nmhZm/B+oU2nwygqvx9YU3LFzTEDNXWtU0aH2UVgC5bkRyVdmVKjX878luoluYwhKJFrYoEd9zS+EPDNmNYSoKntDbZoB17iacVEUM4Kg3RAzwStw3L8OO9DlB9NdXUzS8/9wlSy43ddoRRy83FvnvhRNXWScUIQyBolxqyoVvXdLZ2t0PnCdU3Bz2Wkcg24XjwDOR0R0A3780b+VGcsjXtjYxK6xCpNo9l2DqLAfpw+BFusWy6au5U15vfHgR91Lbcd1xtfvJAElI97fR6DGf+HSrtYZe+9gMU1nofibdiNWSJ/Vn+Q== rsa-key-20161212
     uid: 2006
+
   thrx:
     fullname: ThrX
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAqm65UgRA1ZJaGnam+PQiFmXKOKZHAUc5jN8zRQsAaFv5Kgxks857DPBX8eO7Wolh70C/UVXAqYgHS2yg74KKKzyjv2vd/de4vQuC4m24IRWkuGJ6xr+dgqNRMn3YklJ2W/SzMCLIFNWUlM3JnvIPElxrLVMSm9ZCACAvWGgy8uF+vBkJYsmfN5AokyzSZcAUqREBbnsC33erGz50it4Oxn4QpAGWtYBHz+kHz89rZBMbMRAoMyQ1EfnzH076jtufHuTdqibmQRB39GbY8bgJJk0tpntwTvx4pHAnMK6CUwbjtFU03LByYNiIzDjwHXqfwuQZl8WlQjx7oTVNHCJ9fw== rsa-key-20170221
     uid: 2014
+
   tomjerr:
     fullname: Tommy Aditya
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7WGzb6h6i8H81nkw0E2PvFwi1yqODeltyGwFQxEwL4+bc75LlbxtpIsxS+D4vkervfGjMwgAJSFOv6uimRhubmp1I2Pf85APTf/a9xXmNzAuNnhR8ur93I08cQ2kKlY19q3EX4H4qj2HizRZxgusG8dYyBWuKuq6P7vIn5zn55IzFJKxCekydAjQsDUTOaio5brLD3sY8IfnWtKWDgrszozUOEqZdquJDS6LBEHHDTpWK/Mzuwd6YkpfdG2GVLwuN6Rj43jNoxcvk2W7oJyJQQ7xSpNR3QIFzTAu9VL9AAv4qak4o2AYpmg8HXsgGR2ARvJ0mFzWw8qy/c/5plPgp tomjerr
     uid: 2001
+
   vigilant:
     fullname: Anser Quraishi
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFGEJdMywTtuUcEtk+7JtRvq0zY49NMI885flAl+3FTbjBiCh+ozq0kSaHeFOen/c8ZTYFom9qyoANuAPvifoJeYigI8TPyqz3tQwuL8Fgj36VNcsa/kICZ77HFLWaLFG1//97tPKy8W9VFK0F8YqOYzss1xAav58OsxnLEkpn31B4XPtRNaInUNNJo155WLtOy/h+YrIvy899SLjVH+ui4tBHpmRja7pM2vq/h7ssRFnQGcvkHYKkCXm/BE8sT8yjk4hdxPmOkA2GaCxm5S6YYJeF/SqCEKbJ1tGq7UKq6jooasjQ8PHAvtmVNoXhJczFfNzNN0ybPbKYjxdzAKj12c0eTVclmMDdsGWloqCpeWQsrOFeXUxjjCCO11J8vxHDLaxaMuY3IDclAsePqXQI6zZ6wzedQ5ieEKNF2VIgsUDhyB1jIaklA0Td1MhpogEolm9juEkNaJBR8NHCvQZKByod6dc6cGQ1TFqD8LSXHVhTV7L0MqCVgsgy77wdOSk=
     uid: 2025
+
   xcombelle:
     fullname: Xavier Combelle
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9KJQDTtuxGCOaeFtip+yel45zMNS4tvrYg0AzNhT22K8g3F8wiY1GKvYw6Czj8Zo+rqA5/Rt7BCQwNtZyI+Nh23Cvg5wZQ2A6dtzQI69HZVSi+FRA5o4/SG4wyp7AT6wuWn+7tTE/pH69D0keDmaNpLSzhkxKFQd2DuOD2BENobEIE9DzbRf2DeUJ15uCzX/mnEXykklYvQ5AontiwL7VNB1VpNebrfnecAaAua0RhuYp+XwxBaSM4KB4lIA6hTBYEOG6J3TaC3GofMtAANI/n8gcCQkadkqtQHrap2Wh9X6bzekwROVGui1TW6sM7+hS4P7PM80nK05iVnGzIfYR xavier.combelle@gmail.com
     uid: 2017
+
   xray:
     fullname: xray
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAzSj3sQYbrBBdceBRUAbuzCS9vZWycVV0OSZ0ofoWx/dOTIalhc3O+aett7J34GqwDgpcTEkEpa/MrlO/2TOGOFIsPlvbZW4fXXFADCbOWkRRNuYW5rv/Sg6ZliGtw4cj0dKEkn9+L/JAuGwKV5KJNTPcp5w8hZyQYczZ8KhcyNVv7mfzLnId03wPnuTTe+AmCTOitbVb3gxjdXDYeS46PkbV8m/23KpcdLigo3ClDwE/SIoA+YddaAbpWDMEwhnWyKmLGI6xkFcqSY1NT0eYnL2waZMEnfluxt+D0V0IT5NeOmQcTuVWPvjFdSKbKepPhdrFmzGNtytfZWoFOPiG+Q== rsa-key-20170119
     uid: 2011
+
   windu:
     fullname: Windu
     ssh_keys:

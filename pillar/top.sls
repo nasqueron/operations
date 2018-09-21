@@ -15,15 +15,19 @@ base:
     - nodes.forests
     - hotfixes.roles
     - webserver.sites
+
   dwellers:
     - paas.docker
+
   eglide:
     - shellserver.quassel
+
   equatower:
     - credentials.zr
     - paas.docker
     - saas.jenkins
     - saas.phpbb
+
   ysul:
     - devserver.repos
     - paas.docker

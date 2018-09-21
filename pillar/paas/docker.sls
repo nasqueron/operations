@@ -21,20 +21,25 @@ docker_aliases:
 docker_images:
   '*':
     - certbot/certbot
+
   dwellers:
     # Core services
     - nasqueron/rabbitmq
+
     # Infrastructure and development services
     - dereckson/cachet
     - nasqueron/notifications
+
   equatower:
     # Core services
     - library/registry
     - nasqueron/mysql
+
     # Infrastructure and development services
     - nasqueron/aphlict
     - nasqueron/etherpad:production
     - nasqueron/phabricator
+
     # Continuous deployment jobs
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
@@ -133,7 +138,6 @@ docker_containers:
         host: ci.nasqueron.org
         app_port: 42080
         jnlp_port: 55000
-
 
     jenkins_slave:
       # Slaves for CD
@@ -249,6 +253,7 @@ zr_clients:
       - dwellers.nasqueron.org
     restrictCommand:
     comment: Zemke-Rhyne
+
   - key: 123
     allowedConnectionFrom:
       - equatower.nasqueron.org

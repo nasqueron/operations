@@ -39,7 +39,9 @@ shellgroups_by_forest:
   nasqueron-dev:
     - nasquenautes
     - nasqueron-irc
+
   nasqueron-infra: []
+
   eglide:
     - shell
     - chaton-dev

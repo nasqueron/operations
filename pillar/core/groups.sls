@@ -20,6 +20,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 shellgroups:
+
   shell:
     gid: 200
     title: Eglide shell users
@@ -54,17 +55,20 @@ shellgroups:
       - windu
       - xcombelle
       - xray
+
   chaton-dev:
     gid: 827
     description: Manage Bonjour chaton service
     members:
       - hlp
+
   nasqueron-irc:
     gid: 829
     description: Manage IRC bots used for Nasqueron projects
     members:
       - dereckson
       - sandlayth
+
   ops:
     gid: 3001
     title: Nasqueron Operations
@@ -74,6 +78,7 @@ shellgroups:
     members:
       - dereckson
       - sandlayth
+
   deployment:
     gid: 3003
     title: Nasqueron Deployment
@@ -82,6 +87,7 @@ shellgroups:
         Deploy web sites and services files.
     members:
       - dereckson
+
   nasquenautes:
     gid: 3004
     title: Nasqueron servers users

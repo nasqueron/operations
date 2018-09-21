@@ -4,6 +4,7 @@ viperserv_accounts:
   viperserv:
     fullname: ViperServ
     uid: 833
+
   tc2:
     fullname: Tau Ceti Central
     uid: 834
@@ -28,6 +29,7 @@ viperserv_bots:
       - transfer
       - filesys
       - seen
+
   Wearg:
     realname: RabbitMQ broker client
     scripts:
@@ -38,6 +40,7 @@ viperserv_bots:
       # startup components, with broker/Notifications
       # dependencies
       - Wearg/Time.tcl
+
   TC2:
     realname: Tau Ceti Central
     runas: tc2
