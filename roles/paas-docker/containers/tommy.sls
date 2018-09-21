@@ -20,7 +20,7 @@
     - interactive: True
     - image: nasqueron/tommy
     - environment:
-        - HUDSON_URL: {{ container['jenkins_url'] }}
+        - JENKINS_URL: {{ container['jenkins_url'] }}
     - ports:
       - 4567
     - port_bindings:
