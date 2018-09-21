@@ -18,7 +18,7 @@
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: dereckson/tommy
+    - image: nasqueron/tommy
     - environment:
         - HUDSON_URL: {{ container['jenkins_url'] }}
     - ports:

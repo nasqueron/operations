@@ -39,7 +39,7 @@ docker_images:
     - jenkinsci/jenkins
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
-    - dereckson/tommy
+    - nasqueron/tommy
 
 #   -------------------------------------------------------------
 #   Networks
