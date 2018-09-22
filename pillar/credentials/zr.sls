@@ -14,6 +14,10 @@ zr_credentials:
 
   nasqueron:
 
+    # login.nasqueron.org
+    auth-grove:
+      mysql: 67
+
     # status.nasqueron.org
     cachet:
       mysql: 47

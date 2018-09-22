@@ -35,6 +35,9 @@ docker_images:
     - library/registry
     - nasqueron/mysql
 
+    # Nasqueron services
+    - nasqueron/auth-grove
+
     # Infrastructure and development services
     - nasqueron/aphlict
     - nasqueron/etherpad:production
@@ -209,6 +212,13 @@ docker_containers:
           - pad.wolfplex.org
           - pad.wolfplex.be
         credential: nasqueron.etherpad.api
+        mysql_link: acquisitariat
+
+    auth-grove:
+      login:
+        app_port: 25080
+        host: login.nasqueron.org
+        credential: nasqueron.auth-grove.mysql
         mysql_link: acquisitariat
 
     # phpBB SaaS
