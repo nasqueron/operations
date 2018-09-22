@@ -44,7 +44,7 @@ docker_images:
     - nasqueron/phabricator
 
     # Continuous deployment jobs
-    - jenkinsci/jenkins
+    - jenkins/jenkins
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
     - nasqueron/tommy

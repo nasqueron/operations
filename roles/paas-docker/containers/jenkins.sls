@@ -43,7 +43,7 @@ selinux_context_jenkins_home_applied_{{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: jenkinsci/jenkins
+    - image: jenkins/jenkins
     - binds: {{ home }}:/var/jenkins_home
     - networks:
       - {{ realm['network'] }}
