@@ -93,6 +93,7 @@ dev:
       - git
       - git-lfs
       - jq
+      - ripgrep
       - valgrind
       {% if grains['os'] == 'FreeBSD' %}
       - hub
