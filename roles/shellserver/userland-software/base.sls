@@ -19,9 +19,9 @@
 editors:
   pkg.installed:
     - pkgs:
-      - vim
-      - nano
       - joe
+      - nano
+      - vim
       - {{ packages.emacs }}
 
 #   -------------------------------------------------------------
@@ -31,15 +31,15 @@ editors:
 utilities:
   pkg.installed:
     - pkgs:
-      - mosh
       - cmatrix
       - figlet
       - {{ packages.gpg }}
       - grc
       - moreutils
+      - mosh
       - nmap
-      - toilet
       - tmux
+      - toilet
       - tree
       - unrar
       - whois
@@ -47,17 +47,17 @@ utilities:
       - zip
       {% if grains['os_family'] == 'Debian' %}
       - bsdmainutils
-      - sockstat
       - dnsutils
+      - sockstat
       - sysvbanner
       - toilet-fonts
       {% endif %}
       {% if grains['os'] == 'FreeBSD' %}
-      - figlet-fonts
       - bind-tools
-      - sudo
       - coreutils
+      - figlet-fonts
       - gsed
+      - sudo
       - wget
       {% endif %}
 
@@ -65,8 +65,8 @@ utilities_www:
   pkg.installed:
     - pkgs:
       - links
-      - w3m
       - lynx
+      - w3m
 
 #   -------------------------------------------------------------
 #   More exotic shells
@@ -84,16 +84,16 @@ userland_software_shells:
 dev:
   pkg.installed:
     - pkgs:
+      - {{ packages.ag }}
       - autoconf
       - automake
+      - cmake
+      - colordiff
+      - {{ packages.cppunit }}
       - git
       - git-lfs
-      - colordiff
-      - cmake
-      - valgrind
       - jq
-      - {{ packages.cppunit }}
-      - {{ packages.ag }}
+      - valgrind
       {% if grains['os'] == 'FreeBSD' %}
       - hub
       {% else %}
@@ -249,9 +249,9 @@ languages_libs:
 spelling:
   pkg.installed:
     - pkgs:
-        - {{ packages.verbiste }}
-        - {{ packages['aspell-fr'] }}
         - {{ packages['aspell-en'] }}
+        - {{ packages['aspell-fr'] }}
+        - {{ packages.verbiste }}
 
 #   -------------------------------------------------------------
 #   Media utilities
