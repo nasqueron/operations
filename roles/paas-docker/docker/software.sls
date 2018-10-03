@@ -32,3 +32,12 @@ install_docker_engine:
     - require:
       - file: install_docker_engine
 {% endif %}
+
+#   -------------------------------------------------------------
+#   Additional utilities
+#   -------------------------------------------------------------
+
+install_docker_extra_packages:
+  pkg.installed:
+    - pkgs:
+      - docker-processes
