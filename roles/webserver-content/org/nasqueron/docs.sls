@@ -40,6 +40,24 @@ salt_wrapper_doc_build:
       - pkg: sphinx
 
 #   -------------------------------------------------------------
+#   Deploy a rLF docs dir HTML build to docs.n.o/limiting-factor
+#
+#   Job: https://cd.nasqueron.org/job/limiting-factor-doc/
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/wwwroot/nasqueron.org/docs/limiting-factor/rust:
+  file.directory:
+    - user: deploy
+    - group: web
+    - dir_mode: 755
+    - makedirs: True
+
+limiting_factor_doc_build:
+  module.run:
+    - name: jenkins.build_job
+    - m_name: limiting-factor-doc
+
+#   -------------------------------------------------------------
 #   Software to build the docs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
