@@ -116,8 +116,7 @@ dev_popular_libs:
 #   -------------------------------------------------------------
 
 languages_removed:
-  pkg:
-    - removed
+  pkg.removed:
     - pkgs:
       {% if grains['os_family'] == 'Debian' %}
       - php7.0

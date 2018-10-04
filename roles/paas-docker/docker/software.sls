@@ -12,8 +12,7 @@
 
 {% if grains['os'] == 'CentOS' %}
 remove_legacy_docker_packages:
-  pkg:
-    - removed
+  pkg.removed:
     - pkgs:
       - docker-common
       - docker-selinux
