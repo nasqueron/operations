@@ -29,6 +29,9 @@ web_domains:
   # Projects ICT is managed by Nasqueron
   #
 
+  espacewin:
+    - espace-win.org
+
   wolfplex:
     - wolfplex.org
 
@@ -94,6 +97,15 @@ web_php_sites:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
       DB_HOST: localhost
       DB_USER: mediawiki-saas
+
+  # Espace Win
+  www.espace-win.org:
+    domain: espace-win.org
+    subdomain: www
+    user: web-org-espacewin-www
+    source: wwwroot/espace-win.org/www
+    target: /var/wwwroot/espace-win.org/www
+    php-fpm: prod
 
   # Wolfplex Hackerspace
   www.wolfplex.org:
