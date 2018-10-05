@@ -10,19 +10,25 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 web_domains:
+
   #
   # Directly managed by Nasqueron
   #
+
   nasqueron:
     - nasqueron.org
+
   #
   # Nasqueron members
   #
+
   nasqueron_members:
     - dereckson.be
+
   #
-  # Wolfplex
+  # Projects ICT is managed by Nasqueron
   #
+
   wolfplex:
     - wolfplex.org
 
