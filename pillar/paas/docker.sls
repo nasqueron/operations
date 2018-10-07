@@ -24,6 +24,7 @@ docker_images:
 
   dwellers:
     # Core services
+    - nasqueron/mysql:5.7
     - nasqueron/rabbitmq
 
     # Infrastructure and development services
@@ -114,9 +115,16 @@ docker_containers:
   #
   # Dwellers is the engine for Mastodon and CI intelligent bus services
   #
-
   dwellers:
-    {}
+
+    #
+    # Core services
+    #
+
+    mysql:
+      bugzilla_db:
+        network: bugzilla
+        version: 5.7
 
   #
   # Equatower is the current production engine

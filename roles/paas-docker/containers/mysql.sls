@@ -9,7 +9,8 @@
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance in containers['mysql'] %}
+{% for instance, container in containers['mysql'].items() %}
+{% set image = salt['paas_docker.get_image']("nasqueron/mysql", container) %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -40,9 +41,12 @@ selinux_context_{{ instance }}_mysql_data_applied:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: nasqueron/mysql
+    - image: {{ image }}
     - binds: /srv/{{ instance }}/mysql:/var/lib/mysql
     - environment:
         MYSQL_ROOT_PASSWORD: {{ salt['random.get_str'](31) }}
-
+{% if 'network' in container %}
+    - networks:
+      - {{ container['network'] }}
+{% endif %}
 {% endfor %}
