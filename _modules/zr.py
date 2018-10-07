@@ -45,7 +45,7 @@ def get_credential_id(expression):
         # Case II - expression is a pillar key
         id = _get_credential_id_from_pillar_key(expression)
 
-        if id is None:
+        if id is None or id == "":
             raise ValueError(expression, "Pillar key not found")
 
         return id
