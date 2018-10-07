@@ -112,6 +112,13 @@ docker_devicemapper:
 docker_containers:
 
   #
+  # Dwellers is the engine for Mastodon and CI intelligent bus services
+  #
+
+  dwellers:
+    {}
+
+  #
   # Equatower is the current production engine
   #
   equatower:
