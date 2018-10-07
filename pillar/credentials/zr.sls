@@ -27,3 +27,13 @@ zr_credentials:
     etherpad:
       # This API key is used by Wolfplex API to access to the pad lists
       api: 125
+
+  #
+  # Credentials used by Espace Win services
+  #
+
+  espacewin:
+
+    # bugzilla.espace-win.org
+    bugzilla:
+      mysql: 131

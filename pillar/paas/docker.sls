@@ -126,6 +126,20 @@ docker_containers:
         network: bugzilla
         version: 5.7
 
+    #
+    # Bugzilla
+    #
+
+    bugzilla:
+      ew_bugzilla:
+        host: bugzilla.espace-win.org
+        app_port: 33080
+        network: bugzilla
+        mysql:
+          host: bugzilla_db
+          db: EspaceWin_Bugs
+        credential: espacewin.bugzilla.mysql
+
   #
   # Equatower is the current production engine
   #

@@ -19,7 +19,6 @@ reserved-for-legacy-docker-migration-low-priority
     28080   phragile HTTP
     29080   etcd HTTP
     32080   Discourse HTTP
-    33080   Bugzilla HTTP - Espace Win
     40080   RocketChat HTTP
 
 paas-docker
@@ -31,6 +30,7 @@ paas-docker
     24180   Tommy HTTP - CD
     25080   Auth Grove HTTP
     31080   Phabricator HTTP - DevCentral
+    33080   Bugzilla HTTP - Espace Win
     34080   Etherpad
     38080   Jenkins HTTP - CD
     39080   Cachet HTTP

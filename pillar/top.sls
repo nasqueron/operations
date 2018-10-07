@@ -17,6 +17,7 @@ base:
     - webserver.sites
 
   dwellers:
+    - credentials.zr
     - paas.docker
 
   eglide:
