@@ -56,6 +56,9 @@ docker_images:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 docker_networks:
+  dwellers:
+    bugzilla:
+      subnet: 172.21.3.0/24
   equatower:
     cd:
       subnet: 172.18.1.0/24
