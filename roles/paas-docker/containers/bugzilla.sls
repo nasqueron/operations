@@ -26,7 +26,7 @@
         DB_DATABASE: {{ container['mysql']['db']}}
         DB_USER: {{ salt['zr.get_username'](container['credential']) }}
         DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
-        BUGZILLA_URL: https://{{ container['host'] }}
+        BUGZILLA_URL: https://{{ container['host'] }}/
     - ports:
       - 80
     - port_bindings:
