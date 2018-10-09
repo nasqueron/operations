@@ -7,6 +7,15 @@ docker = SourceFileLoader('docker', '../_modules/paas_docker.py').load_module()
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
 
+    def setUp(self):
+        self.initialize_mocks()
+        self.instance = docker
+
+        self.mock_pillar('data/paas_docker.yaml')
+
+        self.mock_grains()
+        self.grains['id'] = 'egladil'
+
     def test_get_image(self):
         container = {
             "image": "foo",
@@ -39,3 +48,15 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         }
 
         self.assertEqual("foo:2.5", docker.get_image("not_foo", container))
+
+    def test_get_subnets(self):
+        expected = ['172.18.1.0/24', '172.18.2.0/24', '172.17.0.0/16']
+
+        self.assertEqual(expected, docker.get_subnets())
+
+    def test_get_subnets_when_none_are_defined(self):
+        # Only the default Docker one
+        expected = ['172.17.0.0/16']
+
+        self.grains['id'] = 'voidserver'
+        self.assertEqual(expected, docker.get_subnets())

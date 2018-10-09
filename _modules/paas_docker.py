@@ -27,3 +27,24 @@ def get_image(default_image, args):
         image += ":" + str(args['version'])
 
     return image
+
+
+def get_subnets():
+    """
+    A function to get the Docker subnets list.
+
+    CLI Example:
+
+        salt * paas_docker.get_subnets
+    """
+    try:
+        networks = __pillar__['docker_networks'][__grains__['id']]
+    except KeyError:
+        networks = {}
+
+    # Defined Docker subnet
+    subnets = [network["subnet"] for network in networks.values()]
+    # Default Docker subnet
+    subnets.append("172.17.0.0/16")
+
+    return subnets
