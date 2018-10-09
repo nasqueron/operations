@@ -11,4 +11,5 @@ include:
   - .storage
   - .config
   - .images
+  - .firewall
   - .networks

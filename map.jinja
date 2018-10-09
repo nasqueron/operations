@@ -22,9 +22,15 @@
 {% set services = salt['grains.filter_by']({
     'Debian': {
         'manager': 'systemd',
+        'firewall': 'iptables',
+    },
+    'RedHat': {
+        'manager': 'systemd',
+        'firewall': 'firewalld',
     },
     'FreeBSD' : {
         'manager': 'rc',
+        'firewall': 'pf',
     },
 }, default='Debian') %}
 
