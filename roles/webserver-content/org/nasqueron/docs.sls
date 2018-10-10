@@ -7,7 +7,7 @@
 
 {% if salt['node.has_web_content'](".org/nasqueron/docs") %}
 
-{% from "map.jinja" import packages with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   Base directory
@@ -18,6 +18,20 @@
     - user: deploy
     - group: web
     - dir_mode: 755
+
+#   -------------------------------------------------------------
+#   Software to build the docs
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+sphinx:
+  pkg.installed:
+    - name: {{ packages.sphinx }}
+
+{{ dirs.bin }}/deploy-docker-registry-api-doc:
+  file.managed:
+    - source: salt://roles/webserver-content/org/nasqueron/files/build-docs-salt-wrapper.sh
+    - user: deploy
+    - mode: 755
 
 #   -------------------------------------------------------------
 #   Deploy a rSW docs dir HTML build to docs.n.o/salt-wrapper
@@ -58,11 +72,21 @@ limiting_factor_doc_build:
     - m_name: limiting-factor-doc
 
 #   -------------------------------------------------------------
-#   Software to build the docs
+#   Deploy a rAPIREG docs dir HTML build to docs.n.o/docker-registry-api
+#
+#   Job: https://cd.nasqueron.org/job/docker-registry-api-doc/
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-sphinx:
-  pkg.installed:
-    - name: {{ packages.sphinx }}
+/var/wwwroot/nasqueron.org/docs/docker-registry-api/rust:
+  file.directory:
+    - user: deploy
+    - group: web
+    - dir_mode: 755
+    - makedirs: True
+
+docker_registry_api_doc_build:
+  module.run:
+    - name: jenkins.build_job
+    - m_name: docker-registry-api
 
 {% endif %}
