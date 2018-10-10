@@ -18,3 +18,10 @@
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
     - mode: 755
 {% endfor %}
+
+{% for command in ['pad-delete'] %}
+{{ dirs.bin }}/{{ command }}:
+  file.managed:
+    - source: salt://roles/paas-docker/wrappers/files/{{ command }}.py
+    - mode: 755
+{% endfor %}
