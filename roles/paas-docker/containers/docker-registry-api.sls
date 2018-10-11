@@ -21,8 +21,6 @@
     - interactive: True
     - image: nasqueron/docker-registry-api
     - binds: /srv/{{ container['registry_instance'] }}:/var/lib/registry
-    - environment:
-        - API_ENTRY_POINT: {{ container['api_entry_point'] }}
     - ports:
       - 8000
     - port_bindings:
