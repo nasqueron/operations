@@ -46,6 +46,7 @@ docker_images:
 
     # Continuous deployment jobs
     - jenkins/jenkins
+    - nasqueron/jenkins-slave-node
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
     - nasqueron/tommy
@@ -184,6 +185,10 @@ docker_containers:
 
       rust_brown:
         image: rust
+        realm: cd
+
+      yarabokin:
+        image: node
         realm: cd
 
       zateki: &php_for_ci
