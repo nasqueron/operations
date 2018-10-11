@@ -42,7 +42,6 @@ esac
 
 $DL $DL_ARGS $TARBALL_PATH/doc-$PROJECT-rust.tar.gz "$SOURCE/$BUILD/artifact/target/doc-rust.tar.gz"
 $DL $DL_ARGS $TARBALL_PATH/doc-$PROJECT-openapi.tar.gz "$SOURCE/$BUILD/artifact/target/doc-openapi.tar.gz"
-exit
 
 # Deploy
 
