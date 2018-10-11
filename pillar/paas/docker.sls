@@ -39,6 +39,9 @@ docker_images:
     # Nasqueron services
     - nasqueron/auth-grove
 
+    # Nasqueron API microservices
+    - nasqueron/docker-registry-api
+
     # Infrastructure and development services
     - nasqueron/aphlict
     - nasqueron/etherpad:production
@@ -257,6 +260,14 @@ docker_containers:
         host: login.nasqueron.org
         credential: nasqueron.auth-grove.mysql
         mysql_link: acquisitariat
+
+    # API microservices
+
+    docker-registry-api:
+      api-docker-registry:
+        app_port: 20080
+        api_entry_point: /docker/registry
+        registry_instance: registry
 
     # phpBB SaaS
     # The SaaS uses a MySQL instance, declared in the MySQL section.
