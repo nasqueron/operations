@@ -34,6 +34,15 @@ sphinx:
     - mode: 755
 
 #   -------------------------------------------------------------
+#   Deploy rDWWW as docs.n.o homepage and assets
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+www_docs_build:
+  module.run:
+    - name: jenkins.build_job
+    - m_name: deploy-website-nasqueron-www1-docs
+
+#   -------------------------------------------------------------
 #   Deploy a rSW docs dir HTML build to docs.n.o/salt-wrapper
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

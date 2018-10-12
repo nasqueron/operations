@@ -37,6 +37,8 @@ web_domains:
 
 #   -------------------------------------------------------------
 #   Static sites
+#
+#   Sites to deploy from the staging repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 web_static_sites:
@@ -45,7 +47,6 @@ web_static_sites:
     - assets
     - docker
     - ftp
-    - infra
     - packages
     - trustspace
   wolfplex.org:
@@ -149,8 +150,11 @@ web_content_sls:
 
     # Directly managed by Nasqueron
     - .org/nasqueron/api
+    - .org/nasqueron/daeghrefn
     - .org/nasqueron/docs
+    - .org/nasqueron/infra
     - .org/nasqueron/labs
+    - .org/nasqueron/rain
 
     # Wolfplex Hackerspace
     - .org/wolfplex/api
