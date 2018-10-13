@@ -29,8 +29,8 @@
     - mode: 1770
     - group: web
 
-{% for domain, site in pillar['web_php_sites'].items() %}
-/var/tmp/php/sessions/{{ domain }}:
+{% for fqdn, site in pillar['web_php_sites'].items() %}
+/var/tmp/php/sessions/{{ fqdn }}:
   file.directory:
     - mode: 0700
     - user: {{ site['user']}}
