@@ -9,7 +9,7 @@
 #   Sites content
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for domain, site in pillar['web_php_sites'].items() %}
+{% for site in pillar['web_php_sites'].values() %}
 
 {% if 'target' in site %}
 
