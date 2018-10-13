@@ -79,6 +79,12 @@ web_php_sites:
     target: /var/wwwroot/dereckson.be/www
     php-fpm: prod
 
+  www51.dereckson.be:
+    domain: dereckson.be
+    subdomain: www51
+    user: web-be-dereckson-www51
+    php-fpm: prod
+
   # Directly managed by Nasqueron
   api.nasqueron.org:
     domain: nasqueron.org
