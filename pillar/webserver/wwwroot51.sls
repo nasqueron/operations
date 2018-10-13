@@ -13,6 +13,11 @@ wwwroot51_directories:
     group: dereckson
     repository: ssh://vcs@devcentral.nasqueron.org:5022/source/api.git
 
+  dereckson-www:
+    user: dereckson
+    group: dereckson
+    repository: git@bitbucket.org:dereckson/www.dereckson.be.git
+
   mediawiki-dereckson:
     user: dereckson
     group: dereckson
