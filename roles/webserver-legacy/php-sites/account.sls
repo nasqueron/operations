@@ -9,16 +9,16 @@
 #   Sites user accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for domain, site in pillar['web_php_sites'].items() %}
+{% for fqdn, site in pillar['web_php_sites'].items() %}
 {% if 'skipCreateAccount' not in site or not site['skipCreateAccount'] %}
 
 web_account_{{ site['user'] }}:
   user.present:
     - name: {{ site['user' ]}}
-    - fullname: {{ domain }}
+    - fullname: {{ fqdn }}
     - gid: web
     - system: True
-    - home: /var/run/web/{{ domain }}
+    - home: /var/run/web/{{ fqdn }}
 
 {% endif %}
 {% endfor %}
