@@ -77,7 +77,7 @@ selinux_context_{{ instance }}_data_applied:
     - links: {{ container['mysql_link'] }}:mysql
     - ports:
         - 80
-    - ports_bindings:
+    - port_bindings:
         - {{ container['app_port'] }}:80
 
 {% endif %}
