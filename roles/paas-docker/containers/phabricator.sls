@@ -10,12 +10,13 @@
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
 {% for instance, container in containers['phabricator'].items() %}
+{% set create_container = "skip_container" not in container or not container['skip_container'] %}
 
 #   -------------------------------------------------------------
 #   Storage directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/{{ instance }}:
+/srv/phabricator/{{ instance }}:
   file.directory:
     - user: 431
     - group: 433
@@ -24,12 +25,61 @@
 {% if has_selinux %}
 selinux_context_{{ instance }}_data:
   selinux.fcontext_policy_present:
-    - name: /srv/{{  instance }}
+    - name: /srv/phabricator/{{  instance }}
     - sel_type: container_file_t
 
 selinux_context_{{ instance }}_data_applied:
   selinux.fcontext_policy_applied:
-    - name: /srv/{{ instance }}
+    - name: /srv/phabricator/{{ instance }}
+{% endif %}
+
+#   -------------------------------------------------------------
+#   Container
+#
+#   /!\ DEVCENTRAL DEPLOYMENT ISSUE /!\
+#
+#   We've currently a chicken or egg problem here: the zr
+#   credentials source is the Nasqueron Phabricator instance,
+#   DevCentral. As such, we can't provision it through this block.
+#
+#   This is blocked by secrets migration to Vault.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if create_container %}
+
+{{ instance }}:
+  docker_container.running:
+    - detach: True
+    - interactive: True
+    - image: nasqueron/phabricator
+    - binds:
+        - /srv/phabricator/{{ instance }}/conf:/opt/phabricator/conf
+        - /srv/phabricator/{{ instance }}/repo:/var/repo
+    - environment:
+        PHABRICATOR_URL: https://{{ container['host'] }}
+        PHABRICATOR_TITLE: {{ container['title'] }}
+        PHABRICATOR_DOMAIN: {{ container['host'] }}
+        PHABRICATOR_ALT_FILE_DOMAIN: https://{{ container['static_host'] }}
+
+        DB_USER: {{ salt['zr.get_username'](container['credentials']['mysql']) }}
+        DB_PASS: {{ salt['zr.get_password'](container['credentials']['mysql']) }}
+        PHABRICATOR_STORAGE_NAMESPACE: {{ container['storage']['namespace'] }}
+
+        {% if container['mailer'] == 'sendgrid' %}
+        PHABRICATOR_USE_SENDGRID: 1
+        PHABRICATOR_SENDGRID_APIUSER: {{ salt['zr.get_username'](container['credentials']['sendgrid']) }}
+        PHABRICATOR_SENDGRID_APIKEY: {{ salt['zr.get_password'](container['credentials']['sendgrid']) }}
+        {% elif container['mailer'] == 'mailgun' %}
+        PHABRICATOR_USE_MAILGUN: 1
+        PHABRICATOR_MAILGUN_APIKEY: {{ salt['zr.get_token'](container['credentials']['mailgun']) }}
+        {% endif %}
+
+    - links: {{ container['mysql_link'] }}:mysql
+    - ports:
+        - 80
+    - ports_bindings:
+        - {{ container['app_port'] }}:80
+
 {% endif %}
 
 {% endfor %}

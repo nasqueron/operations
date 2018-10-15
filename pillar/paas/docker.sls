@@ -216,6 +216,7 @@ docker_containers:
     # Infrastructure and development services
 
     phabricator:
+      # Nasqueron instance
       devcentral:
         app_port: 31080
         host: devcentral.nasqueron.org
@@ -228,7 +229,54 @@ docker_containers:
               - server.nasqueron.org
               - serveur.nasqueron.org
               - serveurs.nasqueron.org
+        mailer: mailgun
+        credentials:
+          mysql: zed.phabricator.mysql
         static_host: phabricator-files-for-devcentral-nasqueron.spacetechnology.net
+        title: Nasqueron DevCentral
+        mysql_link: acquisitariat
+        skip_container: True
+
+      # Private instance for Dereckson
+      river_sector:
+        app_port: 23080
+        host: river-sector.dereckson.be
+        static_host: phabricator-files-for-river-sector.nasqueron.org
+        mailer: _
+        credentials:
+          mysql: dereckson.phabricator.mysql
+        storage:
+          namespace: river_sector
+        title: River Sector
+        mysql_link: acquisitariat
+
+      # Wolfplex instance
+      wolfplex_phab:
+        app_port: 35080
+        host: phabricator.wolfplex.be
+        static_host: phabricator-files-for-wolfplex.nasqueron.org
+        mailer: mailgun
+        credentials:
+          mailgun: wolfplex.phabricator.mailgun
+          mysql: wolfplex.phabricator.mysql
+        storage:
+          namespace: wolfphab
+        title: Wolfplex Phabricator
+        mysql_link: acquisitariat
+
+      # Zed instance
+      zed_code:
+        app_port: 36080
+        host: code.zed.dereckson.be
+        static_host: phabricator-files-for-zed.nasqueron.org
+        mailer: sendgrid
+        credentials:
+          mysql: zed.phabricator.mysql
+          sendgrid: zed.phabricator.sendgrid
+        storage:
+          namespace: zedphab
+        title: Zed
+        mysql_link: acquisitariat
 
     aphlict:
       aphlict:

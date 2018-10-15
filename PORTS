@@ -1,8 +1,3 @@
-reserved-for-legacy-docker-migration-high-priority
-    23080   Phabricator HTTP - River Sector
-    35080   Phabricator HTTP - Wolfplex
-    36080   Phabricator HTTP - Zed
-
 reserved-for-legacy-docker-migration-medium-priority
      3000   Mastodon public HTTP
      4000   Mastodon streaming HTTP
@@ -27,12 +22,15 @@ paas-docker
     20080   Nasqueron API - Docker registry API
     22220   Phabricator Aphlict (client)
     22221   Phabricator Aphlict (admin)
+    23080   Phabricator HTTP - River Sector
     24080   Tommy HTTP - CI
     24180   Tommy HTTP - CD
     25080   Auth Grove HTTP
     31080   Phabricator HTTP - DevCentral
     33080   Bugzilla HTTP - Espace Win
     34080   Etherpad
+    35080   Phabricator HTTP - Wolfplex
+    36080   Phabricator HTTP - Zed
     38080   Jenkins HTTP - CD
     39080   Cachet HTTP
     42080   Jenkins HTTP - CI

@@ -29,6 +29,16 @@ zr_credentials:
       api: 125
 
   #
+  # Credentials used by Nasqueron members private services
+  #
+
+  dereckson:
+
+    # River Sector
+    phabricator:
+      mysql: 133
+
+  #
   # Credentials used by Espace Win services
   #
 
@@ -37,3 +47,25 @@ zr_credentials:
     # bugzilla.espace-win.org
     bugzilla:
       mysql: 131
+
+  #
+  # Credentials used by Wolfplex services
+  #
+
+  wolfplex:
+
+    # phabricator.wolfplex.be
+    phabricator:
+      mysql: 135
+      mailgun: 138
+
+  #
+  # Credentials used by Zed services
+  #
+
+  zed:
+
+    # code.zed.dereckson.be
+    phabricator:
+      mysql: 134
+      sendgrid: 45
