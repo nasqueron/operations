@@ -39,9 +39,7 @@
     - context:
         fqdn: {{ container['host'] }}
         app_port: {{ container['app_port'] }}
-        {% if 'aliases' in container %}
-        aliases: {{ container['aliases']|join(" ") }}
-        {% endif %}
+        aliases: {{ container['aliases'] | default('', true) | join(" ") }}
         # If the nginx configuration needs more key,
         # pass directly the container dictionary.
         args: {{ container }}
