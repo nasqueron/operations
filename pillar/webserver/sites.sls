@@ -114,6 +114,12 @@ web_php_sites:
     target: /var/wwwroot/espace-win.org/www
     php-fpm: prod
 
+  www51.espace-win.org:
+    domain: espace-win.org
+    subdomain: www51
+    user: web-org-espacewin-www51
+    php-fpm: prod
+
   # Wolfplex Hackerspace
   www.wolfplex.org:
     domain: wolfplex.org

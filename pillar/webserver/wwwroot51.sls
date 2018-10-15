@@ -18,6 +18,11 @@ wwwroot51_directories:
     group: dereckson
     repository: git@bitbucket.org:dereckson/www.dereckson.be.git
 
+  espacewin-www:
+    user: dereckson
+    group: dereckson
+    repository: git@bitbucket.org:ewosp/www.espace-win.org.git
+
   mediawiki-dereckson:
     user: dereckson
     group: dereckson
