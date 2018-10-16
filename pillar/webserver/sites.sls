@@ -58,6 +58,12 @@ web_static_sites:
 #   Username must be unique and use max 31 characters.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+php_custom_builds:
+  php56:
+    mode: release
+    version: 5.6.38
+    hash: d65b231bbdd63be4439ef5ced965cfd63e62983429dbd4dfcfb49981593ebc03
+
 php_fpm_instances:
   # PHP 7.2, generally installed as package/port
   prod:
