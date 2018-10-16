@@ -13,6 +13,7 @@ base:
   'local':
     - roles/saltmaster
   'ysul':
+    - roles/builder
     - roles/dbserver-mysql
     - roles/devserver
     - roles/viperserv
