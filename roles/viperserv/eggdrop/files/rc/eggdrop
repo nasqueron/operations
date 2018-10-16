@@ -86,7 +86,7 @@ fi
 
 eggdrop_chdir=${eggdrop_basedir}
 home_directory=$(getent passwd $eggdrop_user | cut -d: -f6)
-eggdrop_env="HOME=$home_directory PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$home_directory/bin"
+eggdrop_env="LC_ALL=en_US.UTF-8 MM_CHARSET=UTF-8 LANG=en_US.UTF-8 HOME=$home_directory PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$home_directory/bin"
 pidfile=$eggdrop_pidfile
 command_args="$eggdrop_conf"
 
