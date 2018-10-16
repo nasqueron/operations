@@ -1,0 +1,21 @@
+#!/bin/sh
+
+if [ $# -eq 0 ]; then
+    echo "Usage: deploy-container <container name>"
+    exit 1
+fi
+
+SALT_OPS_REPO=/opt/salt/nasqueron-operations
+SALT="salt-wrapper salt"
+PAAS_DOCKER_SERVER="equatower"
+CONTAINER=$1
+
+CONTAINER_SLS="$SALT_OPS_REPO/roles/paas-docker/containers/$CONTAINER.sls"
+
+if [ ! -f "$CONTAINER_SLS" ]; then
+    echo "No state found for container $CONTAINER: $CONTAINER_SLS"
+    exit 2
+fi
+
+cd /opt/salt/nasqueron-operations || exit 4
+$SALT $PAAS_DOCKER_SERVER state.sls "roles/paas-docker/containers/$CONTAINER"
