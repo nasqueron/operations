@@ -70,6 +70,7 @@
         scripts: {{ bot['scripts'] }}
         modules: {{ bot['modules'] | default([]) }}
         runas: {{ bot['runas'] | default('viperserv') }}
+        nickserv: {{ bot['nickserv'] | default(False) }}
 
 /srv/viperserv/{{ botname }}/motd:
   file.managed:

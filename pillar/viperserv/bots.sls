@@ -30,6 +30,7 @@ viperserv_bots:
       - transfer
       - filesys
       - seen
+    nickserv: on
 
   Wearg:
     realname: RabbitMQ broker client
@@ -41,6 +42,7 @@ viperserv_bots:
       # startup components, with broker/Notifications
       # dependencies
       - Wearg/Time.tcl
+    nickserv: on
 
   TC2:
     realname: Tau Ceti Central
