@@ -1,0 +1,14 @@
+diff --git a/salt_master b/salt_master
+old mode 100755
+new mode 100644
+index 44eff5b..4d8d2ef
+--- a/salt_master
++++ b/salt_master
+@@ -38,5 +38,7 @@ pidfile=${salt_master_pidfile}
+ 
+ export PATH="${salt_master_paths}"
+ export PYTHON_EGG_CACHE="${salt_master_eggcache}"
++export LANG=en_US.UTF-8
++export MM_CHARSET=UTF-8
+ 
+ run_rc_command "$1"
