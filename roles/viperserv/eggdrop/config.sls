@@ -29,6 +29,11 @@
 
 {% for botname, bot in pillar['viperserv_bots'].items() %}
 
+/srv/viperserv/logs/{{ botname }}:
+  file.directory:
+    - user: {{ bot['runas'] | default('viperserv') }}
+    - group: nasqueron-irc
+
 /srv/viperserv/logs/{{ botname }}.log:
   file.managed:
     - user: {{ bot['runas'] | default('viperserv') }}
