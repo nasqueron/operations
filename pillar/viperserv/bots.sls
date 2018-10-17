@@ -50,3 +50,8 @@ viperserv_bots:
     scripts:
       - TC2/Time.tcl
       - TC2/Server.tcl
+
+  # For tests and QA
+  Aeschere:
+    realname: Æschere
+    scripts: {}
