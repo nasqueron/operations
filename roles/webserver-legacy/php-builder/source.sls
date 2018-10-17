@@ -26,13 +26,12 @@ def get_release_versions():
     return set(versions)
 
 
-def get_build_directories():
-  return ["/opt/php/_builds/" + build['version']
-          for build in get_release_builds().values()]
-
-
 def get_archive_path(version):
-    return "/opt/php/_archives/php-" + version + ".tar.bz2"
+    return "/opt/php/archives/php-" + version + ".tar.bz2"
+
+
+def get_build_directories():
+    return ["/opt/php/" + build for build in __pillar__["php_custom_builds"]]
 
 
 def get_extract_archive_command(archive, directory):
@@ -48,7 +47,7 @@ def run():
     config = {}
 
     builder_user = 'builder'
-    directories_to_create = ['/opt/php', '/opt/php/_archives', '/opt/php/_builds']
+    directories_to_create = ['/opt/php', '/opt/php/archives']
 
     # Task: create directories
     directories_to_create.extend(get_build_directories())
@@ -56,12 +55,9 @@ def run():
         config[directory] = {'file.directory': [{'user': builder_user}]}
 
     # Task: fetch archives
-    # Task: extract archives to build directories
     for version, archive_hash in get_release_versions():
         archive = get_archive_path(version)
         url = "http://fr2.php.net/get/php-" + version + ".tar.bz2/from/this/mirror"
-        directory = "/opt/php/_builds/" + version
-        command = get_extract_archive_command(archive, directory)
 
         config[archive] = {'file.managed': [
             {'source': url},
@@ -69,7 +65,13 @@ def run():
             {'user': builder_user},
         ]}
 
-        config["php_build_" + version] = {'cmd.run': [
+    # Task: extract archives to build directories
+    for build_name, build in get_release_builds().items():
+        archive = get_archive_path(build['version'])
+        directory = "/opt/php/" + build_name
+        command = get_extract_archive_command(archive, directory)
+
+        config["php_build_" + build_name] = {'cmd.run' : [
             {'name': command},
             {'user': builder_user},
             {'creates': directory + "/configure.in"},
