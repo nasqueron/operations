@@ -32,6 +32,10 @@ command="/usr/sbin/daemon"
 procname="/usr/local/bin/eggdrop"
 start_precmd="${name}_prestart"
 
+extra_commands="reload graceful"
+sig_reload="HUP"
+graceful_cmd="eggdrop_graceful"
+
 # Instances logic has been forked from the MySQL port rc service code.
 if [ -n "$2" ]; then
 	instance="$2"
@@ -89,6 +93,14 @@ home_directory=$(getent passwd $eggdrop_user | cut -d: -f6)
 eggdrop_env="LC_ALL=en_US.UTF-8 MM_CHARSET=UTF-8 LANG=en_US.UTF-8 HOME=$home_directory PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$home_directory/bin"
 pidfile=$eggdrop_pidfile
 command_args="$eggdrop_conf"
+
+eggdrop_graceful()
+{
+    if [ -f $pidfile ]; then
+        echo "Gracefully restart eggdrop..."
+        kill -3 `cat $pidfile`
+    fi
+}
 
 eggdrop_prestart()
 {
