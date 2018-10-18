@@ -69,6 +69,10 @@ php_fpm_instances:
   prod:
     command: /usr/local/sbin/php-fpm
 
+  # PHP 5.6, installed through php-builder unit
+  legacy:
+    command: /opt/php/php56/sbin/php-fpm
+
 web_php_sites:
   # Nasqueron members
   mediawiki.dereckson.be:
@@ -118,7 +122,7 @@ web_php_sites:
     user: web-org-espacewin-www
     source: wwwroot/espace-win.org/www
     target: /var/wwwroot/espace-win.org/www
-    php-fpm: prod
+    php-fpm: legacy
 
   www51.espace-win.org:
     domain: espace-win.org

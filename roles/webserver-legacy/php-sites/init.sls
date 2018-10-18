@@ -10,3 +10,4 @@ include:
   - .files
   - .php
   - .php-fpm
+  - .cleanup

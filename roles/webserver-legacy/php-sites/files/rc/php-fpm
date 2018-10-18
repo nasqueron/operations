@@ -89,6 +89,7 @@ else
 fi
 
 command=${php_fpm_command}
+command_args="--fpm-config ${php_fpm_conf}"
 pidfile="${php_fpm_pidfile}"
 
 required_files="${php_fpm_conf}"

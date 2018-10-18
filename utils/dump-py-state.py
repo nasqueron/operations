@@ -12,6 +12,7 @@
 
 
 import os
+import subprocess
 import sys
 import yaml
 
@@ -42,6 +43,16 @@ def load_pillar(pillar_directory):
         pillar.update(data)
 
     return pillar
+
+
+#   -------------------------------------------------------------
+#   Grains helper
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def system(args):
+    result = subprocess.run(args, stdout=subprocess.PIPE)
+    return result.stdout.decode('utf-8').strip()
 
 
 #   -------------------------------------------------------------
@@ -81,4 +92,8 @@ if __name__ == "__main__":
         exit(ex.errno)
 
     __pillar__ = load_pillar("pillar")
+    __grains__ = {
+        'os': system(["uname", "-o"])
+    }
+
     exec(source_code)

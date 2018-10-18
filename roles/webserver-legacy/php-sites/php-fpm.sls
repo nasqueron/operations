@@ -34,7 +34,7 @@ php-fpm_config_{{ instance }}:
 
 php-fpm_pool_{{ site['user'] }}:
   file.managed:
-    - name: {{ dirs.etc }}/php-fpm.d/prod-pools/{{ site['user'] }}.conf
+    - name: {{ dirs.etc }}/php-fpm.d/{{ site['php-fpm'] }}-pools/{{ site['user'] }}.conf
     - source: salt://roles/webserver-legacy/php-sites/files/php-fpm-pool.conf
     - template: jinja
     - context:
