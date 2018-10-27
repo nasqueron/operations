@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Additional software
@@ -17,3 +17,10 @@ install_salt_extra_software:
     - pkgs:
       # Jenkins execution module
       - {{ packages_prefixes.python3 }}python-jenkins
+      # For staging-commit-message
+      - {{ packages_prefixes.python3 }}GitPython
+
+{{ dirs.bin }}/staging-commit-message:
+  file.managed:
+    - source: salt://roles/saltmaster/software/files/staging-commit-message.py
+    - mode: 755
