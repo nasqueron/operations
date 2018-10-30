@@ -42,6 +42,8 @@ web_domains:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 web_static_sites:
+  dereckson.be:
+    - assets
   nasqueron.org:
     - www
     - assets
@@ -51,6 +53,7 @@ web_static_sites:
     - trustspace
   wolfplex.org:
     - www
+    - assets
 
 #   -------------------------------------------------------------
 #   PHP sites
