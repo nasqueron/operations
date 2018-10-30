@@ -184,6 +184,9 @@ languages_libs:
       - {{ packages_prefixes.php }}pdo_sqlite
       {% endif %}
 
+      # PECL extensions
+      - {{ packages_prefixes.pecl }}yaml
+
       # PHP utilities
 
       {% if grains['os'] != 'FreeBSD' %}
