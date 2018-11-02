@@ -14,9 +14,9 @@ from salt.utils.path import which as path_which
 
 
 def __virtual__():
-    '''
+    """
     Only load if zr exists on the system
-    '''
+    """
     return path_which('zr') is not None,\
         "The Zemke-Rhyne execution module cannot be loaded: zr not installed."
 
@@ -26,7 +26,7 @@ def _build_pillar_key(expression):
 
 
 def _get_credential_id_from_pillar_key(expression):
-    '''Gets credentials id from a dot pillar path, e.g. nasqueron.foo.bar'''
+    """Gets credentials id from a dot pillar path, e.g. nasqueron.foo.bar"""
     key = _build_pillar_key(expression)
     return __salt__['pillar.get'](key)
 

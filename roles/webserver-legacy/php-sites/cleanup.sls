@@ -12,6 +12,7 @@
 #                   That allows to move pools among instances.
 #   -------------------------------------------------------------
 
+
 def get_etc_dir():
     if __grains__['os'] == 'FreeBSD':
         return "/usr/local/etc"
@@ -23,7 +24,7 @@ def files_to_delete_if_they_exist():
     files = []
     etc_dir = get_etc_dir()
     for instance in __pillar__['php_fpm_instances']:
-        files.extend([etc_dir + "/php-fpm.d/" + instance + "-pools/" + site['user']  + ".conf"
+        files.extend([etc_dir + "/php-fpm.d/" + instance + "-pools/" + site['user'] + ".conf"
                       for _, site in __pillar__['web_php_sites'].items()
                       if site['php-fpm'] != instance])
 

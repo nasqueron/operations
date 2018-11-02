@@ -122,7 +122,7 @@ def run():
                 "make"
             ]},
             {'user': builder_user},
-          {'creates': directory + "/configure"},
+            {'creates': directory + "/configure"},
         ]}
 
         config["php_build_" + build_name + "_phase2_install"] = {'cmd.run': [

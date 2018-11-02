@@ -26,7 +26,7 @@ PAD_HOST = "pad.nasqueron.org"
 
 # Read API key
 with open(API_KEY_FILE) as api_file:
-    key=api_file.read().strip()
+    key = api_file.read().strip()
 
 # Fire request
 url = "https://" + PAD_HOST + "/api/1/deletePad?apikey=" + key + "&padID=" + pad
