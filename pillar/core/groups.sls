@@ -96,4 +96,5 @@ shellgroups:
     members:
       - dereckson
       - rama
+      - sandlayth
       - xcombelle
