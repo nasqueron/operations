@@ -13,13 +13,18 @@
 #   -------------------------------------------------------------
 #
 #   :: Disabled accounts
+#   :: ZFS (before user account creation)
 #   :: Active accounts
+#   :: ZFS (after user account creation)
 #   :: Groups
 #   :: SSH keys
 #
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import shells with context %}
+{% from "map.jinja" import dirs, shells with context %}
+
+{% set users = salt['forest.get_users']() %}
+{% set zfs_tank = salt['node.get']("zfs:pool") %}
 
 #   -------------------------------------------------------------
 #   Disabled accounts
@@ -31,10 +36,52 @@
 {% endfor %}
 
 #   -------------------------------------------------------------
+#   ZFS datasets
+#
+#   Where ZFS is available, home directories are created as separate
+#   datasets. That has several benefits, like allowing users to create
+#   snapshots or manage backups.
+#   -------------------------------------------------------------
+
+{% if zfs_tank %}
+zfs_home_permissions_sets:
+  cmd.run:
+    - name: |
+        zfs allow -s @local allow,clone,create,diff,hold,mount,promote,receive,release,rollback,snapshot,send {{ zfs_tank }}{{ dirs.home }}
+        zfs allow -s @descendent allow,clone,create,diff,destroy,hold,mount,promote,receive,release,rename,rollback,snapshot,send {{ zfs_tank }}{{ dirs.home }}
+        touch {{ dirs.home }}/.zfs-permissions-set
+    - creates: {{ dirs.home }}/.zfs-permissions-set
+
+{% for username in users %}
+{% set home_directory = zfs_tank + dirs['home'] + '/' + username %}
+
+{{ home_directory }}:
+  zfs.filesystem_present
+
+zfs_permissions_home_local_{{ username }}:
+  cmd.run:
+    - name: zfs allow -lu {{ username }} @local {{ home_directory }}
+    - require:
+        - user: {{ username }}
+    - onchanges:
+        - zfs: {{ home_directory }}
+
+zfs_permissions_home_descendant_{{ username }}:
+  cmd.run:
+    - name: zfs allow -du {{ username }} @descendent {{ home_directory }}
+    - require:
+        - user: {{ username }}
+    - onchanges:
+        - zfs: {{ home_directory }}
+
+{% endfor %}
+{% endif %}
+
+#   -------------------------------------------------------------
 #   Active accounts
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().items() %}
+{% for username, user in users.items() %}
 {{ username }}:
   user.present:
     - fullname: {{ user['fullname'] }}
@@ -58,7 +105,7 @@ group_{{ groupname }}:
 #   SSH keys
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().items() %}
+{% for username, user in users.items() %}
 
 /home/{{ username }}/.ssh:
   file.directory:
