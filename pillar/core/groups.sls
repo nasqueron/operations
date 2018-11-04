@@ -95,6 +95,5 @@ shellgroups:
         Provide an account on Nasqueron development servers.
     members:
       - dereckson
-      - kumkum
       - rama
       - xcombelle
