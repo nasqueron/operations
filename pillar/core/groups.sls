@@ -89,7 +89,7 @@ shellgroups:
       - dereckson
 
   nasquenautes:
-    gid: 3004
+    gid: 3005
     title: Nasqueron servers users
     description: >
         Provide an account on Nasqueron development servers.
