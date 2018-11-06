@@ -33,6 +33,8 @@ docker_images:
 
   equatower:
     # Core services
+    - library/postgres
+    - library/redis:3.2-alpine
     - library/registry
     - nasqueron/mysql
 
@@ -53,6 +55,10 @@ docker_images:
     - nasqueron/jenkins-slave-php
     - nasqueron/jenkins-slave-rust
     - nasqueron/tommy
+
+    # Sentry
+    - localhost:5000/sentry
+    - tianon/exim4
 
 #   -------------------------------------------------------------
 #   Networks
@@ -156,6 +162,13 @@ docker_containers:
     mysql:
       acquisitariat: {}
       phpbb_db: {}
+
+    postgresql:
+      sentry_db:
+        credential: nasqueron.sentry.postgresql
+
+    redis:
+      sentry_redis: {}
 
     registry:
       registry:
@@ -328,6 +341,27 @@ docker_containers:
         ip: *ipv4_equatower
         app_port: 9090
         host: xmpp.nasqueron.org
+
+    # Sentry
+    # The Sentry instance uses a Redis and a PostgreSQL instance,
+    # declared above.
+    exim:
+      sentry_smtp: {}
+
+    sentry_worker:
+      sentry_worker_1: &sentry_links
+        postgresql_link: sentry_db
+        redis_link: sentry_redis
+        smtp_link: sentry_smtp
+
+    sentry_cron:
+      sentry_cron: *sentry_links
+
+    sentry_web:
+      sentry_web_1:
+        <<: *sentry_links
+        app_port: 26080
+        host: sentry.nasqueron.org
 
  #   -------------------------------------------------------------
  #   Ports listened by XMPP

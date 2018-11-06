@@ -9,7 +9,6 @@ reserved-for-legacy-docker-migration-low-priority
      4440   Rundeck HTTP
     21080   Drupal CRM HTTP
     22080   Zammad HTTP
-    26080   Sentry HTTP
     27080   Grafana HTTP
     28080   phragile HTTP
     29080   etcd HTTP
@@ -26,6 +25,7 @@ paas-docker
     24080   Tommy HTTP - CI
     24180   Tommy HTTP - CD
     25080   Auth Grove HTTP
+    26080   Sentry HTTP
     31080   Phabricator HTTP - DevCentral
     33080   Bugzilla HTTP - Espace Win
     34080   Etherpad

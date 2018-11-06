@@ -28,6 +28,11 @@ zr_credentials:
       # This API key is used by Wolfplex API to access to the pad lists
       api: 125
 
+    # sentry.nasqueron.org
+    sentry:
+      postgresql: 139
+      app_key: 140
+
   #
   # Credentials used by Nasqueron members private services
   #
