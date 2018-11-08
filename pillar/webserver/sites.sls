@@ -49,6 +49,7 @@ web_static_sites:
     - assets
     - docker
     - ftp
+    - launch
     - packages
     - trustspace
   wolfplex.org:
