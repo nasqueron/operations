@@ -17,10 +17,6 @@ from os import path
 import re
 import subprocess
 
-
-staging_repo_path = '/opt/salt/staging'
-
-
 class SubmoduleCommit:
 
     def __init__(self, repo_path, submodule_path):
@@ -91,5 +87,10 @@ def run(repo_path):
     print("\n\n".join(commits))
 
 
+def determine_current_repo():
+    return Repo('.', search_parent_directories=True).working_tree_dir
+
+
 if __name__ == "__main__":
-    run(staging_repo_path)
+    current_repo_path = determine_current_repo()
+    run(current_repo_path)
