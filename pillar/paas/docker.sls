@@ -8,6 +8,7 @@
 
 docker_aliases:
   - &ipv4_equatower 51.255.124.10
+  - &intra_equatower 10.0.1.1
 
 #   -------------------------------------------------------------
 #   Images
@@ -173,7 +174,7 @@ docker_containers:
     registry:
       registry:
         app_port: 5000
-        ip: 127.0.0.1
+        ip: *intra_equatower
 
      #
      # CI and CD
