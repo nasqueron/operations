@@ -346,7 +346,8 @@ docker_containers:
     # The Sentry instance uses a Redis and a PostgreSQL instance,
     # declared above.
     exim:
-      sentry_smtp: {}
+      sentry_smtp:
+        host: mx.sentry.nasqueron.org
 
     sentry_worker:
       sentry_worker_1: &sentry_links
