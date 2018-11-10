@@ -60,3 +60,6 @@ sysadmin_utilities:
     - pkgs:
       - tree
       - wget
+      {% if grains['os'] != 'FreeBSD' %}
+      - nc
+      {% endif %}
