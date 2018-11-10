@@ -31,6 +31,7 @@ viperserv_bots:
       - filesys
       - seen
     nickserv: on
+    ensure_is_live: on
 
   Wearg:
     realname: RabbitMQ broker client
@@ -43,6 +44,7 @@ viperserv_bots:
       # dependencies
       - Wearg/Time.tcl
     nickserv: on
+    ensure_is_live: on
 
   TC2:
     realname: Tau Ceti Central
@@ -50,8 +52,10 @@ viperserv_bots:
     scripts:
       - TC2/Time.tcl
       - TC2/Server.tcl
+    ensure_is_live: off
 
   # For tests and QA
   Aeschere:
     realname: Æschere
     scripts: {}
+    ensure_is_live: off

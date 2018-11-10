@@ -10,3 +10,4 @@ include:
   - .software
   - .config
   - .service
+  - .cron
