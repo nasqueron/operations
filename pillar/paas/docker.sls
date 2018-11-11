@@ -350,21 +350,22 @@ docker_containers:
       sentry_smtp:
         host: mx.sentry.nasqueron.org
 
+    sentry:
+      sentry_web_1:
+        app_port: 26080
+        host: sentry.nasqueron.org
+
+        # As an instance is divided between a web, a cron and a worker
+        # containers, we need an identified to share a data volume.
+        realm: nasqueron
+
     sentry_worker:
       sentry_worker_1:
-        # As an instance is devided between a web, a cron and a worker
-        # containers, we need an identified to share a data volume.
         realm: nasqueron
 
     sentry_cron:
       sentry_cron:
         realm: nasqueron
-
-    sentry_web:
-      sentry_web_1:
-        realm: nasqueron
-        app_port: 26080
-        host: sentry.nasqueron.org
 
  #   -------------------------------------------------------------
  #   Ports listened by XMPP
