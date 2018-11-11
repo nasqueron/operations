@@ -48,7 +48,7 @@ selinux_context_{{ realm }}_sentry_data_applied:
 #   Web application
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, container in containers['sentry_web'].items() %}
+{% for instance, container in containers['sentry'].items() %}
 
 {% set args = pillar['sentry_realms'][container['realm']] %}
 
