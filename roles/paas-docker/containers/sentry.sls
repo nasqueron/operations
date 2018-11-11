@@ -74,3 +74,25 @@ selinux_context_{{ realm }}_sentry_data_applied:
       - {{ container['app_port'] }}:9000
 
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   Services containers
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for service in ['worker', 'cron'] %}
+{% for instance, container in containers['sentry_' + service].items() %}
+
+{% set args = pillar['sentry_realms'][container['realm']] %}
+
+{{ instance }}:
+  docker_container.running:
+    - detach: True
+    - interactive: True
+    - image: library/sentry
+    - binds: *binds
+    - links: *links
+    - environment: *env
+    - command: run {{ service }}
+
+{% endfor %}
+{% endfor %}
