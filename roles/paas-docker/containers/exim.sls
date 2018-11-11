@@ -18,7 +18,7 @@
 #   Only required if you provide some hostname to the SMTP server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if 'host' in container %}
+{% if 'mailname' in container %}
 
 /srv/exim/{{ instance }}:
   file.directory:
@@ -57,7 +57,7 @@ selinux_context_{{ instance }}_exim_data_applied:
 
 {% if 'host' in container %}
     - binds: /srv/exim/{{ instance }}/mailname:/etc/mailname:ro
-    - hostname: container['mailname']
+    - hostname: {{ container['mailname'] }}
 {% endif %}
 
 {% if 'network' in container %}
