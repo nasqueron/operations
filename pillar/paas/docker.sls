@@ -348,7 +348,7 @@ docker_containers:
     # declared above.
     exim:
       sentry_smtp:
-        host: mx.sentry.nasqueron.org
+        mailname: mx.sentry.nasqueron.org
 
     sentry:
       sentry_web_1:

@@ -28,7 +28,7 @@
 
 /srv/exim/{{ instance }}/mailname:
   file.managed:
-    - contents: {{ container['host'] }}
+    - contents: {{ container['mailname'] }}
 
 {% if has_selinux %}
 
@@ -57,7 +57,7 @@ selinux_context_{{ instance }}_exim_data_applied:
 
 {% if 'host' in container %}
     - binds: /srv/exim/{{ instance }}/mailname:/etc/mailname:ro
-    - hostname: container['host']
+    - hostname: container['mailname']
 {% endif %}
 
 {% if 'network' in container %}
