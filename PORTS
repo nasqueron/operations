@@ -2,7 +2,6 @@ reserved-for-legacy-docker-migration-medium-priority
      3000   Mastodon public HTTP
      4000   Mastodon streaming HTTP
     15674   RabbitMQ
-    37080   Notifications center HTTP
     41080   Nasqueron Tools HTTP
 
 reserved-for-legacy-docker-migration-low-priority
@@ -31,6 +30,7 @@ paas-docker
     34080   Etherpad
     35080   Phabricator HTTP - Wolfplex
     36080   Phabricator HTTP - Zed
+    37080   Notifications center HTTP
     38080   Jenkins HTTP - CD
     39080   Cachet HTTP
     42080   Jenkins HTTP - CI

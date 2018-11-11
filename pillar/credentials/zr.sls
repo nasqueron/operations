@@ -28,6 +28,12 @@ zr_credentials:
       # This API key is used by Wolfplex API to access to the pad lists
       api: 125
 
+    # notifications.nasqueron.org
+    notifications:
+      broker: 56
+      mailgun: 82
+      sentry: 141
+
     # sentry.nasqueron.org
     sentry:
       postgresql: 139

@@ -138,6 +138,20 @@ docker_containers:
         version: 5.7
 
     #
+    # Notifications center
+    #
+
+    notifications:
+      notifications:
+        host: notifications.nasqueron.org
+        app_port: 37080
+        broker_link: white-rabbit
+        credentials:
+          broker: nasqueron.notifications.broker
+          mailgun: nasqueron.notifications.mailgun
+          sentry: nasqueron.notifications.sentry
+
+    #
     # Bugzilla
     #
 
