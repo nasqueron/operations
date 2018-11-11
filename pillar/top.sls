@@ -28,6 +28,7 @@ base:
     - paas.docker
     - saas.jenkins
     - saas.phpbb
+    - saas.sentry
 
   ysul:
     - devserver.repos

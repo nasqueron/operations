@@ -58,7 +58,7 @@ docker_images:
     - nasqueron/tommy
 
     # Sentry
-    - localhost:5000/sentry
+    - library/sentry
     - tianon/exim4
 
 #   -------------------------------------------------------------
@@ -351,17 +351,18 @@ docker_containers:
         host: mx.sentry.nasqueron.org
 
     sentry_worker:
-      sentry_worker_1: &sentry_links
-        postgresql_link: sentry_db
-        redis_link: sentry_redis
-        smtp_link: sentry_smtp
+      sentry_worker_1:
+        # As an instance is devided between a web, a cron and a worker
+        # containers, we need an identified to share a data volume.
+        realm: nasqueron
 
     sentry_cron:
-      sentry_cron: *sentry_links
+      sentry_cron:
+        realm: nasqueron
 
     sentry_web:
       sentry_web_1:
-        <<: *sentry_links
+        realm: nasqueron
         app_port: 26080
         host: sentry.nasqueron.org
 
