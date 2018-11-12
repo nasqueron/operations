@@ -37,7 +37,7 @@
         - MAILGUN_DOMAIN: {{ salt['zr.get_username'](container['credentials']['mailgun']) }}
         - MAILGUN_APIKEY: {{ salt['zr.get_password'](container['credentials']['mailgun']) }}
 
-        - SENTRY_DSN: https://{{ salt['zr.get_username'](container['credentials']['sentry']) }}:{{ salt['zr.get_password'](container['credentials']['sentry']) }}@sentry.nasqueron.org/2
+        - SENTRY_DSN: {{ salt['zr.get_sentry_dsn'](container['sentry']) }}
     - ports:
         - 80
     - port_bindings:

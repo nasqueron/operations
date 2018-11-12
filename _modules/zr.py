@@ -107,3 +107,16 @@ def get_token(credential_expression):
 
     zr_command = "zr getcredentials {0} token".format(credential_id)
     return __salt__['cmd.shell'](zr_command)
+
+
+def get_sentry_dsn(args):
+    sentry_server = _get_sentry_server(args['realm'])
+
+    return "https://" + ":".join([
+        get_username(args['credential']),
+        get_password(args['credential']),
+    ]) + "@" + sentry_server + "/" + str(args['project_id'])
+
+
+def _get_sentry_server(realm):
+    return __pillar__['sentry_realms'][realm]['host']

@@ -149,7 +149,10 @@ docker_containers:
         credentials:
           broker: nasqueron.notifications.broker
           mailgun: nasqueron.notifications.mailgun
-          sentry: nasqueron.notifications.sentry
+        sentry:
+          realm: nasqueron
+          project_id: 2
+          credential: nasqueron.notifications.sentry
 
     #
     # Bugzilla

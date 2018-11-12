@@ -19,6 +19,7 @@ base:
   dwellers:
     - credentials.zr
     - paas.docker
+    - saas.sentry
 
   eglide:
     - shellserver.quassel

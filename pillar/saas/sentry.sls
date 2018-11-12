@@ -18,3 +18,4 @@ sentry_realms:
       smtp: sentry_smtp
     credential: nasqueron.sentry.app_key
     email_from: no-reply@sentry.nasqueron.org
+    host: sentry.nasqueron.org
