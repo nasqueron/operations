@@ -173,9 +173,9 @@ docker_containers:
   #
   equatower:
 
-     #
-     # Core services
-     #
+    #
+    # Core services
+    #
 
     mysql:
       acquisitariat: {}
@@ -193,9 +193,9 @@ docker_containers:
         app_port: 5000
         ip: *intra_equatower
 
-     #
-     # CI and CD
-     #
+    #
+    # CI and CD
+    #
 
     jenkins:
       jenkins_cd:
