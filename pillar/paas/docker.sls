@@ -187,6 +187,7 @@ docker_containers:
 
     redis:
       sentry_redis: {}
+      pixelfed_redis: {}
 
     registry:
       registry:
