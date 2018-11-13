@@ -30,8 +30,8 @@
         - {{ container['broker_link'] }}:mq
     - environment:
         - BROKER_HOST: mq
-        - BROKER_USER: {{ salt['zr.get_username'](container['credentials']['broker']) }}
-        - BROKER_PASS: {{ salt['zr.get_password'](container['credentials']['broker']) }}
+        - BROKER_USERNAME: {{ salt['zr.get_username'](container['credentials']['broker']) }}
+        - BROKER_PASSWORD: {{ salt['zr.get_password'](container['credentials']['broker']) }}
         - BROKER_VHOST: dev
 
         - MAILGUN_DOMAIN: {{ salt['zr.get_username'](container['credentials']['mailgun']) }}
