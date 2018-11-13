@@ -43,6 +43,6 @@ selinux_context_{{ instance }}_applied:
     - ports:
       - 5000
     - port_bindings:
-      - {{ container['ip'] }}:{{ container['app_port'] }}:5000 # HTTP
+      - 127.0.0.1:{{ container['app_port'] }}:5000 # HTTP
 
 {% endfor %}

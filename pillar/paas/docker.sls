@@ -8,7 +8,6 @@
 
 docker_aliases:
   - &ipv4_equatower 51.255.124.10
-  - &intra_equatower 10.0.1.1
 
 #   -------------------------------------------------------------
 #   Images
@@ -191,8 +190,14 @@ docker_containers:
 
     registry:
       registry:
+        host: registry.nasqueron.org
         app_port: 5000
-        ip: *intra_equatower
+        allowed_ips:
+          # Localhost
+          - 127.0.0.1
+
+          # Dwellers (through temporary tunnel)
+          - 10.0.2.1
 
     #
     # CI and CD
