@@ -25,6 +25,7 @@ paas-docker
     24180   Tommy HTTP - CD
     25080   Auth Grove HTTP
     26080   Sentry HTTP
+    30080   Pixelfed HTTP
     31080   Phabricator HTTP - DevCentral
     33080   Bugzilla HTTP - Espace Win
     34080   Etherpad

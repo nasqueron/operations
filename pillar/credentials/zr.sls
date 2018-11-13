@@ -34,6 +34,12 @@ zr_credentials:
       mailgun: 82
       sentry: 141
 
+    # photos.nasqueron.org
+    pixelfed:
+      mysql: 142
+      app_key: 143
+      mailgun: 145
+
     # sentry.nasqueron.org
     sentry:
       postgresql: 139

@@ -56,6 +56,9 @@ docker_images:
     - nasqueron/jenkins-slave-rust
     - nasqueron/tommy
 
+    # Pixelfed
+    - nasqueron/pixelfed
+
     # Sentry
     - library/sentry
     - tianon/exim4
@@ -365,6 +368,24 @@ docker_containers:
         ip: *ipv4_equatower
         app_port: 9090
         host: xmpp.nasqueron.org
+
+    # Pixelfed
+    pixelfed:
+      pixelfed:
+        app_port: 30080
+        host: photos.nasqueron.org
+        aliases:
+          - photo.nasqueron.org
+        links:
+          mysql: acquisitariat
+          redis: pixelfed_redis
+        credentials:
+          app_key: nasqueron.pixelfed.app_key
+          mailgun: nasqueron.pixelfed.mailgun
+          mysql: nasqueron.pixelfed.mysql
+        app:
+          title: Nasqueron Photos
+          max_album_length: 16
 
     # Sentry
     # The Sentry instance uses a Redis and a PostgreSQL instance,
