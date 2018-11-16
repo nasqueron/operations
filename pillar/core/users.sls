@@ -111,6 +111,13 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdHrSRJGwaGFTpoZIvkoWTMpnXgke77emVicMT8b37kcUepeD91pA3UPQ7UOEQl/Af3Ly7ePneymZ6NjAkM06oPeIjxE6Nz+i6p7rVIZhCb9qz+hdKgt4wSEQLWponegFNdCUs6HvMjDGlsI0kajHgIakXiKAwNyxhQzpBoGranO9c2PdAq2HGq7Kcq8ApC1kdKG0W3dT4PWborzmt1jWna2yosEn+TTHj5wi2p/E9BsCbmfokBO3xn491lr1P4shh4zg7Mv3SPD3j4/mZb9EMwD8cl4y9ZIoMEbL8p4s8J7Joqs3gK9hmMN5ZCNUFrNrJu3TCRZre2k7cV3+U3IXT erol@fedai
     uid: 2002
 
+  fauve:
+    fullname: Fauve
+    shell: zsh
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQAhf4Du37UglM/hh9ZW2HCq3VtMfj+bgnbjvcIEwo0 fove48@OperateurNoir
+    uid: 2030
+
   harshcrop:
     fullname: Harsh Shah
     ssh_keys:
