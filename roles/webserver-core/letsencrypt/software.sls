@@ -3,7 +3,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-04-27
-#   Description:    Provide a renewal service
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
