@@ -170,6 +170,18 @@ docker_containers:
           db: EspaceWin_Bugs
         credential: espacewin.bugzilla.mysql
 
+    #
+    # Mastodon
+    #
+
+    # Mastodon is currently deployed manually through docker-compose
+    # and not yet integrated to the platform. This declaration is
+    # currently only used for extra utilities deployment.
+
+    mastodon_sidekiq:
+      mastodon_sidekiq_1:
+        realm: nasqueron
+
   #
   # Equatower is the current production engine
   #
