@@ -106,6 +106,7 @@ class ServerConnection:
 
     def parse_alias(self, alias):
         if 'args' in alias:
+            alias['args'].reverse()
             self.args.extendleft(alias['args'])
 
         if 'handler' in alias:
