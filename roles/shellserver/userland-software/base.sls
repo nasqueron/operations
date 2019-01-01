@@ -268,3 +268,12 @@ media:
       - {{ packages.imagemagick }}
       - optipng
       - sox
+
+#   -------------------------------------------------------------
+#   Office utilities (bureautique)
+#   -------------------------------------------------------------
+
+office_software:
+  pkg.installed:
+    - pkgs:
+      - qpdf
