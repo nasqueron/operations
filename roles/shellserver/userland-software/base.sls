@@ -276,4 +276,5 @@ media:
 office_software:
   pkg.installed:
     - pkgs:
+      - gcal
       - qpdf
