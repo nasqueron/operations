@@ -284,7 +284,7 @@ docker_containers:
         mailer: mailgun
         credentials:
           mysql: zed.phabricator.mysql
-        static_host: phabricator-files-for-devcentral-nasqueron.spacetechnology.net
+        static_host: devcentral.nasqueron-user-content.org
         title: Nasqueron DevCentral
         mysql_link: acquisitariat
         skip_container: True
@@ -293,7 +293,7 @@ docker_containers:
       river_sector:
         app_port: 23080
         host: river-sector.dereckson.be
-        static_host: phabricator-files-for-river-sector.nasqueron.org
+        static_host: river-sector.nasqueron-user-content.org
         mailer: _
         credentials:
           mysql: dereckson.phabricator.mysql
@@ -308,7 +308,7 @@ docker_containers:
         host: phabricator.wolfplex.be
         aliases:
           - phabricator.wolfplex.org
-        static_host: phabricator-files-for-wolfplex.nasqueron.org
+        static_host: wolfplex.phabricator.nasqueron-user-content.org
         mailer: mailgun
         credentials:
           mailgun: wolfplex.phabricator.mailgun
@@ -322,7 +322,7 @@ docker_containers:
       zed_code:
         app_port: 36080
         host: code.zed.dereckson.be
-        static_host: phabricator-files-for-zed.nasqueron.org
+        static_host: zed.phabricator.nasqueron-user-content.org
         mailer: sendgrid
         credentials:
           mysql: zed.phabricator.mysql
