@@ -40,7 +40,7 @@ selinux_context_openfire_data_applied:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: gizmotronic/openfire
+    - image: nasqueron/openfire
     - binds: /srv/{{ instance }}:/var/lib/openfire
     - hostname: {{ container['host'] }}
     - ports: {{ pillar['xmpp_ports'] }}
