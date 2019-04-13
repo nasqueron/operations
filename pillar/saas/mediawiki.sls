@@ -13,10 +13,12 @@ mediawiki_extensions:
   - ConfirmEdit
   - ContactPage
   - Echo
+  - FlaggedRevs
   - Flow
   - Gadgets
   - ParserFunctions
   - Poem
+  - ProofreadPage
   - Scribunto
   - SyntaxHighlight_GeSHi
   - Thanks
@@ -40,6 +42,11 @@ mediawiki_datastores:
   ### Nasqueron
   ###
   - agora.nasqueron.org
+
+  ###
+  ### MediaWiki code tests
+  ###
+  - migration.mediawiki.test.ook.space
 
   ###
   ### Other wikis hosted on the Nasqueron servers
