@@ -381,6 +381,11 @@ docker_containers:
         app_port: 9090
         host: xmpp.nasqueron.org
 
+        # Other subservices for XMPP
+        # listening to their own subdomain
+        aliases:
+          - conference.nasqueron.org
+
     # Pixelfed
     pixelfed:
       pixelfed:
