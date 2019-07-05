@@ -63,3 +63,6 @@ sysadmin_utilities:
       {% if grains['os'] != 'FreeBSD' %}
       - nc
       {% endif %}
+      {% if grains['os_family'] == 'RedHat' %}
+      - psmisc
+      {% endif %}
