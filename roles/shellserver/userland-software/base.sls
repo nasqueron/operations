@@ -38,9 +38,7 @@ utilities:
       - moreutils
       - mosh
       - nmap
-      - tmux
       - toilet
-      - tree
       - unrar
       - whois
       - woof
@@ -58,7 +56,6 @@ utilities:
       - figlet-fonts
       - gsed
       - sudo
-      - wget
       {% endif %}
 
 utilities_www:
