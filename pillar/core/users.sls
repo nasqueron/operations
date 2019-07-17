@@ -152,7 +152,7 @@ shellusers:
   pkuz:
     fullname: PK of UZ
     ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwZ6OukhxIU6V7YFomBxGZ0ux64ENnFYgBD8K//N3hIcuTiD061TP5RChsebtp7PjH1RfJu39zA6ZqM8/UTxosJnh+tqUhO52+cg7uMDx3a0pxJS68OsimL8Qi/SCJvg9vqobOwkq9hM3cliABOHUF1szSnrxjMAqSCPnBUOMo2Q/qQ8I72sUHKdXzMtnFPXBG0Am2RU6QA4pAv7Yv+Tr9novHuRdhtau2TRLQwutHtISqhinkgfcjP8QrRVdrpa3zncDTwpBikWgNBtjno5pkyoPZw92NFhCPUd+4L3TM/GzvFf68E+GwTRdL/++3g1Ftv2BwtjNQiM3u5NM4VB0Z pkuz
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOXXF1Jz8yCFEIjEh33cq6JppcKW1/LiM1oUPUBWxhOg6uRsROQy9PrelUe3lcWhRDopuhIhTs8BU89ZQ/dQ2KmIjbWBo8jSaMLQGrFYdr3RuAiGKqWuKzy/Pwvk/Xj7k9j/QYOW7EVQKenBiJrovUOlYRMFZ+G54McJuJWJLasn7gE+bstKO2z1w6J91R3AjvNSgVzhmXQwLefUSwwp/rrf9luClW0oCWPTymbqZzdrQ0gdfwfR6OxxjxNgkGRjduQkKEohrRvrE3aD5gbtC46qfHsian6VeBCOc+QrA2nTWuCf1eqWulFzvWuFyjmPo0jIeqt8EqWHTJQ23za4R3 pkuz
     uid: 2022
 
   rama:
