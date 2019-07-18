@@ -61,7 +61,7 @@ def find_configuration_file():
 
 def parse_configuration_file(filename):
     configuration_file = open(filename, 'r')
-    configuration = yaml.load(configuration_file)
+    configuration = yaml.safe_load(configuration_file)
     configuration_file.close()
 
     return configuration
