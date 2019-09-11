@@ -201,6 +201,7 @@ shellusers:
     fullname: Tommy Aditya
     ssh_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7WGzb6h6i8H81nkw0E2PvFwi1yqODeltyGwFQxEwL4+bc75LlbxtpIsxS+D4vkervfGjMwgAJSFOv6uimRhubmp1I2Pf85APTf/a9xXmNzAuNnhR8ur93I08cQ2kKlY19q3EX4H4qj2HizRZxgusG8dYyBWuKuq6P7vIn5zn55IzFJKxCekydAjQsDUTOaio5brLD3sY8IfnWtKWDgrszozUOEqZdquJDS6LBEHHDTpWK/Mzuwd6YkpfdG2GVLwuN6Rj43jNoxcvk2W7oJyJQQ7xSpNR3QIFzTAu9VL9AAv4qak4o2AYpmg8HXsgGR2ARvJ0mFzWw8qy/c/5plPgp tomjerr
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwWJfo9s+Uqd/JPIYFEYJ3g/H9G9wPActHXJfKul/ImK7oTFqDADGx0pr26aL7tcjVIK7vK1EF41f2JhphjsiUj9H1y38qIWGdHHVJg/NBsA2ZRmIWtBi4G5TkV/0y8lPwBjLwFMh55C1HDFLgw9CG8fujuYFqmyFc/CmH+W4ffm31LX70zC1m/ApgWXjbKDfO1tm7fP2JdkzsWe+Rce5SQb/w+ieyymG9uJgkfOkG04TXA27uAffYTZ2nPBdz00x62u6Sxc8n1muE1k/3ofyOv5tMXMv4VYs//8kWWuRhfGLM/t7lO5HR5V+P7f8WkMDzcG72EyYqJOIep6uRoiSz tomjerr
     uid: 2001
 
   vigilant:
