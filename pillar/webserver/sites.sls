@@ -65,8 +65,8 @@ web_static_sites:
 php_custom_builds:
   php56:
     mode: release
-    version: 5.6.38
-    hash: d65b231bbdd63be4439ef5ced965cfd63e62983429dbd4dfcfb49981593ebc03
+    version: 5.6.40
+    hash: ffd025d34623553ab2f7fd8fb21d0c9e6f9fa30dc565ca03a1d7b763023fba00
 
 php_fpm_instances:
   # PHP 7.2, generally installed as package/port
