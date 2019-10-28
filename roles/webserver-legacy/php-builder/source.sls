@@ -56,7 +56,8 @@ def get_configure(version, build):
               "--enable-mysqlnd --enable-bcmath --with-bz2 --enable-calendar " \
               "--with-curl --with-gd --with-jpeg-dir --enable-gd-native-ttf " \
               "--enable-mbstring --with-mcrypt --with-mysqli --with-pdo-mysql " \
-              "--enable-pcntl --with-openssl --with-xsl --with-readline " \
+              "--enable-pcntl --with-xsl --with-readline " \
+              "--with-openssl=/opt/openssl-legacy " \
               "--with-zlib --enable-zip"
 
         return cmd.format(target=build)
