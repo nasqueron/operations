@@ -108,7 +108,6 @@ def run():
             config["php_build_" + build_name + "_phase1_patch"] = {'file.patch': [
                 {'name': directory + '/ext/mbstring/php_mbregex.c'},
                 {'source': 'salt://roles/webserver-legacy/php-builder/files/fix-bug-76113.patch'},
-                {'hash': '609629c38fa9d8e520e3dadc3fae942d'},
             ]}
 
     # Task: build PHP
