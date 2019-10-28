@@ -37,6 +37,8 @@ def get_build_directories():
 def get_build_directory(build):
     return "/opt/php/_builds/" + build
 
+def get_install_directory(build):
+    return "/opt/php/" + build
 
 def get_extract_archive_command(archive, directory):
     return "tar xjf " + archive + " --strip-components=1 -C " + directory
@@ -113,20 +115,24 @@ def run():
     # Task: build PHP
     # Task: install PHP
     for build_name, build in __pillar__["php_custom_builds"].items():
-        directory = get_build_directory(build_name)
+        build_directory = get_build_directory(build_name)
+        install_directory = get_install_directory(build_name)
+
         config["php_build_" + build_name + "_phase2_compile"] = {'cmd.run': [
             {'names': [
-                "cd " + directory,
                 get_configure(build["version"], build_name),
-                "make"
+                "make",
+                "touch .built",
             ]},
+            {'cwd': build_directory},
             {'user': builder_user},
-            {'creates': directory + "/configure"},
+            {'creates': build_directory + "/.built"},
         ]}
 
         config["php_build_" + build_name + "_phase2_install"] = {'cmd.run': [
             {'name': "make install"},
-            {'creates': directory + "/configure"},
+            {'cwd': build_directory},
+            {'creates': install_directory + "/bin/php"},
         ]}
 
     return config
