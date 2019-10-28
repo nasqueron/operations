@@ -9,5 +9,6 @@
 include:
   - roles/builder/account
   - .base
+  - .openssl-legacy
   - .irc
   - .web

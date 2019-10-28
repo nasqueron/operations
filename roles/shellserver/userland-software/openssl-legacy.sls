@@ -6,9 +6,15 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 #   -------------------------------------------------------------
 #   Source code
 #   -------------------------------------------------------------
+
+/usr/local/src:
+  file.directory:
+    - dir_mode: 755
 
 openssl_src:
   file.directory:
@@ -31,7 +37,7 @@ openssl_src:
 openssl_build:
   cmd.run:
     - name: |
-        ./config --prefix=/opt/openssl-legacy --openssldir=/etc/ssl-legacy shared zlib-dynamic
+        ./config --prefix=/opt/openssl-legacy --openssldir={{ dirs.etc }}/ssl-legacy shared zlib-dynamic
         make depend
         make
     - cwd: /usr/local/src/openssl-legacy
