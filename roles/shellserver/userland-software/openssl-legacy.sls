@@ -8,8 +8,8 @@
 
 {% from "map.jinja" import dirs with context %}
 
-{% set openssl_version = "1.0.2k" %}
-{% set openssl_hash    = "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0" %}
+{% set openssl_version = "1.0.2t" %}
+{% set openssl_hash    = "14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac7bc" %}
 {% set openssl_tarball = "openssl-" + openssl_version + ".tar.gz" %}
 
 #   -------------------------------------------------------------
