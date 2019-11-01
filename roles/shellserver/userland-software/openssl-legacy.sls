@@ -8,6 +8,10 @@
 
 {% from "map.jinja" import dirs with context %}
 
+{% set openssl_version = "1.0.2k" %}
+{% set openssl_hash    = "6b3977c61f2aedf0f96367dcfb5c6e578cf37e7b8d913b4ecb6643c3cb88d8c0" %}
+{% set openssl_tarball = "openssl-" + openssl_version + ".tar.gz" %}
+
 #   -------------------------------------------------------------
 #   Source code
 #   -------------------------------------------------------------
@@ -16,18 +20,25 @@
   file.directory:
     - dir_mode: 755
 
-openssl_src:
+/usr/local/src/openssl-legacy:
   file.directory:
-    - name: /usr/local/src/openssl-legacy
     - user: builder
     - group: deployment
     - dir_mode: 755
+
+/usr/local/src/{{ openssl_tarball }}:
+  file.managed:
+    - source: https://www.openssl.org/source/{{ openssl_tarball }}
+    - source_hash: {{ openssl_hash }}
+    - user: builder
+
+openssl_extract:
   cmd.run:
-    - name: curl ftp://openssl.org/source/openssl-1.0.2k.tar.gz | tar xz --strip-components=1
+    - name: tar xfz ../{{ openssl_tarball }} --strip-components=1
     - cwd: /usr/local/src/openssl-legacy
     - runas: builder
     - require:
-        - file: openssl_src
+        - file: /usr/local/src/{{ openssl_tarball }}
     - creates: /usr/local/src/openssl-legacy/Makefile
 
 #   -------------------------------------------------------------
@@ -35,15 +46,16 @@ openssl_src:
 #   -------------------------------------------------------------
 
 openssl_build:
-  cmd.run:
-    - name: |
-        ./config --prefix=/opt/openssl-legacy --openssldir={{ dirs.etc }}/ssl-legacy shared zlib-dynamic
-        make depend
-        make
+  cmd.script:
+    - source: salt://roles/shellserver/userland-software/files/build-openssl-legacy.sh.jinja
+    - template: jinja
+    - context:
+        openssldir: {{ dirs.etc }}/ssl-legacy
+        builder_username: builder
     - cwd: /usr/local/src/openssl-legacy
     - runas: builder
     - require:
-        - file: openssl_src
+        - cmd: openssl_extract
     - creates: /usr/local/src/openssl-legacy/libcrypto.so
 
 #   -------------------------------------------------------------

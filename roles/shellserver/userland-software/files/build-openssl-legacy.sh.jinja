@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+sudo -u {{ builder_username }} ./config --prefix=/opt/openssl-legacy --openssldir={{ openssldir }} shared zlib-dynamic
+sudo -u {{ builder_username }} make depend
+sudo -u {{ builder_username }} make
