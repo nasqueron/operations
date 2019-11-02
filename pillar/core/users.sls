@@ -165,7 +165,7 @@ shellusers:
   rashk0:
     fullname: Rashk0
     ssh_keys:
-      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+8OtQsAFaxMrpuyt489w3Tn2U/hj2UBk1PcocLRxRXXhX9KRmwXHa2mjZlJP5zjQh12sm9HWDpMYda/aTmrvm0Y21Jx3a2B8ddbdTYc2RVXvEzQ77Va8VxQNyR/ijvTeRqKK0xMRwzBe9X5BR1yIRSKoHjfsiwj1dvYmy8/oHvQI0nK05SyIBzNelLBXcrSkBKqWEGI/Vx9/ortFh/D2k2Qmq+ti+eT58Th76KoISDmYgWRSHM6MjHHBQONNfUQfvX5CWTy2wnm6k5iDVP0Z5AMQdfk6McJxfMZIKH0N/jF31GSw5b/Wo4riguujPd1y3qS29I4Iy3qeado2a4pqV campari@Alpha
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx5J/6D3JDPLKJlun//kR1CB2Jys4gnJmj4JaCp5Zak2Wpfcn1DAdPYU+c3dUBs7EL/E5bnJXJiGvx2EV4UDaDeSP/BLj3prfiaFjlw/2Gun60AJqIGI2uxN3buZVY55irl2C+40HgFcuSBZZmxq6GFYWY2hmzBPWJXPoEGI5ypu082spbuq4mM0qfh0ZK/oA+10k75oNtPUClekvVmAY9xajjUXZ9OCq1VZ0gl7BC5N1l1m4uzajYkcdiQTttsac79aYOC5FpExjxeelqM4GyVgNwSmIRL+eyUWfiOr0LsTXPoUIn8m2KzHcuxmGaVEP13TMi/hVxHu/Chgy6CL6v campari@Alpha
     uid: 2003
 
   ringa:
