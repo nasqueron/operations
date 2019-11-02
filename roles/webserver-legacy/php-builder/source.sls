@@ -101,7 +101,7 @@ def run():
 
         config["php_build_" + build_name + "_phase1_extract"] = {'cmd.run': [
             {'name': command},
-            {'user': builder_user},
+            {'runas': builder_user},
             {'creates': directory + "/configure.in"},
         ]}
 
@@ -126,7 +126,7 @@ def run():
                 "touch .built",
             ]},
             {'cwd': build_directory},
-            {'user': builder_user},
+            {'runas': builder_user},
             {'creates': build_directory + "/.built"},
         ]}
 
