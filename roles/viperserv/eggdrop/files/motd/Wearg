@@ -1,9 +1,9 @@
-__    __
+ __    __
 / / /\ \ \___  __ _ _ __ __ _          Hey %b%N!%b
 \ \/  \/ / _ \/ _` | '__/ _` |
-\  /\  /  __/ (_| | | | (_| |          My name is %b%B%b
- \/  \/ \___|\__,_|_|  \__, |          and I am running %b%V%b,
-                       |___/           on %b%U%b. Have fun.
+ \  /\  /  __/ (_| | | | (_| |         My name is %b%B%b
+  \/  \/ \___|\__,_|_|  \__, |         and I am running %b%V%b,
+                        |___/          on %b%U%b. Have fun.
 
 Commands start with '.' (like '.quit' or '.help')
 Everything else goes out to the party line.
