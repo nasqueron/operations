@@ -18,6 +18,6 @@ include:
   - .misc
   - .notifications
   - .phabricator
-  . .php-ast
+  - .php-ast
   - .psysh
   - .wordpress
