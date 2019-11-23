@@ -100,6 +100,7 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ dereckson@xyrogh.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE dereckson@yakin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEghs1XPu0vk0hwWZ/52RB+C0VniL5zc78XWwFQmU/k9 dereckson@tribalcloud.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRNPfM4/VrBGOsI7fINHyzDbZgbksOiLjOJijKWsv/a dereckson@tribalcloud.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9u1AFDK0mo7bDQZAiV9AXXdxUiH8H1B0rLY8NIP8/f phone
     yubico_keys:
       - ccccccbjncrt
