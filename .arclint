@@ -19,6 +19,12 @@
                 "(^\\.arclint$)",
                 "(\\.json$)"
             ]
+        },
+        "python": {
+            "type": "flake8",
+            "include": [
+                "(\\.py$)"
+            ]
         }
     }
 }
