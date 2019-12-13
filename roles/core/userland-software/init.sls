@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   Software sources
@@ -61,7 +61,7 @@ sysadmin_utilities:
       - tree
       - wget
       {% if grains['os'] != 'FreeBSD' %}
-      - nc
+      - {{ packages.netcat }}
       {% endif %}
       {% if grains['os_family'] == 'RedHat' %}
       - psmisc
