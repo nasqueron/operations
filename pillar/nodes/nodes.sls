@@ -31,6 +31,7 @@ nodes:
     network:
       ipv4_address: 51.255.124.10
       ipv4_gateway: 91.121.86.254
+
       ipv6_tunnel: True
 
   ysul:
@@ -47,10 +48,11 @@ nodes:
       ipv4_interface: igb0
       ipv4_address: 163.172.49.16
       ipv4_gateway: 163.172.49.1
-      ipv6_gateway: 2001:470:1f12:9e1::1
       ipv4_aliases:
         - 212.83.187.132
+
       ipv6_tunnel: True
+      ipv6_gateway: 2001:470:1f12:9e1::1
 
   ##
   ## Forest:         Eglide
