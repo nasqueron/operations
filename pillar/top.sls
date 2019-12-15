@@ -39,3 +39,8 @@ base:
     - viperserv.fantoir
     - webserver.labs
     - webserver.wwwroot51
+
+  windriver:
+    - devserver.repos
+    - webserver.labs
+    - webserver.wwwroot51

@@ -20,6 +20,12 @@ base:
     - roles/webserver-core
     - roles/webserver-legacy
     - roles/webserver-varnish
+  'windriver':
+    - roles/builder
+    - roles/dbserver-mysql
+    - roles/devserver
+    - roles/webserver-core
+    - roles/webserver-legacy
   'dwellers':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc

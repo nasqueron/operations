@@ -54,6 +54,28 @@ nodes:
       ipv6_tunnel: True
       ipv6_gateway: 2001:470:1f12:9e1::1
 
+  windriver:
+    forest: nasqueron-dev
+    hostname: windriver.nasqueron.org
+    roles:
+      - devserver
+      - saltmaster
+      - dbserver-mysql
+      - webserver-legacy
+    zfs:
+      pool: arcology
+    network:
+      ipv4_interface: igb0
+      ipv4_address: 51.159.18.59
+      ipv4_gateway: 51.159.18.1
+
+      ipv6_interface: igb0
+      ipv6_address: 2001:0bc8:6005:0005:aa1e:84ff:fef3:5d9c
+      ipv6_prefix: 128
+      ipv6_native: True
+
+      ipv6_tunnel: False
+
   ##
   ## Forest:         Eglide
   ## Semantic field: ? (P27 used for "Eglide" too)
