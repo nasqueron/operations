@@ -29,6 +29,7 @@ shellgroups:
     members:
       - adrien
       - akoe
+      - alinap
       - amj
       - ariel
       - axe

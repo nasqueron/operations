@@ -46,6 +46,12 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCY5PLKcpxx2TbM+gZGK7tiDFrPt9kGe5rwyg2hWbSBI+Qpj0BimxD7XKgqXU08mHLO3R3bfdFbr1QApLvHGKa2DKoj6kJfax8T1uodOcSf6F/q2jlmqnlIX8ezS9ysSHreEFrqjkge5/Z4v4TJd4co2hvF4Kg1H4ZL0wpuDavu20f6YpqmtV9CXHvotYhvwcYQEpykjJrR7mvmm2vGEuMpvcnXlbl3q6FGnhJ4q5u7o9hHoEA+HgEsM8TBAtFkiFS2bGfMOq8ulNyrkB8lMNgqtFf1g5YaCTfHVxbLyl19+KBb6AeReQK71OMWCLdYy/cpoWUq0EyUYNB9QVlVeEUb akoe
     uid: 2024
 
+  alinap:
+    fullname: alina-precup
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA3mxUhsVuSdh7sMwKlXgUF1h9Rn/Sstt8V+mhbjRQE/joBL5K6blRzHaDEEBgYpcLexJVh7Z5GlAX7E/RU5UTF/I/fr+EfFue3pJAIGDVncjOGHO5tJGQ+InD/+dA7sPYrksBjnGHWpkilYrFwZXcNQjwacOc3OGOBjWZqnBE/rfPRAt8O/Q6BQgibAr7LeFVLepTengQx2kU0Nd9KJRf0v9NupQfU5l8MftSVKuRbjayXQTW3lg/tOdoAEo17sKuqFkRMXHgUSrjRNLFZ3shzNiXr29aNCausucIYwQ5NYs5j+k+nLVF1a8zx79ZP/zEUMiQ//hzPQMAyIKeVQ08EQ== alinap
+    uid: 2031
+
   amj:
     fullname: Amaury J.
     shell: zsh
