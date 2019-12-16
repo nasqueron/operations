@@ -82,7 +82,7 @@
 {% set packages_prefixes = salt['grains.filter_by']({
     'Debian': {
         'pecl': 'php-',
-        'php': 'php7.2-',
+        'php': 'php7.3-',
         'python2': '',
         'python3': 'python3-',
         'rubygem': '',
@@ -94,8 +94,8 @@
         'rubygem': 'rubygem-',
     },
     'FreeBSD' : {
-        'pecl': 'php72-pecl-',
-        'php': 'php72-',
+        'pecl': 'php74-pecl-',
+        'php': 'php74-',
         'python2': 'py27-',
         'python3': 'py36-',
         'rubygem': 'rubygem-',
