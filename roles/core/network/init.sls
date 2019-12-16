@@ -42,6 +42,21 @@
 #   IPv6
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if salt['node.has']('network:ipv6_native') %}
+{% if grains['os'] == 'FreeBSD' %}
+/etc/rc.conf.d/netif/ipv6_{{ network['ipv6_interface'] }}:
+  file.managed:
+    - source: salt://roles/core/network/files/netif_ipv6.rc
+    - makedirs: True
+    - template: jinja
+    - context:
+        interface: {{ network['ipv6_interface'] }}
+        ipv6_address: {{ network['ipv6_address'] }}
+        ipv6_prefix: {{ network['ipv6_prefix'] | default(64) }}
+        has_native_ipv6: True
+{% endif %}
+{% endif %}
+
 {% if salt['node.has']('network:ipv6_tunnel') %}
 network_ipv6:
   file.managed:
