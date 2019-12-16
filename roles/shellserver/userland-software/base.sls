@@ -25,7 +25,7 @@ editors:
       - joe
       - nano
       - vim
-      - {{ packages.emacs }}
+      - emacs-nox
 
 #   -------------------------------------------------------------
 #   General UNIX utilities
