@@ -214,8 +214,8 @@ languages_libs:
 
 /opt/composer/composer.phar:
   file.managed:
-    - source: https://raw.githubusercontent.com/composer/getcomposer.org/c1ad3667731e/web/download/1.6.3/composer.phar
-    - source_hash: 52cb7bbbaee720471e3b34c8ae6db53a38f0b759c06078a80080db739e4dcab6
+    - source: https://github.com/composer/composer/releases/download/1.9.1/composer.phar
+    - source_hash: ffd3a22e43cafbeff4b3c66e334efa87a27f309da565259741f111830b6fe1217d7ab31aef47563f14e18ebeeeece46f
     - mode: 755
 
 {{ dirs.bin }}/composer:
