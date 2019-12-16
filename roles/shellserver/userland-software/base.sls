@@ -162,7 +162,6 @@ languages_libs:
       - {{ packages_prefixes.php }}simplexml
       - {{ packages_prefixes.php }}soap
       - {{ packages_prefixes.php }}tokenizer
-      - {{ packages_prefixes.php }}wddx
       - {{ packages_prefixes.php }}xml
       - {{ packages_prefixes.php }}xmlwriter
       - {{ packages_prefixes.php }}xsl
