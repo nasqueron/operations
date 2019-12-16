@@ -9,7 +9,7 @@ class Testinstance(unittest.TestCase):
 
     def setUp(self):
         with open(PILLAR_FILE, 'r') as fd:
-            self.pillar = yaml.load(fd)
+            self.pillar = yaml.safe_load(fd)
 
     # nginx needs a host/app_port pair to spawn a configuration
     def test_host_is_paired_with_app_port_option(self):

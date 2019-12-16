@@ -39,7 +39,7 @@ def load_pillar(pillar_directory):
     pillar = {}
 
     for pillar_file in get_pillar_files(pillar_directory):
-        data = yaml.load(open(pillar_file, "r"))
+        data = yaml.safe_load(open(pillar_file, "r"))
         pillar.update(data)
 
     return pillar

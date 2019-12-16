@@ -69,7 +69,7 @@ def do_update():
 
 def read_state():
     fd = open(state_file, "r")
-    states = yaml.load(fd.read())
+    states = yaml.safe_load(fd.read())
     fd.close()
 
     return states[state_key]

@@ -12,7 +12,7 @@ class SaltTestCase:
     @staticmethod
     def import_data_from_yaml(filename):
         with open(filename, 'r') as fd:
-            return yaml.load(fd.read())
+            return yaml.safe_load(fd.read())
 
     def mock_pillar(self, filename=None, target=None):
         if not target:

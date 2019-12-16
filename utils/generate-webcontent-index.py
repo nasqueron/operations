@@ -47,7 +47,7 @@ def do_update(pillar_file, file_to_update):
 
 def get_pillar_entry(pillar_file, key):
     with open(pillar_file) as fd:
-        pillar = yaml.load(fd.read())
+        pillar = yaml.safe_load(fd.read())
     return pillar[key]
 
 
