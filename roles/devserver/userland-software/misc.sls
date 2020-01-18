@@ -110,7 +110,6 @@ devserver_software_misc_gadgets:
       - binclock
       - ditaa
       - epte
-      - weatherspect
 
 devserver_software_misc_games:
   pkg.installed:
