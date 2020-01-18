@@ -137,7 +137,6 @@ devserver_software_dev_web:
   pkg.installed:
     - pkgs:
       - memcached
-      - phantomjs
 
 #   -------------------------------------------------------------
 #   Tools like code review utilities
