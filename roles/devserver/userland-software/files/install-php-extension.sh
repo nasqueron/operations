@@ -10,6 +10,8 @@
 #   Source file:    roles/devserver/userland-software/files/install-php-extension.sh
 #   -------------------------------------------------------------
 
-phpize
-./configure
-make
+AS_BUILDER=sudo -u builder
+
+$AS_BUILDER phpize
+$AS_BUILDER ./configure
+$AS_BUILDER make

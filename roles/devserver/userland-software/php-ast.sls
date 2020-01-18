@@ -30,7 +30,6 @@ php_ast_build:
   cmd.script:
     - source: salt://roles/devserver/userland-software/files/install-php-extension.sh
     - cwd: /opt/php-ast
-    - runas: builder
     - creates: /opt/php-ast/modules/ast.so
 
 php_ast_install:
