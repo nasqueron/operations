@@ -30,7 +30,9 @@ shells:
     - pkgs:
       - bash
       - zsh
-      {% if grains['os'] != 'FreeBSD' %}
+      {% if grains['os'] == 'FreeBSD' %}
+      - starship
+      {% else %}
       - tcsh
       {% endif %}
 
