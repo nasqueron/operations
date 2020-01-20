@@ -28,7 +28,9 @@
 
 port_{{ port }}:
   cmd.run:
-    - name: make build package deinstall reinstall
+    - name: |
+        make build package deinstall reinstall
+        pkg lock {{ port }}
     - cwd: /usr/ports/{{ args['category'] }}/{{ args['name'] }}
     - creates: {{ args['creates'] }}
 {% endfor %}
