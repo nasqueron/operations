@@ -11,6 +11,7 @@ include:
   - .login
   - .network
   - .motd
+  - .src
   - .ports
   - .rsyslog
   - .salt
