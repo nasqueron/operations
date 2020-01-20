@@ -6,6 +6,7 @@ PILLAR_FILE = '../pillar/core/users.sls'
 
 USER_PROPERTIES_MANDATORY = set(["fullname", "ssh_keys", "uid"])
 USER_PROPERTIES_OPTIONAL = set([
+    "class",
     "shell",
     "yubico_keys",
     "deploy_dotfiles_to_devserver"

@@ -8,6 +8,7 @@
 include:
   - .rc
   - .hostname
+  - .login
   - .network
   - .motd
   - .rsyslog

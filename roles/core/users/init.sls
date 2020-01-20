@@ -87,6 +87,7 @@ zfs_permissions_home_descendant_{{ username }}:
     - fullname: {{ user['fullname'] }}
     - shell: {{ shells[user['shell']|default('bash')] }}
     - uid: {{ user['uid'] }}
+    - loginclass: {{ user['class']|default('english') }}
 {% endfor %}
 
 #   -------------------------------------------------------------
