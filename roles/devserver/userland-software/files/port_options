@@ -1,0 +1,15 @@
+#   -------------------------------------------------------------
+#   Port options for {{ args['category'] }}/{{ args['name'] }}
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   License:        Trivial work, not eligible to copyright
+#   Source file:    roles/devserver/userland-software/files/port_options
+#   -------------------------------------------------------------
+
+{% for option in args.get('options', {}).get('set') -%}
+OPTIONS_FILE_SET+={{ option }}
+{% endfor -%}
+
+{% for option in args.get('options', {}).get('unset') -%}
+OPTIONS_FILE_UNSET+={{ option }}
+{% endfor -%}

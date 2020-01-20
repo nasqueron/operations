@@ -41,6 +41,7 @@ base:
     - webserver.wwwroot51
 
   windriver:
+    - devserver.ports
     - devserver.repos
     - webserver.labs
     - webserver.wwwroot51
