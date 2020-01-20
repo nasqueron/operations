@@ -7,6 +7,8 @@
 #   -------------------------------------------------------------
 
 include:
+  # FreeBSD ports
+  - .ports
   # Shell server content
   - roles/shellserver/userland-software/base
   - roles/shellserver/userland-software/irc
