@@ -21,6 +21,21 @@ epel-release:
     - source: salt://roles/core/userland-software/files/nasqueron.repo
 {% endif %}
 
+{% if grains['kernel'] == 'Linux' %}
+snapd:
+  pkg.installed
+{% endif %}
+
+{% if grains['os_family'] == 'RedHat' or grains['os'] == 'Arch' %}
+snap_enable:
+  service.enabled:
+    - name: snapd.socket
+
+/snap:
+  file.symlink:
+    - target: /var/lib/snapd/snap
+{% endif %}
+
 #   -------------------------------------------------------------
 #   Shells
 #   -------------------------------------------------------------
