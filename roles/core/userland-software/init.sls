@@ -45,11 +45,21 @@ shells:
     - pkgs:
       - bash
       - zsh
-      {% if grains['os'] == 'FreeBSD' %}
-      - starship
-      {% else %}
+      {% if grains['kernel'] == 'Linux' %}
       - tcsh
       {% endif %}
+
+      # Shell utilities
+      {% if grains['os'] == 'FreeBSD' %}
+      - starship
+      {% endif %}
+
+{% if grains['kernel'] == 'Linux' and grains['osarch'] == 'x86_64' %}
+install_starship:
+  cmd.run:
+    - name: snap install starship
+    - creates: /var/lib/snapd/snap/bin/starship
+{% endif %}
 
 /usr/local/share/zsh/site-functions/_pm:
   file.managed:
