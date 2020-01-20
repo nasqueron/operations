@@ -1,22 +1,16 @@
 #   -------------------------------------------------------------
-#   Salt — Core units
+#   Extract FreeBSD ports
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
+#   Created:        2020-01-20
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .rc
-  - .hostname
-  - .login
-  - .network
-  - .motd
-  - .ports
-  - .rsyslog
-  - .salt
-  - .sshd
-  - .sudo
-  - .sysctl
-  - .timezone
-  - .userland-software
-  - .users
+{% if grains['os'] == 'FreeBSD' %}
+
+/usr/ports:
+  cmd.run:
+    - name: portsnap fetch extract
+    - creates: /usr/ports
+
+{% endif %}
