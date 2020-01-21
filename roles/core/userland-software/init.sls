@@ -28,8 +28,13 @@ snapd:
 
 {% if grains['os_family'] == 'RedHat' or grains['os'] == 'Arch' %}
 snap_enable:
-  service.enabled:
-    - name: snapd.socket
+  cmd.run:
+    - name: |
+        systemctl enable --now snapd.socket
+        systemctl restart snapd
+        sleep 30
+        touch /var/lib/snapd/.enabled
+    - creates: /var/lib/snapd/.enabled
 
 /snap:
   file.symlink:
