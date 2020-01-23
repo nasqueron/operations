@@ -99,15 +99,19 @@ shellusers:
     fullname: Sebastien Santoro
     shell: zsh
     ssh_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzD5VzetMFTUHLWrLyBsnZ6bdwDa4Ip9WWAh5nLxKyR dereckson@ysul.nasqueron.org
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 dereckson@orin.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh dereckson@graywell.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m dereckson@yakin.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ dereckson@xyrogh.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE dereckson@yakin.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEghs1XPu0vk0hwWZ/52RB+C0VniL5zc78XWwFQmU/k9 dereckson@tribalcloud.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRNPfM4/VrBGOsI7fINHyzDbZgbksOiLjOJijKWsv/a dereckson@tribalcloud.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9u1AFDK0mo7bDQZAiV9AXXdxUiH8H1B0rLY8NIP8/f phone
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINgiReRjBvGGZ7QZC9ATJ2UIWAd9yH0Is7Xqz1kG1QQt windriver.nasqueron.org
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzD5VzetMFTUHLWrLyBsnZ6bdwDa4Ip9WWAh5nLxKyR ysul.nasqueron.org
+
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh graywell.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 orin.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEghs1XPu0vk0hwWZ/52RB+C0VniL5zc78XWwFQmU/k9 tribalcloud.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKRNPfM4/VrBGOsI7fINHyzDbZgbksOiLjOJijKWsv/a tribalcloud.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ xyrogh.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m yakin.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE yakin.dereckson.drake
+
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImalLypfV9TtSeAymY8C2pOOCfNtCRI51RZ+jGdIf3Z whiteraven.dereckson.drake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9u1AFDK0mo7bDQZAiV9AXXdxUiH8H1B0rLY8NIP8/f yggdrasil.dereckson.drake
     yubico_keys:
       - ccccccbjncrt
     deploy_dotfiles_to_devserver: True
