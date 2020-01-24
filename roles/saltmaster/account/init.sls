@@ -39,13 +39,6 @@ deploy_account:
     - gid: 3003
     - home: /var/run/deploy
 
-# Allow to repair ownership if the account is created after the staging
-deploy_account_ownership:
-  cmd.run:
-    - name: chown -R salt /opt/salt/staging /opt/salt/private/staging
-    - onchanges:
-      - user: deploy_account
-
 #   -------------------------------------------------------------
 #   SSH key for deployment account
 #
