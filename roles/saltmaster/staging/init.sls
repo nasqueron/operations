@@ -16,6 +16,7 @@ staging_public_repository:
     - user: deploy
     - group: deployment
     - dir_mode: 775
+    - makedirs: True
   git.latest:
     - name: https://devcentral.nasqueron.org/source/staging.git
     - target: /opt/salt/staging
@@ -29,6 +30,7 @@ staging_private_repository:
     - user: deploy
     - group: deployment
     - dir_mode: 770
+    - makedirs: True
   git.latest:
     - name: ssh://vcs@devcentral.nasqueron.org:5022/source/private-staging.git
     - target: /opt/salt/private/staging

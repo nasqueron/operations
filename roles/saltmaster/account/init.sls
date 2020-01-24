@@ -40,6 +40,13 @@ deploy_account:
     - home: /var/run/deploy
 
 #   -------------------------------------------------------------
+#   Directories
+#   -------------------------------------------------------------
+
+/opt/salt:
+  file.directory
+
+#   -------------------------------------------------------------
 #   SSH key for deployment account
 #
 #   This key should be added to:
