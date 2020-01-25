@@ -24,13 +24,30 @@
 {{ basedir }}/{{ sitename }}:
   file.directory:
     - dir_mode: 711
+{% if 'repository' not in site %}
     - user: {{ site['user'] }}
     - group: {{ site['group'] }}
-{% if 'repository' in site %}
+{% else %}
+    # Credentials belong to deploy user
+    - user: deploy
+
   git.latest:
     - name: {{ site['repository'] }}
     - target: {{ basedir }}/{{ sitename }}
-    - user: {{ site['user'] }}
+    - user: deploy
+    - identity: /opt/salt/security/id_ed25519
     - update_head: False
+
+fix_rights_{{ basedir }}/{{ sitename }}:
+  file.directory:
+    - name: {{ basedir }}/{{ sitename }}
+    - user: {{ site['user'] }}
+    - group: {{ site['group'] }}
+    - recurse:
+      - user
+      - group
+    - onchanges:
+      - git: {{ basedir }}/{{ sitename }}    
+
 {% endif %}
 {% endfor %}
