@@ -23,6 +23,7 @@ staging_public_repository:
     - user: deploy
     - update_head: False
     - submodules: True
+    - identity: /opt/salt/security/id_ed25519
 
 staging_private_repository:
   file.directory:
