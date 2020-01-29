@@ -47,7 +47,7 @@ fix_rights_{{ basedir }}/{{ sitename }}:
       - user
       - group
     - onchanges:
-      - git: {{ basedir }}/{{ sitename }}    
+      - git: {{ basedir }}/{{ sitename }}
 
 {% endif %}
 {% endfor %}
