@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #   -------------------------------------------------------------
-#   Intall PHP extension
+#   Install PHP extension
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Author:         Sébastien Santoro aka Dereckson
