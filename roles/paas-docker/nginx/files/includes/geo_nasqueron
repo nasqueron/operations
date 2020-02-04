@@ -13,6 +13,9 @@ geo $nasqueron_server {
 
     # CloudHugger
     188.165.200.229 1;
+
+    # Docker containers
+    172.17.0.0/16 1;
 }
 
 map $not_a_nasqueron_server {
