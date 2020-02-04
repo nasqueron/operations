@@ -452,6 +452,7 @@ xmpp_ports:
   - 5223 # Client to server (Encrypted (legacy-mode) connections)
   - 5262 # Connections managers
   - 5269 # Server to server
+  - 5270 # Server to server (Encrypted (legacy-mode) connections)
   - 5275 # External components
   - 5276 # External components (Encrypted (legacy-mode) connections)
   - 7070 # HTTP binding
