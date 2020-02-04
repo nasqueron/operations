@@ -16,9 +16,17 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
+if [ "$1" = "acme-dns-certonly" ]; then
+	COMMAND=certonly
+	EXTRA_ARGS="--manual --manual-auth-hook /etc/letsencrypt/acme-dns-auth --preferred-challenges dns --debug-challenge"
+else
+	COMMAND=$1
+fi
+shift
+
 docker run -it --rm \
 	-v /srv/letsencrypt/etc:/etc/letsencrypt \
 	-v /srv/letsencrypt/var:/var/lib/letsencrypt \
 	-v /srv/letsencrypt/log:/var/log/letsencrypt \
 	-v /srv/letsencrypt/www:/www \
-	certbot/certbot:latest "$@"
+	certbot/certbot:latest "$COMMAND" "$@" "$EXTRA_ARGS"

@@ -39,3 +39,12 @@ selinux_context_letsencrypt_home_applied:
   selinux.fcontext_policy_applied:
     - name: /srv/letsencrypt
 {% endif %}
+
+#   -------------------------------------------------------------
+#   Plug-ins
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/srv/letsencrypt/etc/acme-dns-auth:
+  file.managed:
+    - source: salt://roles/paas-docker/letsencrypt/files/acme-dns-auth.py
+    - mode: 755
