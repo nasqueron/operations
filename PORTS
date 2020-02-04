@@ -34,5 +34,6 @@ paas-docker
     37080   Notifications center HTTP
     38080   Jenkins HTTP - CD
     39080   Cachet HTTP
+    41080   ACME DNS server HTTP
     42080   Jenkins HTTP - CI
     50000   Jenkins master's port for JNLP-based Jenkins agents - CD

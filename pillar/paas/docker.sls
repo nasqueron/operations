@@ -38,6 +38,9 @@ docker_images:
     - library/registry
     - nasqueron/mysql
 
+    # ACME DNS server
+    - joohoi/acme-dns
+
     # Nasqueron services
     - nasqueron/auth-grove
 
@@ -213,6 +216,17 @@ docker_containers:
 
           # Dwellers (through temporary tunnel)
           - 10.0.2.1
+
+    #
+    # Let's Encrypt
+    #
+
+    acme_dns:
+      acme:
+        ip: *ipv4_equatower
+        app_port: 41080
+        host: acme.nasqueron.org
+        nsadmin: ops.nasqueron.org
 
     #
     # CI and CD
