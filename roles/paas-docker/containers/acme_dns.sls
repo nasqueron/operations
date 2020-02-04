@@ -68,6 +68,6 @@ selinux_context_openfire_data_applied:
     - port_bindings:
       - 53:53
       - 53:53/udp
-      - {{ container['app_port'] }}:80
+      - 127.0.0.1:{{ container['app_port'] }}:80
 
 {% endfor %}
