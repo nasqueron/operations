@@ -450,6 +450,7 @@ xmpp_ports:
   - 3478
   - 5222 # Client to server
   - 5223 # Client to server (Encrypted (legacy-mode) connections)
+  - 5229 # Flash Cross Domain
   - 5262 # Connections managers
   - 5269 # Server to server
   - 5270 # Server to server (Encrypted (legacy-mode) connections)
