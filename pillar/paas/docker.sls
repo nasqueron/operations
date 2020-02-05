@@ -46,6 +46,7 @@ docker_images:
 
     # Nasqueron API microservices
     - nasqueron/docker-registry-api
+    - nasqueron/api-datasources
 
     # Infrastructure and development services
     - nasqueron/aphlict
@@ -384,6 +385,11 @@ docker_containers:
         app_port: 20080
         api_entry_point: /docker/registry
         registry_instance: registry
+
+    api-datasources:
+      api-datasources:
+        app_port: 19080
+        api_entry_point: /datasources
 
     # phpBB SaaS
     # The SaaS uses a MySQL instance, declared in the MySQL section.
