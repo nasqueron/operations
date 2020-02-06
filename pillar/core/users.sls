@@ -142,6 +142,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIP+04Jhq2toJ+RLx41NKrtDGgmSCfOsAY/BnJ6EzNXC hlp@sonny
     uid: 2018
 
+  inidal:
+    fullname: inidal
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMp8C1XZYQRrtHawqhPr7f8AHXV1lG8jVPSrQ90vSpa ed25519-key-20200205
+    uid: 2032
+
   kazuya:
     fullname: Kazuya
     ssh_keys:

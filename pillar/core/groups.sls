@@ -40,6 +40,7 @@ shellgroups:
       - erol
       - harshcrop
       - hlp
+      - inidal
       - kazuya
       - khmerboy
       - kumkum
@@ -96,6 +97,7 @@ shellgroups:
         Provide an account on Nasqueron development servers.
     members:
       - dereckson
+      - inidal
       - rama
       - sandlayth
       - xcombelle
