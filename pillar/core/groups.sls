@@ -54,6 +54,7 @@ shellgroups:
       - thrx
       - tomjerr
       - vigilant
+      - whoami
       - windu
       - xcombelle
       - xray

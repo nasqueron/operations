@@ -243,6 +243,12 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAzSj3sQYbrBBdceBRUAbuzCS9vZWycVV0OSZ0ofoWx/dOTIalhc3O+aett7J34GqwDgpcTEkEpa/MrlO/2TOGOFIsPlvbZW4fXXFADCbOWkRRNuYW5rv/Sg6ZliGtw4cj0dKEkn9+L/JAuGwKV5KJNTPcp5w8hZyQYczZ8KhcyNVv7mfzLnId03wPnuTTe+AmCTOitbVb3gxjdXDYeS46PkbV8m/23KpcdLigo3ClDwE/SIoA+YddaAbpWDMEwhnWyKmLGI6xkFcqSY1NT0eYnL2waZMEnfluxt+D0V0IT5NeOmQcTuVWPvjFdSKbKepPhdrFmzGNtytfZWoFOPiG+Q== rsa-key-20170119
     uid: 2011
 
+  whoami:
+    fullname: whoami
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAi1xD6FNf+w9kOjLJU6yd6bt7T8t3q7WXBewpkqRk4eBdJhomyjiNWuspke8STOf0VGamoPqLfxr4wbDa3UfgfBOBITgscwR26hOjtJ8Wra7XfIJU3OH/GBlUBfvf1T/m0fZDY2fKVku4R73pClQ2UhoUxJsU8/PVdEnN88IWAUeUbFgjtRds2SKPgCd/sg6XvoIEuYo8hbkmzVY+vIlrACuCEXjnRF+30lSMluo6OvMYHulfiZk7TPzXrX0YZ+3vFHscgwiwV6PL7qnQvnzwqEF2SfQduyg+vnOC//X7fezU0CfDzdbDG1tj1CftSrLoejMmU8wTDllq7Rrux/lu9w== rsa-key-20200207
+    uid: 2033
+
   windu:
     fullname: Windu
     ssh_keys:
