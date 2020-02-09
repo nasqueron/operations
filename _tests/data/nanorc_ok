@@ -1,0 +1,2 @@
+include data/nanorc_dir/bar.nanorc
+include data/nanorc_dir/foo.nanorc

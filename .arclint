@@ -22,6 +22,9 @@
         },
         "python": {
             "type": "flake8",
+            "severity": {
+                "F821": "advice"
+            },
             "include": [
                 "(\\.py$)"
             ]
