@@ -10,6 +10,7 @@ include:
   - .hostname
   - .login
   - .network
+  - .memory
   - .motd
   - .src
   - .ports
