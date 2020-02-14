@@ -19,8 +19,12 @@ policy_module(nginx, 1.0)
 
 require {
     type httpd_t;
+    type container_file_t;
 }
 
 #============= httpd_t ==============
 virt_exec_sandbox_files(httpd_t)
 virt_read_sandbox_files(httpd_t)
+
+allow httpd_t container_file_t:lnk_file read;
+allow httpd_t container_file_t:file read;
