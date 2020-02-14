@@ -26,12 +26,12 @@
   file.directory
 
 {% if has_selinux %}
-selinux_context_openfire_data:
+selinux_context_acme_dns_data:
   selinux.fcontext_policy_present:
     - name: /srv/{{ instance }}
     - sel_type: container_file_t
 
-selinux_context_openfire_data_applied:
+selinux_context_acme_dns_data_applied:
   selinux.fcontext_policy_applied:
     - name: /srv/{{ instance }}
 {% endif %}
