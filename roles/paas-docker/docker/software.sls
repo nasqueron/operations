@@ -18,7 +18,7 @@ remove_legacy_docker_packages:
       - docker-selinux
       - docker-engine
 
-install_docker_engine:
+install_docker_engine_dependencies:
   file.managed:
     - name: /etc/yum.repos.d/docker-ce.repo
     - source: https://download.docker.com/linux/centos/docker-ce.repo
@@ -27,9 +27,14 @@ install_docker_engine:
     - pkgs:
       - device-mapper-persistent-data
       - lvm2
-      - docker-ce
     - require:
-      - file: install_docker_engine
+      - file: install_docker_engine_dependencies
+
+# CentOS 8 can't install docker-ce last version if containerd.io isn't recent enough.
+install_docker_engine:
+  cmd.run:
+    - name: dnf install -y docker-ce --nobest
+    - creates: /usr/bin/dockerd
 {% endif %}
 
 #   -------------------------------------------------------------
