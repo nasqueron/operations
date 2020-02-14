@@ -18,7 +18,7 @@ geo $nasqueron_server {
     172.17.0.0/16 1;
 }
 
-map $not_a_nasqueron_server {
+map $nasqueron_server $not_a_nasqueron_server {
     default 0;
     0 1;
 }
