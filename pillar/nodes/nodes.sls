@@ -21,6 +21,9 @@ nodes:
       - paas-docker
       - mastodon
     network:
+      ipv4_address: 51.255.124.11
+      ipv4_gateway: 91.121.86.254
+
       ipv6_tunnel: True
 
   equatower:

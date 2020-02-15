@@ -1,14 +1,14 @@
 
     EQUATOWER                 ______
                               \     \
-    A Nasqueron infra-         \     \
-    structure server.           \     \_
+    A Nasqueron infra-         \     \           IP: {{ ipv4_address }}
+    structure server.           \     \_         GW: {{ ipv4_gateway }}
                                 _\      \
     PaaS Docker                 \        \
                                  \        \_
-    IP: 51.255.124.10            _\         \
-    GW: 91.121.86.254            \           \
+    The containers hosted        _\         \
+    here are in production.      \           \
                                   \           \_
-    /// /// /// /// ///           _\            \
+    /// /// /// /// /// ///       _\            \
                                   \              \
 ___________________________________\              \_________mic'03

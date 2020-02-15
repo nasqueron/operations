@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set network = salt['node.get']('network') %}
+
 motd:
   file.managed:
     {% if grains['os_family'] == 'Debian' %}
@@ -14,6 +16,10 @@ motd:
     - name: /etc/motd
     {% endif %}
     - source: salt://roles/core/motd/files/{{ grains['id'] }}
+    - template: jinja
+    - context:
+        ipv4_address: {{ network['ipv4_address'] }}
+        ipv4_gateway: {{ network['ipv4_gateway'] }}
 
 # Fixes T858
 get_rid_of_scaleway_motd:
