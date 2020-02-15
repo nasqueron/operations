@@ -37,6 +37,17 @@ install_docker_engine:
     - creates: /usr/bin/dockerd
 {% endif %}
 
+{% from "map.jinja" import services with context %}
+
+#   -------------------------------------------------------------
+#   Service
+#   -------------------------------------------------------------
+
+start_docker_service:
+  service.running:
+    - name: docker
+    - enable: true
+
 #   -------------------------------------------------------------
 #   Additional utilities
 #   -------------------------------------------------------------
