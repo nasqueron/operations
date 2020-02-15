@@ -95,6 +95,7 @@ sysadmin_utilities:
       - wget
       {% if grains['os'] != 'FreeBSD' %}
       - {{ packages.netcat }}
+      - net-tools
       {% endif %}
       {% if grains['os_family'] == 'RedHat' %}
       - psmisc
