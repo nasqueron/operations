@@ -14,9 +14,9 @@
 #
 #   :: Disabled accounts
 #   :: ZFS (before user account creation)
-#   :: Active accounts
+#   :: Active accounts
 #   :: ZFS (after user account creation)
-#   :: Groups
+#   :: Groups
 #   :: SSH keys
 #
 #   -------------------------------------------------------------

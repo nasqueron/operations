@@ -21,7 +21,7 @@ motd:
         ipv4_address: {{ network['ipv4_address'] }}
         ipv4_gateway: {{ network['ipv4_gateway'] }}
 
-# Fixes T858
+# Fixes T858
 get_rid_of_scaleway_motd:
   file.absent:
     - name: /etc/update-motd.d/50-scw

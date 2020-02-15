@@ -15,7 +15,7 @@
 #
 #   Image:          nasqueron/notifications
 #   Description:    Listen to webhooks, fire notifications to
-#                   the broker. Used for CI / IRC notifications.
+#                   the broker. Used for CI / IRC notifications.
 #   Services used:  RabbitMQ broker (white-rabbit)
 #                   Docker volume   (/data/notifications/storage)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

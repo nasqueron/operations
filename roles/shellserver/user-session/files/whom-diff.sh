@@ -40,7 +40,7 @@ fi
 
 #   -------------------------------------------------------------
 #   Default mode
-#   Prints the diff between current `whom` and previous output
+#   Prints the diff between current `whom` and previous output
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ $# -eq 0 ]; then
