@@ -31,6 +31,10 @@ PasswordAuthentication no
 ChallengeResponseAuthentication no
 UsePAM yes
 
+# Once the core role has been applied to a server, ops users have been created
+# and sudo configured. We can so forbid direct root login.
+PermitRootLogin no
+
 # Misc options
 PrintMotd {{ "yes" if print_motd else "no" }}
 AcceptEnv LANG LC_*
