@@ -93,10 +93,18 @@ sysadmin_utilities:
     - pkgs:
       - tree
       - wget
-      {% if grains['os'] != 'FreeBSD' %}
+      {% if grains['os'] == 'FreeBSD' %}
+      - gnu-watch
+      {% else %}
       - {{ packages.netcat }}
       - net-tools
       {% endif %}
       {% if grains['os_family'] == 'RedHat' %}
       - psmisc
       {% endif %}
+
+{% if grains['os'] == 'FreeBSD' %}
+/usr/local/bin/gwatch:
+  file.symlink:
+    - target: /usr/local/bin/gnu-watch
+{% endif %}
