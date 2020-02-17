@@ -21,3 +21,6 @@ include:
   - .nginx
   - .letsencrypt
   - .wrappers
+{% if salt['node.has']('flags:install_docker_devel_tools') %}
+  - .devel
+{% endif %}
