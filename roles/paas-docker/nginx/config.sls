@@ -19,6 +19,11 @@
   file.managed:
     - source: salt://roles/paas-docker/nginx/files/nginx.conf
 
+nginx_dhparams:
+  cmd.run:
+    - name: openssl dhparam -out {{ dirs.etc }}/nginx/dhparams.pem 2048
+    - creates: {{ dirs.etc }}/nginx/dhparams.pem
+
 #   -------------------------------------------------------------
 #   includes folder
 #
