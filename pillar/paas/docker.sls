@@ -28,7 +28,6 @@ docker_images:
     - nasqueron/rabbitmq
 
     # Infrastructure and development services
-    - dereckson/cachet
     - nasqueron/notifications
 
   equatower:
@@ -49,6 +48,7 @@ docker_images:
     - nasqueron/api-datasources
 
     # Infrastructure and development services
+    - dereckson/cachet
     - nasqueron/aphlict
     - nasqueron/etherpad:production
     - nasqueron/phabricator
