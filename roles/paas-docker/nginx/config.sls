@@ -10,6 +10,16 @@
 {% set containers = salt['pillar.get']('docker_containers:' + grains['id'], {}) %}
 
 #   -------------------------------------------------------------
+#   Base folder
+#
+#    :: general configuration
+#   -------------------------------------------------------------
+
+{{ dirs.etc }}/nginx/nginx.conf:
+  file.managed:
+    - source: salt://roles/paas-docker/nginx/files/nginx.conf
+
+#   -------------------------------------------------------------
 #   includes folder
 #
 #    :: general configuration
