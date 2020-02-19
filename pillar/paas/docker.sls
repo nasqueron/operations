@@ -48,8 +48,8 @@ docker_images:
     - nasqueron/api-datasources
 
     # Infrastructure and development services
-    - dereckson/cachet
     - nasqueron/aphlict
+    - nasqueron/cachet
     - nasqueron/etherpad:production
     - nasqueron/phabricator
 

@@ -22,7 +22,7 @@
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: cachethq/docker:latest
+    - image: nasqueron/cachet:latest
     - links: {{ container['mysql_link'] }}:mysql
     - environment:
         - DB_DRIVER: mysql
