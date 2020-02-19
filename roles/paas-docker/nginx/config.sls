@@ -39,7 +39,28 @@ nginx_dhparams:
 
 #   -------------------------------------------------------------
 #   vhosts folder
+#
+#   :: fallback when a domain isn't found
+#   :: server cover page
+#   :: containers
 #   -------------------------------------------------------------
+
+{{ dirs.etc }}/nginx/vhosts:
+  file.directory:
+    - dir_mode: 755
+
+{{ dirs.etc }}/nginx/vhosts/000-fallback.conf:
+  file.managed:
+    - source: salt://roles/paas-docker/nginx/files/vhosts/base/fallback.conf
+
+{{ dirs.etc }}/nginx/vhosts/001-server.conf:
+  file.managed:
+    - source: salt://roles/paas-docker/nginx/files/vhosts/base/server.conf
+    - template: jinja
+    - context:
+         fqdn: {{ grains['fqdn'] }}
+         ipv4: {{ grains['ipv4'] | join(" ") }}
+         ipv6: "{{ salt['node.get_ipv6_list']() }}"
 
 {% for service, instances in containers.items() %}
 {% for instance, container in instances.items() %}
@@ -48,7 +69,6 @@ nginx_dhparams:
 {{ dirs.etc }}/nginx/vhosts/{{ service }}/{{ instance }}.conf:
   file.managed:
     - source: salt://roles/paas-docker/nginx/files/vhosts/{{ service }}.conf
-    - makedirs: True
     - mode: 644
     - template: jinja
     - context:

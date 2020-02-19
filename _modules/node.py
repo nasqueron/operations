@@ -206,3 +206,18 @@ def get_wwwroot(nodename=None):
         ".".join(fqdn[0:-2]),
         ".".join(fqdn[-2:])
     )
+
+
+def get_ipv6_list():
+    """
+    A function to get a list of IPv6, enclosed by [].
+
+    Returns a string depending of the IPv6 currently assigned.
+
+    CLI Example:
+
+        salt * node.get_ipv6_list
+    """
+    ipv6 = __grains__.get("ipv6")
+
+    return " ".join(["[" + ip + "]" for ip in ipv6])

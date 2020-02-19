@@ -113,3 +113,15 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             ['Air'],
             node.filter_by_name('items_by_name_with_star')
         )
+
+    def test_get_ipv6_list(self):
+        self.grains['ipv6'] = [
+             "::1",
+             "2001:470:1f13:ce7:ca5:cade:fab:1e",
+             "2001:470:1f12:ce7::2",
+        ]
+
+        self.assertEqual(
+             "[::1] [2001:470:1f13:ce7:ca5:cade:fab:1e] [2001:470:1f12:ce7::2]",
+             node.get_ipv6_list()
+        )
