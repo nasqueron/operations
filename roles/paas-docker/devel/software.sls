@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Dependencies not required in production but useful in dev
@@ -23,3 +23,14 @@ docker_development_utilities:
     - name: docker-compose
     - require:
       - pkg: docker_development_utilities
+
+#   -------------------------------------------------------------
+#   Tools
+#
+#   :: Arcanist
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/arc:
+  file.managed:
+    - source: salt://roles/paas-docker/devel/files/arc.sh
+    - mode: 755
