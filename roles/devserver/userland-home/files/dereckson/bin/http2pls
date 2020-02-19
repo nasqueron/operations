@@ -14,7 +14,7 @@ def get_url(base_url, tag):
 def is_media_extension(extension):
     valid_extensions = [
         # Videos
-        ".avi", ".flv", ".mp4", ".wmv"
+        ".avi", ".flv", ".mp4", ".wmv", ".mkv",
     ]
     return extension in valid_extensions
 
