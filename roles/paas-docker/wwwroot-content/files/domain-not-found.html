@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Domain not served — Nasqueron</title>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:200|Source+Sans+Pro|Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" href="https://infra.nasqueron.org/assets/css/app.css">
+</head>
+<body>
+<header class="row">
+    <div class="large-12 columns">
+        <h1><img src="https://assets.nasqueron.org/logos/logo-white-64px.png" alt="Nasqueron logo"/> 404 Domain not
+            served</h1>
+    </div>
+</header>
+
+<section class="row">
+    <div class="large-12 columns">
+        <div class="callout" style="margin-bottom: 10vh">
+            <p>The domain you access points to the <strong>Nasqueron PaaS</strong>, generally used to serve applications
+                through Docker containers.</p>
+            <p>There isn't any web server configuration for this domain. As such, it's not possible to serve it.</p>
+            <p>The most probable causes are a new service currently in deployment, a typo in the domain part of the URL
+                or a DNS record error.</p>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="large-12 columns">
+        <h2>What can I do?</h2>
+        <p>First, check the address you used is written correctly.</p>
+        <p>Then, if you followed a link through a website, it's probably a bug. You can report it as a server outage,
+           to be investigated.</p>
+        <p>If you're currently configuring the service, the next step is to provide a nginx configuration in the
+           operations repository, to be put in the roles/paas-docker/nginx/files/vhosts container. The filename
+           must match the Docker service/application name (and not the container name).</p>
+        <p>Finally, if this is your domain and you never intended to host it on the Nasqueron PaaS, you can check your
+           CNAME, A and AAAA records, it probably points to us.</p>
+        <ul>
+            <li><a href="https://devcentral.nasqueron.org/maniphest/task/edit/form/4/">Report a server outage</a></li>
+            <li><a href="https://agora.nasqueron.org/Get_support">Get further assistance</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <div class="row">
+        <div class="large-12 columns">
+            <hr/>
+            <div class="row">
+                <div class="large-3 columns site-description">
+                    <p><img src="https://assets.nasqueron.org/logos/logo-main-133px.png" width="80px"
+                            alt="Nasqueron logo"/></p>
+                    <p><strong>Nasqueron</strong> is a community of developers <span class="ampersand">&</span> creative
+                        people.</p>
+                    <hr/>
+                    <p><strong>Nasqueron Infrastructure</strong> documents our infrastructure servers and operations.
+                    </p>
+                </div>
+                <div class="large-6 large-offset-3 columns end">
+                    <p class="text-right">“This seems odd and even wrong, but nevertheless it is the case.”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="https://infra.nasqueron.org/assets/js/app.js"></script>
+</body>
+</html>

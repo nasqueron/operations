@@ -18,6 +18,7 @@ include:
 {% endif %}
   - .systemd-unit
   - .wwwroot-502
+  - .wwwroot-content
   - .nginx
   - .letsencrypt
   - .wrappers
