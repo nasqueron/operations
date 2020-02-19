@@ -134,3 +134,17 @@ devserver_software_misc_network:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/shell.py
     - mode: 755
+
+{{ dirs.bin }}/url:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/url.py
+    - mode: 755
+
+#   -------------------------------------------------------------
+#   Configuration files
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.etc }}/url.yml:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/url.yml
+    - mode: 644
