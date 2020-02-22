@@ -16,6 +16,7 @@ docker_development_utilities:
   pkg.installed:
     - pkgs:
       - git
+      - jq
       - {{ packages_prefixes.python3 }}pip
       # From Nasqueron repo
       - dive
