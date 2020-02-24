@@ -35,3 +35,8 @@ docker_development_utilities:
   file.managed:
     - source: salt://roles/paas-docker/devel/files/arc.sh
     - mode: 755
+
+{{ dirs.bin }}/psysh:
+  file.managed:
+    - source: salt://roles/paas-docker/devel/files/psysh.sh
+    - mode: 755
