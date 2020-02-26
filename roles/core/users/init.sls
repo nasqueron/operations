@@ -10,7 +10,7 @@
 
 #   -------------------------------------------------------------
 #   Table of contents
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
 #   :: Disabled accounts
 #   :: ZFS (before user account creation)
@@ -28,7 +28,7 @@
 
 #   -------------------------------------------------------------
 #   Disabled accounts
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for username in pillar.get('revokedusers') %}
 {{ username }}:
@@ -41,7 +41,7 @@
 #   Where ZFS is available, home directories are created as separate
 #   datasets. That has several benefits, like allowing users to create
 #   snapshots or manage backups.
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if zfs_tank %}
 zfs_home_permissions_sets:
@@ -79,7 +79,7 @@ zfs_permissions_home_descendant_{{ username }}:
 
 #   -------------------------------------------------------------
 #   Active accounts
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for username, user in users.items() %}
 {{ username }}:
@@ -92,7 +92,7 @@ zfs_permissions_home_descendant_{{ username }}:
 
 #   -------------------------------------------------------------
 #   Groups
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for groupname, group in salt['forest.get_groups']().items() %}
 group_{{ groupname }}:
@@ -104,7 +104,7 @@ group_{{ groupname }}:
 
 #   -------------------------------------------------------------
 #   SSH keys
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for username, user in users.items() %}
 

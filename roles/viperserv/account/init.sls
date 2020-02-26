@@ -11,7 +11,7 @@
 
 #   -------------------------------------------------------------
 #   Service accounts
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for username, user in pillar['viperserv_accounts'].items() %}
 
@@ -35,7 +35,7 @@ viperserv_account_{{ username }}:
 #   Sudo capabilities
 #
 #   Members of nasqueron-irc should be able to sudo -u viperserv …
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 viperserv_sudo_capabilities_file:
   file.managed:

@@ -25,7 +25,7 @@
 #   Sudo capabilities
 #
 #   Quassel users can change their password
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 chquasselpasswd_sudo_capabilities_file:
   file.managed:

@@ -9,7 +9,7 @@
 
 #   -------------------------------------------------------------
 #   Service account
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 bonjour_chaton_account:
   user.present:
@@ -23,7 +23,7 @@ bonjour_chaton_account:
 #   Sudo capabilities
 #
 #   Members of bonjour-chaton-dev should be able to sudo -u bonjour_chaton …
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 bonjour_chaton_sudo_capabilities_file:
   file.managed:

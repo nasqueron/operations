@@ -11,7 +11,7 @@
 
 #   -------------------------------------------------------------
 #   Service account
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 builder_account:
   user.present:
@@ -25,7 +25,7 @@ builder_account:
 #   Sudo capabilities
 #
 #   Members of deployment should be able to sudo -u builder …
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 builder_sudo_capabilities_file:
   file.managed:

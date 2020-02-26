@@ -11,7 +11,7 @@
 
 #   -------------------------------------------------------------
 #   Service account
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 odderon_account:
   user.present:
@@ -25,7 +25,7 @@ odderon_account:
 #   Sudo capabilities
 #
 #   Members of nasqueron-irc should be able to sudo -u odderon …
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 odderon_sudo_capabilities_file:
   file.managed:

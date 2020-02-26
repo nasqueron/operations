@@ -10,7 +10,7 @@
 
 #   -------------------------------------------------------------
 #   Accounts
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Salt account
 salt_account:
@@ -41,7 +41,7 @@ deploy_account:
 
 #   -------------------------------------------------------------
 #   Directories
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /opt/salt:
   file.directory
@@ -56,7 +56,7 @@ deploy_account:
 #
 #  - alken-orin account on GitHub
 #    Credentials are stored in DevCentral passphrase application
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /opt/salt/security:
   file.directory:
@@ -75,7 +75,7 @@ deploy_account_ssh_key:
 #
 #   Ops should be able to sudo -u salt …
 #   Deployers should be able to sudo -u deploy <anything>
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for sudofile in ['salt', 'deploy'] %}
 saltmaster_sudo_capabilities_{{ sudofile }}:

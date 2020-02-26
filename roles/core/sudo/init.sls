@@ -12,7 +12,7 @@
 #   Sudo capabilities
 #
 #   Ops should be able to sudo …
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/sudoers.d/ops:
   file.managed:

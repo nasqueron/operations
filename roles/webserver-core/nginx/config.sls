@@ -12,7 +12,7 @@
 #
 #    :: general configuration
 #    :: application-specific code
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 webserver_core_nginx_includes:
   file.recurse:
@@ -25,7 +25,7 @@ webserver_core_nginx_includes:
 #   vhost folder
 #
 #   To be filled by the specific web role or unit
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/nginx/vhosts:
   file.directory

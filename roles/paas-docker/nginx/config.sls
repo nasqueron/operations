@@ -13,7 +13,7 @@
 #   Base folder
 #
 #    :: general configuration
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/nginx/nginx.conf:
   file.managed:
@@ -29,7 +29,7 @@ nginx_dhparams:
 #
 #    :: general configuration
 #    :: application-specific code
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/nginx/includes:
   file.recurse:
@@ -43,7 +43,7 @@ nginx_dhparams:
 #   :: fallback when a domain isn't found
 #   :: server cover page
 #   :: containers
-#   -------------------------------------------------------------
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/nginx/vhosts:
   file.directory:
