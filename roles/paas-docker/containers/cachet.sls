@@ -39,6 +39,6 @@
     - ports:
       - 8000
     - port_bindings:
-      - {{ container['app_port'] }}:8000
+      - {{ container['app_port'] }}:80
 
 {% endfor %}
