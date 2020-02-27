@@ -31,7 +31,6 @@
         - DB_DATABASE: cachet
         - DB_USERNAME: {{ salt['zr.get_username'](container['credential']) }}
         - DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
-        - DB_PREFIX: ""
 
         - APP_KEY: {{ salt['zr.get_token'](container['app_key']) }}
         - APP_LOG: errorlog
