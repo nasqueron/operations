@@ -215,8 +215,9 @@ docker_containers:
           # Localhost
           - 127.0.0.1
 
-          # Dwellers (through temporary tunnel)
-          - 10.0.2.1
+          # Dwellers
+          - 51.255.124.11
+          - 2001:470:1f13:ce7:ca5:cade:fab:1e
 
     #
     # Let's Encrypt
