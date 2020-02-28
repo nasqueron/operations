@@ -1,0 +1,20 @@
+{
+  "nasqueron.org": {
+    "username": "082e20b6-83e2-4844-9dc8-95d625c6c8bb",
+    "password": "password1",
+    "fulldomain": "f65af502-9d34-402d-9a7e-c11529509b84.acme.nasqueron.org",
+    "subdomain": "f65af502-9d34-402d-9a7e-c11529509b84",
+    "allowFrom": [
+      "127.0.0.1"
+    ]
+  },
+  "foo.tld": {
+    "username": "9ec73be3-5556-11ea-9c51-0007cb03f249",
+    "password": "password2",
+    "fulldomain": "9f44bf1f-5556-11ea-9c51-0007cb03f249.acme.nasqueron.org",
+    "subdomain": "9f44bf1f-5556-11ea-9c51-0007cb03f249",
+    "allowFrom": [
+      "127.0.0.1"
+    ]
+  }
+}

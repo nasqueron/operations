@@ -48,3 +48,8 @@ selinux_context_letsencrypt_home_applied:
   file.managed:
     - source: salt://roles/paas-docker/letsencrypt/files/acme-dns-auth.py
     - mode: 755
+
+/usr/local/bin/edit-acme-dns-accounts:
+  file.managed:
+    - source: salt://roles/paas-docker/letsencrypt/files/edit-acme-dns-accounts.py
+    - mode: 755

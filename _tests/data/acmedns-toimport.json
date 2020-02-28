@@ -1,0 +1,11 @@
+{
+  "bar.tld": {
+    "username": "c60f2111-5556-11ea-9c51-0007cb03f249",
+    "password": "password3",
+    "fulldomain": "c66a1b4c-5556-11ea-9c51-0007cb03f249.acme.nasqueron.org",
+    "subdomain": "c66a1b4c-5556-11ea-9c51-0007cb03f249",
+    "allowFrom": [
+      "127.0.0.1"
+    ]
+  }
+}
