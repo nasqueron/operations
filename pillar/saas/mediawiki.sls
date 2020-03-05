@@ -25,6 +25,7 @@ mediawiki_extensions:
   - WikiEditor
 
 mediawiki_skins:
+  - MinervaNeue
   - MonoBook
   - Timeless
   - Vector
