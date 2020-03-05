@@ -52,5 +52,6 @@ mediawiki_datastores:
   ### Other wikis hosted on the Nasqueron servers
   ###
   - arsmagica.espace-win.org
+  - inidal.espace-win.org
   - utopia.espace-win.org
   - www.wolfplex.org
