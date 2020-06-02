@@ -219,6 +219,10 @@ docker_containers:
           - 51.255.124.11
           - 2001:470:1f13:ce7:ca5:cade:fab:1e
 
+          # Equatower
+          - 51.255.124.10
+          - 2001:470:1f13:365::50f7:ba11
+
     #
     # Let's Encrypt
     #
