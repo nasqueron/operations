@@ -38,6 +38,7 @@ shellgroups:
       - chan
       - dereckson
       - erol
+      - fluo
       - harshcrop
       - hlp
       - inidal
@@ -98,6 +99,7 @@ shellgroups:
         Provide an account on Nasqueron development servers.
     members:
       - dereckson
+      - fluo
       - inidal
       - rama
       - sandlayth

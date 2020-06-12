@@ -130,6 +130,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQAhf4Du37UglM/hh9ZW2HCq3VtMfj+bgnbjvcIEwo0 fove48@OperateurNoir
     uid: 2030
 
+  fluo:
+    fullname: fluo
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCf9bNQ8yL9Ej/RTA6QSD6iqSK89kVUcaR8KF6P4cc516we9VuEardtCvd9juOO5f2LwFW08qkxj7mgC180ue7unEK1C228gyyupQk3sPKgAaeBm1o2HWz6x2B86HxZj0vh6K228KMZkHHOGE9NThmfa29flqW6aOvElh9lyv13ki5Kw2dN5dg3i/SU2FmJrj2oDbv837ezkeVM7wczfy+ZVvh5/3G+RVLJVoL68E/m/9SjuX+zzUtWqCG9c/eb5eab36LD/LijIVn1rpN3179f8uh2jV8gFEc+NegPtk9rx/da3WWh/qH/UzIEJ4MvkvaGIud3qGXM5RxAEuSa/VnB mobile
+    uid: 2034
+
   harshcrop:
     fullname: Harsh Shah
     ssh_keys:
