@@ -16,7 +16,6 @@ devserver_software_misc_vcs:
       - fossil
       - subversion
       # Bridges
-      - cvs2svn
       - {{ packages_prefixes.python2 }}hg-git
 
 devserver_software_misc_media:
