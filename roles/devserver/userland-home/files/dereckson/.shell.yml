@@ -60,6 +60,6 @@ handlers:
     interactive: True
 
   tools:
-    server: "dev.tools.wmflabs.org"
+    server: "dev.toolforge.org"
     command: ['become', '{{%s}}', '{{%s-|}}']
     interactive: True
