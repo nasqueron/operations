@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import services with context %}
+
 #   -------------------------------------------------------------
 #   Install Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -36,8 +38,6 @@ install_docker_engine:
     - name: dnf install -y docker-ce --nobest
     - creates: /usr/bin/dockerd
 {% endif %}
-
-{% from "map.jinja" import services with context %}
 
 #   -------------------------------------------------------------
 #   Service
