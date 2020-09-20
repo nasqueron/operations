@@ -36,6 +36,23 @@
         icann_dst: {{ salt['node.get']('network', tunnel['to'])['ipv4_address'] }}
 {% endif %}
 
+{% if grains['os_family'] == 'Debian' %}
+/etc/network/interfaces.d/10-gre-{{ description }}:
+  file.managed:
+    - source: salt://roles/core/network/files/Debian/10-gre.jinja
+    - makedirs: True
+    - template: jinja
+    - context:
+        interface: gre-{{ description }}
+
+        src: {{ tunnel_network['addr'][grains['id']] }}
+        dst: {{ tunnel_network['addr'][tunnel['to']] }}
+        netmask: {{ tunnel_network['netmask'] }}
+
+        icann_src: {{ network['ipv4_address'] }}
+        icann_dst: {{ salt['node.get']('network', tunnel['to'])['ipv4_address'] }}
+{% endif %}
+
 {% endfor %}
 
 #   -------------------------------------------------------------
@@ -51,6 +68,12 @@ load_gre_kernel_module:
     - text: |
 
         if_gre_load="YES"
+{% endif %}
+
+{% if grains['os_family'] == 'Debian' %}
+ip_gre:
+  kmod.present:
+    - persist: True
 {% endif %}
 
 {% endif %}
