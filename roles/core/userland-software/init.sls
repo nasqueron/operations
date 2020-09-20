@@ -21,6 +21,20 @@ epel-release:
     - source: salt://roles/core/userland-software/files/nasqueron.repo
 {% endif %}
 
+{% if grains['os_family'] == 'Debian' %}
+apt-transport-https:
+  pkg.installed
+{% endif %}
+
+{% if grains['os'] == 'Debian' %}
+backports_repo:
+  pkgrepo.managed:
+    - humanname: Backports
+    - name: deb http://deb.debian.org/debian {{ grains['oscodename'] }}-backports main
+    - dist: {{ grains['oscodename'] }}-backports
+    - file: /etc/apt/sources.list.d/backports.list
+{% endif %}
+
 {% if grains['kernel'] == 'Linux' %}
 snapd:
   pkg.installed

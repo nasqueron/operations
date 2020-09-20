@@ -1,0 +1,13 @@
+#   -------------------------------------------------------------
+#   Salt — Kubernetes
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+{% set k8s = salt['grains.filter_by']({
+    'Debian':  {
+      'os': 'Debian_Testing',
+      'version': '1.19',
+    },
+}, default='Debian') %}
