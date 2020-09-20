@@ -76,6 +76,7 @@ nodes:
 
       ipv6_interface: igb0
       ipv6_address: 2001:0bc8:6005:0005:aa1e:84ff:fef3:5d9c
+      ipv6_gateway: fe80::a293:51ff:feb7:5073
       ipv6_prefix: 128
       ipv6_native: True
 
