@@ -17,6 +17,8 @@ base:
     - hotfixes.roles
     - webserver.sites
 
+  cloudhugger: []
+
   dwellers:
     - credentials.zr
     - paas.docker

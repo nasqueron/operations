@@ -13,6 +13,24 @@ nodes:
   ## Semantic field: https://devcentral.nasqueron.org/P27
   ##
 
+  cloudhugger:
+    forest: nasqueron-infra
+    hostname: cloudhugger.nasqueron.org
+    roles:
+      - paas-kubernetes
+    network:
+      ipv4_interface: eno1
+      ipv4_address: 188.165.200.229
+      ipv4_gateway: 188.165.200.254
+
+      ipv6_interface: eno1
+      ipv6_address: fe80::ec4:7aff:fe6a:36e8
+      ipv6_gateway: fe80::ee30:91ff:fee0:df80
+      ipv6_prefix: 64
+      ipv6_native: True
+
+      ipv6_tunnel: False
+
   dwellers:
     forest: nasqueron-infra
     hostname: dwellers.nasqueron.org

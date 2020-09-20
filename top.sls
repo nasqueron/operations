@@ -26,6 +26,8 @@ base:
     - roles/devserver
     - roles/webserver-core
     - roles/webserver-legacy
+  'cloudhugger':
+    - roles/paas-kubernetes
   'dwellers':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc

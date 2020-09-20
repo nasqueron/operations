@@ -1,0 +1,13 @@
+                _
+              (`  ).                   _
+             (     ).        /     .:(`  )`.      CloudHugger
+)           _(       '`.    |     :(   .    )
+        .=(`(      .   )   / .--  `.  (    ) )    Nasqueron infrastructure
+       ((    (..__.:'-'  /.+(   )   ` _`  ) )     Production / Debian 10
+`.     `(       ) )    /  (   .  )     (   )  ._
+  )      ` __.:'   )  |   (   (   ))     `-'.-(`  )       Kubernetes master
+)  )  ( )       --'   \   `- __.'         :(      ))      Kuma
+.-'  (_.'          .')                    `(    )  ))     Elastic (OpenDistro)
+                  (_  )                     ` __.:'
+                                                          /!\ Only use kubectl
+--..,___.--,--'`,---..-.--+--.,,-,,..._.--..-._.-a:f--.
