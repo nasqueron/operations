@@ -10,6 +10,7 @@ base:
   '*':
     - core.users
     - core.groups
+    - core.network
     - certificates.certificates
     - nodes.nodes
     - nodes.forests
