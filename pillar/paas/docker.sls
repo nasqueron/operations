@@ -77,6 +77,11 @@ docker_networks:
   dwellers:
     bugzilla:
       subnet: 172.21.3.0/24
+  docker-001:
+    cd:
+      subnet: 172.18.1.0/24
+    ci:
+      subnet: 172.18.2.0/24
   equatower:
     cd:
       subnet: 172.18.1.0/24
@@ -88,6 +93,12 @@ docker_networks:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 docker_daemon:
+  docker-001:
+    storage-driver: devicemapper
+    storage-opts:
+        - "dm.thinpooldev=/dev/mapper/wharf-thinpool"
+        - "dm.use_deferred_removal=true"
+        - "dm.use_deferred_deletion=true
   equatower:
     storage-driver: devicemapper
     storage-opts:
@@ -96,6 +107,8 @@ docker_daemon:
         - "dm.use_deferred_deletion=true"
 
 docker_devicemapper:
+  docker-001:
+    thinpool: wharf-thinpool
   equatower:
     thinpool: wharf-thinpool
 

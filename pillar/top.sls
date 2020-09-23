@@ -19,6 +19,13 @@ base:
 
   cloudhugger: []
 
+  docker-001:
+    - credentials.zr
+    - paas.docker
+    - saas.jenkins
+    - saas.phpbb
+    - saas.sentry
+
   dwellers:
     - credentials.zr
     - paas.docker
