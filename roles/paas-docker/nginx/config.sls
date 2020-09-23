@@ -70,6 +70,7 @@ nginx_dhparams:
   file.managed:
     - source: salt://roles/paas-docker/nginx/files/vhosts/{{ service }}.conf
     - mode: 644
+    - makedirs: True
     - template: jinja
     - context:
         fqdn: {{ container['host'] }}
