@@ -325,9 +325,9 @@ docker_containers:
       # Wolfplex instance
       wolfplex_phab:
         app_port: 35080
-        host: phabricator.wolfplex.be
+        host: phabricator.wolfplex.org
         aliases:
-          - phabricator.wolfplex.org
+          - phabricator.wolfplex.be
         static_host: wolfplex.phabricator.nasqueron-user-content.org
         mailer: mailgun
         credentials:
