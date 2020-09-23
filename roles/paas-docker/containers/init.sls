@@ -8,7 +8,11 @@
 
 {% set services = salt['node.filter_by_name']('docker_containers') %}
 
+{% if services %}
+
 include:
 {% for service in services %}
   - .{{ service }}
 {% endfor %}
+
+{% endif %}

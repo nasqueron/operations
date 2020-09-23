@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set networks = pillar['docker_networks'][grains['id']] %}
+{% set networks = salt['pillar.get']("docker_networks:" + grains['id'], {}) %}
 
 #   -------------------------------------------------------------
 #   Bridge networks
