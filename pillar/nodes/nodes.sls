@@ -46,6 +46,17 @@ nodes:
 
       ipv6_tunnel: True
 
+  docker-001:
+    forest: nasqueron-infra
+    hostname: docker-001.nasqueron.org
+    roles:
+      - paas-docker
+    network:
+      ipv4_address: 51.255.124.9
+      ipv4_gateway: 91.121.86.254
+
+      ipv6_tunnel: False
+
   equatower:
     forest: nasqueron-infra
     hostname: equatower.nasqueron.org
