@@ -12,11 +12,10 @@
 #       Changes to this file may cause incorrect behavior
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
-
 {% if ipv4_ovh_failover %}
 static_routes="net1 net2"
 route_net1="-net {{ ipv4_gateway }}/32 -interface {{ ipv4_interface }}"
 route_net2="default {{ ipv4_gateway }}"
-{% else %}
+{%- else -%}
 defaultrouter="{{ ipv4_gateway }}"
-{% endif %}
+{% endif -%}

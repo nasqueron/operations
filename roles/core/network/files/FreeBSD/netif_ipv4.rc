@@ -15,9 +15,9 @@
 
 {% if dhcp_required %}
 ifconfig_{{ interface }}="DHCP"
-{% else %}
+{%- else -%}
 ifconfig_{{ interface }}="inet {{ ipv4_address }} netmask {{ ipv4_netmask }}"
-{% endif %}
-{% for ip in ipv4_aliases %}
+{% endif -%}
+{%- for ip in ipv4_aliases %}
 ifconfig_{{ interface }}_alias{{ loop.index0 }}="inet {{ ip }} netmask 255.255.255.255"
-{% endfor %}
+{% endfor -%}
