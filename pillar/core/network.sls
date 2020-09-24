@@ -8,22 +8,33 @@ networks:
       ysul: 172.27.27.33
 
 gre_tunnels:
-  windriver:
-    wind-cloud:
-      interface: gre0
+  router-001:
+    drake-cloud:
+      interface: gre1
       network: drake
+      from: 172.27.27.228
       to: cloudhugger
 
-    wind-ysul:
-      interface: gre0
+    drake-wind:
+      interface: gre2
       network: drake
-      to: ysul
-
-  ysul:
-    wind-ysul: &gre_drake_to_windriver
-      interface: gre0
-      network: drake
+      from: 172.27.27.227
       to: windriver
 
+    drake-ysul:
+      interface: gre3
+      network: drake
+      from: 172.27.27.233
+      to: ysul
+
+  windriver:
+    drake-wind: &gre_drake
+      interface: gre0
+      network: drake
+      to: router-001
+
+  ysul:
+    drake-ysul: *gre_drake
+
   cloudhugger:
-    wind-cloud: *gre_drake_to_windriver
+    drake-cloud: *gre_drake

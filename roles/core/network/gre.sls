@@ -29,7 +29,7 @@
         description: {{ description }}
         interface: {{ tunnel['interface'] }}
 
-        src: {{ tunnel_network['addr'][grains['id']] }}
+        src: {{ tunnel['from'] | default(tunnel_network['addr'][grains['id']]) }}
         dst: {{ tunnel_network['addr'][tunnel['to']] }}
 
         icann_src: {{ network['ipv4_address'] }}
