@@ -7,6 +7,7 @@
 #   -------------------------------------------------------------
 
 docker_aliases:
+  - &ipv4_docker001 51.255.124.9
   - &ipv4_equatower 51.255.124.10
 
 #   -------------------------------------------------------------
@@ -29,6 +30,43 @@ docker_images:
 
     # Infrastructure and development services
     - nasqueron/notifications
+
+  docker-001:
+    # Core services
+    - library/postgres
+    - library/redis:3.2-alpine
+    - library/registry
+    - nasqueron/mysql
+
+    # ACME DNS server
+    - joohoi/acme-dns
+
+    # Nasqueron services
+    - nasqueron/auth-grove
+
+    # Nasqueron API microservices
+    - nasqueron/docker-registry-api
+    - nasqueron/api-datasources
+
+    # Infrastructure and development services
+    - nasqueron/aphlict
+    - nasqueron/cachet
+    - nasqueron/etherpad:production
+    - nasqueron/phabricator
+
+    # Continuous deployment jobs
+    - jenkins/jenkins
+    - nasqueron/jenkins-slave-node
+    - nasqueron/jenkins-slave-php
+    - nasqueron/jenkins-slave-rust
+    - nasqueron/tommy
+
+    # Pixelfed
+    - nasqueron/pixelfed
+
+    # Sentry
+    - library/sentry
+    - tianon/exim4
 
   equatower:
     # Core services
@@ -98,7 +136,7 @@ docker_daemon:
     storage-opts:
         - "dm.thinpooldev=/dev/mapper/wharf-thinpool"
         - "dm.use_deferred_removal=true"
-        - "dm.use_deferred_deletion=true
+        - "dm.use_deferred_deletion=true"
   equatower:
     storage-driver: devicemapper
     storage-opts:
@@ -200,7 +238,274 @@ docker_containers:
         realm: nasqueron
 
   #
-  # Equatower is the current production engine
+  # Current production engine
+  #
+  docker-001:
+
+    #
+    # Core services
+    #
+
+    mysql:
+      acquisitariat: {}
+      phpbb_db: {}
+
+    postgresql:
+      sentry_db:
+        credential: nasqueron.sentry.postgresql
+
+    redis:
+      sentry_redis: {}
+      pixelfed_redis: {}
+
+    registry:
+      registry:
+        host: registry.nasqueron.org
+        app_port: 5000
+        allowed_ips:
+          # Localhost
+          - 127.0.0.1
+
+          # Dwellers
+          - 51.255.124.11
+          - 2001:470:1f13:ce7:ca5:cade:fab:1e
+
+          # docker-001
+          - 51.255.124.9
+          - 2001:470:1f13:365::50f7:ba11
+
+    #
+    # Let's Encrypt
+    #
+
+    acme_dns:
+      acme:
+        ip: *ipv4_docker001
+        app_port: 41080
+        host: acme.nasqueron.org
+        nsadmin: ops.nasqueron.org
+
+    #
+    # CI and CD
+    #
+
+    jenkins:
+      jenkins_cd:
+        realm: cd
+        host: cd.nasqueron.org
+        app_port: 38080
+        jnlp_port: 50000
+      jenkins_ci:
+        realm: ci
+        host: ci.nasqueron.org
+        app_port: 42080
+        jnlp_port: 55000
+
+    jenkins_slave:
+      # Slaves for CD
+      apsile: &php_for_cd
+        image: php
+        realm: cd
+
+      elapsi: *php_for_cd
+
+      rust_brown:
+        image: rust
+        realm: cd
+
+      yarabokin:
+        image: node
+        realm: cd
+
+      zateki: &php_for_ci
+        image: php
+        realm: ci
+
+      zenerre: *php_for_ci
+
+    tommy:
+      tommy_ci:
+        app_port: 24080
+        host: builds.nasqueron.org
+        aliases:
+          - build.nasqueron.org
+        jenkins_url: https://ci.nasqueron.org
+
+      tommy_cd:
+        # No host definition, as this dashboard is mounted on infra.nasqueron.org
+        app_port: 24180
+        jenkins_url: https://cd.nasqueron.org
+
+    # Infrastructure and development services
+
+    phabricator:
+      # Nasqueron instance
+      devcentral:
+        app_port: 31080
+        host: devcentral.nasqueron.org
+        aliases:
+          - phabricator.nasqueron.org
+        blogs:
+          servers:
+            host: servers.nasqueron.org
+            aliases:
+              - server.nasqueron.org
+              - serveur.nasqueron.org
+              - serveurs.nasqueron.org
+        mailer: mailgun
+        credentials:
+          mysql: zed.phabricator.mysql
+        static_host: devcentral.nasqueron-user-content.org
+        title: Nasqueron DevCentral
+        mysql_link: acquisitariat
+        skip_container: True
+
+      # Private instance for Dereckson
+      river_sector:
+        app_port: 23080
+        host: river-sector.dereckson.be
+        static_host: river-sector.nasqueron-user-content.org
+        mailer: _
+        credentials:
+          mysql: dereckson.phabricator.mysql
+        storage:
+          namespace: river_sector
+        title: River Sector
+        mysql_link: acquisitariat
+
+      # Wolfplex instance
+      wolfplex_phab:
+        app_port: 35080
+        host: phabricator.wolfplex.org
+        aliases:
+          - phabricator.wolfplex.be
+        static_host: wolfplex.phabricator.nasqueron-user-content.org
+        mailer: mailgun
+        credentials:
+          mailgun: wolfplex.phabricator.mailgun
+          mysql: wolfplex.phabricator.mysql
+        storage:
+          namespace: wolfphab
+        title: Wolfplex Phabricator
+        mysql_link: acquisitariat
+
+      # Zed instance
+      zed_code:
+        app_port: 36080
+        host: code.zed.dereckson.be
+        static_host: zed.phabricator.nasqueron-user-content.org
+        mailer: sendgrid
+        credentials:
+          mysql: zed.phabricator.mysql
+          sendgrid: zed.phabricator.sendgrid
+        storage:
+          namespace: zedphab
+        title: Zed
+        mysql_link: acquisitariat
+
+    aphlict:
+      aphlict:
+        ports:
+          client: 22280
+          admin: 22281
+
+    cachet:
+      cachet:
+        app_port: 39080
+        host: status.nasqueron.org
+        credential: nasqueron.cachet.mysql
+        app_key: nasqueron.cachet.app_key
+        mysql_link: acquisitariat
+
+    etherpad:
+      pad:
+        app_port: 34080
+        host: pad.nasqueron.org
+        aliases:
+          - pad.wolfplex.org
+          - pad.wolfplex.be
+        credential: nasqueron.etherpad.api
+        mysql_link: acquisitariat
+
+    auth-grove:
+      login:
+        app_port: 25080
+        host: login.nasqueron.org
+        credential: nasqueron.auth-grove.mysql
+        mysql_link: acquisitariat
+
+    # API microservices
+
+    docker-registry-api:
+      api-docker-registry:
+        app_port: 20080
+        api_entry_point: /docker/registry
+        registry_instance: registry
+
+    api-datasources:
+      api-datasources:
+        app_port: 19080
+        api_entry_point: /datasources
+
+    # phpBB SaaS
+    # The SaaS uses a MySQL instance, declared in the MySQL section.
+
+    # Openfire
+    openfire:
+      openfire:
+        ip: *ipv4_docker001
+        app_port: 9090
+        host: xmpp.nasqueron.org
+
+        # Other subservices for XMPP
+        # listening to their own subdomain
+        aliases:
+          - conference.nasqueron.org
+
+    # Pixelfed
+    pixelfed:
+      pixelfed:
+        app_port: 30080
+        host: photos.nasqueron.org
+        aliases:
+          - photo.nasqueron.org
+        links:
+          mysql: acquisitariat
+          redis: pixelfed_redis
+        credentials:
+          app_key: nasqueron.pixelfed.app_key
+          mailgun: nasqueron.pixelfed.mailgun
+          mysql: nasqueron.pixelfed.mysql
+        app:
+          title: Nasqueron Photos
+          max_album_length: 16
+
+    # Sentry
+    # The Sentry instance uses a Redis and a PostgreSQL instance,
+    # declared above.
+    exim:
+      sentry_smtp:
+        mailname: mx.sentry.nasqueron.org
+
+    sentry:
+      sentry_web_1:
+        app_port: 26080
+        host: sentry.nasqueron.org
+
+        # As an instance is divided between a web, a cron and a worker
+        # containers, we need an identified to share a data volume.
+        realm: nasqueron
+
+    sentry_worker:
+      sentry_worker_1:
+        realm: nasqueron
+
+    sentry_cron:
+      sentry_cron:
+        realm: nasqueron
+
+  #
+  # Equatower is the decommissioned production engine
   #
   equatower:
 
@@ -504,5 +809,11 @@ zr_clients:
   - key: 123
     allowedConnectionFrom:
       - equatower.nasqueron.org
+    restrictCommand:
+    comment: Zemke-Rhyne
+
+  - key: 152
+    allowedConnectionFrom:
+      - docker-001.nasqueron.org
     restrictCommand:
     comment: Zemke-Rhyne
