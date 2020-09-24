@@ -68,6 +68,17 @@ nodes:
 
       ipv6_tunnel: True
 
+  router-001:
+    forest: nasqueron-infra
+    hostname: router-001.nasqueron.org
+    roles:
+      - router
+    network:
+      ipv4_address: 51.255.124.8
+      ipv4_gateway: 91.121.86.254
+
+      ipv6_tunnel: False
+
   ysul:
     forest: nasqueron-dev
     hostname: ysul.nasqueron.org
