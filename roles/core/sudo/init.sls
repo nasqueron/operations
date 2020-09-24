@@ -9,6 +9,15 @@
 {% from "map.jinja" import dirs with context %}
 
 #   -------------------------------------------------------------
+#   Software
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains['os'] == 'FreeBSD' %}
+sudo:
+  pkg.installed
+{% endif %}
+
+#   -------------------------------------------------------------
 #   Sudo capabilities
 #
 #   Ops should be able to sudo …
@@ -17,3 +26,4 @@
 {{ dirs.etc }}/sudoers.d/ops:
   file.managed:
     - source: salt://roles/core/sudo/files/ops
+    - makedirs: True
