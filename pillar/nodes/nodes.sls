@@ -80,6 +80,10 @@ nodes:
       ipv4_gateway: 91.121.86.254
       ipv4_ovh_failover: True
 
+      private_interface: vmx1
+      private_address: 172.27.27.1
+      private_netmask: 255.255.255.0
+
       ipv6_tunnel: False
 
   ysul:

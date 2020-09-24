@@ -3,6 +3,7 @@ networks:
     netmask: 255.255.255.0
     addr:
       cloudhugger: 172.27.27.28
+      router-001: 172.27.27.1
       windriver: 172.27.27.27
       ysul: 172.27.27.33
 
