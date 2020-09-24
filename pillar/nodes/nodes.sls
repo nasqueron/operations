@@ -74,8 +74,11 @@ nodes:
     roles:
       - router
     network:
+      ipv4_interface: vmx0
       ipv4_address: 51.255.124.8
+      ipv4_netmask: 255.255.255.255
       ipv4_gateway: 91.121.86.254
+      ipv4_ovh_failover: True
 
       ipv6_tunnel: False
 
