@@ -18,6 +18,7 @@ docker_development_utilities:
       - git
       - jq
       - {{ packages_prefixes.python3 }}pip
+      - sqlite
       # From Nasqueron repo
       - dive
   pip.installed:
