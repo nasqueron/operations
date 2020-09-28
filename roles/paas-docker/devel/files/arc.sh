@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #   -------------------------------------------------------------
 #   Phabricator — Arcanist Docker container wrapper
@@ -53,19 +53,40 @@ else
 fi
 
 if [ -d ~/.arc/ssh ]; then
-	VOLUME_SSH="-v $HOME/.arc/ssh:/root/.ssh"
+	VOLUME_SSH="-v $HOME/.arc/ssh:/home/$USER/.ssh"
 else
 	VOLUME_SSH=""
 fi
+
+#   -------------------------------------------------------------
+#   Build image
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+test -v $UID && UID=$(id -u)
+test -v $GID && GID=$(id -g)
+IMAGE=nasqueron/arcanist:$UID-$GID
+
+build_image () {
+	BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
+	pushd "$BUILD_DIR" > /dev/null || exit 1
+	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
+	echo "FROM nasqueron/arcanist" > Dockerfile
+	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && chown -R $USER:$USER /home/$USER" >> Dockerfile
+	docker build -t "$IMAGE" .
+	popd > /dev/null
+	rm -rf "$BUILD_DIR"
+}
+
+test ! -z $(docker images -q "$IMAGE") || build_image
 
 #   -------------------------------------------------------------
 #   Run container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ $PRINT_LOG -eq 0 ]; then
-	docker run $FLAGS --rm -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH nasqueron/arcanist $COMMAND "$@"
+	docker run $FLAGS --rm --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@"
 else
-	docker run $FLAGS -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH nasqueron/arcanist $COMMAND "$@" > /dev/null
+	docker run $FLAGS --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@" > /dev/null
 	sleep 3
 	docker logs "$INSTANCE"
 	docker rm "$INSTANCE" >/dev/null
