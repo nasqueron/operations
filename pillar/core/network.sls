@@ -4,7 +4,7 @@ networks:
     addr:
       cloudhugger: 172.27.27.28
       router-001: 172.27.27.1
-      windriver: 172.27.27.27
+      windriver: 172.27.27.35
       ysul: 172.27.27.33
 
 gre_tunnels:
