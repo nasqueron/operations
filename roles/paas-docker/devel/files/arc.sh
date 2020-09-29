@@ -52,21 +52,11 @@ else
 	fi
 fi
 
-if [ -d ~/.arc/ssh ]; then
-	VOLUME_SSH="-v $HOME/.arc/ssh:/home/$USER/.ssh"
-else
-	VOLUME_SSH=""
-fi
-
 #   -------------------------------------------------------------
 #   Build image
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-test -v $UID && UID=$(id -u)
-test -v $GID && GID=$(id -g)
-IMAGE=nasqueron/arcanist:$UID-$GID
-
-build_image () {
+build_user_image () {
 	BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
 	pushd "$BUILD_DIR" > /dev/null || exit 1
 	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
@@ -77,11 +67,28 @@ build_image () {
 	rm -rf "$BUILD_DIR"
 }
 
-test ! -z $(docker images -q "$IMAGE") || build_image
+test -v $UID && UID=$(id -u)
+test -v $GID && GID=$(id -g)
+
+if [ $UID -eq 0 ]; then
+	IMAGE=nasqueron/arcanist
+	CONTAINER_USER_HOME=/root
+else
+	IMAGE=nasqueron/arcanist:$UID-$GID
+	test ! -z $(docker images -q "$IMAGE") || build_user_image
+	CONTAINER_USER_HOME="/home/$USER"
+fi
 
 #   -------------------------------------------------------------
 #   Run container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+if [ -d ~/.arc/ssh ]; then
+	VOLUME_SSH="-v $HOME/.arc/ssh:$CONTAINER_USER_HOME/.ssh"
+else
+	VOLUME_SSH=""
+fi
 
 if [ $PRINT_LOG -eq 0 ]; then
 	docker run $FLAGS --rm --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@"
