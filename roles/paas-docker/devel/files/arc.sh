@@ -61,7 +61,7 @@ build_user_image () {
 	pushd "$BUILD_DIR" > /dev/null || exit 1
 	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
 	echo "FROM nasqueron/arcanist" > Dockerfile
-	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && chown -R $USER:$USER /home/$USER" >> Dockerfile
+	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && cp /root/.bashrc /home/$USER/ && chown -R $USER:$USER /home/$USER && ln -s /opt/config/gitconfig /home/$USER/.gitconfig && ln -s /opt/config/arcrc /home/$USER/.arcrc" >> Dockerfile
 	docker build -t "$IMAGE" .
 	popd > /dev/null
 	rm -rf "$BUILD_DIR"
