@@ -8,6 +8,7 @@
 
 docker_aliases:
   - &ipv4_docker001 51.255.124.9
+  - &ipv4_docker001_restricted 51.255.124.9
 
 #   -------------------------------------------------------------
 #   Images
@@ -25,7 +26,6 @@ docker_images:
   dwellers:
     # Core services
     - nasqueron/mysql:5.7
-    - nasqueron/rabbitmq
 
     # Infrastructure and development services
     - nasqueron/notifications
@@ -36,6 +36,7 @@ docker_images:
     - library/redis:3.2-alpine
     - library/registry
     - nasqueron/mysql
+    - nasqueron/rabbitmq
 
     # ACME DNS server
     - joohoi/acme-dns
@@ -202,6 +203,12 @@ docker_containers:
     postgresql:
       sentry_db:
         credential: nasqueron.sentry.postgresql
+
+    rabbitmq:
+      white-rabbit:
+        ip: *ipv4_docker001_restricted
+        host: white-rabbit.nasqueron.org
+        app_port: 15672
 
     redis:
       sentry_redis: {}
@@ -454,8 +461,25 @@ docker_containers:
         realm: nasqueron
 
  #   -------------------------------------------------------------
- #   Ports listened by XMPP
+ #   Ports listened by known applications
  #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+rabbitmq_ports:
+  -  4369 # epmd, Erlang peer discovery service used by RabbitMQ and CLI tools
+  -  5671 # AMQP with TLS (AMQPS)
+  -  5672 # AMQP
+  - 15672 # Management UI, HTTP API, rabbitmqadmin (management plugin port)
+  - 25672 # Erlang distribution server port - Federation, rabbitmqctl
+
+  # Not implemented ports, as we don't use those protocols:
+  #
+  # -  1883 # MQTT
+  # -  8883 # MQTT with TLS
+  # - 15674 # STOMP over a WebSocket connection (rabbitmq_web_stomp plugin port)
+  # - 15675 # MQTT  over a WebSocket connection (rabbitmq_web_mqtt plugin port)
+  # - 15692 # Prometheus metrics (rabbitmq_prometheus plugin port)
+  # - 61613 # STOMP
+  # - 61614 # STOMP with TLS
 
 xmpp_ports:
   - 3478
