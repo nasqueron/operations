@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 #   -------------------------------------------------------------
 #   Phabricator — Arcanist Docker container wrapper
@@ -52,20 +52,48 @@ else
 	fi
 fi
 
-if [ -d ~/.arc/ssh ]; then
-	VOLUME_SSH="-v $HOME/.arc/ssh:/root/.ssh"
+#   -------------------------------------------------------------
+#   Build image
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+build_user_image () {
+	BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
+	pushd "$BUILD_DIR" > /dev/null || exit 1
+	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
+	echo "FROM nasqueron/arcanist" > Dockerfile
+	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && cp /root/.bashrc /home/$USER/ && chown -R $USER:$USER /home/$USER && ln -s /opt/config/gitconfig /home/$USER/.gitconfig && ln -s /opt/config/arcrc /home/$USER/.arcrc" >> Dockerfile
+	docker build -t "$IMAGE" .
+	popd > /dev/null
+	rm -rf "$BUILD_DIR"
+}
+
+test -v $UID && UID=$(id -u)
+test -v $GID && GID=$(id -g)
+
+if [ $UID -eq 0 ]; then
+	IMAGE=nasqueron/arcanist
+	CONTAINER_USER_HOME=/root
 else
-	VOLUME_SSH=""
+	IMAGE=nasqueron/arcanist:$UID-$GID
+	test ! -z $(docker images -q "$IMAGE") || build_user_image
+	CONTAINER_USER_HOME="/home/$USER"
 fi
 
 #   -------------------------------------------------------------
 #   Run container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if [ $PRINT_LOG -eq 0 ]; then
-	docker run $FLAGS --rm -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH nasqueron/arcanist $COMMAND "$@"
+
+if [ -d ~/.arc/ssh ]; then
+	VOLUME_SSH="-v $HOME/.arc/ssh:$CONTAINER_USER_HOME/.ssh"
 else
-	docker run $FLAGS -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH nasqueron/arcanist $COMMAND "$@" > /dev/null
+	VOLUME_SSH=""
+fi
+
+if [ $PRINT_LOG -eq 0 ]; then
+	docker run $FLAGS --rm --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@"
+else
+	docker run $FLAGS --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@" > /dev/null
 	sleep 3
 	docker logs "$INSTANCE"
 	docker rm "$INSTANCE" >/dev/null
