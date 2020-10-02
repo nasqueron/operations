@@ -27,9 +27,6 @@ docker_images:
     # Core services
     - nasqueron/mysql:5.7
 
-    # Infrastructure and development services
-    - nasqueron/notifications
-
   docker-001:
     # Core services
     - library/postgres
@@ -52,6 +49,7 @@ docker_images:
     - nasqueron/aphlict
     - nasqueron/cachet
     - nasqueron/etherpad:production
+    - nasqueron/notifications
     - nasqueron/phabricator
 
     # Continuous deployment jobs
@@ -143,23 +141,6 @@ docker_containers:
       bugzilla_db:
         network: bugzilla
         version: 5.7
-
-    #
-    # Notifications center
-    #
-
-    notifications:
-      notifications:
-        host: notifications.nasqueron.org
-        app_port: 37080
-        broker_link: white-rabbit
-        credentials:
-          broker: nasqueron.notifications.broker
-          mailgun: nasqueron.notifications.mailgun
-        sentry:
-          realm: nasqueron
-          project_id: 2
-          credential: nasqueron.notifications.sentry
 
     #
     # Bugzilla
@@ -293,6 +274,19 @@ docker_containers:
         jenkins_url: https://cd.nasqueron.org
 
     # Infrastructure and development services
+
+    notifications:
+      notifications:
+        host: notifications.nasqueron.org
+        app_port: 37080
+        broker_link: white-rabbit
+        credentials:
+          broker: nasqueron.notifications.broker
+          mailgun: nasqueron.notifications.mailgun
+        sentry:
+          realm: nasqueron
+          project_id: 2
+          credential: nasqueron.notifications.sentry
 
     phabricator:
       # Nasqueron instance
