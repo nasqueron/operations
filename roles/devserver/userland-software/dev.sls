@@ -73,6 +73,7 @@ devserver_software_dev_php:
   pkg.installed:
     - pkgs:
       - {{ packages.phpunit }}
+      - {{ packages_prefixes.pecl }}ast
 
 #   -------------------------------------------------------------
 #   Python

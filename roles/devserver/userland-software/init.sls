@@ -20,6 +20,5 @@ include:
   - .misc
   - .notifications
   - .phabricator
-  - .php-ast
   - .psysh
   - .wordpress
