@@ -8,6 +8,7 @@
 #   Created:        2016-01-01
 #   Description:    Wrapper to run Arcanist as a Docker container
 #   License:        Trivial work, not eligible to copyright
+#                   If copyright eligible, BSD-2-Clause
 #   Image:          nasqueron/arcanist
 #   Source file:    roles/paas-docker/devel/files/arc.sh
 #   -------------------------------------------------------------
@@ -18,6 +19,8 @@
 #       Changes to this file may cause incorrect behavior
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
+
+BASE_IMAGE=nasqueron/arcanist
 
 #   -------------------------------------------------------------
 #   Parse arguments
@@ -33,11 +36,15 @@ fi
 # Logs are default disabled
 PRINT_LOG=0
 
+UPDATE_MODE=0
+
 if [ "$1" = "shell" ]; then
 	# Launch commands
 	# in the container bash shell
 	shift
 	COMMAND=bash
+elif [ "$1" = "update" ]; then
+	UPDATE_MODE=1
 else
 	# Launch arc
 	mkdir -p ~/.arc
@@ -60,7 +67,7 @@ build_user_image () {
 	BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
 	pushd "$BUILD_DIR" > /dev/null || exit 1
 	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
-	echo "FROM nasqueron/arcanist" > Dockerfile
+	echo "FROM $BASE_IMAGE" > Dockerfile
 	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && cp /root/.bashrc /home/$USER/ && chown -R $USER:$USER /home/$USER && ln -s /opt/config/gitconfig /home/$USER/.gitconfig && ln -s /opt/config/arcrc /home/$USER/.arcrc" >> Dockerfile
 	docker build -t "$IMAGE" .
 	popd > /dev/null
@@ -70,11 +77,21 @@ build_user_image () {
 test -v $UID && UID=$(id -u)
 test -v $GID && GID=$(id -g)
 
+if [ $UPDATE_MODE -eq 1 ]; then
+	docker pull $BASE_IMAGE
+
+	# Rebuild user image
+	IMAGE=$BASE_IMAGE:$UID-$GID
+	test $UID -eq 0 || build_user_image
+
+	exit
+fi
+
 if [ $UID -eq 0 ]; then
-	IMAGE=nasqueron/arcanist
+	IMAGE=$BASE_IMAGE
 	CONTAINER_USER_HOME=/root
 else
-	IMAGE=nasqueron/arcanist:$UID-$GID
+	IMAGE=$BASE_IMAGE:$UID-$GID
 	test ! -z $(docker images -q "$IMAGE") || build_user_image
 	CONTAINER_USER_HOME="/home/$USER"
 fi
