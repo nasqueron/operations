@@ -33,3 +33,10 @@ jenkins_images:
   node: nasqueron/jenkins-slave-node
   php: nasqueron/jenkins-slave-php
   rust: nasqueron/jenkins-slave-rust
+
+#   -------------------------------------------------------------
+#   Jenkins configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+jenkins_config:
+  ci: &default_config {}

@@ -11,6 +11,7 @@
 
 
 import json
+import yaml
 
 
 def to_json_from_pillar_key(key):
@@ -34,3 +35,13 @@ def to_json(data):
         salt-call --local convert.to_json "Hello world"
     """
     return json.dumps(data, indent=4, sort_keys=True)
+
+def to_yaml(data):
+    """
+    A function to convert data to YAML.
+
+    CLI Example::
+
+        salt-call --local convert.to_yaml "Hello world"
+    """
+    return yaml.dump(d, indent=2, default_flow_style=False)

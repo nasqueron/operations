@@ -36,6 +36,17 @@ selinux_context_jenkins_home_applied_{{ instance }}:
 {% endif %}
 
 #   -------------------------------------------------------------
+#   Configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ home }}/jenkins.yaml:
+  file.managed:
+    - source: salt://roles/paas-docker/containers/files/jenkins/jenkins.yaml.jinja
+    - template: jinja
+    - context:
+        config: {{ pillar['jenkins_config'][instance] }}
+
+#   -------------------------------------------------------------
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
