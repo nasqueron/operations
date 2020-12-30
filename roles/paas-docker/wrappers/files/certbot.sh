@@ -29,4 +29,4 @@ docker run -it --rm \
 	-v /srv/letsencrypt/var:/var/lib/letsencrypt \
 	-v /srv/letsencrypt/log:/var/log/letsencrypt \
 	-v /srv/letsencrypt/www:/www \
-	certbot/certbot:latest "$COMMAND" "$@" "$EXTRA_ARGS"
+	certbot/certbot:latest "$COMMAND" $@ $EXTRA_ARGS
