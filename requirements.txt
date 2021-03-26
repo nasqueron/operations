@@ -10,3 +10,4 @@ PyYAML>=4.2b1,<5.1
 mock>=2.0.0,<3.0
 salt==2019.2.2
 jsondiff==1.2.0
+tornado>=5.1.0 # not directly required, pinned by Snyk to avoid a vulnerability
