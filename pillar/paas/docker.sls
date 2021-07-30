@@ -66,6 +66,9 @@ docker_images:
     - library/sentry
     - tianon/exim4
 
+    # Hauk
+    - bilde2910/hauk
+
 #   -------------------------------------------------------------
 #   Networks
 #
@@ -429,6 +432,13 @@ docker_containers:
         app:
           title: Nasqueron Photos
           max_album_length: 16
+
+    # Hauk
+    hauk:
+      hauk:
+        app_port: 43080
+        host: geo.nasqueron.org
+        api_entry_point: /hauk
 
     # Sentry
     # The Sentry instance uses a Redis and a PostgreSQL instance,
