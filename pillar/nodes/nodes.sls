@@ -143,7 +143,7 @@ nodes:
     roles:
       - shellserver
     network:
-      ipv5_interface: ens2
+      ipv4_interface: ens2
       ipv4_address: 51.159.150.221
       ipv4_gateway: ""
 
