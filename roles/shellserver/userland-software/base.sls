@@ -122,6 +122,7 @@ languages_removed:
       - php7.0
       - php7.1
       - php7.2
+      - php7.3
       {% elif grains['os'] == 'FreeBSD' %}
       - php70
       - php71
@@ -135,7 +136,7 @@ languages:
       - python3
       - {{ packages.tcl }}
       {% if grains['os_family'] == 'Debian' %}
-      - php7.3
+      - php7.4
       {% elif grains['os'] == 'FreeBSD' %}
       - php74
       {% endif %}
