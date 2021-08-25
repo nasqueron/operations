@@ -11,7 +11,7 @@
 dotfiles_to_devserver_{{username}}:
   file.recurse:
     - name: /home/{{ username }}
-    - source: salt://roles/devserver/userland-home/files/dereckson
+    - source: salt://roles/devserver/userland-home/files/{{ username }}
     - include_empty: True
     - clean: False
     - user: {{ username }}
