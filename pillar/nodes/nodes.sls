@@ -143,6 +143,10 @@ nodes:
     roles:
       - shellserver
     network:
+      ipv5_interface: ens2
+      ipv4_address: 51.159.150.221
+      ipv4_gateway: ""
+
       ipv6_tunnel: True
     fixes:
       rsyslog_xconsole: True
