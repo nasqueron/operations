@@ -21,6 +21,21 @@ epel-release:
     - source: salt://roles/core/userland-software/files/nasqueron.repo
 {% endif %}
 
+{% if grains['os'] == 'Debian' %}
+/etc/apt/sources.list:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/sources.list
+    - template: jinja
+    - context:
+        debian_version: {{ grains['oscodename'] }}
+
+apt_update_debian_sources:
+  cmd.run:
+    - name: apt update
+    - onchanges:
+      - file: /etc/apt/sources.list
+{% endif %}
+
 {% if grains['kernel'] == 'Linux' %}
 snapd:
   pkg.installed
