@@ -114,7 +114,8 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9u1AFDK0mo7bDQZAiV9AXXdxUiH8H1B0rLY8NIP8/f yggdrasil.dereckson.drake
     yubico_keys:
       - ccccccbjncrt
-    deploy_dotfiles_to_devserver: True
+    devserver_tasks:
+      - deploy_dotfiles
     uid: 5001
 
   erol:

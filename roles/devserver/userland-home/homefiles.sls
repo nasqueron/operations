@@ -7,7 +7,9 @@
 #   -------------------------------------------------------------
 
 {% for username, user in salt['forest.get_users']().items() %}
-{% if 'deploy_dotfiles_to_devserver' in user %}
+{% set tasks = user.get('devserver_tasks', []) }
+
+{% if 'deploy_dotfiles' in tasks %}
 dotfiles_to_devserver_{{username}}:
   file.recurse:
     - name: /home/{{ username }}
@@ -17,4 +19,5 @@ dotfiles_to_devserver_{{username}}:
     - user: {{ username }}
     - group: {{ username }}
 {% endif %}
+
 {% endfor %}
