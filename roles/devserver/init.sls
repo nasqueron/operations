@@ -8,6 +8,8 @@
 
 include:
   - .dns
+  - .mail
+  - .pkg
   - .userland-software
   - .userland-home
   - .webserver-wwwroot51
