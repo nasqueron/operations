@@ -33,3 +33,12 @@ darkbot_build:
     - onchanges:
         - git: darkbot_repo
     - unless: test -f /opt/odderon/LOCKED
+
+darkbot_install:
+  cmd.run:
+    - name: make install
+    - cwd: /opt/darkbot/build
+    - runas: odderon
+    - onchanges:
+        - cmd: darkbot_build
+    - unless: test -f /opt/odderon/LOCKED
