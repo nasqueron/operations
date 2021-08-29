@@ -9,7 +9,7 @@ USER_PROPERTIES_OPTIONAL = set([
     "class",
     "shell",
     "yubico_keys",
-    "deploy_dotfiles_to_devserver"
+    "devserver_tasks"
 ])
 
 
