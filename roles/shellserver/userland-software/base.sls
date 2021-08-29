@@ -150,21 +150,13 @@ languages_libs:
     - pkgs:
       # PHP extensions
       - {{ packages_prefixes.php }}bcmath
-      - {{ packages_prefixes.php }}ctype
       - {{ packages_prefixes.php }}curl
-      - {{ packages_prefixes.php }}dom
       - {{ packages_prefixes.php }}gd
       - {{ packages_prefixes.php }}intl
       - {{ packages_prefixes.php }}json
       - {{ packages_prefixes.php }}mbstring
-      - {{ packages_prefixes.php }}mysqli
-      - {{ packages_prefixes.php }}pdo
-      - {{ packages_prefixes.php }}phar
-      - {{ packages_prefixes.php }}simplexml
       - {{ packages_prefixes.php }}soap
-      - {{ packages_prefixes.php }}tokenizer
       - {{ packages_prefixes.php }}xml
-      - {{ packages_prefixes.php }}xmlwriter
       - {{ packages_prefixes.php }}xsl
       {% if grains['os_family'] == 'Debian' %}
       # On Debian, these PDO extensions doesn't follow regular names
@@ -173,13 +165,21 @@ languages_libs:
       - {{ packages_prefixes.php }}sqlite3
       {% else %}
       # On Debian, these extensions are now shipped by default:
+      - {{ packages_prefixes.php }}ctype
+      - {{ packages_prefixes.php }}dom
       - {{ packages_prefixes.php }}fileinfo
       - {{ packages_prefixes.php }}filter
       - {{ packages_prefixes.php }}iconv
+      - {{ packages_prefixes.php }}mysqli
       - {{ packages_prefixes.php }}openssl
       - {{ packages_prefixes.php }}pcntl
+      - {{ packages_prefixes.php }}pdo
+      - {{ packages_prefixes.php }}phar
       - {{ packages_prefixes.php }}session
+      - {{ packages_prefixes.php }}simplexml
+      - {{ packages_prefixes.php }}tokenizer
       - {{ packages_prefixes.php }}xmlreader
+      - {{ packages_prefixes.php }}xmlwriter
       - {{ packages_prefixes.php }}zlib
       # On Debian, these PDO extensions doesn't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
