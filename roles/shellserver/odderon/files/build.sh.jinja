@@ -22,4 +22,4 @@ test ! -r build/configure && sh bootstrap.sh
 
 cd build || exit 2
 sh configure -C --prefix=$PREFIX "$@"
-make
+{{ gmake }} clean all

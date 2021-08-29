@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import utilities with context %}
+
 darkbot_repo:
   file.directory:
     - name: /opt/darkbot
@@ -21,10 +23,13 @@ darkbot_repo:
 
 darkbot_build:
   cmd.script:
-    - source: salt://roles/shellserver/odderon/files/build.sh
+    - source: salt://roles/shellserver/odderon/files/build.sh.jinja
     - args: "--with-sleep=0 --with-add=0 --with-del=0 --with-random=0"
+    - template: jinja
+    - context:
+        gmake: {{ utilities.gmake }}
     - cwd: /opt/darkbot
     - runas: odderon
-    - require:
+    - onchanges:
         - git: darkbot_repo
     - unless: test -f /opt/odderon/LOCKED

@@ -197,6 +197,15 @@
     },
 }, default='Debian') %}
 
+{% set utilities = salt['grains.filter_by']({
+    'FreeBSD': {
+        'gmake': 'gmake',
+    },
+    'Debian': {
+        'gmake': 'make',
+    },
+}, default='Debian') %}
+
 {#  -------------------------------------------------------------
     Capabilities of OS and distributions
 
