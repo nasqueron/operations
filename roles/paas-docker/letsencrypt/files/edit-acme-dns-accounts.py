@@ -86,7 +86,7 @@ commands = {
         "command_usage": "import <file>",
         "callable": import_other_file
     },
-},
+}
 
 
 if __name__ == "__main__":
