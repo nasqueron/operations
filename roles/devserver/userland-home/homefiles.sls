@@ -56,4 +56,12 @@ devserver_rustup_{{toolchain}}_{{username}}:
 {% endfor %}
 {% endif %}
 
+{% if 'install_diesel' in tasks %}
+devserver_diesel_{{username}}:
+  cmd.run:
+    - name: /home/{{username}}/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres,sqlite
+    - runas: {{username}}
+    - creates: /home/{{username}}/.cargo/bin/diesel
+{% endif %}
+
 {% endfor %}

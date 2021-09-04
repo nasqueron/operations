@@ -118,6 +118,7 @@ shellusers:
       - deploy_dotfiles
       - deploy_nanotab
       - install_rustup
+      - install_diesel
     uid: 5001
 
   erol:
