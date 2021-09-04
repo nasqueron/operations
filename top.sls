@@ -23,6 +23,7 @@ base:
   'windriver':
     - roles/builder
     - roles/dbserver-mysql
+    - roles/dbserver-pgsql
     - roles/devserver
     - roles/webserver-core
     - roles/webserver-legacy
