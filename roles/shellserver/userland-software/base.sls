@@ -87,6 +87,7 @@ dev:
       - {{ packages.ag }}
       - autoconf
       - automake
+      - {{ packages.bats }}
       - cmake
       - colordiff
       - {{ packages.cppunit }}
