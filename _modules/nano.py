@@ -19,14 +19,18 @@ def _get_rc_includes(nanorc_dir):
     return ["include " + file for file in process.stdout.split()]
 
 
-def _get_rc_content(nanorc_dir):
+def _get_rc_content(nanorc_dir, extra_settings=[]):
     nano_rc_includes = _get_rc_includes(nanorc_dir)
+    content = "\n".join(nano_rc_includes) + "\n"
 
-    return "\n".join(nano_rc_includes) + "\n"
+    if extra_settings:
+        content += "\n\n" + "\n".join(extra_settings) + "\n"
+
+    return content
 
 
-def check_rc_up_to_date(name="/etc/nanorc", nanorc_dir="/usr/share/nano"):
-    expected_content = _get_rc_content(nanorc_dir)
+def check_rc_up_to_date(name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]):
+    expected_content = _get_rc_content(nanorc_dir, extra_settings)
 
     try:
         fd = open(name)
@@ -39,8 +43,8 @@ def check_rc_up_to_date(name="/etc/nanorc", nanorc_dir="/usr/share/nano"):
     return actual_content == expected_content
 
 
-def config_autogenerate(name="/etc/nanorc", nanorc_dir="/usr/share/nano"):
-    nano_rc_content = _get_rc_content(nanorc_dir)
+def config_autogenerate(name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]):
+    nano_rc_content = _get_rc_content(nanorc_dir, extra_settings)
 
     fd = open(name, "w")
     fd.write(nano_rc_content)

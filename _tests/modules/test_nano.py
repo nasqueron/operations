@@ -13,12 +13,21 @@ EXPECTED_INCLUDES = [
     'include data/nanorc_dir/foo.nanorc',
 ]
 
+EXTRA_SETTINGS = ['set foo bar']
+
+EXPECTED_FULL_CONFIG = [''] * 2 + EXPECTED_INCLUDES + EXTRA_SETTINGS
+
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
 
     def test_get_rc_contents(self):
         actual_includes = nano._get_rc_content(DATA_DIR)
         self.assertEqual(EXPECTED_INCLUDES,
+                         sorted(actual_includes.strip().split("\n")))
+
+    def test_get_rc_contents_full(self):
+        actual_includes = nano._get_rc_content(DATA_DIR, extra_settings=EXTRA_SETTINGS)
+        self.assertEqual(EXPECTED_FULL_CONFIG,
                          sorted(actual_includes.strip().split("\n")))
 
     def test_get_rc_includes(self):

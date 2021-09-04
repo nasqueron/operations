@@ -116,6 +116,7 @@ shellusers:
       - ccccccbjncrt
     devserver_tasks:
       - deploy_dotfiles
+      - deploy_nanotab
     uid: 5001
 
   erol:
