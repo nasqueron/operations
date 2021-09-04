@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages, packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   C/C++
@@ -107,6 +107,11 @@ devserver_software_dev_rust:
   pkg.installed:
     - pkgs:
       - rust
+
+{{ dirs.bin }}/rustup-init:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/rustup-init.sh
+    - mode: 0755
 
 #   -------------------------------------------------------------
 #   Shell

@@ -7,6 +7,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set triplet = salt['rust.get_rustc_triplet']() %}
 
 {% for username, user in salt['forest.get_users']().items() %}
 {% set tasks = user.get('devserver_tasks', []) %}
@@ -35,6 +36,24 @@ dotfiles_to_devserver_{{username}}:
     - nanorc_dir: {{ dirs.share }}/nano
     - extra_settings:
       - unset tabstospaces
+{% endif %}
+
+{% if 'install_rustup' in tasks %}
+{% set rustup_path = '/home/' + username + '/.cargo/bin/rustup' %}
+
+devserver_rustup_{{ username }}:
+  cmd.run:
+    - name: rustup-init -y
+    - runas: {{ username }}
+    - creates: {{ rustup_path }}
+
+{% for toolchain in ['stable', 'nightly'] %}
+devserver_rustup_{{toolchain}}_{{username}}:
+  cmd.run:
+    - name: {{ rustup_path }} install {{ toolchain }}
+    - runas: {{ username }}
+    - creates: /home/{{ username }}/.rustup/toolchains/{{ toolchain }}-{{ triplet }}
+{% endfor %}
 {% endif %}
 
 {% endfor %}

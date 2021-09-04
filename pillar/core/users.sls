@@ -117,6 +117,7 @@ shellusers:
     devserver_tasks:
       - deploy_dotfiles
       - deploy_nanotab
+      - install_rustup
     uid: 5001
 
   erol:
