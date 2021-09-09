@@ -13,4 +13,3 @@
 certificates_letsencrypt:
   eglide:
     - www.eglide.org
-    - robot.paysannerebelle.com

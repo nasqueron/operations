@@ -42,12 +42,6 @@ nginx_config_files:
     - group: {{ wwwgroup }}
     - dir_mode: 750
 
-/var/log/www/paysannerebelle.com:
-  file.directory:
-    - user: hlp
-    - group: {{ wwwgroup }}
-    - dir_mode: 750
-
 #   -------------------------------------------------------------
 #   Site to serve when Host: header doesn't match a known vhost
 #

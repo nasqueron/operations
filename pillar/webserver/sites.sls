@@ -155,9 +155,6 @@ web_content_sls:
   # Eglide
   #
   shellserver:
-    # Third party sites hosted to Eglide
-    - .com/paysannerebelle
-
     # Directly managed by Eglide project
     - .org/eglide
 

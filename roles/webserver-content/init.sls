@@ -8,7 +8,6 @@
 
 include:
   - .be/dereckson
-  - .com/paysannerebelle
   - .org/eglide
   - .org/nasqueron/api
   - .org/nasqueron/docs
