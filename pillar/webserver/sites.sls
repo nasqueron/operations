@@ -173,6 +173,7 @@ web_content_sls:
 
     # Directly managed by Nasqueron
     - .org/nasqueron/api
+    - .org/nasqueron/autoconfig
     - .org/nasqueron/daeghrefn
     - .org/nasqueron/docs
     - .org/nasqueron/infra

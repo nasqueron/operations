@@ -10,6 +10,7 @@ include:
   - .be/dereckson
   - .org/eglide
   - .org/nasqueron/api
+  - .org/nasqueron/autoconfig
   - .org/nasqueron/docs
   - .org/nasqueron/labs
   - .org/nasqueron/social
