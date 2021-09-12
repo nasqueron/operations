@@ -12,7 +12,7 @@
 
 jenkins_realms:
   cd:
-    ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiWLxPzS8X6NraVwsK95gFGe1pIuz+K0n7aw81nabcf jenkins-master-equatower-cd
+    ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICiWLxPzS8X6NraVwsK95gFGe1pIuz+K0n7aw81nabcf jenkins-controller-equatower-cd
     network: cd
 
   ci:
@@ -22,14 +22,14 @@ jenkins_realms:
 #   -------------------------------------------------------------
 #   Jenkins images
 #
-#   Each slave uses one Jenkins image.
+#   Each agent uses one Jenkins image.
 #
-#   An image can be used by several slaves, so we've more nodes
+#   An image can be used by several agents, so we've more nodes
 #   available for parallel builds.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 jenkins_images:
-  barebone: nasqueron/jenkins-slave-barebone
-  node: nasqueron/jenkins-slave-node
-  php: nasqueron/jenkins-slave-php
-  rust: nasqueron/jenkins-slave-rust
+  barebone: nasqueron/jenkins-agent-barebone
+  node: nasqueron/jenkins-agent-node
+  php: nasqueron/jenkins-agent-php
+  rust: nasqueron/jenkins-agent-rust

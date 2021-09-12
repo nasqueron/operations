@@ -9,10 +9,10 @@
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['jenkins_slave'].items() %}
+{% for instance, container in containers['jenkins_agent'].items() %}
 
 {% set realm = pillar['jenkins_realms'][container['realm']] %}
-{% set home = "/srv/jenkins/" + container['realm'] + "/slaves_homes/" + instance %}
+{% set home = "/srv/jenkins/" + container['realm'] + "/agents_homes/" + instance %}
 {% set image = pillar['jenkins_images'][container['image']] %}
 
 #   -------------------------------------------------------------
@@ -26,12 +26,12 @@
     - makedirs: True
 
 {% if has_selinux %}
-selinux_context_jenkins_slave_{{  instance }}_home:
+selinux_context_jenkins_agent_{{  instance }}_home:
   selinux.fcontext_policy_present:
     - name: {{ home }}
     - sel_type: container_file_t
 
-selinux_context_jenkins_slave_{{  instance }}_home_applied:
+selinux_context_jenkins_agent_{{  instance }}_home_applied:
   selinux.fcontext_policy_applied:
     - name: {{ home }}
 {% endif %}

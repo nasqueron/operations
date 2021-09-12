@@ -54,9 +54,9 @@ docker_images:
 
     # Continuous deployment jobs
     - jenkins/jenkins
-    - nasqueron/jenkins-slave-node
-    - nasqueron/jenkins-slave-php
-    - nasqueron/jenkins-slave-rust
+    - nasqueron/jenkins-agent-node
+    - nasqueron/jenkins-agent-php
+    - nasqueron/jenkins-agent-rust
     - nasqueron/tommy
 
     # Pixelfed
@@ -241,8 +241,9 @@ docker_containers:
         app_port: 42080
         jnlp_port: 55000
 
-    jenkins_slave:
-      # Slaves for CD
+    jenkins_agent:
+      # Agents for CD
+
       apsile: &php_for_cd
         image: php
         realm: cd
@@ -256,6 +257,8 @@ docker_containers:
       yarabokin:
         image: node
         realm: cd
+
+      # Agents for CI
 
       zateki: &php_for_ci
         image: php
