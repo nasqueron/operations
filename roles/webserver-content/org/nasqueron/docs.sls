@@ -29,7 +29,7 @@ sphinx:
 
 {{ dirs.bin }}/deploy-docker-registry-api-doc:
   file.managed:
-    - source: salt://roles/webserver-content/org/nasqueron/files/build-docs-salt-wrapper.sh
+    - source: salt://roles/webserver-content/org/nasqueron/files/deploy-docker-registry-api-doc.sh
     - user: deploy
     - mode: 755
 
