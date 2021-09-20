@@ -20,8 +20,8 @@
 #   TCL and eggdrop versions
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-EGGDROP_VERSION_MAJOR=1.8
-EGGDROP_VERSION=1.8.3rc2
+EGGDROP_VERSION_MAJOR=1.9
+EGGDROP_VERSION=1.9.1
 TCL_VERSION=8.6
 
 #   -------------------------------------------------------------
@@ -41,7 +41,7 @@ cd eggdrop-${EGGDROP_VERSION} || exit 1
 
 if [ -f /etc/debian_version ]; then
 	ARCH=$(dpkg-architecture -qDEB_HOST_MULTIARCH)
-	CFLAGS="-std=gnu89" ./configure --with-tclinc=/usr/include/tcl${TCL_VERSION}/tcl.h --with-tcllib="/usr/lib/$ARCH/libtcl${TCL_VERSION}.so"
+	CFLAGS="-std=gnu99" ./configure --with-tclinc=/usr/include/tcl${TCL_VERSION}/tcl.h --with-tcllib="/usr/lib/$ARCH/libtcl${TCL_VERSION}.so"
 elif [ "$(uname)" = "FreeBSD" ]; then
 	TCL_VERSION_LIB=$(echo $TCL_VERSION | tr -d .)
 	./configure --with-tclinc=/usr/local/include/tcl${TCL_VERSION}/tcl.h -with-tcllib="/usr/local/lib/libtcl${TCL_VERSION_LIB}.so"
