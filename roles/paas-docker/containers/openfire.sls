@@ -49,4 +49,14 @@ selinux_context_openfire_data_applied:
       - {{ container['ip'] }}:{{ port }}:{{ port }}
 {% endfor %}
 
+#   -------------------------------------------------------------
+#   Certificate propagation
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/srv/letsencrypt/etc/renewal/{{ container['host'] }}.conf:
+  file.append:
+    - text:
+        - "# Propagate certificates to Openfire container"
+        - post-hook = openfire propagate-certificate {{ instance }} {{ container['host'] }}
+
 {% endfor %}
