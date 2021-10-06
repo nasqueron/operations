@@ -56,6 +56,7 @@ propagate_certificate() {
 
     mkdir -p "$TARGET"
     openssl pkcs12 -export -out "$TARGET/cert-to-import.p12" -in "$SOURCE/fullchain.pem" -inkey "$SOURCE/privkey.pem" -name "$DOMAIN" -password "pass:$PASS"
+    docker exec "$INSTANCE" keytool -delete -keystore /var/lib/openfire/conf/security/keystore -storepass "$PASS" -alias "$DOMAIN"
     docker exec "$INSTANCE" keytool -importkeystore -deststorepass "$PASS" -srcstorepass "$PASS" -destkeystore /var/lib/openfire/conf/security/keystore -srckeystore "/var/lib/$INSTANCE/conf/security/tmp/cert-to-import.p12" -srcstoretype PKCS12 -deststoretype pkcs12
     rm -R "$TARGET"
 }
