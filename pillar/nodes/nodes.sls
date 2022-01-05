@@ -17,7 +17,7 @@ nodes:
     forest: nasqueron-infra
     hostname: cloudhugger.nasqueron.org
     roles:
-      - paas-kubernetes
+      - opensearch
     network:
       ipv4_interface: eno1
       ipv4_address: 188.165.200.229

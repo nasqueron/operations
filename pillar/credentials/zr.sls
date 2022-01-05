@@ -40,6 +40,13 @@ zr_credentials:
       mailgun: 82
       sentry: 141
 
+    # OpenSearch clusters
+    opensearch:
+      infra-logs:
+        internal_users:
+          admin: 163
+          dashboards: 164
+
     # photos.nasqueron.org
     pixelfed:
       mysql: 142
@@ -105,6 +112,12 @@ zr_clients:
      - 172.27.26.49
      - dwellers.nasqueron.drake
      - dwellers.nasqueron.org
+   restrictCommand:
+   comment: Zemke-Rhyne
+
+ - key: 162
+   allowedConnectionFrom:
+     - cloudhugger.nasqueron.org
    restrictCommand:
    comment: Zemke-Rhyne
 

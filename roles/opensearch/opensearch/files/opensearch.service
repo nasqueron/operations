@@ -1,0 +1,34 @@
+[Unit]
+Description=OpenSearch search, analytics, and visualization suite
+Documentation=https://opensearch.org/docs/latest/
+After=network.target
+
+[Service]
+RuntimeDirectory=opensearch
+PrivateTmp=true
+
+User=opensearch
+Group=opensearch
+
+LimitNOFILE=65536
+LimitMEMLOCK=infinity
+LimitNPROC=4096
+LimitAS=infinity
+LimitFSIZE=infinity
+
+Environment="KNN_LIB_DIR=/opt/opensearch/plugins/opensearch-knn/knnlib"
+WorkingDirectory=/opt/opensearch
+ExecStart=/opt/opensearch/bin/opensearch -p /opt/opensearch/opensearch.pid -q
+
+StandardOutput=journal
+StandardError=inherit
+
+# To shutdown: send SIGTERM signal to JVM, success if exit code 143
+TimeoutStopSec=0
+KillSignal=SIGTERM
+KillMode=process
+SendSIGKILL=no
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

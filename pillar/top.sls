@@ -17,7 +17,10 @@ base:
     - hotfixes.roles
     - webserver.sites
 
-  cloudhugger: []
+  cloudhugger:
+    - credentials.zr
+    - opensearch.software
+    - opensearch.clusters
 
   docker-001:
     - credentials.zr

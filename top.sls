@@ -28,7 +28,7 @@ base:
     - roles/webserver-core
     - roles/webserver-legacy
   'cloudhugger':
-    - roles/paas-kubernetes
+    - roles/opensearch
   'docker-001':
     - roles/paas-docker
   'dwellers':
