@@ -53,14 +53,15 @@ extract_opensearch_{{ product }}:
     - source: /usr/local/dl/{{ distname }}.tar.gz
     - user: opensearch
     - group: opensearch
-    - overwrite: True
     - enforce_toplevel: False
     - options: --strip 1
-    - onchanges:
-       - file: /usr/local/dl/{{ distname }}.tar.gz
 
 {% endfor %}
 {% endif %}
+
+/opt/opensearch/plugins/opensearch-security/tools/hash.sh:
+  file.managed:
+    - mode: 0755
 
 #   -------------------------------------------------------------
 #   Cleanup legacy versions

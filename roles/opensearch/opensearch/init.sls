@@ -10,4 +10,5 @@ include:
   - .software
   - .config
   - .service
+  - .security
   - .wrapper
