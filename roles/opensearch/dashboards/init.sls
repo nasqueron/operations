@@ -6,5 +6,5 @@
 #   -------------------------------------------------------------
 
 include:
-  - .opensearch
-  - .dashboards
+  - .config
+  - .service

@@ -49,6 +49,7 @@ def _expand_cluster_config(nodename, config):
         "node_name": nodename,
         "network_host": _get_ip(nodename),
         "lead_nodes": nodes,
+        "dashboards_nodes": nodes,
     })
 
     return config

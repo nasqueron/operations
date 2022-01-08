@@ -1,0 +1,24 @@
+server.port: 5601
+server.host: {{ config["network_host"] }}
+opensearch.hosts:
+{% for node in config["dashboards_nodes"] %}
+  - https://{{ node }}:9200
+{% endfor %}
+
+opensearch.ssl.verificationMode: none
+opensearch.username: {{ username }}
+opensearch.password: {{ password }}
+
+opensearch.requestHeadersWhitelist:
+  - authorization
+  - securitytenant
+
+opensearch_security.multitenancy.enabled: True
+opensearch_security.multitenancy.tenants.preferred:
+  - Private
+  - Global
+
+opensearch_security.readonly_mode.roles:
+  - kibana_read_only
+
+opensearch_security.cookie.secure: False
