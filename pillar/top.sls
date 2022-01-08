@@ -43,7 +43,7 @@ base:
 
   ysul:
     - devserver.repos
-    - paas.docker
+    - credentials.zr
     - saas.mediawiki
     - viperserv.bots
     - viperserv.fantoir

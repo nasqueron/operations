@@ -6,6 +6,12 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+#   -------------------------------------------------------------
+#   Zemke-Rhyne credentials
+#
+#   Map K<id> on DevCentral with hierarchical keys
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 zr_credentials:
 
   #
@@ -86,3 +92,24 @@ zr_credentials:
     phabricator:
       mysql: 134
       sendgrid: 45
+
+#   -------------------------------------------------------------
+#   Zemke-Rhyne clients
+#
+#   This section should list all the Docker engines server
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+zr_clients:
+ - key: 2
+   allowedConnectionFrom:
+     - 172.27.26.49
+     - dwellers.nasqueron.drake
+     - dwellers.nasqueron.org
+   restrictCommand:
+   comment: Zemke-Rhyne
+
+ - key: 152
+   allowedConnectionFrom:
+     - docker-001.nasqueron.org
+   restrictCommand:
+   comment: Zemke-Rhyne
