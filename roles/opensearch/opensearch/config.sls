@@ -37,11 +37,11 @@
     - source_hash: f59f963c7ee28d557849ccde297660a3c593a6bf3531d7852fb9ab8b4fc7597e
 
 /opt/tlstool:
+  file.directory:
+     - mode: 0700
   archive.extracted:
     - source: /usr/local/dl/search-guard-tlstool.zip
     - enforce_toplevel: False
-    - user: opensearch
-    - group: opensearch
 
 /opt/tlstool/config/tlsconfig.yml:
   file.managed:
