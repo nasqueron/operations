@@ -37,13 +37,6 @@ base:
   eglide:
     - shellserver.quassel
 
-  equatower:
-    - credentials.zr
-    - paas.docker
-    - saas.jenkins
-    - saas.phpbb
-    - saas.sentry
-
   ysul:
     - devserver.repos
     - credentials.zr

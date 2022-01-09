@@ -37,5 +37,3 @@ base:
   'eglide':
     - roles/webserver-core
     - roles/shellserver
-  'equatower':
-    - roles/paas-docker

@@ -7,7 +7,7 @@ fi
 
 SALT_OPS_REPO=/opt/salt/nasqueron-operations
 SALT="salt-wrapper salt"
-PAAS_DOCKER_SERVER="equatower"
+PAAS_DOCKER_SERVER="docker-001"
 CONTAINER=$1
 
 CONTAINER_SLS="$SALT_OPS_REPO/roles/paas-docker/containers/$CONTAINER.sls"
