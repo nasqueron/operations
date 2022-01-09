@@ -46,6 +46,7 @@ zr_credentials:
         internal_users:
           admin: 163
           dashboards: 164
+          beat_docker: 165
 
     # photos.nasqueron.org
     pixelfed:

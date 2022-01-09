@@ -12,3 +12,4 @@ include:
   - .service
   - .security
   - .wrapper
+  - .indices

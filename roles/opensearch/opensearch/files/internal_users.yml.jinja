@@ -39,3 +39,18 @@ _meta:
   hash: {{ salt['opensearch.hash_password'](users['dashboards']['password']) }}
   reserved: true
   description: "Dashboards to OpenSearch machine user"
+
+#   -------------------------------------------------------------
+#   OpenSearch clients to ingest pipelines
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for user in ingest_clients_users %}
+
+{{ users[user]['username'] }}:
+  hash: {{ salt['opensearch.hash_password'](users[user]['password']) }}
+  reserved: true
+  opendistro_security_roles:
+    - "ingest_client"
+  description: "Ingest client machine user"
+
+{% endfor %}

@@ -145,6 +145,38 @@ docker_containers:
         network: bugzilla
         version: 5.7
 
+    filebeat:
+      filebeat_docker: &filebeat_docker
+        retention: 60d
+        opensearch:
+          server: https://cloudhugger.nasqueron.org:9200
+          index: "docker-%{+yyyy.MM.dd}"
+          cacert: |
+            -----BEGIN CERTIFICATE-----
+            MIIDrjCCApagAwIBAgIBATANBgkqhkiG9w0BAQsFADBoMRMwEQYKCZImiZPyLGQB
+            GRYDb3JnMRkwFwYKCZImiZPyLGQBGRYJbmFzcXVlcm9uMQswCQYDVQQLDAJDQTEp
+            MCcGA1UEAwwgcm9vdC5jYS1pbmZyYS1sb2dzLm5hc3F1ZXJvbi5vcmcwHhcNMjIw
+            MTA4MjEzNTUyWhcNMjQwMTA4MjEzNTUyWjBoMRMwEQYKCZImiZPyLGQBGRYDb3Jn
+            MRkwFwYKCZImiZPyLGQBGRYJbmFzcXVlcm9uMQswCQYDVQQLDAJDQTEpMCcGA1UE
+            Awwgcm9vdC5jYS1pbmZyYS1sb2dzLm5hc3F1ZXJvbi5vcmcwggEiMA0GCSqGSIb3
+            DQEBAQUAA4IBDwAwggEKAoIBAQDEbntmlQMPdhuPbt1n7/IDp1frzf8SWPaZ5z7B
+            t97hdaderXWHS9xMttpzVmIJMXx/yhmpaDVK4UnafgeoHxV34mnzi3NfdtG+iviO
+            sP8mNuoDdl1eKSNA1J32Y1qztx93vkmuPTsH+Yrn726lEc88mda/W9QW9odYvTP9
+            3RGIGwpmEnohq4abN2IMqdkOgr68sEy1MfvrU/4bVpAsMdJZrMJWMAR5XS11f0M6
+            CyI46vvLQuSny4+F5Ed/KOD2HotgxBpL0fiJCHEANusgfCTShKDkmfg5WtA7mxsD
+            Ylp3ipfojr8PWvUqqAZxN96rbBSf6LKtMsw+CpufHpcHy2SdAgMBAAGjYzBhMA8G
+            A1UdEwEB/wQFMAMBAf8wHwYDVR0jBBgwFoAU5bhKpZ9/Xlubxda+AlWk4TWRogcw
+            HQYDVR0OBBYEFOW4SqWff15bm8XWvgJVpOE1kaIHMA4GA1UdDwEB/wQEAwIBhjAN
+            BgkqhkiG9w0BAQsFAAOCAQEAYm9F/HgKBbceEY2j3NHbZWVbu9YZvJK1/83HyNc/
+            yQy31VlauKazRJ7gXfmhLss1IeLB5ihe4bCCsiDz5g+kdrmQ0sOsHBQ58vzHXufZ
+            tn1pM3dpWn5cnEaf/Jfc+Pf1qSBiLlUgU651EP3e3QKZr2rD3yuf1/Ru+n6dWPWt
+            pqh1cP7Ev+UDx5LPMyy4wTV16IfbHATs9j2ROywNaz4g7Y+3FJ46stOmILa2qf+l
+            2phfjv89sqQHbXf9a5ugS5q0lKXcWo/e3uVFIjhzrD4wuuNNiSiicqGslPRVOtDu
+            hl3DFJNWt9JztddhqmGORDsKyzyEvZ/E8hbhv18xSv2hjQ==
+            -----END CERTIFICATE-----
+        credentials:
+          opensearch: nasqueron.opensearch.infra-logs.internal_users.beat_docker
+
     #
     # Bugzilla
     #
@@ -224,6 +256,14 @@ docker_containers:
         app_port: 41080
         host: acme.nasqueron.org
         nsadmin: ops.nasqueron.org
+
+    #
+    # Logs collection
+    # Docker logs -> filebeat -> OpenSearch
+    #
+
+    filebeat:
+      filebeat_docker: *filebeat_docker
 
     #
     # CI and CD

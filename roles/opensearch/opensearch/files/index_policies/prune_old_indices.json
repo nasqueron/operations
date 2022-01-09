@@ -1,0 +1,58 @@
+{
+    "policy": {
+        "policy_id": "prune_old_indices",
+        "description": "Prune indices after 60 days.",
+        "schema_version": 12,
+        "error_notification": {
+            "destination": {
+                "custom_webhook": {
+                    "path": null,
+                    "header_params": {},
+                    "password": null,
+                    "scheme": null,
+                    "port": -1,
+                    "query_params": {},
+                    "host": null,
+                    "url": "https://notifications.nasqueron.org/gate/notification",
+                    "username": null
+                }
+            },
+            "message_template": {
+                "source": "{      \"service\": \"OpenSearch\",      \"project\": \"Nasqueron\",      \"group\": \"ops\",      \"type\": \"index-management-error\",      \"text\": \"[infra-logs] The index {{ctx.index}} failed during policy execution.\"}",
+                "lang": "mustache"
+            }
+        },
+        "default_state": "Hot",
+        "states": [
+            {
+                "name": "Hot",
+                "actions": [],
+                "transitions": [
+                    {
+                        "state_name": "Deleted",
+                        "conditions": {
+                            "min_index_age": "60d"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Deleted",
+                "actions": [
+                    {
+                        "delete": {}
+                    }
+                ],
+                "transitions": []
+            }
+        ],
+        "ism_template": [
+            {
+                "index_patterns": [
+                    "docker-*"
+                ],
+                "priority": 1
+            }
+        ]
+    }
+}

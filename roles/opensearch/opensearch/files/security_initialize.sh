@@ -12,7 +12,7 @@ bash $ROOT/plugins/opensearch-security/tools/securityadmin.sh \
     -cacert $ROOT/config/root-ca.pem \
     -cert $ROOT/config/admin.pem \
     -key $ROOT/config/admin.key \
-    -f $ROOT/plugins/opensearch-security/securityconfig/internal_users.yml \
+    -cd $ROOT/plugins/opensearch-security/securityconfig \
     -nhnv -icl \
     -h "$OPENSEARCH_HOSTNAME"
 

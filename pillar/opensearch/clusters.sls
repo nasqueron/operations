@@ -11,9 +11,19 @@ opensearch_clusters:
   infra_logs:
     cluster_name: infra-logs
     cluster_type: single-node
+
     nodes:
       - cloudhugger
+
+    heap_size: 26G
+
     users:
       admin: nasqueron.opensearch.infra-logs.internal_users.admin
       dashboards: nasqueron.opensearch.infra-logs.internal_users.dashboards
-    heap_size: 26G
+      beat_docker: nasqueron.opensearch.infra-logs.internal_users.beat_docker
+    ingest_clients_users:
+      - beat_docker
+
+    index_management:
+      index_policies:
+        - prune_old_indices
