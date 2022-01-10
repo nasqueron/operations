@@ -19,6 +19,15 @@
     - context:
         config: {{ config }}
 
+/opt/opensearch/config/jvm.options:
+  file.managed:
+    - source: salt://roles/opensearch/opensearch/files/jvm.options
+    - user: opensearch
+    - group: opensearch
+    - template: jinja
+    - context:
+        heap_size: {{ config['heap_size'] }}
+
 #   -------------------------------------------------------------
 #   TLS certificates
 #

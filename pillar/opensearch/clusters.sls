@@ -16,3 +16,4 @@ opensearch_clusters:
     users:
       admin: nasqueron.opensearch.infra-logs.internal_users.admin
       dashboards: nasqueron.opensearch.infra-logs.internal_users.dashboards
+    heap_size: 26G
