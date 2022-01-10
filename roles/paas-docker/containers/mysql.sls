@@ -49,4 +49,6 @@ selinux_context_{{ instance }}_mysql_data_applied:
     - networks:
       - {{ container['network'] }}
 {% endif %}
+    - cap_add:
+      - SYS_NICE          # T1672
 {% endfor %}
