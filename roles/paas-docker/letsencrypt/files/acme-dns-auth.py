@@ -44,7 +44,7 @@ class AcmeDnsClient(object):
         """Registers a new ACME-DNS account"""
 
         if allowfrom:
-            # Include whitelisted networks to the registration call
+            # Include allowed networks to the registration call
             reg_data = {"allowfrom": allowfrom}
             res = requests.post(self.acmedns_url + "/register",
                                 data=json.dumps(reg_data))

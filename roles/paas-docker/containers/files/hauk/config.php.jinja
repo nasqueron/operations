@@ -159,11 +159,20 @@ const CONFIG = [
     'TheRealBob'        => ['bob', 'charlie'],
 ],
 
-// If you want to enable pre-approved custom links only, you can choose to
-// enable reservation whitelist mode. If this setting is set to true, custom
+// Nasqueron note:
+// ---------------
+// The following expression can be potentially considered as offensive.
+// The Nasqueron project would so prefer "reserve_allowlist".
+//
+// We use this wording for compatibility pending upstream improvement.
+//
+// Upstream project note:
+// ----------------------
+// "If you want to enable pre-approved custom links only, you can choose to
+// enable reservation [allowlist] mode. If this setting is set to true, custom
 // link IDs will only be accepted if they are present in the reserved_links
 // array above - requests to share to other links than those in the array will
-// not be honored.
+// not be honored."
 "reserve_whitelist" => false,
 
 // The type of links to generate when making new links for shares. Can be any
