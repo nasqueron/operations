@@ -38,4 +38,6 @@ paas-docker
     41080   ACME DNS server HTTP
     42080   Jenkins HTTP - CI
     43080   Hauk
+    44080   Hound
+    # 45080 should be reserved for OpenGrok to compare with Hound
     50000   Jenkins master's port for JNLP-based Jenkins agents - CD

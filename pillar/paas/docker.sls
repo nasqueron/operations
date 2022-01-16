@@ -51,6 +51,7 @@ docker_images:
     - nasqueron/etherpad:production
     - nasqueron/notifications
     - nasqueron/phabricator
+    - ghcr.io/hound-search/hound
 
     # Continuous deployment jobs
     - jenkins/jenkins
@@ -280,6 +281,12 @@ docker_containers:
         jenkins_url: https://cd.nasqueron.org
 
     # Infrastructure and development services
+
+    hound:
+      hound:
+        app_port: 44080
+        host: code.nasqueron.org
+        github_account: nasqueron
 
     notifications:
       notifications:
