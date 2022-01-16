@@ -23,6 +23,7 @@ ports:
         - THREADS
         - GTK2
         - "X11"
+
   ffmpeg:
     category: multimedia
     name: ffmpeg
@@ -123,3 +124,20 @@ ports:
         - LIBRTMP
         - MBEDTLS
         - OPENSSL
+
+  node:
+    category: www
+    name: node
+    creates: /usr/local/bin/node
+    options:
+      set:
+        - BUNDLED_SSL
+        - NLS
+      unset:
+        - DOCS
+        - DTRACE
+
+  npm:
+    category: www
+    name: npm
+    creates: /usr/local/bin/npm

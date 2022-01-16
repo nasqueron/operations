@@ -14,6 +14,8 @@
 #   Provision port options
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if 'options' in args %}
+
 /var/db/ports/{{ args['category'] }}_{{ args['name'] }}/options:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/port_options
@@ -21,6 +23,8 @@
     - mode: 644
     - context:
         args: {{ args }}
+
+{% endif %}
 
 #   -------------------------------------------------------------
 #   Build and install package
