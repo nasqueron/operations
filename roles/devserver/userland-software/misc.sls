@@ -17,6 +17,8 @@ devserver_software_misc_vcs:
       - subversion
       # Bridges
       - {{ packages_prefixes.python2 }}hg-git
+      # Extra features
+      - git-filter-repo
 
 devserver_software_misc_media:
   pkg.installed:
