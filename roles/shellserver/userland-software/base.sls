@@ -129,6 +129,7 @@ languages_removed:
       - php71
       - php72
       - php73
+      - php74
       {% endif %}
 
 languages:
@@ -139,7 +140,7 @@ languages:
       {% if grains['os_family'] == 'Debian' %}
       - php7.4
       {% elif grains['os'] == 'FreeBSD' %}
-      - php74
+      - php81
       {% endif %}
 
 #   -------------------------------------------------------------
@@ -154,12 +155,14 @@ languages_libs:
       - {{ packages_prefixes.php }}curl
       - {{ packages_prefixes.php }}gd
       - {{ packages_prefixes.php }}intl
-      - {{ packages_prefixes.php }}json
       - {{ packages_prefixes.php }}mbstring
       - {{ packages_prefixes.php }}soap
       - {{ packages_prefixes.php }}xml
       - {{ packages_prefixes.php }}xsl
+
       {% if grains['os_family'] == 'Debian' %}
+      - {{ packages_prefixes.php }}json
+
       # On Debian, these PDO extensions doesn't follow regular names
       # but are installed if you require the legacy extension name.
       - {{ packages_prefixes.php }}mysql

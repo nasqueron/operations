@@ -24,8 +24,8 @@ psysh_software:
   archive.extracted:
     - name: /opt/psysh
     - enforce_toplevel: False
-    - source: https://github.com/bobthecow/psysh/releases/download/v0.8.13/psysh-v0.8.13.tar.gz
-    - source_hash: 4436931f4baeac0b6709d89efe5a517dbcdfb3335e90d9bf5deb83207f90e293
+    - source: https://github.com/bobthecow/psysh/releases/download/v0.11.1/psysh-v0.11.1.tar.gz
+    - source_hash: 3a211723b015702e6e74849f278d76f393812fcda649dd576f9aa156d1b8a7d2
 
 /usr/local/share/psysh/php_manual.sqlite:
   file.managed:
