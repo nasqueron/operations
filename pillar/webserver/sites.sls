@@ -92,6 +92,8 @@ web_php_sites:
     source: wwwroot/dereckson.be/www
     target: /var/wwwroot/dereckson.be/www
     php-fpm: prod
+    capabilities:
+      - wordpress
 
   www51.dereckson.be:
     domain: dereckson.be
