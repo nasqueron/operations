@@ -154,3 +154,14 @@ devserver_software_dev_misctools:
   pkg.installed:
     - pkgs:
       - git-review
+
+#   -------------------------------------------------------------
+#   MediaWiki development
+#
+#   Include tools for some extensions like ProofreadPage
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+devserver_software_dev_mediawiki:
+  pkg.installed:
+    - netpbm
+    - djvulibre-bin
