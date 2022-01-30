@@ -36,6 +36,7 @@ utilities:
     - pkgs:
       - cmatrix
       - figlet
+      - glow
       - {{ packages.gpg }}
       - grc
       - moreutils
