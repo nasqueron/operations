@@ -58,3 +58,8 @@ oidentd_config:
     - name: {{ dirs.etc }}/oidentd.conf
     - source: salt://roles/shellserver/userland-software/files/oidentd.conf
     - mode: 644
+
+oidentd_service_config:
+  service.running:
+    - name: oidentd
+    - enable: true
