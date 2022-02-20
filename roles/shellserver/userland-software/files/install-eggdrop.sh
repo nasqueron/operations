@@ -21,14 +21,14 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 EGGDROP_VERSION_MAJOR=1.9
-EGGDROP_VERSION=1.9.1
+EGGDROP_VERSION=1.9.2rc2
 TCL_VERSION=8.6
 
 #   -------------------------------------------------------------
 #   Fetch, extract
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-wget ftp://ftp.eggheads.org/pub/eggdrop/source/${EGGDROP_VERSION_MAJOR}/eggdrop-${EGGDROP_VERSION}.tar.gz
+wget https://ftp.eggheads.org/pub/eggdrop/source/${EGGDROP_VERSION_MAJOR}/eggdrop-${EGGDROP_VERSION}.tar.gz
 tar xzf eggdrop-${EGGDROP_VERSION}.tar.gz
 cd eggdrop-${EGGDROP_VERSION} || exit 1
 
