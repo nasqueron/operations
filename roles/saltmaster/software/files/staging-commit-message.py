@@ -17,8 +17,8 @@ from os import path
 import re
 import subprocess
 
-class SubmoduleCommit:
 
+class SubmoduleCommit:
     def __init__(self, repo_path, submodule_path):
         self.repo_path = repo_path
         self.submodule_path = submodule_path
@@ -30,19 +30,21 @@ class SubmoduleCommit:
         old_hash = self.get_old_hash()
         new_hash = self.get_new_hash()
 
-        lines.append("Bump " + path.basename(self.submodule_path)
-                     + " to " + new_hash[:12])
+        lines.append(
+            "Bump " + path.basename(self.submodule_path) + " to " + new_hash[:12]
+        )
         lines.append("")
         lines.extend(self.get_commits_lines(old_hash, new_hash))
 
         return "\n".join(lines)
 
     def get_old_hash(self):
-        output = subprocess.check_output(['git', 'ls-tree',
-                                          '@', self.submodule_path],
-                                         cwd=self.repo_path,
-                                         encoding="utf-8")
-        matches = re.search('.*commit ([a-f0-9]*).*', output.strip())
+        output = subprocess.check_output(
+            ["git", "ls-tree", "@", self.submodule_path],
+            cwd=self.repo_path,
+            encoding="utf-8",
+        )
+        matches = re.search(".*commit ([a-f0-9]*).*", output.strip())
         return matches.group(1)
 
     def get_new_hash(self):
@@ -68,27 +70,30 @@ class SubmoduleCommit:
         return commits_lines
 
     def has_submodule_been_updated(self):
-        process = subprocess.run(['git', 'diff-files', '--quiet',
-                                  self.submodule_path],
-                                 cwd=self.repo_path)
+        process = subprocess.run(
+            ["git", "diff-files", "--quiet", self.submodule_path], cwd=self.repo_path
+        )
         return process.returncode != 0
 
 
 def run(repo_path):
     repo = Repo(repo_path)
 
-    submodules = [SubmoduleCommit(repo_path, submodule.name)
-                  for submodule in repo.submodules]
+    submodules = [
+        SubmoduleCommit(repo_path, submodule.name) for submodule in repo.submodules
+    ]
 
-    commits = [submodule.craft_commit()
-               for submodule in submodules
-               if submodule.has_submodule_been_updated()]
+    commits = [
+        submodule.craft_commit()
+        for submodule in submodules
+        if submodule.has_submodule_been_updated()
+    ]
 
     print("\n\n".join(commits))
 
 
 def determine_current_repo():
-    return Repo('.', search_parent_directories=True).working_tree_dir
+    return Repo(".", search_parent_directories=True).working_tree_dir
 
 
 if __name__ == "__main__":

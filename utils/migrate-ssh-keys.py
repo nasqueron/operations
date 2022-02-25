@@ -33,14 +33,14 @@ import yaml
 
 
 # Where is located the dictionary to update?
-state_file = 'pillar/core/users.sls'
-state_key = 'shellusers'
+state_file = "pillar/core/users.sls"
+state_key = "shellusers"
 
 # Where are located the data fileS?
-data_path = 'roles/shellserver/users/files/ssh_keys/'
+data_path = "roles/shellserver/users/files/ssh_keys/"
 
 # What property should get the data and be added if missing in the dict?
-state_data_property = 'ssh_keys'
+state_data_property = "ssh_keys"
 
 
 #   -------------------------------------------------------------
@@ -51,7 +51,6 @@ state_data_property = 'ssh_keys'
 
 
 class SaltStyleDumper(yaml.Dumper):
-
     def increase_indent(self, flow=False, indentless=False):
         return super(SaltStyleDumper, self).increase_indent(flow, False)
 
@@ -94,16 +93,16 @@ def is_value_line(line):
     if line.startswith("#"):
         return False
 
-    if line.strip() == '':
+    if line.strip() == "":
         return False
 
     return True
 
 
 def dump_state(state):
-    return yaml.dump({state_key: state},
-                     default_flow_style=False,
-                     Dumper=SaltStyleDumper, width=1000)
+    return yaml.dump(
+        {state_key: state}, default_flow_style=False, Dumper=SaltStyleDumper, width=1000
+    )
 
 
 #   -------------------------------------------------------------

@@ -18,7 +18,7 @@ def exists(forest):
 
         salt '*' forest.exists eglide
     """
-    return forest in __pillar__.get('forests', [])
+    return forest in __pillar__.get("forests", [])
 
 
 def get():
@@ -29,9 +29,9 @@ def get():
 
         salt '*' forest.get
     """
-    nodes = __pillar__.get('nodes')
-    minion = __grains__['id']
-    return nodes[minion]['forest']
+    nodes = __pillar__.get("nodes")
+    minion = __grains__["id"]
+    return nodes[minion]["forest"]
 
 
 def list_groups(forest=None):
@@ -45,9 +45,9 @@ def list_groups(forest=None):
     if forest is None:
         forest = get()
 
-    groups = __pillar__.get('shellgroups_ubiquity', [])
+    groups = __pillar__.get("shellgroups_ubiquity", [])
 
-    groups_by_forest = __pillar__.get('shellgroups_by_forest', {})
+    groups_by_forest = __pillar__.get("shellgroups_by_forest", {})
     if forest in groups_by_forest:
         groups.extend(groups_by_forest[forest])
 
@@ -66,7 +66,7 @@ def get_groups(forest=None):
     groups = {}
 
     for groupname in list_groups(forest):
-        groups[groupname] = __pillar__['shellgroups'][groupname]
+        groups[groupname] = __pillar__["shellgroups"][groupname]
 
     return groups
 
@@ -83,7 +83,7 @@ def list_users(forest=None):
 
     for group in get_groups(forest).values():
         if "members" in group:
-            users.extend(group['members'])
+            users.extend(group["members"])
 
     return list(set(users))
 
@@ -100,6 +100,6 @@ def get_users(forest=None):
     users = {}
 
     for username in list_users(forest):
-        users[username] = __pillar__['shellusers'][username]
+        users[username] = __pillar__["shellusers"][username]
 
     return users

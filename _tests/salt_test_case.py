@@ -3,7 +3,6 @@ import yaml
 
 
 class SaltTestCase:
-
     def initialize_mocks(self):
         source = SourceFileLoader("dunder", "mocks/dunder.py").load_module()
         self.pillar = source.dunder()
@@ -11,7 +10,7 @@ class SaltTestCase:
 
     @staticmethod
     def import_data_from_yaml(filename):
-        with open(filename, 'r') as fd:
+        with open(filename, "r") as fd:
             return yaml.safe_load(fd.read())
 
     def mock_pillar(self, filename=None, target=None):

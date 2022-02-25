@@ -23,6 +23,7 @@
         "python": {
             "type": "flake8",
             "severity": {
+                "E203": "disabled",
                 "F821": "advice"
             },
             "include": [

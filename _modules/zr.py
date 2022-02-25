@@ -17,8 +17,10 @@ def __virtual__():
     """
     Only load if zr exists on the system
     """
-    return path_which('zr') is not None,\
-        "The Zemke-Rhyne execution module cannot be loaded: zr not installed."
+    return (
+        path_which("zr") is not None,
+        "The Zemke-Rhyne execution module cannot be loaded: zr not installed.",
+    )
 
 
 def _build_pillar_key(expression):
@@ -28,7 +30,7 @@ def _build_pillar_key(expression):
 def _get_credential_id_from_pillar_key(expression):
     """Gets credentials id from a dot pillar path, e.g. nasqueron.foo.bar"""
     key = _build_pillar_key(expression)
-    return __salt__['pillar.get'](key)
+    return __salt__["pillar.get"](key)
 
 
 def get_credential_id(expression):
@@ -37,8 +39,7 @@ def get_credential_id(expression):
         number = int(expression)
 
         if number < 1:
-            raise ValueError(
-                expression, "A strictly positive integer was expected.")
+            raise ValueError(expression, "A strictly positive integer was expected.")
 
         return number
     except ValueError:
@@ -67,7 +68,7 @@ def get_password(credential_expression):
     credential_id = get_credential_id(credential_expression)
 
     zr_command = "zr getcredentials {0}".format(credential_id)
-    return __salt__['cmd.shell'](zr_command)
+    return __salt__["cmd.shell"](zr_command)
 
 
 def get_username(credential_expression):
@@ -87,7 +88,7 @@ def get_username(credential_expression):
     credential_id = get_credential_id(credential_expression)
 
     zr_command = "zr getcredentials {0} username".format(credential_id)
-    return __salt__['cmd.shell'](zr_command)
+    return __salt__["cmd.shell"](zr_command)
 
 
 def get_token(credential_expression):
@@ -106,17 +107,26 @@ def get_token(credential_expression):
     credential_id = get_credential_id(credential_expression)
 
     zr_command = "zr getcredentials {0} token".format(credential_id)
-    return __salt__['cmd.shell'](zr_command)
+    return __salt__["cmd.shell"](zr_command)
 
 
 def get_sentry_dsn(args):
-    sentry_server = _get_sentry_server(args['realm'])
+    sentry_server = _get_sentry_server(args["realm"])
 
-    return "https://" + ":".join([
-        get_username(args['credential']),
-        get_password(args['credential']),
-    ]) + "@" + sentry_server + "/" + str(args['project_id'])
+    return (
+        "https://"
+        + ":".join(
+            [
+                get_username(args["credential"]),
+                get_password(args["credential"]),
+            ]
+        )
+        + "@"
+        + sentry_server
+        + "/"
+        + str(args["project_id"])
+    )
 
 
 def _get_sentry_server(realm):
-    return __pillar__['sentry_realms'][realm]['host']
+    return __pillar__["sentry_realms"][realm]["host"]

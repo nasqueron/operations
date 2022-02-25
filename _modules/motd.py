@@ -10,12 +10,12 @@
 
 
 def get_path():
-    os = __grains__['os_family']
+    os = __grains__["os_family"]
 
     if os == "Debian":
         return "/etc/motd.tail"
 
-    if os == "FreeBSD" and __grains__['osmajorrelease'] >= 13:
+    if os == "FreeBSD" and __grains__["osmajorrelease"] >= 13:
         return "/etc/motd.template"
 
     return "/etc/motd"

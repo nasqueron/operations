@@ -34,18 +34,20 @@ import yaml
 def get_candidates_configuration_directories():
     candidates = []
 
-    if 'HOME' in os.environ:
-        candidates.append(os.environ['HOME'])
+    if "HOME" in os.environ:
+        candidates.append(os.environ["HOME"])
 
-    candidates.append('/usr/local/etc')
-    candidates.append('/etc')
+    candidates.append("/usr/local/etc")
+    candidates.append("/etc")
 
     return candidates
 
 
 def get_candidates_configuration_files():
-    return [directory + "/.shell.yml" for directory
-            in get_candidates_configuration_directories()]
+    return [
+        directory + "/.shell.yml"
+        for directory in get_candidates_configuration_directories()
+    ]
 
 
 def find_configuration_file():
@@ -60,7 +62,7 @@ def find_configuration_file():
 
 
 def parse_configuration_file(filename):
-    configuration_file = open(filename, 'r')
+    configuration_file = open(filename, "r")
     configuration = yaml.safe_load(configuration_file)
     configuration_file.close()
 
@@ -94,10 +96,10 @@ class ServerConnection:
         return ["ssh"]
 
     def get_alias(self, alias_name):
-        return self.get_config_section('aliases', alias_name)
+        return self.get_config_section("aliases", alias_name)
 
     def get_handler(self, handler_name):
-        return self.get_config_section('handlers', handler_name)
+        return self.get_config_section("handlers", handler_name)
 
     def get_config_section(self, section, key):
         if section in self.config:
@@ -105,27 +107,27 @@ class ServerConnection:
                 return self.config[section][key]
 
     def parse_alias(self, alias):
-        if 'args' in alias:
-            alias['args'].reverse()
-            self.args.extendleft(alias['args'])
+        if "args" in alias:
+            alias["args"].reverse()
+            self.args.extendleft(alias["args"])
 
-        if 'handler' in alias:
-            handler = self.config['handlers'][alias['handler']]
+        if "handler" in alias:
+            handler = self.config["handlers"][alias["handler"]]
             return self.parse_handler(handler)
 
-        if 'command' in alias:
-            return self.parse_command(alias['command'])
+        if "command" in alias:
+            return self.parse_command(alias["command"])
 
         raise ValueError("Unable to parse alias")
 
     def parse_handler(self, handler):
         command = self.get_default_command()
 
-        if 'interactive' in handler and handler['interactive']:
+        if "interactive" in handler and handler["interactive"]:
             command.append("-t")
 
-        command.append(handler['server'])
-        command.extend(self.parse_command(handler['command']))
+        command.append(handler["server"])
+        command.extend(self.parse_command(handler["command"]))
         command.extend(self.args)
 
         return command
@@ -133,7 +135,7 @@ class ServerConnection:
     def parse_variable_fragment(self, variable):
         # {{%s-|bash}} means %s-, with bash as default value if we don't
         # have any more argument to substitute
-        matches = re.search('(.*)\|(.*)', variable)
+        matches = re.search("(.*)\|(.*)", variable)
         if matches:
             if not self.args:
                 return [matches.group(2)]
@@ -142,18 +144,18 @@ class ServerConnection:
             return self.parse_variable_fragment(cleaned_fragment)
 
         # Substitute with one argument
-        if variable == '%s':
+        if variable == "%s":
             return [self.args.popleft()]
 
         # Substitute with all arguments
-        if variable == '%s-':
+        if variable == "%s-":
             return self.pop_all_args()
 
         raise ValueError("Can't parse " + variable)
 
     def parse_fragment(self, fragment):
         # If the fragment is {{something}}, this is a variable to substitute.
-        matches = re.search('{{(.*)}}', fragment)
+        matches = re.search("{{(.*)}}", fragment)
         if matches:
             return self.parse_variable_fragment(matches.group(1))
 
@@ -186,6 +188,7 @@ class ServerConnection:
 
         raise ValueError(target + ": No such target")
 
+
 #   -------------------------------------------------------------
 #   Runner code
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -196,7 +199,7 @@ def get_program_name():
 
 
 def is_debug_mode_enabled():
-    return 'DEBUG' in os.environ
+    return "DEBUG" in os.environ
 
 
 def print_error(err):
@@ -239,5 +242,5 @@ def main():
     subprocess.run(subprocess_args)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

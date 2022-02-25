@@ -6,7 +6,7 @@ import unittest
 os.environ["ACME_ACCOUNTS"] = "/path/to/acmedns.json"
 
 path = "roles/paas-docker/letsencrypt/files/edit-acme-dns-accounts.py"
-script = SourceFileLoader('script', "../" + path).load_module()
+script = SourceFileLoader("script", "../" + path).load_module()
 
 
 class TestInstance(unittest.TestCase):
@@ -34,15 +34,12 @@ class TestInstance(unittest.TestCase):
         self.assertFalse(self.testAccounts.remove("not-existing.tld"))
 
     def test_merge(self):
-        accounts_to_merge = script.AcmeAccounts("/dev/null") \
-            .add("bar.tld", {})
+        accounts_to_merge = script.AcmeAccounts("/dev/null").add("bar.tld", {})
 
-        self.testAccounts \
-            .add("foo.tld", {}) \
-            .merge_with(accounts_to_merge)
+        self.testAccounts.add("foo.tld", {}).merge_with(accounts_to_merge)
 
         self.assertEqual(2, len(self.testAccounts.accounts))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

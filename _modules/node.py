@@ -14,7 +14,7 @@ from salt.exceptions import CommandExecutionError, SaltCloudConfigError
 
 
 def _get_all_nodes():
-    return __pillar__.get('nodes', {})
+    return __pillar__.get("nodes", {})
 
 
 def get_all_properties(nodename=None):
@@ -26,15 +26,13 @@ def get_all_properties(nodename=None):
         salt * node.get_all_properties
     """
     if nodename is None:
-        nodename = __grains__['id']
+        nodename = __grains__["id"]
 
     all_nodes = _get_all_nodes()
 
     if nodename not in all_nodes:
         raise CommandExecutionError(
-            SaltCloudConfigError(
-                "Node {0} not declared in pillar.".format(nodename)
-            )
+            SaltCloudConfigError("Node {0} not declared in pillar.".format(nodename))
         )
 
     return all_nodes[nodename]
@@ -51,25 +49,27 @@ def get(key, nodename=None):
     return _get_property(key, nodename, None)
 
 
-def _explode_key(k): return k.split(':')
+def _explode_key(k):
+    return k.split(":")
 
 
-def _get_first_key(k): return _explode_key(k)[0]
+def _get_first_key(k):
+    return _explode_key(k)[0]
 
 
-def _strip_first_key(k): return ':'.join(_explode_key(k)[1:])
+def _strip_first_key(k):
+    return ":".join(_explode_key(k)[1:])
 
 
 def _get_property(key, nodename, default_value, parent=None):
     if parent is None:
         parent = get_all_properties(nodename)
 
-    if ':' in key:
+    if ":" in key:
         first_key = _get_first_key(key)
         if first_key in parent:
             return _get_property(
-                _strip_first_key(key), nodename,
-                default_value, parent[first_key]
+                _strip_first_key(key), nodename, default_value, parent[first_key]
             )
     elif key in parent:
         return parent[key]
@@ -114,7 +114,7 @@ def has_role(role, nodename=None):
 
         salt * node.has_role devserver
     """
-    return role in get_list('roles', nodename)
+    return role in get_list("roles", nodename)
 
 
 def filter_by_role(pillar_key, nodename=None):
@@ -134,12 +134,12 @@ def filter_by_role(pillar_key, nodename=None):
 
         salt * node.filter_by_role web_content_sls
     """
-    roles = get_list('roles', nodename)
+    roles = get_list("roles", nodename)
     dictionary = __pillar__.get(pillar_key, {})
     filtered_list = []
 
     for role, items in dictionary.items():
-        if role == '*' or role in roles:
+        if role == "*" or role in roles:
             filtered_list.extend(items)
 
     return filtered_list
@@ -163,20 +163,20 @@ def filter_by_name(pillar_key, nodename=None):
         salt * node.filter_by_name mars
     """
     if nodename is None:
-        nodename = __grains__['id']
+        nodename = __grains__["id"]
 
     dictionary = __pillar__.get(pillar_key, {})
     filtered_list = []
 
     for name, items in dictionary.items():
-        if name == '*' or name == nodename:
+        if name == "*" or name == nodename:
             filtered_list.extend(items)
 
     return filtered_list
 
 
 def has_web_content(content, nodename=None):
-    return content in filter_by_role('web_content_sls', nodename)
+    return content in filter_by_role("web_content_sls", nodename)
 
 
 def get_wwwroot(nodename=None):
@@ -198,14 +198,11 @@ def get_wwwroot(nodename=None):
             )
         )
 
-    if hostname.count('.') < 2:
+    if hostname.count(".") < 2:
         return "wwwroot/{0}/www".format(hostname)
 
     fqdn = hostname.split(".")
-    return "wwwroot/{1}/{0}".format(
-        ".".join(fqdn[0:-2]),
-        ".".join(fqdn[-2:])
-    )
+    return "wwwroot/{1}/{0}".format(".".join(fqdn[0:-2]), ".".join(fqdn[-2:]))
 
 
 def get_ipv6_list():

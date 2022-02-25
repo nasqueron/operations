@@ -20,11 +20,11 @@ def get_image(default_image, args):
     """
     image = default_image
 
-    if 'image' in args:
-        image = args['image']
+    if "image" in args:
+        image = args["image"]
 
-    if 'version' in args:
-        image += ":" + str(args['version'])
+    if "version" in args:
+        image += ":" + str(args["version"])
 
     return image
 
@@ -38,7 +38,7 @@ def get_subnets():
         salt * paas_docker.get_subnets
     """
     try:
-        networks = __pillar__['docker_networks'][__grains__['id']]
+        networks = __pillar__["docker_networks"][__grains__["id"]]
     except KeyError:
         networks = {}
 

@@ -16,8 +16,10 @@ def __virtual__():
     """
     Only load if the Rust compiler is available
     """
-    return path_which('rustc') is not None,\
-        "The Rust execution module cannot be loaded: rustc not installed."
+    return (
+        path_which("rustc") is not None,
+        "The Rust execution module cannot be loaded: rustc not installed.",
+    )
 
 
 def get_rustc_triplet():
@@ -30,4 +32,4 @@ def get_rustc_triplet():
     """
 
     # Thanks to @semarie for that tip.
-    return __salt__['cmd.shell']("rustc -vV | sed -ne 's/^host: //p'")
+    return __salt__["cmd.shell"]("rustc -vV | sed -ne 's/^host: //p'")

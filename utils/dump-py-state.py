@@ -26,9 +26,11 @@ def get_pillar_files(pillar_directory):
     pillar_files = []
 
     for dir_path, dir_names, file_names in os.walk(pillar_directory):
-        files = [os.path.join(dir_path, file_name)
-                 for file_name in file_names
-                 if file_name.endswith(".sls")]
+        files = [
+            os.path.join(dir_path, file_name)
+            for file_name in file_names
+            if file_name.endswith(".sls")
+        ]
 
         pillar_files.extend(files)
 
@@ -52,7 +54,7 @@ def load_pillar(pillar_directory):
 
 def system(args):
     result = subprocess.run(args, stdout=subprocess.PIPE)
-    return result.stdout.decode('utf-8').strip()
+    return result.stdout.decode("utf-8").strip()
 
 
 #   -------------------------------------------------------------
@@ -65,7 +67,7 @@ def run_shim():
 
 
 def assemble_source_code(filename):
-    with open(filename, 'r') as fd:
+    with open(filename, "r") as fd:
         source_code = fd.read()
 
     return source_code + run_shim()
@@ -92,8 +94,6 @@ if __name__ == "__main__":
         exit(ex.errno)
 
     __pillar__ = load_pillar("pillar")
-    __grains__ = {
-        'os': system(["uname", "-o"])
-    }
+    __grains__ = {"os": system(["uname", "-o"])}
 
     exec(source_code)

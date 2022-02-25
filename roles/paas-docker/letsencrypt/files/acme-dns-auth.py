@@ -46,8 +46,9 @@ class AcmeDnsClient(object):
         if allowfrom:
             # Include allowed networks to the registration call
             reg_data = {"allowfrom": allowfrom}
-            res = requests.post(self.acmedns_url + "/register",
-                                data=json.dumps(reg_data))
+            res = requests.post(
+                self.acmedns_url + "/register", data=json.dumps(reg_data)
+            )
         else:
             res = requests.post(self.acmedns_url + "/register")
         if res.status_code == 201:
@@ -55,30 +56,36 @@ class AcmeDnsClient(object):
             return res.json()
         else:
             # Encountered an error
-            msg = ("Encountered an error while trying to register a new "
-                   "acme-dns account. HTTP status {}, Response body: {}")
+            msg = (
+                "Encountered an error while trying to register a new "
+                "acme-dns account. HTTP status {}, Response body: {}"
+            )
             print(msg.format(res.status_code, res.text))
             sys.exit(1)
 
     def update_txt_record(self, account, txt):
         """Updates the TXT challenge record to ACME-DNS subdomain."""
-        update = {"subdomain": account['subdomain'], "txt": txt}
-        headers = {"X-Api-User": account['username'],
-                   "X-Api-Key": account['password'],
-                   "Content-Type": "application/json"}
-        res = requests.post(self.acmedns_url + "/update",
-                            headers=headers,
-                            data=json.dumps(update))
+        update = {"subdomain": account["subdomain"], "txt": txt}
+        headers = {
+            "X-Api-User": account["username"],
+            "X-Api-Key": account["password"],
+            "Content-Type": "application/json",
+        }
+        res = requests.post(
+            self.acmedns_url + "/update", headers=headers, data=json.dumps(update)
+        )
         if res.status_code == 200:
             # Successful update
             return
         else:
-            msg = ("Encountered an error while trying to update TXT record in "
-                   "acme-dns. \n"
-                   "------- Request headers:\n{}\n"
-                   "------- Request body:\n{}\n"
-                   "------- Response HTTP status: {}\n"
-                   "------- Response body: {}")
+            msg = (
+                "Encountered an error while trying to update TXT record in "
+                "acme-dns. \n"
+                "------- Request headers:\n{}\n"
+                "------- Request body:\n{}\n"
+                "------- Response HTTP status: {}\n"
+                "------- Response body: {}"
+            )
             s_headers = json.dumps(headers, indent=2, sort_keys=True)
             s_update = json.dumps(update, indent=2, sort_keys=True)
             s_body = json.dumps(res.json(), indent=2, sort_keys=True)
@@ -96,7 +103,7 @@ class Storage(object):
         data = dict()
         filedata = ""
         try:
-            with open(self.storagepath, 'r') as fh:
+            with open(self.storagepath, "r") as fh:
                 filedata = fh.read()
         except IOError:
             if os.path.isfile(self.storagepath):
@@ -116,8 +123,9 @@ class Storage(object):
         """Saves the storage content to disk"""
         serialized = json.dumps(self._data)
         try:
-            with os.fdopen(os.open(self.storagepath, os.O_WRONLY | os.O_CREAT,
-                                   0o600), 'w') as fh:
+            with os.fdopen(
+                os.open(self.storagepath, os.O_WRONLY | os.O_CREAT, 0o600), "w"
+            ) as fh:
                 fh.truncate()
                 fh.write(serialized)
         except IOError:

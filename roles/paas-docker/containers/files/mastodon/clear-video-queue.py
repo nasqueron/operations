@@ -25,9 +25,7 @@ PS_COLUMN_PID = 0
 PS_COLUMN_TIME = 3
 PS_COLUMN_COMMAND = 4
 
-SUSPECT_COMMANDS = [
-    "ffmpeg"
-]
+SUSPECT_COMMANDS = ["ffmpeg"]
 
 MAX_TIME = 30
 
@@ -67,9 +65,9 @@ def extract_pid(ps_output_line):
 def extract_pids(output):
     extracted_pids = [extract_pid(line) for line in output]
 
-    return [extracted_pid
-            for extracted_pid in extracted_pids
-            if extracted_pid is not None]
+    return [
+        extracted_pid for extracted_pid in extracted_pids if extracted_pid is not None
+    ]
 
 
 def get_kill_command(pids_to_kill):

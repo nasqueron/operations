@@ -14,7 +14,7 @@ import errno
 
 
 def _get_all_jails():
-    return __pillar__.get('jails', {})
+    return __pillar__.get("jails", {})
 
 
 def _get_default_group():
@@ -22,7 +22,7 @@ def _get_default_group():
     Gets the default group to use as key to
     the pillar's jails dictionary.
     """
-    return __grains__['id']
+    return __grains__["id"]
 
 
 def list(group=None):
@@ -58,11 +58,11 @@ def flatlist(group=None):
 
 
 def _get_hardware_network_interfaces():
-    return [interface for interface in __grains__['hwaddr_interfaces']]
+    return [interface for interface in __grains__["hwaddr_interfaces"]]
 
 
 def _get_ipv6_network_interfaces():
-    return [interface for interface in __grains__['ip6_interfaces']]
+    return [interface for interface in __grains__["ip6_interfaces"]]
 
 
 def guess_ipv4_network_interface():
@@ -88,7 +88,7 @@ def guess_ipv6_network_interface():
     interfaces = _get_ipv6_network_interfaces()
 
     for interface in interfaces:
-        ips = __grains__['ip6_interfaces'][interface]
+        ips = __grains__["ip6_interfaces"][interface]
 
         # We want an interface with IPv6
         if len(ips) < 1:
@@ -130,9 +130,9 @@ def get_ezjail_ips_parameter(jailname, group=None):
     jail = get(jailname, group)
 
     config = [
-        ["lo1", jail['lo']],
-        [guess_ipv4_network_interface(), jail['ipv4']],
-        [guess_ipv6_network_interface(), jail['ipv6']]
+        ["lo1", jail["lo"]],
+        [guess_ipv4_network_interface(), jail["ipv4"]],
+        [guess_ipv6_network_interface(), jail["ipv6"]],
     ]
 
     return ",".join(["|".join(interface) for interface in config])

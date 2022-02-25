@@ -10,8 +10,8 @@
 import yaml
 
 
-USERS_DATASOURCE = 'pillar/core/users.sls'
-USERS_DATASOURCE_KEY = 'shellusers'
+USERS_DATASOURCE = "pillar/core/users.sls"
+USERS_DATASOURCE_KEY = "shellusers"
 USERS_CUT = 5000
 
 
@@ -22,9 +22,11 @@ def get_shellusers(filename, key):
 
 
 def get_uids(users, threshold):
-    return [users[username]['uid']
-            for username in users
-            if users[username]['uid'] < threshold]
+    return [
+        users[username]["uid"]
+        for username in users
+        if users[username]["uid"] < threshold
+    ]
 
 
 users = get_shellusers(USERS_DATASOURCE, USERS_DATASOURCE_KEY)

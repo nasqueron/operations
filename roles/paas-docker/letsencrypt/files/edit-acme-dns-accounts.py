@@ -56,7 +56,7 @@ class AcmeAccounts:
         except KeyError:
             return False
 
-    def merge_with(self, other_accounts: 'AcmeAccounts'):
+    def merge_with(self, other_accounts: "AcmeAccounts"):
         self.accounts.update(other_accounts.accounts)
 
         return self
@@ -74,17 +74,16 @@ def import_other_file(file_to_import):
 
     accounts_to_import = AcmeAccounts(file_to_import).read_from_file()
 
-    AcmeAccounts(ACME_ACCOUNTS_PATH)\
-        .read_from_file()\
-        .merge_with(accounts_to_import)\
-        .write_to_file()
+    AcmeAccounts(ACME_ACCOUNTS_PATH).read_from_file().merge_with(
+        accounts_to_import
+    ).write_to_file()
 
 
 commands = {
     "import": {
         "required_argc": 3,
         "command_usage": "import <file>",
-        "callable": import_other_file
+        "callable": import_other_file,
     },
 }
 

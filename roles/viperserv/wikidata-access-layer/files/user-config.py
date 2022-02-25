@@ -13,8 +13,8 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-mylang = 'wikidata'
-family = 'wikidata'
-usernames['wikidata']['wikidata'] = u'DæghrefnBot'
+mylang = "wikidata"
+family = "wikidata"
+usernames["wikidata"]["wikidata"] = "DæghrefnBot"
 
-console_encoding = 'utf-8'
+console_encoding = "utf-8"

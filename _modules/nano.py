@@ -14,8 +14,12 @@ import subprocess
 
 
 def _get_rc_includes(nanorc_dir):
-    process = subprocess.run(["find", nanorc_dir, "-type", "f"], check=True,
-                             stdout=subprocess.PIPE, universal_newlines=True)
+    process = subprocess.run(
+        ["find", nanorc_dir, "-type", "f"],
+        check=True,
+        stdout=subprocess.PIPE,
+        universal_newlines=True,
+    )
     return ["include " + file for file in process.stdout.split()]
 
 
@@ -29,7 +33,9 @@ def _get_rc_content(nanorc_dir, extra_settings=[]):
     return content
 
 
-def check_rc_up_to_date(name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]):
+def check_rc_up_to_date(
+    name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]
+):
     expected_content = _get_rc_content(nanorc_dir, extra_settings)
 
     try:
@@ -43,7 +49,9 @@ def check_rc_up_to_date(name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_
     return actual_content == expected_content
 
 
-def config_autogenerate(name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]):
+def config_autogenerate(
+    name="/etc/nanorc", nanorc_dir="/usr/share/nano", extra_settings=[]
+):
     nano_rc_content = _get_rc_content(nanorc_dir, extra_settings)
 
     fd = open(name, "w")
