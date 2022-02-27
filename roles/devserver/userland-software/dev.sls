@@ -163,5 +163,6 @@ devserver_software_dev_misctools:
 
 devserver_software_dev_mediawiki:
   pkg.installed:
-    - netpbm
-    - djvulibre-bin
+    - pkgs:
+      - netpbm
+      - {{ packages['djvulibre'] }}
