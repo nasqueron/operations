@@ -44,6 +44,12 @@ nodes:
       ipv4_address: 51.255.124.11
       ipv4_gateway: 91.121.86.254
 
+      private_interface:
+        uuid: 8e8ca793-b2eb-46d8-9266-125aba6d06c4
+        device: ens224
+        address: 172.27.27.4
+        netmask: 255.255.255.0
+
       ipv6_tunnel: True
 
   docker-001:
@@ -54,6 +60,12 @@ nodes:
     network:
       ipv4_address: 51.255.124.9
       ipv4_gateway: 91.121.86.254
+
+      private_interface:
+        uuid: 3fd0b9f8-ecc3-400d-bc61-3ba21d0b6337
+        device: ens224
+        address: 172.27.27.6
+        netmask: 255.255.255.0
 
       ipv6_tunnel: False
 
