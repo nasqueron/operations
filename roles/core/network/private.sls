@@ -13,6 +13,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if salt['node.has']('network:private_interface') %}
+{% set interface = network['private_interface'] %}
 
 {% if grains['os'] == 'FreeBSD' %}
 /etc/rc.conf.d/netif/ipv4_{{ network['private_interface'] }}:
@@ -21,11 +22,20 @@
     - makedirs: True
     - template: jinja
     - context:
-        interface: {{ network['private_interface'] }}
-        ipv4_address: {{ network['private_address'] }}
-        ipv4_netmask: {{ network['private_netmask'] | default('255.255.255.0') }}
-        ipv4_aliases: {{ salt['node.get_list']('network:private_aliases') }}
+        interface: {{ interface['device'] }}
+        ipv4_address: {{ interface['address'] }}
+        ipv4_netmask: {{ interface['netmask'] | default('255.255.255.0') }}
+        ipv4_aliases: {{ salt['node.get_list']('network:private_interface:aliases') }}
         dhcp_required: False
+{% endif %}
+
+{% if grains['os_family'] == 'RedHat' %}
+/etc/sysconfig/network-scripts/ifcfg-{{ interface['device'] }}:
+  file.managed:
+    - source: salt://roles/core/network/files/RedHat/ifcfg-private
+    - template: jinja
+    - context:
+        interface: {{ interface }}
 {% endif %}
 
 {% endif %}

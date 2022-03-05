@@ -26,18 +26,6 @@
         dhcp_required: {{ salt['node.has']('network:dhcp_required') }}
 {% endif %}
 
-{% if grains['os_family'] == 'RedHat' %}
-{% if "private_interface" in network %}
-{% set interface = network['private_interface'] %}
-/etc/sysconfig/network-scripts/ifcfg-{{ interface['device'] }}:
-  file.managed:
-    - source: salt://roles/core/network/files/RedHat/ifcfg-private
-    - template: jinja
-    - context:
-        interface: {{ interface }}
-{% endif %}
-{% endif %}
-
 #   -------------------------------------------------------------
 #   Routes
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
