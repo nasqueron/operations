@@ -6,6 +6,7 @@ class SaltTestCase:
     def initialize_mocks(self):
         source = SourceFileLoader("dunder", "mocks/dunder.py").load_module()
         self.pillar = source.dunder()
+        self.salt = source.dunder()
         self.grains = source.dunder()
 
     @staticmethod
@@ -27,3 +28,9 @@ class SaltTestCase:
             target = self.instance
 
         target.__grains__ = self.grains
+
+    def mock_salt(self, target=None):
+        if not target:
+            target = self.instance
+
+        target.__salt__ = self.salt
