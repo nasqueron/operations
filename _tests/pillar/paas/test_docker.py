@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import unittest
 import yaml
 
@@ -20,3 +22,7 @@ class Testinstance(unittest.TestCase):
 
                     entry = ":".join(["docker_containers", node, service, instance])
                     self.assertIn("app_port", container, entry + ": app_port missing")
+
+
+if __name__ == "__main__":
+    unittest.main()

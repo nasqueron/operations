@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from importlib.machinery import SourceFileLoader
 import unittest
 
@@ -51,3 +53,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
 
         self.grains["id"] = "voidserver"
         self.assertEqual(expected, docker.get_subnets())
+
+
+if __name__ == "__main__":
+    unittest.main()

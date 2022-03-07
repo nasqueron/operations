@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from importlib.machinery import SourceFileLoader
 import unittest
 
@@ -13,3 +15,7 @@ class Testinstance(unittest.TestCase):
 
         expected_pids = [11562, 11693, 11895]
         self.assertEqual(expected_pids, script.extract_pids(ps_data))
+
+
+if __name__ == "__main__":
+    unittest.main()

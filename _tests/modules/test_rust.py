@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from importlib.machinery import SourceFileLoader
 import unittest
 
@@ -11,3 +13,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         triplet = rust.get_rustc_triplet()
 
         self.assertTrue(len(triplet.split("-")) > 2)
+
+
+if __name__ == "__main__":
+    unittest.main()

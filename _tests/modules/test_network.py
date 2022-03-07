@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from importlib.machinery import SourceFileLoader
 from unittest_data_provider import data_provider
 import unittest

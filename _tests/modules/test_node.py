@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from importlib.machinery import SourceFileLoader
 import unittest
 
@@ -101,3 +103,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             "[::1] [2001:470:1f13:ce7:ca5:cade:fab:1e] [2001:470:1f12:ce7::2]",
             node.get_ipv6_list(),
         )
+
+
+if __name__ == "__main__":
+    unittest.main()

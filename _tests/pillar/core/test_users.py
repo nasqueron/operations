@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import unittest
 import yaml
 
@@ -32,3 +34,7 @@ class Testinstance(unittest.TestCase):
                 is_valid = False
 
         self.assertTrue(is_valid, "\n" + "\n".join(errors))
+
+
+if __name__ == "__main__":
+    unittest.main()
