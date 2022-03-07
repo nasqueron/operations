@@ -29,7 +29,7 @@ psysh_software:
 
 /usr/local/share/psysh/php_manual.sqlite:
   file.managed:
-    - source: http://psysh.org/manual/en/php_manual.sqlite
+    - source: https://psysh.org/manual/en/php_manual.sqlite
     - skip_verify: True
     - require:
       - file: /usr/local/share/psysh

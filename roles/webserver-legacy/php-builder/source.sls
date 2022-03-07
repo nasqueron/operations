@@ -92,7 +92,7 @@ def run():
     # Task: fetch archives
     for version, archive_hash in get_release_versions():
         archive = get_archive_path(version)
-        url = "http://fr2.php.net/get/php-" + version + ".tar.bz2/from/this/mirror"
+        url = "https://www.php.net/distributions/php-" + version + ".tar.bz2"
 
         config[archive] = {
             "file.managed": [

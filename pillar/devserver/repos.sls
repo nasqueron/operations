@@ -14,5 +14,5 @@ user_repositories:
       source: git@github.com:dereckson/git-achievements.git
 
     /home/dereckson/.software/hg-prompt:
-      source: http://bitbucket.org/sjl/hg-prompt/
+      source: https://hg.stevelosh.com/hg-prompt/
       vcs: hg
