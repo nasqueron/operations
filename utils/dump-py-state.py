@@ -88,7 +88,7 @@ if __name__ == "__main__":
     sls_file = sys.argv[1]
 
     try:
-        source_code = assemble_source_code(sls_file)
+        source_code_to_dump = assemble_source_code(sls_file)
     except OSError as ex:
         print(ex, file=sys.stderr)
         exit(ex.errno)
@@ -96,4 +96,4 @@ if __name__ == "__main__":
     __pillar__ = load_pillar("pillar")
     __grains__ = {"os": system(["uname", "-o"])}
 
-    exec(source_code)
+    exec(source_code_to_dump)

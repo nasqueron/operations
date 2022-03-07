@@ -54,7 +54,7 @@ generate_basejail:
 #   Build applications/services jails
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for jail in salt['jails.list']() %}
+{% for jail in salt['jails.list_jails']() %}
 {% set ips = salt['jails.get_ezjail_ips_parameter'](jail) %}
 generate_jail_{{ jail }}:
   cmd.run:

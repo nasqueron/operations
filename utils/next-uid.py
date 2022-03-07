@@ -29,6 +29,6 @@ def get_uids(users, threshold):
     ]
 
 
-users = get_shellusers(USERS_DATASOURCE, USERS_DATASOURCE_KEY)
-uids = get_uids(users, USERS_CUT)
+shell_users = get_shellusers(USERS_DATASOURCE, USERS_DATASOURCE_KEY)
+uids = get_uids(shell_users, USERS_CUT)
 print(max(uids) + 1)

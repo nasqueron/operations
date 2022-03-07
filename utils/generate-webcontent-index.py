@@ -29,8 +29,10 @@ import yaml
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-pillar_file = "pillar/webserver/sites.sls"
-file_to_update = "roles/webserver-content/init.sls"
+config = {
+    "pillar": "pillar/webserver/sites.sls",
+    "states": "roles/webserver-content/init.sls",
+}
 
 
 #   -------------------------------------------------------------
@@ -72,4 +74,4 @@ def print_header(file_to_update):
 
 
 if __name__ == "__main__":
-    do_update(pillar_file, file_to_update)
+    do_update(config["pillar"], config["states"])

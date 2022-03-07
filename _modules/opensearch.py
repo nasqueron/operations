@@ -12,7 +12,7 @@
 from salt.exceptions import CommandExecutionError, SaltCloudConfigError
 
 
-def get_config(nodename=None):
+def get_config(node_name=None):
     """
     A function to get relevant values for OpenSearch configuration.
 
@@ -20,8 +20,8 @@ def get_config(nodename=None):
 
         salt * opensearch.get_config
     """
-    if nodename is None:
-        nodename = __grains__["id"]
+    if node_name is None:
+        node_name = __grains__["id"]
 
     try:
         clusters = __pillar__["opensearch_clusters"]
@@ -29,17 +29,17 @@ def get_config(nodename=None):
         clusters = []
 
     for _, cluster in clusters.items():
-        if nodename in cluster["nodes"]:
-            return _expand_cluster_config(nodename, cluster)
+        if node_name in cluster["nodes"]:
+            return _expand_cluster_config(node_name, cluster)
 
     raise CommandExecutionError(
         SaltCloudConfigError(
-            "Node {0} not declared in pillar opensearch_clusters.".format(nodename)
+            "Node {0} not declared in pillar opensearch_clusters.".format(node_name)
         )
     )
 
 
-def _expand_cluster_config(nodename, config):
+def _expand_cluster_config(node_name, config):
     config = dict(config)
     nodes = _convert_to_ip(config["nodes"])
 
@@ -47,8 +47,8 @@ def _expand_cluster_config(nodename, config):
         {
             "nodes": nodes,
             "nodes_certificates": _get_nodes_info(config["nodes"]),
-            "node_name": nodename,
-            "network_host": _get_ip(nodename),
+            "node_name": node_name,
+            "network_host": _get_ip(node_name),
             "lead_nodes": nodes,
             "dashboards_nodes": nodes,
         }
@@ -57,17 +57,17 @@ def _expand_cluster_config(nodename, config):
     return config
 
 
-def _convert_to_ip(ids):
-    return [_get_ip(id) for id in ids]
+def _convert_to_ip(node_names):
+    return [_get_ip(node_name) for node_name in node_names]
 
 
-def _get_ip(nodename):
+def _get_ip(node_name):
     try:
-        network = __pillar__["nodes"][nodename]["network"]
+        network = __pillar__["nodes"][node_name]["network"]
     except KeyError:
         raise CommandExecutionError(
             SaltCloudConfigError(
-                "Node {0} not declared in pillar nodes.".format(nodename)
+                "Node {0} not declared in pillar nodes.".format(node_name)
             )
         )
 
@@ -76,15 +76,15 @@ def _get_ip(nodename):
             return network[field]
 
 
-def _get_nodes_info(ids):
-    return [_get_node_info(id) for id in ids]
+def _get_nodes_info(node_names):
+    return [_get_node_info(id) for node_name in node_names]
 
 
-def _get_node_info(nodename):
+def _get_node_info(node_name):
     return {
-        "id": nodename,
-        "fqdn": __pillar__["nodes"][nodename]["hostname"],
-        "ip": _get_ip(nodename),
+        "id": node_name,
+        "fqdn": __pillar__["nodes"][node_name]["hostname"],
+        "ip": _get_ip(node_name),
     }
 
 
@@ -101,8 +101,8 @@ def hash_password(clear_password):
     return __salt__["cmd.shell"](command, env=env)
 
 
-def list_certificates(nodename=None):
-    config = get_config(nodename=None)
+def list_certificates(node_name=None):
+    config = get_config(node_name)
 
     certificates = ["admin", "root-ca"]
 

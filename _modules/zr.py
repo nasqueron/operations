@@ -44,12 +44,12 @@ def get_credential_id(expression):
         return number
     except ValueError:
         # Case II - expression is a pillar key
-        id = _get_credential_id_from_pillar_key(expression)
+        credential_id = _get_credential_id_from_pillar_key(expression)
 
-        if id is None or id == "":
+        if credential_id is None or credential_id == "":
             raise ValueError(expression, "Pillar key not found")
 
-        return id
+        return credential_id
 
 
 def get_password(credential_expression):

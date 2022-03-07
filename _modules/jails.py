@@ -25,7 +25,7 @@ def _get_default_group():
     return __grains__["id"]
 
 
-def list(group=None):
+def list_jails(group=None):
     """
     A function to list the jails for the specified group.
 
@@ -54,7 +54,7 @@ def flatlist(group=None):
 
         salt-call --local jails.flatlist ysul
     """
-    return " ".join(sorted(list(group)))
+    return " ".join(sorted(list_jails(group)))
 
 
 def _get_hardware_network_interfaces():
