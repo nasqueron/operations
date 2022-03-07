@@ -35,6 +35,7 @@
     - template: jinja
     - context:
         interface: {{ interface }}
+        prefix: {{ salt['network_utils.netmask_to_cidr_prefix'](interface['netmask']) }}
 {% endif %}
 
 {% endif %}

@@ -28,5 +28,5 @@ NAME={{ interface.device }}
 UUID={{ interface.uuid }}
 DEVICE={{ interface.device }}
 ONBOOT=yes
-PREFIX=24
+PREFIX={{ prefix }}
 IPADDR={{ interface.address }}

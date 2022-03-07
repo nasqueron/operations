@@ -24,6 +24,7 @@
             "type": "flake8",
             "severity": {
                 "E203": "disabled",
+                "E731": "disabled",
                 "F821": "advice"
             },
             "include": [
