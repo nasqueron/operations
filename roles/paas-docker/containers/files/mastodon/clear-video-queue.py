@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 #   -------------------------------------------------------------
-#   Mastodon - clear stuck video tasks from quueue
+#   Mastodon - clear stuck video tasks from queue
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2018-12-08

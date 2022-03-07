@@ -38,7 +38,7 @@ def netmask_to_cidr_prefix(netmask):
     if not is_valid_netmask(netmask):
         raise ValueError("Netmask is invalid.")
 
-    # The CIDR prefix is the count of 1 bits in each octect.
+    # The CIDR prefix is the count of 1 bits in each octet.
     # e.g. 255.255.255.240 can be split in octets [255, 255, 255, 240],
     # then becomes ['0b11111111', '0b11111111', '0b11111111', '0b11110000'].
     #

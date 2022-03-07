@@ -181,7 +181,7 @@ class ServerConnection:
         if alias is not None:
             return self.parse_alias(alias)
 
-        # Is it an handler?
+        # Is it a handler?
         handler = self.get_handler(target)
         if handler is not None:
             return self.parse_handler(handler)

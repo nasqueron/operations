@@ -12,7 +12,7 @@
 #   -------------------------------------------------------------
 #   Coloration grc configuration file for MySQL client
 #
-#   “ This is more than pure aestetics- DBAs are looking at this output
+#   “ This is more than pure aesthetics- DBAs are looking at this output
 #     for long hours, a bit of color (disabled by default) will make
 #     their life easier.
 #

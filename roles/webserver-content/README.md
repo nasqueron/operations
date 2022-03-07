@@ -6,7 +6,7 @@ This role provisions the `/var/wwwroot` folder with the website content,
 when there is a custom logic to prepare it, like a specific Git repository
 to clone, or a build process to follow.
 
-This roles does NOT describe web server configuration,
+These roles does NOT describe web server configuration,
 which is done in other `webserver-` roles.
 
 ## Structure
@@ -44,7 +44,7 @@ If you wish to deploy all the sites on one role, you can directly include
 the folder, and your init.sls will do the rest.
 
 If not, two strategies exist: you can use node.filter_by_role in your
-init.sls too or perhaps more simply you can document in init.sls this
+init.sls too or perhaps more simply you can document in init.sls these
 roles can't be deployed directly, and make references to sls files in
 the pillar (without final .sls extension).
 

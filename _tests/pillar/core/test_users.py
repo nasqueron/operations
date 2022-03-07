@@ -15,7 +15,7 @@ class Testinstance(unittest.TestCase):
         with open(PILLAR_FILE, "r") as fd:
             self.pillar = yaml.safe_load(fd)
 
-    # users must have an username, an UID and SSH keys
+    # users must have a username, an UID and SSH keys
     def test_users_properties(self):
         is_valid = True
         errors = []

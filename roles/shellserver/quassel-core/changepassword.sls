@@ -30,7 +30,7 @@
 chquasselpasswd_sudo_capabilities_file:
   file.managed:
     - name: {{ dirs.etc }}/sudoers.d/chquasselpasswd
-    - source: salt://roles/shellserver/quassel-core/files/chquasselpasswd.suoders
+    - source: salt://roles/shellserver/quassel-core/files/chquasselpasswd.sudoers
     - template: jinja
     - context:
         dirs: {{ dirs }}

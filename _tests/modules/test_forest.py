@@ -32,7 +32,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     def test_list_groups(self):
         self.assertEqual(["caras_galadhon", "ubiquity"], sorted(forest.list_groups()))
 
-    def test_list_groups_when_there_are_none_for_the_foreest(self):
+    def test_list_groups_when_there_are_none_for_the_forest(self):
         self.grains["id"] = "entwash"
         self.assertEqual(["ubiquity"], forest.list_groups())
 

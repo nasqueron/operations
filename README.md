@@ -41,12 +41,12 @@ Structure
 Services are organized in roles and units.
 
 * Roles: a role is a goal a service accomplishes (e.g. mailserver, paas-docker)
-* Units: an unit is a component needed to achieve this goal
+* Units: a unit is a component needed to achieve this goal
   (e.g. an userland software collection, a nginx server)
 
 Directories follow `roles/<role>/<unit>`.
 
-If configuration files for an unit should be stored,
+If configuration files for a unit should be stored,
 a subfolder `files` is created at unit level.
 
 The `pillar/ ` folder contains data about Eglide users,

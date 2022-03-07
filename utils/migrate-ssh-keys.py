@@ -46,7 +46,7 @@ state_data_property = "ssh_keys"
 #   -------------------------------------------------------------
 #   YAML style
 #
-#   Allows to dump with indented lists
+#   Allows indented lists in dump
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 

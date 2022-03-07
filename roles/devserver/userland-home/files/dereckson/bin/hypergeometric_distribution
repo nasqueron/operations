@@ -29,7 +29,7 @@ def help():
     print()
     print("Example:")
     print()
-    print("In a Magic the Gathering deck of 60 crads, you've put 23 lands.")
+    print("In a Magic the Gathering deck of 60 cards, you've put 23 lands.")
     print("To compute the probability to get 3 lands in your opening hand (7 cards):")
     print(f"    {sys.argv[0]} 60 23 7 3")
 

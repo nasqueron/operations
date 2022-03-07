@@ -5,7 +5,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-10-21
-#   Description:    Functions related to the nodes pillar entry
+#   Description:    Functions related to the nodes' pillar entry
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------
 
@@ -183,7 +183,7 @@ def get_wwwroot(nodename=None):
     """
     A function to determine the wwwroot folder to use.
 
-    Returns a string depending of the FQDN.
+    Returns a string depending on the FQDN.
 
     CLI Example:
 
@@ -209,7 +209,7 @@ def get_ipv6_list():
     """
     A function to get a list of IPv6, enclosed by [].
 
-    Returns a string depending of the IPv6 currently assigned.
+    Returns a string depending on the IPv6 currently assigned.
 
     CLI Example:
 

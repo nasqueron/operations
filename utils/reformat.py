@@ -45,7 +45,7 @@ class Reformater:
             self.pattern_detection_counter += 1
         elif self.pattern_detection_counter == 2:
             if line == BLOCK_END:
-                # We're probably in an header block or a correct one, so skip
+                # We're probably in a header block or a correct one, so skip
                 self.pattern_detection_counter = 0
             elif line == BLOCK_START:
                 # We've got a winner
