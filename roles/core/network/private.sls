@@ -26,7 +26,6 @@
         ipv4_address: {{ interface['address'] }}
         ipv4_netmask: {{ interface['netmask'] | default('255.255.255.0') }}
         ipv4_aliases: {{ salt['node.get_list']('network:private_interface:aliases') }}
-        dhcp_required: False
 {% endif %}
 
 {% if grains['os_family'] == 'RedHat' %}
