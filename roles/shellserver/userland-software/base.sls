@@ -214,6 +214,11 @@ languages_libs:
       - tcllib
       - {{ packages.tcltls }}
 
+languages_libs_removed_files:
+  file.absent:
+    - names:
+      - /usr/local/etc/php/ext-20-openssl.ini
+
 #   -------------------------------------------------------------
 #   Workaround : install composer and phpcs on FreeBSD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
