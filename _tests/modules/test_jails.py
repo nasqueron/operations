@@ -24,11 +24,11 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     def test_get_all_jails(self):
         self.assertEqual(["anotherhost", "host"], sorted(jails._get_all_jails().keys()))
 
-    def test_list(self):
-        self.assertEqual(["guest1", "guest2"], sorted(jails.list()))
+    def test_list_jails(self):
+        self.assertEqual(["guest1", "guest2"], sorted(jails.list_jails()))
 
     def test_list_for_a_group(self):
-        self.assertEqual(["guest3"], sorted(jails.list("anotherhost")))
+        self.assertEqual(["guest3"], sorted(jails.list_jails("anotherhost")))
 
     def test_flatlist(self):
         self.assertEqual("guest1 guest2", jails.flatlist())
