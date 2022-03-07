@@ -24,6 +24,9 @@ all: repo api
 
 clean: clean-repo clean-api
 
+test:
+	(cd _tests && make)
+
 #   -------------------------------------------------------------
 #   Build targets - repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
