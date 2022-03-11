@@ -15,4 +15,3 @@ include:
 
   # Services hosted
   - .odderon
-  - .bonjour-chaton
