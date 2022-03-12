@@ -1,5 +1,4 @@
-#!/usr/bin/env python2
-# Note: Python 3 isn't installed by default on CentOS 7.
+#!/usr/bin/env python3
 
 #   -------------------------------------------------------------
 #   PaaS Docker
@@ -17,7 +16,7 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-from six.moves.urllib.request import urlopen
+from urllib.request import urlopen
 import json
 import sys
 
