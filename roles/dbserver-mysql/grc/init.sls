@@ -24,7 +24,7 @@
 #   Note it's deployed instead in share dir to be able to `grc mysql`.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.share }}/conf.mysql:
+{{ dirs.share }}/grc/conf.mysql:
   file.managed:
     - source: salt://roles/dbserver-mysql/grc/files/grcat.config
 
