@@ -123,6 +123,7 @@ devserver_software_misc_network:
     - pkgs:
       - getdns
       - iftop
+      - mtr
       {% if grains['os_family'] == 'Debian' %}
       - sockstat
       {% endif %}
