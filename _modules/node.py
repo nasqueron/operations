@@ -259,3 +259,59 @@ def resolve_network():
         return private_network
 
     return network
+
+
+def _resolve_gre_tunnels_for_router(network, netmask):
+    tunnels = []
+
+    for node, tunnel in __pillar__.get(f"{network}_gre_tunnels", {}).items():
+        tunnels.append(
+            {
+                "description": f"{network}_to_{node}",
+                "interface": tunnel["router"]["interface"],
+                "src": tunnel["router"]["addr"],
+                "dst": tunnel["node"]["addr"],
+                "netmask": netmask,
+                "icann_src": get("network")["canonical_public_ipv4"],
+                "icann_dst": get("network", node)["canonical_public_ipv4"],
+            }
+        )
+
+    return tunnels
+
+
+def resolve_gre_tunnels():
+    """
+    A function to get the GRE tunnels for a node
+
+    CLI Example:
+        salt * node.resolve_gre_tunnels
+    """
+    gre_tunnels = []
+
+    for network, network_args in __pillar__.get("networks", {}).items():
+        if __grains__["id"] == network_args["router"]:
+            gre_tunnels += _resolve_gre_tunnels_for_router(
+                network, network_args["netmask"]
+            )
+            continue
+
+        tunnel = __salt__["pillar.get"](f"{network}_gre_tunnels:{__grains__['id']}")
+        if not tunnel:
+            continue
+
+        gre_tunnels.append(
+            {
+                "description": f"{network}_via_{network_args['router']}",
+                "interface": tunnel["node"].get("interface", "gre0"),
+                "src": tunnel["node"]["addr"],
+                "dst": tunnel["router"]["addr"],
+                "netmask": network_args["netmask"],
+                "icann_src": get("network")["canonical_public_ipv4"],
+                "icann_dst": get("network", network_args["router"])[
+                    "canonical_public_ipv4"
+                ],
+            }
+        )
+
+    return gre_tunnels

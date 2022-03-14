@@ -32,3 +32,20 @@
     "suffix": "device",
   },
 }) %}
+
+#   -------------------------------------------------------------
+#   GRE tunnels configuration by OS/distro
+#
+#   See interface configuration for the documentation.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set gre = salt['grains.filter_by']({
+  'FreeBSD': {
+    "config_path": "/etc/rc.conf.d/netif/gre_",
+    "source_path": "FreeBSD/netif_gre.rc",
+  },
+  'Debian': {
+    "config_path": "/etc/network/interfaces.d/10-gre-",
+    "source_path": "Debian/10-gre.jinja",
+  },
+}) %}

@@ -6,51 +6,26 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set network = salt['node.get']('network') %}
-{% set gre_tunnels = salt['pillar.get']("gre_tunnels:" + grains['id'], {}) %}
+{% from "roles/core/network/map.jinja" import gre with context %}
 {% set boot_loader = namespace(gre=false) %}
 
 #   -------------------------------------------------------------
 #   Tunnels network configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for description, tunnel in gre_tunnels.items() %}
+{% for tunnel in salt['node.resolve_gre_tunnels']() %}
 
 {% set boot_loader.gre = True %}
-{% set tunnel_network = pillar['networks'][tunnel['network']] %}
 
-{% if grains['os'] == 'FreeBSD' %}
-/etc/rc.conf.d/netif/gre_{{ description }}:
+{{ gre.config_path }}{{ tunnel["description"] }}:
   file.managed:
-    - source: salt://roles/core/network/files/FreeBSD/netif_gre.rc
+    - source: salt://roles/core/network/files/{{ gre.source_path }}
     - makedirs: True
     - template: jinja
-    - context:
-        description: {{ description }}
-        interface: {{ tunnel['interface'] }}
-
-        src: {{ tunnel_network['addr'][grains['id']] }}
-        dst: {{ tunnel_network['addr'][tunnel['to']] }}
-
-        icann_src: {{ network['ipv4_address'] }}
-        icann_dst: {{ salt['node.get']('network', tunnel['to'])['ipv4_address'] }}
-{% endif %}
-
+    - defaults: {{ tunnel }}
 {% if grains['os_family'] == 'Debian' %}
-/etc/network/interfaces.d/10-gre-{{ description }}:
-  file.managed:
-    - source: salt://roles/core/network/files/Debian/10-gre.jinja
-    - makedirs: True
-    - template: jinja
     - context:
         interface: gre-{{ description }}
-
-        src: {{ tunnel_network['addr'][grains['id']] }}
-        dst: {{ tunnel_network['addr'][tunnel['to']] }}
-        netmask: {{ tunnel_network['netmask'] }}
-
-        icann_src: {{ network['ipv4_address'] }}
-        icann_dst: {{ salt['node.get']('network', tunnel['to'])['ipv4_address'] }}
 {% endif %}
 
 {% endfor %}
