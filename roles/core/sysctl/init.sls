@@ -18,5 +18,6 @@
     - context:
         use_zfs: {{ use_zfs }}
         mem: {{ grains['mem_total'] }}
+        is_router: {{ "router" in grains['roles'] }}
 
 {% endif %}
