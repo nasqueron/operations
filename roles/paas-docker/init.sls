@@ -20,6 +20,7 @@ include:
   - .wwwroot-502
   - .wwwroot-content
   - .nginx
+  - .monitoring
   - .letsencrypt
   - .wrappers
 {% if salt['node.has']('flags:install_docker_devel_tools') %}

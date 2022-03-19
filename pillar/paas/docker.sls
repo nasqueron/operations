@@ -474,6 +474,41 @@ docker_containers:
       sentry_cron:
         realm: nasqueron
 
+#   -------------------------------------------------------------
+#   Monitoring
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker_containers_monitoring:
+
+  # Go to URL, check it's an HTTP 200 response
+  check_http_200:
+    acme_dns: /health
+    cachet: /api/v1/ping
+    hound: /healthz
+
+    # Test a regular URL for services without health check
+    api-datasources: /datasources
+    etherpad: /stats
+    hauk: /
+    jenkins: /login
+    registry: /
+
+  # Go to URL, check it's an HTTP 200 response code + "ALIVE" as content
+  check_http_200_alive:
+    auth-grove: /status
+    docker-registry-api: /status
+    notifications: /status
+    tommy: /status
+
+  # Same than check_http_200, but we need to query the proxy
+  check_http_200_proxy:
+    openfire: /login.jsp
+    pixelfed: /api/nodeinfo/2.0.json
+
+  # Same than check_http_200_alive, but we need to query the proxy
+  check_http_200_alive_proxy:
+    phabricator: /status
+
  #   -------------------------------------------------------------
  #   Ports listened by known applications
  #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

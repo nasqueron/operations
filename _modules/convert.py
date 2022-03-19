@@ -11,6 +11,12 @@
 
 
 import json
+import salt.serializers.yaml
+
+
+#   -------------------------------------------------------------
+#   JSON
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 def to_json_from_pillar_key(key):
@@ -34,3 +40,43 @@ def to_json(data):
         salt-call --local convert.to_json "Hello world"
     """
     return json.dumps(data, indent=4, sort_keys=True)
+
+
+#   -------------------------------------------------------------
+#   YAML
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def _to_dictionary(data, root=None):
+    if root is not None:
+        return {root: _to_dictionary(data)}
+
+    if type(data) is list:
+        dictionary = {}
+        for item in data:
+            dictionary.update(_to_dictionary(item))
+        return dictionary
+
+    if type(data) is tuple and len(data) == 2:
+        return dict({data})
+
+    return dict(data)
+
+
+def to_yaml_dictionary(data, root=None):
+    """
+    A function to convert data to YAML dictionary.
+
+    CLI Example::
+
+        salt * convert.to_yaml_dictionary '[{"a": "bar"}, {"b": "foo"}]'
+
+        That example will return:
+        ```
+        a: bar
+        b: foo
+        ```
+    """
+    return salt.serializers.yaml.serialize(
+        _to_dictionary(data, root), default_flow_style=False
+    )
