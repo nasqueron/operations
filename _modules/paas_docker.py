@@ -50,6 +50,29 @@ def get_subnets():
     return subnets
 
 
+def _get_containers():
+    return __pillar__["docker_containers"][__grains__["id"]]
+
+
+def list_containers():
+    """
+    A function to list all the containers provisionned on a Docker engine.
+
+    This function uses the pillar docker_containers as authoritative source,
+    so it documents the expected configuration, not the actual containers
+    running. That allows to compare both states.
+
+    CLI Example:
+
+        salt * paas_docker.list_containers
+    """
+    return [
+        key
+        for service, service_containers in _get_containers().items()
+        for key in service_containers.keys()
+    ]
+
+
 #   -------------------------------------------------------------
 #   Monitoring
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -71,7 +94,7 @@ def get_health_checks():
 
         salt * paas_docker.get_health_checks
     """
-    containers = __pillar__["docker_containers"][__grains__["id"]]
+    containers = _get_containers()
     monitoring = __pillar__["docker_containers_monitoring"]
 
     return {
