@@ -10,6 +10,8 @@
 #   -------------------------------------------------------------
 
 
+import os
+
 from salt.utils.path import which as path_which
 
 
@@ -20,6 +22,12 @@ def __virtual__():
     return (
         path_which("zr") is not None,
         "The Zemke-Rhyne execution module cannot be loaded: zr not installed.",
+    )
+
+
+def _are_credentials_hidden():
+    return "CONFIG_PUBLISHER" in os.environ or "state.show_sls" in os.environ.get(
+        "SUDO_COMMAND", ""
     )
 
 
@@ -65,6 +73,9 @@ def get_password(credential_expression):
                                   or a key in zr_credentials pillar entry
     :return: The secret value
     """
+    if _are_credentials_hidden():
+        return "credential for " + credential_expression
+
     credential_id = get_credential_id(credential_expression)
 
     zr_command = "zr getcredentials {0}".format(credential_id)
@@ -104,6 +115,9 @@ def get_token(credential_expression):
                                   or a key in zr_credentials pillar entry
     :return: The secret value
     """
+    if _are_credentials_hidden():
+        return "credential for " + credential_expression
+
     credential_id = get_credential_id(credential_expression)
 
     zr_command = "zr getcredentials {0} token".format(credential_id)
