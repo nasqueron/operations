@@ -124,6 +124,16 @@ def get_token(credential_expression):
     return __salt__["cmd.shell"](zr_command)
 
 
+def generate_random(secret_len):
+    """
+    A function to generate a random credential
+    """
+    if _are_credentials_hidden():
+        return "random credential"
+
+    return __salt__["random.get_str"](secret_len)
+
+
 def get_sentry_dsn(args):
     sentry_server = _get_sentry_server(args["realm"])
 
