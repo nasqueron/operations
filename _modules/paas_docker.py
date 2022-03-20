@@ -101,7 +101,7 @@ def get_health_checks():
         check_type: {
             instance: _get_health_check_url(check_type, container, url)
             for service, url in monitoring[check_type].items()
-            for instance, container in containers[service].items()
+            for instance, container in containers.get(service, {}).items()
         }
         for check_type in monitoring.keys()
     }
