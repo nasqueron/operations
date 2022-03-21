@@ -7,7 +7,7 @@
 #   -------------------------------------------------------------
 
 {% set motd_path = salt['motd.get_path']() %}
-{% set network = salt['node.get']('network') %}
+{% set network = salt['node.resolve_network()'] %}
 
 motd:
   file.managed:

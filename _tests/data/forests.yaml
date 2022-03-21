@@ -9,11 +9,28 @@ nodes:
     hostname: egladil.lothlorien.forest
     roles:
       - treecity
+    network:
+      interfaces:
+        net01:
+          ipv4:
+            address: 1.2.3.4 #public
+            gateway: 1.2.3.254
+        net02:
+          ipv4:
+            address: 10.100.0.4 #private
+            gateway: 10.100.0.1
+
   entwash:
     forest: fangorn
     hostname: entwash.node
     roles:
       - border
+    network:
+      interfaces:
+        net02:
+          ipv4:
+            address: 10.100.0.5 #private
+            gateway: 10.100.0.1
 
 items_by_role:
   treecity:

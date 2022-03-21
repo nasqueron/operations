@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from importlib.machinery import SourceFileLoader
+from unittest_data_provider import data_provider
 import unittest
 
 
@@ -103,6 +104,52 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             "[::1] [2001:470:1f13:ce7:ca5:cade:fab:1e] [2001:470:1f12:ce7::2]",
             node.get_ipv6_list(),
         )
+
+    resolved_networks = lambda: (
+        (
+            "egladil",
+            {
+                "ipv4_address": "1.2.3.4",
+                "ipv4_gateway": "1.2.3.254",
+            },
+        ),
+        (
+            "entwash",
+            {
+                "ipv4_address": "10.100.0.5",
+                "ipv4_gateway": "10.100.0.1",
+            },
+        ),
+    )
+
+    @data_provider(resolved_networks)
+    def test_resolve_network(self, id, expected):
+        self.grains["id"] = id
+        self.assertEqual(expected, node.resolve_network())
+
+    def test_resolve_network_without_gateway(self):
+        expected = {
+            "ipv4_address": "10.100.0.5",
+            "ipv4_gateway": "",
+        }
+
+        self.grains["id"] = "entwash"
+        del self.pillar["nodes"]["entwash"]["network"]["interfaces"]["net02"]["ipv4"][
+            "gateway"
+        ]
+
+        self.assertEqual(expected, node.resolve_network())
+
+    def test_resolve_network_without_any_network(self):
+        expected = {
+            "ipv4_address": "",
+            "ipv4_gateway": "",
+        }
+
+        self.grains["id"] = "entwash"
+        del self.pillar["nodes"]["entwash"]["network"]
+
+        self.assertEqual(expected, node.resolve_network())
 
 
 if __name__ == "__main__":

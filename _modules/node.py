@@ -11,6 +11,7 @@
 
 
 from salt.exceptions import CommandExecutionError, SaltCloudConfigError
+from salt._compat import ipaddress
 
 
 def _get_all_nodes():
@@ -218,3 +219,43 @@ def get_ipv6_list():
     ipv6 = __grains__.get("ipv6")
 
     return " ".join(["[" + ip + "]" for ip in ipv6])
+
+
+def resolve_network():
+    """
+    A function to determine canonical properties of networks
+    from the nodes pillar.
+
+    CLI Example:
+        salt * node.resolve_network
+    """
+    network = {
+        "ipv4_address": "",
+        "ipv4_gateway": "",
+    }
+    private_network = network.copy()
+
+    interfaces = _get_property("network:interfaces", __grains__["id"], {})
+    for interface_name, interface in interfaces.items():
+        if "ipv4" not in interface:
+            continue
+
+        ipv4 = interface["ipv4"]["address"]
+        if ipaddress.ip_address(ipv4).is_private:
+            target = private_network
+        else:
+            target = network
+
+        if target["ipv4_address"] != "":
+            continue
+
+        target["ipv4_address"] = ipv4
+        try:
+            target["ipv4_gateway"] = interface["ipv4"]["gateway"]
+        except KeyError:
+            pass
+
+    if network["ipv4_address"] == "":
+        return private_network
+
+    return network

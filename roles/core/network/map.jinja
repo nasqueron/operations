@@ -1,0 +1,34 @@
+#   -------------------------------------------------------------
+#   Salt — Network
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Interface configuration by OS/distro
+#
+#   config_path:   the configuration file to write in OS
+#   source_path:   in this repo, roles/core/network/files/<source_path>
+#
+#   Don't set default value, so we MUST define them
+#   for EACH os/distro.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set interface_config = salt['grains.filter_by']({
+  'FreeBSD': {
+    "config_path": "/etc/rc.conf.d/netif/ipv4_",
+    "source_path": "FreeBSD/netif_ipv4.rc",
+    "suffix": "interface",
+  },
+  'RedHat': {
+    "config_path": "/etc/sysconfig/network-scripts/ifcfg-",
+    "source_path": "RedHat/ifcfg",
+    "suffix": "device",
+  },
+  'Debian': {
+    "config_path": "/etc/network/interfaces.d/10-net-",
+    "source_path": "Debian/10-net.jinja",
+    "suffix": "device",
+  },
+}) %}

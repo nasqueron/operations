@@ -10,6 +10,7 @@
 
 
 from salt.exceptions import CommandExecutionError, SaltCloudConfigError
+from .node import resolve_network
 
 
 def get_config(node_name=None):
@@ -63,7 +64,7 @@ def _convert_to_ip(node_names):
 
 def _get_ip(node_name):
     try:
-        network = __pillar__["nodes"][node_name]["network"]
+        network = resolve_network()
     except KeyError:
         raise CommandExecutionError(
             SaltCloudConfigError(
