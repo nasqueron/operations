@@ -6,6 +6,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+nodes_aliases:
+  netmasks:
+    intranought: &intranought_netmask 255.255.255.240
+
 nodes:
 
   ##
@@ -63,7 +67,7 @@ nodes:
           uuid: 8e8ca793-b2eb-46d8-9266-125aba6d06c4
           ipv4:
             address: 172.27.27.4
-            netmask: &intranought_netmask 255.255.255.240
+            netmask: *intranought_netmask
             gateway: 172.27.27.1
 
   docker-001:
