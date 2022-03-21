@@ -49,3 +49,20 @@
     "source_path": "Debian/10-gre.jinja",
   },
 }) %}
+
+#   -------------------------------------------------------------
+#   Routes configuration by OS/distro
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set routes_config = salt['grains.filter_by']({
+  'FreeBSD': {
+    "config_path": "/etc/rc.conf.d/routing/managed",
+    "source_path": "FreeBSD/routing_ipv4.rc",
+    "provider": "os"
+  },
+  'RedHat': {
+    "config_path": "/etc/routes.conf",
+    "source_path": "Linux/routes.conf",
+    "provider": "custom-service"
+  }
+}, default="RedHat") %}

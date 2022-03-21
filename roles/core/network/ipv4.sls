@@ -35,18 +35,3 @@ network_ipv4_{{ interface_name }}:
 
 {% endfor %}
 
-#   -------------------------------------------------------------
-#   Routes
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% if grains['os'] == 'FreeBSD' %}
-/etc/rc.conf.d/routing/ipv4:
-  file.managed:
-    - source: salt://roles/core/network/files/FreeBSD/routing_ipv4.rc
-    - makedirs: True
-    - template: jinja
-    - context:
-        ipv4_gateway: {{ network['ipv4_gateway'] }}
-        ipv4_interface: {{ network['ipv4_interface'] }}
-        ipv4_ovh_failover: {{ salt['node.has']('network:ipv4_ovh_failover') }}
-{% endif %}

@@ -315,3 +315,87 @@ def resolve_gre_tunnels():
         )
 
     return gre_tunnels
+
+
+def get_gateway(network):
+    # For tunnels, gateway is the tunnel endpoint
+    tunnel = __salt__["pillar.get"](f"{network}_gre_tunnels:{__grains__['id']}")
+    if tunnel:
+        return tunnel["router"]["addr"]
+
+    return __salt__["pillar.get"](f"networks:{network}:default_gateway")
+
+
+def _get_static_route(cidr, gateway):
+    if __grains__["os_family"] == "FreeBSD":
+        return f"-net {cidr} {gateway}"
+
+    if __grains__["kernel"] == "Linux":
+        return f"{cidr} via {gateway}"
+
+    raise ValueError("No static route implementation for " + __grains__["os_family"])
+
+
+def _get_default_route(gateway):
+    if __grains__["os_family"] == "FreeBSD":
+        return f"default {gateway}"
+
+    if __grains__["kernel"] == "Linux":
+        return f"default via {gateway}"
+
+    raise ValueError("No static route implementation for " + __grains__["os_family"])
+
+
+def _get_interface_route(ip, interface):
+    if __grains__["os_family"] == "FreeBSD":
+        return f"-net {ip}/32 -interface {interface}"
+
+    if __grains__["kernel"] == "Linux":
+        return f"{ip} dev {interface}"
+
+    raise ValueError("No static route implementation for " + __grains__["os_family"])
+
+
+def _get_routes_for_private_networks():
+    """
+    Every node, excepted the routeur, should have a route
+    for the private network CIDR to the router.
+
+    For GRE tunnels, the gateway is the tunnel endpoint.
+    In other cases, the gateway is the main router (private) IP.
+
+    """
+    routes = {}
+
+    for network, network_args in __pillar__.get("networks", {}).items():
+        if network_args["router"] == __grains__["id"]:
+            continue
+
+        gateway = get_gateway(network)
+        routes[f"private_{network}"] = _get_static_route(network_args["cidr"], gateway)
+
+    return routes
+
+
+def get_routes():
+    routes = {}
+
+    interfaces = _get_property("network:interfaces", __grains__["id"], {})
+    for interface_name, interface in interfaces.items():
+        flags = interface.get("flags", [])
+
+        if "gateway" in interface.get("ipv4", {}):
+            gateway = interface["ipv4"]["gateway"]
+
+            if "ipv4_ovh_failover" in flags:
+                routes[f"{interface_name}_gateway"] = _get_interface_route(
+                    gateway, interface["device"]
+                )
+
+            if __grains__["os_family"] != "RedHat":
+                # On RHEL/CentOS/Rocky, legacy network scripts take care of this with GATEWAY=
+                routes[f"{interface_name}_default"] = _get_default_route(gateway)
+
+    routes.update(_get_routes_for_private_networks())
+
+    return routes

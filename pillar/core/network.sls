@@ -1,7 +1,13 @@
 networks:
   drake:
+    cidr: 172.27.27.0/24
     netmask: 255.255.255.0
+
+    # router-001 acts as a gateway for all nodes
+    # For GRE tunnels, gateway is probably the tunnel endpoint
+    # The other nodes can use the default_gateway IP.
     router: router-001
+    default_gateway: 172.27.27.1
 
 #   -------------------------------------------------------------
 #   Drake - GRE tunnels

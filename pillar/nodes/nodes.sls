@@ -50,7 +50,7 @@ nodes:
       canonical_public_ipv4: 51.255.124.11
 
       interfaces:
-        ens192:
+        public:
           device: ens192
           uuid: 6e05ebea-f2fd-4ca1-a21f-78a778664d8c
           ipv4:
@@ -58,7 +58,7 @@ nodes:
             netmask: 255.255.255.252
             gateway: 91.121.86.254
 
-        ens224:
+        intranought:
           device: ens224
           uuid: 8e8ca793-b2eb-46d8-9266-125aba6d06c4
           ipv4:
@@ -77,7 +77,7 @@ nodes:
       canonical_public_ipv4: 51.255.124.9
 
       interfaces:
-        ens192:
+        public:
           device: ens192
           uuid: ef7370c5-5060-4d89-82bb-dbeabf4a35f6
           ipv4:
@@ -85,7 +85,7 @@ nodes:
             netmask: 255.255.255.252
             gateway: 91.121.86.254
 
-        ens224:
+        intranought:
           device: ens224
           uuid: 3fd0b9f8-ecc3-400d-bc61-3ba21d0b6337
           ipv4:
@@ -99,20 +99,21 @@ nodes:
     roles:
       - router
     network:
-      ipv4_ovh_failover: True
       ipv6_tunnel: False
 
       canonical_public_ipv4: 51.255.124.8
 
       interfaces:
-        vmx0:
+        public:
           device: vmx0
           ipv4:
             address: 51.255.124.8
             netmask: 255.255.255.252
             gateway: 91.121.86.254
+          flags:
+            - ipv4_ovh_failover
 
-        vmx1:
+        intranought:
           device: vmx1
           ipv4:
             address: 172.27.27.1

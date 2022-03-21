@@ -10,6 +10,7 @@ include:
   - .ipv4
   - .ipv6
   - .gre
+  - .routes
 
 # Drake can be configured as:
 #

@@ -30,3 +30,6 @@ DEVICE={{ interface.device }}
 ONBOOT=yes
 IPADDR={{ interface.ipv4.address }}
 PREFIX={{ prefix }}
+{% if "ipv4" in interface and "gateway" in interface["ipv4"] %}
+GATEWAY={{ interface.ipv4.gateway }}
+{% endif %}
