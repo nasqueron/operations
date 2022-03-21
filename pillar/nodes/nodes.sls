@@ -39,6 +39,25 @@ nodes:
             prefix: 64
             gateway: fe80::ee30:91ff:fee0:df80
 
+  complector:
+    forest: nasqueron-infra
+    hostname: complector.nasqueron.org
+    roles:
+      - vault
+      - saltmaster
+    zfs:
+      pool: zroot
+    network:
+      ipv6_tunnel: False
+
+      interfaces:
+        intranought:
+          device: vmx0
+          ipv4:
+            address: 172.27.27.7
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
   dwellers:
     forest: nasqueron-infra
     hostname: dwellers.nasqueron.org

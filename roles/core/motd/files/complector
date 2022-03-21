@@ -1,0 +1,24 @@
+                           _           _                    _____,,,\//,,\\,/,
+  ___ ___  _ __ ___  _ __ | | ___  ___| |_ ___  _ __       /-- --- --- -----
+ / __/ _ \| '_ ` _ \| '_ \| |/ _ \/ __| __/ _ \| '__|     ///--- --- -- - ----
+| (_| (_) | | | | | | |_) | |  __/ (__| || (_) | |       o////- ---- --- --
+ \___\___/|_| |_| |_| .__/|_|\___|\___|\__\___/|_|       !!//o/---  -- --
+                    |_|                                o*) !///,~,,\\,\/,,/,//,,
+                                                         o!*!o'(\          /\
+ Complector provides deployment services               | ! o ",) \/\  /\  /  \/\
+ for Nasqueron servers infrastructure:                o  !o! !!|    \/  \/     /
+                                                     ( * (  o!'; |\   \       /
+  - Vault                                             o o ! * !` | \  /       \
+  - Salt master                                      o  |  o 'o| | :  \       /
+                                                      *  o !*!': |o|  /      /
+ Access is restricted for deployment purpose              (o''| `| : /      /
+ to Nasqueron Operations SIG members.                     ! *|'`  \|/       \\
+ Please use dev servers for any other use.               ' !o!':\  \\        \
+                                                          ( ('|  \  `._______/
+ FreeBSD 13                   ////\\\,,\///,,,,\,/oO._*  o !*!'`  `.________/
+ IP: {{ ipv4_address.ljust(16) }}           ---- -- ------- - -oO*OoOo (o''|           /
+ GW: {{ ipv4_gateway.ljust(16) }}             --------  ------ 'oO*OoO!*|'o!!          \
+                              -------  -- - ---- --* oO*OoO *!'| '         /
+ “Flow the secrets, the code   ---  -   -----  ---- - oO*OoO!!':o!'       /
+  Straight from the source     - -  -----  -  --  - *--oO*OoOo!`         /
+  The Complector waterfall.”     \\\\\,,,\\,//////,\,,\\\/,,,\,,ejm/AMC
