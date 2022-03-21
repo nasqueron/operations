@@ -4,7 +4,6 @@
 #   Fetch ports
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Author :        FreeBSD contributors
 #   License:        BSD-2-Clause
 #   Source file:    roles/core/userland-software/files/sources.list
 #   -------------------------------------------------------------
