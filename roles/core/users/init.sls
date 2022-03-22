@@ -74,6 +74,14 @@ zfs_permissions_home_descendant_{{ username }}:
     - onchanges:
         - zfs: {{ home_directory }}
 
+/home/{{ username }}:
+  file.directory:
+    - user: {{ username }}
+    - group: {{ username }}
+    - dir_mode: 0700
+    - require:
+        - user: {{ username }}
+
 {% endfor %}
 {% endif %}
 
