@@ -52,6 +52,7 @@ vault_policies:
   - admin
   - salt-primary
   - sentry
+  - vault_bootstrap
   - viperserv
 
 #   -------------------------------------------------------------
