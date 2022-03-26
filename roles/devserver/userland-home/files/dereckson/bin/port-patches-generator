@@ -51,7 +51,7 @@ set config(overwriteExistingPatches) 0
 
 ###
 ### FreeBSD ports
-### 
+###
 
 ## Gets FreeBSD port's patch filename
 ##
@@ -63,7 +63,7 @@ proc get_patch_filename {file} {
 
 ###
 ### Git
-### 
+###
 
 ## Creates a patch from a modified file in a Git repository
 proc create_patch_from_git_file {file patchfile {useStagingArea 0}} {
@@ -127,7 +127,7 @@ proc generate_patches_from_git_working_directory {patchesdir} {
 
 set wrksrc [exec pwd]
 if {$argc == 0} {
-	# Autodetect the directory 
+	# Autodetect the directory
 	#
 	# We're probably in /usr/ports/quux/foo/work/foo-a.b
 	# Patches directory is so ../../files
@@ -157,7 +157,7 @@ if {$argc == 0} {
 
 ###
 ### Step 2 - Generate patches
-### 
+###
 ###   Currently, we use git status
 ###
 

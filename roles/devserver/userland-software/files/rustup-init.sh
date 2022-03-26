@@ -573,7 +573,7 @@ check_help_for() {
 }
 
 # Return cipher suite string specified by user, otherwise return strong TLS 1.2-1.3 cipher suites
-# if support by local tools is detected. Detection currently supports these curl backends: 
+# if support by local tools is detected. Detection currently supports these curl backends:
 # GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return value can be empty.
 get_ciphersuites_for_curl() {
     if [ -n "${RUSTUP_TLS_CIPHERSUITES-}" ]; then
@@ -618,7 +618,7 @@ get_ciphersuites_for_curl() {
 }
 
 # Return cipher suite string specified by user, otherwise return strong TLS 1.2-1.3 cipher suites
-# if support by local tools is detected. Detection currently supports these wget backends: 
+# if support by local tools is detected. Detection currently supports these wget backends:
 # GnuTLS and OpenSSL (possibly also LibreSSL and BoringSSL). Return value can be empty.
 get_ciphersuites_for_wget() {
     if [ -n "${RUSTUP_TLS_CIPHERSUITES-}" ]; then
@@ -643,10 +643,10 @@ get_ciphersuites_for_wget() {
     RETVAL="$_cs"
 }
 
-# Return strong TLS 1.2-1.3 cipher suites in OpenSSL or GnuTLS syntax. TLS 1.2 
-# excludes non-ECDHE and non-AEAD cipher suites. DHE is excluded due to bad 
+# Return strong TLS 1.2-1.3 cipher suites in OpenSSL or GnuTLS syntax. TLS 1.2
+# excludes non-ECDHE and non-AEAD cipher suites. DHE is excluded due to bad
 # DH params often found on servers (see RFC 7919). Sequence matches or is
-# similar to Firefox 68 ESR with weak cipher suites disabled via about:config.  
+# similar to Firefox 68 ESR with weak cipher suites disabled via about:config.
 # $1 must be openssl or gnutls.
 get_strong_ciphersuites_for() {
     if [ "$1" = "openssl" ]; then
@@ -656,7 +656,7 @@ get_strong_ciphersuites_for() {
         # GnuTLS isn't forgiving of unknown values, so this may require a GnuTLS version that supports TLS 1.3 even if wget doesn't.
         # Begin with SECURE128 (and higher) then remove/add to build cipher suites. Produces same 9 cipher suites as OpenSSL but in slightly different order.
         echo "SECURE128:-VERS-SSL3.0:-VERS-TLS1.0:-VERS-TLS1.1:-VERS-DTLS-ALL:-CIPHER-ALL:-MAC-ALL:-KX-ALL:+AEAD:+ECDHE-ECDSA:+ECDHE-RSA:+AES-128-GCM:+CHACHA20-POLY1305:+AES-256-GCM"
-    fi 
+    fi
 }
 
 main "$@" || exit 1

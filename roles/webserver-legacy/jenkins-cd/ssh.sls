@@ -13,7 +13,7 @@
   file.directory:
     - user: deploy
     - group: deploy
-    - dir_mode: 700 
+    - dir_mode: 700
 
 /var/run/deploy/.ssh/authorized_keys:
   file.managed:
