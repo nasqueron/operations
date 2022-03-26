@@ -22,6 +22,9 @@ base:
     - opensearch.software
     - opensearch.clusters
 
+  complector:
+    - credentials.vault
+
   docker-001:
     - credentials.zr
     - paas.docker

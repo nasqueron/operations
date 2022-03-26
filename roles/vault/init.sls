@@ -7,3 +7,6 @@
 
 include:
   - .vault
+
+  # Depends of Vault installed
+  - .policies
