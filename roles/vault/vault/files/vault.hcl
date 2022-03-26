@@ -15,12 +15,12 @@
 
 listener "tcp" {
   address = "{{ ip }}:8200"
-{% if certificates_available %}
-  tls_cert_file: "/usr/local/etc/certificates/vault/fullchain.pem"
-  tls_key_file: "/usr/local/etc/certificates/vault/private.key"
+{%- if certificates_available %}
+  tls_cert_file = "/usr/local/etc/certificates/vault/fullchain.pem"
+  tls_key_file = "/usr/local/etc/certificates/vault/private.key"
 {% else %}
   tls_disable = 1
-{% endif %}
+{% endif -%}
 }
 
 storage "raft" {

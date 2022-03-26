@@ -27,7 +27,7 @@ vault:
     - context:
         id: {{ grains['id'] }}
         ip: {{ network['ipv4_address'] }}
-        certificates_available: {{ salt["file.file_exists"]("/usr/local/etc/certificates/vault") }}
+        certificates_available: {{ salt["file.file_exists"]("/usr/local/etc/certificates/vault/fullchain.pem") }}
 
 #   -------------------------------------------------------------
 #   Storage
