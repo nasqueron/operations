@@ -17,4 +17,3 @@
 #   </auto-generated>
 
 get-containers --reverse | xargs docker stop
-

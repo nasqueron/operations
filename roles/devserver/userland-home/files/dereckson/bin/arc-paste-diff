@@ -13,4 +13,3 @@ if [ "$COLORDIFF" = "" ]; then
 else
 	diff -u <(arc paste $1) <(arc paste $2) | colordiff
 fi
-

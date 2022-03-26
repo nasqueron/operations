@@ -11,4 +11,3 @@
 {{ dirs.etc }}/zr:
   file.directory:
     - mode: 700
-

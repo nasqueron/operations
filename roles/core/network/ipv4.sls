@@ -34,4 +34,3 @@ network_ipv4_{{ interface_name }}:
 {% endif %}
 
 {% endfor %}
-
