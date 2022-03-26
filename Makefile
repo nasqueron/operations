@@ -31,15 +31,18 @@ test:
 #   Build targets - repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-repo: roles/webserver-content/init.sls
+repo: roles/webserver-content/init.sls .git/hooks/pre-commit
 
 roles/webserver-content/init.sls:
 	tmpfile=`mktemp /tmp/make-rOPS-generate-webcontent-index.XXXXXX` ; \
 	utils/generate-webcontent-index.py > "$$tmpfile" ;\
 	${MV} "$$tmpfile" roles/webserver-content/init.sls
 
+.git/hooks/pre-commit:
+	pre-commit install
+
 clean-repo:
-	${RM} roles/webserver-content/init.sls
+	${RM} roles/webserver-content/init.sls .git/hooks/pre-commit
 
 #   -------------------------------------------------------------
 #   Build targets - API

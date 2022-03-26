@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-xml
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude: ^roles/core/motd/files/
+      - id: fix-byte-order-marker
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+      - id: trailing-whitespace
+        exclude: patch$
+
+  - repo: https://github.com/psf/black
+    rev: 22.1.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/warpnet/salt-lint
+    rev: v0.8.0
+    hooks:
+      - id: salt-lint
+        args: ["-x", "207,208"]
+        files: ^(roles|hotfixes).*\.(sls)$
+
+  - repo: https://devcentral.nasqueron.org/source/codestyle.git
+    rev: v0.1.0
+    hooks:
+      - id: shellcheck
