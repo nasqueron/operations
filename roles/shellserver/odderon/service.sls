@@ -19,7 +19,7 @@ odderon_unit:
   file.managed:
     - name: /etc/systemd/system/odderon.service
     - source: salt://roles/shellserver/odderon/files/odderon.service
-    - mode: 0644
+    - mode: 644
   module.run:
     - service.force_reload:
       - name: odderon

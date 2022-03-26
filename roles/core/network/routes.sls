@@ -28,7 +28,7 @@
 /usr/sbin/routes:
   file.managed:
     - source: salt://roles/core/network/files/Linux/routes.sh
-    - mode: 0755
+    - mode: 755
 
 /etc/systemd/system/routes.service:
   file.managed:

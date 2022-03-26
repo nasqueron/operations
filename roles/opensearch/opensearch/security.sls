@@ -16,7 +16,7 @@
     - source: salt://roles/opensearch/opensearch/files/internal_users.yml.jinja
     - user: opensearch
     - group: opensearch
-    - mode: 0600
+    - mode: 600
     - template: jinja
     - context:
         users:

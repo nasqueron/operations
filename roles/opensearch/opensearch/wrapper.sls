@@ -17,7 +17,7 @@
 /usr/local/bin/es-query:
   file.managed:
     - source: salt://roles/opensearch/opensearch/files/es-query.sh.jinja
-    - mode: 0755
+    - mode: 755
     - template: jinja
     - context:
         url: https://{{ config['network_host'] }}:9200
@@ -25,7 +25,7 @@
 /root/.opensearch-account:
   file.managed:
      - source: salt://roles/opensearch/opensearch/files/account.conf
-     - mode: 0600
+     - mode: 600
      - template: jinja
      - context:
         username: {{ salt['zr.get_username'](config['users']['admin']) }}

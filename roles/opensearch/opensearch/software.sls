@@ -61,7 +61,7 @@ extract_opensearch_{{ product }}:
 
 /opt/opensearch/plugins/opensearch-security/tools/hash.sh:
   file.managed:
-    - mode: 0755
+    - mode: 755
 
 #   -------------------------------------------------------------
 #   Cleanup legacy versions

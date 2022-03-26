@@ -47,7 +47,7 @@
 
 /opt/tlstool:
   file.directory:
-     - mode: 0700
+     - mode: 700
   archive.extracted:
     - source: /usr/local/dl/search-guard-tlstool.zip
     - enforce_toplevel: False

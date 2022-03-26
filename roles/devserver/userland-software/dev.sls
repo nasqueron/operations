@@ -111,7 +111,7 @@ devserver_software_dev_rust:
 {{ dirs.bin }}/rustup-init:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/rustup-init.sh
-    - mode: 0755
+    - mode: 755
 
 #   -------------------------------------------------------------
 #   Shell

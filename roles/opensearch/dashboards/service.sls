@@ -21,7 +21,7 @@ opensearch_dashboards_unit:
   file.managed:
     - name: /etc/systemd/system/dashboards.service
     - source: salt://roles/opensearch/dashboards/files/dashboards.service
-    - mode: 0644
+    - mode: 644
   service.running:
     - name: dashboards
     - enable: true

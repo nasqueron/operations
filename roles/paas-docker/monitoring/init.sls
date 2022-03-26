@@ -60,7 +60,7 @@ platform-checks:
   file.managed:
     - source: salt://roles/paas-docker/monitoring/files/checks.yml.jinja
     - makedirs: True
-    - mode: 0644
+    - mode: 644
     - template: jinja
     - context:
         checks:

@@ -78,7 +78,7 @@ zfs_permissions_home_descendant_{{ username }}:
   file.directory:
     - user: {{ username }}
     - group: {{ username }}
-    - dir_mode: 0700
+    - dir_mode: 700
     - require:
         - user: {{ username }}
 

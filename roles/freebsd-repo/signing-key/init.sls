@@ -37,5 +37,5 @@ signing_key_generate_public:
 {{ repo.signing_key_dir }}/repo.key:
   file.managed:
     - replace: False
-    - mode: 0400
+    - mode: 400
     - user: builder

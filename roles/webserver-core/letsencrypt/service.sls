@@ -16,7 +16,7 @@
 /usr/local/sbin/letsencrypt-renewal:
   file.managed:
     - source: salt://roles/webserver-core/letsencrypt/files/letsencrypt-renewal.sh
-    - mode: 0755
+    - mode: 755
 
 #   -------------------------------------------------------------
 #   Unit configuration
@@ -28,7 +28,7 @@ letsencrypt_renew_unit:
   file.managed:
     - name: /etc/systemd/system/letsencrypt-renew.service
     - source: salt://roles/webserver-core/letsencrypt/files/letsencrypt-renew.service
-    - mode: 0644
+    - mode: 644
   module.run:
     - service.force_reload:
       - name: letsencrypt-renew

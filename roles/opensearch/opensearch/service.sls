@@ -21,7 +21,7 @@ opensearch_unit:
   file.managed:
     - name: /etc/systemd/system/opensearch.service
     - source: salt://roles/opensearch/opensearch/files/opensearch.service
-    - mode: 0644
+    - mode: 644
   service.running:
     - name: opensearch
     - enable: true
