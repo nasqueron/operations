@@ -1,7 +1,5 @@
-#!/bin/sh
-
 #   -------------------------------------------------------------
-#   Fetch ports
+#   Debian packages
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        BSD-2-Clause
