@@ -112,6 +112,7 @@ tmux:
 sysadmin_utilities:
   pkg.installed:
     - pkgs:
+      - ripgrep
       - tree
       - wget
       {% if grains['os'] == 'FreeBSD' %}
