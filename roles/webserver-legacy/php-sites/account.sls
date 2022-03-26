@@ -14,7 +14,7 @@
 
 web_account_{{ site['user'] }}:
   user.present:
-    - name: {{ site['user' ]}}
+    - name: {{ site['user' ] }}
     - fullname: {{ fqdn }}
     - gid: web
     - system: True

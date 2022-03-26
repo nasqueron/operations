@@ -41,13 +41,13 @@ php-fpm_pool_{{ site['user'] }}:
         fqdn: {{ fqdn }}
         domain: {{ site['domain'] }}
         subdomain: {{ site['subdomain'] }}
-        user: {{ site['user' ]}}
+        user: {{ site['user' ] }}
         display_errors: {{ site['display_errors']|default('off') }}
         slow_delay: {{ site['slow_delay']|default('5s') }}
         env : {{ site['env']|default({}) }}
         capabilities: {{ site['capabilities']|default([]) }}
 
-/var/log/www/{{ site['domain' ]}}/{{ site['subdomain' ]}}-php.log:
+/var/log/www/{{ site['domain' ] }}/{{ site['subdomain' ] }}-php.log:
   file.managed:
     - replace: False
     - user: {{ site['user'] }}

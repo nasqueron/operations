@@ -39,5 +39,5 @@
 /var/tmp/php/sessions/{{ fqdn }}:
   file.directory:
     - mode: 0700
-    - user: {{ site['user']}}
+    - user: {{ site['user'] }}
 {% endfor %}

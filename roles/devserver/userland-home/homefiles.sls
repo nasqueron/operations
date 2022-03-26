@@ -13,7 +13,7 @@
 {% set tasks = user.get('devserver_tasks', []) %}
 
 {% if 'deploy_dotfiles' in tasks %}
-dotfiles_to_devserver_{{username}}:
+dotfiles_to_devserver_{{ username }}:
   file.recurse:
     - name: /home/{{ username }}
     - source: salt://roles/devserver/userland-home/files/{{ username }}
@@ -48,7 +48,7 @@ devserver_rustup_{{ username }}:
     - creates: {{ rustup_path }}
 
 {% for toolchain in ['stable', 'nightly'] %}
-devserver_rustup_{{toolchain}}_{{username}}:
+devserver_rustup_{{ toolchain }}_{{ username }}:
   cmd.run:
     - name: {{ rustup_path }} install {{ toolchain }}
     - runas: {{ username }}
@@ -57,11 +57,11 @@ devserver_rustup_{{toolchain}}_{{username}}:
 {% endif %}
 
 {% if 'install_diesel' in tasks %}
-devserver_diesel_{{username}}:
+devserver_diesel_{{ username }}:
   cmd.run:
-    - name: /home/{{username}}/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres,sqlite
-    - runas: {{username}}
-    - creates: /home/{{username}}/.cargo/bin/diesel
+    - name: /home/{{ username }}/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres,sqlite
+    - runas: {{ username }}
+    - creates: /home/{{ username }}/.cargo/bin/diesel
 {% endif %}
 
 {% endfor %}

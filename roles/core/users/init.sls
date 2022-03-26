@@ -122,7 +122,7 @@ group_{{ groupname }}:
     - group: {{ username }}
     - dir_mode: 700
 
-/home/{{ username}}/.ssh/authorized_keys:
+/home/{{ username }}/.ssh/authorized_keys:
   file.managed:
     - source: salt://roles/core/users/files/authorized_keys
     - user: {{ username }}
