@@ -30,7 +30,6 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     invalid_netmasks = lambda: (
         # In binary, it's not a suite of 1 then a suite of 0
         ("255.255.255.209",),
-
         # By definition, netmask MUST be strictly greater than 0
         ("0.0.0.0",),
     )

@@ -7,14 +7,18 @@ from sys import argv, exit, stderr
 
 
 def get_url(base_url, tag):
-    relative_url = tag.get('href')
+    relative_url = tag.get("href")
     return parse.urljoin(base_url, relative_url)
 
 
 def is_media_extension(extension):
     valid_extensions = [
         # Videos
-        ".avi", ".flv", ".mp4", ".wmv", ".mkv",
+        ".avi",
+        ".flv",
+        ".mp4",
+        ".wmv",
+        ".mkv",
     ]
     return extension in valid_extensions
 
@@ -35,7 +39,7 @@ def print_pls(url):
     i = 0
     for link in links:
         i += 1
-        print('File{:d}={:s}'.format(i, link))
+        print("File{:d}={:s}".format(i, link))
 
     print("")
     print("NumberOfEntries={:d}".format(i))
@@ -51,8 +55,8 @@ def get_links(url):
         with request.urlopen(url) as response:
             body = response.read()
 
-        soup = BeautifulSoup(body, 'html.parser')
-        return [get_url(url, link) for link in soup.find_all('a')]
+        soup = BeautifulSoup(body, "html.parser")
+        return [get_url(url, link) for link in soup.find_all("a")]
     except ValueError:
         print("No valid URL: " + url, file=stderr)
         return []

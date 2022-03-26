@@ -18,7 +18,7 @@ import re
 
 def is_valid_netmask(netmask):
     # "255.255.255.240" → "11111111111111111111111111110000"
-    bits = ''.join([format(int(octet), 'b') for octet in netmask.split(".")])
+    bits = "".join([format(int(octet), "b") for octet in netmask.split(".")])
 
     # A netmask is valid if the suite of bits:
     #   - starts by contiguous 1, e.g. here 1111111111111111111111111111

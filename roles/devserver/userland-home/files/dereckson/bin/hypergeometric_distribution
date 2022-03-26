@@ -21,7 +21,10 @@ def compute(population_size, success_states_count, draws_count, observed_success
 
 
 def usage():
-    print(f"Usage: {sys.argv[0]} <population size> <number of success states> <number of draws> <number of observed successes>", file=sys.stderr)
+    print(
+        f"Usage: {sys.argv[0]} <population size> <number of success states> <number of draws> <number of observed successes>",
+        file=sys.stderr,
+    )
 
 
 def help():
