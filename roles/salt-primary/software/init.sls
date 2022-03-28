@@ -18,7 +18,7 @@ install_salt_extra_software:
       # Jenkins execution module
       - {{ packages_prefixes.python3 }}python-jenkins
       # For staging-commit-message
-      - {{ packages_prefixes.python3 }}GitPython
+      - {{ packages_prefixes.python3 }}gitpython
 
 {{ dirs.bin }}/staging-commit-message:
   file.managed:
