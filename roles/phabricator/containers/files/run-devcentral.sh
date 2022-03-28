@@ -23,10 +23,12 @@
 #   Container parameters
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+#IMAGE=nasqueron/phabricator
+IMAGE=nasqueron/devcentral:2022-03-28.init-fix
 INSTANCE_NAME=devcentral
 PORT=31080
 DOMAIN=$INSTANCE_NAME.nasqueron.org
-DATA_DIRECTORY=/srv/data/$INSTANCE_NAME
+DATA_DIRECTORY=/srv/phabricator/$INSTANCE_NAME
 MYSQL_INSTANCE=acquisitariat
 
 #   -------------------------------------------------------------
@@ -35,7 +37,7 @@ MYSQL_INSTANCE=acquisitariat
 
 PHABRICATOR_URL=http://$DOMAIN
 PHABRICATOR_TITLE="Nasqueron DevCentral"
-PHABRICATOR_ALT_FILE_DOMAIN="https://phabricator-files-for-devcentral-nasqueron.spacetechnology.net"
+PHABRICATOR_ALT_FILE_DOMAIN="https://devcentral.nasqueron-user-content.org/"
 
 #   -------------------------------------------------------------
 #   Deployment of our Phabricator code parameters
@@ -66,6 +68,7 @@ docker run -t -d \
 	-v $DATA_DIRECTORY/repo:/var/repo \
 	-v $DATA_DIRECTORY/conf:/opt/phabricator/conf \
 	-p $PORT:80 \
+        -p 5022:5022 \
 	-e PHABRICATOR_URL=$PHABRICATOR_URL \
 	-e PHABRICATOR_TITLE="$PHABRICATOR_TITLE" \
 	-e PHABRICATOR_ALT_FILE_DOMAIN="$PHABRICATOR_ALT_FILE_DOMAIN" \
@@ -73,8 +76,7 @@ docker run -t -d \
 	-e PHABRICATOR_PROD_BRANCH=$PHABRICATOR_PROD_BRANCH \
 	-e PHABRICATOR_USE_MAILGUN=1 \
 	-e PHABRICATOR_DOMAIN=$DOMAIN \
-        -e PHABRICATOR_BOT=xessife \
-	--name $INSTANCE_NAME nasqueron/phabricator
+	--name $INSTANCE_NAME $IMAGE /usr/local/sbin/runsvdir-init
 
 #   -------------------------------------------------------------
 #   DevCentral specific branch deployment
