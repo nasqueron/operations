@@ -1,5 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Salt master configuration
+#   Salt — Salt configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-04-28
@@ -12,9 +12,9 @@
 #   Providers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-saltmaster_cloud_providers:
+salt_cloud_providers:
   file.recurse:
     - name: {{ dirs.etc }}/salt/cloud.providers.d
-    - source: salt://roles/saltmaster/cloud/files/providers
+    - source: salt://roles/salt-primary/cloud/files/providers
     - dir_mode: 755
     - file_mode: 644

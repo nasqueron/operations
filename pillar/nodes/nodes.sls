@@ -44,7 +44,7 @@ nodes:
     hostname: complector.nasqueron.org
     roles:
       - vault
-      - saltmaster
+      - salt-primary
     zfs:
       pool: zroot
     network:
@@ -147,7 +147,7 @@ nodes:
     hostname: ysul.nasqueron.org
     roles:
       - devserver
-      - saltmaster
+      - salt-primary
       - dbserver-mysql
       - webserver-legacy
     zfs:
@@ -173,7 +173,7 @@ nodes:
     hostname: windriver.nasqueron.org
     roles:
       - devserver
-      - saltmaster
+      - salt-primary
       - dbserver-mysql
       - webserver-legacy
     zfs:

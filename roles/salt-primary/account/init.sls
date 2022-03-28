@@ -1,5 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Salt master configuration
+#   Salt — Salt configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-04-28
@@ -19,7 +19,7 @@ salt_account:
     - gid: 9001
   user.present:
     - name: salt
-    - fullname: SaltStack master account
+    - fullname: SaltStack primary server account
     - uid: 9001
     - gid: 9001
     - home: /var/run/salt
@@ -78,8 +78,8 @@ deploy_account_ssh_key:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for sudofile in ['salt', 'deploy'] %}
-saltmaster_sudo_capabilities_{{ sudofile }}:
+salt_sudo_capabilities_{{ sudofile }}:
   file.managed:
     - name: {{ dirs.etc }}/sudoers.d/{{ sudofile }}
-    - source: salt://roles/saltmaster/account/files/{{ sudofile }}
+    - source: salt://roles/salt-primary/account/files/{{ sudofile }}
 {% endfor %}

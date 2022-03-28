@@ -13,7 +13,7 @@
 
 {{ zr_home }}/data/servers.json:
   file.managed:
-    - source: salt://roles/saltmaster/zemke-rhyne/files/servers.json.jinja
+    - source: salt://roles/salt-primary/zemke-rhyne/files/servers.json.jinja
     - template: jinja
     - user: zr
 

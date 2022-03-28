@@ -33,7 +33,7 @@ DOCKER_RUN_SCRIPT=/srv/sentry/$REALM/bin/sentry
 
 if [ ! -f "$DOCKER_RUN_SCRIPT" ]; then
     echo "File doesn't exist: $DOCKER_RUN_SCRIPT" 1>&2;
-    echo "You can generate it running 'deploy-container sentry' command on the Salt master. 1>&2;"
+    echo "You can generate it running 'deploy-container sentry' command on the Salt primary server. 1>&2;"
     exit 4
 fi
 

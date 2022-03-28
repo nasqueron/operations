@@ -1,5 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Salt master configuration
+#   Salt — Salt configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-10-04
@@ -28,7 +28,7 @@
 
 {{ dirs.etc }}/salt-wrapper.conf:
   file.managed:
-    - source: salt://roles/saltmaster/salt-wrapper/files/salt-wrapper.conf
+    - source: salt://roles/salt-primary/salt-wrapper/files/salt-wrapper.conf
 
 #   -------------------------------------------------------------
 #   Wrapper manual

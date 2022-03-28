@@ -1,5 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Provision a salt master
+#   Salt — Provision a salt primary server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2018-10-04
@@ -22,5 +22,5 @@ install_salt_extra_software:
 
 {{ dirs.bin }}/staging-commit-message:
   file.managed:
-    - source: salt://roles/saltmaster/software/files/staging-commit-message.py
+    - source: salt://roles/salt-primary/software/files/staging-commit-message.py
     - mode: 755

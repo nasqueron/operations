@@ -23,7 +23,7 @@
     - name: {{ repo['source'] }}
     - target: {{ target }}
     - update_head: False
-    {% if salt['node.has_role']('saltmaster') %}
+    {% if salt['node.has_role']('salt-primary') %}
     # TODO: find an alternative solution for other servers (suggest rSTAGING?)
     - identity: /opt/salt/security/id_ed25519
     {% endif %}

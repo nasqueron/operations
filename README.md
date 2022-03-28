@@ -73,6 +73,14 @@ on DevCentral, the Nasqueron Phabricator instance.
 
 Support for contributors is provided on Freenode #nasqueron-ops.
 
+Inclusive terminology
+---------------------
+
+The repository uses the following terminology:
+
+  - **Salt primary server**: server that issues commands to other servers, including itself
+  - **Node**: a server, baremetal or VM configured by Salt
+
 License
 -------
 

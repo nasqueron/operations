@@ -11,7 +11,7 @@ base:
     - roles/core
     - roles/webserver-content
   'local':
-    - roles/saltmaster
+    - roles/salt-primary
   'ysul':
     - roles/builder
     - roles/dbserver-mysql
