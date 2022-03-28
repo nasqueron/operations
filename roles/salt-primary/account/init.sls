@@ -44,7 +44,8 @@ deploy_account:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /opt/salt:
-  file.directory
+  file.directory:
+    - makedirs: True
 
 #   -------------------------------------------------------------
 #   SSH key for deployment account
