@@ -1,0 +1,16 @@
+{% set certificates = salt["grains.filter_by"]({
+    "Debian":
+        "packages": ["ca-certicates"],
+        "dir": "/usr/local/share/ca-certificates",
+        "update-store": "update-ca-certificates",
+    },
+    "FreeBSD": {
+        "packages": ["ca_root_nss"],
+        "dir": "/usr/local/share/certs",
+    },
+    "RedHat": {
+        "packages": ["ca-certicates"],
+        "dir": "/etc/pki/ca-trust/source/anchors",
+        "update-store": "update-ca-trust",
+    }
+}, default="Debian") %}

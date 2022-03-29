@@ -7,6 +7,7 @@
 
 include:
   - .rc
+  - .certificates
   - .hostname
   - .login
   - .network
