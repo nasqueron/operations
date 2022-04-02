@@ -145,6 +145,20 @@ devserver_software_dev_web:
       - memcached
 
 #   -------------------------------------------------------------
+#   Editors and IDE
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+devserver_software_vim:
+  pkg.installed:
+    - pkgs:
+      # Vim itself is already declared in core role.
+      # FreeBSD also offers nvi in base system.
+
+      # Neovim
+      - neovim
+      - {{ packages_prefixes.python3 }}pynvim
+
+#   -------------------------------------------------------------
 #   Tools like code review utilities
 #
 #   Arcanist is installed in the Phabricator states
