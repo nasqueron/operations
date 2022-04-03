@@ -9,7 +9,23 @@
 #   -------------------------------------------------------------
 
 
+import os
+
 from salt.utils.files import fopen
+
+
+VAULT_PREFIX = "ops/secrets/"
+
+
+#   -------------------------------------------------------------
+#   Configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def _are_credentials_hidden():
+    return "CONFIG_PUBLISHER" in os.environ or "state.show_sls" in os.environ.get(
+        "SUDO_COMMAND", ""
+    )
 
 
 #   -------------------------------------------------------------
@@ -30,6 +46,88 @@ def _filter_discard_empty_string_values(haystack):
 def _join_document_fragments(fragments):
     filtered = _filter_discard_empty_string_values(fragments)
     return "\n\n".join(filtered)
+
+
+#   -------------------------------------------------------------
+#   Fetch credentials from Vault
+#
+#   Methods signatures are compatible with Zemke-Rhyne module.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def _get_default_secret_path():
+    return VAULT_PREFIX
+
+
+def _read_secret(key, prefix=None):
+    if prefix is None:
+        prefix = _get_default_secret_path()
+
+    return __salt__["vault.read_secret"](f"{prefix}/{key}")
+
+
+def get_password(key, prefix=None):
+    """
+    A function to fetch credential on Vault
+
+    CLI Example:
+
+        salt docker-001 credentials.get_password nasqueron.foo.bar
+
+    :param key: The key in ops/secrets namespace
+    :param prefix: the prefix path for that key, by default "ops/secrets/"
+    :return: The username
+    """
+    if _are_credentials_hidden():
+        return "credential for " + key
+
+    return _read_secret(key, prefix)["password"]
+
+
+def get_username(key, prefix=None):
+    """
+    A function to fetch the username associated to a credential
+    through Vault
+
+    CLI Example:
+
+        salt docker-001 credentials.get_username nasqueron.foo.bar
+
+    :param key: The key in ops/secrets namespace
+    :param prefix: the prefix path for that key, by default "ops/secrets/"
+    :return: The secret value
+    """
+    return _read_secret(key, prefix)["username"]
+
+
+def get_token(key, prefix=None):
+    """
+    A function to fetch credential through Vault
+
+    CLI Example:
+
+        salt docker-001 credentials.get_token nasqueron.foo.bar
+
+    :param key: The key in ops/secrets namespace
+    :param prefix: the prefix path for that key, by default "ops/secrets/"
+    :return: The secret value
+
+    For Vault, this is actually an alias of the get_password method.
+    """
+    return get_password(key, prefix)
+
+
+def get_sentry_dsn(args):
+    if _are_credentials_hidden():
+        return "credential for " + args["credential"]
+
+    host = __pillar__["sentry_realms"][args["realm"]]["host"]
+    credential = _read_secret(args["credential"])
+
+    return (
+        f"https://{credential['username']}:{credential['password']}"
+        f"@{host}/{args['project_id']}"
+    )
 
 
 #   -------------------------------------------------------------

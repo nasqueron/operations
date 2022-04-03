@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages_prefixes with context %}
+{% from "map.jinja" import dirs, packages_prefixes with context %}
 
 #   -------------------------------------------------------------
 #   Dependencies for Docker Salt minions
@@ -20,3 +20,12 @@ required_python_packages_for_docker_and_salt:
     - bin_env: /usr/bin/pip3
     - require:
       - pkg: required_python_packages_for_docker_and_salt
+
+#   -------------------------------------------------------------
+#   Wrapper to fetch a credential
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/credential:
+  file.managed:
+    - source: salt://roles/paas-docker/salt/files/credential.sh
+    - mode: 755

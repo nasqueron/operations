@@ -29,7 +29,7 @@
     - makedirs: True
     - context:
         links: {{ args['links'] }}
-        credential_id: {{ salt['zr.get_credential_id'](args['credential']) }}
+        credential_key: args['credential']
 
 {% if has_selinux %}
 selinux_context_{{ realm }}_sentry_data:
