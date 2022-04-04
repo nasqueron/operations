@@ -47,10 +47,14 @@ devserver_software_misc_security:
 devserver_software_misc_tools:
   pkg.installed:
     - pkgs:
+      - bat
       - boxes
       - cursive
+      - fd-find
       - fusefs-s3fs
+      - fzf
       - gist
+      - hexyl
       - p7zip
       - primegen
       - rsync
