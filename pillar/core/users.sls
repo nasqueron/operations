@@ -121,6 +121,13 @@ shellusers:
       - install_diesel
     uid: 5001
 
+  dorianwinty:
+    fullname: Dorian Winty
+    shell: zsh
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBG+qXq6MnlDBTWmSENIjZA0PuePCjL6KbetG5/NTTOj DorianWinty@portable
+    uid: 2035
+
   erol:
     fullname: Erol Unutmaz
     ssh_keys:

@@ -37,6 +37,7 @@ shellgroups:
       - c2c
       - chan
       - dereckson
+      - dorianwinty
       - erol
       - fluo
       - harshcrop
@@ -99,6 +100,7 @@ shellgroups:
         Provide an account on Nasqueron development servers.
     members:
       - dereckson
+      - dorianwinty
       - fluo
       - inidal
       - rama
