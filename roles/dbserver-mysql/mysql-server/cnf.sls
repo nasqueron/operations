@@ -14,7 +14,7 @@
 #   Required directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/var/run/mysqld:
+/var/run/mysql:
   file.directory:
     - user: mysql
     - group: mysql
@@ -36,9 +36,10 @@
 #   Configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/my.cnf:
-  file.managed:
-    - source: salt://roles/dbserver-mysql/mysql-server/files/my.cnf
+{{ dirs.etc }}/mysql/conf.d:
+  file.recurse:
+    - source: salt://roles/dbserver-mysql/mysql-server/files/conf.d
+    - clean: True # remove wsrep.cnf values (and empty config files)
     - template: jinja
     - context:
         nodename: {{ grains['id'] }}
@@ -50,9 +51,17 @@
   file.managed:
     - source: salt://roles/dbserver-mysql/mysql-server/files/stopwords.txt
 
+#   -------------------------------------------------------------
+#   Service
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains['os'] == 'FreeBSD' %}
+
 /etc/rc.conf.d/mysql:
   file.managed:
     - source: salt://roles/dbserver-mysql/mysql-server/files/mysql.rc
     - template: jinja
     - context:
         use_zfs: {{ use_zfs }}
+
+{% endif %}
