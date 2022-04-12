@@ -82,6 +82,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG9mJZLoqSiPgMxChZxkfkqLxjZw/WuqUC1m7jn93jZp Balaji@Balajis-MacBook-Air.local
     uid: 2027
 
+  bogani:
+    fullname: bogani
+    ssh_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCW8ca/Agw6GuRTUHJpptRVunNJvqewQLV39uT0JIBiANFawI/SWkCm/dS78I4ELiJ61tpJhWMZuWjh3ebnJP/Zbv0AUAsMlilW1K2lIjgnOxpqkqHNzm5sUAccmUO/U6kRE7B1/t8ndY9fC31QPr13XY1hjCLl3vOM9BIWc6RkB4tU/W60o0hsFPkVFQ1RvOy/+oji1Q6L5Epqzz9pmm39XxlTsnP1+4zrt8NaCvH1oOQI1q4Hg0xYy5PADWj/C+AafvQ3rNy7MkdifdbM9mgEKUZAqpgEjmhjVMRhhjRVv2B3ZeMFqvYbB+h/AqXpT/H0/NIfuPdcXg8pzHtND1X9 rsa-key-20220325
+    uid: 2036
+
   c2c:
     fullname: c2c
     shell: fish

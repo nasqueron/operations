@@ -34,6 +34,7 @@ shellgroups:
       - ariel
       - axe
       - balaji
+      - bogani
       - c2c
       - chan
       - dereckson
