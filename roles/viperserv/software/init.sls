@@ -15,6 +15,8 @@
 daeghrefn_software:
   pkg.installed:
     - pkgs:
+      - tcl-Trf
+      - tcludp
       - {{ packages['youtube-dl'] }}
 
 # Dæghrefn also need php, ps, grep
