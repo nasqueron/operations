@@ -75,6 +75,14 @@ shellgroups:
       - dereckson
       - sandlayth
 
+  nasqueron-dev-docker:
+    gid: 842
+    description: Docker development
+    members:
+      - dereckson
+      - dorianwinty
+      - sandlayth
+
   ops:
     gid: 3001
     title: Nasqueron Operations

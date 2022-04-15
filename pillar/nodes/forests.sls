@@ -24,6 +24,7 @@
 
 forests:
   - nasqueron-dev
+  - nasqueron-dev-docker
   - nasqueron-infra
   - eglide
 
@@ -39,6 +40,9 @@ shellgroups_by_forest:
   nasqueron-dev:
     - nasquenautes
     - nasqueron-irc
+
+  nasqueron-dev-docker:
+    - nasqueron-dev-docker
 
   nasqueron-infra: []
 

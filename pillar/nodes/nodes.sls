@@ -59,7 +59,7 @@ nodes:
             gateway: 172.27.27.1
 
   dwellers:
-    forest: nasqueron-infra
+    forest: nasqueron-dev-docker
     hostname: dwellers.nasqueron.org
     roles:
       - paas-lxc
