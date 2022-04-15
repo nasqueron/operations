@@ -218,7 +218,12 @@ def _build_node_policy(node, roles_policies):
         for role in __salt__["node.get"]("roles", node)
         if role in roles_policies
     ]
-    return _join_document_fragments(rules)
+    policy = _join_document_fragments(rules)
+
+    if not policy:
+        policy = "# This policy is intentionally left blank."
+
+    return policy
 
 
 def build_policies_by_node():
@@ -229,4 +234,4 @@ def build_policies_by_node():
         for node in __pillar__["nodes"].keys()
     }
 
-    return _filter_discard_empty_string_values(policies)
+    return policies
