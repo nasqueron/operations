@@ -64,6 +64,7 @@ nodes:
     roles:
       - paas-lxc
       - paas-docker
+      - paas-docker-dev
       - mastodon
     flags:
       install_docker_devel_tools: True
@@ -94,6 +95,7 @@ nodes:
     hostname: docker-001.nasqueron.org
     roles:
       - paas-docker
+      - paas-docker-prod
     network:
       ipv6_tunnel: False
 
