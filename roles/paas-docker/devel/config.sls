@@ -1,11 +1,13 @@
 #   -------------------------------------------------------------
-#   Salt — Docker development tools
+#   Salt — Docker development
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-02-15
+#   Created:        2022-04-15
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .config
+/etc/systemd/system/docker.socket.d/socket.conf:
+  file.managed:
+    - source: salt://roles/paas-docker/devel/files/socket.conf
+    - mode: 644
+    - makedirs: True
