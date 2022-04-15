@@ -98,6 +98,9 @@ docker_daemon:
         - "dm.use_deferred_removal=true"
         - "dm.use_deferred_deletion=true"
 
+  dwellers:
+    group: nasqueron-dev-docker
+
 docker_devicemapper:
   docker-001:
     thinpool: wharf-thinpool
