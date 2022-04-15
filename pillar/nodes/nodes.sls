@@ -149,7 +149,6 @@ nodes:
     hostname: ysul.nasqueron.org
     roles:
       - devserver
-      - salt-primary
       - dbserver-mysql
       - webserver-legacy
     zfs:
@@ -175,7 +174,6 @@ nodes:
     hostname: windriver.nasqueron.org
     roles:
       - devserver
-      - salt-primary
       - dbserver-mysql
       - webserver-legacy
     zfs:
