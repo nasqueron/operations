@@ -75,6 +75,21 @@ devserver_software_dev_php:
       - {{ packages.phpunit }}
       - {{ packages_prefixes.pecl }}ast
 
+{{ dirs.bin }}/run-php-script:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/run-php-script.sh
+    - mode: 755
+
+{% for command in ["phan", "phpmd", "phpstan", "psalm", "rector"] %}
+{{ dirs.bin }}/{{ command }}:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/run-php-script-alias.sh.jinja
+    - mode: 755
+    - template: jinja
+    - context:
+        command: {{ command }}
+{% endfor %}
+
 #   -------------------------------------------------------------
 #   Python
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
