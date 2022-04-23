@@ -77,7 +77,6 @@ devserver_node_packages:
 devserver_software_dev_php:
   pkg.installed:
     - pkgs:
-      - {{ packages.phpunit }}
       - {{ packages_prefixes.pecl }}ast
       - {{ packages_prefixes.pecl }}xdebug
 
@@ -103,12 +102,22 @@ devserver_software_dev_php:
     - source_hash: 3d59778ec86faf25fd00e3a329b2f9ad4a3c751ca91601ea7dab70f887b0bf46
     - mode: 755
 
+phpunit:
+  cmd.run:
+    - name: |
+        curl --silent https://sebastian-bergmann.de/gpg.asc | gpg --import
+        wget -O /opt/phpunit.phar https://phar.phpunit.de/phpunit-10.phar
+        wget -O /opt/phpunit.phar.asc https://phar.phpunit.de/phpunit-10.phar.asc
+        cd /opt && gpg --verify ./phpunit.phar.asc
+        rm /opt/phpunit.phar.asc
+    - creates: /opt/phpunit.phar
+
 {{ dirs.bin }}/run-php-script:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/run-php-script.sh
     - mode: 755
 
-{% for command in ["phan", "phpcpd", "phpdox", "phploc", "phpmd", "phpstan", "psalm", "rector"] %}
+{% for command in ["phan", "phpcpd", "phpdox", "phploc", "phpmd", "phpstan", "phpunit", "psalm", "rector"] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/run-php-script-alias.sh.jinja
