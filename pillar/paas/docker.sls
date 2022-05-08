@@ -57,6 +57,7 @@ docker_images:
     - jenkins/jenkins
     - nasqueron/jenkins-agent-node
     - nasqueron/jenkins-agent-php
+    - nasqueron/jenkins-agent-php:7.4.23
     - nasqueron/jenkins-agent-rust
     - nasqueron/tommy
 
@@ -249,26 +250,28 @@ docker_containers:
       # Agents for CD
 
       apsile: &php_for_cd
-        image: php
+        image_flavour: php
         realm: cd
 
       elapsi: *php_for_cd
 
       rust_brown:
-        image: rust
+        image_flavour: rust
         realm: cd
 
       yarabokin:
-        image: node
+        image_flavour: node
         realm: cd
 
       # Agents for CI
 
       zateki: &php_for_ci
-        image: php
+        image_flavour: php
         realm: ci
 
-      zenerre: *php_for_ci
+      zenerre:
+        <<: *php_for_ci
+        version: 7.4.23
 
     tommy:
       tommy_ci:

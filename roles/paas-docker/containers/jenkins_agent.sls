@@ -13,7 +13,8 @@
 
 {% set realm = pillar['jenkins_realms'][container['realm']] %}
 {% set home = "/srv/jenkins/" + container['realm'] + "/agents_homes/" + instance %}
-{% set image = pillar['jenkins_images'][container['image']] %}
+{% set image = pillar['jenkins_images'][container['image_flavour']] %}
+{% set image = salt['paas_docker.get_image'](image, container) %}
 
 #   -------------------------------------------------------------
 #   Home directory
