@@ -81,6 +81,8 @@ docker_networks:
   dwellers:
     bugzilla:
       subnet: 172.21.3.0/24
+    jenkinsTest:
+      subnet: 172.21.4.0/24
   docker-001:
     cd:
       subnet: 172.18.1.0/24
@@ -163,6 +165,17 @@ docker_containers:
           host: bugzilla_db
           db: EspaceWin_Bugs
         credential: espacewin.bugzilla.mysql
+
+    #
+    # Jenkins
+    #
+
+    jenkins:
+      jenkins_test:
+        realm: test
+        host: jenkins.test.nasqueron.org
+        app_port: 46080
+        jnlp_port: 52000
 
     #
     # Mastodon
