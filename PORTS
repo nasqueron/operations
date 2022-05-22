@@ -40,7 +40,7 @@ paas-docker
     43080   Hauk
     44080   Hound
     # 45080 should be reserved for OpenGrok to compare with Hound
-    46080   Jenkins HTTP - Test
+    47080   Jenkins HTTP - Test
     50000   Jenkins master's port for JNLP-based Jenkins agents - CD
     52000   Jenkins master's port for JNLP-based Jenkins agents - Test
     55000   Jenkins master's port for JNKP-based Jenkins agents - CI

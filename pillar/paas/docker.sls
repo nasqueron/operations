@@ -82,7 +82,7 @@ docker_networks:
     bugzilla:
       subnet: 172.21.3.0/24
     jenkinsTest:
-      subnet: 172.21.4.0/24
+      subnet: 172.21.5.0/24
   docker-001:
     cd:
       subnet: 172.18.1.0/24
@@ -174,7 +174,7 @@ docker_containers:
       jenkins_test:
         realm: test
         host: jenkins.test.nasqueron.org
-        app_port: 46080
+        app_port: 47080
         jnlp_port: 52000
 
     #
