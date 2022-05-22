@@ -35,6 +35,7 @@ base:
   dwellers:
     - credentials.zr
     - paas.docker
+    - saas.jenkins
     - saas.sentry
 
   eglide:
