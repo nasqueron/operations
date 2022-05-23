@@ -177,6 +177,11 @@ docker_containers:
         app_port: 47080
         jnlp_port: 52000
 
+    jenkins_agent:
+      zosso:
+        image_flavour: php
+        realm: test
+
     #
     # Mastodon
     #
