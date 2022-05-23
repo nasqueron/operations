@@ -1,0 +1,16 @@
+#   -------------------------------------------------------------
+#   Salt — nasqueron-dev-docker
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Created:        2022-05-23
+#   License:        Trivial work, not eligible to copyright
+#   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Sudo capabilities
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+nasqueron_dev_docker_sudo_capabilities_file:
+  file.managed:
+    - name: {{ dirs.etc }}/sudoers.d/nasqueron-dev-docker
+    - source: salt://roles/paas-docker/devel/file/nasqueron-dev-docker.sudoers
