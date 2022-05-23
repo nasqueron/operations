@@ -52,6 +52,6 @@ selinux_context_jenkins_home_applied_{{ instance }}:
       - 50000
     - port_bindings:
       - {{ container['app_port'] }}:8080 # HTTP
-      - {{ container['jnlp_port'] }}:50000 # Jenkins master's port for JNLP-based Jenkins agents
+      - {{ container['jnlp_port'] }}:50000 # Jenkins controller's port for JNLP-based Jenkins agents
 
 {% endfor %}
