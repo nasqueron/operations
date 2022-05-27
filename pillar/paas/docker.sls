@@ -231,7 +231,7 @@ docker_containers:
 
           # Dwellers
           - 51.255.124.11
-          - 2001:470:1f13:ce7:ca5:cade:fab:1e
+          - 2001:470:1f13:30b:ca5:cade:fab:1e
 
           # docker-001
           - 51.255.124.9

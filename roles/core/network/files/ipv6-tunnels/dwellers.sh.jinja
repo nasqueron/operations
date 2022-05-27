@@ -24,11 +24,11 @@
 ifconfig sit0 up
 ifconfig sit0 inet6 tunnel ::216.66.84.42
 ifconfig sit1 up
-ifconfig sit1 inet6 add 2001:470:1f12:ce7::2/64
+ifconfig sit1 inet6 add 2001:470:1f12:30b::2/64
 route -A inet6 add ::/0 dev sit1
 
 #   -------------------------------------------------------------
 #   Canonical IP
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-ifconfig sit1 inet6 add 2001:470:1f13:ce7:ca5:cade:fab:1e/64
+ifconfig sit1 inet6 add 2001:470:1f13:30b:ca5:cade:fab:1e/64
