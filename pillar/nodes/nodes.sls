@@ -164,7 +164,7 @@ nodes:
           device: igb0
           ipv4:
             address: 163.172.49.16
-            netmask: 255.255.255.255
+            netmask: 255.255.255.0
             gateway: 163.172.49.1
             aliases:
               - 212.83.187.132
@@ -189,7 +189,7 @@ nodes:
           device: igb0
           ipv4:
             address: 51.159.18.59
-            netmask: 255.255.255.255
+            netmask: 255.255.255.0
             gateway: 51.159.18.1
           ipv6:
             address: 2001:0bc8:6005:0005:aa1e:84ff:fef3:5d9c
