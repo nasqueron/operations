@@ -26,9 +26,14 @@ devserver_software_dev_c:
 devserver_software_dev_java:
   pkg.installed:
     - pkgs:
-      - openjdk8
+      - openjdk17
       - apache-ant
       - maven
+
+devserver_software_dev_java_to_prune:
+  pkg.removed:
+    - pkgs:
+      - openjdk8
 
 #   -------------------------------------------------------------
 #   .Net languages
