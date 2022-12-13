@@ -169,6 +169,7 @@ languages_libs:
       - {{ packages_prefixes.php }}sqlite3
       {% else %}
       # On Debian, these extensions are now shipped by default:
+      - {{ packages_prefixes.php }}calendar
       - {{ packages_prefixes.php }}ctype
       - {{ packages_prefixes.php }}dom
       - {{ packages_prefixes.php }}fileinfo
