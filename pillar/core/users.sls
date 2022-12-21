@@ -168,7 +168,7 @@ shellusers:
   inidal:
     fullname: inidal
     ssh_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMp8C1XZYQRrtHawqhPr7f8AHXV1lG8jVPSrQ90vSpa ed25519-key-20200205
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIOm2usb7qaeD25nokB/PdEFqnNab9HOHQqR7qDvaNrB inidal@exia
     uid: 2032
 
   kazuya:
