@@ -59,7 +59,10 @@ def _get_default_secret_path():
     return VAULT_PREFIX
 
 
-def _read_secret(key, prefix=None):
+def read_secret(key, prefix=None):
+    if _are_credentials_hidden():
+        return "credential for " + key
+
     if prefix is None:
         prefix = _get_default_secret_path()
 
@@ -78,10 +81,7 @@ def get_password(key, prefix=None):
     :param prefix: the prefix path for that key, by default "ops/secrets/"
     :return: The username
     """
-    if _are_credentials_hidden():
-        return "credential for " + key
-
-    return _read_secret(key, prefix)["password"]
+    return read_secret(key, prefix)["password"]
 
 
 def get_username(key, prefix=None):
@@ -97,7 +97,7 @@ def get_username(key, prefix=None):
     :param prefix: the prefix path for that key, by default "ops/secrets/"
     :return: The secret value
     """
-    return _read_secret(key, prefix)["username"]
+    return read_secret(key, prefix)["username"]
 
 
 def get_token(key, prefix=None):
@@ -122,7 +122,7 @@ def get_sentry_dsn(args):
         return "credential for " + args["credential"]
 
     host = __pillar__["sentry_realms"][args["realm"]]["host"]
-    credential = _read_secret(args["credential"])
+    credential = read_secret(args["credential"])
 
     return (
         f"https://{credential['username']}:{credential['password']}"

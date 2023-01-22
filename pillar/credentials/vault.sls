@@ -49,6 +49,7 @@ vault_mount_paths:
 
 vault_policies:
   - salt-primary
+  - viperserv
 
 #   -------------------------------------------------------------
 #   Vault policies for Salt
@@ -135,3 +136,6 @@ vault_secrets_by_role:
 
     - ops/secrets/zed.phabricator.mysql
     - ops/secrets/zed.phabricator.sendgrid
+
+  viperserv:
+    - ops/secrets/nasqueron.viperserv.vault

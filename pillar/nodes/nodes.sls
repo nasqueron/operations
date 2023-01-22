@@ -150,6 +150,7 @@ nodes:
     roles:
       - devserver
       - dbserver-mysql
+      - viperserv
       - webserver-legacy
     zfs:
       pool: arcology

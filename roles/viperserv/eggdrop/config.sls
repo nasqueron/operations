@@ -57,8 +57,15 @@
     - source: salt://roles/viperserv/eggdrop/files/dot.credentials
     - user: viperserv
     - group: nasqueron-irc
-    - replace: False
-    - mode: 660
+    - mode: 400
+    - template: jinja
+    - context:
+        db:
+          host: localhost
+          database: Nasqueron
+        vault:
+          approle: {{ salt['credentials.read_secret']('nasqueron.viperserv.vault') }}
+          addr: https://172.27.27.7:8200
 
 {% for botname, bot in pillar['viperserv_bots'].items() %}
 
