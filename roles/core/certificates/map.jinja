@@ -1,5 +1,5 @@
 {% set certificates = salt["grains.filter_by"]({
-    "Debian":
+    "Debian": {
         "packages": ["ca-certicates"],
         "dir": "/usr/local/share/ca-certificates",
         "update-store": "update-ca-certificates",
