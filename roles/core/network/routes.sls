@@ -20,6 +20,21 @@
         routes: {{ salt["node.get_routes"]() }}
 
 #   -------------------------------------------------------------
+#   Enable packet forwarding for routers
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if "router" in grains['roles'] %}
+{% if grains['os'] == 'FreeBSD' %}
+
+/etc/rc.d/routing/router:
+  file.managed:
+    - source: salt://roles/core/network/files/FreeBSD/router.rc
+    - makedirs: True
+
+{% endif %}
+{% endif %}
+
+#   -------------------------------------------------------------
 #   Systemd unit for Linux systems using our /etc/routes.conf
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
