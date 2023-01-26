@@ -110,6 +110,13 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron.notifications.mailgun
     - ops/secrets/nasqueron.notifications.sentry
 
+    - ops/secrets/nasqueron.notifications.credentials_github_nasqueron
+    - ops/secrets/nasqueron.notifications.credentials_github_wolfplex
+    - ops/secrets/nasqueron.notifications.credentials_github_keruald
+    - ops/secrets/nasqueron.notifications.credentials_github_trustspace
+    - ops/secrets/nasqueron.notifications.credentials_github_eglide
+    - ops/secrets/nasqueron.notifications.credentials_phabricator_nasqueron
+
     - ops/secrets/nasqueron.pixelfed.app_key
     - ops/secrets/nasqueron.pixelfed.mailgun
     - ops/secrets/nasqueron.pixelfed.mysql

@@ -27,6 +27,7 @@ base:
 
   docker-001:
     - credentials.zr
+    - notifications.config
     - paas.docker
     - saas.jenkins
     - saas.phpbb
