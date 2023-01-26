@@ -1,12 +1,9 @@
 #   -------------------------------------------------------------
-#   Salt — Database server — PostgreSQL
+#   Database server — PostgreSQL — rc configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-
-  # Content includes databases, users, privileges
-  - .content
+postgresql_enable="YES"
+postgresql_data="/var/db/postgres/data"

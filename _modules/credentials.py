@@ -155,24 +155,8 @@ class VaultSaltRolePolicy:
         vault_paths = __pillar__["vault_secrets_by_role"].get(self.role, [])
 
         return _join_document_fragments(
-            [self.get_read_rule(vault_path) for vault_path in vault_paths]
+            [_get_read_rule(vault_path) for vault_path in vault_paths]
         )
-
-    def get_read_rule(self, vault_path):
-        resolved_vault_path = self.resolve_vault_path(vault_path)
-
-        return f"""path \"{resolved_vault_path}\" {{
-    capabilities = [ \"read\" ]
-}}"""
-
-    @staticmethod
-    def resolve_vault_path(vault_path):
-        for pillar_path, mount_path in __pillar__.get("vault_mount_paths", {}).items():
-            if vault_path.startswith(pillar_path):
-                start_position = len(pillar_path)
-                return mount_path + vault_path[start_position:]
-
-        return vault_path
 
     #
     # Import policies from pillar entry vault_extra_policies_by_role
@@ -193,6 +177,23 @@ class VaultSaltRolePolicy:
 
         with fopen(policy_file) as fd:
             return fd.read()
+
+
+def _get_read_rule(vault_path):
+    resolved_vault_path = _resolve_vault_path(vault_path)
+
+    return f"""path \"{resolved_vault_path}\" {{
+    capabilities = [ \"read\" ]
+}}"""
+
+
+def _resolve_vault_path(vault_path):
+    for pillar_path, mount_path in __pillar__.get("vault_mount_paths", {}).items():
+        if vault_path.startswith(pillar_path):
+            start_position = len(pillar_path)
+            return mount_path + vault_path[start_position:]
+
+    return vault_path
 
 
 def _compile_roles_policies():
@@ -218,6 +219,18 @@ def _build_node_policy(node, roles_policies):
         for role in __salt__["node.get"]("roles", node)
         if role in roles_policies
     ]
+
+    cluster = __salt__["node.get"]("dbserver:cluster", node)
+    if cluster is not None:
+        dbserver_rules_paths = __pillar__["vault_secrets_by_dbserver_cluster"].get(
+            cluster, []
+        )
+        rules.append(
+            _join_document_fragments(
+                [_get_read_rule(vault_path) for vault_path in dbserver_rules_paths]
+            )
+        )
+
     policy = _join_document_fragments(rules)
 
     if not policy:

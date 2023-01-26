@@ -58,6 +58,26 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
+  db-A-001:
+    forest: nasqueron-infra
+    hostname: db-A-001.nasqueron.drake
+    roles:
+      - dbserver-pgsql
+    zfs:
+      pool: arcology
+    dbserver:
+      cluster: A
+    network:
+      ipv6_tunnel: False
+
+      interfaces:
+        intranought:
+          device: vmx0
+          ipv4:
+            address: 172.27.27.8
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
   dwellers:
     forest: nasqueron-dev-docker
     hostname: dwellers.nasqueron.org

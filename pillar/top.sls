@@ -32,6 +32,9 @@ base:
     - saas.phpbb
     - saas.sentry
 
+  db-A-001:
+    - dbserver.cluster-A
+
   dwellers:
     - credentials.zr
     - paas.docker

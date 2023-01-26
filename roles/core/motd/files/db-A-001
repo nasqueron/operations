@@ -1,0 +1,9 @@
+    ____  ______  ___
+   /    )/      \/   \    db-001-A.nasqueron.drake
+  (     / __    _\    )
+   \    (/ o)  ( o)   )   IP: {{ ipv4_address.ljust(16) }}   OS: FreeBSD 13
+    \_  (_  )   \ )  /    GW: {{ ipv4_gateway.ljust(16) }}   Cluster A | PostgreSQL
+      \  /\_/    \)_/
+       \/  //|  |\\       This server hosts databases for Nasqueron projects.
+           v |  | v       Use stricly Salt to configure any database or access.
+             \__/

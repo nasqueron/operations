@@ -139,3 +139,15 @@ vault_secrets_by_role:
 
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
+
+#   -------------------------------------------------------------
+#   Vault secrets by dbserver cluster
+#
+#   Paths of the keys the specified role needs access to.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+vault_secrets_by_dbserver_cluster:
+
+  # Main PostgreSQL cluster
+  A:
+    - ops/secrets/dbserver/cluster-A/users/*

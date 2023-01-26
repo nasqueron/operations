@@ -29,6 +29,8 @@ base:
     - roles/webserver-legacy
   'cloudhugger':
     - roles/opensearch
+  'db-A-001':
+    - roles/dbserver-pgsql
   'docker-001':
     - roles/paas-docker
   'dwellers':
