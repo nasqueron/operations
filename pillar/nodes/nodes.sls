@@ -79,7 +79,7 @@ nodes:
           uuid: 6e05ebea-f2fd-4ca1-a21f-78a778664d8c
           ipv4:
             address: 51.255.124.11
-            netmask: 255.255.255.252
+            netmask: *intranought_netmask
             gateway: 91.121.86.254
 
         intranought:
@@ -107,7 +107,7 @@ nodes:
           uuid: ef7370c5-5060-4d89-82bb-dbeabf4a35f6
           ipv4:
             address: 51.255.124.9
-            netmask: 255.255.255.252
+            netmask: *intranought_netmask
             gateway: 91.121.86.254
 
         intranought:
@@ -133,7 +133,7 @@ nodes:
           device: vmx0
           ipv4:
             address: 51.255.124.8
-            netmask: 255.255.255.252
+            netmask: *intranought_netmask
             gateway: 91.121.86.254
           flags:
             - ipv4_ovh_failover
