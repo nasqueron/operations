@@ -137,6 +137,16 @@ def generate_random(secret_len):
 def get_sentry_dsn(args):
     sentry_server = _get_sentry_server(args["realm"])
 
+    if _are_credentials_hidden():
+        return (
+            "https://[…]@"
+            + sentry_server
+            + "/"
+            + str(args["project_id"])
+            + " with credential for "
+            + args["credential"]
+        )
+
     return (
         "https://"
         + ":".join(
