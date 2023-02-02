@@ -66,7 +66,7 @@ network_ipv6:
 #   Routes
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has']('network:ipv6_gateway') %}
+{% if "ipv6_gateway" in network %}
 
 {% if grains['os'] == 'FreeBSD' %}
 /etc/rc.conf.d/routing/ipv6:
@@ -75,7 +75,7 @@ network_ipv6:
     - makedirs: True
     - template: jinja
     - context:
-        ipv6_gateway: {{ ipv6_gateway }}
+        ipv6_gateway: {{ network["ipv6_gateway"] }}
 {% endif %}
 
 {% endif %}
