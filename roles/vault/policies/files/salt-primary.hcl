@@ -67,3 +67,7 @@ path "auth/token/revoke-accessor" {
 path "sys/capabilities-self" {
   capabilities = ["update"]
 }
+
+path "transit/keys/*"{
+  capabilities = ["create"]
+}
