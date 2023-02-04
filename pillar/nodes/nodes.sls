@@ -100,7 +100,7 @@ nodes:
           ipv4:
             address: 51.255.124.11
             netmask: *intranought_netmask
-            gateway: 91.121.86.254
+            gateway: 51.210.99.254
 
         intranought:
           device: ens224
@@ -128,7 +128,7 @@ nodes:
           ipv4:
             address: 51.255.124.9
             netmask: *intranought_netmask
-            gateway: 91.121.86.254
+            gateway: 51.210.99.254
 
         intranought:
           device: ens224
