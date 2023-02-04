@@ -154,7 +154,7 @@ nodes:
           ipv4:
             address: 51.255.124.8
             netmask: *intranought_netmask
-            gateway: 91.121.86.254
+            gateway: 51.210.99.254
           flags:
             - ipv4_ovh_failover
 
