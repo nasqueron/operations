@@ -7,8 +7,8 @@
 #   -------------------------------------------------------------
 
 docker_aliases:
-  - &ipv4_docker001 51.255.124.9
-  - &ipv4_docker001_restricted 51.255.124.9
+  - &ipv4_docker002 51.255.124.9
+  - &ipv4_docker002_restricted 172.27.27.5
 
 #   -------------------------------------------------------------
 #   Images
@@ -27,7 +27,7 @@ docker_images:
     # Core services
     - nasqueron/mysql:5.7
 
-  docker-001:
+  docker-002:
     # Core services
     - library/postgres
     - library/redis:3.2-alpine
@@ -83,7 +83,7 @@ docker_networks:
       subnet: 172.21.3.0/24
     jenkinsTest:
       subnet: 172.21.5.0/24
-  docker-001:
+  docker-002:
     cd:
       subnet: 172.18.1.0/24
     ci:
@@ -94,20 +94,11 @@ docker_networks:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 docker_daemon:
-  docker-001:
-    storage-driver: devicemapper
-    storage-opts:
-        - "dm.thinpooldev=/dev/mapper/wharf-thinpool"
-        - "dm.use_deferred_removal=true"
-        - "dm.use_deferred_deletion=true"
-
+  docker-002:
+    data-root: /srv/docker
   dwellers:
     data-root: /srv/docker
     group: nasqueron-dev-docker
-
-docker_devicemapper:
-  docker-001:
-    thinpool: wharf-thinpool
 
 #   -------------------------------------------------------------
 #   Containers
@@ -198,9 +189,9 @@ docker_containers:
         realm: nasqueron
 
   #
-  # Current production engine
+  # Production engine
   #
-  docker-001:
+  docker-002:
 
     #
     # Core services
@@ -218,15 +209,6 @@ docker_containers:
       sentry_db:
         credential: nasqueron.sentry.postgresql
 
-    rabbitmq:
-      white-rabbit:
-        ip: *ipv4_docker001_restricted
-        host: white-rabbit.nasqueron.org
-        app_port: 15672
-        credentials:
-          erlang_cookie: nasqueron/rabbitmq/white-rabbit/erlang-cookie
-          root: nasqueron/rabbitmq/white-rabbit/root
-
     redis:
       sentry_redis: {}
       pixelfed_redis: {}
@@ -240,101 +222,23 @@ docker_containers:
           - 127.0.0.1
 
           # Dwellers
-          - 51.255.124.11
-          - 2001:470:1f13:30b:ca5:cade:fab:1e
+          - 172.27.27.4
 
-          # docker-001
-          - 51.255.124.9
-          - 2001:470:1f13:365::50f7:ba11
+          # docker-002
+          - 172.27.27.5
 
-    #
-    # Let's Encrypt
-    #
-
-    acme_dns:
-      acme:
-        ip: *ipv4_docker001
-        app_port: 41080
-        host: acme.nasqueron.org
-        nsadmin: ops.nasqueron.org
-
-    #
-    # CI and CD
-    #
-
-    jenkins:
-      jenkins_cd:
-        realm: cd
-        host: cd.nasqueron.org
-        app_port: 38080
-        jnlp_port: 50000
-      jenkins_ci:
-        realm: ci
-        host: ci.nasqueron.org
-        app_port: 42080
-        jnlp_port: 55000
-
-    jenkins_agent:
-      # Agents for CD
-
-      apsile: &php_for_cd
-        image_flavour: php
-        realm: cd
-
-      elapsi: *php_for_cd
-
-      rust_brown:
-        image_flavour: rust
-        realm: cd
-
-      yarabokin:
-        image_flavour: node
-        realm: cd
-
-      # Agents for CI
-
-      zateki: &php_for_ci
-        image_flavour: php
-        realm: ci
-
-      zenerre:
-        <<: *php_for_ci
-        version: 7.4.23
-
-    tommy:
-      tommy_ci:
-        app_port: 24080
-        host: builds.nasqueron.org
-        aliases:
-          - build.nasqueron.org
-        jenkins_url: https://ci.nasqueron.org
-        jenkins_multi_branch: True
-
-      tommy_cd:
-        # No host definition, as this dashboard is mounted on infra.nasqueron.org
-        app_port: 24180
-        jenkins_url: https://cd.nasqueron.org
-
-    # Infrastructure and development services
-
-    hound:
-      hound:
-        app_port: 44080
-        host: code.nasqueron.org
-        github_account: nasqueron
-
-    notifications:
-      notifications:
-        host: notifications.nasqueron.org
-        app_port: 37080
-        broker_link: white-rabbit
+    rabbitmq:
+      white-rabbit:
+        ip: *ipv4_docker002_restricted
+        host: white-rabbit.nasqueron.org
+        app_port: 15672
         credentials:
-          broker: nasqueron.notifications.broker
-          mailgun: nasqueron.notifications.mailgun
-        sentry:
-          realm: nasqueron
-          project_id: 2
-          credential: nasqueron.notifications.sentry
+          erlang_cookie: nasqueron/rabbitmq/white-rabbit/erlang-cookie
+          root: nasqueron/rabbitmq/white-rabbit/root
+
+    #
+    # Phabricator
+    #
 
     phabricator:
       # Nasqueron instance
@@ -407,13 +311,26 @@ docker_containers:
           client: 22280
           admin: 22281
 
-    cachet:
-      cachet:
-        app_port: 39080
-        host: status.nasqueron.org
-        credential: nasqueron.cachet.mysql
-        app_key: nasqueron.cachet.app_key
-        mysql_link: acquisitariat
+    #
+    # Notifications center
+    #
+
+    notifications:
+      notifications:
+        host: notifications.nasqueron.org
+        app_port: 37080
+        broker_link: white-rabbit
+        credentials:
+          broker: nasqueron.notifications.broker
+          mailgun: nasqueron.notifications.mailgun
+        sentry:
+          realm: nasqueron
+          project_id: 2
+          credential: nasqueron.notifications.sentry
+
+    #
+    # Community and development services
+    #
 
     etherpad:
       pad:
@@ -423,6 +340,99 @@ docker_containers:
           - pad.wolfplex.org
           - pad.wolfplex.be
         credential: nasqueron.etherpad.api
+        mysql_link: acquisitariat
+
+    # Hauk
+    hauk:
+      hauk:
+        app_port: 43080
+        host: geo.nasqueron.org
+        api_entry_point: /hauk
+
+    #
+    # Let's Encrypt
+    #
+
+    acme_dns:
+      acme:
+        ip: *ipv4_docker002
+        app_port: 41080
+        host: acme.nasqueron.org
+        nsadmin: ops.nasqueron.org
+
+    #
+    # CI and CD
+    #
+
+    jenkins:
+      jenkins_cd:
+        realm: cd
+        host: cd.nasqueron.org
+        app_port: 38080
+        jnlp_port: 50000
+      jenkins_ci:
+        realm: ci
+        host: ci.nasqueron.org
+        app_port: 42080
+        jnlp_port: 55000
+
+    jenkins_agent:
+      # Agents for CD
+
+      apsile: &php_for_cd
+        image_flavour: php
+        realm: cd
+
+      elapsi: *php_for_cd
+
+      rust_brown:
+        image_flavour: rust
+        realm: cd
+
+      yarabokin:
+        image_flavour: node
+        realm: cd
+
+      # Agents for CI
+
+      zateki: &php_for_ci
+        image_flavour: php
+        realm: ci
+
+      zenerre:
+        <<: *php_for_ci
+        version: 7.4.23
+
+    tommy:
+      tommy_ci:
+        app_port: 24080
+        host: builds.nasqueron.org
+        aliases:
+          - build.nasqueron.org
+        jenkins_url: https://ci.nasqueron.org
+        jenkins_multi_branch: True
+
+      tommy_cd:
+        # No host definition, as this dashboard is mounted on infra.nasqueron.org
+        app_port: 24180
+        jenkins_url: https://cd.nasqueron.org
+
+    #
+    # Infrastructure and development services
+    #
+
+    hound:
+      hound:
+        app_port: 44080
+        host: code.nasqueron.org
+        github_account: nasqueron
+
+    cachet:
+      cachet:
+        app_port: 39080
+        host: status.nasqueron.org
+        credential: nasqueron.cachet.mysql
+        app_key: nasqueron.cachet.app_key
         mysql_link: acquisitariat
 
     auth-grove:
@@ -451,7 +461,7 @@ docker_containers:
     # Openfire
     openfire:
       openfire:
-        ip: *ipv4_docker001
+        ip: *ipv4_docker002
         app_port: 9090
         host: xmpp.nasqueron.org
 
@@ -477,13 +487,6 @@ docker_containers:
         app:
           title: Nasqueron Photos
           max_album_length: 16
-
-    # Hauk
-    hauk:
-      hauk:
-        app_port: 43080
-        host: geo.nasqueron.org
-        api_entry_point: /hauk
 
     # Sentry
     # The Sentry instance uses a Redis and a PostgreSQL instance,

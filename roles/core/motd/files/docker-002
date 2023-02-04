@@ -1,0 +1,14 @@
+
+    docker-002                ______
+                              \     \
+    A Nasqueron infra-         \     \           IP: {{ ipv4_address }}
+    structure server.           \     \_         GW: {{ ipv4_gateway }}
+                                _\      \
+    PaaS Docker                 \        \
+                                 \        \_
+    The containers hosted        _\         \
+    here are in production.      \           \
+                                  \           \_
+    /// /// /// /// /// ///       _\            \
+                                  \              \
+___________________________________\              \_________mic'03

@@ -31,7 +31,7 @@ base:
     - roles/opensearch
   'db-A-001':
     - roles/dbserver-pgsql
-  'docker-001':
+  'docker-002':
     - roles/paas-docker
   'dwellers':
     - roles/paas-docker/docker

@@ -25,8 +25,7 @@ base:
   complector:
     - credentials.vault
 
-  docker-001:
-    - credentials.zr
+  docker-002:
     - notifications.config
     - paas.docker
     - saas.jenkins

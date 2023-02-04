@@ -138,6 +138,34 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
+  docker-002:
+    forest: nasqueron-infra
+    hostname: docker-002.nasqueron.org
+    roles:
+      - paas-docker
+      - paas-docker-prod
+    network:
+      ipv6_tunnel: True
+
+      canonical_public_ipv4: 51.255.124.9
+
+      interfaces:
+        public:
+          device: ens192
+          uuid: d55e0fec-f90b-3014-a458-9067ff8f2520
+          ipv4:
+            address: 51.255.124.10
+            netmask: *intranought_netmask
+            gateway: 51.210.99.254
+
+        intranought:
+          device: ens224
+          uuid: 57c04bcc-929b-3177-a2e3-88f84f210721
+          ipv4:
+            address: 172.27.27.5
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
   router-001:
     forest: nasqueron-infra
     hostname: router-001.nasqueron.org
