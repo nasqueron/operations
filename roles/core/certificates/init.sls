@@ -38,7 +38,7 @@ certificates_packages:
 
 certificates_update_store:
   cmd.run:
-    - name: {{ certificates.update-store }}
+    - name: {{ certificates["update-store"] }}
     - onchanges:
       - file: {{ certificates.dir }}/nasqueron-vault-ca.crt
 
