@@ -7,6 +7,7 @@
 #   -------------------------------------------------------------
 
 {% if grains['os_family'] == 'RedHat' %}
+{% if salt['file.file_exists']("/etc/tuned") %}
 
 /etc/tuned/paas-docker:
   file.directory
@@ -21,4 +22,13 @@ apply_paas_docker_tuned_configuration:
     - onchanges:
         - file: /etc/tuned/paas-docker/tuned.conf
 
+{% else %}
+
+# /sys/kernel allows to write settings and display the selected one in []
+restrict_hugepages:
+  cmd.run:
+    - name: echo madvise > /sys/kernel/mm/transparent_hugepage/enabled
+    - unless: grep -q "\[madvise\]" /sys/kernel/mm/transparent_hugepage/enabled
+
+{% endif %}
 {% endif %}
