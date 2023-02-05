@@ -123,6 +123,7 @@ sysadmin_utilities:
       {% endif %}
       {% if grains['os_family'] == 'RedHat' %}
       - psmisc
+      - tar
       {% endif %}
 
 {% if grains['os'] == 'FreeBSD' %}
