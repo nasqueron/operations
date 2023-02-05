@@ -12,7 +12,7 @@
 #   Install Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'CentOS' %}
+{% if grains['os_family'] == 'RedHat' && grains['os'] != 'Fedora' %}
 remove_legacy_docker_packages:
   pkg.removed:
     - pkgs:

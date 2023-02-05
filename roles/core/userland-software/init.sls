@@ -12,7 +12,7 @@
 #   Software sources
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'CentOS' %}
+{% if grains['os_family'] == 'RedHat' && grains['os'] != 'Fedora' %}
 epel-release:
   pkg.installed
 
