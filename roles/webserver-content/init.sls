@@ -11,8 +11,11 @@ include:
   - .org/eglide
   - .org/nasqueron/api
   - .org/nasqueron/autoconfig
+  - .org/nasqueron/daeghrefn
   - .org/nasqueron/docs
+  - .org/nasqueron/infra
   - .org/nasqueron/labs
+  - .org/nasqueron/rain
   - .org/nasqueron/social
   - .org/wolfplex/api
   - .org/wolfplex/www
