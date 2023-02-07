@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.1.0
+    rev: v4.4.0
     hooks:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
@@ -17,12 +17,12 @@ repos:
         exclude: patch$
 
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 23.1.0
     hooks:
       - id: black
 
   - repo: https://github.com/warpnet/salt-lint
-    rev: v0.8.0
+    rev: v0.9.1
     hooks:
       - id: salt-lint
         args: ["-x", "207,208"]
