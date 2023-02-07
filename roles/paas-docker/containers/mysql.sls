@@ -44,7 +44,7 @@ selinux_context_{{ instance }}_mysql_data_applied:
     - image: {{ image }}
     - binds: /srv/{{ instance }}/mysql:/var/lib/mysql
     - environment:
-        MYSQL_ROOT_PASSWORD: {{ salt['zr.generate_random'](31) }}
+        MYSQL_ROOT_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['root']) }}
 {% if 'network' in container %}
     - networks:
       - {{ container['network'] }}

@@ -151,6 +151,8 @@ docker_containers:
       bugzilla_db:
         network: bugzilla
         version: 5.7
+        credentials:
+          root: espacewin.bugzilla.mysql_root
 
     #
     # Bugzilla
@@ -204,8 +206,12 @@ docker_containers:
     #
 
     mysql:
-      acquisitariat: {}
-      phpbb_db: {}
+      acquisitariat:
+        credentials:
+          root: nasqueron.acquisitariat.mysql
+      phpbb_db:
+        credentials:
+          root: espacewin.phpbb.mysql_root
 
     postgresql:
       sentry_db:

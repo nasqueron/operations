@@ -129,13 +129,23 @@ vault_secrets_by_role:
     # Format: <project name>.<service>.<type>
     #
 
-    - ops/secrets/espacewin.bugzilla.mysql
+    - ops/secrets/espacewin.phpbb.mysql_root
 
     - ops/secrets/wolfplex.phabricator.mailgun
     - ops/secrets/wolfplex.phabricator.mysql
 
     - ops/secrets/zed.phabricator.mysql
     - ops/secrets/zed.phabricator.sendgrid
+
+  paas-docker-dev:
+
+    #
+    # Credentials used by projects hosted by Nasqueron
+    # Format: <project name>.<service>.<type>
+    #
+
+    - ops/secrets/espacewin.bugzilla.mysql
+    - ops/secrets/espacewin.bugzilla.mysql_root
 
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
