@@ -18,6 +18,7 @@ required_python_packages_for_docker_and_salt:
   pip.installed:
     - name: docker
     - bin_env: /usr/bin/pip3
+    - reload_modules: True
     - require:
       - pkg: required_python_packages_for_docker_and_salt
 
