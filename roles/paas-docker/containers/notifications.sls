@@ -30,14 +30,12 @@
         - {{ container['broker_link'] }}:mq
     - environment:
         - BROKER_HOST: mq
-        - BROKER_USERNAME: {{ salt['zr.get_username'](container['credentials']['broker']) }}
-        - BROKER_PASSWORD: {{ salt['zr.get_password'](container['credentials']['broker']) }}
+        - BROKER_USERNAME: {{ salt['credentials.get_username'](container['credentials']['broker']) }}
+        - BROKER_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['broker']) }}
         - BROKER_VHOST: dev
 
-        - MAILGUN_DOMAIN: {{ salt['zr.get_username'](container['credentials']['mailgun']) }}
-        - MAILGUN_APIKEY: {{ salt['zr.get_password'](container['credentials']['mailgun']) }}
-
-        - SENTRY_DSN: {{ salt['zr.get_sentry_dsn'](container['sentry']) }}
+        - MAILGUN_DOMAIN: {{ salt['credentials.get_username'](container['credentials']['mailgun']) }}
+        - MAILGUN_APIKEY: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
     - ports:
         - 80
     - port_bindings:
