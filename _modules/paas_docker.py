@@ -51,7 +51,10 @@ def get_subnets():
 
 
 def _get_containers():
-    return __pillar__["docker_containers"][__grains__["id"]]
+    try:
+        return __pillar__["docker_containers"][__grains__["id"]]
+    except KeyError:
+        return {}
 
 
 def list_containers():
