@@ -1,0 +1,2 @@
+transmission_log=/var/log/transmission.log
+transmission_log_level=info
