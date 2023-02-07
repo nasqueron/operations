@@ -154,3 +154,10 @@ devserver_software_misc_network:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/url.yml
     - mode: 644
+
+{% if grains['os'] == 'FreeBSD' %}
+/etc/rc.conf.d/transmission:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/transmission.rc
+    - mode: 644
+{% endif %}
