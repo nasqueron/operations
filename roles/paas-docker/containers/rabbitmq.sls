@@ -21,6 +21,13 @@
     - group: 999
     - makedirs: True
 
+/srv/rabbitmq/{{ instance }}/lib/.erlang.cookie:
+  file.managed:
+    - user: 999
+    - group: 999
+    - mode: 400
+    - contents: {{ salt['credentials.get_token'](container['credentials']['erlang_cookie']) }}
+
 {% if has_selinux %}
 selinux_context_rabbitmq_data_{{ instance }}:
   selinux.fcontext_policy_present:
@@ -49,5 +56,21 @@ selinux_context_rabbitmq_data_applied_{{ instance }}:
 {% for port in pillar['rabbitmq_ports'] %}
       - {{ container['ip'] }}:{{ port }}:{{ port }}
 {% endfor %}
+
+
+#   -------------------------------------------------------------
+#   Credentials
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+rabbitmq_{{ instance }}_root_password:
+  cmd.script:
+    - source: salt://roles/paas-docker/containers/files/rabbitmq/add_user_root.sh.jinja
+    - template: jinja
+    - context:
+        instance: {{ instance }}
+        password: {{ salt['credentials.get_token'](container['credentials']['root']) }}
+    - require:
+        - {{ instance }}
+    - creates: /srv/rabbitmq/{{ instance }}/.auth-configured
 
 {% endfor %}

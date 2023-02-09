@@ -94,6 +94,14 @@ vault_secrets_by_role:
 
     #
     # Credentials used by Nasqueron services
+    # Format: ops/secrets/nasqueron/service/<...>
+    #
+
+    - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
+    - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
+
+    #
+    # Credentials used by Nasqueron services
     # Format: ops/secrets/nasqueron.<service>.<type>
     #
 

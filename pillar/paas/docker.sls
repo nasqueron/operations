@@ -223,6 +223,9 @@ docker_containers:
         ip: *ipv4_docker001_restricted
         host: white-rabbit.nasqueron.org
         app_port: 15672
+        credentials:
+          erlang_cookie: nasqueron/rabbitmq/white-rabbit/erlang-cookie
+          root: nasqueron/rabbitmq/white-rabbit/root
 
     redis:
       sentry_redis: {}
