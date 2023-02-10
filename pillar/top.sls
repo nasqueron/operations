@@ -25,6 +25,9 @@ base:
   complector:
     - credentials.vault
 
+    # To provision services
+    - saas.rabbitmq
+
   docker-002:
     - notifications.config
     - paas.docker

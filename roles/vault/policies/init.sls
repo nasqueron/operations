@@ -25,6 +25,7 @@
 {{ policy_path }}:
   file.managed:
     - source: salt://roles/vault/policies/files/{{ policy }}.hcl
+    - template: jinja
 
 vault_policy_{{ policy }}:
   credentials.vault_policy_present:

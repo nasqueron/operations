@@ -50,6 +50,7 @@
             ],
             "include": [
                 "(\\.py$)",
+                "(^roles/saas-rabbitmq/server/content.sls$)",
                 "(^roles/viperserv/eggdrop/cron.sls$)",
                 "(^roles/webserver-legacy/php-builder/source.sls$)",
                 "(^roles/webserver-legacy/php-sites/cleanup.sls$)"

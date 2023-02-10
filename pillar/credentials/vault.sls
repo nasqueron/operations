@@ -26,7 +26,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 vault_policies_path: /srv/policies/vault
-vault_policies_source: salt://roles/vault/policies/files
+vault_policies_source: /srv/policies/vault
 
 vault_mount_paths:
   ops/secrets: ops/data/secrets

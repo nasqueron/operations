@@ -71,3 +71,18 @@ path "sys/capabilities-self" {
 path "transit/keys/*"{
   capabilities = ["create"]
 }
+
+#   -------------------------------------------------------------
+#   RabbitMQ credentials
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for cluster, cluster_args in pillar.get("rabbitmq_clusters", {}).items() %}
+# Cluster: {{ cluster }}
+
+{% for user, credential in cluster_args.get("users", {}).items() %}
+path "{{ credential.replace("/", "/data/", 1) }}" {
+    capabilities = [ "read" ]
+}
+{% endfor %}
+
+{% endfor %}
