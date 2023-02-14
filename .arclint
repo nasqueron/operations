@@ -27,8 +27,29 @@
                 "E731": "disabled",
                 "F821": "advice"
             },
+            "flake8.builtins": [
+                "__context__",
+                "__executors__",
+                "__ext_pillar__",
+                "__grains__",
+                "__opts__",
+                "__pillar__",
+                "__proxy__",
+                "__ret__",
+                "__runner__",
+                "__runners__",
+                "__salt__",
+                "__sdb__",
+                "__serializers__",
+                "__states__",
+                "__thorium__",
+                "__utils__"
+            ],
             "include": [
-                "(\\.py$)"
+                "(\\.py$)",
+                "(^roles/viperserv/eggdrop/cron.sls$)",
+                "(^roles/webserver-legacy/php-builder/source.sls$)",
+                "(^roles/webserver-legacy/php-sites/cleanup.sls$)"
             ]
         }
     }
