@@ -24,8 +24,8 @@
     - environment:
         DB_HOST: {{ container['mysql']['host'] }}
         DB_DATABASE: {{ container['mysql']['db'] }}
-        DB_USER: {{ salt['zr.get_username'](container['credential']) }}
-        DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
+        DB_USER: {{ salt['credentials.get_username'](container['credential']) }}
+        DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
         BUGZILLA_URL: https://{{ container['host'] }}/
     - ports:
       - 80

@@ -57,7 +57,7 @@ selinux_context_{{ instance }}_data_applied:
   file.managed:
     - mode: 400
     - user: 9001
-    - contents: {{ salt['zr.get_token'](container['credential']) }}
+    - contents: {{ salt['credentials.get_token'](container['credential']) }}
 
 deploy_api_key_{{ instance }}:
   cmd.run:

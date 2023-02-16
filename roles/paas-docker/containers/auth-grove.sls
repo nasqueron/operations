@@ -51,8 +51,8 @@ selinux_context_{{ instance }}_data_applied:
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: {{ instance }}
-        - DB_USERNAME: {{ salt['zr.get_username'](container['credential']) }}
-        - DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
+        - DB_USERNAME: {{ salt['credentials.get_username'](container['credential']) }}
+        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
 
         - CANONICAL_URL: https://{{ container['host'] }}
         - TRUST_ALL_PROXIES: 1

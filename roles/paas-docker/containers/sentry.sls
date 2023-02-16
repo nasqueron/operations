@@ -63,7 +63,7 @@ selinux_context_{{ realm }}_sentry_data_applied:
         - {{ args['links']['redis'] }}:redis
         - {{ args['links']['smtp'] }}:smtp
     - environment: &env
-        - SENTRY_SECRET_KEY: {{ salt['zr.get_token'](args['credential']) }}
+        - SENTRY_SECRET_KEY: {{ salt['credentials.get_token'](args['credential']) }}
         - SENTRY_FILESTORE_DIR:
         - SENTRY_USE_SSL: 1
         - SENTRY_SERVER_EMAIL: {{ args['email_from'] }}

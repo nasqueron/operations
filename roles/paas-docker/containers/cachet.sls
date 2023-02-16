@@ -29,10 +29,10 @@
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: cachet
-        - DB_USERNAME: {{ salt['zr.get_username'](container['credential']) }}
-        - DB_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
+        - DB_USERNAME: {{ salt['credentials.get_username'](container['credential']) }}
+        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
 
-        - APP_KEY: {{ salt['zr.get_token'](container['app_key']) }}
+        - APP_KEY: {{ salt['credentials.get_token'](container['app_key']) }}
         - APP_LOG: errorlog
         - APP_DEBUG: "false"
     - ports:

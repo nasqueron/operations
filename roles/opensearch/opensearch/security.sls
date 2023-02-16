@@ -22,8 +22,8 @@
         users:
           {% for user, credential in config['users'].items() %}
           {{ user }}:
-            username: {{ salt['zr.get_username'](credential) }}
-            password: {{ salt['zr.get_password'](credential) }}
+            username: {{ salt['credentials.get_username'](credential) }}
+            password: {{ salt['credentials.get_password'](credential) }}
           {% endfor %}
 
 opensearch_security_initialize:

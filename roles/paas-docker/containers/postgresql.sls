@@ -46,8 +46,8 @@ selinux_context_{{ instance }}_postgresql_data_applied:
     - image: {{ image }}
     - binds: /srv/{{ instance }}/postgresql:/var/lib/postgresql/data
     - environment:
-        POSTGRES_USER: {{ salt['zr.get_username'](container['credential']) }}
-        POSTGRES_PASSWORD: {{ salt['zr.get_password'](container['credential']) }}
+        POSTGRES_USER: {{ salt['credentials.get_username'](container['credential']) }}
+        POSTGRES_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
 {% if 'network' in container %}
     - networks:
       - {{ container['network'] }}

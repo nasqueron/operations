@@ -19,5 +19,5 @@
     - template: jinja
     - context:
         config: {{ config }}
-        username: {{ salt['zr.get_username'](config['users']['dashboards']) }}
-        password: {{ salt['zr.get_password'](config['users']['dashboards']) }}
+        username: {{ salt['credentials.get_username'](config['users']['dashboards']) }}
+        password: {{ salt['credentials.get_password'](config['users']['dashboards']) }}

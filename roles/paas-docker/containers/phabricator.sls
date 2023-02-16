@@ -61,17 +61,17 @@ selinux_context_{{ instance }}_data_applied:
         PHABRICATOR_DOMAIN: {{ container['host'] }}
         PHABRICATOR_ALT_FILE_DOMAIN: https://{{ container['static_host'] }}
 
-        DB_USER: {{ salt['zr.get_username'](container['credentials']['mysql']) }}
-        DB_PASS: {{ salt['zr.get_password'](container['credentials']['mysql']) }}
+        DB_USER: {{ salt['credentials.get_username'](container['credentials']['mysql']) }}
+        DB_PASS: {{ salt['credentials.get_password'](container['credentials']['mysql']) }}
         PHABRICATOR_STORAGE_NAMESPACE: {{ container['storage']['namespace'] }}
 
         {% if container['mailer'] == 'sendgrid' %}
         PHABRICATOR_USE_SENDGRID: 1
-        PHABRICATOR_SENDGRID_APIUSER: {{ salt['zr.get_username'](container['credentials']['sendgrid']) }}
-        PHABRICATOR_SENDGRID_APIKEY: {{ salt['zr.get_password'](container['credentials']['sendgrid']) }}
+        PHABRICATOR_SENDGRID_APIUSER: {{ salt['credentials.get_username'](container['credentials']['sendgrid']) }}
+        PHABRICATOR_SENDGRID_APIKEY: {{ salt['credentials.get_password'](container['credentials']['sendgrid']) }}
         {% elif container['mailer'] == 'mailgun' %}
         PHABRICATOR_USE_MAILGUN: 1
-        PHABRICATOR_MAILGUN_APIKEY: {{ salt['zr.get_token'](container['credentials']['mailgun']) }}
+        PHABRICATOR_MAILGUN_APIKEY: {{ salt['credentials.get_token'](container['credentials']['mailgun']) }}
         {% endif %}
 
     - links: {{ container['mysql_link'] }}:mysql

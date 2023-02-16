@@ -55,8 +55,8 @@ selinux_context_{{ instance }}_data_applied:
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: {{ instance }}
-        - DB_USERNAME: {{ salt['zr.get_username'](container['credentials']['mysql']) }}
-        - DB_PASSWORD: {{ salt['zr.get_password'](container['credentials']['mysql']) }}
+        - DB_USERNAME: {{ salt['credentials.get_username'](container['credentials']['mysql']) }}
+        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['mysql']) }}
 
         # Port must be defined, as Docker link populates REDIS_PORT to tcp://...:6379
         # That gives the following rather strange connection string:
@@ -65,7 +65,7 @@ selinux_context_{{ instance }}_data_applied:
         - REDIS_PORT: 6379
 
         - APP_DOMAIN: {{ container['host'] }}
-        - APP_KEY: {{ salt['zr.get_token'](container['credentials']['app_key']) }}
+        - APP_KEY: {{ salt['credentials.get_token'](container['credentials']['app_key']) }}
         - APP_NAME: {{ container['app']['title'] }}
         - APP_URL: https://{{ container['host'] }}
 
@@ -78,8 +78,8 @@ selinux_context_{{ instance }}_data_applied:
         - MAIL_DRIVER: smtp
         - MAIL_HOST: smtp.eu.mailgun.org
         - MAIL_PORT: 587
-        - MAIL_USERNAME: {{ salt['zr.get_username'](container['credentials']['mailgun']) }}
-        - MAIL_PASSWORD: {{ salt['zr.get_password'](container['credentials']['mailgun']) }}
+        - MAIL_USERNAME: {{ salt['credentials.get_username'](container['credentials']['mailgun']) }}
+        - MAIL_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
         - MAIL_FROM_ADDRESS: no-reply@{{ container['host'] }}
         - MAIL_FROM_NAME: {{ container['app']['title'] }}
 
