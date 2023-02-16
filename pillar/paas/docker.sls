@@ -102,6 +102,7 @@ docker_daemon:
         - "dm.use_deferred_deletion=true"
 
   dwellers:
+    data-root: /srv/docker
     group: nasqueron-dev-docker
 
 docker_devicemapper:
