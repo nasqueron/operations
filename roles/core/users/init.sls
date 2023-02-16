@@ -25,6 +25,7 @@
 
 {% set users = salt['forest.get_users']() %}
 {% set zfs_tank = salt['node.get']("zfs:pool") %}
+{% set forest = salt['node.get']['forest'] %}
 
 #   -------------------------------------------------------------
 #   Disabled accounts
@@ -131,5 +132,6 @@ group_{{ groupname }}:
     - template: jinja
     - context:
         keys: {{ user['ssh_keys']|default([]) }}
+        keys_forest: {{ user['ssh_key_by_forests'][forest]|default([]) }}
 
 {% endfor %}
