@@ -88,6 +88,20 @@ def list_users(forest=None):
     return list(set(users))
 
 
+def _get_user(forest, username):
+    user = __pillar__["shellusers"][username]
+
+    if "ssh_keys" not in user:
+        user["ssh_keys"] = []
+
+    try:
+        user["ssh_keys"].extend(user["ssh_keys_by_forest"][forest])
+    except KeyError:
+        pass
+
+    return user
+
+
 def get_users(forest=None):
     """
     A function to get users for a forest as a dictionary,
@@ -99,7 +113,10 @@ def get_users(forest=None):
     """
     users = {}
 
+    if forest is None:
+        forest = get()
+
     for username in list_users(forest):
-        users[username] = __pillar__["shellusers"][username]
+        users[username] = _get_user(forest, username)
 
     return users

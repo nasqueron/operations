@@ -131,7 +131,6 @@ group_{{ groupname }}:
     - mode: 600
     - template: jinja
     - context:
-        keys: {{ user['ssh_keys']|default([]) }}
-        keys_forest: {{ user['ssh_key_by_forests'][forest]|default([]) }}
+        keys: {{ user['ssh_keys'] }}
 
 {% endfor %}
