@@ -54,4 +54,9 @@ selinux_context_{{ instance }}_data_applied:
     - port_bindings:
       - {{ container['app_port'] }}:80
 
+    # Prevent the container from using swap
+    # Privacy: data is so only stored on RAM, not on disk
+    - mem_limit: 256m
+    - memswap_limit: 256m
+
 {%  endfor %}
