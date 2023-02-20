@@ -91,6 +91,7 @@ shellgroups:
         group have a root access everywhere.
     members:
       - dereckson
+      - dorianwinty
       - sandlayth
 
   deployment:
