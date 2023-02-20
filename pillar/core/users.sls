@@ -110,7 +110,6 @@ shellusers:
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh graywell.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 orin.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHN4kIcBjQuVqwaTjH9/Y2g9zghh/zjzQH2QipMdzhRQ xyrogh.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m yakin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE yakin.dereckson.drake
 
