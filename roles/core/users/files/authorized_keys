@@ -19,5 +19,3 @@
 #   </auto-generated>
 {% for key in keys %}
 {{ key }}{% endfor %}
-{% for key in keys_forest %}
-{{ key }}{% endfor %}
