@@ -79,6 +79,11 @@ devserver_software_dev_php:
     - pkgs:
       - {{ packages.phpunit }}
       - {{ packages_prefixes.pecl }}ast
+      - {{ packages_prefixes.pecl }}xdebug
+
+# T1728 - xdebug should be disabled by default and invoked when needed
+/usr/local/etc/php/ext-20-xdebug.ini:
+  file.absent
 
 /opt/phpcpd.phar:
   file.managed:
