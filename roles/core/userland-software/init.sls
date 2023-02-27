@@ -112,6 +112,8 @@ tmux:
 sysadmin_utilities:
   pkg.installed:
     - pkgs:
+      - bat
+      - nano
       - ripgrep
       - tree
       - wget
