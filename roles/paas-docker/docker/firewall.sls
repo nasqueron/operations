@@ -21,10 +21,4 @@
     - context:
         subnets: {{ salt['paas_docker.get_subnets']() }}
 
-firewalld_trust_docker_bridge:
-  firewalld.present:
-    - name: trusted
-    - interfaces:
-      - docker0
-
 {% endif %}
