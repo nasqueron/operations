@@ -35,6 +35,8 @@ notifications_dependencies:
 /usr/local/etc/notifications.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/notifications.conf
-    - template: jinja
     - group: wheel
     - mode: 640
+    - template: jinja
+    - context:
+        password: {{ salt['credentials.get_password']("nasqueron/notifications/notifications-cli/" + grains["id"]) }}

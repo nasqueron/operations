@@ -75,9 +75,14 @@ vault_extra_policies_by_role:
 #   Avoid * notation as this namespace is shared between Vault
 #   and the applications. As such, only secrets the Salt nodes
 #   needs in a state they need to deploy should be listed here.
+#
+#   Use %%node%% as variable for node name.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 vault_secrets_by_role:
+
+  devserver:
+    - ops/secrets/nasqueron/notifications/notifications-cli/%%node%%
 
   opensearch:
     - ops/secrets/nasqueron.opensearch.infra-logs.internal_users.admin
