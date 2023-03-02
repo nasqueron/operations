@@ -27,6 +27,7 @@
     - source: salt://roles/opensearch/opensearch/files/account.conf
     - mode: 600
     - template: jinja
+    - show_changes: False
     - context:
         username: {{ salt['zr.get_username'](config['users']['admin']) }}
         password: {{ salt['zr.get_password'](config['users']['admin']) }}

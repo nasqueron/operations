@@ -17,6 +17,7 @@
     - group: opensearch
     - mode: 600
     - template: jinja
+    - show_changes: False
     - context:
         config: {{ config }}
         username: {{ salt['credentials.get_username'](config['users']['dashboards']) }}

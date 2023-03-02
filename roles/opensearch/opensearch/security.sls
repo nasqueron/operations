@@ -18,6 +18,7 @@
     - group: opensearch
     - mode: 600
     - template: jinja
+    - show_changes: False
     - context:
         users:
           {% for user, credential in config['users'].items() %}

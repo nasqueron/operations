@@ -26,6 +26,7 @@
     - user: 431
     - group: 433
     - makedirs: True
+    - show_changes: False
     - contents: |
         {{ salt['notifications.get_credentials']() | json }}
 

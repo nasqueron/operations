@@ -26,6 +26,7 @@
     - user: 999
     - group: 999
     - mode: 400
+    - show_changes: False
     - contents: {{ salt['credentials.get_token'](container['credentials']['erlang_cookie']) }}
 
 {% if has_selinux %}
