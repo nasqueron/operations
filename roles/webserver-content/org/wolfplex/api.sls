@@ -8,6 +8,23 @@
 {% if salt['node.has_web_content'](".org/wolfplex/api") %}
 
 #   -------------------------------------------------------------
+#   Data store
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/dataroot/wolfplex/secrets.json:
+  file.managed:
+    - source: salt://roles/webserver-content/org/wolfplex/files/secrets.json.jinja2
+    - mode: 400
+    - user: web-org-wolfplex-www
+    - group: web
+    - makedirs: True
+    - template: jinja
+    - show_changes: False
+    - context:
+        secrets:
+          etherpad.api.key: {{ salt['credentials.get_token']("nasqueron.etherpad.api") }}
+
+#   -------------------------------------------------------------
 #   Base part
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

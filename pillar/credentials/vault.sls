@@ -165,6 +165,14 @@ vault_secrets_by_role:
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
 
+  webserver-legacy:
+
+    #
+    # Wolfplex credentials
+    #
+
+    - ops/secrets/nasqueron.etherpad.api
+
 #   -------------------------------------------------------------
 #   Vault secrets by dbserver cluster
 #
