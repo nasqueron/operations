@@ -120,3 +120,15 @@ def get_users(forest=None):
         users[username] = _get_user(forest, username)
 
     return users
+
+
+def get_wheel_users():
+    """
+    A function to get users to provision to the wheel group.
+
+    CLI Example::
+
+        salt '*' forest.get_wheel_users
+    """
+
+    return ["root", *__pillar__["shellgroups"]["ops"]["members"]]

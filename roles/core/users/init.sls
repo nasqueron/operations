@@ -111,6 +111,14 @@ group_{{ groupname }}:
     - members: {{ group['members'] }}
 {% endfor %}
 
+{% if grains["os"] == "FreeBSD" %}
+group_wheel:
+  group.present:
+    - name: wheel
+    - gid: 0
+    - members: {{ salt["forest.get_wheel_users"]() }}
+{% endif %}
+
 #   -------------------------------------------------------------
 #   SSH keys
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
