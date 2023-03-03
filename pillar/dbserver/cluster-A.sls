@@ -1,7 +1,7 @@
 dbserver_postgresql:
 
   server:
-    # Fantoir database needs the pg_trim extension
+    # Fantoir database needs the pg_trgm extension
     with_contrib: True
 
   users:
