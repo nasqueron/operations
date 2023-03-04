@@ -54,7 +54,7 @@ www_docs_build:
 
 salt_wrapper_doc_build:
   cmd.script:
-    - source: salt://roles/webserver-legacy/org/nasqueron/files/build-docs-salt-wrapper.sh
+    - source: salt://roles/webserver-content/org/nasqueron/files/build-docs-salt-wrapper.sh
     - args: /var/wwwroot/nasqueron.org/docs/salt-wrapper
     - cwd: /tmp
     - runas: deploy
