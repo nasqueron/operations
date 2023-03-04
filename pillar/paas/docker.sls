@@ -308,6 +308,7 @@ docker_containers:
         aliases:
           - build.nasqueron.org
         jenkins_url: https://ci.nasqueron.org
+        jenkins_multi_branch: True
 
       tommy_cd:
         # No host definition, as this dashboard is mounted on infra.nasqueron.org
