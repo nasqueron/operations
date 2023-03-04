@@ -12,13 +12,15 @@
 #   Additional software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-install_salt_extra_software:
+install_salt_primary_extra_software:
   pkg.installed:
     - pkgs:
       # Jenkins execution module
       - {{ packages_prefixes.python3 }}python-jenkins
       # For staging-commit-message
       - {{ packages_prefixes.python3 }}gitpython
+      # Utilities
+      - colordiff
 
 {{ dirs.bin }}/staging-commit-message:
   file.managed:
