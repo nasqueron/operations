@@ -14,7 +14,7 @@
 
 required_python_packages_for_docker_and_salt:
   pkg.installed:
-    - name: {{ packages_prefixes.python3 }}pip
+    - name: {{ packages_prefixes.python3 }}pip < 6.0
   pip.installed:
     - name: docker
     - bin_env: /usr/bin/pip3
