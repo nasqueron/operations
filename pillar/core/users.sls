@@ -115,8 +115,9 @@ shellusers:
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHhtNG5Nc1R6XDgqcwWow/JVB2d9nMqQfNI5cDA99gLS work-laptop
 
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAhXyFekC8WTIn6qjguB813I79aJ6uLpu47Z8vX22ipc yggdrasil-20220419
+
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImalLypfV9TtSeAymY8C2pOOCfNtCRI51RZ+jGdIf3Z whiteraven.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB9u1AFDK0mo7bDQZAiV9AXXdxUiH8H1B0rLY8NIP8/f yggdrasil.dereckson.drake
     yubico_keys:
       - ccccccbjncrt
     devserver_tasks:
