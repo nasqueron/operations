@@ -16,8 +16,6 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-proxy_redirect off;
-
 #   -------------------------------------------------------------
 #   Headers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
