@@ -26,6 +26,10 @@ required_python_packages_for_docker_and_salt:
 #   Wrapper to fetch a credential
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+credential_dependencies:
+  pkg.installed:
+    - name: jq
+
 {{ dirs.bin }}/credential:
   file.managed:
     - source: salt://roles/paas-docker/salt/files/credential.sh

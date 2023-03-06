@@ -19,4 +19,4 @@ if [ "$#" -eq 0 ]; then
     exit 1
 fi
 
-sudo salt-call credentials.get_password "$1" --out=json | jq .local
+sudo salt-call credentials.get_password "$1" --out=json | jq -r .local

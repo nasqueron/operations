@@ -29,7 +29,7 @@
     - makedirs: True
     - context:
         links: {{ args['links'] }}
-        credential_key: args['credential']
+        credential_key: {{ args['credential'] }}
 
 {% if has_selinux %}
 selinux_context_{{ realm }}_sentry_data:
