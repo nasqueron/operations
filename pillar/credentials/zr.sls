@@ -120,9 +120,3 @@ zr_clients:
      - cloudhugger.nasqueron.org
    restrictCommand:
    comment: Zemke-Rhyne
-
- - key: 152
-   allowedConnectionFrom:
-     - docker-001.nasqueron.org
-   restrictCommand:
-   comment: Zemke-Rhyne
