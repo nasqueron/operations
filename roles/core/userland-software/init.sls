@@ -105,6 +105,11 @@ tmux:
   file.managed:
     - source: salt://roles/core/userland-software/files/tmux.conf
 
+{{ dirs.bin }}/tmux-reattach:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/tmux-reattach.sh
+    - mode: 755
+
 #   -------------------------------------------------------------
 #   System administration utilities
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
