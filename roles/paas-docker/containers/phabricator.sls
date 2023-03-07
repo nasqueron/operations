@@ -38,11 +38,9 @@ selinux_context_{{ instance }}_data_applied:
 #
 #   /!\ DEVCENTRAL DEPLOYMENT ISSUE /!\
 #
-#   We've currently a chicken or egg problem here: the zr
-#   credentials source is the Nasqueron Phabricator instance,
-#   DevCentral. As such, we can't provision it through this block.
-#
-#   This is blocked by secrets migration to Vault.
+#   The DevCentral container is currently not managed
+#   by a reproducible Dockerfile. As such, this container
+#   is deployed manually from the registry. See T1547.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if create_container %}

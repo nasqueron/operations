@@ -18,7 +18,6 @@ base:
     - webserver.sites
 
   cloudhugger:
-    - credentials.zr
     - opensearch.software
     - opensearch.clusters
 
@@ -36,7 +35,6 @@ base:
     - dbserver.cluster-A
 
   dwellers:
-    - credentials.zr
     - paas.docker
     - saas.jenkins
     - saas.sentry
@@ -46,7 +44,6 @@ base:
 
   ysul:
     - devserver.repos
-    - credentials.zr
     - saas.mediawiki
     - viperserv.bots
     - viperserv.fantoir
