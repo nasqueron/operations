@@ -8,7 +8,6 @@
 
 include:
   - .software
-  - .storage
   - .config
   - .images
   - .firewall
