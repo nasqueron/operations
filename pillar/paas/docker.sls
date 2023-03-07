@@ -88,6 +88,8 @@ docker_networks:
       subnet: 172.18.1.0/24
     ci:
       subnet: 172.18.2.0/24
+    sentry:
+      subnet: 172.18.3.0/24
 
 #   -------------------------------------------------------------
 #   Docker engine configuration
@@ -494,6 +496,7 @@ docker_containers:
     exim:
       sentry_smtp:
         mailname: mx.sentry.nasqueron.org
+        network: sentry
 
     sentry:
       sentry_web_1:
@@ -503,14 +506,17 @@ docker_containers:
         # As an instance is divided between a web, a cron and a worker
         # containers, we need an identified to share a data volume.
         realm: nasqueron
+        network: sentry
 
     sentry_worker:
       sentry_worker_1:
         realm: nasqueron
+        network: sentry
 
     sentry_cron:
       sentry_cron:
         realm: nasqueron
+        network: sentry
 
 #   -------------------------------------------------------------
 #   Monitoring
