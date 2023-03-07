@@ -10,15 +10,10 @@
 {% set containers = pillar['docker_containers'][grains['id']] %}
 
 {% for instance, container in containers['exim'].items() %}
-{% set image = salt['paas_docker.get_image']("tianon/exim4", container) %}
 
 #   -------------------------------------------------------------
 #   Data directory
-#
-#   Only required if you provide some hostname to the SMTP server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% if 'mailname' in container %}
 
 /srv/exim/{{ instance }}:
   file.directory:
@@ -26,9 +21,18 @@
     - group: 999
     - makedirs: True
 
+{% for subdir in ['spool', 'log'] %}
+/srv/exim/{{ instance }}/{{ subdir }}:
+  file.directory:
+    - user: 999
+    - group: 999
+{% endfor %}
+
+{% if 'mailname' in container %}
 /srv/exim/{{ instance }}/mailname:
   file.managed:
     - contents: {{ container['mailname'] }}
+{% endif %}
 
 {% if has_selinux %}
 
@@ -43,8 +47,6 @@ selinux_context_{{ instance }}_exim_data_applied:
 
 {% endif %}
 
-{% endif %}
-
 #   -------------------------------------------------------------
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -53,13 +55,16 @@ selinux_context_{{ instance }}_exim_data_applied:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: {{ image }}
-
+    - image: tianon/exim4
+    - binds:
+{% if 'mailname' in container %}
+        - /srv/exim/{{ instance }}/mailname:/etc/mailname:ro
+{% endif %}
+        - /srv/exim/{{ instance }}/spool:/var/spool/exim4
+        - /srv/exim/{{ instance }}/log:/var/log/exim4
 {% if 'host' in container %}
-    - binds: /srv/exim/{{ instance }}/mailname:/etc/mailname:ro
     - hostname: {{ container['mailname'] }}
 {% endif %}
-
 {% if 'network' in container %}
     - networks:
       - {{ container['network'] }}
