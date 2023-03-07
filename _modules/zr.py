@@ -67,7 +67,7 @@ def get_password(credential_expression):
 
     CLI Example:
 
-        salt equatower  zr.get_password 124
+        salt equatower zr.get_password 124
 
     :param credential_expression: The credential number (K...) in Phabricator
                                   or a key in zr_credentials pillar entry
