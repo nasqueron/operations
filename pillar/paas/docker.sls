@@ -209,6 +209,7 @@ docker_containers:
 
     postgresql:
       sentry_db:
+        image: nasqueron/postgres-sentry
         credential: nasqueron.sentry.postgresql
 
     memcached:
