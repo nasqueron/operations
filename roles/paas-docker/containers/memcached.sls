@@ -6,9 +6,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['memcached'].items() %}
+{% for instance, container in pillar['docker_containers']['memcached'].items() %}
 {% set image = salt['paas_docker.get_image']("memcached", container) %}
 
 #   -------------------------------------------------------------

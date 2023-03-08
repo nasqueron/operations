@@ -7,9 +7,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['jenkins'].items() %}
+{% for instance, container in pillar['docker_containers']['jenkins'].items() %}
 
 {% set realm = pillar['jenkins_realms'][container['realm']] %}
 {% set home = "/srv/jenkins/" + container['realm'] + "/jenkins_home" %}

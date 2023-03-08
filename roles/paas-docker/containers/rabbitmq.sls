@@ -7,9 +7,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['rabbitmq'].items() %}
+{% for instance, container in pillar['docker_containers']['rabbitmq'].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory

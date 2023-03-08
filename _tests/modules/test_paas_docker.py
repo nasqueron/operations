@@ -22,6 +22,11 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
 
         self.assertEqual("foo:42", docker.get_image("not_foo", container))
 
+    def test_list_images(self):
+        expected = {"foo", "bar", "quux"}
+
+        self.assertEqual(expected, docker.list_images())
+
     def test_get_image_without_version(self):
         container = {
             "image": "foo",

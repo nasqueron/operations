@@ -6,9 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set containers = pillar['docker_containers'][grains['id']] %}
-
-{% for instance, container in containers['tommy'].items() %}
+{% for instance, container in pillar['docker_containers']['tommy'].items() %}
 
 #   -------------------------------------------------------------
 #   Container

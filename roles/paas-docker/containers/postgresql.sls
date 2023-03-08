@@ -7,9 +7,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['postgresql'].items() %}
+{% for instance, container in pillar['docker_containers']['postgresql'].items() %}
 {% set image = salt['paas_docker.get_image']("library/postgres", container) %}
 
   #   -------------------------------------------------------------

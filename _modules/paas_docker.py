@@ -29,6 +29,21 @@ def get_image(default_image, args):
     return image
 
 
+def list_images():
+    """
+    A function to get the list of images used on a Docker engine.
+
+    Example:
+
+        salt docker-002 paas_docker.list_images
+    """
+    images = __pillar__.get("docker_images", [])
+
+    # Workaround for a merge issue for lists:
+    # Salt Tower concatenates them, a set will dedup them.
+    return set(images)
+
+
 def get_subnets():
     """
     A function to get the Docker subnets list.
@@ -38,7 +53,7 @@ def get_subnets():
         salt * paas_docker.get_subnets
     """
     try:
-        networks = __pillar__["docker_networks"][__grains__["id"]]
+        networks = __pillar__["docker_networks"]
     except KeyError:
         networks = {}
 
@@ -52,7 +67,7 @@ def get_subnets():
 
 def _get_containers():
     try:
-        return __pillar__["docker_containers"][__grains__["id"]]
+        return __pillar__["docker_containers"]
     except KeyError:
         return {}
 

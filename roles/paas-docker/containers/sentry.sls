@@ -7,7 +7,6 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -48,7 +47,7 @@ selinux_context_{{ realm }}_sentry_data_applied:
 #   Web application
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, container in containers['sentry'].items() %}
+{% for instance, container in pillar['docker_containers']['sentry'].items() %}
 
 {% set args = pillar['sentry_realms'][container['realm']] %}
 
@@ -80,7 +79,7 @@ selinux_context_{{ realm }}_sentry_data_applied:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for service in ['worker', 'cron'] %}
-{% for instance, container in containers['sentry_' + service].items() %}
+{% for instance, container in pillar['docker_containers']['sentry_' + service].items() %}
 
 {% set args = pillar['sentry_realms'][container['realm']] %}
 

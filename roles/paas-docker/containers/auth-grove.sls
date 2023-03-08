@@ -11,9 +11,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['auth-grove'].items() %}
+{% for instance, container in pillar['docker_containers']['auth-grove'].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory

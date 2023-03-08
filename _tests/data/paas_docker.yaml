@@ -5,3 +5,11 @@ docker_networks:
     ci:
       subnet: 172.18.2.0/24
   voidserver: {}
+
+docker_images:
+  # This duplicate allows to ensure uniqueness
+  - foo
+  - foo
+
+  - bar
+  - quux

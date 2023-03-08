@@ -9,13 +9,12 @@
 {% from "map.jinja" import dirs with context %}
 
 #   -------------------------------------------------------------
-#   Configure lvm profile
+#   Configure Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['id'] in pillar['docker_daemon'] %}
+{% set daemon = pillar['docker_daemon'] %}
 
-{% set daemon = pillar['docker_daemon'][grains['id']] %}
-
+{% if daemon %}
 {{ dirs.etc }}/docker/daemon.json:
   file.managed:
     - source: salt://roles/paas-docker/docker/files/daemon.json.jinja
@@ -23,5 +22,4 @@
     - mode: 644
     - context:
         daemon: {{ daemon }}
-
 {% endif %}

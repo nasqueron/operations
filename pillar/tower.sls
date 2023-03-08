@@ -1,18 +1,12 @@
 #   -------------------------------------------------------------
-#   Salt — Provision Docker engine
+#   Salt configuration for Nasqueron servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-11
 #   License:        Trivial work, not eligible to copyright
+#   Description:    External pillar to configure pillar stanza
+#                   by pillar, grain or option value
+#   Reference:      https://github.com/jgraichen/salt-tower
 #   -------------------------------------------------------------
 
-{% set services = pillar.get('docker_containers', {}) %}
-
-{% if services %}
-
-include:
-{% for service in services %}
-  - .{{ service }}
-{% endfor %}
-
-{% endif %}
+base:
+  - paas/docker/{{ minion_id }}/*.sls

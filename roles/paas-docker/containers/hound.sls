@@ -6,8 +6,6 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
-
 
 #   -------------------------------------------------------------
 #   Configuration provider
@@ -19,7 +17,7 @@
     - mode: 755
 
 
-{% for instance, container in containers['hound'].items() %}
+{% for instance, container in pillar['docker_containers']['hound'].items() %}
 
 #   -------------------------------------------------------------
 #   Home directory

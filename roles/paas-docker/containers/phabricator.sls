@@ -7,9 +7,8 @@
 #   -------------------------------------------------------------
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
-{% set containers = pillar['docker_containers'][grains['id']] %}
 
-{% for instance, container in containers['phabricator'].items() %}
+{% for instance, container in pillar['docker_containers']['phabricator'].items() %}
 {% set create_container = "skip_container" not in container or not container['skip_container'] %}
 
 #   -------------------------------------------------------------

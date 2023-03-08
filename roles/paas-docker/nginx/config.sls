@@ -7,7 +7,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
-{% set containers = salt['pillar.get']('docker_containers:' + grains['id'], {}) %}
+{% set containers = pillar.get('docker_containers', {}) %}
 
 #   -------------------------------------------------------------
 #   Base folder
