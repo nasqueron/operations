@@ -43,6 +43,9 @@ selinux_context_{{ instance }}_redis_data_applied:
     - interactive: True
     - image: {{ image }}
     - binds: /srv/redis/{{ instance }}:/data
+    - healthcheck:
+        Test: redis-cli ping
+        Interval: 30000000000
 {% if 'network' in container %}
     - networks:
       - {{ container['network'] }}

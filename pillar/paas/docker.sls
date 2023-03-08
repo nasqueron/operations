@@ -217,7 +217,8 @@ docker_containers:
         network: sentry
 
     redis:
-      sentry_redis: {}
+      sentry_redis:
+        network: sentry
       pixelfed_redis: {}
 
     registry:
