@@ -211,6 +211,11 @@ docker_containers:
       sentry_db:
         credential: nasqueron.sentry.postgresql
 
+    memcached:
+      sentry_memcached:
+        version: 1.6.9-alpine
+        network: sentry
+
     redis:
       sentry_redis: {}
       pixelfed_redis: {}
