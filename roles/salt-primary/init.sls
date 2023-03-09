@@ -8,6 +8,7 @@
 
 include:
   - .software
+  - .config
   - .account
   - .cloud
   - .staging
