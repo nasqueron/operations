@@ -12,6 +12,13 @@
 #   Software sources
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if grains['os'] == 'FreeBSD' %}
+/usr/local/etc/pkg/repos/Nasqueron.conf:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/Nasqueron.conf
+    - makedirs: True
+{% endif %}
+
 {% if grains['os_family'] == 'RedHat' and grains['os'] != 'Fedora' %}
 epel-release:
   pkg.installed
