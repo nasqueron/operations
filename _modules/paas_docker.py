@@ -123,3 +123,12 @@ def get_health_checks():
         }
         for check_type in monitoring.keys()
     }
+
+
+#   -------------------------------------------------------------
+#   Format
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def format_env_list(values, separator=",", assign_op="-"):
+    return separator.join([f"{k}{assign_op}{v}" for k, v in values.items()])

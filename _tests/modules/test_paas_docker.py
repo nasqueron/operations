@@ -59,6 +59,14 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         self.grains["id"] = "voidserver"
         self.assertEqual(expected, docker.get_subnets())
 
+    def test_format_env_list(self):
+        expression = {"foo": "bar", "quux": 42}
+
+        expected = "foo: bar; quux: 42"
+        self.assertEqual(
+            expected, docker.format_env_list(expression, assign_op=": ", separator="; ")
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

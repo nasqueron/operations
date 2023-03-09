@@ -41,6 +41,26 @@ docker_containers:
       credential: nasqueron.sentry.postgresql
 
   #
+  # Kafka instance
+  #
+
+  zookeeper:
+    sentry_zookeeper:
+      version: 5.5.0
+      network: sentry
+
+  kafka:
+    sentry_kafka:
+      version: 5.5.0
+      zookeeper: sentry_zookeeper
+      network: sentry
+      topics:
+        - ingest-attachments
+        - ingest-transactions
+        - ingest-events
+        - ingest-replay-recordings
+
+  #
   # Services maintained by Sentry
   #
 
@@ -63,3 +83,16 @@ docker_containers:
     sentry_cron:
       realm: nasqueron
       network: sentry
+
+#   -------------------------------------------------------------
+#   Services configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+kakfa_loggers:
+  kafka.cluster: WARN
+  kafka.controller: WARN
+  kafka.coordinator: WARN
+  kafka.log: WARN
+  kafka.server: WARN
+  kafka.zookeeper: WARN
+  state.change.logger: WARN
