@@ -54,7 +54,7 @@ selinux_context_{{ instance }}_zookeeper_data_applied:
     - interactive: True
     - image: {{ image }}
     - binds:
-        - /srv/zookeeper/{{ instance }}/data:/var/lib/zookeper/data
+        - /srv/zookeeper/{{ instance }}/data:/var/lib/zookeeper/data
         - /srv/zookeeper/{{ instance }}/log:/var/lib/zookeeper/log
         - /srv/zookeeper/{{ instance }}/secrets:/etc/zookeeper/secrets
     - environment:
