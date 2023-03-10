@@ -12,7 +12,7 @@
 #   Wrapper binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for command in ['certbot', 'jenkins', 'phpbb', 'mysql', 'sentry', 'openfire'] %}
+{% for command in ['certbot', 'jenkins', 'phpbb', 'mysql', 'sentry', 'openfire', 'geoipupdate'] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
@@ -25,3 +25,23 @@
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.py
     - mode: 755
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   Required directories
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+
+/srv/geoip:
+  file.directory
+
+{% if has_selinux %}
+selinux_context_geoip_data:
+  selinux.fcontext_policy_present:
+    - name: /srv/geoip
+    - sel_type: container_file_t
+
+selinux_context_geoip_data_applied:
+  selinux.fcontext_policy_applied:
+    - name: /srv/geoip
+{% endif %}

@@ -105,6 +105,8 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
 
+    - ops/secrets/nasqueron/sentry/geoipupdate
+
     #
     # Credentials used by Nasqueron services
     # Format: ops/secrets/nasqueron.<service>.<type>
