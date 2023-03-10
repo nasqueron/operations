@@ -15,6 +15,7 @@ docker_images:
   - library/redis:3.2-alpine
   - library/sentry
   - tianon/exim4
+  - yandex/clickhouse-server:20.3.9.70
 
 docker_containers:
 
@@ -59,6 +60,16 @@ docker_containers:
         - ingest-transactions
         - ingest-events
         - ingest-replay-recordings
+
+  #
+  # ClickHouse
+  #
+  clickhouse:
+    sentry_clickhouse:
+      version: 20.3.9.70
+      network: sentry
+      config: sentry.xml
+      max_memory_ratio: 0.2
 
   #
   # Services maintained by Sentry
