@@ -32,3 +32,12 @@ letsencrypt_software:
 {{ dirs.etc }}/letsencrypt/cli.ini:
   file.managed:
     - source: salt://roles/webserver-core/letsencrypt/files/cli.ini
+
+#   -------------------------------------------------------------
+#   Extra utilities
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/check-letsencrypt-certificates:
+  file.managed:
+    - source: roles/webserver-core/letsencrypt/files/check-letsencrypt-certificates.py
+    - mode: 755

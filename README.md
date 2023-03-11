@@ -51,10 +51,6 @@ a subfolder `files` is created at unit level.
 
 The `pillar/ ` folder contains data about Eglide users,
 
-The repository contains a legacy scripts folder, not handled by Salt,
-and a config/forum for one set of our Discourse configuration.
-They can be migrated to the role/unit structure.
-
 Contribute
 ----------
 

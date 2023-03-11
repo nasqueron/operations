@@ -10,6 +10,7 @@
 #                   for the mapping directory webserver for each
 #                   certificate to renew.
 #   License:        BSD-2-Clause
+#   Source file:    roles/webserver-core/letsencrypt/files/check-letsencrypt-certificates.py
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
@@ -36,7 +37,7 @@ from urllib.request import urlopen
 
 dirs = {
     "/usr/local/etc/letsencrypt/renewal",
-    "/srv/data/letsencrypt/etc/renewal"
+    "/srv/data/letsencrypt/etc/renewal",
 }
 
 
@@ -59,7 +60,7 @@ def check_directory(directory):
 
 
 def check_certificate(file):
-    lines = [line.rstrip('\n') for line in open(file)]
+    lines = [line.rstrip("\n") for line in open(file)]
     skip = True
     for line in lines:
         if not skip:
@@ -69,13 +70,13 @@ def check_certificate(file):
 
 
 def check_mapping_line(line):
-    params = line.split(' = ')
+    params = line.split(" = ")
     check_mapping(params[0], params[1])
 
 
 def get_challenge():
     chars = string.ascii_letters + string.digits
-    return ''.join([random.choice(chars) for _ in range(32)])
+    return "".join([random.choice(chars) for _ in range(32)])
 
 
 def check_mapping(domain, directory):
@@ -85,14 +86,13 @@ def check_mapping(domain, directory):
 
 
 def write_challenge_file(directory, challenge):
-    challenge_file = os.path.join(
-        directory, ".well-known", "acme-challenge", "qa")
+    challenge_file = os.path.join(directory, ".well-known", "acme-challenge", "qa")
     with open(challenge_file, "w") as file:
         file.write(challenge)
 
 
 def check_challenge(domain, challenge):
-    url = 'http://' + domain + '/.well-known/acme-challenge/qa'
+    url = "http://" + domain + "/.well-known/acme-challenge/qa"
     try:
         content = urlopen(url).read()
         if not content == challenge:

@@ -145,3 +145,10 @@ sysadmin_utilities:
   file.symlink:
     - target: /usr/local/bin/gnu-watch
 {% endif %}
+
+{% if grains['os_family'] == 'RedHat' %}
+{{ dirs.bin }}/new-partition:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/new-partition.sh
+    - mode: 755
+{% endif %}
