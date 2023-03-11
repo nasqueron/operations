@@ -18,7 +18,7 @@
 GEOIPUPDATE_ACCOUNT_ID=$(credential nasqueron/sentry/geoipupdate username)
 GEOIPUPDATE_LICENSE_KEY=$(credential nasqueron/sentry/geoipupdate)
 
-docker run \
+docker run --rm \
     -e GEOIPUPDATE_ACCOUNT_ID="$GEOIPUPDATE_ACCOUNT_ID" \
     -e GEOIPUPDATE_LICENSE_KEY="$GEOIPUPDATE_LICENSE_KEY" \
     -e GEOIPUPDATE_EDITION_IDS="GeoLite2-ASN GeoLite2-City GeoLite2-Country" \
