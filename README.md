@@ -21,24 +21,21 @@ It contains:
  - server configuration
  - deployment information for our applications and services
 
-We mainly rely on [SaltStack](https://docs.saltstack.com/en/latest/contents.html)
+We mainly rely on [Salt](https://docs.saltproject.io/en/latest/contents.html)
 for deployment and automation.
 
 Scope
 -----
 
-New services on our Docker engine (currently Dwellers) should be
-deployed through this repository.
+Both Nasqueron servers and side projects we manage are in scope.
 
-The [Eglide](http://www.eglide.org/) service is fully managed
-through this repository.
-
-Legacy services are in migration.
+For example, the [Eglide](http://www.eglide.org/) service is configured
+through roles/core (common to every server) and roles/shellserver (specific).
 
 Structure
 ---------
 
-Services are organized in roles and units.
+A. Services are organized in roles and units.
 
 * Roles: a role is a goal a service accomplishes (e.g. mailserver, paas-docker)
 * Units: a unit is a component needed to achieve this goal
@@ -46,10 +43,35 @@ Services are organized in roles and units.
 
 Directories follow `roles/<role>/<unit>`.
 
+Those files are known a **states**.
+
 If configuration files for a unit should be stored,
 a subfolder `files` is created at unit level.
 
-The `pillar/ ` folder contains data about Eglide users,
+If anything escape to the role and unit logic organization,
+like for CVE hotfixes, `hotfixes/` directory is used.
+
+B. Structured data is stored in the  `pillar/` directory.
+Those files are known as **pillar**.
+
+This data is structured as we found suitable to express it
+cleanly, and queried from states, directly or through functions.
+
+C. States should mostly be easy-to-read templates, without any more
+programmation than simple if and for templating logic.
+
+If more is needed, functions are created in Salt custom modules:
+
+* Execution modules are stored in `_modules/`
+* States modules are stored in `_states/`
+
+D. This repository is the source of truth for users, groups and ports:
+
+* UIDs document unique usernames and the UIDs for system accounts
+* GIDs document the same information for the groups
+* PORTS contain the list of reserved application ports
+
+E. Units and integration tests are stored in `_tests/`
 
 Contribute
 ----------
