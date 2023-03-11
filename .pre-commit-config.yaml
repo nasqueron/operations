@@ -22,7 +22,7 @@ repos:
       - id: black
 
   - repo: https://github.com/warpnet/salt-lint
-    rev: v0.9.1
+    rev: v0.9.2
     hooks:
       - id: salt-lint
         args: ["-x", "207,208"]
