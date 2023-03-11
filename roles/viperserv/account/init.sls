@@ -3,7 +3,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-11-14
-#   Description:    Eggdrop on Freenode
+#   Description:    Eggdrop on Libera
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

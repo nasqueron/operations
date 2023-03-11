@@ -67,7 +67,7 @@ to send a commit for review. This procedure is open to everyone.
 Issues can be reported on the [#Servers component](https://devcentral.nasqueron.org/tag/servers/)
 on DevCentral, the Nasqueron Phabricator instance.
 
-Support for contributors is provided on Freenode #nasqueron-ops.
+Support for contributors is provided on Libera #nasqueron-ops.
 
 Inclusive terminology
 ---------------------

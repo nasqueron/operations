@@ -3,7 +3,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2017-10-19
-#   Description:    Darkbot unit (Freenode)
+#   Description:    Darkbot
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
