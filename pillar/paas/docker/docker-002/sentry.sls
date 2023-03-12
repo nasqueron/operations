@@ -17,6 +17,7 @@ docker_images:
   - getsentry/snuba:nightly
   - tianon/exim4
   - yandex/clickhouse-server:20.3.9.70
+  - getsentry/symbolicator:nightly
 
 docker_containers:
 
@@ -139,6 +140,14 @@ docker_containers:
         --auto-offset-reset=latest --max-batch-time-ms 750
       network: sentry
       services: *sentry_snuba_services
+
+  #
+  # Symbolicator
+  #
+
+  symbolicator:
+    sentry_symbolicator:
+      network: sentry
 
   #
   # Sentry
