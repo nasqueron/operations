@@ -14,6 +14,7 @@ docker_images:
   - library/postgres
   - library/redis:3.2-alpine
   - library/sentry
+  - getsentry/snuba:nightly
   - tianon/exim4
   - yandex/clickhouse-server:20.3.9.70
 
@@ -72,7 +73,75 @@ docker_containers:
       max_memory_ratio: 0.2
 
   #
-  # Services maintained by Sentry
+  # Snuba
+  #
+
+  snuba:
+    sentry_snuba_api:
+      network: sentry
+      api: True
+      services: &sentry_snuba_services
+        broker: sentry_kafka:9092
+        clickhouse: sentry_clickhouse
+        redis: sentry_redis
+
+    sentry_snuba_consumer:
+      command: consumer --storage errors --auto-offset-reset=latest --max-batch-time-ms 750
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_outcomes_consumer:
+      command: consumer --storage outcomes_raw --auto-offset-reset=earliest --max-batch-time-ms 750
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_replacer:
+      command: replacer --storage errors --auto-offset-reset=latest
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_replays_consumer:
+      command: consumer --storage replays --auto-offset-reset=latest --max-batch-time-ms 750
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_sessions_consumer:
+      command: consumer --storage sessions_raw --auto-offset-reset=latest --max-batch-time-ms 750
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_subscription_consumer_events:
+      command: subscriptions-scheduler-executor --dataset events --entity events --auto-offset-reset=latest
+        --no-strict-offset-reset --consumer-group=snuba-events-subscriptions-consumers
+        --followed-consumer-group=snuba-consumers --delay-seconds=60 --schedule-ttl=60
+        --stale-threshold-seconds=900
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_subscription_consumer_sessions:
+      command: subscriptions-scheduler-executor --dataset sessions --entity sessions
+        --auto-offset-reset=latest --no-strict-offset-reset --consumer-group=snuba-sessions-subscriptions-consumers
+        --followed-consumer-group=sessions-group --delay-seconds=60 --schedule-ttl=60
+        --stale-threshold-seconds=900
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_subscription_consumer_transactions:
+      command: subscriptions-scheduler-executor --dataset transactions --entity transactions
+        --auto-offset-reset=latest --no-strict-offset-reset --consumer-group=snuba-transactions-subscriptions-consumers
+        --followed-consumer-group=transactions_group --delay-seconds=60 --schedule-ttl=60
+        --stale-threshold-seconds=900
+      network: sentry
+      services: *sentry_snuba_services
+
+    sentry_snuba_transactions_consumer:
+      command: consumer --storage transactions --consumer-group transactions_group
+        --auto-offset-reset=latest --max-batch-time-ms 750
+      network: sentry
+      services: *sentry_snuba_services
+
+  #
+  # Sentry
   #
 
   sentry:
