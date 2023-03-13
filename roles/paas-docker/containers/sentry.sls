@@ -12,7 +12,7 @@
 #   Data directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for realm, args in pillar['sentry_realms'].items() %}
+{% for realm, realm_args in pillar['sentry_realms'].items() %}
 
 /srv/sentry/{{ realm }}:
   file.directory:
@@ -20,15 +20,46 @@
     - group: 999
     - makedirs: True
 
+/srv/sentry/{{ realm }}/data:
+  file.directory:
+    - user: 999
+    - group: 999
+
+/srv/sentry/{{ realm }}/data/files:
+  file.directory:
+    - user: 999
+    - group: 999
+
+/srv/sentry/{{ realm }}/etc:
+  file.recurse:
+    - source: salt://roles/paas-docker/containers/files/sentry/etc
+    - user: 999
+    - group: 999
+    - dir_mode: 700
+    - file_mode: 400
+    - template: jinja
+    - context:
+        realm: {{ realm }}
+        args: {{ realm_args }}
+        vault:
+          approle: {{ salt["credentials.read_secret"](realm_args["credentials"]["vault"]) }}
+          addr: https://172.27.27.7:8200
+
+sentry_{{ realm }}_vault_certificate:
+  file.managed:
+    - name: /srv/sentry/{{ realm }}/etc/certificates/nasqueron-vault-ca.crt
+    - source: salt://roles/core/certificates/files/nasqueron-vault-ca.crt
+    - mode: 644
+    - makedirs: True
+
 /srv/sentry/{{ realm }}/bin/sentry:
   file.managed:
     - source: salt://roles/paas-docker/containers/files/sentry/sentry.sh.jinja
-    - template: jinja
     - mode: 755
-    - makedirs: True
+    - template: jinja
     - context:
-        links: {{ args['links'] }}
-        credential_key: {{ args['credential'] }}
+        realm: {{ realm }}
+        network: {{ realm_args["network"] }}
 
 {% if has_selinux %}
 selinux_context_{{ realm }}_sentry_data:
@@ -49,49 +80,26 @@ selinux_context_{{ realm }}_sentry_data_applied:
 
 {% for instance, container in pillar['docker_containers']['sentry'].items() %}
 
-{% set args = pillar['sentry_realms'][container['realm']] %}
-
 {{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: library/sentry
-    - binds: &binds /srv/sentry/{{ container['realm'] }}:/var/lib/sentry/files
-    - links: &links
-        - {{ args['links']['postgresql'] }}:postgres
-        - {{ args['links']['redis'] }}:redis
-        - {{ args['links']['smtp'] }}:smtp
-    - environment: &env
-        - SENTRY_SECRET_KEY: {{ salt['credentials.get_token'](args['credential']) }}
-        - SENTRY_FILESTORE_DIR:
-        - SENTRY_USE_SSL: 1
-        - SENTRY_SERVER_EMAIL: {{ args['email_from'] }}
-        - SENTRY_FILESTORE_DIR: /var/lib/sentry/files
+    - image: nasqueron/sentry
+    - command: {{ container["command"] }}
+    - binds:
+      - /srv/sentry/{{ container["realm"] }}/etc:/etc/sentry
+      - /srv/sentry/{{ container["realm"] }}/data:/data
+      - /srv/geoip:/usr/local/share/geoip:ro
+    - environment:
+        - PYTHONUSERBASE: /data/custom-packages
+        - SENTRY_EVENT_RETENTION_DAYS: 90
+    {% if "app_port" in container %}
     - ports:
-      - 80
+      - 9000
     - port_bindings:
       - {{ container['app_port'] }}:9000
+    {% endif %}
+    - networks:
+      - {{ container['network'] }}
 
-{% endfor %}
-
-#   -------------------------------------------------------------
-#   Services containers
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% for service in ['worker', 'cron'] %}
-{% for instance, container in pillar['docker_containers']['sentry_' + service].items() %}
-
-{% set args = pillar['sentry_realms'][container['realm']] %}
-
-{{ instance }}:
-  docker_container.running:
-    - detach: True
-    - interactive: True
-    - image: library/sentry
-    - binds: *binds
-    - links: *links
-    - environment: *env
-    - command: run {{ service }}
-
-{% endfor %}
 {% endfor %}

@@ -49,6 +49,7 @@ vault_mount_paths:
 
 vault_policies:
   - salt-primary
+  - sentry
   - viperserv
 
 #   -------------------------------------------------------------
@@ -138,6 +139,7 @@ vault_secrets_by_role:
 
     - ops/secrets/nasqueron.sentry.app_key
     - ops/secrets/nasqueron.sentry.postgresql
+    - ops/secrets/nasqueron.sentry.vault
 
     #
     # Credentials used by Nasqueron members private services

@@ -155,22 +155,54 @@ docker_containers:
   #
 
   sentry:
-    sentry_web_1:
+    sentry_web:
       app_port: 26080
       host: sentry.nasqueron.org
-
-      # As an instance is divided between a web, a cron and a worker
-      # containers, we need an identified to share a data volume.
+      command: run web
       realm: nasqueron
       network: sentry
 
-  sentry_worker:
-    sentry_worker_1:
+    sentry_worker:
+      command: run worker
       realm: nasqueron
       network: sentry
 
-  sentry_cron:
     sentry_cron:
+      command: run cron
+      realm: nasqueron
+      network: sentry
+
+    sentry_ingest_consumer:
+      command: run ingest-consumer --all-consumer-types
+      realm: nasqueron
+      network: sentry
+
+    sentry_ingest_replay_recordings:
+      command: run ingest-replay-recordings
+      realm: nasqueron
+      network: sentry
+
+    sentry_post_process_forwarder_errors:
+      command: run post-process-forwarder --entity errors
+      realm: nasqueron
+      network: sentry
+
+    sentry_post_process_forwarder_transations:
+      command: run post-process-forwarder --entity transactions
+        --commit-log-topic=snuba-transactions-commit-log
+        --synchronize-commit-group transactions_group
+      realm: nasqueron
+      network: sentry
+
+    sentry_consumer_events:
+      command: run query-subscription-consumer --commit-batch-size 1
+        --topic events-subscription-results
+      realm: nasqueron
+      network: sentry
+
+    sentry_consumer_transactions:
+      command: run query-subscription-consumer --commit-batch-size 1
+        --topic transactions-subscription-results
       realm: nasqueron
       network: sentry
 
@@ -186,3 +218,23 @@ kakfa_loggers:
   kafka.server: WARN
   kafka.zookeeper: WARN
   state.change.logger: WARN
+
+sentry_realms:
+  nasqueron:
+      network: sentry
+      services:
+        kafka: sentry_kafka
+        memcached: sentry_memcached
+        postgresql: sentry_db
+        redis: sentry_redis
+        smtp: sentry_smtp
+        snuba: sentry_snuba_api
+        symbolicator: sentry_symbolicator
+        web: sentry_web
+      credentials:
+        secret_key: nasqueron.sentry.app_key
+        postgresql: nasqueron.sentry.postgresql
+        vault: nasqueron.sentry.vault
+
+      hostname: sentry.nasqueron.org
+      email_from: noreply@sentry.nasqueron.org

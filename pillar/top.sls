@@ -29,7 +29,6 @@ base:
     - paas.docker
     - saas.jenkins
     - saas.phpbb
-    - saas.sentry
 
   db-A-001:
     - dbserver.cluster-A

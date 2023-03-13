@@ -28,6 +28,9 @@
                 "F821": "advice"
             },
             "flake8.builtins": [
+                "KAFKA_CLUSTERS",
+                "SENTRY_FEATURES",
+                "SENTRY_OPTIONS",
                 "__context__",
                 "__executors__",
                 "__ext_pillar__",
