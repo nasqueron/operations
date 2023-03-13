@@ -24,7 +24,6 @@ viperserv_bots:
       - Daeghrefn/Tools.tcl
       - Daeghrefn/Channel.tcl
       - Daeghrefn/Help.tcl
-      - vendor/oauth.tcl
       - vendor/proxycheck.tcl
     modules:
       - transfer
