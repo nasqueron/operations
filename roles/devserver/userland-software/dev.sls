@@ -222,6 +222,15 @@ devserver_software_dev_misctools:
       - git-review
 
 #   -------------------------------------------------------------
+#   Nasqueron development and operations
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{{ dirs.bin }}/create-vault-approle:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/create-vault-approle.py
+    - mode: 755
+
+#   -------------------------------------------------------------
 #   MediaWiki development
 #
 #   Include tools for some extensions like ProofreadPage
