@@ -14,6 +14,7 @@ docker_images:
   - library/postgres
   - library/redis:3.2-alpine
   - library/sentry
+  - getsentry/relay:nightly
   - getsentry/snuba:nightly
   - tianon/exim4
   - yandex/clickhouse-server:20.3.9.70
@@ -151,12 +152,25 @@ docker_containers:
       network: sentry
 
   #
+  # Relay
+  #
+
+  relay:
+    sentry_relay:
+      app_port: 26300
+      kafka: sentry_kafka
+      redis: sentry_redis
+      web: sentry_web
+      network: sentry
+
+  #
   # Sentry
   #
 
   sentry:
     sentry_web:
       app_port: 26080
+      relay_port: 26300
       host: sentry.nasqueron.org
       command: run web
       realm: nasqueron
