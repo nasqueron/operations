@@ -42,6 +42,7 @@ docker_containers:
   postgresql:
     sentry_db:
       credential: nasqueron.sentry.postgresql
+      network: sentry
 
   #
   # Kafka instance
