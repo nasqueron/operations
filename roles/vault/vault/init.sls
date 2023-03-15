@@ -12,8 +12,17 @@
 #   Software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-vault:
-  pkg.installed
+/opt/vault/vault.zip:
+  file.managed:
+    - source: https://releases.hashicorp.com/vault/1.13.0/vault_1.13.0_freebsd_amd64.zip
+    - source_hash: 0d5c0e228f9783cb2f11e7edb9afe35b8d9e511a2fa0d35d0f650b3e261ce1a5
+    - makedirs: True
+
+extract_vault:
+  cmd.run:
+    - name: unzip -d {{ dirs.bin }} -f /opt/vault/vault.zip
+    - onchanges:
+        - file: /opt/vault/vault.zip
 
 #   -------------------------------------------------------------
 #   Configuration
