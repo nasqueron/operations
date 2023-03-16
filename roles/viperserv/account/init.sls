@@ -29,6 +29,11 @@ viperserv_account_{{ username }}:
     - group: nasqueron-irc
     - dir_mode: 711
 
+{{ dirs.share }}/{{ username }}/.gitconfig:
+  file.managed:
+    - source: salt://roles/viperserv/account/files/dot.gitconfig
+    - mode: 444
+
 {% endfor %}
 
 #   -------------------------------------------------------------
