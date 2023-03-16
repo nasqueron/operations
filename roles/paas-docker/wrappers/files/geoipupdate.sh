@@ -15,6 +15,8 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
+touch /srv/geoip/.geoipupdate.lock
+
 GEOIPUPDATE_ACCOUNT_ID=$(credential nasqueron/sentry/geoipupdate username)
 GEOIPUPDATE_LICENSE_KEY=$(credential nasqueron/sentry/geoipupdate)
 
@@ -25,3 +27,5 @@ docker run --rm \
     -e GEOIPUPDATE_PRESERVE_FILE_TIMES=1 \
     -v /srv/geoip:/usr/share/GeoIP \
     maxmindinc/geoipupdate
+
+rm /srv/geoip/.geoipupdate.lock
