@@ -36,7 +36,6 @@ base:
   dwellers:
     - paas.docker
     - saas.jenkins
-    - saas.sentry
 
   eglide:
     - shellserver.quassel
