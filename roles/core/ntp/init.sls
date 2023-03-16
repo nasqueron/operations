@@ -1,27 +1,16 @@
 #   -------------------------------------------------------------
-#   Salt — Core units
+#   Salt — NTP
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .rc
-  - .certificates
-  - .hostname
-  - .login
-  - .network
-  - .memory
-  - .monitoring
-  - .motd
-  - .ntp
-  - .src
-  - .ports
-  - .rsyslog
-  - .salt
-  - .sshd
-  - .sudo
-  - .sysctl
-  - .timezone
-  - .userland-software
-  - .users
+{% if grains['os_family'] == 'RedHat' %}
+chrony:
+  pkg.installed
+
+chrony_service:
+  service.running:
+    - name: chronyd
+    - enable: true
+{% endif %}
