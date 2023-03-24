@@ -23,7 +23,7 @@
 #   Enable packet forwarding for routers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if "router" in salt['node.get_list']('roles') %}
+{% if salt['node.has_role']("router") %}
 {% if grains['os'] == 'FreeBSD' %}
 
 /etc/rc.d/routing/router:
