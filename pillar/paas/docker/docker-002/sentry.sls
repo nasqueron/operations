@@ -51,12 +51,12 @@ docker_containers:
 
   zookeeper:
     sentry_zookeeper:
-      version: 5.5.0
+      version: 5.5.7
       network: sentry
 
   kafka:
     sentry_kafka:
-      version: 5.5.0
+      version: 5.5.7
       zookeeper: sentry_zookeeper
       network: sentry
       topics:

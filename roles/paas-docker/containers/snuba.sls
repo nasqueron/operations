@@ -22,7 +22,7 @@
     - command: {{ container["command"] }}
     {% endif %}
     - environment:
-        SNUBA_SETTINGS: docker
+        SNUBA_SETTINGS: self_hosted
         CLICKHOUSE_HOST: {{ container["services"]["clickhouse"] }}
         DEFAULT_BROKERS: {{ container["services"]["broker"] }}
         REDIS_HOST: {{ container["services"]["redis"] }}
