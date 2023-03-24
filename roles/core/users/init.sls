@@ -57,7 +57,9 @@ zfs_home_permissions_sets:
 {% set home_directory = zfs_tank + dirs['home'] + '/' + username %}
 
 {{ home_directory }}:
-  zfs.filesystem_present
+  zfs.filesystem_present:
+    - properties:
+        "com.sun:auto-snapshot": "true"
 
 zfs_permissions_home_local_{{ username }}:
   cmd.run:

@@ -1,28 +1,17 @@
 #   -------------------------------------------------------------
-#   Salt — Core units
+#   Salt — Storage
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .rc
-  - .certificates
-  - .hostname
-  - .login
-  - .network
-  - .memory
-  - .monitoring
-  - .motd
-  - .ntp
-  - .src
-  - .ports
-  - .rsyslog
-  - .salt
-  - .sshd
-  - .sudo
-  - .storage
-  - .sysctl
-  - .timezone
-  - .userland-software
-  - .users
+{% set zfs_tank = salt['node.get']("zfs:pool") %}
+
+{% if zfs_tank %}
+zfstools:
+  pkg.installed
+
+/etc/cron.d/zfs:
+  file.managed:
+    - source: salt://roles/core/storage/files/zfs.cron
+{% endif %}
