@@ -11,6 +11,16 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ports:
+  ant:
+    category: devel
+    name: apache-ant
+    creates: /usr/local/bin/ant
+    options:
+      unset:
+        - DOCS
+    package_dependencies:
+      - openjdk17
+
   xaos:
     category: graphics
     name: xaos

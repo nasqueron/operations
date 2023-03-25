@@ -30,6 +30,14 @@
 #   Build and install package
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if 'package_dependencies' in args %}
+
+port_{{ port }}_dependencies:
+  pkg.installed:
+    - pkgs: {{ args["package_dependencies"] }}
+
+{% endif %}
+
 port_{{ port }}:
   cmd.run:
     - name: |

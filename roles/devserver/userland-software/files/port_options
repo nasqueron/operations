@@ -6,10 +6,10 @@
 #   Source file:    roles/devserver/userland-software/files/port_options
 #   -------------------------------------------------------------
 
-{% for option in args.get('options', {}).get('set') -%}
+{% for option in args.get('options', {}).get('set', []) -%}
 OPTIONS_FILE_SET+={{ option }}
 {% endfor -%}
 
-{% for option in args.get('options', {}).get('unset') -%}
+{% for option in args.get('options', {}).get('unset', []) -%}
 OPTIONS_FILE_UNSET+={{ option }}
 {% endfor -%}
