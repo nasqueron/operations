@@ -16,15 +16,15 @@
 
 /srv/exim/{{ instance }}:
   file.directory:
-    - user: 999
-    - group: 999
+    - user: 101
+    - group: 101
     - makedirs: True
 
 {% for subdir in ['spool', 'log'] %}
 /srv/exim/{{ instance }}/{{ subdir }}:
   file.directory:
-    - user: 999
-    - group: 999
+    - user: 101
+    - group: 101
 {% endfor %}
 
 {% if 'mailname' in container %}
