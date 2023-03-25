@@ -26,7 +26,7 @@ devserver_software_dev_c:
 devserver_software_dev_java:
   pkg.installed:
     - pkgs:
-      - openjdk19
+      - openjdk17
       - apache-ant
       - maven
 
