@@ -13,12 +13,12 @@ docker_networks:
 docker_images:
   - library/postgres
   - library/redis:3.2-alpine
-  - library/sentry
   - getsentry/relay:nightly
   - getsentry/snuba:nightly
+  - nasqueron/sentry:nightly
+  - getsentry/symbolicator:nightly
   - tianon/exim4
   - yandex/clickhouse-server:20.3.9.70
-  - getsentry/symbolicator:nightly
 
 docker_containers:
 
