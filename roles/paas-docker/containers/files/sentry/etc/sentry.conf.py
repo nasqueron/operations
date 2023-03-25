@@ -53,11 +53,19 @@ def get_internal_network():
     return "{0:s}/{1:d}".format(base, netmask_bits)
 
 
-def read_secret(key):
+def read_secret(mount_point, prefix, key):
     secret = vault_client.secrets.kv.read_secret_version(
-        mount_point="ops", path="secrets/" + key
+        mount_point=mount_point, path=prefix + "/" + key
     )
     return secret["data"]["data"]
+
+
+def read_ops_secret(key):
+    return read_secret("ops", "secrets", key)
+
+
+def read_app_secret(key):
+    return read_secret("apps", "sentry", key)
 
 
 #   -------------------------------------------------------------
@@ -84,7 +92,7 @@ vault_client.auth.approle.login(
 
 INTERNAL_SYSTEM_IPS = (get_internal_network(),)
 
-secret = read_secret("{{ args.credentials.postgresql }}")
+secret = read_ops_secret("{{ args.credentials.postgresql }}")
 DATABASES = {
     "default": {
         "ENGINE": "sentry.db.postgres",
@@ -103,6 +111,7 @@ SENTRY_USE_BIG_INTS = True
 #   General
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+REALM = "{{ realm }}"
 
 SENTRY_SINGLE_ORGANIZATION = False
 
@@ -110,7 +119,7 @@ SENTRY_OPTIONS["system.event-retention-days"] = int(
     env("SENTRY_EVENT_RETENTION_DAYS", "90")
 )
 
-secret_key = read_secret("{{ args.credentials.secret_key }}")
+secret_key = read_ops_secret("{{ args.credentials.secret_key }}")
 SENTRY_OPTIONS["system.secret-key"] = secret_key["password"]
 
 GEOIP_PATH_MMDB = "/usr/local/share/geoip/GeoLite2-City.mmdb"
@@ -252,6 +261,19 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 SENTRY_OPTIONS["mail.list-namespace"] = "{{ args.hostname }}"
 SENTRY_OPTIONS["mail.from"] = "{{ args.email_from }}"
+
+
+#   -------------------------------------------------------------
+#   Integration - GitHub
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+if REALM == "nasqueron":
+    secret = read_app_secret("github")
+    for k, v in secret.items():
+        if k == "id":
+            v = int(v)
+        SENTRY_OPTIONS["github-app." + k] = v
 
 
 #   -------------------------------------------------------------

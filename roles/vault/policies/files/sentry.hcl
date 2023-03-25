@@ -13,6 +13,10 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
+path "apps/data/sentry/github" {
+    capabilities = [ "read" ]
+}
+
 path "ops/data/secrets/nasqueron.sentry.app_key" {
     capabilities = [ "read" ]
 }
