@@ -16,6 +16,8 @@ if [ -f "vendor/bin/$COMMAND" ]; then
     SCRIPT="vendor/bin/$COMMAND"
 elif [ -f "/opt/$COMMAND.phar" ]; then
     SCRIPT="/opt/$COMMAND.phar"
+elif [ -f "/opt/$COMMAND/$COMMAND" ]; then
+    SCRIPT="/opt/$COMMAND/$COMMAND"
 elif [ -f "/opt/$COMMAND" ]; then
     SCRIPT="/opt/$COMMAND"
 else

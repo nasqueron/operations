@@ -90,17 +90,19 @@ devserver_software_dev_php:
     - source_hash: 2cbaea7cfda1bb4299d863eb075e977c3f49055dd16d88529fae5150d48a84cb
     - mode: 755
 
-/opt/phpdox.phar:
-  file.managed:
-    - source: https://github.com/theseer/phpdox/releases/download/0.12.0/phpdox-0.12.0.phar
-    - source_hash: d60ddb2666e103f417510f59d60654efe616ada344f5366e2d0997aa3da921bf
-    - mode: 755
-
 /opt/phploc.phar:
   file.managed:
     - source: https://phar.phpunit.de/phploc-7.0.2.phar
     - source_hash: 3d59778ec86faf25fd00e3a329b2f9ad4a3c751ca91601ea7dab70f887b0bf46
     - mode: 755
+
+phpdox:
+  cmd.run:
+    - name: |
+        git clone --depth 1 https://github.com/nasqueron/phpdox
+        cd phpdox && composer install
+    - cwd: /opt
+    - creates: /opt/phpdox/phpdox
 
 phpunit:
   cmd.run:
