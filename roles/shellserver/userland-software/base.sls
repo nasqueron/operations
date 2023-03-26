@@ -277,8 +277,10 @@ media:
   pkg.installed:
     - pkgs:
       - {{ packages.exiftool }}
+      - gifsicle
       - id3v2
       - {{ packages.imagemagick }}
+      - mozjpeg
       - optipng
       - sox
 
