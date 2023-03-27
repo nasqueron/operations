@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import services with context %}
+{% from "map.jinja" import dirs, services with context %}
 
 #   -------------------------------------------------------------
 #   Install Docker engine
@@ -56,3 +56,8 @@ install_docker_extra_packages:
   pkg.installed:
     - pkgs:
       - docker-processes
+
+{{ dirs.bin }}/docker-paas-list-containers:
+  file.managed:
+    - source: salt://roles/paas-docker/docker/files/docker-paas-list-containers.py
+    - mode: 755

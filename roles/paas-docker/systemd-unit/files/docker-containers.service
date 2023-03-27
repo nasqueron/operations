@@ -17,5 +17,5 @@
 [Service]
 Type=simple
 RemainAfterExit=yes
-ExecStart=docker_start
-ExecStop=docker_stop
+ExecStart=docker-paas-start-containers
+ExecStop=docker-paas-stop-containers

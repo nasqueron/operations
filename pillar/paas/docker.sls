@@ -2,9 +2,96 @@
 #   Salt — Provision Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
+
+#   -------------------------------------------------------------
+#   Hard dependencies between containers
+#
+#   To compute optimal Docker containers start order, the following
+#   rules apply:
+#
+#      - depends_of_containers: launch after a specific container
+#                               values are the keys for those containers
+#
+#      - depends_of_services: launch after containers from this service
+#
+#   Hierarchy of keys can use dot (.) as separator, e.g. links.mysql
+#
+#   Values are configuration keys from docker_containers pillar.
+#
+#   Soft dependencies (e.g. Notifications Center depends of Sentry)
+#   aren't documented, as it can still run without it.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker_containers_dependencies:
+
+  #
+  # Core services
+  #
+
+  kafka:
+    depends_of_containers:
+      - zookeeper
+
+  #
+  # Simple services
+  #
+
+  auth-grove:
+    depends_of_containers:
+      - mysql_link
+
+  bugzilla:
+    depends_of_services:
+      - mysql
+
+  cachet:
+    depends_of_containers:
+      - mysql_link
+
+  etherpad:
+    depends_of_containers:
+      - mysql_link
+
+  notifications:
+    depends_of_containers:
+      - broker_link
+
+  phabricator:
+    depends_of_containers:
+      - mysql_link
+
+  pixelfed:
+    depends_of_containers:
+      - links.mysql
+      - links.redis
+
+  #
+  # Sentry
+  #
+
+  relay:
+    may_depends_of_containers:
+      - kafka
+      - redis
+      - web
+
+  sentry:
+    depends_of_services:
+      - redis
+      - kafka
+      - postgresql
+      - memcached
+      - exim
+      - snuba
+      - symbolicator
+
+  snuba:
+    depends_of_containers:
+      - services.broker
+      - services.clickhouse
+      - services.redis
 
 #   -------------------------------------------------------------
 #   Monitoring
