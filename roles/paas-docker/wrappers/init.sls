@@ -12,11 +12,21 @@
 #   Wrapper binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for command in ['certbot', 'jenkins', 'phpbb', 'mysql', 'sentry', 'openfire', 'geoipupdate'] %}
+{% for command in ['certbot', 'jenkins', 'phpbb', 'mysql', 'openfire', 'geoipupdate'] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
     - mode: 755
+{% endfor %}
+
+{% for command in ['airflow', 'sentry'] %}
+{{ dirs.bin }}/{{ command }}:
+  file.managed:
+    - source: salt://roles/paas-docker/wrappers/files/run-by-realm.sh.jinja
+    - mode: 755
+    - template: jinja
+    - context:
+        service: {{ command }}
 {% endfor %}
 
 {% for command in ['pad-delete'] %}

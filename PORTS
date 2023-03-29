@@ -41,6 +41,8 @@ paas-docker
     43080   Hauk
     44080   Hound
     # 45080 should be reserved for OpenGrok to compare with Hound
+    46080   Airflow - HTTP
+    46555   Airflow - Flower
     47080   Jenkins HTTP - Test
     50000   Jenkins controller's port for JNLP-based Jenkins agents - CD
     52000   Jenkins controller's port for JNLP-based Jenkins agents - Test

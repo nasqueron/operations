@@ -117,6 +117,14 @@ def get_token(key, prefix=None):
     return get_password(key, prefix)
 
 
+def get_dsn(host, key, prefix=None):
+    if _are_credentials_hidden():
+        return "credential for " + key
+
+    secret = read_secret(key, prefix)
+    return f"{secret['username']}:{secret['password']}@{host}"
+
+
 #   -------------------------------------------------------------
 #   Helpers for Sentry credentials
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

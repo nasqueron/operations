@@ -103,6 +103,10 @@ vault_secrets_by_role:
     # Format: ops/secrets/nasqueron/service/<...>
     #
 
+    - ops/secrets/nasqueron/airflow/admin_account
+    - ops/secrets/nasqueron/airflow/fernet
+    - ops/secrets/dbserver/cluster-A/users/airflow
+
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
 
@@ -162,6 +166,15 @@ vault_secrets_by_role:
     - ops/secrets/zed.phabricator.sendgrid
 
   paas-docker-dev:
+
+    #
+    # Credentials used by Nasqueron services
+    # Format: ops/secrets/nasqueron/service/<...>
+    #
+
+    - ops/secrets/nasqueron/airflow/admin_account
+    - ops/secrets/nasqueron/airflow/fernet
+    - ops/secrets/dbserver/cluster-A/users/airflow
 
     #
     # Credentials used by projects hosted by Nasqueron
