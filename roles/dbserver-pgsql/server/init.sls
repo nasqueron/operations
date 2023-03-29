@@ -7,6 +7,8 @@
 
 include:
   - .software
+  - .config
+  - .service
 
   # Content includes databases, users, privileges
   - .content
