@@ -6,6 +6,15 @@ dbserver_postgresql:
 
   users:
     # Password paths are relative to ops/secrets/
+
+    airflow:
+      password: dbserver/cluster-A/users/airflow
+      privileges:
+        - database: airflow
+          scope: schema
+          privileges:
+            - ALL
+
     fantoir:
       password: dbserver/cluster-A/users/fantoir
       privileges:
@@ -15,6 +24,10 @@ dbserver_postgresql:
             - ALL
 
   databases:
+    airflow:
+      encoding: UTF8
+      owner: airflow
+
     fantoir:
       encoding: UTF8
       owner: fantoir
