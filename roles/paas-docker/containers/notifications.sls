@@ -80,6 +80,7 @@ selinux_context_notifications_data_applied_{{ instance }}:
         - MAILGUN_APIKEY: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
 
         - SENTRY_DSN: {{ salt['credentials.get_sentry_dsn'](container["sentry"]) }}
+        - SENTRY_TRACES_SAMPLE_RATE: 1.0
     - ports:
         - 80
     - port_bindings:
