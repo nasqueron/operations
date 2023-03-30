@@ -126,13 +126,10 @@ def get_sentry_dsn(args):
     if _are_credentials_hidden():
         return "credential for " + args["credential"]
 
-    host = __pillar__["sentry_realms"][args["realm"]]["host"]
-    credential = read_secret(args["credential"])
+    host = __pillar__["sentry_realms"][args["realm"]]["hostname"]
+    key = get_username(args["credential"])
 
-    return (
-        f"https://{credential['username']}:{credential['password']}"
-        f"@{host}/{args['project_id']}"
-    )
+    return f"https://{key}@{host}/{args['project_id']}"
 
 
 #   -------------------------------------------------------------
