@@ -24,33 +24,24 @@ docker_containers:
       command: webserver
       command_port: 8080
       app_port: 46080
-      healthcheck: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
 
     airflow_scheduler:
       <<: *airflow
       command: scheduler
-      healthcheck: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
 
     airflow_worker:
       <<: *airflow
       command: celery worker
-      healthcheck:
-        - CMD-SHELL
-        - celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"
 
     airflow_triggerer:
       <<: *airflow
       command: triggerer
-      healthcheck:
-        - CMD-SHELL
-        - airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"
 
     airflow_flower:
       <<: *airflow
       command: celery flower
       command_port: 5555
       app_port: 46555
-      healthcheck: ["CMD", "curl", "--fail", "http://localhost:5555/"]
 
 docker_networks:
   airflow:
@@ -66,3 +57,15 @@ airflow_realms:
       admin_account: nasqueron/airflow/admin_account
       fernet_key: nasqueron/airflow/fernet
       postgresql: dbserver/cluster-A/users/airflow
+
+#   -------------------------------------------------------------
+#   Airflow specific monitorng
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+docker_containers_monitoring:
+  check_by_container_name:
+    airflow:
+      check_http_200:
+        airflow_web: /health
+        airflow_scheduler: /health
+        airflow_flower: /

@@ -108,9 +108,6 @@ airflow_init_{{ realm }}:
     - port_bindings:
       - 127.0.0.1:{{ container['app_port'] }}:{{ container['command_port'] }}
     {% endif %}
-    - healthcheck:
-        Test: {{ container['healthcheck'] }}
-        Interval: 30000000000
     - networks:
       - {{ container['network'] }}
 
