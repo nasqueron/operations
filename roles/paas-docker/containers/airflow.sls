@@ -100,8 +100,6 @@ airflow_init_{{ realm }}:
         - AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://{{ postgresql_dsn }}/airflow
 
         - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://{{ postgresql_dsn }}/airflow
-
-        - AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: "true"
     {% if "app_port" in container %}
     - ports:
       - {{ container['command_port'] }}
