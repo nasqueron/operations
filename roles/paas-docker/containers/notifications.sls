@@ -24,6 +24,7 @@
   file.managed:
     - user: 431
     - group: 433
+    - mode: 400
     - makedirs: True
     - show_changes: False
     - contents: |
