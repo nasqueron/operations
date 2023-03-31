@@ -91,8 +91,8 @@ airflow_init_{{ realm }}:
     - environment:
         - AIRFLOW__CORE__EXECUTOR: CeleryExecutor
         - AIRFLOW__CORE__FERNET_KEY: {{ salt["credentials.get_password"](realm_args["credentials"]["fernet_key"]) }}
-        - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "true"
-        - AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+        - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
+        - AIRFLOW__CORE__LOAD_EXAMPLES: "False"
 
         - AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session
 
