@@ -15,6 +15,7 @@ base:
     - nodes.nodes
     - nodes.forests
     - hotfixes.roles
+    - services.monitoring-reporting
     - webserver.sites
 
   cloudhugger:

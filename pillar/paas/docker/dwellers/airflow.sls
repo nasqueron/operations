@@ -7,7 +7,7 @@
 #   -------------------------------------------------------------
 
 docker_images:
-  - apache/airflow:2.5.2
+  - nasqueron/airflow
   - redis
 
 airflow_default_container_args: &airflow
@@ -57,6 +57,10 @@ airflow_realms:
       admin_account: nasqueron/airflow/admin_account
       fernet_key: nasqueron/airflow/fernet
       postgresql: dbserver/cluster-A/users/airflow
+    sentry:
+      realm: nasqueron
+      project_id: 4
+      credential: nasqueron/airflow/sentry
 
 #   -------------------------------------------------------------
 #   Airflow specific monitorng

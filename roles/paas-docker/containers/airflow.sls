@@ -82,7 +82,7 @@ airflow_init_{{ realm }}:
   docker_container.running:
     - detach: True
     - interactive: True
-    - image: apache/airflow:2.5.2
+    - image: nasqueron/airflow
     - command: {{ container["command"] }}
     - binds:
       - /srv/airflow/{{ realm }}/dags:/opt/airflow/dags
@@ -100,6 +100,9 @@ airflow_init_{{ realm }}:
         - AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://{{ postgresql_dsn }}/airflow
 
         - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://{{ postgresql_dsn }}/airflow
+
+        - AIRFLOW__SENTRY__SENTRY_ON: "True"
+        - AIRFLOW__SENTRY__SENTRY_DSN: {{ salt["credentials.get_sentry_dsn"](realm_args["sentry"]) }}
     {% if "app_port" in container %}
     - ports:
       - {{ container['command_port'] }}
