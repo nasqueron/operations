@@ -31,6 +31,7 @@ vault_policies_source: /srv/policies/vault
 vault_mount_paths:
   ops/secrets: ops/data/secrets
   ops/privacy: ops/data/privacy
+  apps: apps/data
 
 #   -------------------------------------------------------------
 #   Vault policies to deploy as-is, ie without templating.
@@ -137,6 +138,9 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron.notifications.credentials_github_trustspace
     - ops/secrets/nasqueron.notifications.credentials_github_eglide
     - ops/secrets/nasqueron.notifications.credentials_phabricator_nasqueron
+
+    - apps/notifications-center/dockerhub/notifications
+    - apps/notifications-center/dockerhub/auth-grove
 
     - ops/secrets/nasqueron.pixelfed.app_key
     - ops/secrets/nasqueron.pixelfed.mailgun

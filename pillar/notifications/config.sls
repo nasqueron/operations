@@ -42,7 +42,20 @@ notifications_credentials:
       instance: https://devcentral.nasqueron.org
       secret: nasqueron.notifications.credentials_phabricator_nasqueron
 
-# Docker Hub build triggers URL can't currently been automated easily.
+#   -------------------------------------------------------------
+#   Docker Hub build triggers
+#
+#   Key: the repository, the same in GitHub and Docker Hub
+#   Value: the *full* path to Vault secret
+#
+#   This vault secret should use the following format:
+#     source: the UUID after /source/
+#     trigger: the UUID after /trigger/
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+notifications_dockerhub_triggers:
+  nasqueron/auth-grove: apps/notifications-center/dockerhub/auth-grove
+  nasqueron/notifications: apps/notifications-center/dockerhub/notifications
 
 #   -------------------------------------------------------------
 #   Payload analyzer configuration

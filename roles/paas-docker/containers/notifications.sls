@@ -30,6 +30,15 @@
     - contents: |
         {{ salt['notifications.get_credentials']() | json }}
 
+/srv/{{ instance }}/storage/app/DockerHubTriggers.json:
+  file.managed:
+    - user: 431
+    - group: 433
+    - mode: 400
+    - show_changes: False
+    - contents: |
+        {{ salt['notifications.get_dockerhub_triggers']() | json }}
+
 {% for folder, configs in salt['pillar.get']("notifications_configuration", {}).items() %}
 {% for config_file, config in configs.items() %}
 /srv/{{ instance }}/storage/app/{{ folder }}/{{ config_file }}.json:
