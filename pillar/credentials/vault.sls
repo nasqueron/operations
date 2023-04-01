@@ -186,6 +186,12 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/airflow/sentry
     - ops/secrets/dbserver/cluster-A/users/airflow
 
+    - ops/secrets/nasqueron/rabbitmq/orange-rabbit/erlang-cookie
+    - ops/secrets/nasqueron/rabbitmq/orange-rabbit/root
+
+    - ops/secrets/nasqueron/rabbitmq/orange-rabbit/notifications
+    - ops/secrets/nasqueron.notifications.sentry
+
     #
     # Credentials used by projects hosted by Nasqueron
     # Format: <project name>.<service>.<type>

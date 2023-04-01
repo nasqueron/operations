@@ -46,6 +46,7 @@ paas-docker
     46080   Airflow - HTTP
     46555   Airflow - Flower
     47080   Jenkins HTTP - Test
+    48080   Vault - Notifications - Integration
     50000   Jenkins controller's port for JNLP-based Jenkins agents - CD
     52000   Jenkins controller's port for JNLP-based Jenkins agents - Test
     55000   Jenkins controller's port for JNKP-based Jenkins agents - CI

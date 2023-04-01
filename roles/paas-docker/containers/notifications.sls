@@ -72,25 +72,39 @@ selinux_context_notifications_data_applied_{{ instance }}:
 #                   Docker volume   (/srv/notifications/storage)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if "network" in container %}
+{% set broker = container['broker'] %}
+{% else %}
+{% set broker = "mq" %}
+{% endif %}
+
 {{ instance }}:
   docker_container.running:
     - detach: True
     - interactive: True
     - image: nasqueron/notifications
     - binds: /srv/{{ instance }}/storage:/var/wwwroot/default/storage
+    {% if "network" in container %}
+    - networks:
+      - {{ container['network'] }}
+    {% else %}
     - links:
         - {{ container['broker_link'] }}:mq
+    {% endif %}
     - environment:
-        - BROKER_HOST: mq
+        - BROKER_HOST: {{ broker }}
         - BROKER_USERNAME: {{ salt['credentials.get_username'](container['credentials']['broker']) }}
         - BROKER_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['broker']) }}
         - BROKER_VHOST: dev
 
+        {% if "mailgun" in container["credentials"] %}
         - MAILGUN_DOMAIN: {{ salt['credentials.get_username'](container['credentials']['mailgun']) }}
         - MAILGUN_APIKEY: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
+        {% endif %}
 
         - SENTRY_DSN: {{ salt['credentials.get_sentry_dsn'](container["sentry"]) }}
         - SENTRY_TRACES_SAMPLE_RATE: 1.0
+        - SENTRY_ENVIRONMENT: {{ container["sentry"].get("environment", "production") }}
     - ports:
         - 80
     - port_bindings:
