@@ -40,6 +40,7 @@ shellgroups:
       - dereckson
       - dorianwinty
       - erol
+      - fauve
       - fluo
       - harshcrop
       - hlp
@@ -111,6 +112,7 @@ shellgroups:
     members:
       - dereckson
       - dorianwinty
+      - fauve
       - fluo
       - inidal
       - rama

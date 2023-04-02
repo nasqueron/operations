@@ -152,6 +152,7 @@ shellusers:
     shell: zsh
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILQAhf4Du37UglM/hh9ZW2HCq3VtMfj+bgnbjvcIEwo0 fove48@OperateurNoir
+      - ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBABsfXPdhHqjAL7AOSCymUZU/7jXL95mfU+HeFuelF+Re+T35u6Qe5KSzQ1iT7lhLafGt6ARQgVvflQ1OgtvhlLhwwDb7MUNbThyr5SNbHfkZpDBGY5sNZfMPJLsYWvKXkxJ5ev8rxcCmER+g3qUAf5oKCDKY3cyODDAhMGKl1POemiaDQ== fauve@CrepusculeEcarlate
     uid: 2030
 
   fluo:
