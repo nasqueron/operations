@@ -11,10 +11,10 @@ docker_networks:
     subnet: 172.18.3.0/24
 
 docker_images:
-  - library/postgres
   - library/redis:3.2-alpine
   - getsentry/relay:nightly
   - getsentry/snuba:nightly
+  - nasqueron/postgres-sentry
   - nasqueron/sentry:nightly
   - getsentry/symbolicator:nightly
   - tianon/exim4
@@ -42,6 +42,7 @@ docker_containers:
 
   postgresql:
     sentry_db:
+      image: nasqueron/postgres-sentry
       credential: nasqueron.sentry.postgresql
       network: sentry
 
