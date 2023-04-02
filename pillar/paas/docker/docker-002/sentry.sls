@@ -201,7 +201,7 @@ docker_containers:
       realm: nasqueron
       network: sentry
 
-    sentry_post_process_forwarder_transations:
+    sentry_post_process_forwarder_transactions:
       command: run post-process-forwarder --entity transactions
         --commit-log-topic=snuba-transactions-commit-log
         --synchronize-commit-group transactions_group
