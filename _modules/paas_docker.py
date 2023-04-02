@@ -92,6 +92,20 @@ def list_containers():
 
 
 #   -------------------------------------------------------------
+#   Nginx
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def resolve_vhost_config_file(service, dir="roles/paas-docker/nginx/files/vhosts"):
+    candidate = f"{dir}/{service}.conf"
+
+    if __salt__["slsutil.file_exists"](candidate):
+        return candidate
+
+    return f"{dir}/_default.conf"
+
+
+#   -------------------------------------------------------------
 #   Monitoring
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

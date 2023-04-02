@@ -66,9 +66,11 @@ nginx_dhparams:
 {% for instance, container in instances.items() %}
 {% if 'host' in container %}
 
+{% set vhost_config = salt["paas_docker.resolve_vhost_config_file"](service) %}
+
 {{ dirs.etc }}/nginx/vhosts/{{ service }}/{{ instance }}.conf:
   file.managed:
-    - source: salt://roles/paas-docker/nginx/files/vhosts/{{ service }}.conf
+    - source: salt://{{ vhost_config }}
     - mode: 644
     - makedirs: True
     - template: jinja
