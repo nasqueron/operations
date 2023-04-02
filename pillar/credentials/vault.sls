@@ -109,6 +109,10 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/airflow/sentry
     - ops/secrets/dbserver/cluster-A/users/airflow
 
+    - ops/secrets/nasqueron/penpot/github
+    - ops/secrets/nasqueron/penpot/postgresql
+    - ops/secrets/nasqueron/penpot/secret_key
+
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
 

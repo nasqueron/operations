@@ -80,3 +80,10 @@ def to_yaml_dictionary(data, root=None):
     return salt.serializers.yaml.serialize(
         _to_dictionary(data, root), default_flow_style=False
     )
+
+
+def to_flags(data, enable_prefix="enable-", separator=" "):
+    """
+    A function to convert a list of flags in a string to enable them.
+    """
+    return separator.join([enable_prefix + item for item in data])

@@ -17,6 +17,8 @@ reserved-for-legacy-docker-migration-low-priority
 paas-docker
      5000   Docker registry HTTP
      9090   Openfire HTTP
+    17080   Penpot - back-end
+    17300   Penpot - exporter
     19080   Nasqueron API - Datasources
     20080   Nasqueron API - Docker registry API
     22220   Phabricator Aphlict (client)
