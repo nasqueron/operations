@@ -46,6 +46,53 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 rabbitmq_clusters:
+
+  # Integration, used by Notifications center on Dwellers
+  orange-rabbit:
+    deployment: docker
+    node: dwellers
+    container: orange-rabbit
+    url: https://orange-rabbit.integration.nasqueron.org/
+
+    vhosts:
+
+      ###
+      ### Nasqueron dev services:
+      ###   - Notifications center
+      ###
+
+      dev:
+        description: Nasqueron dev services
+
+        exchanges:
+          # Producer: Notifications center
+          # Consumers: any notifications client
+          notifications:
+            type: topic
+            durable: True
+
+        queues:
+          # Useful for developers to poke notifications streamed
+          all-notifications:
+            durable: True
+
+        bindings:
+          - exchange: notifications
+            queue: all-notifications
+            routing_key: '#'
+
+        permissions:
+          # Notifications center (paas-docker role / notifications container)
+          notifications:
+            configure: '.*'
+            read:      '.*'
+            write:     '.*'
+
+    users:
+      notifications: ops/secrets/nasqueron/rabbitmq/orange-rabbit/notifications
+
+
+  # Production, used by Notifications center ecosystem
   white-rabbit:
     deployment: docker
     node: docker-002
