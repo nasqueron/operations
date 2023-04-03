@@ -20,6 +20,14 @@
     - group: 433
     - makedirs: True
 
+{% for subdir in ["sessions", "views", "cache"] %}
+/srv/{{ instance }}/storage/framework/{{ subdir }}:
+  file.directory:
+    - user: 431
+    - group: 433
+    - makedirs: True
+{% endfor %}
+
 /srv/{{ instance }}/storage/app/credentials.json:
   file.managed:
     - user: 431

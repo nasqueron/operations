@@ -24,6 +24,14 @@
     - group: 433
     - makedirs: True
 
+{% for subdir in ["sessions", "views", "cache"] %}
+/srv/{{ instance }}/storage/framework/{{ subdir }}:
+  file.directory:
+    - user: 431
+    - group: 433
+    - makedirs: True
+{% endfor %}
+
 {% if has_selinux %}
 selinux_context_{{ instance }}_data:
   selinux.fcontext_policy_present:
