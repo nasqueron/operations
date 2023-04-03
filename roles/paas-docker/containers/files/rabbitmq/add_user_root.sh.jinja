@@ -6,4 +6,6 @@ sleep 20
 docker exec {{ instance }} rabbitmqctl delete_user guest
 docker exec {{ instance }} rabbitmqctl add_user root {{ password | yaml_squote }}
 docker exec {{ instance }} rabbitmqctl set_user_tags root administrator
+docker exec {{ instance }} rabbitmqctl set_permissions --vhost / root '.*' '.*' '.*'
+
 touch /srv/rabbitmq/{{ instance }}/.auth-configured
