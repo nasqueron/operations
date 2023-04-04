@@ -28,3 +28,8 @@ install_salt_primary_extra_software:
   file.managed:
     - source: salt://roles/salt-primary/software/files/staging-commit-message.py
     - mode: 755
+
+{{ dirs.bin }}/autochmod-git:
+  file.managed:
+    - source: salt://roles/salt-primary/software/files/autochmod-git.sh
+    - mode: 755
