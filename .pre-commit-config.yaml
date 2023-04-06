@@ -29,6 +29,7 @@ repos:
         files: ^(roles|hotfixes).*\.(sls)$
 
   - repo: https://devcentral.nasqueron.org/source/codestyle.git
-    rev: v0.1.0
+    rev: v0.1.1
     hooks:
       - id: shellcheck
+        args: ["--severity=warning"]
