@@ -1,5 +1,5 @@
     ____  ______  ___
-   /    )/      \/   \    db-001-A.nasqueron.drake
+   /    )/      \/   \    db-A-001.nasqueron.drake
   (     / __    _\    )
    \    (/ o)  ( o)   )   IP: {{ ipv4_address.ljust(16) }}   OS: FreeBSD 13
     \_  (_  )   \ )  /    GW: {{ ipv4_gateway.ljust(16) }}   Cluster A | PostgreSQL
