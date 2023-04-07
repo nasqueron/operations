@@ -184,6 +184,31 @@ nodes:
             address: 172.27.27.1
             netmask: *intranought_netmask
 
+  web-001:
+    forest: nasqueron-infra
+    hostname: web-001.nasqueron.org
+    roles:
+      - webserver-alkane
+    network:
+      ipv6_tunnel: False
+
+      canonical_public_ipv4: 51.255.124.10
+
+      interfaces:
+        intranought:
+          device: vmx0
+          ipv4:
+            address: 172.27.27.10
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
+        public:
+          device: vmx1
+          ipv4:
+            address: 51.255.124.10
+            netmask: 255.255.255.255
+            gateway: 51.210.99.254
+
   ysul:
     forest: nasqueron-dev
     hostname: ysul.nasqueron.org

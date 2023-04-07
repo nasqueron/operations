@@ -41,3 +41,5 @@ base:
   'eglide':
     - roles/webserver-core
     - roles/shellserver
+  'web-001':
+    - roles/webserver-core
