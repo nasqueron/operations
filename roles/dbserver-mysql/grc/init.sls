@@ -27,6 +27,7 @@
 {{ dirs.share }}/grc/conf.mysql:
   file.managed:
     - source: salt://roles/dbserver-mysql/grc/files/grcat.config
+    - makedirs: True
 
 {{ dirs.etc }}/grc.conf:
   file.append:
