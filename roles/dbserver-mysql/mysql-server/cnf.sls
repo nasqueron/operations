@@ -9,6 +9,7 @@
 {% from "map.jinja" import dirs with context %}
 
 {% set use_zfs = salt['node.has']('zfs:pool') %}
+{% set is_devserver = salt['node.has_role']('devserver') %}
 
 #   -------------------------------------------------------------
 #   Required directories
@@ -46,6 +47,12 @@
         etc: {{ dirs.etc }}
         share: {{ dirs.share }}
         use_zfs: {{ use_zfs }}
+
+        {% if is_devserver %}
+        listen_ip: 127.0.0.1
+        {% else %}
+        listen_ip: 0.0.0.0
+        {% endif %}
 
 {{ dirs.etc }}/mysql/stopwords.txt:
   file.managed:

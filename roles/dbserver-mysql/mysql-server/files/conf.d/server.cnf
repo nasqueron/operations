@@ -35,7 +35,7 @@ tmpdir = /tmp
 datadir = /var/db/mysql
 lc-messages-dir = {{ share }}/mysql
 
-bind-address			= 127.0.0.1
+bind-address			= {{ listen_ip }}
 socket = /var/run/mysql/mysqld.sock
 port = 3306
 
