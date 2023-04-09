@@ -9,3 +9,4 @@
 include:
   - .mysql-server
   - .grc
+  - .treasure-chest
