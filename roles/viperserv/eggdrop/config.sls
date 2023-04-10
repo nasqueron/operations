@@ -60,8 +60,9 @@
     - mode: 400
     - template: jinja
     - context:
+        # Database is on cluster B
         db:
-          host: localhost
+          host: 172.27.27.9
           database: Nasqueron
         vault:
           approle: {{ salt['credentials.read_secret']('nasqueron.viperserv.vault') }}
