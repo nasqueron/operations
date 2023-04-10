@@ -118,6 +118,19 @@ tmux:
     - mode: 755
 
 #   -------------------------------------------------------------
+#   Python
+#
+#   The "python3" package takes care on FreeBSD to create
+#   the symbolic link to the relevant Python 3.x version.
+#
+#   If Python is implicitly installed instead, it will be
+#   a package like python3.9 without the symlink.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+python3:
+  pkg.installed
+
+#   -------------------------------------------------------------
 #   System administration utilities
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
