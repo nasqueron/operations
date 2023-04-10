@@ -37,6 +37,9 @@ base:
   db-A-001:
     - dbserver.cluster-A
 
+  db-B-001:
+    - dbserver.cluster-B
+
   dwellers:
     - paas.docker
     - saas.jenkins

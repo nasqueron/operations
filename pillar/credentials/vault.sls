@@ -222,3 +222,7 @@ vault_secrets_by_dbserver_cluster:
   # Main PostgreSQL cluster
   A:
     - ops/secrets/dbserver/cluster-A/users/*
+
+  # Main MariaDB cluster - Alkane PaaS, ViperServ
+  B:
+    - ops/secrets/dbserver/cluster-B/users/*

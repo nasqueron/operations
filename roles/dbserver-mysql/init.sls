@@ -10,3 +10,7 @@ include:
   - .mysql-server
   - .grc
   - .treasure-chest
+  - .salt
+
+  # Requires .mysql-server and .salt
+  - .content
