@@ -1,8 +1,6 @@
 #   -------------------------------------------------------------
-#   Configuration for Nasqueron web sites
+#   nginx :: configuration :: FastCGI
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Author:         Sébastien Santoro aka Dereckson
-#   Created:        2017-11-19
 #   Project:        Nasqueron
 #   Description:    nginx FastCGI configuration
 #   License:        Trivial work, not eligible for copyright.

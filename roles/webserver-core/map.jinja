@@ -1,0 +1,18 @@
+{% set options = salt["grains.filter_by"]({
+    "Debian": {
+        "www_user": "nobody",
+    },
+    "FreeBSD": {
+        "www_user": "www",
+    },
+    "RedHat": {
+        "www_user": "nginx",
+        "pid_path": "/run/nginx.pid",
+    }
+}, default="Debian") %}
+
+{% if salt["node.has_role"]("paas-docker") %}
+{% set certbot_dir = "/srv/letsencrypt/www" %}
+{% else %}
+{% set certbot_dir = "/var/letsencrypt-auto" %}
+{% endif %}

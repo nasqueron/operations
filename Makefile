@@ -31,18 +31,24 @@ test:
 #   Build targets - repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-repo: roles/webserver-content/init.sls .git/hooks/pre-commit
+repo: roles/webserver-content/init.sls \
+	roles/webserver-core/nginx/files/ocsp-ca-certs.pem \
+	.git/hooks/pre-commit
 
 roles/webserver-content/init.sls:
 	tmpfile=`mktemp /tmp/make-rOPS-generate-webcontent-index.XXXXXX` ; \
 	utils/generate-webcontent-index.py > "$$tmpfile" ;\
 	${MV} "$$tmpfile" roles/webserver-content/init.sls
 
+roles/webserver-core/nginx/files/ocsp-ca-certs.pem:
+	utils/generate-ocsp-bundle.sh > roles/webserver-core/nginx/files/ocsp-ca-certs.pem
+
 .git/hooks/pre-commit:
 	pre-commit install
 
 clean-repo:
 	${RM} roles/webserver-content/init.sls .git/hooks/pre-commit
+	${RM} roles/webserver-core/nginx/files/ocsp-ca-certs.pem
 
 #   -------------------------------------------------------------
 #   Build targets - API

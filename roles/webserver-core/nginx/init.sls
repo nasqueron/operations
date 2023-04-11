@@ -7,3 +7,4 @@
 
 include:
   - .software
+  - .config

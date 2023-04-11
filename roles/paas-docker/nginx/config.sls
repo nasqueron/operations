@@ -10,34 +10,6 @@
 {% set containers = pillar.get('docker_containers', {}) %}
 
 #   -------------------------------------------------------------
-#   Base folder
-#
-#    :: general configuration
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{{ dirs.etc }}/nginx/nginx.conf:
-  file.managed:
-    - source: salt://roles/paas-docker/nginx/files/nginx.conf
-
-nginx_dhparams:
-  cmd.run:
-    - name: openssl dhparam -out {{ dirs.etc }}/nginx/dhparams.pem 2048
-    - creates: {{ dirs.etc }}/nginx/dhparams.pem
-
-#   -------------------------------------------------------------
-#   includes folder
-#
-#    :: general configuration
-#    :: application-specific code
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{{ dirs.etc }}/nginx/includes:
-  file.recurse:
-    - source: salt://roles/paas-docker/nginx/files/includes
-    - dir_mode: 755
-    - file_mode: 644
-
-#   -------------------------------------------------------------
 #   vhosts folder
 #
 #   :: fallback when a domain isn't found
