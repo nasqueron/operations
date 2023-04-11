@@ -39,5 +39,5 @@ letsencrypt_software:
 
 {{ dirs.bin }}/check-letsencrypt-certificates:
   file.managed:
-    - source: roles/webserver-core/letsencrypt/files/check-letsencrypt-certificates.py
+    - source: salt://roles/webserver-core/letsencrypt/files/check-letsencrypt-certificates.py
     - mode: 755
