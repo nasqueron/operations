@@ -62,11 +62,11 @@
     - context:
         # Database is on cluster B
         db:
-          host: 172.27.27.9
+          host: {{ pillar["nasqueron_services"]["db-B"] }}
           database: Nasqueron
         vault:
           approle: {{ salt['credentials.read_secret']('nasqueron.viperserv.vault') }}
-          addr: https://172.27.27.7:8200
+          addr: {{ pillar["nasqueron_services"]["vault_url"] }}
 
 {% for botname, bot in pillar['viperserv_bots'].items() %}
 

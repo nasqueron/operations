@@ -29,3 +29,6 @@
     - source: salt://roles/webserver-legacy/nginx/files/vhosts
     - dir_mode: 755
     - file_mode: 644
+    - template: jinja
+    - context:
+        services: {{ pillar["nasqueron_services"] }}
