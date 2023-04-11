@@ -32,6 +32,7 @@ letsencrypt_software:
 {{ dirs.etc }}/letsencrypt/cli.ini:
   file.managed:
     - source: salt://roles/webserver-core/letsencrypt/files/cli.ini
+    - makedirs: True
 
 #   -------------------------------------------------------------
 #   Extra utilities
