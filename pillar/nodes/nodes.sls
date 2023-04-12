@@ -33,6 +33,7 @@ nodes:
           device: eno1
           ipv4:
             address: 188.165.200.229
+            netmask: 255.255.255.0
             gateway: 188.165.200.254
           ipv6:
             address: fe80::ec4:7aff:fe6a:36e8
