@@ -285,6 +285,7 @@ def _resolve_gre_tunnels_for_router(network, netmask):
     for node, tunnel in __pillar__.get(f"{network}_gre_tunnels", {}).items():
         tunnels.append(
             {
+                "network": network,
                 "description": f"{network}_to_{node}",
                 "interface": tunnel["router"]["interface"],
                 "src": tunnel["router"]["addr"],
@@ -320,6 +321,7 @@ def resolve_gre_tunnels():
 
         gre_tunnels.append(
             {
+                "network": network,
                 "description": f"{network}_via_{network_args['router']}",
                 "interface": tunnel["node"].get("interface", "gre0"),
                 "src": tunnel["node"]["addr"],

@@ -17,7 +17,7 @@
 
 {% set boot_loader.gre = True %}
 
-{{ gre.config_path }}{{ tunnel["description"] }}:
+{{ gre.config_path }}{{ tunnel["network"] }}:
   file.managed:
     - source: salt://roles/core/network/files/{{ gre.source_path }}
     - makedirs: True
@@ -25,7 +25,7 @@
     - defaults: {{ tunnel }}
 {% if grains['os_family'] == 'Debian' %}
     - context:
-        interface: gre-{{ description }}
+        interface: gre-{{ tunnel["network"] }}
 {% endif %}
 
 {% endfor %}
