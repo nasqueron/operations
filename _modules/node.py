@@ -235,6 +235,8 @@ def resolve_network():
     }
     private_network = network.copy()
 
+    is_private_network_stable = True
+
     interfaces = _get_property("network:interfaces", __grains__["id"], {})
     for interface_name, interface in interfaces.items():
         if "ipv4" not in interface:
@@ -256,9 +258,25 @@ def resolve_network():
             pass
 
     if network["ipv4_address"] == "":
-        return private_network
+        main_network = private_network
+    else:
+        main_network = network
 
-    return network
+    if private_network["ipv4_address"] == "":
+        is_private_network_stable = False
+        tunnels = resolve_gre_tunnels()
+        if tunnels:
+            tunnel = tunnels[0]
+            private_network = {
+                "ipv4_address": tunnel["src"],
+                "ipv4_gateway": tunnel["gateway"],
+            }
+
+    return main_network | {
+        "private_ipv4_address": private_network["ipv4_address"],
+        "private_ipv4_gateway": private_network["ipv4_gateway"],
+        "is_private_network_stable": is_private_network_stable,
+    }
 
 
 def _resolve_gre_tunnels_for_router(network, netmask):
@@ -307,6 +325,7 @@ def resolve_gre_tunnels():
                 "src": tunnel["node"]["addr"],
                 "dst": tunnel["router"]["addr"],
                 "netmask": network_args["netmask"],
+                "gateway": network_args["default_gateway"],
                 "icann_src": get("network")["canonical_public_ipv4"],
                 "icann_dst": get("network", network_args["router"])[
                     "canonical_public_ipv4"
