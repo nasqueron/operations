@@ -153,6 +153,12 @@ sysadmin_utilities:
       - tar
       {% endif %}
 
+{% if grains['os'] == 'Debian' %}
+/usr/bin/bat:
+  file.symlink:
+    - target: /usr/bin/batcat
+{% endif %}
+
 {% if grains['os'] == 'FreeBSD' %}
 /usr/local/bin/gwatch:
   file.symlink:
