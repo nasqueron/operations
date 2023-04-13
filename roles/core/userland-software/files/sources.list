@@ -22,3 +22,5 @@ deb-src http://deb.debian.org/debian-security/ {{ debian_version }}-security mai
 
 deb http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free
 deb-src http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free
+
+deb http://deb.debian.org/debian {{ debian_version }}-backports main contrib non-free
