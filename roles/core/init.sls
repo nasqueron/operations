@@ -24,5 +24,6 @@ include:
   - .storage
   - .sysctl
   - .timezone
+  - .userland-home
   - .userland-software
   - .users

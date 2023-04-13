@@ -125,6 +125,8 @@ shellusers:
       - deploy_nanotab
       - install_rustup
       - install_diesel
+    everywhere_tasks:
+      - deploy_dotfiles
     uid: 5001
 
   dorianwinty:
