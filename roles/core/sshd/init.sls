@@ -8,6 +8,8 @@
 
 {% from "map.jinja" import paths, capabilities with context %}
 
+{% set network = salt["node.resolve_network"]() %}
+
 #   -------------------------------------------------------------
 #   OpenSSH
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -17,6 +19,8 @@
     - source: salt://roles/core/sshd/files/sshd_config
     - template: jinja
     - context:
+        listen_private_address: {{ network["private_ipv4_address"] | default("localhost") }}
+        should_listen_to_private_address: {{ network["is_private_network_stable"] | default(false) }}
         sftp: {{ paths.sftp }}
         print_motd: {{ not capabilities['MOTD-printed-at-login'] }}
 
