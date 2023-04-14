@@ -25,6 +25,7 @@ base:
     - roles/dbserver-mysql
     - roles/dbserver-pgsql
     - roles/devserver
+    - roles/webserver-alkane
     - roles/webserver-core
     - roles/webserver-legacy
   'cloudhugger':
@@ -43,3 +44,4 @@ base:
     - roles/shellserver
   'web-001':
     - roles/webserver-core
+    - roles/webserver-alkane
