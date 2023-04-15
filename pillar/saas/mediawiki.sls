@@ -31,7 +31,7 @@ mediawiki_skins:
   - Vector
 
 mediawiki_saas:
-  directory: /var/51-wwwroot/saas-mediawiki
+  directory: /srv/saas/mediawiki
   mediawiki_directory: /srv/mediawiki
   fastcgi_url: unix:/var/run/web/wikis.nasqueron.org/php-fpm.sock
   db:
