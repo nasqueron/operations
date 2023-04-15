@@ -108,7 +108,7 @@ install_starship:
 tmux:
   pkg.installed
 
-/root/.tmux.conf:
+{{ dirs.etc }}/tmux.conf:
   file.managed:
     - source: salt://roles/core/userland-software/files/tmux.conf
 
