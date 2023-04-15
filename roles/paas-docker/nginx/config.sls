@@ -17,10 +17,6 @@
 #   :: containers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/nginx/vhosts:
-  file.directory:
-    - dir_mode: 755
-
 {{ dirs.etc }}/nginx/vhosts/000-fallback.conf:
   file.managed:
     - source: salt://roles/paas-docker/nginx/files/vhosts/base/fallback.conf

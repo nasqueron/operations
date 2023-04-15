@@ -14,8 +14,9 @@
 #    :: application-specific code
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/nginx/includes:
+webserver_legacy_nginx_includes:
   file.recurse:
+    - name: {{ dirs.etc }}/nginx/includes
     - source: salt://roles/webserver-legacy/nginx/files/includes
     - dir_mode: 755
     - file_mode: 644
@@ -24,8 +25,9 @@
 #   vhosts folder
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/nginx/vhosts:
+webserver_legacy_nginx_vhosts:
   file.recurse:
+    - name: {{ dirs.etc }}/nginx/vhosts
     - source: salt://roles/webserver-legacy/nginx/files/vhosts
     - dir_mode: 755
     - file_mode: 644

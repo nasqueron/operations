@@ -13,8 +13,9 @@
 #    :: MediaWiki and SaaS location blocks
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/nginx/includes:
+saas_mediawiki_nginx_includes:
   file.recurse:
+    - name: {{ dirs.etc }}/nginx/includes
     - source: salt://roles/saas-mediawiki/nginx/files/includes
     - dir_mode: 755
     - file_mode: 644
@@ -26,8 +27,9 @@
 #   vhosts folder
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ dirs.etc }}/nginx/vhosts:
+saas_mediawiki_nginx_vhosts:
   file.recurse:
+    - name: {{ dirs.etc }}/nginx/vhosts
     - source: salt://roles/saas-mediawiki/nginx/files/vhosts
     - dir_mode: 755
     - file_mode: 644
