@@ -8,6 +8,7 @@
 
 include:
   - .account
+  - .saas
   - .mediawiki
   - .software
   - .nginx

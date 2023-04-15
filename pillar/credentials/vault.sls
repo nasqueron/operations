@@ -200,6 +200,10 @@ vault_secrets_by_role:
     - ops/secrets/espacewin.bugzilla.mysql
     - ops/secrets/espacewin.bugzilla.mysql_root
 
+  saas-mediawiki:
+    - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
+    - ops/secrets/nasqueron/mediawiki/secret_key
+
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
 

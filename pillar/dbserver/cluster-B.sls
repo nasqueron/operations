@@ -19,6 +19,23 @@ dbserver_mysql:
         - database: Nasqueron
           scope: database
 
+    saas-mediawiki:
+      password: dbserver/cluster-B/users/saas-mediawiki
+      host: "%"
+      privileges:
+        - database: wikis
+          scope: database
+        - database: utopia
+          scope: database
+        - database: arsmagica
+          scope: database
+        - database: wolfplexdb
+          scope: database
+        - database: inidal_wiki
+          scope: database
+        - database: nasqueron_wiki
+          scope: database
+
   # Tips for databases:
   #   This is a MariaDB cluster. At version 10.6, MariaDB is still using utf8mb3
   #   by default, but we generally prefer utf8mb4 as encoding.
@@ -35,3 +52,15 @@ dbserver_mysql:
     Nasqueron: &unicode
       encoding: utf8mb4
       collation: uca1400_as_ci
+
+    # Databases used by MediaWiki SaaS
+    wikis: &mediawiki
+      encoding: utf8mb4
+      collation: utf8_bin
+    arsmagica: *mediawiki
+    inidal_wiki: *mediawiki
+    nasqueron_wiki: *mediawiki
+
+    # Databases used by MediaWiki SaaS - still to split from other content
+    utopia: *mediawiki
+    wolfplexdb: *mediawiki
