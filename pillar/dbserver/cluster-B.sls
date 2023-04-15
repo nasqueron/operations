@@ -28,9 +28,10 @@ dbserver_mysql:
   #   For MariaDB 10.10+, we can use uca1400_as_ci, that's Unicode 14.0.
   #
   #   TRANSITION NOTE. On MariaDB 10.6, utf8mb4_unicode_520_ci is the "newest".
+  #   From 2023-04-15, we starting to use uca1400_as_ci as default collation.
 
   databases:
     # Database used by IRC eggdrops
     Nasqueron: &unicode
       encoding: utf8mb4
-      collation: utf8mb4_unicode_520_ci
+      collation: uca1400_as_ci
