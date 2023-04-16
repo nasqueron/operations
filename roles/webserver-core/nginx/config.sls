@@ -8,6 +8,8 @@
 {% from "map.jinja" import dirs with context %}
 {% from "roles/webserver-core/map.jinja" import options, certbot_dir with context %}
 
+{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+
 #   -------------------------------------------------------------
 #   Accounts - web group
 #
@@ -84,6 +86,27 @@ webserver_core_nginx_dh:
     - source: salt://roles/webserver-core/nginx/files/ocsp-ca-certs.pem
     - makedirs: True
     - mode: 644
+
+#   -------------------------------------------------------------
+#   Logs
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/log/www:
+  file.directory:
+     - user: {{ options["www_user"] }}
+     - group: web
+     - dir_mode: 711
+
+{% if has_selinux %}
+selinux_context_nginx_logs:
+  selinux.fcontext_policy_present:
+    - name: /var/log/www
+    - sel_type: httpd_log_t
+
+selinux_context_nginx_logs_applied:
+  selinux.fcontext_policy_applied:
+    - name: /var/log/www
+{% endif %}
 
 #   -------------------------------------------------------------
 #   vhost folder

@@ -28,7 +28,14 @@ php-fpm_config_{{ instance }}:
 
 #   -------------------------------------------------------------
 #   Configuration : pools
+#
+#   Sockets are created in /var/run/web/<site user>/php-fpm.sock
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/run/web:
+  file.directory:
+     - group: web
+     - dir_mode: 711
 
 {% for fqdn, site in pillar['web_php_sites'].items() %}
 
