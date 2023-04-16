@@ -14,6 +14,15 @@ from salt.exceptions import CommandExecutionError, SaltCloudConfigError
 from salt._compat import ipaddress
 
 
+DEPLOY_ROLES = [
+    "devserver",
+    "salt-primary",
+    "viperserv",
+    "webserver-alkane",
+    "webserver-legacy",
+]
+
+
 def _get_all_nodes():
     return __pillar__.get("nodes", {})
 
@@ -174,6 +183,13 @@ def filter_by_name(pillar_key, nodename=None):
             filtered_list.extend(items)
 
     return filtered_list
+
+
+def has_deployment(nodename=None):
+    """
+    A function to determine if this server does continuous delivery.
+    """
+    return any(role in DEPLOY_ROLES for role in get_list("roles", nodename))
 
 
 def has_web_content(content, nodename=None):

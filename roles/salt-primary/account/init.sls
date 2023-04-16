@@ -30,15 +30,6 @@ salt_account_ownership:
       - onchanges:
         - user: salt_account
 
-# Deployment account
-deploy_account:
-  user.present:
-    - name: deploy
-    - fullname: Deployment and management of the Salt staging area
-    - uid: 9002
-    - gid: 3003
-    - home: /var/run/deploy
-
 #   -------------------------------------------------------------
 #   Directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
