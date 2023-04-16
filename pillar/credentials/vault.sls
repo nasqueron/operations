@@ -49,6 +49,7 @@ vault_mount_paths:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 vault_policies:
+  - admin
   - salt-primary
   - sentry
   - viperserv
