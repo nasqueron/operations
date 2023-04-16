@@ -1,17 +1,23 @@
 #   -------------------------------------------------------------
-#   Salt — Sites to provision on the legacy web server
-#
-#   Currently, this is deployed to ysul.nasqueron.org
+#   Salt — Sites to provision
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-webserver_legacy_group:
-  group.present:
-    - name: web
-    - gid: 9003
-    - system: True
+#   -------------------------------------------------------------
+#   User groups for domains served
+#
+#   Those account are mostly intended for static content,
+#   to allow users to access it through group.
+#
+#   The user will often be "deploy" to allow continuous delivery.
+#   This is provisioned by the core role.
+#
+#   Back-ends runs under their own separate account.
+#
+#   The 9003 group matches "web" group, see webserver-core/nginx
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for domains_group in pillar['web_domains'] %}
 {% for domain in pillar['web_domains'][domains_group] %}

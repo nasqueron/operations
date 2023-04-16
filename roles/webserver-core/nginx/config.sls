@@ -9,6 +9,24 @@
 {% from "roles/webserver-core/map.jinja" import options, certbot_dir with context %}
 
 #   -------------------------------------------------------------
+#   Accounts - web group
+#
+#   A group shared between nginx, back-end and content directories
+#   to allow ACL giving access to the nginx process.
+#
+#   This group will so be used by:
+#     - nginx process (configured in nginx.conf)
+#     - back-end UNIX sockets like php-fpm sockets can be 660
+#     - more private folders can use 007 as umask
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+webserver_core_group:
+  group.present:
+    - name: web
+    - gid: 9003
+    - system: True
+
+#   -------------------------------------------------------------
 #   Base configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
