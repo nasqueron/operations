@@ -47,6 +47,7 @@ devserver_software_misc_security:
 devserver_software_misc_tools:
   pkg.installed:
     - pkgs:
+      - {{ packages_prefixes.python3 }}awscli
       - bat
       - boxes
       - cursive
