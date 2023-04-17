@@ -13,10 +13,14 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
+def get_custom_builds():
+    return __pillar__.get("php_custom_builds", {})
+
+
 def get_release_builds():
     return {
         name: build
-        for (name, build) in __pillar__["php_custom_builds"].items()
+        for (name, build) in get_custom_builds().items()
         if build["mode"] == "release"
     }
 
@@ -34,7 +38,7 @@ def get_archive_path(version):
 
 
 def get_build_directories():
-    return [get_build_directory(build) for build in __pillar__["php_custom_builds"]]
+    return [get_build_directory(build) for build in get_custom_builds()]
 
 
 def get_build_directory(build):
@@ -130,7 +134,7 @@ def run():
 
     # Task: build PHP
     # Task: install PHP
-    for build_name, build in __pillar__["php_custom_builds"].items():
+    for build_name, build in get_custom_builds().items():
         build_directory = get_build_directory(build_name)
         install_directory = get_install_directory(build_name)
 

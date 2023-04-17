@@ -62,20 +62,10 @@ web_static_sites:
 #   Username must be unique and use max 31 characters.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-php_custom_builds:
-  php56:
-    mode: release
-    version: 5.6.40
-    hash: ffd025d34623553ab2f7fd8fb21d0c9e6f9fa30dc565ca03a1d7b763023fba00
-
 php_fpm_instances:
-  # PHP 7.2, generally installed as package/port
+  # PHP current version, generally installed as package/port
   prod:
     command: /usr/local/sbin/php-fpm
-
-  # PHP 5.6, installed through php-builder unit
-  legacy:
-    command: /opt/php/php56/sbin/php-fpm
 
 web_php_sites:
   # Nasqueron members
