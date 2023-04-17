@@ -166,6 +166,7 @@ languages_libs:
       # On Debian, these PDO extensions doesn't follow regular names
       # but are installed if you require the legacy extension name.
       - {{ packages_prefixes.php }}mysql
+      - {{ packages_prefixes.php }}pgsql
       - {{ packages_prefixes.php }}sqlite3
       {% else %}
       # On Debian, these extensions are now shipped by default:
@@ -189,6 +190,7 @@ languages_libs:
       - {{ packages_prefixes.php }}zlib
       # On Debian, these PDO extensions doesn't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
+      - {{ packages_prefixes.php }}pdo_pgsql
       - {{ packages_prefixes.php }}pdo_sqlite
       {% endif %}
 
