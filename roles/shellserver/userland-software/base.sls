@@ -177,7 +177,6 @@ languages_libs:
       - {{ packages_prefixes.php }}filter
       - {{ packages_prefixes.php }}iconv
       - {{ packages_prefixes.php }}mysqli
-      - {{ packages_prefixes.php }}openssl
       - {{ packages_prefixes.php }}pcntl
       - {{ packages_prefixes.php }}pdo
       - {{ packages_prefixes.php }}phar
