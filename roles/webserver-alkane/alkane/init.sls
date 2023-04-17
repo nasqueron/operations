@@ -47,7 +47,7 @@ recipes_dependencies:
     - file_mode: 555
 
 {% for site_name, recipes in pillar.get("alkane_recipes", {}).items() %}
-/usr/local/libexec/alkane/{{ site_name }}:
+/usr/local/libexec/alkane/{{ site_name }}:
   file.directory
 
 {% for action, recipe in recipes.items() %}

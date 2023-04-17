@@ -6,8 +6,8 @@
 #   -------------------------------------------------------------
 
 include:
-  - .account
   - .files
   - .php
   - .php-fpm
-  - .cleanup
+  - roles/webserver-alkane/php/service
+  - roles/webserver-alkane/php/cleanup

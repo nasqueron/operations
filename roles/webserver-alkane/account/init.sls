@@ -8,7 +8,7 @@
 #   -------------------------------------------------------------
 #   User groups for domains served
 #
-#   Those account are mostly intended for static content,
+#   Those accounts are mostly intended for static content,
 #   to allow users to access it through group.
 #
 #   The user will often be "deploy" to allow continuous delivery.
@@ -28,4 +28,24 @@ webserver_user_{{ domain }}:
     - createhome: False
     - fullname: Websites account for {{ domain }}
 {% endfor %}
+{% endfor %}
+
+#   -------------------------------------------------------------
+#   PHP user accounts
+#
+#   Those accounts are intended to serve content through php-fpm.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for fqdn, site in pillar['web_php_sites'].items() %}
+{% if 'skipCreateUser' not in site or not site['skipCreateUser'] %}
+
+webserver_user_{{ site['user'] }}:
+  user.present:
+    - name: {{ site['user' ] }}
+    - fullname: {{ fqdn }}
+    - gid: 9003
+    - system: True
+    - home: /var/run/web/{{ fqdn }}
+
+{% endif %}
 {% endfor %}

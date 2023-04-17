@@ -105,7 +105,7 @@ web_php_sites:
     subdomain: wikis
     user: mediawiki
     php-fpm: prod
-    skipCreateAccount: True
+    skipCreateUser: True
     env:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
       DB_HOST: localhost
@@ -118,7 +118,7 @@ web_php_sites:
     user: web-org-espacewin-www
     source: wwwroot/espace-win.org/www
     target: /var/wwwroot/espace-win.org/www
-    php-fpm: legacy
+    php-fpm: prod
 
   www51.espace-win.org:
     domain: espace-win.org

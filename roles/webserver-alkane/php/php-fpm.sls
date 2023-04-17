@@ -16,7 +16,7 @@
 php-fpm_config_{{ instance }}:
   file.managed:
     - name: {{ dirs.etc }}/php-fpm.d/{{ instance }}.conf
-    - source: salt://roles/webserver-legacy/php-sites/files/php-fpm.conf
+    - source: salt://roles/webserver-alkane/php/files/php-fpm.conf
     - template: jinja
     - context:
         instance: {{ instance }}
@@ -42,17 +42,17 @@ php-fpm_config_{{ instance }}:
 php-fpm_pool_{{ site['user'] }}:
   file.managed:
     - name: {{ dirs.etc }}/php-fpm.d/{{ site['php-fpm'] }}-pools/{{ site['user'] }}.conf
-    - source: salt://roles/webserver-legacy/php-sites/files/php-fpm-pool.conf
+    - source: salt://roles/webserver-alkane/php/files/php-fpm-pool.conf
     - template: jinja
     - context:
         fqdn: {{ fqdn }}
         domain: {{ site['domain'] }}
         subdomain: {{ site['subdomain'] }}
         user: {{ site['user' ] }}
-        display_errors: {{ site['display_errors']|default('off') }}
-        slow_delay: {{ site['slow_delay']|default('5s') }}
-        env : {{ site['env']|default({}) }}
-        capabilities: {{ site['capabilities']|default([]) }}
+        display_errors: {{ site['display_errors'] | default('off') }}
+        slow_delay: {{ site['slow_delay'] | default('5s') }}
+        env : {{ site['env'] | default({}) }}
+        capabilities: {{ site['capabilities'] | default([]) }}
 
 /var/log/www/{{ site['domain' ] }}/{{ site['subdomain' ] }}-php.log:
   file.managed:
@@ -61,4 +61,25 @@ php-fpm_pool_{{ site['user'] }}:
     - group: web
     - chmod: 600
 
+{% endfor %}
+
+#   -------------------------------------------------------------
+#   Sessions directories
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/tmp/php:
+  file.directory:
+    - mode: 1770
+    - group: web
+
+/var/tmp/php/sessions:
+  file.directory:
+    - mode: 1770
+    - group: web
+
+{% for fqdn, site in pillar['web_php_sites'].items() %}
+/var/tmp/php/sessions/{{ fqdn }}:
+  file.directory:
+    - mode: 700
+    - user: {{ site['user'] }}
 {% endfor %}

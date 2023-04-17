@@ -1,12 +1,12 @@
 #   -------------------------------------------------------------
-#   Salt :: Alkane :: Nasqueron PaaS for static and PHP sites
+#   Salt — Provision PHP websites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  - .account
-  - .alkane
-  - .directories
   - .php
+  - .php-fpm
+  - .service
+  - .cleanup
