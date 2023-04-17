@@ -61,6 +61,6 @@ add_header Strict-Transport-Security "max-age=63072000" always;
 ssl_stapling on;
 ssl_stapling_verify on;
 
-ssl_trusted_certificate /usr/local/share/certs/ocsp-ca-certs.pem
+ssl_trusted_certificate /usr/local/share/certs/ocsp-ca-certs.pem;
 
 resolver 127.0.0.1;
