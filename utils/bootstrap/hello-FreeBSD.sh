@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #   -------------------------------------------------------------
-#   Bootstrap script — FreeBsD
+#   Bootstrap script — FreeBSD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Description:    Install Salt and try to connect to Complector
