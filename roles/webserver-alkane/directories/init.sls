@@ -1,7 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Sites to provision on the legacy web server
-#
-#   Currently, this is deployed to ysul.nasqueron.org
+#   Salt — Sites to provision on the web server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright

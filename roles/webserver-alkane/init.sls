@@ -8,3 +8,4 @@
 include:
   - .account
   - .alkane
+  - .directories

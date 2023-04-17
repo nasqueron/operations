@@ -9,7 +9,7 @@
 
 include:
   - roles/webserver-alkane/account
-  - .directories
+  - roles/webserver-alkane/directories
   - .nginx
   - .static-sites
   - .php-sites
