@@ -56,6 +56,9 @@ base:
     - webserver.labs
     - webserver.wwwroot51
 
+  web-001:
+    - saas.mediawiki
+
   windriver:
     - devserver.ports
     - devserver.repos

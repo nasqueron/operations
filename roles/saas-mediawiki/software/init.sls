@@ -31,7 +31,7 @@ mediawiki_software_dependencies:
 
 {{ dirs.bin }}/mw:
   file.managed:
-    - source: roles/saas-mediawiki/software/files/mw.sh.jinja
+    - source: salt://roles/saas-mediawiki/software/files/mw.sh.jinja
     - mode: 755
     - template: jinja
     - context:

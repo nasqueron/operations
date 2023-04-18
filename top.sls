@@ -45,3 +45,4 @@ base:
   'web-001':
     - roles/webserver-core
     - roles/webserver-alkane
+    - roles/saas-mediawiki

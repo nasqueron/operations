@@ -33,10 +33,14 @@ mediawiki_skins:
 mediawiki_saas:
   directory: /srv/saas/mediawiki
   mediawiki_directory: /srv/mediawiki
+
+  main_fqdn: wikis.nasqueron.org
   fastcgi_url: unix:/var/run/web/wikis.nasqueron.org/php-fpm.sock
+
   db:
     host: 172.27.27.9
     user: saas-mediawiki
+
   credentials:
     db: dbserver/cluster-B/users/saas-mediawiki
     secret_key: nasqueron/mediawiki/secret_key

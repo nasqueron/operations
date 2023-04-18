@@ -6,6 +6,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set fqdn = pillar["mediawiki_saas"]["main_fqdn"] %}
+
 #   -------------------------------------------------------------
 #   Service account
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -22,4 +24,10 @@ mediawiki_account:
     - fullname: MediaWiki SaaS
     - uid: 3004
     - gid: 3004
-    - home: /var/run/mediawiki
+    - system: True
+    - home: /var/run/web/{{ fqdn }}
+
+/var/tmp/php/sessions/{{ fqdn }}:
+  file.directory:
+    - mode: 700
+    - user: mediawiki

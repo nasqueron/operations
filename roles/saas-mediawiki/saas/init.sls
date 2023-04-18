@@ -22,6 +22,7 @@ saas_mediawiki_parent_directory:
 saas_mediawiki:
   git.latest:
     - name: https://devcentral.nasqueron.org/source/saas-mediawiki.git
+    - branch: main
     - target: {{ saas["directory"] }}
     - update_head: False
     - user: mediawiki
@@ -37,7 +38,7 @@ saas_mediawiki_vendor:
 #   MediaWiki SaaS credentials
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ saas["directory"] }}/.env
+{{ saas["directory"] }}/.env:
   file.managed:
     - source: salt://roles/saas-mediawiki/saas/files/dot.env
     - user: mediawiki
@@ -45,5 +46,5 @@ saas_mediawiki_vendor:
     - mode: 400
     - template: jinja
     - context:
-        secret_key: {{ credentials.get_password(saas["credentials"]["secret_key"]) }}
-        db_pass: {{ credentials.get_password(saas["credentials"]["db"]) }}
+        secret_key: {{ salt["credentials.get_password"](saas["credentials"]["secret_key"]) }}
+        db_pass: {{ salt["credentials.get_password"](saas["credentials"]["db"]) }}

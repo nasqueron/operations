@@ -5,6 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+web_aliases:
+  services:
+    - &db-B 172.27.27.9
+
 #   -------------------------------------------------------------
 #   Domains we deploy
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -108,8 +112,8 @@ web_php_sites:
     skipCreateUser: True
     env:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
-      DB_HOST: localhost
-      DB_USER: mediawiki-saas
+      DB_HOST: *db-B
+      DB_USER: saas-mediawiki
 
   # Espace Win
   www.espace-win.org:
