@@ -50,6 +50,19 @@ mediawiki_{{ type }}_repository_{{ item }}:
 {% endfor %}
 
 #   -------------------------------------------------------------
+#   MediaWiki custom extensions
+#
+#   :: WolfplexMessages
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+mediawiki_extension_repository_wolfplex_messages:
+  git.latest:
+    - name: https://github.com/wolfplex/mediawiki-extensions-WolfplexMessages.git
+    - target: /srv/mediawiki/extensions/WolfplexMessages
+    - update_head: False
+    - user: mediawiki
+
+#   -------------------------------------------------------------
 #   MediaWiki configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
