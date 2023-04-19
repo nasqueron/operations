@@ -50,6 +50,7 @@ mediawiki_datastores:
   ### Nasqueron
   ###
   - agora.nasqueron.org
+  - wikis.nasqueron.org
 
   ###
   ### MediaWiki code tests
