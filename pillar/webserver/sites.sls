@@ -21,6 +21,7 @@ web_domains:
 
   nasqueron:
     - nasqueron.org
+    - ook.space
 
   #
   # Nasqueron members
