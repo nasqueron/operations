@@ -29,6 +29,7 @@ web_domains:
 
   nasqueron_members:
     - dereckson.be
+    - hypership.space
 
   #
   # Projects ICT is managed by Nasqueron
