@@ -26,7 +26,7 @@
 {% if salt['node.has_role']("router") %}
 {% if grains['os'] == 'FreeBSD' %}
 
-/etc/rc.d/routing/router:
+/etc/rc.conf.d/routing/router:
   file.managed:
     - source: salt://roles/core/network/files/FreeBSD/router.rc
     - makedirs: True
