@@ -21,11 +21,20 @@
 {% if salt['node.has']('zfs:pool') %}
 
 {% set tank = salt['node.get']("zfs:pool") %}
+{% set subdirs = ["bak", "git", "t"] %}
 
 {{ tank }}/datacube:
   zfs.filesystem_present:
     - properties:
         mountpoint: /datacube
-        compression: zstd-7
+        compression: zstd
+
+{% for subdir in subdirs %}
+{{ tank }}/datacube/{{ subdir }}:
+  zfs.filesystem_present:
+    - properties:
+        mountpoint: /datacube/{{ subdir }}
+        compression: zstd
+{% endfor %}
 
 {% endif %}
