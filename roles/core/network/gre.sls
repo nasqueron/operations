@@ -17,7 +17,7 @@
 
 {% set boot_loader.gre = True %}
 
-{{ gre.config_path }}{{ tunnel["network"] }}:
+{{ gre.config_path }}{{ tunnel["description"] }}:
   file.managed:
     - source: salt://roles/core/network/files/{{ gre.source_path }}
     - makedirs: True
