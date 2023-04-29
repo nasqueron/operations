@@ -205,8 +205,25 @@ vault_secrets_by_role:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
     - ops/secrets/nasqueron/mediawiki/secret_key
 
+  saas-wordpress:
+    - ops/secrets/dbserver/cluster-B/users/dereckson_blog
+
+    - ops/secrets/dereckson/wordpress/secrets
+
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
+
+  webserver-alkane:
+    - ops/secrets/dbserver/cluster-B/users/dereckson_www
+    - ops/secrets/dbserver/cluster-B/users/zed
+
+    - ops/secrets/zed/hypership/secret_key
+
+    #
+    # Wolfplex credentials
+    #
+
+    - ops/secrets/nasqueron.etherpad.api
 
   webserver-legacy:
 

@@ -46,3 +46,4 @@ base:
     - roles/webserver-core
     - roles/webserver-alkane
     - roles/saas-mediawiki
+    - roles/saas-wordpress

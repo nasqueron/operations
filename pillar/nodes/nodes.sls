@@ -190,6 +190,8 @@ nodes:
     hostname: web-001.nasqueron.org
     roles:
       - webserver-alkane
+      - saas-mediawiki
+      - saas-wordpress
     network:
       ipv6_tunnel: False
 

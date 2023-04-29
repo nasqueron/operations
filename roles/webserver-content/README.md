@@ -21,6 +21,9 @@ are a directory separator.
 
 The bipbip.acme.tld site will be described in `tld/acme/bipbip.sls` file.
 
+The _generic folder offers common solutions to generic problems
+like provision a .env file with database credentials or secret key.
+
 ## Add a new domain
 
   1. Create a new folder hierarchy for the domain

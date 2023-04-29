@@ -20,3 +20,5 @@ include:
   - .org/wolfplex/api
   - .org/wolfplex/www
   - .space/hypership
+
+  - ._generic
