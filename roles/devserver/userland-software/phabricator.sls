@@ -38,6 +38,11 @@ shellcheck_linter_repository:
     - name: https://devcentral.nasqueron.org/source/shellcheck-linter.git
     - target: /opt/phabricator/shellcheck-linter
 
+clang_linter_repository:
+  git.latest:
+    - name: https://github.com/vhbit/clang-format-linter
+    - target: /opt/phabricator/clang-format-linter
+
 #   -------------------------------------------------------------
 #   Aliases
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -45,3 +50,9 @@ shellcheck_linter_repository:
 {{ dirs.bin }}/arc:
   file.symlink:
     - target: /opt/phabricator/arcanist/bin/arc
+
+devserver_aliases_clang-format:
+  cmd.script:
+    - source: salt://roles/devserver/userland-software/files/install-clang-format-alias.py
+    - args: {{ dirs.bin }}
+    - creates: {{ dirs.bin }}/clang-format
