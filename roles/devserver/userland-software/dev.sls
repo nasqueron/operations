@@ -17,6 +17,7 @@ devserver_software_dev_c:
     - pkgs:
       - {{ packages.boost }}
       - cmocka
+      - doxygen
       - {{ packages.librabbitmq }}
 
 #   -------------------------------------------------------------
@@ -231,6 +232,12 @@ devserver_software_dev_misctools:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/create-vault-approle.py
     - mode: 755
+
+devserver_software_dev_python_vault:
+  pkg.installed:
+   - pkgs:
+     - {{ packages_prefixes.python3 }}pyhcl
+     - {{ packages_prefixes.python3 }}hvac
 
 #   -------------------------------------------------------------
 #   MediaWiki development
