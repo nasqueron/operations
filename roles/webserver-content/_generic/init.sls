@@ -17,6 +17,7 @@
   file.managed:
     - source: salt://roles/webserver-content/_generic/files/dot.env
     - mode: 400
+    - user: {{ env_args["user"] }}
     - show_changes: False
     - template: jinja
     - context:
