@@ -1,6 +1,7 @@
 dbserver_mysql_aliases:
   hosts:
     - &viperserv 172.27.27.33
+    - &web-001 172.27.27.10
 
 dbserver_mysql:
 
@@ -46,6 +47,17 @@ dbserver_mysql:
         - database: nasqueron_wiki
           scope: database
 
+   ###
+   ### Zed / HyperShip
+   ###
+
+    zed:
+      password: dbserver/cluster-B/users/zed
+      host: *web-001
+      privileges:
+        - database: zed_prod
+          scope: database
+
   # Notes for databases encoding and collation:
   #
   #   This is a MariaDB cluster. At version 10.6, MariaDB is still using utf8mb3
@@ -80,3 +92,6 @@ dbserver_mysql:
     # Databases used by MediaWiki SaaS - still to split from other content
     utopia: *mediawiki
     wolfplexdb: *mediawiki
+
+    # Zed / Hypership
+    zed_prod: *unicode

@@ -142,6 +142,16 @@ web_php_sites:
       DATASTORE: /var/dataroot/wolfplex
       CREDENTIAL_PATH_DATASOURCES_SECURITYDATA: /var/dataroot/wolfplex/secrets.json
 
+  # Zed - HyperShip
+  hypership.space:
+    domain: hypership.space
+    subdomain: www
+    user: web-space-hypership-www
+    php-fpm: prod
+    env:
+      CACHE_DIR: /var/cache/zed/hypership.space
+      CONTENT_DIR: /srv/zed/content
+
 #   -------------------------------------------------------------
 #   States
 #

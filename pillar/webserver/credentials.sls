@@ -58,5 +58,7 @@ webserver_content_dotenv:
     db:
       service: db-B
       credentials: dbserver/cluster-B/users/zed
+    extra_values:
+      DB_NAME: zed_prod
     extra_credentials:
       ZED_SECRET_KEY: zed/hypership/secret_key
