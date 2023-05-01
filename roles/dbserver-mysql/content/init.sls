@@ -18,7 +18,7 @@
 dbserver_mysql_user_{{ username }}:
   mysql_user.present:
     - name: {{ username }}
-    - host: {{ args["host"] }}
+    - host: {{ args["host"] | yaml_dquote }}
     - password: {{ salt["credentials.get_password"](args["password"]) }}
 {% endfor %}
 
@@ -69,7 +69,7 @@ dbserver_mysql_user_{{ username }}_privilege_{{ idx }}_{{ privilege["database"] 
     - grant: all privileges
     - database: {{ privilege["database"] }}.*
     - user: {{ username }}
-    - host: {{ user_args["host"] }}
+    - host: {{ user_args["host"] | yaml_dquote }}
     - require:
       - dbserver_mysql_user_{{ username }}
       - dbserver_mysql_db_{{ privilege["database"] }}
@@ -82,6 +82,7 @@ dbserver_mysql_user_{{ username }}_privilege_{{ idx }}_{{ table }}:
     - grant: {{ privilege["privileges"] }}
     - database: {{ privilege["database"] }}.{{ table }}
     - user: {{ username }}
+    - host: {{ user_args["host"] | yaml_dquote }}
     - require:
       - dbserver_mysql_user_{{ username }}
       - dbserver_mysql_db_{{ privilege["database"] }}
