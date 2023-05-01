@@ -36,13 +36,17 @@ dbserver_mysql:
         - database: nasqueron_wiki
           scope: database
 
-  # Tips for databases:
+  # Notes for databases encoding and collation:
+  #
   #   This is a MariaDB cluster. At version 10.6, MariaDB is still using utf8mb3
   #   by default, but we generally prefer utf8mb4 as encoding.
   #
   #   For collation, MySQL 8 uses utf8mb4_0900_ai_ci / utf8mb4_0900_as_cs
   #   It's a accent (in)sensitive case (in)sensitive based on Unicode 9.0.
   #   For MariaDB 10.10+, we can use uca1400_as_ci, that's Unicode 14.0.
+  #
+  #   We note it with the full name utf8mb4_uca1400_as_ci, something not needed
+  #   for manual requests, but allowing mysql_database.present to check equality.
   #
   #   TRANSITION NOTE. On MariaDB 10.6, utf8mb4_unicode_520_ci is the "newest".
   #   From 2023-04-15, we starting to use uca1400_as_ci as default collation.
@@ -51,12 +55,12 @@ dbserver_mysql:
     # Database used by IRC eggdrops
     Nasqueron: &unicode
       encoding: utf8mb4
-      collation: uca1400_as_ci
+      collation: utf8mb4_uca1400_as_ci
 
     # Databases used by MediaWiki SaaS
     wikis: &mediawiki
       encoding: utf8mb4
-      collation: utf8_bin
+      collation: utf8mb4_bin
     arsmagica: *mediawiki
     inidal_wiki: *mediawiki
     nasqueron_wiki: *mediawiki
