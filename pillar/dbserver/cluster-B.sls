@@ -19,6 +19,16 @@ dbserver_mysql:
         - database: Nasqueron
           scope: database
 
+        - database: datacubes
+          scope: database
+
+        - database: datasource_lyrics
+          scope: table
+          privileges: SELECT, INSERT
+          tables:
+            # Tabled managed as datacube by Dæghrefn
+            - lyrics_sneakers
+
     saas-mediawiki:
       password: dbserver/cluster-B/users/saas-mediawiki
       host: "%"
@@ -56,6 +66,8 @@ dbserver_mysql:
     Nasqueron: &unicode
       encoding: utf8mb4
       collation: utf8mb4_uca1400_as_ci
+    datacubes: *unicode
+    datasource_lyrics: *unicode
 
     # Databases used by MediaWiki SaaS
     wikis: &mediawiki
