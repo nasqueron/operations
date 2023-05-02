@@ -47,9 +47,20 @@ dbserver_mysql:
         - database: nasqueron_wiki
           scope: database
 
-   ###
-   ### Zed / HyperShip
-   ###
+    ###
+    ### Nasqueron members
+    ###
+
+    dereckson_www:
+      password: dbserver/cluster-B/users/dereckson_www
+      host: *web-001
+      privileges:
+        - database: Dereckson
+          scope: database
+
+    ###
+    ### Zed / HyperShip
+    ###
 
     zed:
       password: dbserver/cluster-B/users/zed
@@ -92,6 +103,9 @@ dbserver_mysql:
     # Databases used by MediaWiki SaaS - still to split from other content
     utopia: *mediawiki
     wolfplexdb: *mediawiki
+
+    # Nasqueron members
+    Dereckson: *unicode
 
     # Zed / Hypership
     zed_prod: *unicode
