@@ -29,6 +29,7 @@
 #   :: Keys bindings
 #   :: External modules
 #   :: VCS
+#   :: Rust
 #   :: Aliases for salt-wrapper
 #   :: Misc aliases
 #
@@ -204,6 +205,16 @@ vcs_info_wrapper() {
     fi
 }
 RPROMPT=$'$(vcs_info_wrapper)'
+
+#   -------------------------------------------------------------
+#   Rust
+#
+#   Use rustup version of cargo
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+if [[ -d $HOME/.cargo/bin ]]; then
+    setenv PATH $HOME/.cargo/bin:$PATH
+fi
 
 #   -------------------------------------------------------------
 #   Aliases for salt-wrapper
