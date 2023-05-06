@@ -55,16 +55,23 @@ setopt no_nomatch
 
 #   -------------------------------------------------------------
 #   History
+#
+#   https://blog.callstack.io/supercharge-your-terminal-with-zsh-8b369d689770
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
 setopt appendhistory
 
 if [[ -a /usr/local/share/zsh/wynter/zsh-histdb/sqlite-history.zsh ]]; then
     source /usr/local/share/zsh/wynter/zsh-histdb/sqlite-history.zsh
     autoload -Uz add-zsh-hook
+else
+    setopt hist_ignore_all_dups
+    setopt hist_reduce_blanks
+    setopt inc_append_history  # save history entries as soon as they are entered
+    setopt share_history       # share history between different instances of the shell
 fi
 
 #   -------------------------------------------------------------
@@ -244,6 +251,16 @@ command -v zoxide > /dev/null && eval "$(zoxide init zsh)"
 export VAULT_ADDR='https://172.27.27.7:8200'
 
 #   -------------------------------------------------------------
+#   Colorize output with grc
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+if command -v grc >/dev/null 2>&1; then
+    alias mysql="mysql --pager='grcat /usr/local/share/grc/conf.mysql | less -RSFXin'"
+    alias ping='grc ping'
+    alias ping6='grc ping6'
+fi
+
+#   -------------------------------------------------------------
 #   Misc aliases
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -256,6 +273,8 @@ alias n=nano
 
 alias tclsh='rlwrap tclsh8.6'
 alias psysh='rlwrap psysh'
+
+alias weather="curl http://v2.wttr.in/Brussels"
 
 if [[ -a ~/.zshrc-misc-aliases ]]; then
     source ~/.zshrc-misc-aliases
