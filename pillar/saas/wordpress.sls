@@ -14,5 +14,5 @@ wordpress_sites:
     db:
       service: db-B
       credentials: dbserver/cluster-B/users/dereckson_blog
-      name: dereckson_blog
+      name: Dereckson_Blog
     secrets: dereckson/wordpress/secrets

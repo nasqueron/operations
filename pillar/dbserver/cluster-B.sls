@@ -58,6 +58,13 @@ dbserver_mysql:
         - database: Dereckson
           scope: database
 
+    dereckson_blog:
+      password: dbserver/cluster-B/users/dereckson_blog
+      host: *web-001
+      privileges:
+        - database: Dereckson_Blog
+          scope: database
+
     ###
     ### Zed / HyperShip
     ###
@@ -106,6 +113,7 @@ dbserver_mysql:
 
     # Nasqueron members
     Dereckson: *unicode
+    Dereckson_Blog: *unicode
 
     # Zed / Hypership
     zed_prod: *unicode
