@@ -89,7 +89,6 @@ dev:
       - automake
       - {{ packages.bats }}
       - cmake
-      - colordiff
       - {{ packages.cppunit }}
       - git
       - git-lfs

@@ -15,7 +15,6 @@
 docker_development_utilities:
   pkg.installed:
     - pkgs:
-      - colordiff
       - git
       - jq
       - {{ packages_prefixes.python3 }}pip

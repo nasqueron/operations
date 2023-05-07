@@ -138,6 +138,7 @@ sysadmin_utilities:
   pkg.installed:
     - pkgs:
       - bat
+      - colordiff
       - nano
       - ripgrep
       - tree

@@ -21,8 +21,6 @@ install_salt_primary_extra_software:
       - {{ packages_prefixes.python3 }}gitpython
       # Pillar
       - {{ packages_prefixes.python3 }}salt-tower
-      # Utilities
-      - colordiff
 
 {{ dirs.bin }}/staging-commit-message:
   file.managed:
