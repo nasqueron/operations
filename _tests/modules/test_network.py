@@ -48,6 +48,28 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     def test_is_valid_netmask_when_it_is_not(self, netmask):
         self.assertFalse(network.is_valid_netmask(netmask))
 
+    def test_ipv6_address_to_prefix(self):
+        prefix = network._ipv6_address_to_prefix(
+            "2001:41d0:0303:d9ff:00ff:00ff:00ff:00ff", 64
+        )
+        self.assertEqual("2001:41d0:303:d9ff::", prefix.network_address.compressed)
+
+    def test_can_directly_be_discovered(self):
+        self.assertFalse(
+            network.can_directly_be_discovered(
+                "2001:41d0:0303:d9ff:00ff:00ff:00ff:00ff",
+                "2001:41d0:303:d971::517e:c0de",
+                64,
+            )
+        )
+        self.assertTrue(
+            network.can_directly_be_discovered(
+                "2001:41d0:0303:d971:00ff:00ff:00ff:00ff",
+                "2001:41d0:303:d971::517e:c0de",
+                64,
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

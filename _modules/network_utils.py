@@ -8,6 +8,7 @@
 #   -------------------------------------------------------------
 
 
+import ipaddress
 import re
 
 
@@ -44,3 +45,20 @@ def netmask_to_cidr_prefix(netmask):
     #
     # There is 24 "1" in this expression, that's 24 is our CIDR prefix.
     return sum([bin(int(octet)).count("1") for octet in netmask.split(".")])
+
+
+#   -------------------------------------------------------------
+#   IPv6 prefixes
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def _ipv6_address_to_prefix(address, prefixlen):
+    return ipaddress.IPv6Network((address, prefixlen), strict=False)
+
+
+def can_directly_be_discovered(gateway, address, prefixlen):
+    """Determines if the gateway belong to the same prefix than the address,
+    and so can be directly be discovered in NDP."""
+    return _ipv6_address_to_prefix(gateway, prefixlen) == _ipv6_address_to_prefix(
+        address, prefixlen
+    )
