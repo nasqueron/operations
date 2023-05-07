@@ -12,5 +12,8 @@
 #       Changes to this file may cause incorrect behavior
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
-
+{% if ipv6_address is defined %}
+ifconfig_{{ interface }}_ipv6="inet6 {{ ipv6_address }} prefixlen {{ ipv6_prefix }}"
+{%- else -%}
 ifconfig_{{ interface }}_ipv6="inet6 accept_rtadv"
+{% endif -%}

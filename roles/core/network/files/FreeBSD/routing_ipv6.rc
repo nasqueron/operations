@@ -13,4 +13,10 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
+{% if interface is defined and not salt["network_utils.can_directly_be_discovered"](ipv6_gateway, ipv6_address, ipv6_prefix) %}
+ipv6_static_routes="gw default"
+ipv6_route_gw="{{ ipv6_gateway }} -iface {{ interface }}"
+ipv6_route_default="default {{ ipv6_gateway }}"
+{%- else -%}
 ipv6_defaultrouter="{{ ipv6_gateway }}"
+{% endif -%}

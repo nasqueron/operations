@@ -194,6 +194,7 @@ nodes:
       - saas-wordpress
     network:
       ipv6_tunnel: False
+      ipv6_native: True
 
       canonical_public_ipv4: 51.255.124.10
 
@@ -211,6 +212,10 @@ nodes:
             address: 51.255.124.10
             netmask: 255.255.255.255
             gateway: 51.210.99.254
+          ipv6:
+            address: 2001:41d0:303:d971::517e:c0de
+            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
+            prefix: 64
 
   ysul:
     forest: nasqueron-dev
