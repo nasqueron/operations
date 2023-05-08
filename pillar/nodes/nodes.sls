@@ -166,6 +166,7 @@ nodes:
       - router
     network:
       ipv6_tunnel: False
+      ipv6_native: True
 
       canonical_public_ipv4: 51.255.124.8
 
@@ -176,6 +177,10 @@ nodes:
             address: 51.255.124.8
             netmask: *intranought_netmask
             gateway: 51.210.99.254
+          ipv6:
+            address: 2001:41d0:303:d971::6a7e
+            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
+            prefix: 64
           flags:
             - ipv4_ovh_failover
 
