@@ -31,4 +31,8 @@ rc:
     - template: jinja
     - context:
         use_zfs: {{ use_zfs }}
+
+/etc/locate.rc:
+  file.managed:
+      - source: salt://roles/core/rc/files/locate.rc
 {% endif %}
