@@ -14,3 +14,8 @@ datacubes:
   bak: &default {}
   git: *default
   t: *default
+
+  xcombelle:
+    user: xcombelle
+    zfs_user: xcombelle
+    zfs_auto_snapshot: True
