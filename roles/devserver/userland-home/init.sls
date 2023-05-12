@@ -9,3 +9,4 @@
 include:
   - .homefiles
   - .repos
+  - .cron
