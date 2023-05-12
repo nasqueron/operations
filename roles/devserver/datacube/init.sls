@@ -17,11 +17,9 @@
 #   ZFS
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
 {% if salt['node.has']('zfs:pool') %}
 
 {% set tank = salt['node.get']("zfs:pool") %}
-{% set subdirs = ["bak", "git", "t"] %}
 
 {{ tank }}/datacube:
   zfs.filesystem_present:
@@ -29,7 +27,7 @@
         mountpoint: /datacube
         compression: zstd
 
-{% for subdir in subdirs %}
+{% for subdir, args in pillar.get("datacubes", {}).items() %}
 {{ tank }}/datacube/{{ subdir }}:
   zfs.filesystem_present:
     - properties:

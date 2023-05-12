@@ -62,6 +62,7 @@ base:
     - webserver.credentials
 
   windriver:
+    - devserver.datacubes
     - devserver.ports
     - devserver.repos
     - webserver.labs
