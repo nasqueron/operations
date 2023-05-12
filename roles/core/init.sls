@@ -24,9 +24,9 @@ include:
   - .storage
   - .sysctl
   - .timezone
-  - .userland-home
   - .userland-software
   - .users
 
   # Depends of users or groups
   - .deploy
+  - .userland-home
