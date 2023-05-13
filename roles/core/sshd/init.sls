@@ -47,4 +47,5 @@ pam_disable_nologin:
   file.comment:
     - name: /etc/pam.d/sshd
     - regex: ^account.*pam_nologin\.so
+    - ignore_missing: True
     - backup: None
