@@ -25,6 +25,16 @@
         print_motd: {{ not capabilities['MOTD-printed-at-login'] }}
 
 #   -------------------------------------------------------------
+#   Service
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains['os'] == 'FreeBSD' %}
+/etc/rc.conf.d/sshd:
+  file.managed:
+    - source: salt://roles/core/sshd/files/rc.conf
+{% endif %}
+
+#   -------------------------------------------------------------
 #   PAM
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
