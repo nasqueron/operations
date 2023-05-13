@@ -10,7 +10,7 @@
 
 /usr/ports:
   cmd.run:
-    - name: portsnap fetch extract
+    - name: portsnap --interactive fetch extract
     - creates: /usr/ports
 
 {% endif %}
