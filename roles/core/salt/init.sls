@@ -15,6 +15,16 @@ salt_roles:
     - value: {{ salt['node.get_list']("roles") }}
 
 #   -------------------------------------------------------------
+#   Service
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains['os'] == 'FreeBSD' %}
+/etc/rc.conf.d/salt_minion:
+  file.managed:
+    - source: salt://roles/core/salt/files/rc.conf
+{% endif %}
+
+#   -------------------------------------------------------------
 #   Vault
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
