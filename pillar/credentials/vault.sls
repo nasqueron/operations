@@ -87,6 +87,11 @@ vault_secrets_by_role:
   devserver:
     - ops/secrets/nasqueron/notifications/notifications-cli/%%node%%
 
+    - ops/secrets/nasqueron/deploy/deploy_keys/alken-orin
+    - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/bitbucket/dereckson/www
+    - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/bitbucket/ewosp/www
+    - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/github/wolfplex/api-www
+
   opensearch:
     - ops/secrets/nasqueron.opensearch.infra-logs.internal_users.admin
     - ops/secrets/nasqueron.opensearch.infra-logs.internal_users.dashboards
