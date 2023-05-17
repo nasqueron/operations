@@ -10,11 +10,25 @@
 
 #   -------------------------------------------------------------
 #   Base directory
+#
+#   If ZFS is available, create a volume with frequent snapshots
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ basedir }}:
   file.directory:
     - dir_mode: 711
+
+{% if salt['node.has']('zfs:pool') %}
+{% set tank = salt['node.get']("zfs:pool") %}
+
+{{ tank }}/wwwroot51:
+  zfs.filesystem_present:
+    - properties:
+        mountpoint: {{ basedir }}
+        compression: zstd
+        "com.sun:auto-snapshot": "true"
+
+{% endif %}
 
 #   -------------------------------------------------------------
 #   51 sites
