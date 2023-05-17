@@ -198,8 +198,6 @@ def _get_read_rule(vault_path):
 
 
 def _resolve_vault_path(vault_path):
-    vault_path = vault_path.replace("%%node%%", __grains__["id"])
-
     for pillar_path, mount_path in __pillar__.get("vault_mount_paths", {}).items():
         if vault_path.startswith(pillar_path):
             start_position = len(pillar_path)
@@ -247,6 +245,8 @@ def _build_node_policy(node, roles_policies):
 
     if not policy:
         policy = "# This policy is intentionally left blank."
+
+    policy = policy.replace("%%node%%", node)
 
     return policy
 
