@@ -23,11 +23,11 @@ etherpad_settings:
   pad:
     title: Nasqueron pad
     defaultPadText: |
-      Welcome to this Etherpad instance.
+      Welcome to this Etherpad instance, shared between Wolfplex and Nasqueron projects.
 
       This pad text is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents.
 
-      Warning: the pad URL is public, it will be listed at http://www.wolfplex.be/pad/ and also available through a public API call to http://api.wolfplex.be/pads/
+      Warning: the pad URL is public, it will be listed at https://www.wolfplex.org/pad/ and also available through a public API call to https://api.wolfplex.org/pads/
     favicon: "https://www.wolfplex.org/favicon.ico"
 
     mysql:
