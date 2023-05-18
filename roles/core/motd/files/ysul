@@ -9,6 +9,6 @@ ____|_/____(__)_(___(__/__________________________________________________
             explanation for the phenomena it seeks to describe ought to
             be held in the utmost suspicion.” -- The Algebraist.
  NEWS:
- 2017-10-20: Server has been reprovisioned.  You can check the current
- state & comment what you need @ https://devcentral.nasqueron.org/T1268
+   2023-05-18 Ysul is end-of-life. Services are migrated to web-001,
+              WindRiver, db-B-001 - https://devcentral.nasqueron.org/T1803
 __________________________________________________________________________

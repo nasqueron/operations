@@ -2,9 +2,9 @@
 / / /\ \ (_)_ __   __| | /__(_)_   _____ _ __    Welcome to WindRiver,
 \ \/  \/ / | '_ \ / _` |/ \// \ \ / / _ \ '__|   a Nasqueron server.
  \  /\  /| | | | | (_| / _  \ |\ V /  __/ |
-  \/  \/ |_|_| |_|\__,_\/ \_/_| \_/ \___|_|      Development | Staging area
-                                                 Management
+  \/  \/ |_|_| |_|\__,_\/ \_/_| \_/ \___|_|      Development server
+                                                 Alkane / MySQL / PostgreSQL
 
- [Haiku] Time forms the mountain.              [News] 2019-11-22
-         Rain, wind, rivers, do their work.           Server installed.
-         Shadows reveal depth.                        Tracking task: T1536
+ [Haiku] Time forms the mountain.              [News] Ysul is end-of-life.
+         Rain, wind, rivers, do their work.           You can migrate services
+         Shadows reveal depth.                        to WindRiver [T1803].
