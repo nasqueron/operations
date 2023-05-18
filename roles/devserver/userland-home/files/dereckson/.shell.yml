@@ -23,14 +23,14 @@
 aliases:
 
   acquisitariat:
-    command: ['ssh', '-t', 'equatower.nasqueron.org', 'sudo', 'docker', 'exec', '-it', 'acquisitariat', 'mysql']
+    command: ['ssh', '-t', 'docker-002.nasqueron.org', 'sudo', 'docker', 'exec', '-it', 'acquisitariat', 'mysql']
 
   cd:
-    handler: equatower
+    handler: docker-002
     args: ['jenkins_cd']
 
   devcentral:
-    handler: equatower
+    handler: docker-002
     args: ['devcentral']
 
 #   -------------------------------------------------------------
@@ -44,18 +44,18 @@ handlers:
     command: ['docker', 'exec', '-it', '{{%s}}', '{{%s-|bash}}']
     interactive: True
 
-  equatower:
-    server: "equatower.nasqueron.org"
+  docker-002:
+    server: "docker-002.nasqueron.org"
     command: ['sudo', 'docker', 'exec', '-it', '{{%s}}', '{{%s-|bash}}']
     interactive: True
 
   mysql:
-    server: "equatower.nasqueron.org"
+    server: "docker-002.nasqueron.org"
     command: ['sudo', 'docker', 'exec', '-it', '{{%s}}', '{{%s-|mysql}}']
     interactive: True
 
   phpbb:
-    server: "equatower.nasqueron.org"
+    server: "docker-002.nasqueron.org"
     command: ['sudo', 'phpbb']
     interactive: True
 
