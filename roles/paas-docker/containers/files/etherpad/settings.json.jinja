@@ -1,6 +1,6 @@
 {
   "title": "{{ settings.title }}",
-  "defaultPadText": {{ settings.defaultPadText | json }},
+  "defaultPadText": {{ settings.defaultPadText | json | replace("\\\\", "\\") }},
   "favicon": "{{ settings.favicon }}",
   "ip": "0.0.0.0",
   "port": 9001,
