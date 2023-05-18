@@ -1,0 +1,25 @@
+{
+  "title": "{{ settings.title }}",
+  "defaultPadText": {{ settings.defaultPadText | json }},
+  "favicon": "{{ settings.favicon }}",
+  "ip": "0.0.0.0",
+  "port": 9001,
+  "trustProxy": true,
+  "dbType": "mysql",
+  "dbSettings": {
+    "user": "{{ mysql.user }}",
+    "host": "{{ settings.mysql.host }}",
+    "password": "{{ mysql.password }}",
+    "database": "{{ settings.mysql.database }}"
+  },
+  "minify": true,
+  "maxAge" : 99999999,
+  "requireSession" : false,
+  "editOnly" : false,
+  "requireAuthentication": false,
+  "requireAuthorization": false,
+  "users": {{ users | json }},
+  "skinName": "colibris",
+  "skinVariants": "dark-toolbar super-dark-background super-dark-editor full-width-editor",
+  "abiword": "/usr/bin/abiword"
+}

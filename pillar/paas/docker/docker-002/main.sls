@@ -42,7 +42,6 @@ docker_images:
   # Infrastructure and development services
   - nasqueron/aphlict
   - nasqueron/cachet
-  - nasqueron/etherpad:production
   - nasqueron/notifications
   - nasqueron/phabricator
   - ghcr.io/hound-search/hound
@@ -222,16 +221,6 @@ docker_containers:
   #
   # Community and development services
   #
-
-  etherpad:
-    pad:
-      app_port: 34080
-      host: pad.nasqueron.org
-      aliases:
-        - pad.wolfplex.org
-        - pad.wolfplex.be
-      credential: nasqueron.etherpad.api
-      mysql_link: acquisitariat
 
   # Hauk
   hauk:

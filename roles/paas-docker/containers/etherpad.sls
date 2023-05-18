@@ -31,6 +31,31 @@ selinux_context_{{ instance }}_data_applied:
 {% endif %}
 
 #   -------------------------------------------------------------
+#   Configuration file
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set settings = pillar["etherpad_settings"][instance] %}
+
+/srv/{{ instance }}/var/settings.json:
+  file.managed:
+    - source: salt://roles/paas-docker/containers/files/etherpad/settings.json.jinja
+    - mode: 400
+    - user: 9001
+    - show_changes: False
+    - template: jinja
+    - context:
+        settings: {{ settings }}
+        mysql:
+          user: {{ salt["credentials.get_username"](settings["mysql"]["credential"]) }}
+          password: {{ salt["credentials.get_password"](settings["mysql"]["credential"]) }}
+        users:
+          {% for user, user_args in settings.get("users", {}).items() %}
+          {{ user }}:
+            password: {{ salt["credentials.get_password"](user_args["credential"]) }}
+            is_admin: {{ user_args["is_admin"] }}
+          {% endfor %}
+
+#   -------------------------------------------------------------
 #   Container
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
