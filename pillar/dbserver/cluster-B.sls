@@ -1,6 +1,7 @@
 dbserver_mysql_aliases:
   hosts:
     - &viperserv 172.27.27.33
+    - &windriver 172.27.27.35
     - &web-001 172.27.27.10
 
 dbserver_mysql:
@@ -66,6 +67,17 @@ dbserver_mysql:
           scope: database
 
     ###
+    ### Wolfplex
+    ###
+
+    wolfplex_zine:
+      password: dbserver/cluster-B/users/wolfplex_zine
+      host: *windriver
+      privileges:
+        - database: wolfplex_zine
+          scope: database
+
+    ###
     ### Zed / HyperShip
     ###
 
@@ -114,6 +126,9 @@ dbserver_mysql:
     # Nasqueron members
     Dereckson: *unicode
     Dereckson_Blog: *unicode
+
+    # Wolfplex
+    wolfplex_zine: *unicode
 
     # Zed / Hypership
     zed_prod: *unicode
