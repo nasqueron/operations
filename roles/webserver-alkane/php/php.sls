@@ -52,10 +52,12 @@ php_software:
       - {{ packages_prefixes.php }}phar
       - {{ packages_prefixes.php }}session
       - {{ packages_prefixes.php }}simplexml
+      - {{ packages_prefixes.php }}sodium
       - {{ packages_prefixes.php }}sockets
       - {{ packages_prefixes.php }}tokenizer
       - {{ packages_prefixes.php }}xmlreader
       - {{ packages_prefixes.php }}xmlwriter
+      - {{ packages_prefixes.php }}zip
       - {{ packages_prefixes.php }}zlib
 
       - {{ packages_prefixes.php }}pdo_mysql

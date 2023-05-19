@@ -186,9 +186,11 @@ languages_libs:
       - {{ packages_prefixes.php }}session
       - {{ packages_prefixes.php }}simplexml
       - {{ packages_prefixes.php }}sockets
+      - {{ packages_prefixes.php }}sodium
       - {{ packages_prefixes.php }}tokenizer
       - {{ packages_prefixes.php }}xmlreader
       - {{ packages_prefixes.php }}xmlwriter
+      - {{ packages_prefixes.php }}zip
       - {{ packages_prefixes.php }}zlib
       # On Debian, these PDO extensions doesn't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
