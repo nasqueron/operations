@@ -72,7 +72,9 @@ dbserver_mysql_user_{{ username }}_privilege_{{ idx }}_{{ privilege["database"] 
     - host: {{ user_args["host"] | yaml_dquote }}
     - require:
       - dbserver_mysql_user_{{ username }}
+{% if "%" not in privilege["database"] %}
       - dbserver_mysql_db_{{ privilege["database"] }}
+{% endif %}
 {% endif %}
 
 {% if privilege["scope"] == "table" %}

@@ -88,6 +88,23 @@ dbserver_mysql:
         - database: zed_prod
           scope: database
 
+    ###
+    ### Maintenance accounts
+    ###
+
+    dereckson:
+      password: dbserver/cluster-B/users/dereckson
+      host: *windriver
+      privileges:
+        - database: Nasqueron
+          scope: database
+        - database: datacubes
+          scope: database
+        - database: datasource_%
+          scope: database
+        - database: wolfplex_%
+          scope: database
+
   # Notes for databases encoding and collation:
   #
   #   This is a MariaDB cluster. At version 10.6, MariaDB is still using utf8mb3
