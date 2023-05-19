@@ -222,6 +222,9 @@ nodes:
             gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
             prefix: 64
 
+    fixes:
+      hello_ipv6_ovh: True
+
   ysul:
     forest: nasqueron-dev
     hostname: ysul.nasqueron.org
