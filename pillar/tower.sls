@@ -9,4 +9,5 @@
 #   -------------------------------------------------------------
 
 base:
+  - paas/alkane/{{ minion_id }}/*.sls
   - paas/docker/{{ minion_id }}/*.sls
