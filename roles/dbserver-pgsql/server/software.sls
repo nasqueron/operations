@@ -14,7 +14,9 @@
 postgresql_server_software:
   pkg.installed:
     - pkgs:
+      {% if grains['os'] != 'FreeBSD' %}
       - {{ packages.postgresql }}
+      {% endif %}
       {% if pillar["dbserver_postgresql"]["server"]["with_contrib"] | default(False) %}
       - {{ packages["postgresql-contrib"] }}
       {% endif %}
