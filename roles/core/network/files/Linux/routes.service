@@ -17,7 +17,7 @@
 Description=Apply static routes through ip routes
 ConditionPathExists=/etc/routes.conf
 Documentation=https://agora.nasqueron.org/Operations_grimoire/Network
-After=network.target
+After=network-online.target
 
 [Service]
 ExecStart=/usr/sbin/routes
