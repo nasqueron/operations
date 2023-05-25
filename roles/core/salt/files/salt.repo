@@ -1,0 +1,9 @@
+[salt-latest-repo]
+name=Salt repo for RHEL/CentOS 9 PY3
+baseurl=https://repo.saltproject.io/salt/py3/redhat/9/x86_64/latest
+skip_if_unavailable=True
+priority=10
+enabled=1
+enabled_metadata=1
+gpgcheck=1
+gpgkey=https://repo.saltproject.io/salt/py3/redhat/9/x86_64/latest/SALT-PROJECT-GPG-PUBKEY-2023.pub

@@ -15,6 +15,16 @@ salt_roles:
     - value: {{ salt['node.get_list']("roles") }}
 
 #   -------------------------------------------------------------
+#   Repository
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains['os_family'] == 'RedHat' %}
+/etc/yum.repos.d/salt.repo:
+  file.managed:
+    - source: salt://roles/core/salt/files/salt.repo
+{% endif %}
+
+#   -------------------------------------------------------------
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
