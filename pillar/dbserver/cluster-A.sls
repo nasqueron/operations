@@ -27,6 +27,14 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    orbeon:
+      password: dbserver/cluster-A/users/orbeon
+      privileges:
+        - database: forms
+          scope: schema
+          privileges:
+            - ALL
+
   databases:
     airflow:
       encoding: UTF8
@@ -38,6 +46,10 @@ dbserver_postgresql:
       extensions:
         - pg_trgm
 
+    forms:
+      encoding: UTF8
+      owner: orbeon
+
   # Network connections allowed in pg_hba.conf
   connections:
     - db: airflow
@@ -47,3 +59,8 @@ dbserver_postgresql:
     - db: fantoir
       user: fantoir
       ips: 172.27.27.0/28
+
+    - db: forms
+      user: orbeon
+      ips: &dwellers 172.27.27.4/32
+      method: password
