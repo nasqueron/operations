@@ -39,3 +39,4 @@ docker_containers:
       # List of forapps so nginx can proxy /<app>/
       apps:
         - nasqueron-join
+        - nasqueron-requests
