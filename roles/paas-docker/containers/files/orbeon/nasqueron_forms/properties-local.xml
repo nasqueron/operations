@@ -94,6 +94,7 @@
 
     <property as="xs:string" name="oxf.fr.detail.process.send.nasqueron-join.contact"
         value='require-valid
+               then save
                then email
                then navigate("https://join.nasqueron.org/contact-success.html")
                recover navigate("https://join.nasqueron.org/contact-failure.html")' />
@@ -110,6 +111,7 @@
 
     <property as="xs:string" name="oxf.fr.detail.process.send.nasqueron-requests.agora-account"
         value='require-valid
+               then save
                then email
                then navigate("https://agora.nasqueron.org/Agora:Account_request/Successful")
                recover navigate("https://agora.nasqueron.org/Agora:Account_request/Failure")' />
