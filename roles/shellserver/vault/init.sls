@@ -1,18 +1,9 @@
 #   -------------------------------------------------------------
 #   Salt — Shell server's units
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Project:        Nasqueron
+#   Project:        Eglide
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  # System features
-  - .userland-software
-  - .vhosts
-  - .web-hosting
-  - .database
-  - .quassel-core
-  - .vault
-
-  # Services hosted
-  - .odderon
+  - .software
