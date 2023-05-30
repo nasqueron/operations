@@ -24,3 +24,18 @@ datacubes:
     user: xcombelle
     zfs_user: xcombelle
     zfs_auto_snapshot: True
+
+#   -------------------------------------------------------------
+#   Other directories needed by development work
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+devserver_directories:
+  /var/dataroot:
+    user: root
+    group: ops
+    mode: 775
+
+  /var/dataroot/mediawiki.dereckson.be:
+    user: web-be-dereckson-mw
+    group: dereckson
+    mode: 771

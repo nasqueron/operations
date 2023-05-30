@@ -63,3 +63,20 @@ zfs_permissions_datacube_descendent_{{ subdir }}:
 
 {% endfor %}
 {% endif %}
+
+#   -------------------------------------------------------------
+#   Misc directories
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for dir, args in pillar.get("devserver_directories", {}).items() %}
+
+{{ dir }}:
+  file.directory:
+    - makedirs: True
+    {% for key in ["user", "group", "mode"] %}
+    {% if key in args %}
+    - {{ key }}: {{ args[key] }}
+    {% endif %}
+    {% endfor %}
+
+{% endfor %}
