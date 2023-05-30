@@ -133,3 +133,49 @@ web_php_sites:
     env:
       CACHE_DIR: /var/cache/zed/hypership.space
       CONTENT_DIR: /srv/zed/content
+
+#   -------------------------------------------------------------
+#   nginx configuration
+#
+#   Configuration files to provision to vhosts/
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+nginx_vhosts:
+  dereckson.be:
+    - assets
+    - hg
+    - mediawiki
+    - scherzo
+    - www
+
+  espace-win.org:
+    - cosmo
+    - www
+
+  hypership.space:
+    - www
+
+  nasqueron.org:
+    - api
+    - assets
+    - autoconfig
+    - daeghrefn
+    - docker
+    - docs
+    - ftp
+    - infra
+    - join
+    - labs
+    - launch
+    - packages
+    - rain
+    - trustspace
+    - www
+
+  test.ook.space:
+    - migration.mediawiki
+
+  wolfplex.org:
+    - api
+    - assets
+    - www

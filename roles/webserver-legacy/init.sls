@@ -10,7 +10,7 @@
 include:
   - roles/webserver-alkane/account
   - roles/webserver-alkane/directories
-  - .nginx
+  - roles/webserver-alkane/nginx
   - .static-sites
   - .php-sites
   - .tweaks

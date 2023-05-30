@@ -84,3 +84,16 @@ web_php_sites:
     subdomain: www51
     user: web-org-espacewin-www51
     php-fpm: prod
+
+#   -------------------------------------------------------------
+#   nginx configuration
+#
+#   Configuration files to provision to vhosts/
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+nginx_vhosts:
+  dereckson.be:
+    - mediawiki
+
+  nasqueron.org:
+    - tools51
