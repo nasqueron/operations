@@ -22,6 +22,7 @@ mediawiki_extensions:
   - Scribunto
   - SyntaxHighlight_GeSHi
   - Thanks
+  - WarnNotRecentlyUpdated
   - WikiEditor
 
 mediawiki_skins:
