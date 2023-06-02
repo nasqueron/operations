@@ -96,7 +96,7 @@ selinux_context_{{ instance }}_data_applied:
     - ports:
       - 8080
     - port_bindings:
-      - {{ container['app_port'] }}:8080
+      - 127.0.0.1:{{ container['app_port'] }}:8080
     - networks:
       - {{ container['network'] }}
 
