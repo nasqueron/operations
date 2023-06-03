@@ -41,6 +41,7 @@ utilities:
       - moreutils
       - mosh
       - nmap
+      - reptyr
       - toilet
       - unrar
       - whois
