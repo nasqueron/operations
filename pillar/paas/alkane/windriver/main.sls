@@ -105,3 +105,4 @@ nginx_vhosts:
   nasqueron.org:
     - api51
     - tools51
+    - www51
