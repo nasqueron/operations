@@ -96,4 +96,5 @@ nginx_vhosts:
     - mediawiki
 
   nasqueron.org:
+    - api51
     - tools51
