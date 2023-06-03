@@ -65,6 +65,13 @@ php_fpm_instances:
     command: /usr/local/sbin/php-fpm
 
 web_php_sites:
+  # Nasqueron
+  tools51.nasqueron.org:
+    domain: nasqueron.org
+    subdomain: tools51
+    user: web-org-nasqueron-tools51
+    php-fpm: prod
+
   # Nasqueron members
   mediawiki.dereckson.be:
     domain: dereckson.be
