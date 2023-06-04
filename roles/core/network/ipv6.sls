@@ -22,6 +22,11 @@
 
 #   -------------------------------------------------------------
 #   Native IPv6
+#
+#   Flags:
+#
+#    - On Online, we need to send a request to a DHCP server
+#      with the assigned DUID.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if salt['node.has']('network:ipv6_native') %}
@@ -29,7 +34,6 @@
     {% if "ipv6" in interface %}
 
       {% if grains['os'] == 'FreeBSD' %}
-
       /etc/rc.conf.d/netif/ipv6_{{ interface['device'] }}:
         file.managed:
           - source: salt://roles/core/network/files/FreeBSD/netif_ipv6.rc

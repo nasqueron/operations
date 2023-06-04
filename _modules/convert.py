@@ -87,3 +87,12 @@ def to_flags(data, enable_prefix="enable-", separator=" "):
     A function to convert a list of flags in a string to enable them.
     """
     return separator.join([enable_prefix + item for item in data])
+
+
+#   -------------------------------------------------------------
+#   Lists and dictionaries
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def to_list(data):
+    return list(data)

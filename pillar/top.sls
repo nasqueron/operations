@@ -19,6 +19,8 @@ base:
     - services.table
     - webserver.sites
 
+    - credentials.vault
+
   cloudhugger:
     - opensearch.software
     - opensearch.clusters

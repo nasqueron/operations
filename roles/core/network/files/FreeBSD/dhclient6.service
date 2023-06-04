@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# PROVIDE: dhclient6
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# dhclient6_enable (bool):	Set it to YES to enable dhclient6.
+#			Default is "NO".
+# dhclient6_interface (user):	Set interface to run DHCPv6 client on.
+#			No default value. Mandatory.
+# dhclient6_config (path): The path to the configuration file.
+#           Default is "/usr/local/etc/dhclient6.conf".
+
+. /etc/rc.subr
+
+name=dhclient6
+desc="Dynamic Host Configuration Protocol (DHCP) client"
+rcvar=dhclient6_enable
+
+load_rc_config $name
+
+: ${dhclient6_enable:="NO"}
+: ${dhclient6_interface:=""}
+: ${dhclient6_config:="/usr/local/etc/dhclient6.conf"}
+
+pidfile="/var/run/dhclient6/${name}.${dhclient6_interface}.pid"
+procname="/usr/local/sbin/dhclient"
+command="$procname"
+command_args="-cf ${dhclient6_config} -6 -P -v ${dhclient6_interface}"
+start_precmd="dhclient6_prestart"
+
+dhclient6_prestart()
+{
+	# /var/run/dhclient6 is not guaranteed to exist,
+	# e.g. if /var/run is a tmpfs
+	install -d -o root -g wheel -m 755 ${pidfile%/*}
+}
+
+if [ -z $dhclient6_interface ] ; then
+	err 1 "$0: no interface specified"
+fi
+
+run_rc_command "$1"

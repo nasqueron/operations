@@ -274,9 +274,11 @@ nodes:
             netmask: 255.255.255.0
             gateway: 51.159.18.1
           ipv6:
-            address: 2001:0bc8:6005:0005:aa1e:84ff:fef3:5d9c
-            gateway: fe80::a293:51ff:feb7:5073
-            prefix: 128
+            address: 2001:bc8:2e84:700::da7a:7001
+            gateway: fe80::2616:9dff:fe9c:c521
+            prefix: 56
+          flags:
+            - ipv6_dhcp_duid
 
   ##
   ## Forest:         Eglide

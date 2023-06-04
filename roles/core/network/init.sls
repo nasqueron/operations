@@ -9,6 +9,7 @@
 include:
   - .ipv4
   - .ipv6
+  - .dhclient6
   - .gre
   - .routes
 

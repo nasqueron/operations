@@ -9,6 +9,7 @@
 #   -------------------------------------------------------------
 
 
+import ipaddress
 import os
 
 from salt.utils.files import fopen
@@ -126,6 +127,62 @@ def get_dsn(host, key, prefix=None):
 
 
 #   -------------------------------------------------------------
+#   Helpers for IPv6 DUID credentials
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def get_duid_credential_paths(node):
+    return {
+        key: _get_duid_path(interface)
+        for key, interface in _get_duid_interfaces(node).items()
+    }
+
+
+def get_duid_credentials():
+    id = __grains__["id"]
+
+    return {
+        key: _read_duid_secret(interface)
+        for key, interface in _get_duid_interfaces(id).items()
+    }
+
+
+def _get_duid_interfaces(node):
+    return {
+        key: interface
+        for key, interface in __pillar__["nodes"][node]["network"]["interfaces"].items()
+        if _is_duid_interface(interface)
+    }
+
+
+def _is_duid_interface(interface):
+    return (
+        "ipv6" in interface
+        and "flags" in interface
+        and "ipv6_dhcp_duid" in interface["flags"]
+    )
+
+
+def _read_duid_secret(interface):
+    path = _get_duid_path(interface)
+
+    return __salt__["vault.read_secret"](path)["password"]
+
+
+def _get_duid_path(interface):
+    address = interface["ipv6"]["address"]
+    prefixlen = interface["ipv6"]["prefix"]
+    prefix = _get_prefix(address, prefixlen)
+
+    return f"ops/secrets/network/DUID/{prefix}"
+
+
+def _get_prefix(address, prefixlen):
+    ip = ipaddress.IPv6Network((address, prefixlen), strict=False)
+    return str(ip.network_address)
+
+
+#   -------------------------------------------------------------
 #   Helpers for Sentry credentials
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -240,6 +297,9 @@ def _build_node_policy(node, roles_policies):
                 [_get_read_rule(vault_path) for vault_path in dbserver_rules_paths]
             )
         )
+
+    for _, vault_path in get_duid_credential_paths(node).items():
+        rules.append(_get_read_rule(vault_path))
 
     policy = _join_document_fragments(rules)
 
