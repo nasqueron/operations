@@ -23,3 +23,9 @@ LANG=en_US.UTF-8
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 @reboot ssh-agent -c | grep -v echo > $HOME/bin/ssh-agent-session
+
+#   -------------------------------------------------------------
+#   Periodic
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+17 */4 * * * updatedb-home
