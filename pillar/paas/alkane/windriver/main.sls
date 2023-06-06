@@ -85,6 +85,16 @@ web_php_sites:
     user: web-be-dereckson-www51
     php-fpm: prod
 
+  # Zed
+  zed51.dereckson.be:
+    domain: dereckson.be
+    subdomain: zed51
+    user: web-be-dereckson-zed51
+    php-fpm: prod
+    env:
+      CACHE_DIR: /var/dataroot/zed/cache
+      CONTENT_DIR: /var/dataroot/zed/content
+
   # Espace Win
   www51.espace-win.org:
     domain: espace-win.org
@@ -101,6 +111,7 @@ web_php_sites:
 nginx_vhosts:
   dereckson.be:
     - mediawiki
+    - zed51
 
   nasqueron.org:
     - api51

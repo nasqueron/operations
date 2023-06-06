@@ -39,3 +39,19 @@ devserver_directories:
     user: web-be-dereckson-mw
     group: dereckson
     mode: 771
+
+  # Staging area for Zed
+
+  /var/dataroot/zed:
+    user: dereckson
+    mode: 711
+
+  /var/dataroot/zed/cache:
+    user: web-be-dereckson-zed51
+    group: dereckson
+    mode: 771
+
+  /var/dataroot/zed/content:
+    user: web-be-dereckson-zed51
+    group: dereckson
+    mode: 771
