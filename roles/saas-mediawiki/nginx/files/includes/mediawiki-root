@@ -50,7 +50,7 @@ location ~ \.php$ {
     try_files $uri =404;
     fastcgi_pass   {{ saas.fastcgi_url }};
     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-    include        includes/fastcgi_params;
+    include        includes/fastcgi;
 }
 
 #   -------------------------------------------------------------
@@ -60,11 +60,11 @@ location ~ \.php$ {
 location = / {
     fastcgi_pass   {{ saas.fastcgi_url }};
     fastcgi_param  SCRIPT_FILENAME  {{ saas.directory }}/index.php;
-    include        includes/fastcgi_params;
+    include        includes/fastcgi;
 }
 
 location = /status {
     fastcgi_pass   {{ saas.fastcgi_url }};
     fastcgi_param  SCRIPT_FILENAME  {{ saas.directory }}/index.php;
-    include        includes/fastcgi_params;
+    include        includes/fastcgi;
 }

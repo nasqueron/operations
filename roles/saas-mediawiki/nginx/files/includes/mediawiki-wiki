@@ -59,7 +59,7 @@ location /w {
         try_files $uri =404;
         fastcgi_pass   unix:/var/run/web/wikis.nasqueron.org/php-fpm.sock;
         fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-        include        includes/fastcgi_params;
+        include        includes/fastcgi;
     }
 }
 
@@ -72,5 +72,5 @@ location = /wiki/status {
 
     fastcgi_pass   unix:/var/run/web/wikis.nasqueron.org/php-fpm.sock;
     fastcgi_param  SCRIPT_FILENAME  /var/51-wwwroot/saas-mediawiki/index.php;
-    include        includes/fastcgi_params;
+    include        includes/fastcgi;
 }

@@ -26,12 +26,12 @@ location ~ \.html$ {
     fastcgi_pass unix:/var/run/web/$server_name/php-fpm.sock;
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME $document_root/index.php;
-    include fastcgi_params;
+    include includes/fastcgi;
 }
 
 location @app {
     fastcgi_pass unix:/var/run/web/$server_name/php-fpm.sock;
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME $document_root/index.php;
-    include fastcgi_params;
+    include includes/fastcgi;
 }
