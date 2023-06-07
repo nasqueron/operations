@@ -27,6 +27,14 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    openfire:
+      password: dbserver/cluster-A/users/openfire
+      privileges:
+        - database: openfire
+          scope: schema
+          privileges:
+            - ALL
+
     orbeon:
       password: dbserver/cluster-A/users/orbeon
       privileges:
@@ -50,6 +58,10 @@ dbserver_postgresql:
       encoding: UTF8
       owner: orbeon
 
+    openfire:
+      encoding: UTF8
+      owner: openfire
+
   # Network connections allowed in pg_hba.conf
   connections:
     - db: airflow
@@ -63,4 +75,9 @@ dbserver_postgresql:
     - db: forms
       user: orbeon
       ips: &dwellers 172.27.27.4/32
+      method: password
+
+    - db: openfire
+      user: openfire
+      ips: &docker002 172.27.27.5/32
       method: password
