@@ -39,7 +39,7 @@ zed_content_private:
     - name: git@github.com:hypership/content_users.git
     - target: /var/dataroot/zed/content/users
     - user: deploy
-    - identity: {{ pillar["wwwroot_identities"]["deploy-key-github-hypership-content_users"]["path"]  }}
+    - identity: {{ pillar["wwwroot_identities"]["deploy-key-github-hypership-content_users"]["path"] }}
     - update_head: False
 {% endif %}
 
