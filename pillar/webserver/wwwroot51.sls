@@ -7,7 +7,7 @@
 
 wwwroot51_basedir: /var/51-wwwroot
 
-wwwroot51_identities:
+wwwroot_identities:
   alken-orin:
     secret: nasqueron/deploy/deploy_keys/alken-orin
     path: /opt/salt/security/id_alken_orin_ed25519

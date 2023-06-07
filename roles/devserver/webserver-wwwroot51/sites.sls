@@ -34,7 +34,7 @@
 #   51 sites
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set identities = pillar["wwwroot51_identities"] %}
+{% set identities = pillar["wwwroot_identities"] %}
 
 {% for sitename, site in pillar['wwwroot51_directories'].items() %}
 {{ basedir }}/{{ sitename }}:

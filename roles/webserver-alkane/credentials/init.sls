@@ -1,5 +1,5 @@
 #   -------------------------------------------------------------
-#   Salt — Webserver wwwroot51 content
+#   Salt — Webserver content
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
@@ -11,7 +11,7 @@
     - makedirs: True
     - mode: 700
 
-{% for _, identity in pillar.get("wwwroot51_identities", {}).items() %}
+{% for _, identity in pillar.get("wwwroot_identities", {}).items() %}
 
 {{ identity["path"] }}:
   file.managed:

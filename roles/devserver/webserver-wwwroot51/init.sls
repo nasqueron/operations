@@ -6,5 +6,5 @@
 #   -------------------------------------------------------------
 
 include:
-  - .credentials
+  - roles/webserver-alkane/credentials
   - .sites

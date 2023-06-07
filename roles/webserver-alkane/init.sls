@@ -8,5 +8,6 @@
 include:
   - .account
   - .alkane
+  - .credentials
   - .directories
   - .php
