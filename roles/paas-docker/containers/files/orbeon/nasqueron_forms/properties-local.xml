@@ -103,11 +103,24 @@
         value="dereckson+nasqueron+join@espace-win.org" />
 
 
-    <!-- Form properties :: nasqueron-requests :: agora-account -->
+    <!-- Form properties :: nasqueron-requests -->
 
     <property as="xs:string" name="oxf.fr.detail.buttons.nasqueron-requests.*">
         send
     </property>
+
+    <property as="xs:string" name="oxf.fr.detail.process.send.nasqueron-requests.*"
+        value='require-valid
+               then save
+               then email
+               then navigate("https://agora.nasqueron.org/Agora:Request/Successful")
+               recover navigate("https://agora.nasqueron.org/Agora:Request/Failure")' />
+
+    <property as="xs:string" name="oxf.fr.email.to.nasqueron-requests.*"
+        value="dereckson+nasqueron+requests@espace-win.org" />
+
+
+    <!-- Form properties :: nasqueron-requests :: agora-account -->
 
     <property as="xs:string" name="oxf.fr.detail.process.send.nasqueron-requests.agora-account"
         value='require-valid
@@ -115,8 +128,5 @@
                then email
                then navigate("https://agora.nasqueron.org/Agora:Account_request/Successful")
                recover navigate("https://agora.nasqueron.org/Agora:Account_request/Failure")' />
-
-    <property as="xs:string" name="oxf.fr.email.to.nasqueron-requests.*"
-        value="dereckson+nasqueron+requests@espace-win.org" />
 
 </properties>
