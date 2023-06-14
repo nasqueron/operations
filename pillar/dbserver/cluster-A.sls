@@ -27,6 +27,14 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    netbox:
+      password: dbserver/cluster-A/users/netbox
+      privileges:
+        - database: netbox
+          scope: schema
+          privileges:
+            - ALL
+
     openfire:
       password: dbserver/cluster-A/users/openfire
       privileges:
@@ -58,6 +66,10 @@ dbserver_postgresql:
       encoding: UTF8
       owner: orbeon
 
+    netbox:
+      encoding: UTF8
+      owner: netbox
+
     openfire:
       encoding: UTF8
       owner: openfire
@@ -76,6 +88,10 @@ dbserver_postgresql:
       user: orbeon
       ips: &dwellers 172.27.27.4/32
       method: password
+
+    - db: netbox
+      user: netbox
+      ips: 172.27.27.0/28
 
     - db: openfire
       user: openfire
