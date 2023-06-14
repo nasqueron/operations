@@ -264,15 +264,15 @@ nodes:
       ipv6_native: True
       ipv6_tunnel: False
 
-      canonical_public_ipv4: 51.159.18.59
+      canonical_public_ipv4: 51.159.17.168
 
       interfaces:
         igb0:
           device: igb0
           ipv4:
-            address: 51.159.18.59
+            address: 51.159.17.168
             netmask: 255.255.255.0
-            gateway: 51.159.18.1
+            gateway: 51.159.17.1
           ipv6:
             address: 2001:bc8:2e84:700::da7a:7001
             gateway: fe80::2616:9dff:fe9c:c521
