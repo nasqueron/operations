@@ -134,7 +134,6 @@ nginx_vhosts:
     - assets
     - hg
     - mediawiki
-    - scherzo
     - www
 
   espace-win.org:
