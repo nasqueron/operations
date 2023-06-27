@@ -55,9 +55,14 @@ dbserver_mysql:
     dereckson_www:
       password: dbserver/cluster-B/users/dereckson_www
       host: *web-001
-      privileges:
+      privileges: &dereckson_www
         - database: Dereckson
           scope: database
+
+    dereckson_www51:
+      password: dbserver/cluster-B/users/dereckson_www51
+      host: *windriver
+      privileges: *dereckson_www
 
     dereckson_blog:
       password: dbserver/cluster-B/users/dereckson_blog
