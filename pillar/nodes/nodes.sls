@@ -214,6 +214,7 @@ nodes:
     hostname: web-001.nasqueron.org
     roles:
       - webserver-alkane
+      - webserver-alkane-prod
       - saas-mediawiki
       - saas-wordpress
     network:
@@ -276,6 +277,8 @@ nodes:
     roles:
       - devserver
       - dbserver-mysql
+      - webserver-alkane
+      - webserver-alkane-dev
       - webserver-legacy
     zfs:
       pool: arcology

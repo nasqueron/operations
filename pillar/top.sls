@@ -61,12 +61,10 @@ base:
   web-001:
     - saas.mediawiki
     - saas.wordpress
-    - webserver.credentials
 
   windriver:
     - devserver.datacubes
     - devserver.ports
     - devserver.repos
     - webserver.labs
-    - webserver.credentials
     - webserver.wwwroot51

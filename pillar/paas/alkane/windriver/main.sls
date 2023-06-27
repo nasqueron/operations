@@ -119,3 +119,15 @@ nginx_vhosts:
     - api51
     - tools51
     - www51
+
+
+#   -------------------------------------------------------------
+#   Credentials
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+webserver_content_dotenv:
+  /var/51-wwwroot/dereckson-www/.env:
+    user: web-be-dereckson-www51
+    db:
+      service: db-B
+      credentials: dbserver/cluster-B/users/dereckson_www51

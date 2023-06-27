@@ -164,3 +164,14 @@ nginx_vhosts:
     - api
     - assets
     - www
+
+#   -------------------------------------------------------------
+#   Credentials
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+webserver_content_dotenv:
+  /var/wwwroot/dereckson.be/www/.env:
+    user: web-be-dereckson-www
+    db:
+      service: db-B
+      credentials: dbserver/cluster-B/users/dereckson_www

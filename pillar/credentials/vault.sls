@@ -226,7 +226,7 @@ vault_secrets_by_role:
   viperserv:
     - ops/secrets/nasqueron.viperserv.vault
 
-  webserver-alkane:
+  webserver-alkane-prod:
     - ops/secrets/dbserver/cluster-B/users/dereckson_www
     - ops/secrets/dbserver/cluster-B/users/zed
 
@@ -239,6 +239,9 @@ vault_secrets_by_role:
     #
 
     - ops/secrets/nasqueron.etherpad.api
+
+  webserver-alkane-dev:
+    - ops/secrets/dbserver/cluster-B/users/dereckson_www51
 
   webserver-legacy:
 
