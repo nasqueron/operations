@@ -112,6 +112,7 @@ nginx_vhosts:
   dereckson.be:
     - mediawiki
     - scherzo
+    - www51
     - zed51
 
   nasqueron.org:
