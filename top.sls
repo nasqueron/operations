@@ -42,6 +42,8 @@ base:
   'eglide':
     - roles/webserver-core
     - roles/shellserver
+  'hervil':
+    - roles/mailserver
   'web-001':
     - roles/webserver-core
     - roles/webserver-alkane

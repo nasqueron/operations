@@ -159,6 +159,25 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
+  hervil:
+    forest: nasqueron-infra
+    hostname: hervil.nasqueron.drake
+    network:
+      interfaces:
+        vmx0:
+          device: vmx0
+          ipv4:
+            address: 172.27.27.3
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+        vmx1:
+          device: vmx1
+          ipv4:
+            address: 178.32.70.108
+            netmask: 255.255.255.255
+    roles:
+      - mailserver
+
   router-001:
     forest: nasqueron-infra
     hostname: router-001.nasqueron.org
