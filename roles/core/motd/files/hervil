@@ -1,7 +1,7 @@
 
              )__________       hervil.nasqueron.drake
             .'.         `.     IP: {{ ipv4_address.ljust(16) }}  OS: FreeBSD 13
-            | |  Hervil  |     GW: {{ ipv4_gateway.ljust(16) }}
+            | |  Hervil  |
             |_|__________|
               |  |    __..--   This server hosts Mail for Nasqueron projects.
             __|  |--""     
