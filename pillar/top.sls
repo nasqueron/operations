@@ -53,6 +53,7 @@ base:
   hervil:
     - mailserver.vimbadmin
     - mailserver.dovecot
+    - mailserver.postfix
 
   ysul:
     - devserver.repos

@@ -111,6 +111,7 @@ vault_secrets_by_role:
   mailserver:
     - ops/secrets/dbserver/cluster-A/users/mailManagement
     - ops/secrets/dbserver/cluster-A/users/dovecot
+    - ops/secrets/dbserver/cluster-A/users/postfix
     - ops/secrets/mailserver/security
 
   opensearch:

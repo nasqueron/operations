@@ -1,0 +1,16 @@
+{% set postfix_dirs = salt['grains.filter_by']({
+    'FreeBSD' : {
+        'daemon': '/usr/local/libexec/postfix',
+        'queue': '/var/spool/postfix',
+        'data': '/var/db/postfix',
+        'shlib': '/usr/local/lib/postfix',
+        'cacerts': '/etc/ssl/certs',
+    },
+    'Debian' : {
+       'daemon':  '/usr/lib/postfix',
+       'queue': '/var/spool/postfix',
+       'data': '/var/lib/postfix',
+       'shlib': '/usr/lib/postfix',
+       'cacerts': '/etc/ssl/certs',
+    }
+}, default='Debian') %}
