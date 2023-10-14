@@ -129,6 +129,7 @@ devserver_software_misc_network:
       - getdns
       - iftop
       - mtr
+      - trippy
       {% if grains['os_family'] == 'Debian' %}
       - sockstat
       {% endif %}
