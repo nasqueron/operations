@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
 #   -------------------------------------------------------------
 #   Let's encrypt — Certificates web server configuration checker
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-06-05
 #   Description:    Check if /.well-known/acme-challenge works
 #                   for the mapping directory webserver for each
-#                   certificate to renew.
+#                   certificate to renew. HTTP only.
 #   License:        BSD-2-Clause
-#   Source file:    roles/webserver-core/letsencrypt/files/check-letsencrypt-certificates.py
+#   Source file:    roles/core/certificates/files/check-letsencrypt-certificates.py
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
@@ -29,6 +27,7 @@ import random
 import string
 from urllib.error import HTTPError
 from urllib.request import urlopen
+
 
 #   -------------------------------------------------------------
 #   Configuration

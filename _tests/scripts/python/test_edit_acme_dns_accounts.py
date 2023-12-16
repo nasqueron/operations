@@ -7,7 +7,7 @@ import unittest
 
 os.environ["ACME_ACCOUNTS"] = "/path/to/acmedns.json"
 
-path = "roles/paas-docker/letsencrypt/files/edit-acme-dns-accounts.py"
+path = "roles/core/certificates/files/edit-acme-dns-accounts.py"
 script = SourceFileLoader("script", "../" + path).load_module()
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-SCRIPT="../roles/paas-docker/letsencrypt/files/edit-acme-dns-accounts.py"
+SCRIPT="../roles/core/certificates/files/edit-acme-dns-accounts.py"
 
 #   -------------------------------------------------------------
 #   Arguments parsing

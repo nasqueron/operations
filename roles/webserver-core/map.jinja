@@ -10,9 +10,3 @@
         "pid_path": "/run/nginx.pid",
     }
 }, default="Debian") %}
-
-{% if salt["node.has_role"]("paas-docker") %}
-{% set certbot_dir = "/srv/letsencrypt/www" %}
-{% else %}
-{% set certbot_dir = "/var/letsencrypt-auto" %}
-{% endif %}

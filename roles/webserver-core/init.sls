@@ -9,6 +9,3 @@
 include:
   - .nginx
   - .tools
-  {% if 'paas-docker' not in salt['node.get_list']('roles') %}
-  - .letsencrypt
-  {% endif %}

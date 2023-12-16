@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
-{% from "roles/webserver-core/map.jinja" import options, certbot_dir with context %}
+{% from "roles/webserver-core/map.jinja" import options with context %}
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 
@@ -58,7 +58,7 @@ webserver_core_nginx_includes:
         nginx_version: {{ salt["nginx.version"]() }}
         nginx_dir: {{ dirs.etc }}/nginx
         nginx_options: {{ options }}
-        certbot_dir: {{ certbot_dir }}
+        certbot_dir: /var/letsencrypt-auto
 
 #   -------------------------------------------------------------
 #   Parameters for Diffie-Hellman

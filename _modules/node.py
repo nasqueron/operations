@@ -23,6 +23,12 @@ DEPLOY_ROLES = [
 ]
 
 
+WITH_NGINX_ROLES = [
+    "webserver-core",
+    "paas-docker",
+]
+
+
 def _get_all_nodes():
     return __pillar__.get("nodes", {})
 
@@ -190,6 +196,13 @@ def has_deployment(nodename=None):
     A function to determine if this server does continuous delivery.
     """
     return any(role in DEPLOY_ROLES for role in get_list("roles", nodename))
+
+
+def has_nginx(nodename=None):
+    """
+    A function to determine if this server role should include nginx.
+    """
+    return any(role in WITH_NGINX_ROLES for role in get_list("roles", nodename))
 
 
 def get_wwwroot(nodename=None):
