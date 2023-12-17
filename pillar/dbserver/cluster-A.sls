@@ -58,6 +58,13 @@ dbserver_postgresql:
           scope: schema
           privileges:
             - ALL
+        - database: forms
+          scope: table
+          schema: public
+          tables:
+            - ALL
+          privileges:
+            - ALL
 
     postfix:
       password: dbserver/cluster-A/users/postfix
