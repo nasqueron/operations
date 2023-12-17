@@ -27,6 +27,14 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    mailManagement:
+      password: dbserver/cluster-A/users/mailManagement
+      privileges:
+        - database: mail
+          scope: schema
+          privileges:
+            - ALL
+
     netbox:
       password: dbserver/cluster-A/users/netbox
       privileges:
@@ -51,6 +59,17 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    postfix:
+      password: dbserver/cluster-A/users/postfix
+      privileges:
+        - database: mail
+          scope: table
+          schema: public
+          tables:
+            - ALL
+          privileges:
+            - SELECT
+
   databases:
     airflow:
       encoding: UTF8
@@ -65,6 +84,10 @@ dbserver_postgresql:
     forms:
       encoding: UTF8
       owner: orbeon
+
+    mail:
+      encoding: UTF8
+      owner: mailManagement
 
     netbox:
       encoding: UTF8
@@ -96,4 +119,9 @@ dbserver_postgresql:
     - db: openfire
       user: openfire
       ips: &docker002 172.27.27.5/32
+      method: password
+
+    - db: mail
+      user: postfix
+      ips: 172.27.27.3/32
       method: password
