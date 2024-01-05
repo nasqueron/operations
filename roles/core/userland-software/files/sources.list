@@ -14,13 +14,13 @@
 #   </auto-generated>
 #   -------------------------------------------------------------
 
-deb http://deb.debian.org/debian {{ debian_version }} main contrib non-free
-deb-src http://deb.debian.org/debian {{ debian_version }} main contrib non-free
+deb http://deb.debian.org/debian {{ debian_version }} main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian {{ debian_version }} main contrib non-free non-free-firmware
 
-deb http://deb.debian.org/debian-security/ {{ debian_version }}-security main contrib non-free
-deb-src http://deb.debian.org/debian-security/ {{ debian_version }}-security main contrib non-free
+deb http://deb.debian.org/debian-security/ {{ debian_version }}-security main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian-security/ {{ debian_version }}-security main contrib non-free non-free-firmware
 
-deb http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free
-deb-src http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free
+deb http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian {{ debian_version }}-updates main contrib non-free non-free-firmware
 
-deb http://deb.debian.org/debian {{ debian_version }}-backports main contrib non-free
+deb http://deb.debian.org/debian {{ debian_version }}-backports main contrib non-free non-free-firmware
