@@ -103,11 +103,11 @@ docker_containers_monitoring:
   check_http_200:
     acme_dns: /health
     cachet: /api/v1/ping
+    etherpad: /health
     hound: /healthz
 
     # Test a regular URL for services without health check
     api-datasources: /datasources
-    etherpad: /stats
     hauk: /
     jenkins: /login
     registry: /
