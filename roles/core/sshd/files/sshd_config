@@ -19,6 +19,13 @@ ListenAddress {{ listen_private_address }}
 ListenAddress localhost
 {%- endif %}
 
+# Terrapin mitigation
+# Those ciphers are fine if *BOTH* SSH client and server are patched.
+# A up-to-date OpenSSH server isn't enough if the client don't support
+# strict key exchange. As such, we still disable them.
+Ciphers -chacha20-poly1305@openssh.com
+MACs -*etm@openssh.com
+
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
 AuthorizedKeysFile	.ssh/authorized_keys
