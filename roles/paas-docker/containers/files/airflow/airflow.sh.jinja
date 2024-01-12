@@ -48,4 +48,4 @@ docker run -it --rm \
     -e CONNECTION_CHECK_MAX_COUNT=0 \
     -e AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="postgresql+psycopg2://$dsn/airflow" \
     $EXTRA_ARGS \
-    apache/airflow:2.5.2 bash -c "airflow $COMMAND $@"
+    nasqueron/airflow bash -c "airflow $COMMAND $@"
