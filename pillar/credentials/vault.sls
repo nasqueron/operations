@@ -50,6 +50,7 @@ vault_mount_paths:
 
 vault_policies:
   - admin
+  - airflow
   - salt-primary
   - sentry
   - vault_bootstrap
