@@ -9,6 +9,8 @@
 nasqueron_services:
   # Complector services
   salt_primary: 172.27.27.7
+  salt_api_url: https://172.27.27.7:8300
+
   vault: 172.27.27.7
   vault_url: https://172.27.27.7:8200
 
