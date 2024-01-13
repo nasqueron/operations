@@ -41,6 +41,15 @@ if [ "$COMMAND" = "upgrade" ]; then
     COMMAND=version
 fi
 
+if [ "$COMMAND" = "shell" ]; then
+    PROGRAM=bash
+    COMMAND=
+    COMMAND_ARGS=
+else
+    PROGRAM=airflow
+    COMMAND_ARGS=$@
+fi
+
 dsn="$(credential {{ credentials.postgresql }} username):$(credential {{ credentials.postgresql }})@{{ services.postgresql }}"
 docker run -it --rm \
     --network {{ network }} \
@@ -48,4 +57,4 @@ docker run -it --rm \
     -e CONNECTION_CHECK_MAX_COUNT=0 \
     -e AIRFLOW__DATABASE__SQL_ALCHEMY_CONN="postgresql+psycopg2://$dsn/airflow" \
     $EXTRA_ARGS \
-    nasqueron/airflow bash -c "airflow $COMMAND $@"
+    nasqueron/airflow $PROGRAM $COMMAND $COMMAND_ARGS
