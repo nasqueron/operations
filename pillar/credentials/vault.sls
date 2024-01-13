@@ -195,6 +195,7 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/airflow/admin_account
     - ops/secrets/nasqueron/airflow/fernet
     - ops/secrets/nasqueron/airflow/sentry
+    - ops/secrets/nasqueron/airflow/vault
     - ops/secrets/dbserver/cluster-A/users/airflow
 
     - ops/secrets/nasqueron/orbeon/oxf.crypto.password

@@ -57,6 +57,11 @@ airflow_realms:
       admin_account: nasqueron/airflow/admin_account
       fernet_key: nasqueron/airflow/fernet
       postgresql: dbserver/cluster-A/users/airflow
+      vault: nasqueron/airflow/vault
+    vault:
+      url: https://172.27.27.7:8200
+      mount_point: apps
+      secrets_path: airflow
     sentry:
       realm: nasqueron
       project_id: 4

@@ -7,11 +7,12 @@
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 
+
+{% for realm, realm_args in pillar['airflow_realms'].items() %}
+
 #   -------------------------------------------------------------
 #   Data directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% for realm, realm_args in pillar['airflow_realms'].items() %}
 
 /srv/airflow/{{ realm }}:
   file.directory:
@@ -50,6 +51,29 @@ selinux_context_{{ realm }}_airflow_data_applied:
 {% endif %}
 
 #   -------------------------------------------------------------
+#   Airflow configuration for this realm
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set postgresql_dsn = salt["credentials.get_dsn"](realm_args["services"]["postgresql"], realm_args["credentials"]["postgresql"]) %}
+
+/srv/airflow/{{ realm }}/airflow.cfg:
+  file.managed:
+    - source: salt://roles/paas-docker/containers/files/airflow/airflow.cfg.jinja
+    - mode: 400
+    - user: 50000 # As defined in Airflow upstream Docker image
+    - template: jinja
+    - context:
+        realm: {{ realm }}
+        vault: {{ realm_args["vault"] }}
+        services:
+          redis: {{ realm_args["services"]["redis"] }}
+        credentials:
+          fernet_key: {{ salt["credentials.get_password"](realm_args["credentials"]["fernet_key"]) }}
+          db: {{ postgresql_dsn }}/airflow
+          sentry: {{ salt["credentials.get_sentry_dsn"](realm_args["sentry"]) }}
+          vault: {{ salt["credentials.read_secret"](realm_args["credentials"]["vault"]) }}
+
+#   -------------------------------------------------------------
 #   Service initialization
 #
 #   The first time Airflow is installed for a realm,
@@ -67,6 +91,7 @@ airflow_init_{{ realm }}:
 
 {% endfor %}
 
+
 #   -------------------------------------------------------------
 #   Containers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -74,9 +99,6 @@ airflow_init_{{ realm }}:
 {% for instance, container in pillar['docker_containers']['airflow'].items() %}
 
 {% set realm = container["realm"] %}
-{% set realm_args = pillar["airflow_realms"][realm] %}
-
-{% set postgresql_dsn = salt["credentials.get_dsn"](realm_args["services"]["postgresql"], realm_args["credentials"]["postgresql"]) %}
 
 {{ instance }}:
   docker_container.running:
@@ -88,21 +110,7 @@ airflow_init_{{ realm }}:
       - /srv/airflow/{{ realm }}/dags:/opt/airflow/dags
       - /srv/airflow/{{ realm }}/logs:/opt/airflow/logs
       - /srv/airflow/{{ realm }}/plugins:/opt/airflow/plugins
-    - environment:
-        - AIRFLOW__CORE__EXECUTOR: CeleryExecutor
-        - AIRFLOW__CORE__FERNET_KEY: {{ salt["credentials.get_password"](realm_args["credentials"]["fernet_key"]) }}
-        - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "True"
-        - AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-
-        - AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session
-
-        - AIRFLOW__CELERY__BROKER_URL: redis://:@{{ realm_args["services"]["redis"] }}:6379/0
-        - AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://{{ postgresql_dsn }}/airflow
-
-        - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://{{ postgresql_dsn }}/airflow
-
-        - AIRFLOW__SENTRY__SENTRY_ON: "True"
-        - AIRFLOW__SENTRY__SENTRY_DSN: {{ salt["credentials.get_sentry_dsn"](realm_args["sentry"]) }}
+      - /srv/airflow/{{ realm }}/airflow.cfg:/opt/airflow/airflow.cfg
     {% if "app_port" in container %}
     - ports:
       - {{ container['command_port'] }}
