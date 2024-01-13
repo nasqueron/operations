@@ -52,6 +52,7 @@ fi
 
 docker run -it --rm \
     --network {{ network }} \
+    -v /srv/airflow/{{ realm }}/workspace:/home/airflow/workspace \
     -v /srv/airflow/{{ realm }}/airflow.cfg:/opt/airflow/airflow.cfg \
     -e _PIP_ADDITIONAL_REQUIREMENTS="" \
     -e CONNECTION_CHECK_MAX_COUNT=0 \

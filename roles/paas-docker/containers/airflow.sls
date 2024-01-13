@@ -20,7 +20,7 @@
     - group: 0
     - makedirs: True
 
-{% for subdir in ["dags", "logs", "plugins"] %}
+{% for subdir in ["dags", "logs", "plugins", "workspace"] %}
 /srv/airflow/{{ realm }}/{{ subdir }}:
   file.directory:
     - user: 50000
@@ -110,6 +110,7 @@ airflow_init_{{ realm }}:
       - /srv/airflow/{{ realm }}/dags:/opt/airflow/dags
       - /srv/airflow/{{ realm }}/logs:/opt/airflow/logs
       - /srv/airflow/{{ realm }}/plugins:/opt/airflow/plugins
+      - /srv/airflow/{{ realm }}/workspace:/home/airflow/workspace
       - /srv/airflow/{{ realm }}/airflow.cfg:/opt/airflow/airflow.cfg
     {% if "app_port" in container %}
     - ports:
