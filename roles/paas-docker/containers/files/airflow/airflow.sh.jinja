@@ -52,6 +52,9 @@ fi
 
 docker run -it --rm \
     --network {{ network }} \
+    -v /srv/airflow/{{ realm }}/dags:/opt/airflow/dags \
+    -v /srv/airflow/{{ realm }}/logs:/opt/airflow/logs \
+    -v /srv/airflow/{{ realm }}/plugins:/opt/airflow/plugins \
     -v /srv/airflow/{{ realm }}/workspace:/home/airflow/workspace \
     -v /srv/airflow/{{ realm }}/airflow.cfg:/opt/airflow/airflow.cfg \
     -e _PIP_ADDITIONAL_REQUIREMENTS="" \
