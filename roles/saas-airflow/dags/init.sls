@@ -24,6 +24,8 @@ airflow_dags_{{ realm }}_{{ name }}_repo:
     - name: {{ args["source"]["repository"] }}
     - target: /srv/airflow/{{ realm }}/src/{{ name }}
     - rev: {{ rev }}
+    - force_fetch: True
+    - force_reset: True
 
 airflow_dags_{{ realm }}_{{ name }}:
   file.copy:
