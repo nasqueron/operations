@@ -14,3 +14,4 @@ include:
   - .staging
   - .salt-wrapper
   - .api
+  - .reactor
