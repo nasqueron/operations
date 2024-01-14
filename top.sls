@@ -39,6 +39,7 @@ base:
   'dwellers':
     - roles/paas-docker/docker
     - roles/paas-lxc/lxc
+    - roles/saas-airflow
   'eglide':
     - roles/webserver-core
     - roles/shellserver

@@ -45,6 +45,7 @@ base:
 
   dwellers:
     - paas.docker
+    - saas.airflow
     - saas.jenkins
 
   eglide:
