@@ -7,3 +7,4 @@
 
 include:
   - .server
+  - .monitoring
