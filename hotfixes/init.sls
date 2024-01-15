@@ -11,5 +11,6 @@ include:
   - .T1261-srv-data
   - .T1345-drop-jails-from-ysul
   - .MariaDB
+  - .leap-seconds
   - .python3
   - .old-directories
