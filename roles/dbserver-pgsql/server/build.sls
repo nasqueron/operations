@@ -40,9 +40,8 @@ postgresql_build_port:
   cmd.run:
     - name: |
         make build package deinstall reinstall
-        pkg lock {{ port }}
+        pkg lock --yes postgresql15-server
     - cwd: /usr/ports/databases/postgresql15-server
     - creates: /usr/local/bin/postgres
-{% endfor %}
 
 {% endif %}
