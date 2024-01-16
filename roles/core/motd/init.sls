@@ -17,6 +17,7 @@ motd:
     - context:
         ipv4_address: {{ network['ipv4_address'] }}
         ipv4_gateway: {{ network['ipv4_gateway'] }}
+        os_info: {{ grains["osfinger"].replace("-", " ") }}
 
 #   -------------------------------------------------------------
 #   Provide a `motd` command to read /etc/motd

@@ -1,7 +1,7 @@
 
         H     H            web-001.nasqueron.drake   CNAME: www1.nasqueron.org
         |     |
-    H - C --- C - H        IP: {{ ipv4_address.ljust(16) }}   OS: FreeBSD 14
+    H - C --- C - H        IP: {{ ipv4_address.ljust(16) }}   OS: {{ os_info }}
         |     |            GW: {{ ipv4_gateway.ljust(16) }}   php-fpm / nginx
         H     H
                            Services: Alkane PaaS - MediaWiki SaaS [production]

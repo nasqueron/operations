@@ -1,7 +1,7 @@
        ____
     .-'    `'.            db-B-001.nasqueron.drake
    /     _   _\
-  |   ,_(o\ /o)_          IP: {{ ipv4_address.ljust(16) }}   OS: FreeBSD 14
+  |   ,_(o\ /o)_          IP: {{ ipv4_address.ljust(16) }}   OS: {{ os_info }}
   |   \` - " -  /         GW: {{ ipv4_gateway.ljust(16) }}   Cluster B | MySQL
   |    `~`>_<~` 
   /   ,/       \,         This server hosts databases for Nasqueron projects

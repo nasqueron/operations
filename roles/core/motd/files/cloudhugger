@@ -3,7 +3,7 @@
              (     ).        /     .:(`  )`.      CloudHugger
 )           _(       '`.    |     :(   .    )
         .=(`(      .   )   / .--  `.  (    ) )    Nasqueron infrastructure
-       ((    (..__.:'-'  /.+(   )   ` _`  ) )     Production / Debian 10
+       ((    (..__.:'-'  /.+(   )   ` _`  ) )     Production / {{ os_info }}
 `.     `(       ) )    /  (   .  )     (   )  ._
   )      ` __.:'   )  |   (   (   ))     `-'.-(`  )       Kubernetes master
 )  )  ( )       --'   \   `- __.'         :(      ))      Kuma
