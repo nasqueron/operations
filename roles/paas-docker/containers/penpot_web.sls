@@ -41,6 +41,10 @@ selinux_context_penpot_data_applied:
   file.directory:
     - makedirs: True
 
+/srv/{{ container["realm"] }}/cache:
+  file.directory:
+    - makedirs: True
+
 penpot_{{ container["realm"] }}_public_content:
   cmd.run:
     - name: |
@@ -65,6 +69,15 @@ selinux_context_penpot_public_data:
 selinux_context_penpot_public_data_applied:
   selinux.fcontext_policy_applied:
     - name: /srv/{{ container["realm"] }}/public
+
+selinux_context_penpot_cache_data:
+  selinux.fcontext_policy_present:
+    - name: /srv/{{ container["realm"] }}/cache
+    - sel_type: httpd_cache_t
+
+selinux_context_penpot_cache_data_applied:
+  selinux.fcontext_policy_applied:
+    - name: /srv/{{ container["realm"] }}/cache
 {% endif %}
 
 #   -------------------------------------------------------------
