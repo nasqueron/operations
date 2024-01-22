@@ -177,6 +177,8 @@ vault_secrets_by_role:
     # Format: <project name>.<service>.<type>
     #
 
+    - ops/secrets/dbserver/cluster-A/users/corspat
+
     - ops/secrets/espacewin.phpbb.mysql_root
 
     - ops/secrets/wolfplex.phabricator.mailgun

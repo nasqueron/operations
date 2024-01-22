@@ -19,6 +19,14 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    corspat:
+      password: dbserver/cluster-A/users/corspat
+      privileges:
+        - database: corspat
+          scope: schema
+          privileges:
+            - ALL
+
     fantoir:
       password: dbserver/cluster-A/users/fantoir
       privileges:
@@ -82,6 +90,10 @@ dbserver_postgresql:
       encoding: UTF8
       owner: airflow
 
+    corspat:
+      encoding: UTF8
+      owner: corspat
+
     fantoir:
       encoding: UTF8
       owner: fantoir
@@ -109,6 +121,10 @@ dbserver_postgresql:
     - db: airflow
       user: airflow
       ips: 172.27.27.0/28
+
+    - db: corspat
+      user: corspat
+      ips: 172.27.27.5/32
 
     - db: fantoir
       user: fantoir
