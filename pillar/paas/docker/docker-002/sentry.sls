@@ -43,7 +43,7 @@ docker_containers:
   postgresql:
     sentry_db:
       image: nasqueron/postgres-sentry
-      credential: nasqueron.sentry.postgresql
+      credential: nasqueron/sentry/postgresql
       network: sentry
 
   #
@@ -247,9 +247,9 @@ sentry_realms:
         symbolicator: sentry_symbolicator
         web: sentry_web
       credentials:
-        secret_key: nasqueron.sentry.app_key
-        postgresql: nasqueron.sentry.postgresql
-        vault: nasqueron.sentry.vault
+        secret_key: nasqueron/sentry/app_key
+        postgresql: nasqueron/sentry/postgresql
+        vault: nasqueron/sentry/vault
 
       hostname: sentry.nasqueron.org
       email_from: noreply@sentry.nasqueron.org

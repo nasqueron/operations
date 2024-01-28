@@ -19,28 +19,28 @@ notifications_credentials:
 
     - gate: GitHub
       door: Nasqueron
-      secret: nasqueron.notifications.credentials_github_nasqueron
+      secret: nasqueron/notifications/credentials/github/nasqueron
 
     - gate: GitHub
       door: Wolfplex
-      secret: nasqueron.notifications.credentials_github_wolfplex
+      secret: nasqueron/notifications/credentials/github/wolfplex
 
     - gate: GitHub
       door: Keruald
-      secret: nasqueron.notifications.credentials_github_keruald
+      secret: nasqueron/notifications/credentials/github/keruald
 
     - gate: GitHub
       door: TrustSpace
-      secret: nasqueron.notifications.credentials_github_trustspace
+      secret: nasqueron/notifications/credentials/github/trustspace
 
     - gate: GitHub
       door: Eglide
-      secret: nasqueron.notifications.credentials_github_eglide
+      secret: nasqueron/notifications/credentials/github/eglide
 
     - gate: Phabricator
       door: Nasqueron
       instance: https://devcentral.nasqueron.org
-      secret: nasqueron.notifications.credentials_phabricator_nasqueron
+      secret: nasqueron/notifications/credentials/phabricator/nasqueron
 
 #   -------------------------------------------------------------
 #   Docker Hub build triggers

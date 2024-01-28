@@ -65,7 +65,7 @@
           host: {{ pillar["nasqueron_services"]["db-B"] }}
           database: Nasqueron
         vault:
-          approle: {{ salt['credentials.read_secret']('nasqueron.viperserv.vault') }}
+          approle: {{ salt['credentials.read_secret']('nasqueron/viperserv/vault') }}
           addr: {{ pillar["nasqueron_services"]["vault_url"] }}
 
 {% for botname, bot in pillar['viperserv_bots'].items() %}

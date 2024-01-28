@@ -48,5 +48,5 @@ docker_containers:
       sentry:
         realm: nasqueron
         project_id: 2
-        credential: nasqueron.notifications.sentry
+        credential: nasqueron/notifications/sentry
         environment: integration

@@ -14,6 +14,6 @@ opensearch_clusters:
     nodes:
       - cloudhugger
     users:
-      admin: nasqueron.opensearch.infra-logs.internal_users.admin
-      dashboards: nasqueron.opensearch.infra-logs.internal_users.dashboards
+      admin: nasqueron/opensearch/infra-logs/internal_users/admin
+      dashboards: nasqueron/opensearch/infra-logs/internal_users/dashboards
     heap_size: 26G

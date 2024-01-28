@@ -95,8 +95,8 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/github/wolfplex/api-www
 
   opensearch:
-    - ops/secrets/nasqueron.opensearch.infra-logs.internal_users.admin
-    - ops/secrets/nasqueron.opensearch.infra-logs.internal_users.dashboards
+    - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/admin
+    - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/dashboards
 
   paas-docker-prod:
 
@@ -112,80 +112,73 @@ vault_secrets_by_role:
     # Format: ops/secrets/nasqueron/service/<...>
     #
 
+    - ops/secrets/nasqueron/acquisitariat/mysql
+
     - ops/secrets/nasqueron/airflow/admin_account
     - ops/secrets/nasqueron/airflow/fernet
     - ops/secrets/nasqueron/airflow/sentry
     - ops/secrets/dbserver/cluster-A/users/airflow
 
+    - ops/secrets/nasqueron/auth-grove/mysql
+
+    - ops/secrets/nasqueron/cachet/app_key
+    - ops/secrets/nasqueron/cachet/mysql
+
+    - ops/secrets/nasqueron/etherpad/api
     - ops/secrets/nasqueron/etherpad/mysql
     - ops/secrets/nasqueron/etherpad/users/dereckson
+
+    - ops/secrets/nasqueron/notifications/broker
+    - ops/secrets/nasqueron/notifications/mailgun
+    - ops/secrets/nasqueron/notifications/sentry
+
+    - ops/secrets/nasqueron/notifications/credentials/github/nasqueron
+    - ops/secrets/nasqueron/notifications/credentials/github/wolfplex
+    - ops/secrets/nasqueron/notifications/credentials/github/keruald
+    - ops/secrets/nasqueron/notifications/credentials/github/trustspace
+    - ops/secrets/nasqueron/notifications/credentials/github/eglide
+    - ops/secrets/nasqueron/notifications/credentials/phabricator/nasqueron
+
+    - apps/notifications-center/dockerhub/notifications
+    - apps/notifications-center/dockerhub/auth-grove
 
     - ops/secrets/nasqueron/penpot/github
     - ops/secrets/nasqueron/penpot/postgresql
     - ops/secrets/nasqueron/penpot/secret_key
 
+    - ops/secrets/nasqueron/pixelfed/app_key
+    - ops/secrets/nasqueron/pixelfed/mailgun
+    - ops/secrets/nasqueron/pixelfed/mysql
+
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
 
+    - ops/secrets/nasqueron/sentry/app_key
     - ops/secrets/nasqueron/sentry/geoipupdate
-
-    #
-    # Credentials used by Nasqueron services
-    # Format: ops/secrets/nasqueron.<service>.<type>
-    #
-
-    - ops/secrets/nasqueron.acquisitariat.mysql
-
-    - ops/secrets/nasqueron.auth-grove.mysql
-
-    - ops/secrets/nasqueron.cachet.app_key
-    - ops/secrets/nasqueron.cachet.mysql
-
-    - ops/secrets/nasqueron.etherpad.api
-
-    - ops/secrets/nasqueron.notifications.broker
-    - ops/secrets/nasqueron.notifications.mailgun
-    - ops/secrets/nasqueron.notifications.sentry
-
-    - ops/secrets/nasqueron.notifications.credentials_github_nasqueron
-    - ops/secrets/nasqueron.notifications.credentials_github_wolfplex
-    - ops/secrets/nasqueron.notifications.credentials_github_keruald
-    - ops/secrets/nasqueron.notifications.credentials_github_trustspace
-    - ops/secrets/nasqueron.notifications.credentials_github_eglide
-    - ops/secrets/nasqueron.notifications.credentials_phabricator_nasqueron
-
-    - apps/notifications-center/dockerhub/notifications
-    - apps/notifications-center/dockerhub/auth-grove
-
-    - ops/secrets/nasqueron.pixelfed.app_key
-    - ops/secrets/nasqueron.pixelfed.mailgun
-    - ops/secrets/nasqueron.pixelfed.mysql
-
-    - ops/secrets/nasqueron.sentry.app_key
-    - ops/secrets/nasqueron.sentry.postgresql
-    - ops/secrets/nasqueron.sentry.vault
+    - ops/secrets/nasqueron/sentry/postgresql
+    - ops/secrets/nasqueron/sentry/vault
 
     #
     # Credentials used by Nasqueron members private services
-    # Format: <username>.<service>.<type>
+    # Format: <username>/<service>/<type>
     #
 
-    - ops/secrets/dereckson.phabricator.mysql
+    - ops/secrets/dereckson/phabricator/mysql
 
     #
     # Credentials used by projects hosted by Nasqueron
-    # Format: <project name>.<service>.<type>
+    # Format: <project name>/<service>/<type>
     #
 
     - ops/secrets/dbserver/cluster-A/users/corspat
 
-    - ops/secrets/espacewin.phpbb.mysql_root
+    - ops/secrets/espacewin/phpbb/mysql_root
 
-    - ops/secrets/wolfplex.phabricator.mailgun
-    - ops/secrets/wolfplex.phabricator.mysql
+    - ops/secrets/wolfplex/phabricator/mailgun
+    - ops/secrets/wolfplex/phabricator/mysql
 
-    - ops/secrets/zed.phabricator.mysql
-    - ops/secrets/zed.phabricator.sendgrid
+    - ops/secrets/zed/phabricator/mysql
+    - ops/secrets/zed/phabricator/sendgrid
 
   paas-docker-dev:
 
@@ -208,15 +201,15 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/rabbitmq/orange-rabbit/root
 
     - ops/secrets/nasqueron/rabbitmq/orange-rabbit/notifications
-    - ops/secrets/nasqueron.notifications.sentry
+    - ops/secrets/nasqueron/notifications/sentry
 
     #
     # Credentials used by projects hosted by Nasqueron
-    # Format: <project name>.<service>.<type>
+    # Format: <project name>/<service>/<type>
     #
 
-    - ops/secrets/espacewin.bugzilla.mysql
-    - ops/secrets/espacewin.bugzilla.mysql_root
+    - ops/secrets/espacewin/bugzilla/mysql
+    - ops/secrets/espacewin/bugzilla/mysql_root
 
   saas-mediawiki:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
@@ -228,7 +221,7 @@ vault_secrets_by_role:
     - ops/secrets/dereckson/wordpress/secrets
 
   viperserv:
-    - ops/secrets/nasqueron.viperserv.vault
+    - ops/secrets/nasqueron/viperserv/vault
 
   webserver-alkane-prod:
     - ops/secrets/dbserver/cluster-B/users/dereckson_www
@@ -242,7 +235,7 @@ vault_secrets_by_role:
     # Wolfplex credentials
     #
 
-    - ops/secrets/nasqueron.etherpad.api
+    - ops/secrets/nasqueron/etherpad/api
 
   webserver-alkane-dev:
     - ops/secrets/dbserver/cluster-B/users/dereckson_www51
@@ -253,7 +246,7 @@ vault_secrets_by_role:
     # Wolfplex credentials
     #
 
-    - ops/secrets/nasqueron.etherpad.api
+    - ops/secrets/nasqueron/etherpad/api
 
 #   -------------------------------------------------------------
 #   Vault secrets by dbserver cluster

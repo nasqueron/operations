@@ -17,10 +17,10 @@ path "apps/data/sentry/github" {
     capabilities = [ "read" ]
 }
 
-path "ops/data/secrets/nasqueron.sentry.app_key" {
+path "ops/data/secrets/nasqueron/sentry/app_key" {
     capabilities = [ "read" ]
 }
 
-path "ops/data/secrets/nasqueron.sentry.postgresql" {
+path "ops/data/secrets/nasqueron/sentry/postgresql" {
     capabilities = [ "read" ]
 }

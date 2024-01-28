@@ -82,7 +82,7 @@ docker_containers:
       network: bugzilla
       version: 5.7
       credentials:
-        root: espacewin.bugzilla.mysql_root
+        root: espacewin/bugzilla/mysql_root
 
   #
   # Bugzilla
@@ -96,7 +96,7 @@ docker_containers:
       mysql:
         host: bugzilla_db
         db: EspaceWin_Bugs
-      credential: espacewin.bugzilla.mysql
+      credential: espacewin/bugzilla/mysql
 
   #
   # Jenkins

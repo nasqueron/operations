@@ -148,7 +148,7 @@ rabbitmq_clusters:
 
     users:
       # Notifications center server and clients
-      notifications: ops/secrets/nasqueron.notifications.broker
+      notifications: ops/secrets/nasqueron/notifications/broker
       wearg: apps/viperserv/broker
       notifications-ysul: ops/secrets/nasqueron/notifications/notifications-cli/ysul
       notifications-windriver: ops/secrets/nasqueron/notifications/notifications-cli/windriver

@@ -95,10 +95,10 @@ docker_containers:
   mysql:
     acquisitariat:
       credentials:
-        root: nasqueron.acquisitariat.mysql
+        root: nasqueron/acquisitariat/mysql
     phpbb_db:
       credentials:
-        root: espacewin.phpbb.mysql_root
+        root: espacewin/phpbb/mysql_root
 
   redis:
     pixelfed_redis: {}
@@ -146,7 +146,7 @@ docker_containers:
             - serveurs.nasqueron.org
       mailer: mailgun
       credentials:
-        mysql: zed.phabricator.mysql
+        mysql: zed/phabricator/mysql
       static_host: devcentral.nasqueron-user-content.org
       title: Nasqueron DevCentral
       mysql_link: acquisitariat
@@ -159,7 +159,7 @@ docker_containers:
       static_host: river-sector.nasqueron-user-content.org
       mailer: _
       credentials:
-        mysql: dereckson.phabricator.mysql
+        mysql: dereckson/phabricator/mysql
       storage:
         namespace: river_sector
       title: River Sector
@@ -174,8 +174,8 @@ docker_containers:
       static_host: wolfplex.phabricator.nasqueron-user-content.org
       mailer: mailgun
       credentials:
-        mailgun: wolfplex.phabricator.mailgun
-        mysql: wolfplex.phabricator.mysql
+        mailgun: wolfplex/phabricator/mailgun
+        mysql: wolfplex/phabricator/mysql
       storage:
         namespace: wolfphab
       title: Wolfplex Phabricator
@@ -188,8 +188,8 @@ docker_containers:
       static_host: zed.phabricator.nasqueron-user-content.org
       mailer: sendgrid
       credentials:
-        mysql: zed.phabricator.mysql
-        sendgrid: zed.phabricator.sendgrid
+        mysql: zed/phabricator/mysql
+        sendgrid: zed/phabricator/sendgrid
       storage:
         namespace: zedphab
       title: Zed
@@ -211,12 +211,12 @@ docker_containers:
       app_port: 37080
       broker_link: white-rabbit
       credentials:
-        broker: nasqueron.notifications.broker
-        mailgun: nasqueron.notifications.mailgun
+        broker: nasqueron/notifications/broker
+        mailgun: nasqueron/notifications/mailgun
       sentry:
         realm: nasqueron
         project_id: 2
-        credential: nasqueron.notifications.sentry
+        credential: nasqueron/notifications/sentry
 
   #
   # Community and development services
@@ -258,15 +258,15 @@ docker_containers:
     cachet:
       app_port: 39080
       host: status.nasqueron.org
-      credential: nasqueron.cachet.mysql
-      app_key: nasqueron.cachet.app_key
+      credential: nasqueron/cachet/mysql
+      app_key: nasqueron/cachet/app_key
       mysql_link: acquisitariat
 
   auth-grove:
     login:
       app_port: 25080
       host: login.nasqueron.org
-      credential: nasqueron.auth-grove.mysql
+      credential: nasqueron/auth-grove/mysql
       mysql_link: acquisitariat
 
   # API microservices
@@ -296,9 +296,9 @@ docker_containers:
         mysql: acquisitariat
         redis: pixelfed_redis
       credentials:
-        app_key: nasqueron.pixelfed.app_key
-        mailgun: nasqueron.pixelfed.mailgun
-        mysql: nasqueron.pixelfed.mysql
+        app_key: nasqueron/pixelfed/app_key
+        mailgun: nasqueron/pixelfed/mailgun
+        mysql: nasqueron/pixelfed/mysql
       app:
         title: Nasqueron Photos
         max_album_length: 16

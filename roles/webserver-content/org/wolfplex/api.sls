@@ -22,7 +22,7 @@
     - show_changes: False
     - context:
         secrets:
-          etherpad.api.key: {{ salt['credentials.get_token']("nasqueron.etherpad.api") }}
+          etherpad.api.key: {{ salt['credentials.get_token']("nasqueron/etherpad/api") }}
 
 #   -------------------------------------------------------------
 #   Base part

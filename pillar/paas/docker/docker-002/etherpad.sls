@@ -16,7 +16,7 @@ docker_containers:
       aliases:
         - pad.wolfplex.org
         - pad.wolfplex.be
-      credential: nasqueron.etherpad.api
+      credential: nasqueron/etherpad/api
       mysql_link: acquisitariat
 
 etherpad_settings:
