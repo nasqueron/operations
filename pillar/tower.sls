@@ -11,3 +11,5 @@
 base:
   - paas/alkane/{{ minion_id }}/*.sls
   - paas/docker/{{ minion_id }}/*.sls
+
+  - saas/nextcloud/{{ minion_id }}/*.sls

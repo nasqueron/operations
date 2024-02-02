@@ -26,3 +26,14 @@ nextcloud_software:
 
       # NextCloud
       - nextcloud-{{ packages_prefixes.php | replace("-", "") }}
+
+#   -------------------------------------------------------------
+#   Crontab
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/etc/cron.d/nextcloud:
+  file.managed:
+    - source: salt://roles/saas-nextcloud/nextcloud/files/nextcloud.sls
+    - template: jinja
+    - context:
+        user: {{ pillar["nextcloud"]["user"] }}
