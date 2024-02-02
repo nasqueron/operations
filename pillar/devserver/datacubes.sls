@@ -20,7 +20,14 @@ datacubes:
     zfs_user: dereckson
     zfs_auto_snapshot: True
 
-  xcombelle:
+  docs: *default
+
+  docs/dereckson:
+    user: dereckson
+    zfs_user: dereckson
+    zfs_auto_snapshot: True
+
+  docs/xcombelle:
     user: xcombelle
     zfs_user: xcombelle
     zfs_auto_snapshot: True
