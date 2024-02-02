@@ -51,6 +51,8 @@ php-fpm_pool_{{ site['user'] }}:
         user: {{ site['user' ] }}
         display_errors: {{ site['display_errors'] | default('off') }}
         slow_delay: {{ site['slow_delay'] | default('5s') }}
+        php_flags: {{ site['php_flags'] | default({}) }}
+        php_values: {{ site['php_values'] | default({}) }}
         env : {{ site['env'] | default({}) }}
         capabilities: {{ site['capabilities'] | default([]) }}
 
