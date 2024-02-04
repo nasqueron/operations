@@ -43,7 +43,7 @@
         args: {{ realm_args }}
         vault:
           approle: {{ salt["credentials.read_secret"](realm_args["credentials"]["vault"]) }}
-          addr: {{ pillar{"nasqueron_services"]["vault_url"] }}
+          addr: {{ pillar["nasqueron_services"]["vault_url"] }}
 
 sentry_{{ realm }}_vault_certificate:
   file.managed:
