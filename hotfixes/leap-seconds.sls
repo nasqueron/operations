@@ -15,7 +15,7 @@
 
 /var/db/ntpd.leap-seconds.list:
   file.managed:
-    - source: https://data.iana.org/time-zones/tzdb/leap-seconds.list
+    - source: https://hpiers.obspm.fr/iers/bul/bulc/ntp/leap-seconds.list
     - skip_verify: True
     - mode: 644
 
