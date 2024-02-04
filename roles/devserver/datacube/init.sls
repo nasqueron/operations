@@ -36,6 +36,11 @@
   file.directory:
     - mode: 711
     - user: {{ args["user"] }}
+{% elif "user_from_pillar" in args %}
+/datacube/{{ subdir }}:
+  file.directory:
+    - mode: 711
+    - user: {{ salt["pillar.get"](args["user_from_pillar"]) }}
 {% endif %}
 
 {{ datacube_dataset }}:
@@ -48,15 +53,25 @@
         {% endif %}
 
 {% if "zfs_user" in args %}
+  {% set zfs_user = args["zfs_user"] %}
+  {% set with_zfs_user = True %}
+{% elif "zfs_user_from_pillar" in args %}
+  {% set zfs_user = salt["pillar.get"](args["zfs_user_from_pillar"]) %}
+  {% set with_zfs_user = True %}
+{% else %}
+  {% set with_zfs_user = False %}
+{% endif %}
+
+{% if with_zfs_user %}
 zfs_permissions_datacube_{{ subdir }}:
   cmd.run:
-    - name: zfs allow -lu {{ args["zfs_user"] }} @local {{ datacube_dataset }}
+    - name: zfs allow -lu {{ zfs_user }} @local {{ datacube_dataset }}
     - onchanges:
         - zfs: {{ datacube_dataset }}
 
 zfs_permissions_datacube_descendent_{{ subdir }}:
   cmd.run:
-    - name: zfs allow -du {{ args["zfs_user"] }} @descendent {{ datacube_dataset }}
+    - name: zfs allow -du {{ zfs_user }} @descendent {{ datacube_dataset }}
     - onchanges:
         - zfs: {{ datacube_dataset }}
 {% endif %}

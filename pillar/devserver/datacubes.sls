@@ -32,6 +32,11 @@ datacubes:
     zfs_user: xcombelle
     zfs_auto_snapshot: True
 
+  nextcloud:
+    user_from_pillar: "nextcloud:user"
+    zfs_user_from_pillar: "nextcloud:user"
+    zfs_auto_snapshot: True
+
 #   -------------------------------------------------------------
 #   Other directories needed by development work
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
