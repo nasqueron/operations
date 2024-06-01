@@ -148,3 +148,8 @@ dbserver_postgresql:
       user: postfix
       ips: 172.27.27.3/32
       method: password
+
+    - db: mail
+      user: mailManagement
+      ips: 172.27.27.5/32
+      method: password
