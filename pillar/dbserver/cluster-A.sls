@@ -41,6 +41,11 @@ dbserver_postgresql:
         - database: mail
           scope: schema
           privileges:
+            - SELECT
+            - INSERT
+            - UPDATE
+            - DELETE
+          tables:
             - ALL
 
     netbox:
