@@ -140,13 +140,9 @@ dbserver_postgresql:
       ips: &dwellers 172.27.27.4/32
       method: password
 
-    - db: netbox
-      user: netbox
-      ips: 172.27.27.0/28
-
-    - db: openfire
-      user: openfire
-      ips: &docker002 172.27.27.5/32
+    - db: mail
+      user: mailManagement
+      ips: 172.27.27.5/32
       method: password
 
     - db: mail
@@ -154,7 +150,11 @@ dbserver_postgresql:
       ips: 172.27.27.3/32
       method: password
 
-    - db: mail
-      user: mailManagement
-      ips: 172.27.27.5/32
+    - db: netbox
+      user: netbox
+      ips: 172.27.27.0/28
+
+    - db: openfire
+      user: openfire
+      ips: &docker002 172.27.27.5/32
       method: password
