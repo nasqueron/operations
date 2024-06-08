@@ -32,3 +32,5 @@ web_php_sites:
     user: web-org-nasqueron-mail-admin
     uid: 12001
     php-fpm: prod
+    env:
+      APPLICATION_ENV: production

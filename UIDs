@@ -5,9 +5,11 @@
 834 tc2
 835 opensearch
 3004 mediawiki
+6000 mailbox
 9001 salt
 9002 deploy
 8900 zr LEGACY
 
 # Web app
+12000 web-org-nasqueron-mail #reserved for it
 12001 web-org-nasqueron-mail-admin

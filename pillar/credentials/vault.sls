@@ -94,6 +94,10 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/bitbucket/ewosp/www
     - ops/secrets/nasqueron/deploy/deploy_keys/by_repo/github/wolfplex/api-www
 
+  mailserver:
+    - ops/secrets/dbserver/cluster-A/users/mailManagement
+    - ops/secrets/mailserver/security
+
   opensearch:
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/admin
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/dashboards

@@ -51,6 +51,9 @@ base:
   eglide:
     - shellserver.quassel
 
+  hervil:
+    - mailserver.vimbadmin
+
   ysul:
     - devserver.repos
     - saas.mediawiki
