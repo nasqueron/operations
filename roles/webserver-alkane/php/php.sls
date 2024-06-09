@@ -28,7 +28,7 @@
 php_software:
   pkg.installed:
     - pkgs:
-      - php82
+      - php83
 
       # PHP extensions
       - {{ packages_prefixes.php }}bcmath

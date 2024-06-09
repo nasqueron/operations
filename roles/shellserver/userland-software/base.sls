@@ -156,7 +156,7 @@ languages:
       {% if grains['os_family'] == 'Debian' %}
       - php8.2
       {% elif grains['os'] == 'FreeBSD' %}
-      - php82
+      - php83
       {% endif %}
 
 #   -------------------------------------------------------------
