@@ -35,7 +35,9 @@ repo: roles/webserver-content/init.sls \
 	roles/webserver-core/nginx/files/ocsp-ca-certs.pem \
 	.git/hooks/pre-commit
 
-roles/webserver-content/init.sls:
+roles/webserver-content/init.sls: webserver-content-index
+
+webserver-content-index:
 	tmpfile=`mktemp /tmp/make-rOPS-generate-webcontent-index.XXXXXX` ; \
 	utils/generate-webcontent-index.py > "$$tmpfile" ;\
 	${MV} "$$tmpfile" roles/webserver-content/init.sls

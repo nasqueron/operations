@@ -45,6 +45,8 @@ def do_update(pillar_file, file_to_update):
     print("\ninclude:")
     for site in get_sites(pillar_file):
         print("  - {}".format(site))
+    print("")
+    print("  - ._generic")
 
 
 def get_pillar_entry(pillar_file, key):
@@ -55,9 +57,9 @@ def get_pillar_entry(pillar_file, key):
 
 def get_sites(pillar_file):
     sites = get_pillar_entry(pillar_file, "web_content_sls")
-    return sorted(
+    return sorted(set(
         [site for sublist in [sites[role] for role in sites] for site in sublist]
-    )
+    ))
 
 
 def print_header(file_to_update):
