@@ -30,6 +30,7 @@ import yaml
 
 
 config = {
+    "header": "_resources/headers/webserver-content-init",
     "pillar": "pillar/webserver/sites.sls",
     "states": "roles/webserver-content/init.sls",
 }
@@ -40,8 +41,9 @@ config = {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-def do_update(pillar_file, file_to_update):
-    print_header(file_to_update)
+def do_update(header_file, pillar_file, file_to_update):
+    print_file(header_file)
+
     print("\ninclude:")
     for site in get_sites(pillar_file):
         print("  - {}".format(site))
@@ -62,13 +64,12 @@ def get_sites(pillar_file):
     ))
 
 
-def print_header(file_to_update):
-    with open(file_to_update) as fd:
+def print_file(file_path):
+    with open(file_path) as fd:
         for line in fd:
             if not line.startswith("#"):
                 break
             print(line, end="")
-
 
 #   -------------------------------------------------------------
 #   Run task
@@ -76,4 +77,4 @@ def print_header(file_to_update):
 
 
 if __name__ == "__main__":
-    do_update(config["pillar"], config["states"])
+    do_update(config["header"], config["pillar"], config["states"])

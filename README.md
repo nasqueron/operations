@@ -73,6 +73,8 @@ D. This repository is the source of truth for users, groups and ports:
 
 E. Units and integration tests are stored in `_tests/`
 
+F. Resources used by automated tasks are stored in `_resources/`
+
 Contribute
 ----------
 
