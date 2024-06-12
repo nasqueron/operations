@@ -10,4 +10,5 @@ include:
   - .alkane
   - .credentials
   - .directories
+  - .nginx
   - .php
