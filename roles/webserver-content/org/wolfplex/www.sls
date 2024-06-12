@@ -6,8 +6,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/wolfplex/www") %}
-
 /var/wwwroot/wolfplex.org/www/2013:
   file.recurse:
     - source: salt://software/wolfplex/web-campaigns-2013
@@ -23,5 +21,3 @@
   file.directory:
     - user: web-org-wolfplex-www
     - group: web
-
-{% endif %}

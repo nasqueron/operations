@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/wolfplex/api") %}
-
 #   -------------------------------------------------------------
 #   Data store
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -56,5 +54,3 @@ wolfplex_api_kibaone_accents:
     - runas: web-org-wolfplex-www
     - cwd: /var/wwwroot/wolfplex.org/api/design/kibaone/accents
     - creates: /var/wwwroot/wolfplex.org/api/design/kibaone/accents/index.json
-
-{% endif %}

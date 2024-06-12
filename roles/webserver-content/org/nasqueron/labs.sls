@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/nasqueron/labs") %}
-
 #   -------------------------------------------------------------
 #   Base directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -44,5 +42,3 @@ labs_lab_directory_{{ lab }}:
     - file_mode: 644
     - clean: False
 {% endfor %}
-
-{% endif %}

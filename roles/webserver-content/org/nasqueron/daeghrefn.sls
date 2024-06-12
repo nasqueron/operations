@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/nasqueron/rain") %}
-
 #   -------------------------------------------------------------
 #   Base directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -25,5 +23,3 @@ www_daeghrefn_build:
   module.run:
     - name: jenkins.build_job
     - m_name: deploy-website-nasqueron-www1-daeghrefn
-
-{% endif %}

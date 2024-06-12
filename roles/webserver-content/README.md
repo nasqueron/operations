@@ -28,9 +28,7 @@ like provision a .env file with database credentials or secret key.
 
   1. Create a new folder hierarchy for the domain
   2. Include a `init.sls` file for your subdomains
-  3. Declare the new domain in pillar/webserver/sites.sls
-  4. Regenerate the role index with `make` (from repository root)
-
+  3. Declare the new domain in pillar/webserver
 
 For example the tld/acme/init.sls file could be:
 ```
@@ -46,10 +44,7 @@ In the pillar file, website are assigned to a role.
 If you wish to deploy all the sites on one role, you can directly include
 the folder, and your init.sls will do the rest.
 
-If not, two strategies exist: you can use node.filter_by_role in your
-init.sls too or perhaps more simply you can document in init.sls these
-roles can't be deployed directly, and make references to sls files in
-the pillar (without final .sls extension).
+If not, you can list the path to the subdomain file, without the .sls extension.
 
 For example to deploy bipbip.acme.tld (`tld/acme/bipbip.sls`) on servers
 with the shellserver role:

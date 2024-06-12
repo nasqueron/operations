@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".space/hypership") %}
-
 /var/dataroot/zed:
   file.directory:
     - user: deploy
@@ -64,5 +62,3 @@ zed_content_rights:
   file.directory:
     - user: web-space-hypership-www
 {% endfor %}
-
-{% endif %}

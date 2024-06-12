@@ -13,3 +13,5 @@ base:
   - paas/docker/{{ minion_id }}/*.sls
 
   - saas/nextcloud/{{ minion_id }}/*.sls
+
+  - webserver/{{ minion_id }}/*.sls

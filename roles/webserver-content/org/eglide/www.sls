@@ -6,8 +6,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/eglide") %}
-
 #   -------------------------------------------------------------
 #   Deploy /opt/staging/wwwroot/eglide.org/www to www.eglide.org
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

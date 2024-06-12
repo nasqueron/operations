@@ -23,14 +23,6 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         self.assertEqual("wwwroot/lothlorien.forest/egladil", node.get_wwwroot())
         self.assertEqual("wwwroot/entwash.node/www", node.get_wwwroot("entwash"))
 
-    def test_has_web_content(self):
-        self.assertTrue(node.has_web_content(".ll/carasgaladhon"))
-        self.assertFalse(node.has_web_content(".arda/onodlo"))
-
-        self.assertTrue(node.has_web_content(".arda/onodlo", "entwash"))
-
-        self.assertFalse(node.has_web_content("notexisting"))
-
     def test_filter_by_role(self):
         node_key = self.grains["id"]
 

@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/nasqueron/api") %}
-
 #   -------------------------------------------------------------
 #   Base part from rOPS
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -65,5 +63,3 @@ api_servers_log_dependencies:
     - user: web-org-nasqueron-api-serverslog
     - mode: 644
     - replace: False
-
-{% endif %}

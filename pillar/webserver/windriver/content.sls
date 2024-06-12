@@ -1,27 +1,14 @@
 #   -------------------------------------------------------------
-#   Salt — Sites to provision on the legacy web server
+#   Salt — Sites to provision
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
-#   Sites deployed through Jenkins CD
+#   States
+#
+#   Sites with states documenting how to build them
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-web_content_jenkins_cd:
-  webserver-legacy:
-    - api
-    - assets
-    - autoconfig
-    - docker
-    - docs
-    - launch
-    - www
-
-#   -------------------------------------------------------------
-#   Tweaks
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-web_autochmod:
-  - /var/wwwroot/dereckson.be/www
+web_content_sls: []

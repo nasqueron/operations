@@ -31,14 +31,8 @@ test:
 #   Build targets - repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-repo: roles/webserver-content/init.sls \
-	roles/webserver-core/nginx/files/ocsp-ca-certs.pem \
+repo: roles/webserver-core/nginx/files/ocsp-ca-certs.pem \
 	.git/hooks/pre-commit
-
-webserver-content-index: clean-webserver-content-index roles/webserver-content/init.sls
-
-roles/webserver-content/init.sls:
-	utils/generate-webcontent-index.py > roles/webserver-content/init.sls
 
 roles/webserver-core/nginx/files/ocsp-ca-certs.pem:
 	utils/generate-ocsp-bundle.sh > roles/webserver-core/nginx/files/ocsp-ca-certs.pem
@@ -46,10 +40,7 @@ roles/webserver-core/nginx/files/ocsp-ca-certs.pem:
 .git/hooks/pre-commit:
 	pre-commit install
 
-clean-webserver-content-index:
-	${RM} roles/webserver-content/init.sls
-
-clean-repo: clean-webserver-content-index
+clean-repo:
 	${RM} .git/hooks/pre-commit
 	${RM} roles/webserver-core/nginx/files/ocsp-ca-certs.pem
 

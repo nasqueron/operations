@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/nasqueron/assets") %}
-
 #   -------------------------------------------------------------
 #   Deploy /opt/staging/wwwroot/d.be/assets to assets.d.be
 #
@@ -25,5 +23,3 @@
     - file_mode: 644
     - user: dereckson.be
     - group: web
-
-{% endif %}

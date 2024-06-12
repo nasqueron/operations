@@ -5,8 +5,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has_web_content'](".org/nasqueron/docs") %}
-
 {% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
@@ -97,5 +95,3 @@ docker_registry_api_doc_build:
   module.run:
     - name: jenkins.build_job
     - m_name: docker-registry-api
-
-{% endif %}

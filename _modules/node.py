@@ -192,10 +192,6 @@ def has_deployment(nodename=None):
     return any(role in DEPLOY_ROLES for role in get_list("roles", nodename))
 
 
-def has_web_content(content, nodename=None):
-    return content in filter_by_role("web_content_sls", nodename)
-
-
 def get_wwwroot(nodename=None):
     """
     A function to determine the wwwroot folder to use.
