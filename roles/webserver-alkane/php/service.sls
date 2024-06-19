@@ -18,6 +18,11 @@
     - source: salt://roles/webserver-alkane/php/files/rc/php-fpm
     - mode: 755
 
+/usr/local/bin/restart-php-fpm:
+  file.managed:
+    - source: salt://roles/webserver-alkane/php/files/restart-php-fpm.sh
+    - mode: 755
+
 /etc/rc.conf.d/php_fpm:
   file.directory
 
