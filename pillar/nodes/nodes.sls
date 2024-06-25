@@ -177,6 +177,8 @@ nodes:
             netmask: 255.255.255.255
     roles:
       - mailserver
+      - webserver-core
+      - webserver-alkane
 
   router-001:
     forest: nasqueron-infra

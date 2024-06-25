@@ -46,6 +46,8 @@ base:
     - roles/shellserver
   'hervil':
     - roles/mailserver
+    - roles/webserver-core
+    - roles/webserver-alkane
   'web-001':
     - roles/webserver-core
     - roles/webserver-alkane
