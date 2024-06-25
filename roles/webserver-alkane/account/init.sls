@@ -43,6 +43,9 @@ webserver_user_{{ site['user'] }}:
   user.present:
     - name: {{ site['user' ] }}
     - fullname: {{ fqdn }}
+{% if 'uid' in site %}
+    - uid: {{ site['uid']  }}
+{% endif %}
     - gid: 9003
     - system: True
     - home: /var/run/web/{{ fqdn }}
