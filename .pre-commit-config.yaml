@@ -3,17 +3,36 @@ repos:
     rev: v4.6.0
     hooks:
       - id: check-added-large-files
+        language: system
+
       - id: check-executables-have-shebangs
+        language: system
+
       - id: check-json
+        language: system
+
       - id: check-merge-conflict
+        language: system
+
       - id: check-xml
+        language: system
+
       - id: check-yaml
+        language: system
+
       - id: end-of-file-fixer
         exclude: ^roles/core/motd/files/
+        language: system
+
       - id: fix-byte-order-marker
+        language: system
+
       - id: mixed-line-ending
+        language: system
         args: ["--fix=lf"]
+
       - id: trailing-whitespace
+        language: system
         exclude: patch$
 
   - repo: https://github.com/psf/black
