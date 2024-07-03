@@ -9,5 +9,7 @@ PyYAML>=6.0.1,<7.0
 
 # Tests
 mock>=5.1.0,<6.0
+pre_commit_hooks>=4.6.0,<5.0
 jsondiff==2.0.0
+requests>=2.32.3,<3.0
 unittest-data-provider>=1.0.1,<2.0
