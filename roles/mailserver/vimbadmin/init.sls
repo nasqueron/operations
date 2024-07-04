@@ -22,6 +22,15 @@ mailbox_mail_user:
     - system: True
     - home: /var/run/web/mailbox_mail_user
 
+vimbadmin_install_packages:
+  pkg.installed:
+    - pkgs:
+      - {{ packages_prefixes.pecl }}memcache
+      - {{ packages_prefixes.php }}pear-Services_JSON
+      - {{ packages_prefixes.php }}pdo_pgsql
+      - {{ packages_prefixes.php }}gettext
+      - {{ packages_prefixes.php }}xml
+
 /var/mail/_archive:
   file.directory:
     - user: 6000
