@@ -21,6 +21,8 @@ install_salt_primary_extra_software:
       - {{ packages_prefixes.python3 }}gitpython
       # Pillar
       - {{ packages_prefixes.python3 }}salt-tower
+      # For Vault helper scripts
+      - {{ packages_prefixes.python3 }}hvac
 
 {{ dirs.bin }}/staging-commit-message:
   file.managed:
