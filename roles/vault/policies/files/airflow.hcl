@@ -3,7 +3,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
-#   Source file:    s/roles/vault/policies/files/airflow.hcl
+#   Source file:    roles/vault/vault/files/airflow.hcl
 #
 #   Airflow realm:  nasqueron
 #   -------------------------------------------------------------
