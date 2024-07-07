@@ -48,7 +48,7 @@ def connect_to_vault(verify):
 def run(verify):
     client = connect_to_vault(verify)
 
-    token = client.auth.token.create(policies=["admin"], ttl="30d")
+    token = client.auth.token.create(role_name="admin", policies=["admin"], ttl="30d")
     print(token["auth"]["client_token"])
 
 

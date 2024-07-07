@@ -35,6 +35,12 @@ PUBLIC_URL=https://api.nasqueron.org/infra/security/pki
 VAULT_CERTS_PATH=/usr/local/etc/certificates/vault
 
 #   -------------------------------------------------------------
+#   Authentication :: token roles
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+vault write auth/token/roles/admin allowed_policies=admin period=30d
+
+#   -------------------------------------------------------------
 #   PKI :: root CA
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

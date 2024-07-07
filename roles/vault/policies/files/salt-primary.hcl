@@ -37,6 +37,7 @@ path "sys/policy/*" {
 #   Tokens management
 #
 #     :: Create, check, revoke tokens to be used by nodes through Salt
+#     :: Create admin token as self-service for ops members
 #     :: Manage and renew own token
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -45,6 +46,14 @@ path "auth/token/create/salt-node" {
 }
 
 path "auth/token/roles/salt-node" {
+  capabilities = ["read"]
+}
+
+path "auth/token/create/admin" {
+  capabilities = ["create", "update"]
+}
+
+path "auth/token/roles/admin" {
   capabilities = ["read"]
 }
 
