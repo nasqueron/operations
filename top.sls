@@ -25,6 +25,7 @@ base:
     - roles/dbserver-mysql
     - roles/dbserver-pgsql
     - roles/devserver
+    - roles/redis
     - roles/saas-nextcloud
     - roles/webserver-alkane
     - roles/webserver-core
