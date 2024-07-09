@@ -8,9 +8,12 @@
 
 {% if grains['os'] == 'FreeBSD' %}
 
+portsnap:
+  pkg.installed
+
 /usr/ports:
   cmd.run:
     - name: portsnap --interactive fetch extract
-    - creates: /usr/ports
+    - creates: /usr/ports/Makefile
 
 {% endif %}
