@@ -287,5 +287,6 @@ shellusers:
   windu:
     fullname: Windu
     ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGW3uoDcVTmkF4zmdXfs9KhtkDGsWtCNK4bT99M6tqTd eddsa-key-20240709
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvna/bMLFjrHmT7wAUm9jHts6bAbtz2nb/MzNkUjmpjagK/Yukghf+oqZiaoDxhNW2lTcWfdDw5Rknz07i8nIfMNKEPDnsyaHrThvPwEh7+eYsd868Cn0v5dxJ66JiebYm2LFDqNWaLP99fOoMi9KsVMhHyhUnc/w4WceyFdio8X6x9VyIIIN1SZS7Gr7BAbdElCYwDQEKGbpvlud48/q9 rsa-key-20240704
     uid: 2026
