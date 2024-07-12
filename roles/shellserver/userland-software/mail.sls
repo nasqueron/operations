@@ -1,15 +1,17 @@
 #   -------------------------------------------------------------
-#   Salt — Provision software
+#   Salt — Provision mail software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-04-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - roles/builder/account
-  - .base
-  - .openssl-legacy
-  - .irc
-  - .mail
-  - .web
+#   -------------------------------------------------------------
+#   Mail clients
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+mail_clients:
+  pkg.installed:
+    - pkgs:
+      - alpine
+      - mutt
+      - neomutt

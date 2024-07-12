@@ -12,6 +12,7 @@ include:
   # Shell server content
   - roles/shellserver/userland-software/base
   - roles/shellserver/userland-software/irc
+  - roles/shellserver/userland-software/mail
   - roles/shellserver/userland-software/web
   # Builder role content
   - roles/builder
