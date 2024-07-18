@@ -27,6 +27,18 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    dovecot:
+      password: dbserver/cluster-A/users/dovecot
+      privileges:
+        - database: mail
+          scope: table
+          schema: public
+          tables:
+            - mailbox
+          privileges:
+            - SELECT
+
+
     fantoir:
       password: dbserver/cluster-A/users/fantoir
       privileges:
