@@ -5,6 +5,11 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .checks
-  - .prometheus
+{% set monitoring_services = salt["grains.filter_by"]({
+    "Debian": {
+        "prometheus-node-exporter": "prometheus-node-exporter",
+    },
+    "FreeBSD": {
+        "prometheus-node-exporter": "node_exporter",
+    },
+}, default="Debian") %}
