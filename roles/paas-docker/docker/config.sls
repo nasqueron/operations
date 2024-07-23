@@ -12,9 +12,8 @@
 #   Configure Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set daemon = pillar['docker_daemon'] %}
+{% set daemon = salt["paas_docker.build_daemon_config"]() %}
 
-{% if daemon %}
 {{ dirs.etc }}/docker/daemon.json:
   file.managed:
     - source: salt://roles/paas-docker/docker/files/daemon.json.jinja
@@ -22,4 +21,3 @@
     - mode: 644
     - context:
         daemon: {{ daemon }}
-{% endif %}

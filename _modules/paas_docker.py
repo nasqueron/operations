@@ -92,6 +92,20 @@ def list_containers():
 
 
 #   -------------------------------------------------------------
+#   Docker configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+def build_daemon_config():
+    network = __salt__["node.resolve_network"]()
+
+    config = __pillar__.get("docker_daemon", {})
+    config["metrics-addr"] = network["private_ipv4_address"] + ":9323"
+
+    return config
+
+
+#   -------------------------------------------------------------
 #   Nginx
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
