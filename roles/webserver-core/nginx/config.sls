@@ -55,6 +55,7 @@ webserver_core_nginx_includes:
     - file_mode: 644
     - template: jinja
     - context:
+        nginx_version: {{ salt["nginx.version"]() }}
         nginx_dir: {{ dirs.etc }}/nginx
         nginx_options: {{ options }}
         certbot_dir: {{ certbot_dir }}

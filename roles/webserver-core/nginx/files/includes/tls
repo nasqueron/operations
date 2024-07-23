@@ -16,8 +16,14 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
+{% if salt["pkg.version_cmp"](nginx_version, "1.25.1") >= 0 -%}
+listen 443 ssl;
+listen [::]:443 ssl;
+http2 on;
+{%- else -%}
 listen 443 ssl http2;
 listen [::]:443 ssl http2;
+{%- endif %}
 
 keepalive_timeout   70;
 
