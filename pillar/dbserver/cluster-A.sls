@@ -153,6 +153,11 @@ dbserver_postgresql:
       method: password
 
     - db: mail
+      user: dovecot
+      ips: 172.27.27.3/32
+      method: password
+
+    - db: mail
       user: mailManagement
       ips: 172.27.27.3/32
       method: password
