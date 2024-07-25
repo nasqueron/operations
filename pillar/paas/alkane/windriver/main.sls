@@ -117,6 +117,7 @@ nginx_vhosts:
 
   nasqueron.org:
     - api51
+    - grafana
     - tools51
     - www51
 
