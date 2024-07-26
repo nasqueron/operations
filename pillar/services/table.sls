@@ -30,6 +30,10 @@ nasqueron_services:
   # NetBox
   netbox_domain: netbox.nasqueron.org
 
+  # RabbitMQ
+  rabbitmq:
+    white-rabbit: 172.27.27.5
+
   # Observability
   prometheus: 172.27.27.35
 

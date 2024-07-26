@@ -48,3 +48,9 @@ prometheus_scrape_jobs:
     services_targets_list:
       - service: "docker:all"
         port: 9323
+
+  rabbitmq:
+    name: rabbitmq
+    services_targets:
+      - service: "rabbitmq:white-rabbit"
+        port: 15692
