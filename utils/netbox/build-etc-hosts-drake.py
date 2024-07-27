@@ -94,6 +94,9 @@ def build_etc_hosts(nb):
         if len(ip.dns_name) == 0:
             continue
 
+        if ip.status.value not in ["active", "deprecated"]:
+            continue
+
         address = clean_ip(ip.address)
         short = get_short_dns_name(ip.dns_name)
         print(f"{address} {short} {ip.dns_name}")
