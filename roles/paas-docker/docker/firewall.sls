@@ -14,6 +14,11 @@
 
 {% if services['firewall'] == 'firewalld' %}
 
+{{ dirs.etc }}/firewalld/services/prometheus-docker.xml:
+  file.managed:
+    - source: salt://roles/paas-docker/docker/files/firewalld-services-prometheus-docker.xml
+    - makedirs: True
+
 {{ dirs.etc }}/firewalld/zones/public.xml:
   file.managed:
     - source: salt://roles/paas-docker/docker/files/firewalld-zones-public.xml.jinja
