@@ -2,21 +2,10 @@
 #   Salt — Network
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-06-15
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-#   -------------------------------------------------------------
-#   Table of contents
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#
-#   :: Native IPv6
-#   :: 4to6 tunnel
-#   :: Routes
-#
-#   -------------------------------------------------------------
-
-{% from "map.jinja" import dirs, services with context %}
+{% from "map.jinja" import dirs with context %}
 
 {% set network = salt['node.get']('network') %}
 
@@ -60,67 +49,3 @@
       {% endif %}
     {% endif %}
 {% endfor %}
-
-#   -------------------------------------------------------------
-#   4to6 tunnel
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% if salt['node.has']('network:ipv6_tunnel') %}
-network_ipv6:
-  file.managed:
-    - name : {{ dirs.sbin }}/ipv6-setup-tunnel
-    - source: salt://roles/core/network/files/ipv6-tunnels/{{ grains['id'] }}.sh.jinja
-    - template: jinja
-    - mode: 755
-
-{% if services['manager'] == 'systemd' %}
-/etc/systemd/system/ipv6-tunnel.service:
-  file.managed:
-    - source: salt://roles/core/network/files/ipv6-tunnels/ipv6-tunnel.service
-    - mode: 755
-  service.running:
-    - name: ipv6-tunnel
-    - enable: true
-{% endif %}
-
-
-{% endif %}
-
-#   -------------------------------------------------------------
-#   Routes - legacy configuration for ipv6_gateway
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% if "ipv6_gateway" in network %}
-
-{% if grains['os'] == 'FreeBSD' %}
-/etc/rc.conf.d/routing/ipv6:
-  file.managed:
-    - source: salt://roles/core/network/files/FreeBSD/routing_ipv6.rc
-    - makedirs: True
-    - template: jinja
-    - context:
-        ipv6_gateway: {{ network["ipv6_gateway"] }}
-{% endif %}
-
-{% endif %}
-
-#   -------------------------------------------------------------
-#   Routes - IPv6 fix for OVH
-#
-#   OVH network doesn't announce an IPv6 route for a VM at first.
-#   If from the VM, we reach another network, the route is then
-#   announced for a while, before being dropped.
-#
-#   To workaround that behavior, solution is to ping regularly
-#   an external site so packets reach OVH router and a route is
-#   announced.
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-{% if salt['node.has']('fixes:hello_ipv6_ovh') %}
-
-/usr/local/etc/cron.d/hello-ipv6:
-  file.managed:
-    - source: salt://roles/core/network/files/FreeBSD/hello-ipv6.cron
-    - makedirs: True
-
-{% endif %}

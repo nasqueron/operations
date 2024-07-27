@@ -9,6 +9,8 @@
 include:
   - .ipv4
   - .ipv6
+  - .ipv6_tunnel
+  - .ipv6_fixes
   - .dhclient6
   - .gre
   - .routes
