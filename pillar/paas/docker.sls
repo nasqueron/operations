@@ -137,6 +137,7 @@ rabbitmq_ports:
   -  5671 # AMQP with TLS (AMQPS)
   -  5672 # AMQP
   - 15672 # Management UI, HTTP API, rabbitmqadmin (management plugin port)
+  - 15692 # Prometheus-compatible metrics (rabbitmq_prometheus plugin port)
   - 25672 # Erlang distribution server port - Federation, rabbitmqctl
 
   # Not implemented ports, as we don't use those protocols:
@@ -145,6 +146,5 @@ rabbitmq_ports:
   # -  8883 # MQTT with TLS
   # - 15674 # STOMP over a WebSocket connection (rabbitmq_web_stomp plugin port)
   # - 15675 # MQTT  over a WebSocket connection (rabbitmq_web_mqtt plugin port)
-  # - 15692 # Prometheus metrics (rabbitmq_prometheus plugin port)
   # - 61613 # STOMP
   # - 61614 # STOMP with TLS
