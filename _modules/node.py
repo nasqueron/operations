@@ -231,6 +231,18 @@ def get_wwwroot(nodename=None):
     return "wwwroot/{1}/{0}".format(".".join(fqdn[0:-2]), ".".join(fqdn[-2:]))
 
 
+def has_interface_flag(flag, nodename=None):
+    interfaces = _get_property("network:interfaces", nodename, None)
+
+    return any(
+        [
+            flag in interface["flags"]
+            for interface in interfaces.values()
+            if "flags" in interface
+        ]
+    )
+
+
 def get_ipv6_list():
     """
     A function to get a list of IPv6, enclosed by [].

@@ -37,7 +37,7 @@
 #   announced.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has']('fixes:hello_ipv6_ovh') %}
+{% if salt["node.has_interface_flag"]("hello_ipv6_ovh") %}
 
 /usr/local/etc/cron.d/hello-ipv6:
   file.managed:
