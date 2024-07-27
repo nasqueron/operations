@@ -69,5 +69,6 @@ base:
     - devserver.datacubes
     - devserver.ports
     - devserver.repos
+    - observability.prometheus
     - webserver.labs
     - webserver.wwwroot51

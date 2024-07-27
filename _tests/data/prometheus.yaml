@@ -1,0 +1,21 @@
+nasqueron_services:
+  green: emerald
+
+  blue:
+    all:
+      - cyan
+      - turquoise
+      - ultramarine
+
+prometheus_scrape_jobs:
+  green_nodes:
+    name: green
+    services_targets:
+      - service: green
+        port: 9090
+
+  blue_nodes:
+    name: blue
+    services_targets_list:
+      - service: "blue:all"
+        port: 9100

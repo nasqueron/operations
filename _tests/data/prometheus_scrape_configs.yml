@@ -1,0 +1,10 @@
+- job_name: green
+  static_configs:
+  - targets:
+    - emerald:9090
+- job_name: blue
+  static_configs:
+  - targets:
+    - cyan:9100
+    - turquoise:9100
+    - ultramarine:9100

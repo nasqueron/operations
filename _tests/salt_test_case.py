@@ -34,3 +34,21 @@ class SaltTestCase:
             target = self.instance
 
         target.__salt__ = self.salt
+
+    def mock_salt_pillar_get(self, target=None):
+        if not target:
+            target = self.instance
+
+        target.__salt__["pillar.get"] = lambda key: pillar_get(target.__pillar__, key)
+
+
+def pillar_get(pillar, key, default=""):
+    if ":" not in key:
+        return pillar.get(key, default)
+
+    keys = key.split(":")
+
+    data = pillar[keys[0]]
+    remaining_key = ":".join(keys[1:])
+
+    return pillar_get(data, remaining_key, default)

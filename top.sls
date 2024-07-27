@@ -26,6 +26,7 @@ base:
     - roles/dbserver-pgsql
     - roles/devserver
     - roles/grafana
+    - roles/prometheus
     - roles/redis
     - roles/saas-nextcloud
     - roles/webserver-alkane

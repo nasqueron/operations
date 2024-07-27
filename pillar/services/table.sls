@@ -19,7 +19,27 @@ nasqueron_services:
     api: 172.27.27.5
     cd: 172.27.27.5
     notifications: 172.27.27.5
+    all:
+      - 172.27.27.4
+      - 172.27.27.5
 
   # Databases
   db-A: 172.27.27.8
   db-B: 172.27.27.9
+
+  # NetBox
+  netbox_domain: netbox.nasqueron.org
+
+  # Observability
+  prometheus: 172.27.27.35
+
+  all:
+    - 172.27.27.1 # router-001
+    - 172.27.27.3 # hervil
+    - 172.27.27.4 # dwellers
+    - 172.27.27.5 # docker-002
+    - 172.27.27.7 # complector
+    - 172.27.27.8 # db-A-001
+    - 172.27.27.9 # db-B-001
+    - 172.27.27.10 # web-001
+    - 172.27.27.35 # windriver
