@@ -23,7 +23,6 @@ nodes:
     roles:
       - opensearch
     network:
-      ipv6_native: True
       ipv6_tunnel: False
 
       canonical_public_ipv4: 188.165.200.229
@@ -187,7 +186,6 @@ nodes:
       - router
     network:
       ipv6_tunnel: False
-      ipv6_native: True
 
       canonical_public_ipv4: 51.255.124.8
 
@@ -221,7 +219,6 @@ nodes:
       - saas-wordpress
     network:
       ipv6_tunnel: False
-      ipv6_native: True
 
       canonical_public_ipv4: 51.255.124.10
 
@@ -285,7 +282,6 @@ nodes:
     zfs:
       pool: arcology
     network:
-      ipv6_native: True
       ipv6_tunnel: False
 
       canonical_public_ipv4: 51.159.17.168

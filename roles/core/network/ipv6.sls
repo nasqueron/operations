@@ -29,8 +29,7 @@
 #      with the assigned DUID.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has']('network:ipv6_native') %}
-  {% for interface_name, interface in network["interfaces"].items() %}
+{% for interface_name, interface in network["interfaces"].items() %}
     {% if "ipv6" in interface %}
 
       {% if grains['os'] == 'FreeBSD' %}
@@ -60,8 +59,7 @@
 
       {% endif %}
     {% endif %}
-  {% endfor %}
-{% endif %}
+{% endfor %}
 
 #   -------------------------------------------------------------
 #   4to6 tunnel
