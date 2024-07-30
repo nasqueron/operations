@@ -27,6 +27,11 @@ nasqueron_services:
   db-A: 172.27.27.8
   db-B: 172.27.27.9
 
+  # Mail
+  mail:
+    postfix:
+      exporter: 172.27.27.3
+
   # NetBox
   netbox_domain: netbox.nasqueron.org
 

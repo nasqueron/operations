@@ -49,6 +49,12 @@ prometheus_scrape_jobs:
       - service: "docker:all"
         port: 9323
 
+  postfix:
+    name: postfix
+    services_targets:
+      - service: "mail:postfix:exporter"
+        port: 9154
+
   rabbitmq:
     name: rabbitmq
     services_targets:
