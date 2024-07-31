@@ -36,6 +36,13 @@ prometheus_scrape_jobs:
       - service: "all"
         port: 9100
 
+  dovecot:
+    name: dovecot
+    scheme: http
+    services_targets:
+      - service: "mail:dovecot:exporter"
+        port: 9900
+
   netbox:
     name: netbox
     scheme: https

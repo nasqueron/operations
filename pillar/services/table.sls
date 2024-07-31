@@ -29,6 +29,8 @@ nasqueron_services:
 
   # Mail
   mail:
+    dovecot:
+      exporter: 172.27.27.3
     postfix:
       exporter: 172.27.27.3
 
