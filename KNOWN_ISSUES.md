@@ -13,23 +13,12 @@ but where some situations can be troublesome, with the workaround to apply.
 
 ## Role: devserver
 
-### PHP 5.6 <> PHP 7.x roulette
+### pefs-kmod and FreeBSD major versions upgrade
 
-On FreeBSD, PEAR and composer pull PHP 5.6. As such, they will be skipped when
-the state installs PHP 7.x. But if you run again the state, it will downgrade
-to PHP 5.6.
+After a new FreeBSD release, the kernel modules can be compiled
+against a version incompatible with the installed kernel.
 
-**Workaround**
-
-On FreeBSD, we currently install composer and phpcs manually. We also skip PEAR.
-
-That forces to track explicitly Composer versions for hashes
-in roles/shellserver/userland-software/base.sls file.
-
-### pefs-kmod and FreeBSD 11
-
-The pefs-kmod binary package is compiled against a version incompatible
-with FreeBSD 11.1. See https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=221076
+We hitted twice this issue with pefs-kmod, for FreeBSD 11.1 and 14.0.
 
 **Workaround**
 
