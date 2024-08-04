@@ -38,6 +38,7 @@ VAULT_CERTS_PATH=/usr/local/etc/certificates/vault
 #   Authentication :: token roles
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+vault write auth/token/roles/salt-node allowed_policies_glob="salt-node-*" token_bound_cidrs="127.0.0.1,172.27.27.0/24"
 vault write auth/token/roles/admin allowed_policies=admin period=30d
 
 #   -------------------------------------------------------------
