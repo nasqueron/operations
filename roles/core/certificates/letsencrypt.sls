@@ -75,23 +75,4 @@ letsencrypt_software:
   file.managed:
     - source: salt://roles/core/certificates/files/730.letsencrypt
 
-{% elif services["manager"] == "systemd" %}
-
-/etc/systemd/system/letsencrypt-renew.timer:
-  file.managed:
-    - source: salt://roles/core/certificates/files/letsencrypt-renew.timer
-
-/etc/systemd/system/letsencrypt-renew.service:
-  file.managed:
-    - source: salt://roles/core/certificates/files/letsencrypt-renew.service
-
-letsencrypt_renew_enable:
-  service.enabled:
-    - name: letsencrypt-renew
-
-letsencrypt_renew_timer_start:
-  service.running:
-    - name: letsencrypt-renew.timer
-    - enable: True
-
 {% endif %}
