@@ -36,6 +36,18 @@ vault_policy_{{ policy }}:
 
 {% endfor %}
 
+{% set salt_policy = pillar["vault_salt_primary_policy"] %}
+{% if salt_policy["target"] != salt_policy["source"] %}
+{% set policy_path = policies_path + "/" + salt_policy["source"] + ".hcl" %}
+
+vault_policy_copy_for_salt:
+  credentials.vault_policy_present:
+    - name: {{ salt_policy["target"] }}
+    - policy_file: {{ policy_path }}
+    - onchanges:
+        - file: {{ policy_path }}
+{% endif %}
+
 #   -------------------------------------------------------------
 #   Policies per nodes intended to be used through Salt
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

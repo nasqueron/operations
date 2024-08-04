@@ -40,11 +40,11 @@ path "sys/policy/*" {
 #     :: Manage and renew own token
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-path "auth/token/create/salt-node-*" {
-  capabilities = ["update"]
+path "auth/token/create/salt-node" {
+  capabilities = ["create", "update"]
 }
 
-path "auth/token/roles/salt-node-*" {
+path "auth/token/roles/salt-node" {
   capabilities = ["read"]
 }
 

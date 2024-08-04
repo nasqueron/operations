@@ -57,7 +57,21 @@ vault_policies:
   - viperserv
 
 #   -------------------------------------------------------------
-#   Vault policies for Salt
+#   Vault policies for Salt itself
+#
+#   The policy attached to the login method (e.g. approle)
+#   used by the Salt primary server to login to Vault.
+#
+#   Source is the name of a policy managed by the vault_policies
+#   section. Target is the name of the policy attached.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+vault_salt_primary_policy:
+  source: salt-primary
+  target: salt
+
+#   -------------------------------------------------------------
+#   Vault full policies to include by role
 #
 #   Declare the extra policies each nodes need.
 #
