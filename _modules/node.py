@@ -24,6 +24,7 @@ DEPLOY_ROLES = [
 
 
 WITH_NGINX_ROLES = [
+    "webserver-alkane",
     "webserver-core",
     "paas-docker",
 ]
