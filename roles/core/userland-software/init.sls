@@ -150,6 +150,7 @@ sysadmin_utilities:
       - net-tools
       {% endif %}
       {% if grains['os_family'] == 'RedHat' %}
+      - patch
       - psmisc
       - tar
       {% endif %}
