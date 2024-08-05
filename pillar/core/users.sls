@@ -136,11 +136,13 @@ shellusers:
       nasqueron-dev: &dorianwintyDefault
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG04iMvqgusA7/3x+RlFCtZXhUEBMzNN58XIujnuO+Us dorianwinty@Portable_NasqUser
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTy1gvUMYwagFoj23dh04oIBYJKYHe6BkcUJ4j0i8nb dorianwinty@Tour_NasqUser
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINr1RIu110xdMtjnI2YbwLQVG3CbfXj+0HSBiQxs9vy8 dorianwinty@Windows_NasqUser
       eglide: *dorianwintyDefault
       nasqueron-dev-docker: *dorianwintyDefault
       nasqueron-infra:
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJvsKoZ8zu6epX/t+5f376OMFjSEphnVkfIslORK7HWk dorianwinty@Portable_NasqOPS
         - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIATc5qI/lUp8JfEyqOJOrOy6rGd3hJUgrB1TEL01cVuY dorianwinty@Tour_NasqOPS
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAl6y6QLJM3vsw76dkhu91XUqHFzNIDi8MvpdP8vciT7 dorianwinty@Windows_NasqOPS
     everywhere_tasks:
       - deploy_dotfiles
     uid: 2035
