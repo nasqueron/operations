@@ -24,6 +24,18 @@ salt_roles:
     - source: salt://roles/core/salt/files/salt.repo
 {% endif %}
 
+{% if grains['os_family'] == 'Debian' %}
+/etc/apt/keyrings/salt-archive-keyring-2023.gpg:
+  file.managed:
+    - source: salt://roles/core/salt/files/SALT-PROJECT-GPG-PUBKEY-2023.gpg
+    - makedirs: True
+
+/etc/apt/sources.list.d/salt.list:
+  file.managed:
+    - source: salt://roles/core/salt/files/salt.list
+    - makedirs: True
+{% endif %}
+
 #   -------------------------------------------------------------
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
