@@ -44,3 +44,8 @@ dovecot_file_config_conf_d:
     - context:
         mailbox:
           dir: /var/mail/_virtual
+
+dovecot_running:
+  service.running:
+    - name: dovecot
+    - enable: True
