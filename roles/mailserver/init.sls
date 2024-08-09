@@ -8,3 +8,4 @@
 include:
   - .dovecot
   - .postfix
+  - .vimbadmin
