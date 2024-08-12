@@ -34,6 +34,13 @@ revokedusers:
   - tarik
 
 shellusers:
+  aceppaluni:
+    fullname: Angelina Ceppaluni
+    shell: zsh
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0H8u9qxgVdchg/IU6uxDDD5ry0uux0HKyht5vtACvy Lenovo Thinkpad X1
+    uid: 2037
+
   adrien:
     fullname: Adrien
     ssh_keys:

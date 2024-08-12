@@ -27,6 +27,7 @@ shellgroups:
     description: >
         Provide an account to use on the Eglide shell hosting project servers.
     members:
+      - aceppaluni
       - adrien
       - akoe
       - alinap
@@ -110,6 +111,7 @@ shellgroups:
     description: >
         Provide an account on Nasqueron development servers.
     members:
+      - aceppaluni
       - dereckson
       - dorianwinty
       - fauve
