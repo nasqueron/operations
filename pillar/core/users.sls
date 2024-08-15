@@ -120,7 +120,6 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m yakin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE yakin.dereckson.drake
 
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILYBlUgtR0+p9MtfVY8OsGCThj9wFYPxjQ07DYzEeuca thrower-20240217
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeCWiov3TpAccZTYpez+ZPxsg3+ZZMzTOE3ZvjUCdWl voxbone-laptop-20240416
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAhXyFekC8WTIn6qjguB813I79aJ6uLpu47Z8vX22ipc yggdrasil-20220419
 
