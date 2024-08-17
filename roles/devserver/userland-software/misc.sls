@@ -56,7 +56,6 @@ devserver_software_misc_tools:
       - fzf
       - gist
       - hexyl
-      - p7zip
       - primegen
       - rsync
       - unix2dos
