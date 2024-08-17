@@ -106,6 +106,7 @@
 
 {% set packages = salt['grains.filter_by']({
     'Debian' : {
+        '7zip': '7zip',
         'ag': 'silversearcher-ag',
         'aspell-fr': 'aspell-fr',
         'aspell-en': 'aspell-en',
@@ -173,6 +174,7 @@
         'yubico-pam': 'yubico-pam',
     },
     'FreeBSD' : {
+        '7zip': '7-zip',
         'ag': 'the_silver_searcher',
         'aspell-fr': 'fr-aspell',
         'aspell-en': 'en-aspell',
