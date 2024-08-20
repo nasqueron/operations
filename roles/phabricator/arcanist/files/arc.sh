@@ -48,7 +48,7 @@ else
 		# Enable log printing
 		PRINT_LOG=1
 		# Set a random name for the container
-		INSTANCE="arc-"`openssl rand -hex 21`
+		INSTANCE="arc-"$(openssl rand -hex 21)
 		FLAGS="-i -a=stdin --name=$INSTANCE"
 	fi
 fi
@@ -64,10 +64,10 @@ fi
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ $PRINT_LOG -eq 0 ]; then
-	docker run $FLAGS --rm -v ~/.arc:/opt/config -v $PWD:/opt/workspace $VOLUME_SSH nasqueron/arcanist $COMMAND "$@"
+	docker run "$FLAGS" --rm -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@"
 else
-	docker run $FLAGS -v ~/.arc:/opt/config -v $PWD:/opt/workspace $VOLUME_SSH nasqueron/arcanist $COMMAND "$@" > /dev/null
+	docker run "$FLAGS" -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@" > /dev/null
 	sleep 3
-	docker logs $INSTANCE
-	docker rm $INSTANCE >/dev/null
+	docker logs "$INSTANCE"
+	docker rm "$INSTANCE" >/dev/null
 fi

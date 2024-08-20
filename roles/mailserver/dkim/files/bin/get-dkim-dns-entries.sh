@@ -19,7 +19,7 @@
 # Parses arguments
 if [ $# -eq 0 ]
 then
-        echo "Usage: `basename $0` <domain>"
+        echo "Usage: $(basename "$0") <domain>"
         exit 1
 fi
 
@@ -32,7 +32,7 @@ then
 	exit 2
 fi
 
-for f in $DIR/*.txt
+for f in "$DIR"/*.txt
 do
-	get-dkim-dns-entry $f
+	get-dkim-dns-entry "$f"
 done

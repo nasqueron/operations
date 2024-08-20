@@ -23,7 +23,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ "$SESSION_ID" = "" ]; then
-	SESSION_ID=`who am I | md5 | cut -c1-8`
+	SESSION_ID=$(who am I | md5 | cut -c1-8)
 fi
 
 DIR=/var/tmp/whom/$USER/$SESSION_ID
@@ -34,7 +34,7 @@ DIR=/var/tmp/whom/$USER/$SESSION_ID
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ "$1" = "--session" ] || [ "$1" = "-s" ]; then
-	echo $SESSION_ID
+	echo "$SESSION_ID"
 	exit 0
 fi
 
@@ -45,13 +45,13 @@ fi
 
 if [ $# -eq 0 ]; then
 	# Creates working directory if needed
-	if [ ! -d $DIR ]; then
-		mkdir -p $DIR
-		touch $DIR/old
+	if [ ! -d "$DIR" ]; then
+		mkdir -p "$DIR"
+		touch "$DIR"/old
 	fi
 
 	# Let's diff
-	cd $DIR
+	cd "$DIR" || exit
 	whom > current
 	diff old current | tail -n +2
 	mv current old
@@ -65,7 +65,7 @@ fi
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ "$1" = "--clean" ] || [ "$1" = "-c" ]; then
-	rm -rf $DIR
+	rm -rf "$DIR"
 	exit $?
 fi
 

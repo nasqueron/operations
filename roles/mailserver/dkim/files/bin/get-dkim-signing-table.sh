@@ -18,11 +18,11 @@
 
 for d in /etc/opendkim/keys/*
 do
-	DOMAIN=`basename $d`
+	DOMAIN=$(basename "$d")
 
-	for f in $d/*.private
+	for f in "$d"/*.private
 	do
-		SELECTOR=`basename $f .private`
+		SELECTOR=$(basename "$f" .private)
 		echo "$DOMAIN $SELECTOR._domainkey.$DOMAIN"
 	done
 done

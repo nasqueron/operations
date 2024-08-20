@@ -96,5 +96,5 @@ docker exec $INSTANCE_NAME sh -c 'cd /opt/phabricator && \
 	git checkout $PHABRICATOR_PROD_BRANCH && \
 	sv restart php-fpm && sv restart phd'
 
-echo "Deployment done at `date`."
+echo "Deployment done at $(date)."
 exit 0
