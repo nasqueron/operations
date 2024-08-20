@@ -48,11 +48,15 @@ salt_roles:
 
 #   -------------------------------------------------------------
 #   Vault
+#
+#   For shellserver, set in roles/shellserver/vault unit instead.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% if not salt["node.has_role"]("shellserver") %}
 {{ dirs.etc }}/salt/minion.d/vault.conf:
   file.managed:
     - source: salt://roles/core/salt/files/vault.conf
     - template: jinja
     - context:
         certificate: {{ certificates.dir }}/nasqueron-vault-ca.crt
+{% endif %}
