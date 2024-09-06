@@ -51,6 +51,11 @@ letsencrypt_software:
     - source: salt://roles/core/certificates/files/edit-acme-dns-accounts.py
     - mode: 755
 
+{{ dirs.bin }}/delete-certbot-certificate:
+  file.managed:
+    - source: salt://roles/core/certificates/files/delete-certbot-certificate.sh
+    - mode: 755
+
 #   -------------------------------------------------------------
 #   Check and renew certificates daily
 #
