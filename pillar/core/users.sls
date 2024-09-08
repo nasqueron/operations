@@ -244,6 +244,7 @@ shellusers:
     fullname: Yassine Hadj Messaoud
     ssh_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4H4SF3NZ0/o5uTYhIUKUEzP7hlZ0mGqMxs6wt/dhQs kalix@arch-laptop
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7FQwqZIT8htdXRy57NZqaYEcRBFbu1oOHuRbp7LwBb sandlayth@Thinkpad-t15
     uid: 5002
 
   shark:
