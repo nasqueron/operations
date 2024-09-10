@@ -175,3 +175,12 @@ webserver_content_dotenv:
     db:
       service: db-B
       credentials: dbserver/cluster-B/users/dereckson_www
+
+#   -------------------------------------------------------------
+#   Alkane deployment recipes
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alkane_recipes:
+  www.nasqueron.org:
+    init: standard-init.sh
+    update: standard-update.sh
