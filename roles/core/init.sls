@@ -16,7 +16,6 @@ include:
   - .motd
   - .ntp
   - .src
-  - .ports
   - .rsyslog
   - .salt
   - .sshd

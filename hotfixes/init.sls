@@ -13,5 +13,6 @@ include:
   - .T1345-drop-jails-from-ysul
   - .MariaDB
   - .leap-seconds
+  - .portsnap
   - .python3
   - .old-directories

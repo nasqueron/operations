@@ -63,12 +63,6 @@ snap_enable:
     - target: /var/lib/snapd/snap
 {% endif %}
 
-{% if grains['os'] == 'FreeBSD' %}
-/etc/periodic/daily/720.portsnap:
-  file.managed:
-    - source: salt://roles/core/userland-software/files/720.portsnap
-{% endif %}
-
 #   -------------------------------------------------------------
 #   Shells
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
