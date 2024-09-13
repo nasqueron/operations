@@ -17,6 +17,19 @@
   file.managed:
     - source: salt://roles/core/userland-software/files/Nasqueron.conf
     - makedirs: True
+
+git:
+  pkg.installed
+
+ports_tree:
+  cmd.run:
+    - name: |
+        mkdir -p /usr/ports
+        cd /usr/ports && git init --initial-branch=main
+        git remote add origin https://git.FreeBSD.org/ports.git
+        git fetch --all
+        git reset --hard origin/main
+    - creates: /usr/ports/.git
 {% endif %}
 
 {% if grains['os_family'] == 'RedHat' and grains['os'] != 'Fedora' %}
