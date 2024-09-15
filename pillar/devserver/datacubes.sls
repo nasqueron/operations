@@ -9,6 +9,8 @@
 #   Datacubes
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+datacube_zfs_pool: greenway
+
 datacubes:
 
   bak: &default {}

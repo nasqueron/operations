@@ -19,7 +19,11 @@
 
 {% if salt['node.has']('zfs:pool') %}
 
-{% set tank = salt['node.get']("zfs:pool") %}
+{% if "datacube_zfs_pool" in pillar %}
+{% set tank = pillar["datacube_zfs_pool"] %}
+{% else %}
+{% set tank = salt["node.get"]("zfs:pool") %}
+{% endif %}
 
 {{ tank }}/datacube:
   zfs.filesystem_present:
