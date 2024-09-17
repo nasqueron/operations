@@ -47,7 +47,7 @@ devserver_software_misc_security:
 devserver_software_misc_tools:
   pkg.installed:
     - pkgs:
-      - {{ packages.7zip }}
+      - {{ packages["7zip"] }}
       - {{ packages_prefixes.python3 }}awscli
       - bat
       - boxes
