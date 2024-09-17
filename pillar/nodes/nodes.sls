@@ -284,15 +284,15 @@ nodes:
     network:
       ipv6_tunnel: False
 
-      canonical_public_ipv4: 51.159.17.168
+      canonical_public_ipv4: 195.154.30.15
 
       interfaces:
         igb0:
           device: igb0
           ipv4:
-            address: 51.159.17.168
+            address: 195.154.30.15
             netmask: 255.255.255.0
-            gateway: 51.159.17.1
+            gateway: 195.154.30.1
           ipv6:
             address: 2001:bc8:2e84:700::da7a:7001
             gateway: fe80::2616:9dff:fe9c:c521
