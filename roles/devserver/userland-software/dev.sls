@@ -235,7 +235,7 @@ devserver_software_dev_misctools:
 
 {{ dirs.bin }}/create-vault-approle:
   file.managed:
-    - source: salt://roles/devserver/userland-software/files/create-vault-approle.py
+    - source: salt://roles/devserver/userland-software/files/create-vault-approle.sh
     - mode: 755
 
 devserver_software_dev_python_vault:
