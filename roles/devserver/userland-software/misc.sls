@@ -15,8 +15,6 @@ devserver_software_misc_vcs:
       - cvs
       - fossil
       - subversion
-      # Bridges
-      - {{ packages_prefixes.python2 }}hg-git
       # Extra features
       - git-filter-repo
 
