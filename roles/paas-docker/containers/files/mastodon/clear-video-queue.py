@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 #   -------------------------------------------------------------
 #   Mastodon - clear stuck video tasks from queue
@@ -17,7 +17,6 @@
 #   </auto-generated>
 
 
-from __future__ import print_function
 import subprocess
 
 
