@@ -21,7 +21,6 @@ devserver_software_misc_vcs:
 devserver_software_misc_media:
   pkg.installed:
     - pkgs:
-      - ffmpeg2theora
       - opencore-amr
       - opus
       - speex
