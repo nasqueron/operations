@@ -6,6 +6,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+/opt:
+  file.directory
+
 include:
   # FreeBSD ports
   - .ports
