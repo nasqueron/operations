@@ -13,4 +13,5 @@ include:
   - .pkg
   - .userland-software
   - .userland-home
+  - .webserver-home
   - .webserver-wwwroot51

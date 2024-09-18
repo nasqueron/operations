@@ -259,6 +259,28 @@ def get_ipv6_list():
     return " ".join(["[" + ip + "]" for ip in ipv6])
 
 
+def get_all_ips():
+    """
+    A function to get a list of IPv4, not enclosed,
+    and IPv6, enclosed by [].
+    Returns a string depending on the IPv6 currently assigned.
+
+    CLI Example:
+
+        salt * node.get_all_ips
+    """
+    all_ips = []
+
+    for _interface, ips in __grains__.get("ip4_interfaces").items():
+        all_ips.extend(ips)
+
+    for _interface, ips in __grains__.get("ip6_interfaces").items():
+        ips = ["[" + ip + "]" for ip in ips]
+        all_ips.extend(ips)
+
+    return " ".join(set(all_ips))
+
+
 def resolve_network():
     """
     A function to determine canonical properties of networks
