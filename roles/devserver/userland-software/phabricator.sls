@@ -12,14 +12,10 @@
 #   Provision /opt/phabricator from Git repositories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-libphutil_repository:
-  git.latest:
-    - name: https://secure.phabricator.com/source/libphutil.git
-    - target: /opt/phabricator/libphutil
-
 arcanist_repository:
   git.latest:
-    - name: https://secure.phabricator.com/diffusion/ARC/arcanist.git
+    - name: https://github.com/nasqueron/arcanist.git
+    - branch: production
     - target: /opt/phabricator/arcanist
     - update_head: False
 
