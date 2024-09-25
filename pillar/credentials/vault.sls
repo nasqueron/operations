@@ -101,6 +101,9 @@ vault_extra_policies_by_role:
 vault_secrets_by_role:
 
   devserver:
+    - ops/secrets/dbserver/windriver-mariadb/users/*
+    - ops/secrets/dbserver/windriver-pgsql/users/*
+
     - ops/secrets/nasqueron/notifications/notifications-cli/%%node%%
 
     - ops/secrets/nasqueron/deploy/deploy_keys/alken-orin

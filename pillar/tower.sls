@@ -15,3 +15,6 @@ base:
   - saas/nextcloud/{{ minion_id }}/*.sls
 
   - webserver/{{ minion_id }}/*.sls
+
+  # For devserver role, there is no cluster associated
+  - dbserver/{{ minion_id }}.sls
