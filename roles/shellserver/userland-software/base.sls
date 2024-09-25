@@ -152,6 +152,7 @@ languages:
   pkg.installed:
     - pkgs:
       - python3
+      - name: {{ packages_prefixes.python3 }}pip
       - {{ packages.tcl }}
       {% if grains['os_family'] == 'Debian' %}
       - php8.2
