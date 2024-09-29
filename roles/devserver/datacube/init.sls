@@ -85,6 +85,16 @@ zfs_permissions_datacube_descendent_{{ subdir }}:
 {% endif %}
 
 #   -------------------------------------------------------------
+#   Symbolic links
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% for link_path, link_points_to in pillar.get("devserver_symlinks", {}).items() %}
+{{ link_path }}:
+  file.symlink:
+    - target: {{ link_points_to }}
+{% endfor %}
+
+#   -------------------------------------------------------------
 #   Misc directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

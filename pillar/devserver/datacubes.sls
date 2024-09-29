@@ -44,6 +44,15 @@ datacubes:
     zfs_auto_snapshot: True
 
 #   -------------------------------------------------------------
+#   Symbolic links needed by development work
+#   <path to the link to create>: <target file>
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+devserver_symlinks:
+  # Renamed 2024-09-39, keep old filename for transition
+  /datacube/doc: /datacube/documentation
+
+#   -------------------------------------------------------------
 #   Other directories needed by development work
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
