@@ -39,6 +39,22 @@ dbserver_postgresql:
   # As of 2024-09, users and databases are managed manually
   # You're most than welcome to automate any user/db deployment here.
   # cluster-A.sls can be helpful for syntax hints
-  users: {}
-  databases: {}
-  connections: {}
+  users:
+    netbox:
+      password: dbserver/windriver-pgsql/users/netbox
+      privileges:
+       - database: netbox
+         scope: schema
+         privileges:
+           - ALL
+
+  databases:
+    netbox:
+      encoding: UTF8
+      owner: netbox
+
+  connections:
+    - db: netbox
+      user: netbox
+      ips: 127.0.0.1
+      method: password
