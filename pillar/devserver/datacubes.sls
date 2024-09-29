@@ -9,25 +9,26 @@
 #   Datacubes
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+x_datacube_permissions:
+  default: &default {}
+  dereckson: &dck
+    user: dereckson
+    zfs_user: dereckson
+    zfs_auto_snapshot: True
+
 datacube_zfs_pool: greenway
 
 datacubes:
 
-  bak: &default {}
+  bak: *default
   git: *default
   t: *default
 
-  dereckson_bak: &dck
-    user: dereckson
-    zfs_user: dereckson
-    zfs_auto_snapshot: True
+  dereckson_bak: *dck
 
   docs: *default
 
-  docs/dereckson:
-    user: dereckson
-    zfs_user: dereckson
-    zfs_auto_snapshot: True
+  docs/dereckson: *dck
 
   docs/xcombelle:
     user: xcombelle
