@@ -36,6 +36,8 @@ datacubes:
     zfs_user: xcombelle
     zfs_auto_snapshot: True
 
+  documentation: *default
+
   nextcloud:
     user_from_pillar: "nextcloud:user"
     zfs_user_from_pillar: "nextcloud:user"
