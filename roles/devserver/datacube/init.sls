@@ -34,14 +34,15 @@
 {% for subdir, args in pillar.get("datacubes", {}).items() %}
 
 {% set datacube_dataset = tank + "/datacube/" + subdir %}
+{% set mountpoint = args.get("mounting_point", "/datacube/" + subdir) %}
 
 {% if "user" in args %}
-/datacube/{{ subdir }}:
+{{ mountpoint }}:
   file.directory:
     - mode: 711
     - user: {{ args["user"] }}
 {% elif "user_from_pillar" in args %}
-/datacube/{{ subdir }}:
+{{ mountpoint }}:
   file.directory:
     - mode: 711
     - user: {{ salt["pillar.get"](args["user_from_pillar"]) }}
@@ -50,7 +51,7 @@
 {{ datacube_dataset }}:
   zfs.filesystem_present:
     - properties:
-        mountpoint: /datacube/{{ subdir }}
+        mountpoint: {{ mountpoint }}
         compression: zstd
         {% if "zfs_auto_snapshot" in args %}
         "com.sun:auto-snapshot": "true"
