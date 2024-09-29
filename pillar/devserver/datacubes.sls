@@ -20,6 +20,7 @@ datacube_zfs_pool: greenway
 
 datacubes:
 
+  ascii-sandbox: *dck
   bak: *default
   git: *default
   t: *default
