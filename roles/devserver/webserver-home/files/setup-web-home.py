@@ -10,7 +10,6 @@
 
 
 import os
-import shutil
 import sys
 
 
@@ -35,12 +34,6 @@ def is_valid_setup(username):
     )
 
 
-def setup(username):
-    os.mkdir(f"/var/home-wwwroot/{username}", mode=0o755)
-    shutil.chown(f"/var/home-wwwroot/{username}", user=username, group="web")
-    os.symlink(f"/var/home-wwwroot/{username}", f"/home/{username}/public_html")
-
-
 #   -------------------------------------------------------------
 #   Application entry point
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -49,7 +42,7 @@ def setup(username):
 def run(username):
     if is_valid_setup(username):
         print("Setup is already done and looks correct.", file=sys.stderr)
-        sys.exit(4)
+        sys.exit(0)
 
     if not is_clean(username):
         print(
@@ -58,11 +51,11 @@ def run(username):
         )
         sys.exit(2)
 
-    try:
-        setup(username)
-    except OSError as e:
-        print(e, file=sys.stderr)
-        sys.exit(8)
+    print(
+        "Nothing detected., apply Salt state roles/devserver/webserver-home to create it.",
+        file=sys.stderr,
+    )
+    sys.exit(4)
 
 
 if __name__ == "__main__":
