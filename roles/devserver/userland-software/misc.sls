@@ -69,7 +69,6 @@ devserver_software_misc_ports:
       - portmaster
       - portshaker
       - porttools
-      - poudriere
       - portsearch
 
 portsearch_database:

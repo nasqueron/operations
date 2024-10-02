@@ -1,18 +1,11 @@
 #   -------------------------------------------------------------
-#   Salt — Provision a development server
+#   Poudriere
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-20
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 include:
-  - .datacube
-  - .dns
-  - .mail
-  - .pkg
-  - .userland-software
-  - .userland-home
-  - .poudriere
-  - .webserver-home
-  - .webserver-wwwroot51
+  - .software
+  - .config
+  - .content

@@ -151,3 +151,14 @@ ports:
     category: www
     name: npm
     creates: /usr/local/bin/npm
+
+#   -------------------------------------------------------------
+#   Poudriere
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+poudriere:
+  zfs_pool: arcology
+  tmpfs: wrkdir
+  ports:
+    usr-ports: /usr/ports
+    dereckson-dev: /home/dereckson/dev/freebsd/ports
