@@ -19,6 +19,8 @@ include:
   - roles/shellserver/userland-software/web
   # Builder role content
   - roles/builder
+  # salt-primary content
+  - roles/salt-primary/salt-wrapper
   # Software specific for development servers
   - .dev
   - .misc
