@@ -38,6 +38,7 @@ utilities:
       - glow
       - {{ packages.gpg }}
       - grc
+      - mc
       - moreutils
       - mosh
       - nmap
