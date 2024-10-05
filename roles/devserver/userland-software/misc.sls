@@ -82,6 +82,10 @@ portsearch_database:
 /var/cache/ccache:
   file.directory
 
+/var/cache/ccache/ccache.conf:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/ccache.conf
+
 /etc/make.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/make.conf
