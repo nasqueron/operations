@@ -41,6 +41,7 @@ dovecot_file_config_conf_d:
     - name: {{ dirs.etc }}/dovecot/conf.d
     - file_mode: 755
     - dir_mode: 755
+    - template: jinja
     - context:
         mailbox:
           dir: /var/mail/_virtual
