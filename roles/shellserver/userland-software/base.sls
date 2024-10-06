@@ -71,6 +71,20 @@ utilities_www:
       - w3m
 
 #   -------------------------------------------------------------
+#   Fortune data
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains["os"] == "FreeBSD" %}
+fortune_data:
+  pkg.installed:
+    - pkgs:
+      - fortune-mod-bofh
+      - fortune-mod-epictetus
+      - fortune-mod-freebsd-classic
+      - fortune-mod-futurama
+{% endif %}
+
+#   -------------------------------------------------------------
 #   More exotic shells
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
