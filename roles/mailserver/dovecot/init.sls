@@ -8,6 +8,8 @@
 {% from "map.jinja" import dirs with context %}
 {% set db = pillar["dovecot_config"]["db"] %}
 
+{% set network = salt['node.resolve_network']() %}
+
 dovecot:
   pkg.installed
 
@@ -43,6 +45,7 @@ dovecot_file_config_conf_d:
     - dir_mode: 755
     - template: jinja
     - context:
+        ip_internal: {{ network["private_ipv4_address"] }}
         mailbox:
           dir: /var/mail/_virtual
 
