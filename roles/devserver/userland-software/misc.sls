@@ -86,6 +86,11 @@ portsearch_database:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/ccache.conf
 
+{{ dirs.bin }}/ccache-metrics:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/ccache-metrics.py
+    - mode: 755
+
 /etc/make.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/make.conf
