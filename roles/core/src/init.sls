@@ -10,11 +10,6 @@
 
 {% set version = grains['kernelrelease'].split("-")[0] %}
 
-{% if version >= "13.0" %}
-git:
-  pkg.installed
-{% endif %}
-
 freebsd_src:
   cmd.run:
     {% if version < "13.0" %}

@@ -92,7 +92,6 @@ dev:
       - {{ packages.bats }}
       - cmake
       - {{ packages.cppunit }}
-      - git
       - git-lfs
       - jq
       - valgrind

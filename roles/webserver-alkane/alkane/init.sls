@@ -36,7 +36,6 @@ recipes_dependencies:
   pkg.installed:
     - pkgs:
       - {{ packages.composer }}
-      - git
       - jq
       - yarn
 

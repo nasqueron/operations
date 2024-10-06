@@ -78,6 +78,7 @@ sysadmin_utilities:
     - pkgs:
       - bat
       - colordiff
+      - git
       - nano
       - ripgrep
       - tree
@@ -112,6 +113,14 @@ sysadmin_utilities:
     - source: salt://roles/core/userland-software/files/new-partition.sh
     - mode: 755
 {% endif %}
+
+/root/.gitconfig:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/gitconfig
+    - replace: False
+    - user: root
+    - group: 0
+    - mode: 444
 
 #   -------------------------------------------------------------
 #   Nano configuration

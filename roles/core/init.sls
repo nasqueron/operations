@@ -16,7 +16,6 @@ include:
   - .motd
   - .ntp
   - .pf
-  - .src
   - .rsyslog
   - .salt
   - .sshd
@@ -30,3 +29,6 @@ include:
   # Depends of users or groups
   - .deploy
   - .userland-home
+
+  # Depends of software (git)
+  - .src

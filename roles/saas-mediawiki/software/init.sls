@@ -17,7 +17,6 @@ mediawiki_software_dependencies:
     - pkgs:
       - {{ packages.exiftool }}
       - exiv2
-      - git
       - {{ packages.imagemagick }}
       - {{ packages['jpeg-turbo'] }}
       - librsvg2
