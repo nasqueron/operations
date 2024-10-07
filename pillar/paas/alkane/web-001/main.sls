@@ -55,7 +55,6 @@ web_static_sites:
     - docker
     - ftp
     - launch
-    - packages
     - trustspace
   wolfplex.org:
     - www
@@ -151,7 +150,6 @@ nginx_vhosts:
     - join
     - labs
     - launch
-    - packages
     - rain
     - trustspace
     - www

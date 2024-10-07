@@ -50,6 +50,7 @@ web_domains:
 web_static_sites:
   nasqueron.org:
     - docker51
+    - packages
     - rain51
     - www51
 
@@ -118,6 +119,7 @@ nginx_vhosts:
   nasqueron.org:
     - api51
     - grafana
+    - packages
     - tools51
     - www51
 
