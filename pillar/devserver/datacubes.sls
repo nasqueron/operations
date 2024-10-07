@@ -43,6 +43,14 @@ datacubes:
     zfs_user_from_pillar: "nextcloud:user"
     zfs_auto_snapshot: True
 
+  packages: *default
+
+  packages/freebsd:
+    mounting_point: /var/repo
+    user: builder
+    zfs_user: builder
+    zfs_auto_snapshot: True
+
 #   -------------------------------------------------------------
 #   Symbolic links needed by development work
 #   <path to the link to create>: <target file>
