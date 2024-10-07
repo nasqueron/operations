@@ -50,6 +50,9 @@ nasqueron_services:
   # Observability
   prometheus: 172.27.27.35
 
+  devservers:
+    - 172.27.27.35 # windriver
+
   all:
     - 172.27.27.1 # router-001
     - 172.27.27.3 # hervil

@@ -36,6 +36,14 @@ prometheus_scrape_jobs:
       - service: "all"
         port: 9100
 
+  ccache:
+    name: ccache
+    scheme: http
+    metrics_path: /metrics/ccache
+    services_targets_list:
+      - service: devservers
+        port: 2337
+
   dovecot:
     name: dovecot
     scheme: http
