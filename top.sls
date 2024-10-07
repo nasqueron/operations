@@ -25,6 +25,7 @@ base:
     - roles/dbserver-mysql
     - roles/dbserver-pgsql
     - roles/devserver
+    - roles/freebsd-repo # depends of devserver/datacube, builder
     - roles/grafana
     - roles/prometheus
     - roles/redis
