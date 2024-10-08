@@ -128,6 +128,10 @@ devserver_software_misc_games:
     - pkgs:
       - bsdgames
       - textmaze
+      {% if grains['os'] == 'FreeBSD' %}
+      - roll
+      {% endif %}
+
 
 devserver_software_misc_network:
   pkg.installed:

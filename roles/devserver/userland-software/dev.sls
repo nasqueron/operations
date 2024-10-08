@@ -249,11 +249,12 @@ devserver_software_dev_misctools:
     - source: salt://roles/devserver/userland-software/files/create-vault-approle.sh
     - mode: 755
 
-devserver_software_dev_python_vault:
+devserver_software_dev_vault:
   pkg.installed:
    - pkgs:
      - {{ packages_prefixes.python3 }}pyhcl
      - {{ packages_prefixes.python3 }}hvac
+     - vault-medusa
 
 #   -------------------------------------------------------------
 #   MediaWiki development
