@@ -13,7 +13,7 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-METADATA=digests.txz meta.txz packagesite.txz
+METADATA=digests.txz meta meta.conf meta.txz packagesite.pkg packagesite.txz data.pkg data.txz
 
 #   -------------------------------------------------------------
 #   Main targets

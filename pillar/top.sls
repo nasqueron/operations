@@ -72,5 +72,6 @@ base:
     - devserver.ports
     - devserver.repos
     - observability.prometheus
+    - packages.freebsd
     - webserver.labs
     - webserver.wwwroot51

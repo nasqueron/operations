@@ -16,9 +16,17 @@
     - makedirs: True
     - user: builder
 
-{{ repo.repo_dir }}/Makefile:
+{% for ABI in pillar["nasqueron_packages_freebsd"]["ABI"] %}
+
+"{{ repo.repo_dir }}/{{ ABI }}":
+  file.directory:
+    - user: builder
+
+"{{ repo.repo_dir }}/{{ ABI }}/Makefile":
   file.managed:
     - source: salt://roles/freebsd-repo/repo/files/Makefile
+
+{% endfor %}
 
 #   -------------------------------------------------------------
 #   Signature tool
