@@ -8,6 +8,7 @@
 {% from "map.jinja" import dirs, packages with context %}
 
 {% set has_nginx = salt['node']['has_nginx']() %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------
 #   Software
@@ -25,6 +26,17 @@ letsencrypt_software:
   file.directory:
     - user: root
     - dir_mode: 711
+
+{% if has_selinux %}
+selinux_context_certbot_www:
+  selinux.fcontext_policy_present:
+    - name: /var/letsencrypt-auto
+    - sel_type: httpd_sys_content_t
+
+selinux_context_certbot_www_applied:
+  selinux.fcontext_policy_applied:
+    - name: /var/letsencrypt-auto
+{% endif %}
 
 {{ dirs.etc }}/letsencrypt/cli.ini:
   file.managed:
