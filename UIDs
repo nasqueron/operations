@@ -6,6 +6,7 @@
 835 opensearch
 3004 mediawiki
 6000 mailbox
+8000 web-admin
 9001 salt
 9002 deploy
 8900 zr LEGACY

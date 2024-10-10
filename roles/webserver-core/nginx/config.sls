@@ -20,6 +20,9 @@
 #     - nginx process (configured in nginx.conf)
 #     - back-end UNIX sockets like php-fpm sockets can be 660
 #     - more private folders can use 007 as umask
+#
+#   An user is created in that group to run tools needing access
+#   to those resources.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 webserver_core_group:
@@ -27,6 +30,12 @@ webserver_core_group:
     - name: web
     - gid: 9003
     - system: True
+
+webserver_core_user:
+  user.present:
+    - name: web-admin
+    - uid: 8000
+    - gid: 9003
 
 #   -------------------------------------------------------------
 #   Base configuration

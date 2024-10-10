@@ -56,6 +56,12 @@ prometheus_scrape_jobs:
       - service: "docker:all"
         port: 9323
 
+  php-fpm:
+   name: php-fpm
+   services_targets_list:
+      - service: "alkane"
+        port: 9253
+
   postfix:
     name: postfix
     services_targets:

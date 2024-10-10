@@ -23,6 +23,12 @@ nasqueron_services:
       - 172.27.27.4
       - 172.27.27.5
 
+  # Alkane
+  alkane:
+    - 172.27.27.3 # hervil for webmail clients
+    - 172.27.27.10 # web-001
+    - 172.27.27.35 # windriver
+
   # Databases
   db-A: 172.27.27.8
   db-B: 172.27.27.9
