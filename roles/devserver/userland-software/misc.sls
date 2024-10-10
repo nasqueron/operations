@@ -66,6 +66,7 @@ devserver_software_misc_ports:
   pkg.installed:
     - pkgs:
       - ccache
+      - modules2tuple
       - portmaster
       - portshaker
       - porttools
