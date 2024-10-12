@@ -27,5 +27,6 @@ fi
 #   Update through Salt the service if needed & restart php-fpm
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+rm -f /usr/local/etc/rc.d/php_fpm
 grep -q auto-generated /usr/local/etc/rc.d/php-fpm || salt-call state.apply roles/webserver-alkane/php/service
 /usr/local/etc/rc.d/php-fpm restart
