@@ -239,7 +239,7 @@ nodes:
           ipv6:
             address: 2001:41d0:303:d971::517e:c0de
             gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
-            prefix: 64
+            prefix: 56
           flags:
             - ipv4_ovh_failover
             - hello_ipv6_ovh
