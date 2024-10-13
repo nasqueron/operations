@@ -293,6 +293,11 @@ nodes:
       canonical_public_ipv4: 195.154.30.15
 
       interfaces:
+        private_network:
+          device: ix0
+          ipv4:
+            address: 10.91.207.15
+            netmask: 255.255.255.0
         igb0:
           device: igb0
           ipv4:
