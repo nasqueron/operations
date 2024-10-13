@@ -133,7 +133,6 @@ nginx_vhosts:
   dereckson.be:
     - assets
     - hg
-    - mediawiki
     - www
 
   espace-win.org:
