@@ -306,7 +306,7 @@ nodes:
             gateway: 195.154.30.1
           ipv6:
             address: 2001:bc8:2e84:700::da7a:7001
-            gateway: fe80::2616:9dff:fe9c:c521
+            gateway: fe80::a293:51ff:feb7:55ef
             prefix: 56
           flags:
             - ipv6_dhcp_duid
