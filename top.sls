@@ -31,7 +31,6 @@ base:
     - roles/saas-nextcloud
     - roles/webserver-alkane
     - roles/webserver-core
-    - roles/webserver-legacy
   'cloudhugger':
     - roles/opensearch
   'db-A-001':

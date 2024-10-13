@@ -274,11 +274,17 @@ nodes:
     forest: nasqueron-dev
     hostname: windriver.nasqueron.org
     roles:
+      - builder
       - devserver
       - dbserver-mysql
+      - dbserver-pgsql
+      - grafana
+      - netbox
+      - prometheus
+      - redis
+      - saas-nextcloud
       - webserver-alkane
       - webserver-alkane-dev
-      - webserver-legacy
     zfs:
       pool: arcology
     network:
