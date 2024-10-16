@@ -30,12 +30,10 @@ notifications_dependencies:
 #   Configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# TODO: switch group to nasquenautes when deployed on devservers
-
 /usr/local/etc/notifications.conf:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/notifications.conf
-    - group: wheel
+    - group: nasquenautes
     - mode: 640
     - template: jinja
     - context:
