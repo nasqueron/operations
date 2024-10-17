@@ -16,3 +16,4 @@ include:
   - .portsnap
   - .python3
   - .old-directories
+  - .tmux
