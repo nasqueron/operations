@@ -53,8 +53,6 @@ utilities:
       - sockstat
       - sysvbanner
       - toilet-fonts
-      {% else %}
-      - woof
       {% endif %}
       {% if grains['os'] == 'FreeBSD' %}
       - bind-tools
@@ -62,6 +60,7 @@ utilities:
       - figlet-fonts
       - gsed
       - sudo
+      - wurf
       {% endif %}
 
 utilities_www:
@@ -70,17 +69,6 @@ utilities_www:
       - links
       - lynx
       - w3m
-
-{% if grains['os_family'] == 'Debian' %}
-{% set network = salt["node.resolve_network"]() %}
-{{ dirs.bin }}/woof:
-  file.managed:
-    - source: salt://roles/shellserver/userland-software/files/woof.py.jinja
-    - mode: 755
-    - template: jinja
-    - context:
-        ip: {{ network["ipv4_address"] }}
-{% endif %}
 
 #   -------------------------------------------------------------
 #   More exotic shells
