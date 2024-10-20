@@ -45,6 +45,7 @@ php_software:
       - {{ packages_prefixes.php }}dom
       - {{ packages_prefixes.php }}fileinfo
       - {{ packages_prefixes.php }}filter
+      - {{ packages_prefixes.php }}gettext
       - {{ packages_prefixes.php }}iconv
       - {{ packages_prefixes.php }}mysqli
       - {{ packages_prefixes.php }}pcntl
