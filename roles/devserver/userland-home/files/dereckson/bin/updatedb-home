@@ -15,7 +15,9 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-export SEARCHPATHS=$HOME
-export FCODES=$HOME/.cache/locatedb
+USER=dereckson
+
+export SEARCHPATHS="$HOME /var/home-wwwroot/$USER /datacube/docs/$USER"
+export FCODES="$HOME/.cache/locatedb"
 
 /usr/libexec/locate.updatedb
