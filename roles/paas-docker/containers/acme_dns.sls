@@ -70,3 +70,14 @@ selinux_context_acme_dns_data_applied:
       - 127.0.0.1:{{ container['app_port'] }}:80
 
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   Troubleshoot
+#
+#   Database uses sqlite3.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+acme_dns_host_software:
+  pkg.installed:
+    - pkgs:
+      - sqlite
