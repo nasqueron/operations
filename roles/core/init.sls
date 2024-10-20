@@ -15,6 +15,7 @@ include:
   - .monitoring
   - .motd
   - .ntp
+  - .pf
   - .src
   - .rsyslog
   - .salt
