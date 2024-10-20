@@ -16,7 +16,7 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-for d in /etc/opendkim/keys/*
+for d in /usr/local/etc/opendkim/keys/*
 do
 	DOMAIN=$(basename "$d")
 

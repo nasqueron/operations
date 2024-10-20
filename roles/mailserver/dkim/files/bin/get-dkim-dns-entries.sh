@@ -24,7 +24,7 @@ then
 fi
 
 DOMAIN=$1
-DIR=/etc/opendkim/keys/$DOMAIN
+DIR=/usr/local/etc/opendkim/keys/$DOMAIN
 
 if [ ! -d "$DIR" ]
 then
