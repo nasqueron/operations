@@ -7,7 +7,7 @@
 
 {% set db = pillar["vimbadmin_config"]["db"] %}
 {% set securityCredentials = pillar["vimbadmin_config"]["security"] %}
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import packages_prefixes with context %}
 
 mailbox:
   group.present:
