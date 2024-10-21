@@ -7,5 +7,6 @@
 
 include:
   - .dovecot
+  - .dkim
   - .postfix
   - .vimbadmin

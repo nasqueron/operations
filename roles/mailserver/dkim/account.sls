@@ -5,7 +5,14 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .account
-  - .config
+#   -------------------------------------------------------------
+#   OpenDKIM user account
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+opendkim:
+  group.present:
+    - gid: 836
+  user.present:
+    - uid: 836
+    - gid: 836
+    - home: /var/run/milteropendkim
