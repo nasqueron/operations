@@ -121,3 +121,14 @@ smtpd_recipient_restrictions =
         check_policy_service unix:private/policy-spf
 
 smtpd_relay_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination reject_rbl_client zen.spamhaus.org, reject_rbl_client bl.spamcop.net, reject_rbl_client cbl.abuseat.org
+
+#   -------------------------------------------------------------
+#   Milter
+#
+#   :: DKIM
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+milter_default_action = accept
+milter_protocol = 6
+smtpd_milters = unix:/var/run/milteropendkim/opendkim.sock
+non_smtpd_milters = unix:/var/run/milteropendkim/opendkim.sock
