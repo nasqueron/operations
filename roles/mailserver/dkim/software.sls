@@ -38,3 +38,11 @@ opendkim_software:
     - source: salt://roles/mailserver/dkim/files/bin/{{ source }}
     - mode: 755
 {% endfor %}
+
+/usr/local/bin/add-dkim-domain:
+  file.managed:
+    - source: salt://roles/mailserver/dkim/files/bin/add-dkim-domain.sh
+    - mode: 755
+    - template: jinja
+    - context:
+        dirs: {{ dirs }}
