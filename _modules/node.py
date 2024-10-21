@@ -291,6 +291,7 @@ def resolve_network():
     """
     network = {
         "ipv4_address": "",
+        "public_ipv4_interface": "",
         "ipv4_gateway": "",
     }
     private_network = network.copy()
@@ -307,6 +308,7 @@ def resolve_network():
             target = private_network
         else:
             target = network
+            target["public_ipv4_interface"] = interface_name
 
         if target["ipv4_address"] != "":
             continue
