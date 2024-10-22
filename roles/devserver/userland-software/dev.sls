@@ -20,6 +20,17 @@ devserver_software_dev_c:
       - doxygen
       - {{ packages.librabbitmq }}
 
+      {% if grains["os_family"] == "FreeBSD" %}
+      - gcc14
+      {% endif %}
+
+{% if grains["os_family"] == "FreeBSD" %}
+/usr/local/bin/gcc:
+  file.symlink:
+    - target: /usr/local/bin/gcc14
+{% endif %}
+
+
 #   -------------------------------------------------------------
 #   Haskell
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
