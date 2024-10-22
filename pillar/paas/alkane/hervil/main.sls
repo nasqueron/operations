@@ -19,6 +19,7 @@ web_domains:
 nginx_vhosts:
   nasqueron.org:
     - admin.mail
+    - mail
 
 php_fpm_instances:
   # PHP current version, generally installed as package/port
@@ -34,3 +35,10 @@ web_php_sites:
     php-fpm: prod
     env:
       APPLICATION_ENV: production
+
+  mail.nasqueron.org:
+    domain: nasqueron.org
+    subdomain: mail
+    user: web-org-nasqueron-mail
+    uid: 12000
+    php-fpm: prod
