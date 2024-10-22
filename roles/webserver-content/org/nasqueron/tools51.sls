@@ -16,3 +16,13 @@
     - template: jinja
     - context:
         path: /var/51-wwwroot/tools
+
+#   -------------------------------------------------------------
+#   Dependencies
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+tools51_dependencies:
+  pkg.installed:
+    - pkgs:
+      - jive
+      - valspeak
