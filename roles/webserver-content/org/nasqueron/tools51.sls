@@ -1,15 +1,18 @@
 #   -------------------------------------------------------------
-#   Salt — Sites to provision
+#   Salt — Provision tools51.nasqueron.org website
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
-#   States
-#
-#   Sites with states documenting how to build them
+#   Read Git revision
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-web_content_sls:
-  - .org/nasqueron/tools51
+/var/run/web/tools51.nasqueron.org/.gitconfig:
+  file.managed:
+    - source: salt://roles/webserver-content/org/nasqueron/files/git-safe.conf
+    - user: web-org-nasqueron-tools51
+    - template: jinja
+    - context:
+        path: /var/51-wwwroot/tools
