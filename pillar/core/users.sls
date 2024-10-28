@@ -210,6 +210,13 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGDjGAJrUHKDTNnd6fpypm2A09lScdK6jAA4w5BRQZvx mobile
     uid: 2008
 
+  mous:
+    fullname: Moustapha Ait Salah
+    ssh_keys:
+     - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC3yPzly2A7D0C3bdA2wOwHMyV1JW1D974EfLWhucLAZvN8AiblIER/W5vO1er+6KMQOAeeuXfLs+mGNHBYYewjfQIcKI6puCrBUyschvDXLT2WJyB1wsgoXho8ilsQtTZeYNbxM7uoZUYl1N8FILk57ogVpoWZuhQAgf/Df2YbWSpW1mOOrD/WdHD/X4LCRN/BHJhBZ7YX9wQIIpdg3CO/eByJenxdXSDoa9znPwTG0F7/WNx+CKXRzqIxCUoo0sOLRZJBed4mXH4dboUDoxkJRlOjntyuHVZyFKdUmL8Youzi9EfHWR2/5egoGFXqnej+Jt7Spsp9hTIfYqIjPzGX+Sq2ArVXkmVDxaGfqbAv0CGHC3FatqZvz47pVGFrplOgbpTImCvlya2m3tDw2WdVUGfFLEe0DfUjfY/Qg8oQZOlfgsoaX6bc7A51mUfWASOxjwu9ZWXRKenSWKWbVY2XpwXRkO2RJMp+sk+upwveK0R79nJBludWV3xg9bZaVD8= mous@MacMous.local
+     - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPO/ZVBy9fso4CV5OK/RnKE4gimpZxkpHEi6gI7VUSfT mouspro@MacMous.local
+   uid: 2038
+
   pkuz:
     fullname: PK of UZ
     ssh_keys:

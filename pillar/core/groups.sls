@@ -49,6 +49,7 @@ shellgroups:
       - kazuya
       - khmerboy
       - kumkum
+      - mous
       - pkuz
       - rama
       - rashk0
@@ -83,6 +84,7 @@ shellgroups:
     members:
       - dereckson
       - dorianwinty
+      - mous
       - sandlayth
 
   ops:
@@ -117,6 +119,7 @@ shellgroups:
       - fauve
       - fluo
       - inidal
+      - mous
       - rama
       - sandlayth
       - xcombelle
