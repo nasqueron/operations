@@ -1,0 +1,11 @@
+#   -------------------------------------------------------------
+#   Templates to build repository files
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+templates:
+  service/rc:
+    variables:
+      - service
+
+aliases:
+  service: service/rc
