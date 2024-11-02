@@ -82,6 +82,7 @@ shellgroups:
     gid: 842
     description: Docker development
     members:
+      - aceppaluni
       - dereckson
       - dorianwinty
       - mous
