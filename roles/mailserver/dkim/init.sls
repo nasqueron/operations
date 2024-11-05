@@ -9,3 +9,4 @@ include:
   - .software
   - .account
   - .config
+  - .service

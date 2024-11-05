@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, services with context %}
 
 #   -------------------------------------------------------------
 #   OpenDKIM service
