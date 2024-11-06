@@ -16,6 +16,7 @@ devserver_software_misc_vcs:
       - fossil
       - subversion
       # Extra features
+      - gh
       - git-filter-repo
 
 devserver_software_misc_media:
