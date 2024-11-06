@@ -19,6 +19,8 @@
     - context:
         dirs: {{ dirs }}
         socket: /var/run/milteropendkim/opendkim.sock
+        user: opendkim
+        group: mail
 
 #   -------------------------------------------------------------
 #   OpenDKIM configuration tables
