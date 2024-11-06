@@ -89,8 +89,8 @@ unknown_local_recipient_reject_code = 550
 smtp_tls_CApath = {{ postfix_dirs.cacerts }}
 
 smtpd_tls_security_level=may
-smtpd_tls_cert_file=/usr/local/etc/letsencrypt/live/mail.nasqueron.org/fullchain.pem
-smtpd_tls_key_file=/usr/local/etc/letsencrypt/live/mail.nasqueron.org/privkey.pem
+smtpd_tls_cert_file=/var/certificates/mail.nasqueron.org/fullchain.pem
+smtpd_tls_key_file=/var/certificates/mail.nasqueron.org/key.pem
 
 smtpd_tls_mandatory_ciphers = high
 smtpd_tls_mandatory_exclude_ciphers = aNULL,MD5
