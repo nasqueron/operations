@@ -116,6 +116,9 @@ nginx_vhosts:
     - www51
     - zed51
 
+  espace-win.org:
+    - grip
+
   nasqueron.org:
     - api51
     - grafana
