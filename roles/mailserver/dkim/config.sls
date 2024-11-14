@@ -18,7 +18,7 @@
     - template: jinja
     - context:
         dirs: {{ dirs }}
-        socket: /var/run/milteropendkim/opendkim.sock
+        socket: /var/run/opendkim/opendkim.sock
         user: opendkim
         group: mail
 

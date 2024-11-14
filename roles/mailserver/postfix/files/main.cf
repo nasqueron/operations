@@ -130,5 +130,5 @@ smtpd_relay_restrictions = permit_sasl_authenticated, permit_mynetworks, reject_
 
 milter_default_action = accept
 milter_protocol = 6
-smtpd_milters = unix:/var/run/milteropendkim/opendkim.sock
-non_smtpd_milters = unix:/var/run/milteropendkim/opendkim.sock
+smtpd_milters = unix:/var/run/opendkim/opendkim.sock
+non_smtpd_milters = unix:/var/run/opendkim/opendkim.sock

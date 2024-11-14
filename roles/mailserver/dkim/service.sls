@@ -14,13 +14,13 @@
 
 {% if services["manager"] == "rc" %}
 
-/etc/rc.conf.d/milter-opendkim:
+/etc/rc.conf.d/opendkim:
   file.managed:
-    - source: salt://roles/mailserver/dkim/files/rc/milteropendkim.conf
-    - template: jinja
-    - context:
-        user: opendkim
-        group: mail
-        config: {{ dirs.etc }}/opendkim/opendkim.conf
+    - source: salt://roles/mailserver/dkim/files/rc/opendkim.conf
+
+/usr/local/etc/rc.d/opendkim:
+  file.managed:
+    - source: salt://roles/mailserver/dkim/files/rc/opendkim
+    - mode: 775
 
 {% endif %}
