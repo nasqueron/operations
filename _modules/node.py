@@ -30,6 +30,10 @@ WITH_NGINX_ROLES = [
 ]
 
 
+# Should switch to CIDR notation if anything else than /8 /16 or /24.
+DRAKE_PREFIX = "172.27.27."
+
+
 def _get_all_nodes():
     return __pillar__.get("nodes", {})
 
@@ -305,6 +309,9 @@ def resolve_network():
 
         ipv4 = interface["ipv4"]["address"]
         if ipaddress.ip_address(ipv4).is_private:
+            if not ipv4.startswith(DRAKE_PREFIX):
+                continue
+
             target = private_network
         else:
             target = network
