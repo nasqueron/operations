@@ -11,10 +11,12 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if grains['os'] == 'FreeBSD' %}
-/usr/local/etc/pkg/repos/Nasqueron.conf:
+{% for repo in ["FreeBSD.conf", "Nasqueron.conf"] %}
+/usr/local/etc/pkg/repos/{{ repo }}:
   file.managed:
-    - source: salt://roles/core/userland-software/files/sources/Nasqueron.conf
+    - source: salt://roles/core/userland-software/files/sources/{{ repo }}
     - makedirs: True
+{% endfor %}
 
 git:
   pkg.installed
