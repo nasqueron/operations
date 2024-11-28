@@ -63,9 +63,7 @@ docker_containers:
       image_flavour: php
       realm: ci
 
-    zenerre:
-      <<: *php_for_ci
-      version: 7.4.23
+    zenerre: *php_for_ci
 
   tommy:
     tommy_cd:
