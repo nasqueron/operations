@@ -60,6 +60,7 @@ ports:
         - VDPAU
         - VORBIS
         - VPX
+        - WEBP
         - "X264"
         - "X265"
         - XCB
@@ -125,7 +126,6 @@ ports:
         - VMAF
         - VO_AMRWBENC
         - WAVPACK
-        - WEBP
         - XVIDEO
         - ZIMG
         - ZMQ
