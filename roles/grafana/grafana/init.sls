@@ -49,6 +49,14 @@ ensure_grafana_user_is_in_group_web:
 #   Plugins access by nginx
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+/var/db/grafana:
+  file.directory:
+    - user: grafana
+
+#   -------------------------------------------------------------
+#   Plugins access by nginx
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 /var/lib/grafana:
   file.directory:
     - mode: 0751
