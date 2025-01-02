@@ -1,0 +1,56 @@
+{
+  "cluster.mailers": [
+    {
+      "key": "nasqueron-mailgun",
+      "type": "mailgun",
+      "options": {
+        "domain": "{{ mailgun.domain }}",
+        "api-key": "{{ mailgun["api-key"] }}"
+      }
+    }
+  ],
+
+  "config.ignore-issues": [],
+
+  "diffusion.ssh-port": 5022,
+  "diffusion.ssh-user": "vcs",
+
+  "feed.http-hooks": [
+    "https://notifications.nasqueron.org/gate/Phabricator/Nasqueron"
+  ],
+
+  "metamta.reply-handler-domain": "devcentral.nasqueron.org",
+  "metamta.default-address": "notifications-noreply@devcentral.nasqueron.org",
+
+  "mysql.host": "{{ db.host }}",
+  "mysql.user": "{{ db.username }}",
+  "mysql.pass": "{{ db.password }}",
+
+  "notification.servers": [
+    {
+      "type": "client",
+      "host": "devcentral.nasqueron.org",
+      "port": 443,
+      "protocol": "https",
+      "path": "/ws/"
+    },
+    {
+      "type": "admin",
+      "host": "aphlict.nasqueron.org",
+      "port": 22281,
+      "protocol": "http"
+    }
+  ],
+
+  "phabricator.show-prototypes": true,
+  "phabricator.base-uri": "https://devcentral.nasqueron.org/",
+
+  "phd.user": "app",
+
+  "pygments.enabled": true,
+
+  "storage.default-namespace": "devcentral",
+
+  "security.alternate-file-domain": "https://devcentral.nasqueron-user-content.org"
+
+}

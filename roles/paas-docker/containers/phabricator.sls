@@ -21,6 +21,23 @@
     - group: 433
     - makedirs: True
 
+{% if "config_managed" in container %}
+
+/srv/phabricator/{{ instance }}/conf/local/local.json:
+  file.managed:
+    - source: salt://roles/paas-docker/containers/files/phabricator/devcentral/config.json.jinja
+    - template: jinja
+    - context:
+      mailgun:
+        domain: devcentral.nasqueron.org
+        api-key: "{{ salt["credentials.get_password"](container["credentials"]["mailgun"]) }}"
+      db:
+        host: "mysql"
+        username: "{{ salt["credentials.get_username"](container["credentials"]["mysql"]) }}"
+        password: "{{ salt["credentials.get_password"](container["credentials"]["mysql"]) }}"
+
+{% endif %}
+
 {% if has_selinux %}
 selinux_context_{{ instance }}_data:
   selinux.fcontext_policy_present:

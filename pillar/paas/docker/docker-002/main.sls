@@ -146,11 +146,13 @@ docker_containers:
             - serveurs.nasqueron.org
       mailer: mailgun
       credentials:
-        mysql: zed/phabricator/mysql
+        mysql: nasqueron/devcentral/mysql
+        mailgun: nasqueron/devcentral/mailgun
       static_host: devcentral.nasqueron-user-content.org
       title: Nasqueron DevCentral
       mysql_link: acquisitariat
       skip_container: True
+      config_managed: True
 
     # Private instance for Dereckson
     river_sector:

@@ -147,6 +147,9 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/cachet/app_key
     - ops/secrets/nasqueron/cachet/mysql
 
+    - ops/secrets/nasqueron/devcentral/mailgun
+    - ops/secrets/nasqueron/devcentral/mysql
+
     - ops/secrets/nasqueron/etherpad/api
     - ops/secrets/nasqueron/etherpad/mysql
     - ops/secrets/nasqueron/etherpad/users/dereckson
