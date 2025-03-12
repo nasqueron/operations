@@ -5,6 +5,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import dirs with context %}
+
 acme.sh:
   pkg.installed
 
@@ -27,3 +29,8 @@ acmesh_newsyslog_run:
   file.managed:
     - source: salt://roles/core/certificates/files/acmesh/acme.sh.cron
     - makedirs: True
+
+{{ dirs.bin }}/acmesh-nginxCheck:
+  file.managed:
+    - source: salt://roles/core/certificates/files/acmesh-nginxCheck.sh
+    - mode: 755

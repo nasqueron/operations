@@ -21,9 +21,18 @@ sudo:
 #   Sudo capabilities
 #
 #   Ops should be able to sudo …
+#   Acmesh should be able to sudo acmesh-nginxCheck
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {{ dirs.etc }}/sudoers.d/ops:
   file.managed:
     - source: salt://roles/core/sudo/files/ops
     - makedirs: True
+
+{{ dirs.etc }}/sudoers.d/acme:
+  file.managed:
+    - source: salt://roles/core/sudo/files/acme
+    - template: jinja
+    - makedirs: True
+    - context:
+        dirs: {{ dirs }}
