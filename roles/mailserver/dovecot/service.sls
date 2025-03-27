@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .config
-  - .service
+dovecot_running:
+  service.running:
+    - name: dovecot
+    - enable: True

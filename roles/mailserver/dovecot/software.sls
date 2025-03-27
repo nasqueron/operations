@@ -5,7 +5,5 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .config
-  - .service
+dovecot:
+  pkg.installed
