@@ -46,24 +46,3 @@ ssl_prefer_server_ciphers off;
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 add_header Strict-Transport-Security "max-age=63072000" always;
-
-#   -------------------------------------------------------------
-#   OCSP - Online Certificate Status Protocol
-#
-#   To improve TLS handshake speed, and to help protecting the
-#   privacy of the users connecting here, as there isn't any need
-#   for them to connect to the CRL anymore, OSCP is enabled.
-#
-#   The parameter `ssl_trusted_certificate` points to a bundle
-#   of CA certificates, currently containing Let's Encrypt
-#   intermediate and root certificates. If *any* certificate
-#   is issued by another CA, their certificates must be added
-#   to the bundle too.
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-ssl_stapling on;
-ssl_stapling_verify on;
-
-ssl_trusted_certificate /usr/local/share/certs/ocsp-ca-certs.pem;
-
-resolver 127.0.0.1;

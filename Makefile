@@ -31,18 +31,13 @@ test:
 #   Build targets - repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-repo: roles/webserver-core/nginx/files/ocsp-ca-certs.pem \
-	.git/hooks/pre-commit
-
-roles/webserver-core/nginx/files/ocsp-ca-certs.pem:
-	utils/generate-ocsp-bundle.sh > roles/webserver-core/nginx/files/ocsp-ca-certs.pem
+repo: .git/hooks/pre-commit
 
 .git/hooks/pre-commit:
 	pre-commit install
 
 clean-repo:
 	${RM} .git/hooks/pre-commit
-	${RM} roles/webserver-core/nginx/files/ocsp-ca-certs.pem
 
 #   -------------------------------------------------------------
 #   Build targets - API

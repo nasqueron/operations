@@ -82,22 +82,6 @@ webserver_core_nginx_dh:
     - creates: {{ dirs.etc }}/nginx/dhparams.pem
 
 #   -------------------------------------------------------------
-#   OCSP - Online Certificate Status Protocol
-#
-#   To allow nginx to verify TLS certificate presented by CA
-#   when it makes requests to the CRL, a bundle of CA certificates
-#   should be available.
-#
-#   To generate the bundle file on this repository, use `make`.
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-/usr/local/share/certs/ocsp-ca-certs.pem:
-  file.managed:
-    - source: salt://roles/webserver-core/nginx/files/ocsp-ca-certs.pem
-    - makedirs: True
-    - mode: 644
-
-#   -------------------------------------------------------------
 #   Logs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
