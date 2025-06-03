@@ -108,6 +108,10 @@ freebsd_kernel_modules_enable:
     - persist: True
     - watch:
         - pkg: freebsd_kernel_modules
+
+/boot/loader.conf.d/pefs.conf:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/pefs.conf
 {% endif %}
 
 devserver_software_misc_p2p:
