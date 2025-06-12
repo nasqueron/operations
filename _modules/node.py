@@ -263,6 +263,21 @@ def get_ipv6_list():
     return " ".join(["[" + ip + "]" for ip in ipv6])
 
 
+def get_public_ipv6():
+    """
+    A function to get a list of public IPv6.
+
+    Returns a list depending on the IPv6 currently assigned.
+
+    CLI Example:
+
+        salt * node.get_public_ipv6
+    """
+    ipv6 = __grains__.get("ipv6")
+
+    return [ip for ip in ipv6 if ip.startswith("2001")]
+
+
 def get_all_ips():
     """
     A function to get a list of IPv4, not enclosed,
