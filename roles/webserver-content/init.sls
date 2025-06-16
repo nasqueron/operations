@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 include:
-  {% for state in pillar["web_content_sls"] %}
+  {% for state in pillar.get("web_content_sls", []) %}
   - {{ state }}
   {% endfor %}
 
