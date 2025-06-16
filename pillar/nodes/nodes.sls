@@ -98,6 +98,34 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
+  dns-001:
+    forest: nasqueron-infra
+    hostname: dns-001.nasqueron.org
+    roles:
+      - dns
+    zfs:
+      pool: arcology
+    network:
+      interfaces:
+        public:
+          device: vmx0
+          ipv4:
+            address: 178.32.70.109
+            netmask: 255.255.255.255
+          ipv6:
+            address: 2001:41d0:303:d971::1057:da7a
+            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
+            prefix: 56
+          flags:
+            - hello_ipv6_ovh
+
+        intranought:
+          device: vmx1
+          ipv4:
+            address: 172.27.27.2
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
   dwellers:
     forest: nasqueron-dev-docker
     hostname: dwellers.nasqueron.org
