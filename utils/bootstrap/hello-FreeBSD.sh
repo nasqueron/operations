@@ -50,7 +50,7 @@ echo ""
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 pkg update && pkg upgrade
-pkg install git tmux nano py311-salt
+pkg install git tmux nano py311-salt py311-cryptography
 
 #   -------------------------------------------------------------
 #   Minimal salt configuration for this node
