@@ -49,6 +49,7 @@ log_bin
 log_basename = {{ nodename }}
 binlog_cache_size = 1M
 max_binlog_size = 1000M
+binlog_expire_logs_seconds = 1209600  # 14 days
 binlog_format = MIXED
 
 #   -------------------------------------------------------------
