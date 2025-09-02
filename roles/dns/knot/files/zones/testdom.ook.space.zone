@@ -1,0 +1,17 @@
+testdom.ook.space.	300	IN	SOA	{{ identity }}. ops-dns.windriver.nasqueron.org. (
+					2025083001	;serial
+					10800		;refresh
+					1800		;retry
+					604800		;expire
+					86400	)	;minimum
+
+@	IN	NS	{{ identity }}.
+@	IN	NS	ns1.he.net.
+@	IN	NS	ns2.he.net.
+@	IN	NS	ns3.he.net.
+@	IN	NS	ns4.he.net.
+@	IN	NS	ns5.he.net.
+
+test1.testdom.ook.space.	IN	A	195.154.30.15
+test2.testdom.ook.space.	IN	A	195.154.30.15
+test3.testdom.ook.space.	IN	A	195.154.30.15
