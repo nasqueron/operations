@@ -306,6 +306,7 @@ nodes:
       - devserver
       - dbserver-mysql
       - dbserver-pgsql
+      - dns
       - grafana
       - netbox
       - prometheus

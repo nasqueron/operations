@@ -25,6 +25,7 @@ base:
     - roles/dbserver-mysql
     - roles/dbserver-pgsql
     - roles/devserver
+    - roles/dns
     - roles/freebsd-repo # depends of devserver/datacube, builder
     - roles/grafana
     - roles/prometheus
@@ -38,6 +39,8 @@ base:
     - roles/dbserver-pgsql
   'db-B-001':
     - roles/dbserver-mysql
+  'dns-001':
+    - roles/dns
   'docker-002':
     - roles/paas-docker
   'dwellers':

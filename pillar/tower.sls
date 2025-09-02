@@ -9,6 +9,7 @@
 #   -------------------------------------------------------------
 
 base:
+  - dns/{{ minion_id }}/*.sls
   - paas/alkane/{{ minion_id }}/*.sls
   - paas/docker/{{ minion_id }}/*.sls
 
