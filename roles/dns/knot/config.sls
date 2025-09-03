@@ -8,6 +8,24 @@
 {% from "map.jinja" import dirs with context %}
 
 #   -------------------------------------------------------------
+#   FreeBSD configuration
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/etc/sysctl.d/knot.conf:
+  file.managed:
+    - source: salt://roles/dns/knot/files/sysctl
+    - user: root
+    - group: wheel
+    - mode: 644
+    - makedirs: True
+
+knot_reload_sysctl:
+  cmd.run:
+    - name: sysctl -f /etc/sysctl.d/knot.conf
+    - onchanges:
+      - file: /etc/sysctl.d/knot.conf
+
+#   -------------------------------------------------------------
 #   KnotDNS main configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
