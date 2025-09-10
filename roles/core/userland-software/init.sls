@@ -9,3 +9,4 @@
 include:
   - .sources
   - .base
+  - .starship
