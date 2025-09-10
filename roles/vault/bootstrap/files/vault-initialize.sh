@@ -47,18 +47,19 @@ vault write auth/token/roles/admin allowed_policies=admin period=30d
 
 CA_ROOT_NAME=root
 CA_ROOT_PATH=$PREFIX_PKI$CA_ROOT_NAME
+ROOT_ISSUER_REF=$(date "+root-%Y")
 
 vault secrets enable -path=$CA_ROOT_PATH pki
 vault secrets tune -max-lease-ttl=87600h
 
 vault write -field=certificate $CA_ROOT_PATH/root/generate/internal \
     common_name=$DOMAIN \
+    issuer_name="$ROOT_ISSUER_REF" \
     ttl=87600h > $CERTS_PATH/nasqueron-vault-ca.crt
 
 vault write $CA_ROOT_PATH/config/urls \
     issuing_certificates="$PUBLIC_URL/$CA_ROOT_NAME/ca" \
     crl_distribution_points="$PUBLIC_URL/$CA_ROOT_NAME/crl"
-
 
 #   -------------------------------------------------------------
 #   PKI :: intermediate CA for Vault own certificates
@@ -75,20 +76,25 @@ vault secrets tune -max-lease-ttl=2160h "$CA_VAULT"
 CSR=$(mktemp /tmp/csr.XXXX)
 vault write -format=json $CA_VAULT_PATH/intermediate/generate/internal \
     common_name="$DOMAIN Intermediate Authority" \
+    issuer_name="drake-nasqueron-intermediate" \
     | jq -r '.data.csr' > "$CSR"
+
 vault write -format=json $CA_ROOT_PATH/root/sign-intermediate csr=@"$CSR" \
-    format=pem_bundle ttl="2160h" \
+    issuer_ref="$ROOT_ISSUER_REF" \
+    format=pem_bundle ttl="8760h" \
     | jq -r '.data.certificate' > $CERTS_PATH/nasqueron-vault-intermediate.crt
 rm "$CSR"
 
-vault write $CA_VAULT_PATH/intermediate/set-signed \
-    certificate=@$CERTS_PATH/nasqueron-vault-intermediate.crt
+ISSUER=$(vault write -format=json $CA_VAULT_PATH/intermediate/set-signed \
+    certificate=@$CERTS_PATH/nasqueron-vault-intermediate.crt \
+    | jq -r '.data.imported_issuers[0]')
 
 vault write $CA_VAULT_PATH/config/urls \
     issuing_certificates="$PUBLIC_URL/$CA_VAULT_NAME/ca" \
     crl_distribution_points="$PUBLIC_URL/$CA_VAULT_NAME/crl"
 
 vault write $CA_VAULT_PATH/roles/nasqueron-drake \
+    issuer_ref="$ISSUER" \
     allowed_domains="nasqueron.drake" \
     allow_subdomains=true \
     max_ttl="2160h"
