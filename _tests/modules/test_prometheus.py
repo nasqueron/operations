@@ -23,7 +23,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             "port": "9090",
         }
 
-        self.assertEquals("emerald:9090", prometheus._resolve_service(service))
+        self.assertEqual("emerald:9090", prometheus._resolve_service(service))
 
     def test_resolve_service_list(self):
         service = {
@@ -37,13 +37,13 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             "ultramarine:9090",
         ]
 
-        self.assertEquals(expected, prometheus._resolve_service_list(service))
+        self.assertEqual(expected, prometheus._resolve_service_list(service))
 
     def test_get_scrape_configs(self):
         expected = self.import_data_from_yaml("data/prometheus_scrape_configs.yml")
         actual = prometheus.get_scrape_configs()
 
-        self.assertEquals(expected, actual)
+        self.assertEqual(expected, actual)
 
 
 if __name__ == "__main__":
