@@ -81,6 +81,14 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             expected, docker.format_env_list(expression, assign_op=": ", separator="; ")
         )
 
+    def test_is_nginx_service(self):
+        full_service = self.pillar["docker_containers"]["web_service"]
+        self.assertTrue(docker.is_nginx_service(full_service))
+
+    def test_is_nginx_service_when_its_not(self):
+        full_service = self.pillar["docker_containers"]["non_web_service"]
+        self.assertFalse(docker.is_nginx_service(full_service))
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,3 +11,13 @@ docker_images:
 
   - bar
   - quux
+
+docker_containers:
+  web_service:
+    foo:
+      host: foo.domain.tld
+      app_port: 10000
+
+  non_web_service:
+    bar:
+      network: ci

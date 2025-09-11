@@ -30,7 +30,19 @@
          ipv4: {{ grains['ipv4'] | join(" ") }}
          ipv6: "{{ salt['node.get_ipv6_list']() }}"
 
+/var/log/www/_server:
+  file.directory:
+    - user: nginx
+    - group: root
+
 {% for service, instances in containers.items() %}
+
+{% if salt["paas_docker"]["is_nginx_service"](instances) %}
+/var/log/www/{{ service }}:
+  file.directory:
+    - user: nginx
+    - group: root
+
 {% for instance, container in instances.items() %}
 {% if 'host' in container %}
 
@@ -43,6 +55,8 @@
     - makedirs: True
     - template: jinja
     - context:
+        service: {{ service }}
+        instance: {{ instance }}
         fqdn: {{ container['host'] }}
         app_port: {{ container['app_port'] }}
         aliases: {{ container['aliases'] | default('', true) | join(" ") }}
@@ -52,4 +66,5 @@
 
 {% endif %}
 {% endfor %}
+{% endif %}
 {% endfor %}

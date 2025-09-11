@@ -119,6 +119,10 @@ def resolve_vhost_config_file(service, dir="roles/paas-docker/nginx/files/vhosts
     return f"{dir}/_default.conf"
 
 
+def is_nginx_service(full_service):
+    return any(["host" in container for _, container in full_service.items()])
+
+
 #   -------------------------------------------------------------
 #   Monitoring
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
