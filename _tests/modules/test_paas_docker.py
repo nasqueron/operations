@@ -71,6 +71,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         expected = ["172.17.0.0/16"]
 
         self.grains["id"] = "voidserver"
+        self.pillar["docker_networks"] = {}
         self.assertEqual(expected, docker.get_subnets())
 
     def test_format_env_list(self):

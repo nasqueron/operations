@@ -1,10 +1,8 @@
 docker_networks:
-  egladil:
-    cd:
-      subnet: 172.18.1.0/24
-    ci:
-      subnet: 172.18.2.0/24
-  voidserver: {}
+  cd:
+    subnet: 172.18.1.0/24
+  ci:
+    subnet: 172.18.2.0/24
 
 docker_images:
   # This duplicate allows to ensure uniqueness
