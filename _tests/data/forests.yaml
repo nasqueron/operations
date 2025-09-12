@@ -17,8 +17,8 @@ nodes:
             gateway: 1.2.3.254
         net02:
           ipv4:
-            address: 10.100.0.4 #private
-            gateway: 10.100.0.1
+            address: 172.27.27.4 #private
+            gateway: 172.27.27.1
 
   entwash:
     forest: fangorn
@@ -29,8 +29,8 @@ nodes:
       interfaces:
         net02:
           ipv4:
-            address: 10.100.0.5 #private
-            gateway: 10.100.0.1
+            address: 172.27.27.5 #private
+            gateway: 172.27.27.1
 
 items_by_role:
   treecity:

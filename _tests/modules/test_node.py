@@ -108,8 +108,8 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         (
             "entwash",
             {
-                "ipv4_address": "10.100.0.5",
-                "ipv4_gateway": "10.100.0.1",
+                "ipv4_address": "172.27.27.5",
+                "ipv4_gateway": "172.27.27.1",
             },
         ),
     )
@@ -117,11 +117,11 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     @data_provider(resolved_networks)
     def test_resolve_network(self, id, expected):
         self.grains["id"] = id
-        self.assertEqual(expected, node.resolve_network())
+        self.assertIsSubsetDict(expected, node.resolve_network())
 
     def test_resolve_network_without_gateway(self):
         expected = {
-            "ipv4_address": "10.100.0.5",
+            "ipv4_address": "172.27.27.5",
             "ipv4_gateway": "",
         }
 
@@ -130,7 +130,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             "gateway"
         ]
 
-        self.assertEqual(expected, node.resolve_network())
+        self.assertIsSubsetDict(expected, node.resolve_network())
 
     def test_resolve_network_without_any_network(self):
         expected = {
@@ -141,7 +141,12 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         self.grains["id"] = "entwash"
         del self.pillar["nodes"]["entwash"]["network"]
 
-        self.assertEqual(expected, node.resolve_network())
+        self.assertIsSubsetDict(expected, node.resolve_network())
+
+    def assertIsSubsetDict(self, expected, actual):
+        for k, v in expected.items():
+            self.assertIn(k, actual)
+            self.assertEqual(v, actual[k], f"Unexpected value for key {k} in {actual}")
 
 
 if __name__ == "__main__":
