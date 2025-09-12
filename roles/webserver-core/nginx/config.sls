@@ -94,12 +94,13 @@ webserver_core_nginx_dh:
 {% if has_selinux %}
 selinux_context_nginx_logs:
   selinux.fcontext_policy_present:
-    - name: /var/log/www
+    - name: "/var/log/www(/.*)?"
     - sel_type: httpd_log_t
 
 selinux_context_nginx_logs_applied:
   selinux.fcontext_policy_applied:
     - name: /var/log/www
+    - recursive: True
 {% endif %}
 
 #   -------------------------------------------------------------
