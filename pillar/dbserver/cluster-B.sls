@@ -49,6 +49,16 @@ dbserver_mysql:
             # Tabled managed as datacube by Dæghrefn
             - lyrics_sneakers
 
+    rhyne-wyse:
+      password: dbserver/cluster-B/users/rhyne-wyse
+      host: *windriver
+      privileges:
+        - database: nasqueron_wiki
+          scope: table
+          privileges: SELECT
+          tables:
+            - page
+
     saas-mediawiki:
       password: dbserver/cluster-B/users/saas-mediawiki
       host: "%"
