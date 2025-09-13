@@ -31,6 +31,7 @@ base:
     - roles/netbox
     - roles/prometheus
     - roles/redis
+    - roles/reports # depends of builder
     - roles/saas-nextcloud
     - roles/webserver-alkane
     - roles/webserver-core
