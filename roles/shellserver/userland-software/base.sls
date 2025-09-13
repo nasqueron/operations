@@ -34,6 +34,7 @@ utilities:
   pkg.installed:
     - pkgs:
       - cmatrix
+      - datamash
       - figlet
       - glow
       - {{ packages.gpg }}
