@@ -14,6 +14,7 @@ include:
   - .docker
   - .containers
   - .systemd-unit
+  - .systemd-timers
   - .wwwroot-502
   - .wwwroot-content
   - .nginx
