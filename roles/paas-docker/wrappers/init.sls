@@ -12,7 +12,7 @@
 #   Wrapper binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for command in ['jenkins', 'phpbb', 'mysql', 'openfire', 'geoipupdate'] %}
+{% for command in ['jenkins', 'phpbb', 'mysql', 'openfire', 'geoipupdate', 'run-report'] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh

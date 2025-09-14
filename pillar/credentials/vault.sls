@@ -180,6 +180,8 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/erlang-cookie
     - ops/secrets/nasqueron/rabbitmq/white-rabbit/root
 
+    - ops/secrets/nasqueron/reports/acquisitariat
+
     - ops/secrets/nasqueron/sentry/app_key
     - ops/secrets/nasqueron/sentry/geoipupdate
     - ops/secrets/nasqueron/sentry/postgresql
