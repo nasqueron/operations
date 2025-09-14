@@ -3,9 +3,22 @@
     {
       "key": "nasqueron-mailgun",
       "type": "mailgun",
+      "priority": 5,
       "options": {
         "domain": "{{ mailgun.domain }}",
         "api-key": "{{ mailgun["api-key"] }}"
+      }
+    },
+    {
+      "key": "nasqueron-local",
+      "type": "smtp",
+      "priority": 10,
+      "options": {
+        "host": "{{ mail_local.host }}",
+        "port": {{ mail_local.port }},
+        "user": "{{ mail_local.username }}",
+        "password": "{{ mail_local.password }}",
+        "protocol": "tls"
       }
     }
   ],

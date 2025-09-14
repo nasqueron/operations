@@ -35,6 +35,11 @@
         host: "mysql"
         username: "{{ salt["credentials.get_username"](container["credentials"]["mysql"]) }}"
         password: "{{ salt["credentials.get_password"](container["credentials"]["mysql"]) }}"
+      mail_local:
+        host: mail.nasqueron.org
+        port: 587
+        username: "{{ salt["credentials.get_username"]("nasqueron/devcentral/mail_local") }}"
+        password: "{{ salt["credentials.get_password"]("nasqueron/devcentral/mail_local") }}"
 
 {% endif %}
 

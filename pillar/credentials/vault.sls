@@ -148,6 +148,7 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/cachet/mysql
 
     - ops/secrets/nasqueron/devcentral/mailgun
+    - ops/secrets/nasqueron/devcentral/mail_local
     - ops/secrets/nasqueron/devcentral/mysql
 
     - ops/secrets/nasqueron/etherpad/api
