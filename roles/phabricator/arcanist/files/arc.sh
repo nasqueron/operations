@@ -24,10 +24,10 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ -t 0 ]; then
-	# If a stdin entry is available
-	# launch the container in the
-	# interactive mode
-	FLAGS=-it
+    # If a stdin entry is available
+    # launch the container in the
+    # interactive mode
+    FLAGS=-it
 fi
 
 # Logs are default disabled
@@ -35,28 +35,28 @@ PRINT_LOG=0
 
 
 if [ "$1" = "shell" ]; then
-	# Launch commands
-	# in the container bash shell
-	shift
-	COMMAND=bash
+    # Launch commands
+    # in the container bash shell
+    shift
+    COMMAND=bash
 else
-	# Launch arc
-	mkdir -p ~/.arc
-	COMMAND=arc
+    # Launch arc
+    mkdir -p ~/.arc
+    COMMAND=arc
 
-	if [ "$1" = "call-conduit" ]; then
-		# Enable log printing
-		PRINT_LOG=1
-		# Set a random name for the container
-		INSTANCE="arc-"$(openssl rand -hex 21)
-		FLAGS="-i -a=stdin --name=$INSTANCE"
-	fi
+    if [ "$1" = "call-conduit" ]; then
+        # Enable log printing
+        PRINT_LOG=1
+        # Set a random name for the container
+        INSTANCE="arc-"$(openssl rand -hex 21)
+        FLAGS="-i -a=stdin --name=$INSTANCE"
+    fi
 fi
 
 if [ -d ~/.arc/ssh ]; then
-	VOLUME_SSH="-v $HOME/.arc/ssh:/root/.ssh"
+    VOLUME_SSH="-v $HOME/.arc/ssh:/root/.ssh"
 else
-	VOLUME_SSH=""
+    VOLUME_SSH=""
 fi
 
 #   -------------------------------------------------------------
@@ -64,10 +64,10 @@ fi
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ $PRINT_LOG -eq 0 ]; then
-	docker run "$FLAGS" --rm -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@"
+    docker run "$FLAGS" --rm -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@"
 else
-	docker run "$FLAGS" -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@" > /dev/null
-	sleep 3
-	docker logs "$INSTANCE"
-	docker rm "$INSTANCE" >/dev/null
+    docker run "$FLAGS" -v ~/.arc:/opt/config -v "$PWD":/opt/workspace "$VOLUME_SSH" nasqueron/arcanist $COMMAND "$@" > /dev/null
+    sleep 3
+    docker logs "$INSTANCE"
+    docker rm "$INSTANCE" >/dev/null
 fi

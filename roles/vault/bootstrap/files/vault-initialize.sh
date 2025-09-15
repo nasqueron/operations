@@ -52,12 +52,12 @@ vault secrets enable -path=$CA_ROOT_PATH pki
 vault secrets tune -max-lease-ttl=87600h
 
 vault write -field=certificate $CA_ROOT_PATH/root/generate/internal \
-  common_name=$DOMAIN \
-  ttl=87600h > $CERTS_PATH/nasqueron-vault-ca.crt
+    common_name=$DOMAIN \
+    ttl=87600h > $CERTS_PATH/nasqueron-vault-ca.crt
 
 vault write $CA_ROOT_PATH/config/urls \
-  issuing_certificates="$PUBLIC_URL/$CA_ROOT_NAME/ca" \
-  crl_distribution_points="$PUBLIC_URL/$CA_ROOT_NAME/crl"
+    issuing_certificates="$PUBLIC_URL/$CA_ROOT_NAME/ca" \
+    crl_distribution_points="$PUBLIC_URL/$CA_ROOT_NAME/crl"
 
 
 #   -------------------------------------------------------------
@@ -74,24 +74,24 @@ vault secrets tune -max-lease-ttl=2160h "$CA_VAULT"
 
 CSR=$(mktemp /tmp/csr.XXXX)
 vault write -format=json $CA_VAULT_PATH/intermediate/generate/internal \
-  common_name="$DOMAIN Intermediate Authority" \
-  | jq -r '.data.csr' > "$CSR"
+    common_name="$DOMAIN Intermediate Authority" \
+    | jq -r '.data.csr' > "$CSR"
 vault write -format=json $CA_ROOT_PATH/root/sign-intermediate csr=@"$CSR" \
-  format=pem_bundle ttl="2160h" \
-  | jq -r '.data.certificate' > $CERTS_PATH/nasqueron-vault-intermediate.crt
+    format=pem_bundle ttl="2160h" \
+    | jq -r '.data.certificate' > $CERTS_PATH/nasqueron-vault-intermediate.crt
 rm "$CSR"
 
 vault write $CA_VAULT_PATH/intermediate/set-signed \
-  certificate=@$CERTS_PATH/nasqueron-vault-intermediate.crt
+    certificate=@$CERTS_PATH/nasqueron-vault-intermediate.crt
 
 vault write $CA_VAULT_PATH/config/urls \
-  issuing_certificates="$PUBLIC_URL/$CA_VAULT_NAME/ca" \
-  crl_distribution_points="$PUBLIC_URL/$CA_VAULT_NAME/crl"
+    issuing_certificates="$PUBLIC_URL/$CA_VAULT_NAME/ca" \
+    crl_distribution_points="$PUBLIC_URL/$CA_VAULT_NAME/crl"
 
 vault write $CA_VAULT_PATH/roles/nasqueron-drake \
-  allowed_domains="nasqueron.drake" \
-  allow_subdomains=true \
-  max_ttl="2160h"
+    allowed_domains="nasqueron.drake" \
+    allow_subdomains=true \
+    max_ttl="2160h"
 
 #   -------------------------------------------------------------
 #   Vault configuration artifacts
@@ -102,10 +102,10 @@ vault write $CA_VAULT_PATH/roles/nasqueron-drake \
 mkdir -p $VAULT_CERTS_PATH
 
 vault write -format=json $CA_VAULT_PATH/issue/nasqueron-drake \
-  common_name="complector.nasqueron.drake" ttl="2160h" \
-  ip_sans="127.0.0.1,172.27.27.7" | tee \
-  >(jq -r .data.certificate > $VAULT_CERTS_PATH/certificate.pem) \
-  >(jq -r .data.issuing_ca > $VAULT_CERTS_PATH/ca.pem) \
-  >(jq -r .data.private_key > $VAULT_CERTS_PATH/private.key)
+    common_name="complector.nasqueron.drake" ttl="2160h" \
+    ip_sans="127.0.0.1,172.27.27.7" | tee \
+    >(jq -r .data.certificate > $VAULT_CERTS_PATH/certificate.pem) \
+    >(jq -r .data.issuing_ca > $VAULT_CERTS_PATH/ca.pem) \
+    >(jq -r .data.private_key > $VAULT_CERTS_PATH/private.key)
 
 cat $VAULT_CERTS_PATH/certificate.pem $VAULT_CERTS_PATH/ca.pem > $VAULT_CERTS_PATH/fullchain.pem

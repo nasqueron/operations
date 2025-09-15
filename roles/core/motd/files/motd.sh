@@ -17,7 +17,7 @@
 #   </auto-generated>
 
 if [ -f /etc/motd ]; then
-	cat /etc/motd
+    cat /etc/motd
 else
-	echo "No MOTD."
+    echo "No MOTD."
 fi

@@ -54,9 +54,9 @@ PHABRICATOR_PROD_BRANCH=production
 
 docker-container-status $INSTANCE_NAME > /dev/null
 if [ "$?" -lt 2 ]; then
-	echo "Container is already running."
-	echo "To force relaunch, try docker stop $INSTANCE_NAME ; docker rm $INSTANCE_NAME ; $0"
-	exit 1
+    echo "Container is already running."
+    echo "To force relaunch, try docker stop $INSTANCE_NAME ; docker rm $INSTANCE_NAME ; $0"
+    exit 1
 fi
 
 #   -------------------------------------------------------------
@@ -64,19 +64,19 @@ fi
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 docker run -t -d \
-	--link $MYSQL_INSTANCE:mysql \
-	-v $DATA_DIRECTORY/repo:/var/repo \
-	-v $DATA_DIRECTORY/conf:/opt/phabricator/conf \
-	-p $PORT:80 \
+    --link $MYSQL_INSTANCE:mysql \
+    -v $DATA_DIRECTORY/repo:/var/repo \
+    -v $DATA_DIRECTORY/conf:/opt/phabricator/conf \
+    -p $PORT:80 \
         -p 5022:5022 \
-	-e PHABRICATOR_URL=$PHABRICATOR_URL \
-	-e PHABRICATOR_TITLE="$PHABRICATOR_TITLE" \
-	-e PHABRICATOR_ALT_FILE_DOMAIN="$PHABRICATOR_ALT_FILE_DOMAIN" \
-	-e PHABRICATOR_PROD_REPO=$PHABRICATOR_PROD_REPO \
-	-e PHABRICATOR_PROD_BRANCH=$PHABRICATOR_PROD_BRANCH \
-	-e PHABRICATOR_USE_MAILGUN=1 \
-	-e PHABRICATOR_DOMAIN=$DOMAIN \
-	--name $INSTANCE_NAME $IMAGE /usr/local/sbin/runsvdir-init
+    -e PHABRICATOR_URL=$PHABRICATOR_URL \
+    -e PHABRICATOR_TITLE="$PHABRICATOR_TITLE" \
+    -e PHABRICATOR_ALT_FILE_DOMAIN="$PHABRICATOR_ALT_FILE_DOMAIN" \
+    -e PHABRICATOR_PROD_REPO=$PHABRICATOR_PROD_REPO \
+    -e PHABRICATOR_PROD_BRANCH=$PHABRICATOR_PROD_BRANCH \
+    -e PHABRICATOR_USE_MAILGUN=1 \
+    -e PHABRICATOR_DOMAIN=$DOMAIN \
+    --name $INSTANCE_NAME $IMAGE /usr/local/sbin/runsvdir-init
 
 #   -------------------------------------------------------------
 #   DevCentral specific branch deployment
@@ -88,13 +88,13 @@ docker run -t -d \
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 docker exec $INSTANCE_NAME sh -c 'mkdir -p /root/.ssh && \
-	cp /opt/phabricator/conf/deploy-keys/* /root/.ssh'
+    cp /opt/phabricator/conf/deploy-keys/* /root/.ssh'
 docker exec $INSTANCE_NAME ssh -o StrictHostKeyChecking=no ${REPO_LOGIN}@${REPO_HOST}
 docker exec $INSTANCE_NAME sh -c 'cd /opt/phabricator && \
-	git remote add private "$PHABRICATOR_PROD_REPO" && \
-	git fetch --all && \
-	git checkout $PHABRICATOR_PROD_BRANCH && \
-	sv restart php-fpm && sv restart phd'
+    git remote add private "$PHABRICATOR_PROD_REPO" && \
+    git fetch --all && \
+    git checkout $PHABRICATOR_PROD_BRANCH && \
+    sv restart php-fpm && sv restart phd'
 
 echo "Deployment done at $(date)."
 exit 0

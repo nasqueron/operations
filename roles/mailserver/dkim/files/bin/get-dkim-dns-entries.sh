@@ -19,8 +19,8 @@
 # Parses arguments
 if [ $# -eq 0 ]
 then
-        echo "Usage: $(basename "$0") <domain>"
-        exit 1
+    echo "Usage: $(basename "$0") <domain>"
+    exit 1
 fi
 
 DOMAIN=$1
@@ -28,11 +28,11 @@ DIR=/usr/local/etc/opendkim/keys/$DOMAIN
 
 if [ ! -d "$DIR" ]
 then
-	echo "Directory not found: $DIR"
-	exit 2
+    echo "Directory not found: $DIR"
+    exit 2
 fi
 
 for f in "$DIR"/*.txt
 do
-	get-dkim-dns-entry "$f"
+    get-dkim-dns-entry "$f"
 done

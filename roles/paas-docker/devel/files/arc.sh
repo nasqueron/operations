@@ -27,10 +27,10 @@ BASE_IMAGE=nasqueron/arcanist
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ -t 0 ]; then
-	# If a stdin entry is available
-	# launch the container in the
-	# interactive mode
-	FLAGS=-it
+    # If a stdin entry is available
+    # launch the container in the
+    # interactive mode
+    FLAGS=-it
 fi
 
 # Logs are default disabled
@@ -39,24 +39,24 @@ PRINT_LOG=0
 UPDATE_MODE=0
 
 if [ "$1" = "shell" ]; then
-	# Launch commands
-	# in the container bash shell
-	shift
-	COMMAND=bash
+    # Launch commands
+    # in the container bash shell
+    shift
+    COMMAND=bash
 elif [ "$1" = "update" ]; then
-	UPDATE_MODE=1
+    UPDATE_MODE=1
 else
-	# Launch arc
-	mkdir -p ~/.arc
-	COMMAND=arc
+    # Launch arc
+    mkdir -p ~/.arc
+    COMMAND=arc
 
-	if [ "$1" = "call-conduit" ]; then
-		# Enable log printing
-		PRINT_LOG=1
-		# Set a random name for the container
-		INSTANCE="arc-"$(openssl rand -hex 21)
-		FLAGS="-i -a=stdin --name=$INSTANCE"
-	fi
+    if [ "$1" = "call-conduit" ]; then
+        # Enable log printing
+        PRINT_LOG=1
+        # Set a random name for the container
+        INSTANCE="arc-"$(openssl rand -hex 21)
+        FLAGS="-i -a=stdin --name=$INSTANCE"
+    fi
 fi
 
 #   -------------------------------------------------------------
@@ -64,36 +64,36 @@ fi
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 build_user_image () {
-	BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
-	pushd "$BUILD_DIR" > /dev/null || exit 1
-	>&2 echo "🔨 Building user-specific image $IMAGE for $USER"
-	echo "FROM $BASE_IMAGE" > Dockerfile
-	echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && cp /root/.bashrc /home/$USER/ && chown -R $USER:$USER /home/$USER && ln -s /opt/config/gitconfig /home/$USER/.gitconfig && ln -s /opt/config/arcrc /home/$USER/.arcrc" >> Dockerfile
-	docker build -t "$IMAGE" .
-	popd > /dev/null
-	rm -rf "$BUILD_DIR"
+    BUILD_DIR=$(mktemp -d -t arc-build-XXXXXXXXXX)
+    pushd "$BUILD_DIR" > /dev/null || exit 1
+    >&2 echo "🔨 Building user-specific image $IMAGE for $USER"
+    echo "FROM $BASE_IMAGE" > Dockerfile
+    echo "RUN groupadd -r $USER -g $GID && mkdir /home/$USER && useradd -u $UID -r -g $USER -d /home/$USER -s /bin/bash $USER && cp /root/.bashrc /home/$USER/ && chown -R $USER:$USER /home/$USER && ln -s /opt/config/gitconfig /home/$USER/.gitconfig && ln -s /opt/config/arcrc /home/$USER/.arcrc" >> Dockerfile
+    docker build -t "$IMAGE" .
+    popd > /dev/null
+    rm -rf "$BUILD_DIR"
 }
 
 test -v $UID && UID=$(id -u)
 test -v $GID && GID=$(id -g)
 
 if [ $UPDATE_MODE -eq 1 ]; then
-	docker pull $BASE_IMAGE
+    docker pull $BASE_IMAGE
 
-	# Rebuild user image
-	IMAGE=$BASE_IMAGE:$UID-$GID
-	test $UID -eq 0 || build_user_image
+    # Rebuild user image
+    IMAGE=$BASE_IMAGE:$UID-$GID
+    test $UID -eq 0 || build_user_image
 
-	exit
+    exit
 fi
 
 if [ $UID -eq 0 ]; then
-	IMAGE=$BASE_IMAGE
-	CONTAINER_USER_HOME=/root
+    IMAGE=$BASE_IMAGE
+    CONTAINER_USER_HOME=/root
 else
-	IMAGE=$BASE_IMAGE:$UID-$GID
-	test ! -z $(docker images -q "$IMAGE") || build_user_image
-	CONTAINER_USER_HOME="/home/$USER"
+    IMAGE=$BASE_IMAGE:$UID-$GID
+    test ! -z $(docker images -q "$IMAGE") || build_user_image
+    CONTAINER_USER_HOME="/home/$USER"
 fi
 
 #   -------------------------------------------------------------
@@ -102,16 +102,16 @@ fi
 
 
 if [ -d ~/.arc/ssh ]; then
-	VOLUME_SSH="-v $HOME/.arc/ssh:$CONTAINER_USER_HOME/.ssh"
+    VOLUME_SSH="-v $HOME/.arc/ssh:$CONTAINER_USER_HOME/.ssh"
 else
-	VOLUME_SSH=""
+    VOLUME_SSH=""
 fi
 
 if [ $PRINT_LOG -eq 0 ]; then
-	docker run $FLAGS --rm --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@"
+    docker run $FLAGS --rm --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@"
 else
-	docker run $FLAGS --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@" > /dev/null
-	sleep 3
-	docker logs "$INSTANCE"
-	docker rm "$INSTANCE" >/dev/null
+    docker run $FLAGS --user $UID:$GID -v ~/.arc:/opt/config -v "$PWD:/opt/workspace" $VOLUME_SSH $IMAGE $COMMAND "$@" > /dev/null
+    sleep 3
+    docker logs "$INSTANCE"
+    docker rm "$INSTANCE" >/dev/null
 fi

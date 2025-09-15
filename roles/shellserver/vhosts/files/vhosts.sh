@@ -17,7 +17,7 @@
 #   </auto-generated>
 
 if [ -f /etc/vhosts ]; then
-	cat /etc/vhosts
+    cat /etc/vhosts
 else
-	echo "No vhosts data file found. Please create /etc/vhosts file."
+    echo "No vhosts data file found. Please create /etc/vhosts file."
 fi

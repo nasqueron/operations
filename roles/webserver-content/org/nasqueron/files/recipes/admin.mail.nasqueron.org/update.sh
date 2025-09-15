@@ -27,8 +27,8 @@ cd "$ALKANE_SITE_PATH"
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$CURRENT_BRANCH" != "production" ]; then
-   echo "Code isn't in the production branch." >&2
-   exit 1
+    echo "Code isn't in the production branch." >&2
+    exit 1
 fi
 
 git fetch --all

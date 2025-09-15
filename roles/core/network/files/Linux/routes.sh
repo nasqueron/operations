@@ -22,14 +22,14 @@ ROUTES_CONFIG_PATH=/etc/routes.conf
 # Runs as root only
 test -z $UID && UID=$(id -u)
 if [ "$UID" -ne 0 ]; then
-  echo This script must be run as root. >&2
-  exit 1
+    echo This script must be run as root. >&2
+    exit 1
 fi
 
 # Warn about configuration missing
 if [ ! -f $ROUTES_CONFIG_PATH ]; then
-  echo No routes configuration file found at $ROUTES_CONFIG_PATH >&2
-  exit 2
+    echo No routes configuration file found at $ROUTES_CONFIG_PATH >&2
+    exit 2
 fi
 
 # Apply routes
