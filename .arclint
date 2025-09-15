@@ -5,9 +5,6 @@
         },
         "shell": {
             "type": "shellcheck",
-            "shellcheck.exclude": [
-                "SC3028"
-            ],
             "include": [
                 "(\\.sh$)"
             ]

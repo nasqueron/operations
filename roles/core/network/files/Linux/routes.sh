@@ -19,10 +19,15 @@
 
 ROUTES_CONFIG_PATH=/etc/routes.conf
 
-# Runs as root only
-test -z $UID && UID=$(id -u)
-if [ "$UID" -ne 0 ]; then
-    echo This script must be run as root. >&2
+#   -------------------------------------------------------------
+#   Ensure user is root
+#
+#   Note: POSIX shells don't always define $UID or $EUID.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# shellcheck disable=SC3028
+if [ "${EUID:-$(id -u)}" -ne 0 ]; then
+    echo "This command must be run as root." >&2
     exit 1
 fi
 
