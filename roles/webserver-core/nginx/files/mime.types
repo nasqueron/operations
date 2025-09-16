@@ -17,6 +17,19 @@
 types {
 
     #   -------------------------------------------------------------
+    #   From MDN
+    #   Source: https://developer.mozilla.org/docs/Web/HTTP/Guides/MIME_types/Common_types
+    #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    application/epub+zip                             epub;
+
+    #   -------------------------------------------------------------
+    #   From anecdotical sources
+    #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    application/x-mobipocket-ebook                   mobi;
+
+    #   -------------------------------------------------------------
     #   From nginx configuration
     #   Source: nginx repository, conf/mime.types
     #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
