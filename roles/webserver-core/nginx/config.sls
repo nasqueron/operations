@@ -49,6 +49,10 @@ webserver_core_user:
         nginx_dir: {{ dirs.etc }}/nginx
         nginx_options: {{ options }}
 
+{{ dirs.etc }}/nginx/mime.types:
+  file.managed:
+    - source: salt://roles/webserver-core/nginx/files/mime.types
+
 #   -------------------------------------------------------------
 #   includes folder
 #
