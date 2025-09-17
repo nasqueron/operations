@@ -13,7 +13,7 @@
 #   -------------------------------------------------------------
 #   Data directory
 #
-#   The uid/gid pair depends of the image base:
+#   The uid/gid pair depends on the image base:
 #
 #     - library/php + fpm: 82:85
 #     - library/php + Apache: 33:33

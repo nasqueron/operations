@@ -16,8 +16,8 @@ dbserver_mysql:
       # Account used by Salt to configure the server
       credentials: dbserver/windriver-mariadb/users/salt
 
-  # As of 2024-09, users and databases are managed manually
-  # You're most than welcome to automate any user/db deployment here.
+  # As of 2024-09, users and databases are managed manually.
+  # You're more than welcome to automate any user/db deployment here.
   # cluster-B.sls can be helpful for syntax hints
   users: {}
   databases: {}
@@ -36,8 +36,8 @@ dbserver_postgresql:
 
     listen_addresses: "*"
 
-  # As of 2024-09, users and databases are managed manually
-  # You're most than welcome to automate any user/db deployment here.
+  # As of 2024-09, users and databases are managed manually.
+  # You're more than welcome to automate any user/db deployment here.
   # cluster-A.sls can be helpful for syntax hints
   users:
     netbox:

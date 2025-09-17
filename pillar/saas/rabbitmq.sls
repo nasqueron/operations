@@ -8,7 +8,7 @@
 #   -------------------------------------------------------------
 #   RabbitMQ clusters
 #
-#   Each cluster is defined by a deployment method (e.g. docker),
+#   Each cluster is defined by a deployment method (e.g., docker),
 #   and the node we can use to configure it.
 #
 #   The cluster configuration is a collection of vhosts and users:
@@ -23,7 +23,7 @@
 #
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
-#   The vhost configuration allows to define the exchanges and queues,
+#   The vhost configuration allows defining the exchanges and queues,
 #   and the permissions users have on them.
 #
 #   exchanges:
@@ -31,14 +31,14 @@
 #
 #   queues:
 #     Application can create their own ephemeral queue.
-#     For that, it needs configure permission on the vhost.
+#     For that, it needs 'configure' permission on the vhost.
 #
 #     If an application needs a stable one, it should be configured here,
-#     so we can drop the configure permission.
+#     so we can drop the 'configure' permission.
 #
 #   permissions:
 #     See https://www.rabbitmq.com/access-control.html#authorisation
-#     for the needed permissions for an AMQP operation
+#     for the necessary permissions for an AMQP operation
 #
 #     To give access to server-generated queue names, use amq\.gen.*
 #     To not give any access, use blank string

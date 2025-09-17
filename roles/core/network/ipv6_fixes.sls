@@ -30,9 +30,9 @@
 #
 #   OVH network doesn't announce an IPv6 route for a VM at first.
 #   If from the VM, we reach another network, the route is then
-#   announced for a while, before being dropped.
+#   announced for a while before being dropped.
 #
-#   To workaround that behavior, solution is to ping regularly
+#   To work around that behavior, a solution is to regularly ping
 #   an external site so packets reach OVH router and a route is
 #   announced.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

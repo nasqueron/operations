@@ -26,7 +26,7 @@ daeghrefn_software:
 #   Software used by TC2
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# TC2 needs logins, pw, mkdir, chown, hostname, id, sockstat,su, cat
+# TC2 needs logins, pw, mkdir, chown, hostname, id, sockstat, su, cat
 #                   /usr/local/etc/rc.d/nginx, /usr/local/etc/rc.d/php-fpm,
 #                   /usr/local/etc/rc.d/jenkins
 # Those are expected to be on the system administrated.

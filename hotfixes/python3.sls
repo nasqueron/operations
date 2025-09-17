@@ -8,8 +8,8 @@
 #   -------------------------------------------------------------
 #   Python 3 alias
 #
-#   If a the python3 meta-port is missing, we only have executables
-#   like python3.9 available. As most of our scripts uses `python3`,
+#   If the python3 meta-port is missing, we only have executables
+#   like python3.9 available. As most of our scripts use `python3`,
 #   it's probably best to ensure an alias by looking for an interpreter.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #   -------------------------------------------------------------
-#   rOPS — compile a #!py .sls file and dump result in YAML
+#   rOPS — compile a #!py .sls file and dump the result in YAML
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Created:        2018-10-17

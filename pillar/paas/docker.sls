@@ -11,16 +11,16 @@
 #   To compute optimal Docker containers start order, the following
 #   rules apply:
 #
-#      - depends_of_containers: launch after a specific container
+#      - depends_of_containers: launch after specific containers
 #                               values are the keys for those containers
 #
 #      - depends_of_services: launch after containers from this service
 #
-#   Hierarchy of keys can use dot (.) as separator, e.g. links.mysql
+#   Hierarchy of keys can use dot (.) as separator, e.g., links.mysql
 #
-#   Values are configuration keys from docker_containers pillar.
+#   Values are configuration keys from the docker_containers pillar.
 #
-#   Soft dependencies (e.g. Notifications Center depends of Sentry)
+#   Soft dependencies (e.g., Notifications Center depends on Sentry)
 #   aren't documented, as it can still run without it.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -106,7 +106,7 @@ docker_containers_monitoring:
     etherpad: /health
     hound: /healthz
 
-    # Test a regular URL for services without health check
+    # Test a regular URL for services without a health check
     api-datasources: /datasources
     hauk: /
     jenkins: /login

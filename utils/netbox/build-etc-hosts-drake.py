@@ -70,7 +70,7 @@ def get_netbox_config():
 
 
 def init_app():
-    """Prepare a services container for appplication."""
+    """Prepare a service container for the application."""
     config = get_netbox_config()
 
     return {

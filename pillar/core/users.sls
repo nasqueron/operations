@@ -16,11 +16,11 @@
 #   revokedusers:
 #     Users in this list will be removed from the servers.
 #
-#   To rename an user:
+#   To rename a user:
 #     Edit the username in the shellusers section,
 #     add the former username to the revokedusers list.
 #
-#   Sort the accounts by their username alphabetic order.
+#   Sort the accounts by their username in alphabetic order.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 revokedusers:

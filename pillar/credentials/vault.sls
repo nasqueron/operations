@@ -34,17 +34,17 @@ vault_mount_paths:
   apps: apps/data
 
 #   -------------------------------------------------------------
-#   Vault policies to deploy as-is, ie without templating.
+#   Vault policies to deploy as-is, i.e., without templating.
 #
 #   Entries of vault_policies must match a .hcl file in
-#   roles/vault/policies/files folder.
+#   the roles /vault/policies/files folder.
 #
 #   If you need a template, create a new pillar entry instead
 #   and add the parsing logic either:
 #     - directly to roles/vault/policies/
 #
 #     - through _modules/credentials.py for policies to apply
-#       to Salt nodes, like e.g. vault_secrets_by_role
+#       to Salt nodes, like e.g., vault_secrets_by_role
 #
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -59,8 +59,8 @@ vault_policies:
 #   -------------------------------------------------------------
 #   Vault policies for Salt itself
 #
-#   The policy attached to the login method (e.g. approle)
-#   used by the Salt primary server to login to Vault.
+#   The policy attached to the login method (e.g., approle)
+#   used by the Salt primary server to log in to Vault.
 #
 #   Source is the name of a policy managed by the vault_policies
 #   section. Target is the name of the policy attached.
@@ -73,9 +73,9 @@ vault_salt_primary_policy:
 #   -------------------------------------------------------------
 #   Vault full policies to include by role
 #
-#   Declare the extra policies each nodes need.
+#   Declare the extra policies each node needs.
 #
-#   In adition of those extra policies, the vault_secrets_by_role
+#   In addition to those extra policies, the vault_secrets_by_role
 #   will be parsed for the keys.
 #
 #   IMPORTANT: as grains['roles'] can be modified by the node,
@@ -93,7 +93,7 @@ vault_extra_policies_by_role:
 #
 #   Avoid * notation as this namespace is shared between Vault
 #   and the applications. As such, only secrets the Salt nodes
-#   needs in a state they need to deploy should be listed here.
+#   need in a state they need to deploy should be listed here.
 #
 #   Use %%node%% as variable for node name.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

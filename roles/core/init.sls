@@ -26,9 +26,9 @@ include:
   - .userland-software
   - .users
 
-  # Depends of users or groups
+  # Depends on users or groups
   - .deploy
   - .userland-home
 
-  # Depends of software (git)
+  # Depends on software (git)
   - .src

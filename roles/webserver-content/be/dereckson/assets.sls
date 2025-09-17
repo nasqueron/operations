@@ -9,7 +9,7 @@
 #   Deploy /opt/staging/wwwroot/d.be/assets to assets.d.be
 #
 #   !!! WARNING !!!
-#   This folder could contain non staged resources. As such,
+#   This folder could contain non-staged resources. As such,
 #   clean must be let at False.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

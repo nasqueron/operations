@@ -52,8 +52,8 @@ dbserver_mysql_db_{{ db_name }}:
 #   according https://mariadb.com/kb/en/grant/#syntax name.
 #
 #   Please note using "database" instead or "privilege_level"
-#   isn't considered as a a best practice. We understand to use
-#   directly mysql_grants simplifies the module configuration
+#   isn't considered as a best practice. We understand to use
+#   directly mysql_grants simplifies the module configuration,
 #   and as such this may be necessary for compatibility, but
 #   we encourage a more precise terminology.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

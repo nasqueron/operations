@@ -8,7 +8,7 @@
 include:
   - .vault
 
-  # Depends of Vault installed
+  # Depends on Vault installed
   - .policies
 
 #   -------------------------------------------------------------
@@ -16,7 +16,7 @@ include:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #   The bootstrap unit can be run once for the whole cluster
-#   if you wish to regerate the Vault configuration from scratch
+#   if you wish to regenerate the Vault configuration from scratch
 #   instead of restoring the storage back-end.
 #
 #   As such, .bootstrap should NOT be included in the includes list.

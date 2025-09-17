@@ -25,7 +25,7 @@ def is_valid_netmask(netmask):
     #   - starts by contiguous 1, e.g. here 1111111111111111111111111111
     #   - ends by contiguous 0,   e.g. here 0000
     #
-    # Also, as 0.0.0.0 is invalid, netmask must starts by 1.
+    # Also, as 0.0.0.0 is invalid, the netmask must start by 1.
     return re.compile("^1+0*$").match(bits) is not None
 
 
@@ -39,7 +39,7 @@ def netmask_to_cidr_prefix(netmask):
     if not is_valid_netmask(netmask):
         raise ValueError("Netmask is invalid.")
 
-    # The CIDR prefix is the count of 1 bits in each octet.
+    # The CIDR prefix is the count of '1' bits in each octet.
     # e.g. 255.255.255.240 can be split in octets [255, 255, 255, 240],
     # then becomes ['0b11111111', '0b11111111', '0b11111111', '0b11110000'].
     #
@@ -57,8 +57,8 @@ def _ipv6_address_to_prefix(address, prefixlen):
 
 
 def can_directly_be_discovered(gateway, address, prefixlen):
-    """Determines if the gateway belong to the same prefix than the address,
-    and so can be directly be discovered in NDP."""
+    """Determines if the gateway belongs to the same prefix as the address,
+    and so can directly be discovered in NDP."""
     return _ipv6_address_to_prefix(gateway, prefixlen) == _ipv6_address_to_prefix(
         address, prefixlen
     )

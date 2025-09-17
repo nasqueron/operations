@@ -18,7 +18,7 @@ but where some situations can be troublesome, with the workaround to apply.
 After a new FreeBSD release, the kernel modules can be compiled
 against a version incompatible with the installed kernel.
 
-We hitted twice this issue with pefs-kmod, for FreeBSD 11.1 and 14.0.
+We hit twice this issue with pefs-kmod, for FreeBSD 11.1 and 14.0.
 
 **Workaround**
 

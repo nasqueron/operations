@@ -17,5 +17,5 @@ base:
 
   - webserver/{{ minion_id }}/*.sls
 
-  # For devserver role, there is no cluster associated
+  # Servers with the devserver role have no cluster associated
   - dbserver/{{ minion_id }}.sls
