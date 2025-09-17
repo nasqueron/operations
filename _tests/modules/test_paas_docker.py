@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
 import os
 import unittest
 
-salt_test_case = SourceFileLoader("salt_test_case", "salt_test_case.py").load_module()
-docker = SourceFileLoader("docker", "../_modules/paas_docker.py").load_module()
+import salt_test_case
+import paas_docker as docker
 
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):

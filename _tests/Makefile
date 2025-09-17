@@ -1,9 +1,18 @@
+CURRENT_DIR != pwd
+MODULES_DIR = ${CURRENT_DIR}/../_modules
+
 test: test-python test-roles test-bats
 
-test-python:
-	python -m unittest discover modules
+test-python: test-modules test-pillar test-python-scripts
+
+test-modules:
+	PYTHONPATH="${CURRENT_DIR}:${MODULES_DIR}" python -m unittest discover modules
+
+test-pillar:
 	python -m unittest discover pillar
-	python -m unittest discover scripts/python
+
+test-python-scripts:
+	PYTHONPATH="${CURRENT_DIR}" python -m unittest discover scripts/python
 
 test-bats:
 	bats scripts/bats/test_edit_acme_dns_accounts.sh

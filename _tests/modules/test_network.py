@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
 from unittest_data_provider import data_provider
 import unittest
 
-
-salt_test_case = SourceFileLoader("salt_test_case", "salt_test_case.py").load_module()
-network = SourceFileLoader("network", "../_modules/network_utils.py").load_module()
+import salt_test_case
+import network_utils as network
 
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):

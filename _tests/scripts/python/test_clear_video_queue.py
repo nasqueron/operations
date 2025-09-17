@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
 import unittest
 
+from helpers import import_from_path
 
-path = "roles/paas-docker/containers/files/mastodon/clear-video-queue.py"
-script = SourceFileLoader("script", "../" + path).load_module()
+
+script_path = "roles/paas-docker/containers/files/mastodon/clear-video-queue.py"
+script = import_from_path("script", script_path)
 
 
 class Testinstance(unittest.TestCase):

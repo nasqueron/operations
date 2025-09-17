@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
 import unittest
 
-
-salt_test_case = SourceFileLoader("salt_test_case", "salt_test_case.py").load_module()
-rabbitmq = SourceFileLoader("rabbitmq", "../_modules/rabbitmq_api.py").load_module()
+import salt_test_case
+import rabbitmq_api
 
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
     def test_compute_password_hash_with_salt(self):
         self.assertEqual(
             "kI3GCqW5JLMJa4iX1lo7X4D6XbYqlLgxIs30+P6tENUV2POR",
-            rabbitmq.compute_password_hash_with_salt(0x908DC60A, "test12"),
+            rabbitmq_api.compute_password_hash_with_salt(0x908DC60A, "test12"),
         )

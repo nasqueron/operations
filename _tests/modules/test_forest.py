@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
 import unittest
 
-
-salt_test_case = SourceFileLoader("salt_test_case", "salt_test_case.py").load_module()
-forest = SourceFileLoader("forest", "../_modules/forest.py").load_module()
+import salt_test_case
+import forest
 
 
 class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):

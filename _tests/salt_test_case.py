@@ -1,13 +1,13 @@
-from importlib.machinery import SourceFileLoader
 import yaml
+
+from mocks.dunder import dunder
 
 
 class SaltTestCase:
     def initialize_mocks(self):
-        source = SourceFileLoader("dunder", "mocks/dunder.py").load_module()
-        self.pillar = source.dunder()
-        self.salt = source.dunder()
-        self.grains = source.dunder()
+        self.pillar = dunder()
+        self.salt = dunder()
+        self.grains = dunder()
 
     @staticmethod
     def import_data_from_yaml(filename):

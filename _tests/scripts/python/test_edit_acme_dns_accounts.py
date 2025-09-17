@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 
-from importlib.machinery import SourceFileLoader
+
 import os
 import unittest
 
+from helpers import import_from_path
+
+
+script_path = "roles/core/certificates/files/edit-acme-dns-accounts.py"
+script = import_from_path("script", script_path)
+
 
 os.environ["ACME_ACCOUNTS"] = "/path/to/acmedns.json"
-
-path = "roles/core/certificates/files/edit-acme-dns-accounts.py"
-script = SourceFileLoader("script", "../" + path).load_module()
 
 
 class TestInstance(unittest.TestCase):
