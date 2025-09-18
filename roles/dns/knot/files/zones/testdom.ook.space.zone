@@ -1,4 +1,4 @@
-testdom.ook.space.	300	IN	SOA	{{ identity }}. ops-dns.windriver.nasqueron.org. (
+@	300	IN	SOA	{{ identity }}. ops-dns.windriver.nasqueron.org. (
 					2025083001	;serial
 					10800		;refresh
 					1800		;retry

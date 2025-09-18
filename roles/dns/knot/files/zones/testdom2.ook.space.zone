@@ -1,4 +1,4 @@
-testdom2.ook.space.	300	IN	SOA	{{ identity }}. ops-dns.nasqueron.org. (
+@	300	IN	SOA	{{ identity }}. ops-dns.nasqueron.org. (
 					20250902	;serial
 					10800		;refresh
 					1800		;retry
