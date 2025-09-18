@@ -1,4 +1,4 @@
-test: test-python test-bats
+test: test-python test-roles test-bats
 
 test-python:
 	python -m unittest discover modules
@@ -8,6 +8,15 @@ test-python:
 test-bats:
 	bats scripts/bats/test_edit_acme_dns_accounts.sh
 	bats roles/bats/test_webserver_content.sh
+
+#   -------------------------------------------------------------
+#   Tests for roles
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+test-roles: test-roles-dns
+
+test-roles-dns:
+	roles/python/dns/run_test_dns_zones.sh
 
 #   -------------------------------------------------------------
 #   Configuration test specific to the primary server

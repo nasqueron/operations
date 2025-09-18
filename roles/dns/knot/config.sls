@@ -51,6 +51,8 @@ knotdns_file_{{ zone }}:
     - source: salt://roles/dns/knot/files/zones/{{ zone }}.zone
     - name: /var/db/knot/{{ zone }}.zone
     - template: jinja
+
+    # Context to sync with test_dns_zones.py::build_context
     - context:
         identity: {{ pillar["dns_identity"] }}
         vars: {{ zone_vars }}
