@@ -46,6 +46,8 @@ vault_mount_paths:
 #     - through _modules/credentials.py for policies to apply
 #       to Salt nodes, like e.g., vault_secrets_by_role
 #
+#   App policies can also be defined in terraform/openbao/
+#
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 vault_policies:

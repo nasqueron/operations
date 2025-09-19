@@ -8,7 +8,7 @@ insert_final_newline = true
 charset = utf-8
 
 # 4 space indentation
-[*.{conf, php, py, sh}]
+[*.{conf,php,py,sh,hcl,tf}]
 indent_style = space
 indent_size = 4
 
