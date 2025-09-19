@@ -244,6 +244,12 @@ devserver_software_dev_misctools:
 #   Nasqueron development and operations
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+devserver_software_dev_terraform:
+  pkg.installed:
+    - pkgs:
+      - opentofu
+      - terraform
+
 {{ dirs.bin }}/create-vault-approle:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/create-vault-approle.sh
