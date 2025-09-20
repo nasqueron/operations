@@ -244,6 +244,9 @@ vault_secrets_by_role:
     - ops/secrets/espacewin/bugzilla/mysql
     - ops/secrets/espacewin/bugzilla/mysql_root
 
+  reports:
+    - ops/secrets/nasqueron/rhyne-wyse/salt
+
   saas-mediawiki:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
     - ops/secrets/nasqueron/mediawiki/secret_key

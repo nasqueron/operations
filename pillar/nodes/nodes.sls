@@ -311,6 +311,7 @@ nodes:
       - netbox
       - prometheus
       - redis
+      - reports
       - saas-nextcloud
       - netbox
       - webserver-alkane

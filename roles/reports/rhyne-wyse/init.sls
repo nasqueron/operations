@@ -6,5 +6,7 @@
 #   -------------------------------------------------------------
 
 include:
-  - .reports
-  - .rhyne-wyse
+  - .account
+  - .software
+  - .config
+  - .service
