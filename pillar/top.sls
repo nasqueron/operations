@@ -71,6 +71,7 @@ base:
     - devserver.datacubes
     - devserver.ports
     - devserver.repos
+    - netbox.netbox
     - observability.prometheus
     - packages.freebsd
     - webserver.labs

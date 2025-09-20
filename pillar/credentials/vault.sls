@@ -117,6 +117,10 @@ vault_secrets_by_role:
     - ops/secrets/dbserver/cluster-A/users/postfix
     - ops/secrets/mailserver/security
 
+  netbox:
+    - ops/secrets/dbserver/windriver-pgsql/users/netbox
+    - ops/secrets/nasqueron/netbox/key
+
   opensearch:
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/admin
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/dashboards

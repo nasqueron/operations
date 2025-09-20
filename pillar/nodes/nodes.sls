@@ -312,6 +312,7 @@ nodes:
       - prometheus
       - redis
       - saas-nextcloud
+      - netbox
       - webserver-alkane
       - webserver-alkane-dev
     zfs:

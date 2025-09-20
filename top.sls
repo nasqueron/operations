@@ -28,6 +28,7 @@ base:
     - roles/dns
     - roles/freebsd-repo # depends of devserver/datacube, builder
     - roles/grafana
+    - roles/netbox
     - roles/prometheus
     - roles/redis
     - roles/saas-nextcloud
