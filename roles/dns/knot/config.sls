@@ -42,6 +42,8 @@ knot_reload_sysctl:
 #   KnotDNS zones files provisioning
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+{% set zone_vars = salt["pillar.get"]("dns_zone_variables", {}) %}
+
 {% for zone in pillar["dns_zones"] %}
 
 knotdns_file_{{ zone }}:
@@ -51,4 +53,6 @@ knotdns_file_{{ zone }}:
     - template: jinja
     - context:
         identity: {{ pillar["dns_identity"] }}
+        vars: {{ zone_vars }}
+
 {% endfor %}
