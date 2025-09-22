@@ -153,6 +153,16 @@ devserver_software_misc_network:
 #   Custom simple binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+devserver_software_hardware:
+  pkg.installed:
+    - pkgs:
+      - btop
+      - smartmontools
+
+#   -------------------------------------------------------------
+#   Custom simple binaries
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 {{ dirs.bin }}/shell:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/shell.py
