@@ -7,7 +7,6 @@
 
 include:
   - .rc
-  - .certificates
   - .hostname
   - .login
   - .network
@@ -27,6 +26,7 @@ include:
   - .users
 
   # Depends on users or groups
+  - .certificates
   - .deploy
   - .userland-home
 

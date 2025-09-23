@@ -1,15 +1,15 @@
 #   -------------------------------------------------------------
-#   Salt — Mail
+#   Let's Encrypt Certificates
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .dovecot
-  - .dkim
-  - .postfix
-  - .vimbadmin
+certificates:
+  - hervil.nasqueron.org
+  - mail.nasqueron.org
+  - admin.mail.nasqueron.org
 
-  # Depends on all software installed
-  - .coordination
+certificates_options:
+  mail.nasqueron.org:
+    shared_group: mail

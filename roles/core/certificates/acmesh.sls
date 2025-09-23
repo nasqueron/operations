@@ -7,14 +7,37 @@
 
 {% from "map.jinja" import dirs with context %}
 
+{% set certificates = pillar.get("certificates", []) %}
+{% set certificates_options = pillar.get("certificates_options", {}) %}
+
 acme.sh:
   pkg.installed
+
+/var/certificates:
+  file.directory:
+    - user: acme
+    - mode: 711
 
 /var/certificates/general:
   file.directory:
     - user: acme
     - mode: 700
-    - makedirs: True
+
+{% for domain in certificates %}
+{% set options = certificates_options.get(domain, {}) %}
+
+/var/certificates/{{ domain }}:
+  file.directory:
+    - user: acme
+
+    {% if "shared_group" in options %}
+    - group: {{ options.shared_group }}
+    - mode: 750
+    {% else %}
+    - mode: 700
+    {% endif %}
+
+{% endfor %}
 
 /usr/local/etc/newsyslog.conf.d/acme.sh.conf:
   file.managed:
