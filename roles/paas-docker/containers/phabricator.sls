@@ -29,6 +29,8 @@
     - template: jinja
     - context:
       fqdn: {{ container["host"] }}
+      static_host: {{ container["static_host"] }}
+      storage: {{ container["storage"] }}
 
       db:
         host: "mysql"
