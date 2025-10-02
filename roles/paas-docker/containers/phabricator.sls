@@ -21,6 +21,11 @@
     - group: 433
     - makedirs: True
 
+/srv/phabricator/{{ instance }}/files:
+  file.directory:
+    - user: 431
+    - group: 433
+
 {% if "config_managed" in container %}
 
 /srv/phabricator/{{ instance }}/conf/local/local.json:
@@ -29,6 +34,7 @@
     - template: jinja
     - context:
       fqdn: {{ container["host"] }}
+      instance: {{ instance }}
       static_host: {{ container["static_host"] }}
       storage: {{ container["storage"] }}
 
@@ -84,6 +90,7 @@ selinux_context_{{ instance }}_data_applied:
     - binds:
         - /srv/phabricator/{{ instance }}/conf:/opt/phabricator/conf
         - /srv/phabricator/{{ instance }}/repo:/var/repo
+        - /srv/phabricator/{{ instance }}/files:/var/files
     - environment:
         PHABRICATOR_URL: https://{{ container['host'] }}
         PHABRICATOR_TITLE: {{ container['title'] }}

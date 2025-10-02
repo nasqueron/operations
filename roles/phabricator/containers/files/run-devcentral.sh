@@ -24,7 +24,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #IMAGE=nasqueron/phabricator
-IMAGE=nasqueron/devcentral:2022-03-28.init-fix
+IMAGE=nasqueron/devcentral:2025-10-02
 INSTANCE_NAME=devcentral
 PORT=31080
 DOMAIN=$INSTANCE_NAME.nasqueron.org
@@ -35,7 +35,7 @@ MYSQL_INSTANCE=acquisitariat
 #   Phabricator parameters
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-PHABRICATOR_URL=http://$DOMAIN
+PHABRICATOR_URL=https://$DOMAIN
 PHABRICATOR_TITLE="Nasqueron DevCentral"
 PHABRICATOR_ALT_FILE_DOMAIN="https://devcentral.nasqueron-user-content.org/"
 
@@ -67,6 +67,7 @@ docker run -t -d \
     --link $MYSQL_INSTANCE:mysql \
     -v $DATA_DIRECTORY/repo:/var/repo \
     -v $DATA_DIRECTORY/conf:/opt/phabricator/conf \
+    -v $DATA_DIRECTORY/files:/var/files \
     -p $PORT:80 \
         -p 5022:5022 \
     -e PHABRICATOR_URL=$PHABRICATOR_URL \
