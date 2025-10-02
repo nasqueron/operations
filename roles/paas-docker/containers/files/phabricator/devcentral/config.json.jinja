@@ -14,10 +14,10 @@
       "type": "smtp",
       "priority": 10,
       "options": {
-        "host": "{{ mail_local.host }}",
-        "port": {{ mail_local.port }},
-        "user": "{{ mail_local.username }}",
-        "password": "{{ mail_local.password }}",
+        "host": "{{ smtp.host }}",
+        "port": {{ smtp.port }},
+        "user": "{{ smtp.username }}",
+        "password": "{{ smtp.password }}",
         "protocol": "tls"
       }
     }
@@ -32,8 +32,8 @@
     "https://notifications.nasqueron.org/gate/Phabricator/Nasqueron"
   ],
 
-  "metamta.reply-handler-domain": "devcentral.nasqueron.org",
-  "metamta.default-address": "notifications-noreply@devcentral.nasqueron.org",
+  "metamta.reply-handler-domain": "{{ fqdn }}",
+  "metamta.default-address": "notifications-noreply@{{ fqdn }}",
 
   "mysql.host": "{{ db.host }}",
   "mysql.user": "{{ db.username }}",
@@ -42,7 +42,7 @@
   "notification.servers": [
     {
       "type": "client",
-      "host": "devcentral.nasqueron.org",
+      "host": "{{ fqdn }}",
       "port": 443,
       "protocol": "https",
       "path": "/ws/"
@@ -56,7 +56,7 @@
   ],
 
   "phabricator.show-prototypes": true,
-  "phabricator.base-uri": "https://devcentral.nasqueron.org/",
+  "phabricator.base-uri": "https://{{ fqdn }}/",
 
   "phd.user": "app",
 

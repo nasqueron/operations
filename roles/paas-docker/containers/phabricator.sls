@@ -25,21 +25,29 @@
 
 /srv/phabricator/{{ instance }}/conf/local/local.json:
   file.managed:
-    - source: salt://roles/paas-docker/containers/files/phabricator/devcentral/config.json.jinja
+    - source: salt://roles/paas-docker/containers/files/phabricator/{{ instance }}/config.json.jinja
     - template: jinja
     - context:
-      mailgun:
-        domain: devcentral.nasqueron.org
-        api-key: "{{ salt["credentials.get_password"](container["credentials"]["mailgun"]) }}"
+      fqdn: {{ container["host"] }}
+
       db:
         host: "mysql"
         username: "{{ salt["credentials.get_username"](container["credentials"]["mysql"]) }}"
         password: "{{ salt["credentials.get_password"](container["credentials"]["mysql"]) }}"
-      mail_local:
+
+      {% if "mailgun" in container["credentials"] %}
+      mailgun:
+        domain: {{ container["host"] }}
+        api-key: "{{ salt["credentials.get_password"](container["credentials"]["mailgun"]) }}"
+      {% endif %}
+
+      {% if "smtp" in container["credentials"] %}
+      smtp:
         host: mail.nasqueron.org
         port: 587
-        username: "{{ salt["credentials.get_username"]("nasqueron/devcentral/mail_local") }}"
-        password: "{{ salt["credentials.get_password"]("nasqueron/devcentral/mail_local") }}"
+        username: "{{ salt["credentials.get_username"](container["credentials"]["smtp"]) }}"
+        password: "{{ salt["credentials.get_password"](container["credentials"]["smtp"]) }}"
+      {% endif %}
 
 {% endif %}
 

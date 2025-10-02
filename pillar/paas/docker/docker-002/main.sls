@@ -148,6 +148,7 @@ docker_containers:
       credentials:
         mysql: nasqueron/devcentral/mysql
         mailgun: nasqueron/devcentral/mailgun
+        smtp: nasqueron/devcentral/mail_local
       static_host: devcentral.nasqueron-user-content.org
       title: Nasqueron DevCentral
       mysql_link: acquisitariat
