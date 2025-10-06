@@ -40,7 +40,7 @@ selinux_context_certbot_www_applied:
 
 {{ dirs.etc }}/letsencrypt/cli.ini:
   file.managed:
-    - source: salt://roles/core/certificates/files/cli.ini
+    - source: salt://roles/core/certificates/files/certbot/cli.ini
     - makedirs: True
 
 #   -------------------------------------------------------------
@@ -49,23 +49,23 @@ selinux_context_certbot_www_applied:
 
 {{ dirs.bin }}/check-letsencrypt-certificates:
   file.managed:
-    - source: salt://roles/core/certificates/files/check-letsencrypt-certificates.py
+    - source: salt://roles/core/certificates/files/certbot/utilities/check-letsencrypt-certificates.py
     - mode: 755
 
 {{ dirs.etc }}/letsencrypt/acme-dns-auth:
   file.managed:
-    - source: salt://roles/core/certificates/files/acme-dns-auth.py
+    - source: salt://roles/core/certificates/files/certbot/acme-dns/acme-dns-auth.py
     - mode: 755
     - makedirs: True
 
 {{ dirs.bin }}/edit-acme-dns-accounts:
   file.managed:
-    - source: salt://roles/core/certificates/files/edit-acme-dns-accounts.py
+    - source: salt://roles/core/certificates/files/certbot/acme-dns/edit-acme-dns-accounts.py
     - mode: 755
 
 {{ dirs.bin }}/delete-certbot-certificate:
   file.managed:
-    - source: salt://roles/core/certificates/files/delete-certbot-certificate.sh
+    - source: salt://roles/core/certificates/files/certbot/utilities/delete-certbot-certificate.sh
     - mode: 755
 
 #   -------------------------------------------------------------
@@ -76,20 +76,20 @@ selinux_context_certbot_www_applied:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if has_nginx %}
-{% set renewal_script = "letsencrypt-renewal.sh" %}
+{% set renewal_script = "standard.sh" %}
 {% else %}
-{% set renewal_script = "letsencrypt-renewal-without-nginx.sh" %}
+{% set renewal_script = "without-nginx.sh" %}
 {% endif %}
 
 /usr/local/sbin/letsencrypt-renewal:
   file.managed:
-    - source: salt://roles/core/certificates/files/{{ renewal_script }}
+    - source: salt://roles/core/certificates/files/certbot/renewal/{{ renewal_script }}
     - mode: 755
 
 {% if grains["os_family"] == "FreeBSD" %}
 
 /usr/local/etc/periodic/daily/730.letsencrypt:
   file.managed:
-    - source: salt://roles/core/certificates/files/730.letsencrypt
+    - source: salt://roles/core/certificates/files/certbot/periodic/730.letsencrypt
 
 {% endif %}

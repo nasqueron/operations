@@ -41,7 +41,7 @@ acme.sh:
 
 /usr/local/etc/newsyslog.conf.d/acme.sh.conf:
   file.managed:
-    - source: salt://roles/core/certificates/files/syslog/acme.sh.conf
+    - source: salt://roles/core/certificates/files/acmesh/syslog.conf
 
 acmesh_newsyslog_run:
   cmd.run:
@@ -55,5 +55,5 @@ acmesh_newsyslog_run:
 
 {{ dirs.bin }}/acmesh-nginxCheck:
   file.managed:
-    - source: salt://roles/core/certificates/files/acmesh-nginxCheck.sh
+    - source: salt://roles/core/certificates/files/acmesh/nginxCheck.sh
     - mode: 755
