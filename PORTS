@@ -1,5 +1,13 @@
 devserver
+     1080   Free for temporary web servers, < 30 minutes
      2337   API api-exec HTTP
+     3200   Apache HTTP
+     3306   MySQL or MariaDB
+     6667   Reserved for IRC server use
+      ...   Reserved for IRC server use
+     7000   Reserved for IRC server use
+     8000   Free for temporary web servers, < 30 minutes
+     8080   Free for temporary web servers, < 30 minutes
     17000   NetBox
 
 webserver-alkane
