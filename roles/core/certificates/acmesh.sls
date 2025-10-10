@@ -37,6 +37,17 @@ acme.sh:
     - mode: 700
     {% endif %}
 
+/var/certificates/{{ domain }}/key.pem:
+  file.managed:
+    - create: False
+
+    {% if "shared_group" in options %}
+    - group: {{ options.shared_group }}
+    - mode: 640
+    {% else %}
+    - mode: 600
+    {% endif %}
+
 {% endfor %}
 
 /usr/local/etc/newsyslog.conf.d/acme.sh.conf:
