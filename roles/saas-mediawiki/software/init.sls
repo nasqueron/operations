@@ -21,6 +21,7 @@ mediawiki_software_dependencies:
       - {{ packages['jpeg-turbo'] }}
       - librsvg2
       - {{ packages.lua }}
+      - {{ packages['mariadb-client'] }}
       - {{ packages_prefixes.php }}opcache
       - rlwrap
 

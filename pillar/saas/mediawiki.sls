@@ -44,6 +44,7 @@ mediawiki_saas:
 
   credentials:
     db: dbserver/cluster-B/users/saas-mediawiki
+    maintenance: dbserver/cluster-B/users/saas-mw-deploy
     secret_key: nasqueron/mediawiki/secret_key
 
 mediawiki_datastores:
@@ -65,3 +66,20 @@ mediawiki_datastores:
   - inidal.espace-win.org
   - utopia.espace-win.org
   - www.wolfplex.org
+
+mediawiki_databases:
+  agora: nasqueron_wiki
+  wolfplex: wolfplex_wiki
+
+mediawiki_interwikis:
+  # Interwikis for Nasqueron Agora
+  nasqueron_wiki:
+    wolfplex:
+      wiki_id: wolfplex_wiki
+      url: https://www.wolfplex.org/wiki/$1
+
+  # Interwikis for Wolfplex
+  wolfplex_wiki:
+    agora:
+      wiki_id: nasqueron_wiki
+      url: https://agora.nasqueron.org/$1

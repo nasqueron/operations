@@ -249,6 +249,7 @@ vault_secrets_by_role:
 
   saas-mediawiki:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
+    - ops/secrets/dbserver/cluster-B/users/saas-mw-deploy
     - ops/secrets/nasqueron/mediawiki/secret_key
 
   saas-wordpress:

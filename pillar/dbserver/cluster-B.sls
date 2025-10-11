@@ -1,8 +1,26 @@
+#   -------------------------------------------------------------
+#   YAML aliases to use in MariaDB server configuration
+#
+#   Those pillar entries are not directly used in Salt states;
+#   they define aliases to be used below in this YAML pillar.
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 dbserver_mysql_aliases:
   hosts:
     - &viperserv 172.27.27.33
     - &windriver 172.27.27.35
     - &web-001 172.27.27.10
+
+dbserver_mysql_privileges_templates:
+  interwiki: &interwiki
+    scope: table
+    privileges: SELECT, INSERT, DELETE
+    tables:
+      - interwiki
+
+#   -------------------------------------------------------------
+#   Configuration for MariaDB server to provision
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 dbserver_mysql:
 
@@ -47,6 +65,16 @@ dbserver_mysql:
           scope: database
         - database: nasqueron_wiki
           scope: database
+
+    saas-mw-deploy:
+      password: dbserver/cluster-B/users/saas-mw-deploy
+      host: *web-001
+      privileges:
+        - database: nasqueron_wiki
+          <<: *interwiki
+
+        - database: wolfplex_wiki
+          <<: *interwiki
 
     ###
     ### Nasqueron members
