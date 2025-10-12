@@ -41,7 +41,7 @@ dbserver_mysql:
           scope: database
         - database: arsmagica
           scope: database
-        - database: wolfplexdb
+        - database: wolfplex_wiki
           scope: database
         - database: inidal_wiki
           scope: database
@@ -143,13 +143,14 @@ dbserver_mysql:
 
     # Databases used by MediaWiki SaaS - still to split from other content
     utopia: *mediawiki
-    wolfplexdb: *mediawiki
+    wolfplex_wiki: *mediawiki
 
     # Nasqueron members
     Dereckson: *unicode
     Dereckson_Blog: *unicode
 
     # Wolfplex
+    wolfplexdb: *mediawiki
     wolfplex_zine: *unicode
 
     # Zed / Hypership
