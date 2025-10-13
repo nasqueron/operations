@@ -61,7 +61,7 @@ selinux_context_{{ instance }}_data_applied:
 
 /srv/orbeon/{{ instance }}/conf/orbeon.xml:
   file.managed:
-    - source: salt://roles/paas-docker/containers/files/orbeon/server.xml
+    - source: salt://roles/paas-docker/containers/files/orbeon/orbeon.xml
     - mode: 400
     - template: jinja
     - show_changes: False
