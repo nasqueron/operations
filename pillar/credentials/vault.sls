@@ -229,6 +229,7 @@ vault_secrets_by_role:
 
     - ops/secrets/nasqueron/orbeon/oxf.crypto.password
     - ops/secrets/nasqueron/orbeon/users/dereckson
+    - ops/secrets/nasqueron/orbeon/users/dorianvl
     - ops/secrets/dbserver/cluster-A/users/orbeon
 
     - ops/secrets/nasqueron/rabbitmq/orange-rabbit/erlang-cookie

@@ -33,6 +33,7 @@ docker_containers:
       tomcat:
         users:
           dereckson: nasqueron/orbeon/users/dereckson
+          dorianvl: nasqueron/orbeon/users/dorianvl
       smtp: orbeon_smtp
 
       # Published forms are categorized by apps.
