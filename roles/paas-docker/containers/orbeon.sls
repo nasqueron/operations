@@ -72,6 +72,10 @@ selinux_context_{{ instance }}_data_applied:
           user: {{ salt["credentials.get_username"](container["db"]["credential"]) }}
           pass: {{ salt["credentials.get_password"](container["db"]["credential"]) | yaml_dquote }}
 
+/srv/orbeon/{{ instance }}/conf/server.xml:
+  file.managed:
+    - source: salt://roles/paas-docker/containers/files/orbeon/server.xml
+
 {% for config_file in ["web.xml", "form-builder-permissions.xml"] %}
 /srv/orbeon/{{ instance }}/conf/{{ config_file }}:
   file.managed:
@@ -89,6 +93,7 @@ selinux_context_{{ instance }}_data_applied:
     - image: nasqueron/orbeon
     - binds:
       - /srv/orbeon/{{ instance }}/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - /srv/orbeon/{{ instance }}/conf/server.xml:/usr/local/tomcat/conf/server.xml
       - /srv/orbeon/{{ instance }}/conf/orbeon.xml:/usr/local/tomcat/conf/Catalina/localhost/orbeon.xml
       - /srv/orbeon/{{ instance }}/conf/web.xml:/usr/local/tomcat/webapps/orbeon/WEB-INF/web.xml
       - /srv/orbeon/{{ instance }}/conf/form-builder-permissions.xml:/usr/local/tomcat/webapps/orbeon/WEB-INF/resources/config/form-builder-permissions.xml
