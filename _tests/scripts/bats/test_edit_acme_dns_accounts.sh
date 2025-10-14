@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-SCRIPT="../roles/core/certificates/files/edit-acme-dns-accounts.py"
+SCRIPT="../roles/core/certificates/files/certbot/acme-dns/edit-acme-dns-accounts.py"
 
 #   -------------------------------------------------------------
 #   Arguments parsing
