@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2025090200 ;serial
+    2025101802 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
@@ -179,6 +179,7 @@ notifications.nasqueron.org. 86400 IN SPF "v=spf1 include:mailgun.org ~all"
 notifications.nasqueron.org. 86400 IN TXT "v=spf1 include:mailgun.org ~all"
 notifications51.nasqueron.org. 86400 IN CNAME www7.nasqueron.org.
 {{ identity }}. 172800 IN A 178.32.70.109
+obsidian51.nasqueron.org. 86400 IN CNAME www-dev.nasqueron.org.
 orange-rabbit.integration.nasqueron.org. 86400 IN CNAME www3.nasqueron.org.
 packages.nasqueron.org. 86400 IN CNAME www-dev.nasqueron.org.
 pad.nasqueron.org. 86400 IN CNAME www5.nasqueron.org.
