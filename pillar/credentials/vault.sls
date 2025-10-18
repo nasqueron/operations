@@ -278,6 +278,7 @@ vault_secrets_by_role:
 
   webserver-alkane-dev:
     - ops/secrets/dbserver/cluster-B/users/dereckson_www51
+    - ops/secrets/dbserver/cluster-B/users/obsidian51
 
   webserver-legacy:
 

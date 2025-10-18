@@ -47,6 +47,10 @@ wwwroot51_directories:
     user: dereckson
     group: dereckson
 
+  obsidian:
+    user: dereckson
+    group: dereckson
+
   rain:
     user: dereckson
     group: dereckson
