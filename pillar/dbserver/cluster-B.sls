@@ -49,6 +49,13 @@ dbserver_mysql:
             # Tabled managed as datacube by Dæghrefn
             - lyrics_sneakers
 
+    obsidian51:
+      password: dbserver/cluster-B/users/obsidian51
+      host: *windriver
+      privileges:
+        - database: obsidian51
+          scope: database
+
     rhyne-wyse:
       password: dbserver/cluster-B/users/rhyne-wyse
       host: *windriver
@@ -182,6 +189,9 @@ dbserver_mysql:
     # Databases used by MediaWiki SaaS - still to split from other content
     utopia: *mediawiki
     wolfplex_wiki: *mediawiki
+
+    # Obsidian
+    obsidian51: *unicode
 
     # Nasqueron members
     Dereckson: *unicode
