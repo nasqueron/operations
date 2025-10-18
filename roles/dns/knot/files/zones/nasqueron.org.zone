@@ -14,13 +14,12 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2025101802 ;serial
+    2025101900 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
     86400 )    ;minimum
 @ 86400 IN NS {{ identity }}.
-@ 86400 IN NS ns1.he.net.
 @ 86400 IN NS ns2.he.net.
 @ 86400 IN NS ns3.he.net.
 @ 86400 IN NS ns4.he.net.
