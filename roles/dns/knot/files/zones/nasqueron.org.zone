@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2025101901 ;serial
+    2025102003 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
@@ -25,6 +25,7 @@
 @ 86400 IN NS ns4.he.net.
 @ 86400 IN NS ns5.he.net.
 
+test-qa.dns.nasqueron.org. 300 IN TXT "2025-10-20 20:00 UTC"
 6r5eaz7lhqij.nasqueron.org. 86400 IN CNAME gv-rhl3klxjkyocbh.dv.googlehosted.com.
 acme.nasqueron.org. 3600 IN A 51.255.124.9
 acme.nasqueron.org. 86400 IN NS acme.nasqueron.org.
