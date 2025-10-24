@@ -45,7 +45,7 @@ shellgroups:
       - fluo
       - harshcrop
       - hlp
-      - inidal
+      - ieli
       - kazuya
       - khmerboy
       - kumkum
@@ -119,7 +119,7 @@ shellgroups:
       - dorianwinty
       - fauve
       - fluo
-      - inidal
+      - ieli
       - mous
       - rama
       - sandlayth

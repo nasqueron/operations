@@ -32,6 +32,8 @@ revokedusers:
   - kalix
   # Users who never have connected to Eglide's accounts (SSH key issues)
   - tarik
+  # Account renamed to ieli // D3805
+  - inidal
 
 shellusers:
   aceppaluni:
@@ -187,10 +189,10 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIP+04Jhq2toJ+RLx41NKrtDGgmSCfOsAY/BnJ6EzNXC hlp@sonny
     uid: 2018
 
-  inidal:
-    fullname: inidal
+  ieli:
+    fullname: ieli
     ssh_keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIOm2usb7qaeD25nokB/PdEFqnNab9HOHQqR7qDvaNrB inidal@exia
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICTjy3c0q4mdwXGFlVww+zDHxIJAlkObxW39FFQtGgEq ieli@windriver
     uid: 2032
 
   kazuya:
