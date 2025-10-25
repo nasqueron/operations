@@ -6,7 +6,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs with context %}
+{% from "map.jinja" import dirs, packages with context %}
 
 #   -------------------------------------------------------------
 #   IRC clients
@@ -31,6 +31,19 @@ irc_bouncers:
   pkg.installed:
     - pkgs:
       - znc
+
+shroudbnc_dependencies:
+  pkg.installed:
+    - pkgs:
+      - {{ packages["c-ares"] }}
+      - libtool
+      - swig
+      {% if grains['os_family'] == 'Debian' %}
+      - tcl-dev
+      {% endif %}
+      {% if grains['os_family'] == 'RedHat' %}
+      - tcl-devel
+      {% endif %}
 
 #   -------------------------------------------------------------
 #   Bots
