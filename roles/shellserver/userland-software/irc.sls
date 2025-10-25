@@ -45,6 +45,36 @@ shroudbnc_dependencies:
       - tcl-devel
       {% endif %}
 
+shroudbnc_repo:
+  file.directory:
+    - name: /usr/local/src/shroudbnc
+    - user: builder
+    - group: deployment
+    - mode: 755
+  git.latest:
+    - name: https://github.com/gunnarbeutner/shroudbnc
+    - target: /usr/local/src/shroudbnc
+    - user: builder
+
+shroudbnc_build:
+  cmd.run:
+    - name: |
+        ./autogen.sh && \
+        ./configure --prefix=/usr/local && \
+        make
+    - cwd: /usr/local/src/shroudbnc
+    - runas: builder
+    - require:
+        - git: shroudbnc_repo
+    - creates: /usr/local/src/shroudbnc/src/sbnc
+
+shroudbnc_install:
+  cmd.run:
+    - name: make install
+    - cwd: /usr/local/src/shroudbnc
+    - onchanges:
+        - cmd: shroudbnc_build
+
 #   -------------------------------------------------------------
 #   Bots
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
