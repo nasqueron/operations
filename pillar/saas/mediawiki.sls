@@ -7,6 +7,7 @@
 #   -------------------------------------------------------------
 
 mediawiki_extensions:
+  - AllowlistHTMLTags
   - CategoryTree
   - Cite
   - CodeEditor
@@ -21,6 +22,7 @@ mediawiki_extensions:
   - ProofreadPage
   - Scribunto
   - SyntaxHighlight_GeSHi
+  - TemplateSandbox
   - Thanks
   - WarnNotRecentlyUpdated
   - WikiEditor
