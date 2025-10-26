@@ -43,6 +43,7 @@ utilities:
       - moreutils
       - mosh
       - nmap
+      - {{ packages.pandoc }}
       - reptyr
       - toilet
       - unrar
