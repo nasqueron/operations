@@ -277,6 +277,7 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/etherpad/api
 
   webserver-alkane-dev:
+    - ops/secrets/dbserver/cluster-A/users/obsidian
     - ops/secrets/dbserver/cluster-B/users/dereckson_www51
     - ops/secrets/dbserver/cluster-B/users/obsidian51
 

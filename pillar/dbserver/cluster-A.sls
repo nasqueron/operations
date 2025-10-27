@@ -76,6 +76,18 @@ dbserver_postgresql:
           privileges:
             - ALL
 
+    obsidian:
+      password: dbserver/cluster-A/users/obsidian
+      privileges:
+        - database: forms
+          scope: table
+          schema: public
+          tables:
+            - orbeon_form_data
+            - orbeon_f_nasqueron_j_contact_1
+          privileges:
+            - SELECT
+
     orbeon:
       password: dbserver/cluster-A/users/orbeon
       privileges:
@@ -146,6 +158,11 @@ dbserver_postgresql:
     - db: fantoir
       user: fantoir
       ips: 172.27.27.0/28
+
+    - db: forms
+      user: obsidian
+      ips: &windriver 172.27.27.35/32
+      method: password
 
     - db: forms
       user: orbeon
