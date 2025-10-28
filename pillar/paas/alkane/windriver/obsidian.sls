@@ -37,5 +37,8 @@ webserver_content_dotenv:
     databases:
       - service: db-B
         credentials: dbserver/cluster-B/users/obsidian51
+      - service: db-A
+        credentials: dbserver/cluster-A/users/obsidian
+        prefix: ORBEON_
     extra_values:
       DB_NAME: obsidian51
