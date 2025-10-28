@@ -34,8 +34,8 @@ nginx_vhosts:
 webserver_content_dotenv:
   /var/51-wwwroot/obsidian/.env:
     user: web-org-nasqueron-obsidian51
-    db:
-      service: db-B
-      credentials: dbserver/cluster-B/users/obsidian51
+    databases:
+      - service: db-B
+        credentials: dbserver/cluster-B/users/obsidian51
     extra_values:
       DB_NAME: obsidian51

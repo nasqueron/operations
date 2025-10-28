@@ -169,9 +169,9 @@ nginx_vhosts:
 webserver_content_dotenv:
   /var/wwwroot/dereckson.be/www/.env:
     user: web-be-dereckson-www
-    db:
-      service: db-B
-      credentials: dbserver/cluster-B/users/dereckson_www
+    databases:
+      - service: db-B
+        credentials: dbserver/cluster-B/users/dereckson_www
 
 #   -------------------------------------------------------------
 #   Alkane deployment recipes

@@ -134,6 +134,6 @@ nginx_vhosts:
 webserver_content_dotenv:
   /var/51-wwwroot/dereckson-www/.env:
     user: web-be-dereckson-www51
-    db:
-      service: db-B
-      credentials: dbserver/cluster-B/users/dereckson_www51
+    databases:
+      - service: db-B
+        credentials: dbserver/cluster-B/users/dereckson_www51

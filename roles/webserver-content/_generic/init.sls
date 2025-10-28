@@ -11,8 +11,6 @@
 
 {% for env_path, env_args in pillar.get("webserver_content_dotenv", {}).items() %}
 
-{% set db_credentials = env_args["db"]["credentials"] %}
-
 {{ env_path }}:
   file.managed:
     - source: salt://roles/webserver-content/_generic/files/dot.env
@@ -22,11 +20,12 @@
     - template: jinja
     - context:
         environment:
-          {% if "db" in env_args %}
-          DB_HOST: {{ pillar["nasqueron_services"][env_args["db"]["service"]] }}
-          DB_USER: {{ salt["credentials.get_username"](db_credentials) }}
-          DB_PASSWORD: {{ salt["credentials.get_password"](db_credentials) }}
-          {% endif %}
+          {% for db in env_args.get("databases", {}) %}
+          {% set prefix = db.get("prefix", "") %}
+          {{ prefix }}DB_HOST: {{ pillar["nasqueron_services"][db["service"]] }}
+          {{ prefix }}DB_USER: {{ salt["credentials.get_username"](db["credentials"]) }}
+          {{ prefix }}DB_PASSWORD: {{ salt["credentials.get_password"](db["credentials"]) }}
+          {% endfor %}
 
           {% if "vault" in env_args %}
           VAULT_ROLE_ID: {{ salt["credentials.get_username"](env_args["vault"]) }}

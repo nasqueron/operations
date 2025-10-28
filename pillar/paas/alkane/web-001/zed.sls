@@ -42,9 +42,9 @@ wwwroot_identities:
 webserver_content_dotenv:
   /var/wwwroot/hypership.space/www/.env:
     user: web-space-hypership-www
-    db:
-      service: db-B
-      credentials: dbserver/cluster-B/users/zed
+    databases:
+      - service: db-B
+        credentials: dbserver/cluster-B/users/zed
     extra_values:
       DB_NAME: zed_prod
     extra_credentials:
