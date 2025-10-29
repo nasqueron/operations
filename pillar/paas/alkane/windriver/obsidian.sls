@@ -42,3 +42,4 @@ webserver_content_dotenv:
         prefix: ORBEON_
     extra_values:
       DB_NAME: obsidian51
+      OBSIDIAN_CONFIG: /var/dataroot/obsidian/nasqueron/config.php
