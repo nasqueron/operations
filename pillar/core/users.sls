@@ -118,16 +118,14 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBzD5VzetMFTUHLWrLyBsnZ6bdwDa4Ip9WWAh5nLxKyR ysul.nasqueron.org
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGIYBdz8pW4vaSyA/QPlcU81uLI8SHoq7I+K6FPO9oh graywell.dereckson.drake
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIURiX8gBIv91sxutRQeESip7Ympmqe6miepoNDvXpZ9 orin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m yakin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE yakin.dereckson.drake
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeCWiov3TpAccZTYpez+ZPxsg3+ZZMzTOE3ZvjUCdWl voxbone-laptop-20240416
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAhXyFekC8WTIn6qjguB813I79aJ6uLpu47Z8vX22ipc yggdrasil-20220419
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIELikFAtHdSeg6K+qz0ObDfz4z7IkclD2E0s2VUV/ns yggdrasil-20251108
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMfnieEOHNJ4a5blp8NN+O2xpK6IgyNf19dhng6H0Wxx dereckson@bluedrake
-
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIImalLypfV9TtSeAymY8C2pOOCfNtCRI51RZ+jGdIf3Z whiteraven.dereckson.drake
     yubico_keys:
       - ccccccbjncrt
     devserver_tasks:
