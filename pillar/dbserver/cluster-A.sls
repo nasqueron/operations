@@ -84,6 +84,7 @@ dbserver_postgresql:
           schema: public
           tables:
             - orbeon_form_data
+            - orbeon_form_data_attach
             - orbeon_f_nasqueron_j_contact_1
           privileges:
             - SELECT
