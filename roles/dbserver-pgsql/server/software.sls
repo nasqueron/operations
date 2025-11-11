@@ -1,5 +1,3 @@
-#!py
-
 #   -------------------------------------------------------------
 #   Salt — Database server — PostgreSQL
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -7,39 +5,17 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% from "map.jinja" import packages with context %}
+
 #   -------------------------------------------------------------
 #   PostgreSQL server
-#
-#   Packages to install:
-#     - PostgreSQL, excepted on FreeBSD: already done in .build
-#     - PostgreSQL contrib, if so configured in pillar
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+postgresql_server_software:
+  pkg.installed:
+    - pkgs:
+      - {{ packages.postgresql }}
 
-def get_packages():
-    packages = []
-    map_packages = __salt__["jinja.load_map"]("map.jinja", "packages")
-
-    if __grains__["os"] != "FreeBSD":
-        packages.append(map_packages["postgresql"])
-
-    if __salt__["pillar.get"]("dbserver_postgresql:server:with_contrib"):
-        packages.append(map_packages["postgresql-contrib"])
-
-    return packages
-
-
-def run():
-    packages = get_packages()
-
-    if not packages:
-        # FreeBSD server without contrib: no more package to install
-        return {}
-
-    return {
-        "postgresql_server_software": {
-            "pkg.installed": [
-                {"pkgs": get_packages()},
-            ]
-        }
-    }
+      {% if pillar["dbserver_postgresql"]["server"]["with_contrib"] | default(False) %}
+      - {{ packages["postgresql-contrib"] }}
+      {% endif %}
