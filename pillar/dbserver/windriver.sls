@@ -40,6 +40,14 @@ dbserver_postgresql:
   # You're more than welcome to automate any user/db deployment here.
   # cluster-A.sls can be helpful for syntax hints
   users:
+    keruald:
+      password: dbserver/windriver-pgsql/users/keruald
+      privileges:
+       - database: test_keruald_db
+         scope: schema
+         privileges:
+           - ALL
+
     netbox:
       password: dbserver/windriver-pgsql/users/netbox
       privileges:
@@ -53,8 +61,17 @@ dbserver_postgresql:
       encoding: UTF8
       owner: netbox
 
+    test_keruald_db:
+      encoding: UTF8
+      owner: keruald
+
   connections:
     - db: netbox
       user: netbox
+      ips: 127.0.0.1
+      method: password
+
+    - db: test_keruald_db
+      user: keruald
       ips: 127.0.0.1
       method: password
