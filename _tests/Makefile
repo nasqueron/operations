@@ -9,7 +9,7 @@ test-modules:
 	PYTHONPATH="${CURRENT_DIR}:${MODULES_DIR}" python -m unittest discover modules
 
 test-pillar:
-	python -m unittest discover pillar
+	PYTHONPATH="${CURRENT_DIR}" python -m unittest discover pillar
 
 test-python-scripts:
 	PYTHONPATH="${CURRENT_DIR}" python -m unittest discover scripts/python

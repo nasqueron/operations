@@ -24,4 +24,7 @@ fi
 #   Run test
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+PYTHONPATH="$(pwd)"
+export PYTHONPATH
+
 python roles/python/dns/test_dns_zones.py

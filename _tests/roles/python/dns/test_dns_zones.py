@@ -13,46 +13,13 @@ import os
 import subprocess
 import sys
 import tempfile
-from typing import Dict, List
+from typing import Dict
 
 from jinja2 import Environment, FileSystemLoader
 import unittest
 from unittest_data_provider import data_provider
-import yaml
 
-
-#   -------------------------------------------------------------
-#   Pillars helpers
-#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-
-PILLARS_DIRECTORY = "../pillar/dns/"
-
-
-def load_pillar_files(pillar_directory: str) -> List:
-    pillar_files = []
-
-    for dir_path, dir_names, file_names in os.walk(pillar_directory):
-        files = [
-            os.path.join(dir_path, file_name)
-            for file_name in file_names
-            if file_name.endswith(".sls")
-        ]
-
-        pillar_files.extend(files)
-
-    return pillar_files
-
-
-def load_pillar(file_path: str) -> Dict:
-    with open(file_path) as fd:
-        return yaml.safe_load(fd)
-
-
-def load_pillars() -> Dict:
-    pillar_files = load_pillar_files(PILLARS_DIRECTORY)
-
-    return {file_path: load_pillar(file_path) for file_path in pillar_files}
+from helpers import load_pillars
 
 
 #   -------------------------------------------------------------
@@ -126,7 +93,7 @@ def check_zone(file_content: str) -> bool:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-pillars = load_pillars()
+pillars = load_pillars("../pillar/dns/")
 
 
 class Testinstance(unittest.TestCase):
