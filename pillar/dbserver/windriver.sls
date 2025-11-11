@@ -34,7 +34,7 @@ dbserver_postgresql:
     # Fantoir database needs the pg_trgm extension
     with_contrib: True
 
-    listen_addresses: "*"
+    listen_addresses: "127.0.0.1"
 
   # As of 2024-09, users and databases are managed manually.
   # You're more than welcome to automate any user/db deployment here.
