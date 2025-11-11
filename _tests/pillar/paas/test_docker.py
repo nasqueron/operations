@@ -21,7 +21,7 @@ class Testinstance(unittest.TestCase):
         with open(pillar_file, "r") as fd:
             self.pillar = yaml.safe_load(fd)
 
-        for service, containers in self.pillar["docker_containers"].items():
+        for service, containers in self.pillar.get("docker_containers", {}).items():
             for instance, container in containers.items():
                 if "host" not in container:
                     continue
