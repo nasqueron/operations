@@ -68,10 +68,10 @@ dbserver_postgresql:
   connections:
     - db: netbox
       user: netbox
-      ips: 127.0.0.1
+      ips: 127.0.0.1/32
       method: password
 
     - db: test_keruald_db
       user: keruald
-      ips: 127.0.0.1
+      ips: 127.0.0.1/32
       method: password
