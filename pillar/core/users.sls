@@ -256,6 +256,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB7FQwqZIT8htdXRy57NZqaYEcRBFbu1oOHuRbp7LwBb sandlayth@Thinkpad-t15
     uid: 5002
 
+  sandrine:
+    fullname: Sandrine Defontaine
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAzWMrQ8ZKObZlLBj/vAPrG2SW+jJtOr3BmQsDictLnV acer@LAPTOP-7H3B0PT7
+    uid: 2039
+
   shark:
     fullname: Shark
     ssh_keys:

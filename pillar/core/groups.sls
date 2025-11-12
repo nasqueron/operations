@@ -56,6 +56,7 @@ shellgroups:
       - ringa
       - rix
       - sandlayth
+      - sandrine
       - shark
       - thrx
       - tomjerr
@@ -123,4 +124,5 @@ shellgroups:
       - mous
       - rama
       - sandlayth
+      - sandrine
       - xcombelle
