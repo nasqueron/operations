@@ -89,6 +89,7 @@ shellgroups:
       - dorianwinty
       - mous
       - sandlayth
+      - sandrine
 
   ops:
     gid: 3001
