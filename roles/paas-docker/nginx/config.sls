@@ -68,3 +68,11 @@
 {% endfor %}
 {% endif %}
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   Log
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/etc/logrotate.d/nginx:
+  file.managed:
+    - source: salt://roles/paas-docker/nginx/files/logrotate/nginx.conf
