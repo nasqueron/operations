@@ -51,6 +51,7 @@ shellgroups:
       - kumkum
       - mous
       - pkuz
+      - ptdradmin
       - rama
       - rashk0
       - ringa
@@ -122,6 +123,7 @@ shellgroups:
       - fluo
       - ieli
       - mous
+      - ptdradmin
       - rama
       - sandlayth
       - sandrine

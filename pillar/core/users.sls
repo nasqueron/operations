@@ -225,6 +225,12 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+UZbXGwJ7OqxiwsQiTCbL13Vtia1dCPcj7OhiDOzvKGE376Ua2ZB3bNCl3LzPCvyKbNeYyglZe2lrab2e99GkNvdf8e2H2bvoubnB75ZGjz9IZenzz2YahLb7NyLq3kfKLYW8Yff9HqENJbVQCOouAZhP6yXR4fvoHQ+/bdxbHwtoMeetfQH9n5nywqtt0X0Se1qiSbGKLAO+59KRM+D3K4NMBgpkmEbnU1tVi6Bf8ti5Nie5vKKhHw5WGR8FTsuffE9WjbZcxWQvLnhPOu2Rbl3G5lLm8p68VWY9zZscIbcB6uhF8mKH2qazu95T2RJxEBCwFLLG9v6EHORtAWNL pkuz
     uid: 2022
 
+  ptdradmin:
+    fullname: Doba gui
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAFtlR4OeXNHfJXNrvrLeU9nGu7ufcxc38xUGqlwiY5L doba.guimartinien@gmail.com
+    uid: 2040
+
   rama:
     fullname: Rama
     ssh_keys:
