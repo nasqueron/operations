@@ -46,3 +46,11 @@ webserver_alkane_nginx_includes:
 {% endfor %}
 
 {% endfor %}
+
+#   -------------------------------------------------------------
+#   Log
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/etc/newsyslog.conf.d/nginx.conf:
+  file.managed:
+    - source: salt://roles/webserver-alkane/nginx/files/newsyslog/nginx.conf
