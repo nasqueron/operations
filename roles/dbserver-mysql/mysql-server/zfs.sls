@@ -14,7 +14,7 @@
   zfs.filesystem_present:
     # This one is optimized for MyISAM
     - properties:
-        mountpoint: /var/db/mysql
+        mountpoint: /var/db/mysql/data
         compression: lz4
         recordsize: 8K
 

@@ -32,7 +32,7 @@ pid-file = /var/run/mysql/mysqld.pid
 
 basedir = /usr
 tmpdir = /tmp
-datadir = /var/db/mysql
+datadir = /var/db/mysql/data
 lc-messages-dir = {{ share }}/mysql
 
 bind-address			= {{ listen_ip }}

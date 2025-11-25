@@ -21,12 +21,6 @@
     - group: mysql
     - dir_mode: 755
 
-/var/db/mysql:
-  file.directory:
-    - user: mysql
-    - group: mysql
-    - dir_mode: 755
-
 {{ dirs.etc }}/mysql:
   file.directory:
     - user: root

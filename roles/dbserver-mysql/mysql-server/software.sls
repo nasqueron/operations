@@ -16,3 +16,15 @@ mysql_server_software:
   pkg.installed:
     - pkgs:
       - {{ packages.mariadb }}
+
+#   -------------------------------------------------------------
+#   Root directory for MySQL
+#
+#   :: /var/db/mysql is required by both zfs and cnf states
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/db/mysql:
+  file.directory:
+    - user: mysql
+    - group: mysql
+    - dir_mode: 755

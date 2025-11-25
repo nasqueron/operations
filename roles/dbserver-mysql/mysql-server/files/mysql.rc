@@ -10,4 +10,4 @@ mysql_enable="YES"
 mysql_rundir="/var/run/mysql"
 mysql_pidfile="/var/run/mysql/mysqld.pid"
 
-mysql_dbdir=/var/db/mysql
+mysql_dbdir=/var/db/mysql/data
