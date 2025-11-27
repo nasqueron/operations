@@ -14,3 +14,13 @@ chrony_service:
     - name: chronyd
     - enable: true
 {% endif %}
+
+{% if grains["os"] == "FreeBSD" %}
+/etc/rc.conf.d/ntpd:
+  file.managed:
+    - source: salt://roles/core/ntp/files/rc/ntpd.conf
+
+ntpd:
+  service.running:
+    - enable: True
+{% endif %}
