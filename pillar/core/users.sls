@@ -123,7 +123,7 @@ shellusers:
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeCWiov3TpAccZTYpez+ZPxsg3+ZZMzTOE3ZvjUCdWl voxbone-laptop-20240416
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAhXyFekC8WTIn6qjguB813I79aJ6uLpu47Z8vX22ipc yggdrasil-20220419
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIELikFAtHdSeg6K+qz0ObDfz4z7IkclD2E0s2VUV/ns yggdrasil-20251108
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiur001u1XJkkKg6zBcjLttySPWSaZHDnJSKZuB8qh0 yggdrasil-20251201
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMfnieEOHNJ4a5blp8NN+O2xpK6IgyNf19dhng6H0Wxx dereckson@bluedrake
     yubico_keys:
