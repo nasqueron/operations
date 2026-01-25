@@ -8,6 +8,8 @@
 
 {% from "roles/core/network/map.jinja" import gre with context %}
 {% set boot_loader = namespace(gre=false) %}
+{% set is_router = "router" in grains["roles"] %}
+
 
 #   -------------------------------------------------------------
 #   Tunnels network configuration files
@@ -26,6 +28,23 @@
 {% if grains['os_family'] == 'Debian' %}
     - context:
         interface: gre-{{ tunnel["network"] }}
+{% endif %}
+
+
+{% if not is_router and grains['os'] == 'FreeBSD' %}
+# Only once iteration of the loop is expected, as it's not a router
+
+/usr/local/etc/rc.d/route-drake:
+  file.managed:
+    - source: roles/core/network/files/FreeBSD/route-drake.service
+    - mode: 755
+
+/etc/rc.conf.d/route_drake:
+  file.managed:
+    - source: roles/core/network/files/FreeBSD/route_drake.rc
+    - template: jinja
+    - context:
+        tunnel_endpoint: {{ tunnel["dst"] }}
 {% endif %}
 
 {% endfor %}

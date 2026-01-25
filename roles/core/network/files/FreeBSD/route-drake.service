@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# PROVIDE: route-drake
+# REQUIRE: NETWORKING
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# route_drake_enable (bool): Set it to YES to enable routing.
+#           Default is "NO".
+# route_drake_range (str): CIDR range to route
+#           Default is "172.27.27.0/24".
+# route_drake_destination (str): gateway IP for that route
+#           Default is "172.27.27.1".
+
+. /etc/rc.subr
+
+name=route_drake
+rcvar=route_drake_enable
+
+load_rc_config $name
+
+# All the network served through the GRE tunnel + the tunnel endpoint
+: ${route_drake_enable:="NO"}
+: ${route_drake_range:="172.27.27.0/24"}
+: ${route_drake_destination:="172.27.27.1"}
+
+stop_cmd=":"
+start_cmd="route_drake_start"
+
+route_drake_start()
+{
+    sleep 30
+
+    if netstat -rn | grep -q $route_drake_range; then
+        exit 0
+    else
+        route add -net $route_drake_range $route_drake_destination
+    fi
+}
+
+run_rc_command "$1"
