@@ -155,6 +155,16 @@ shellusers:
       - deploy_dotfiles
     uid: 2035
 
+  duranzed:
+    fullname: Sami Baghdadi
+    shell: bash
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAbx5OmeenLlVYjqgxaWa68bJ7RaQurr85Qt/149UcOv
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGB00xLAHeVAPhrQ/QhY6RGJ63OwYXQhz9KgiGtFPAM
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFwZeby2eoLcKhMjvTOkwHOm3TEGJheHfVTIiaxp+BqQ
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINztekWnRXysp0E28ZI/cCmAYB5Bg/m+WT7Wt4NIWgIJ
+    uid: 2041
+
   erol:
     fullname: Erol Unutmaz
     ssh_keys:

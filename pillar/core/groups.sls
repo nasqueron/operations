@@ -40,6 +40,7 @@ shellgroups:
       - chan
       - dereckson
       - dorianwinty
+      - duranzed
       - erol
       - fauve
       - fluo
@@ -87,6 +88,7 @@ shellgroups:
       - aceppaluni
       - dereckson
       - dorianwinty
+      - duranzed
       - mous
       - sandlayth
       - sandrine
@@ -100,6 +102,7 @@ shellgroups:
     members:
       - dereckson
       - dorianwinty
+      - duranzed
       - sandlayth
 
   deployment:
@@ -119,6 +122,7 @@ shellgroups:
     members:
       - aceppaluni
       - dereckson
+      - duranzed
       - dorianwinty
       - fauve
       - fluo
