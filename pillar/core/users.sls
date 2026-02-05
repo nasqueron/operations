@@ -110,6 +110,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvDcmKHfTrCBRpjJxYyIELMRknrMpDXfcKDhfXqmB09 chan@Calculon
     uid: 2009
 
+  yousra:
+    fullname: yousra
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHfTvCv5XhNV5XgXWfuTWswLzt1dfYL1PhTfFx8trpn yousra@yousra-Vivobook-ASUSLaptop-M1605YA-M1605YA
+    uid: 2042
+
   dereckson:
     fullname: Sebastien Santoro
     shell: zsh

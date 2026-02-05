@@ -67,6 +67,7 @@ shellgroups:
       - windu
       - xcombelle
       - xray
+      - yousra
 
   chaton-dev:
     gid: 827
@@ -133,3 +134,4 @@ shellgroups:
       - sandlayth
       - sandrine
       - xcombelle
+      - yousra
