@@ -34,6 +34,17 @@ acme.sh:
 {% for domain in certificates %}
 {% set options = certificates_options.get(domain, {}) %}
 
+deploy_certificate_for_domain_{{ domain }}:
+  cmd.run:
+    - name: |
+       acme.sh --install-cert -d {{ domain }} \
+       {% if "reload" in options %}--reloadcmd "{{ options["reload"] }}"{% endif %} \
+       --cert-file /var/certificates/{{ domain }}/cert.pem \
+       --key-file /var/certificates/{{ domain }}/key.pem \
+       --fullchain-file /var/certificates/{{ domain }}/fullchain.pem \
+       --ca-file /var/certificates/{{ domain }}/chain.pem
+    - runas: acme
+
 /var/certificates/{{ domain }}:
   file.directory:
     - user: acme
