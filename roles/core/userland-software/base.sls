@@ -67,6 +67,7 @@ sysadmin_utilities:
       - bat
       - colordiff
       - git
+      - {{ packages.mtr }}
       - nano
       - ripgrep
       - tree
