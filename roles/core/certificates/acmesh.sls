@@ -10,8 +10,16 @@
 {% set certificates = pillar.get("certificates", []) %}
 {% set certificates_options = pillar.get("certificates_options", {}) %}
 
+#   -------------------------------------------------------------
+#   Software
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 acme.sh:
   pkg.installed
+
+#   -------------------------------------------------------------
+#   Certificates directories
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /var/certificates:
   file.directory:
@@ -50,6 +58,10 @@ acme.sh:
 
 {% endfor %}
 
+#   -------------------------------------------------------------
+#   Logs
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 /usr/local/etc/newsyslog.conf.d/acme.sh.conf:
   file.managed:
     - source: salt://roles/core/certificates/files/acmesh/syslog.conf
@@ -58,6 +70,10 @@ acmesh_newsyslog_run:
   cmd.run:
     - name: newsyslog -NC
     - creates: /var/log/acme.sh.log
+
+#   -------------------------------------------------------------
+#   Auto-renew helper scripts
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 /usr/local/etc/cron.d/acmesh:
   file.managed:
