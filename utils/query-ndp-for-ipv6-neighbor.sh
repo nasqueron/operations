@@ -45,7 +45,7 @@ done
 
 skip=1
 ndp -an | while read -r ipv mac rest; do
-    # Skip header or incomplete entrie
+    # Skip header or incomplete entry
     if [ $skip -eq 1 ]; then skip=0; continue; fi
     [ "$mac" = "(incomplete)" ] && continue
 
