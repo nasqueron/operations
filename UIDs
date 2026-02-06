@@ -5,6 +5,7 @@
 834 tc2
 835 opensearch
 836 opendkim
+904 grafana # Source FreeBSD port
 1001 netbox
 3004 mediawiki
 6000 mailbox
