@@ -91,6 +91,7 @@ shellgroups:
       - dorianwinty
       - duranzed
       - mous
+      - ptdradmin
       - sandlayth
       - sandrine
 
