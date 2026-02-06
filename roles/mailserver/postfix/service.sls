@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .config
-  - .service
+postfix_running:
+  service.running:
+    - name: postfix
+    - enable: True

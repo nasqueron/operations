@@ -5,7 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - .config
-  - .service
+postfix_install:
+  pkg.installed:
+    - pkgs:
+      - maildrop
+      - mailman
+      - postfix-pgsql
+      - postfix-policyd-spf-perl
