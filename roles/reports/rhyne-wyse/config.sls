@@ -18,7 +18,7 @@
     - template: jinja
     - context:
         vault:
-          approle: {{ salt["credentials.read_secret"]("nasqueron/rhyne-wyse/salt") }}
+          approle: {{ salt["credentials.read_secret"]("nasqueron/rhyne-wyse/vault") }}
           addr: {{ pillar["nasqueron_services"]["vault_url"] }}
 
 /var/db/rhyne-wyse:
