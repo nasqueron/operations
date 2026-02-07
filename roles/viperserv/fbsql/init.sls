@@ -24,7 +24,7 @@ fbsql_repo:
 
 fbsql_build:
   cmd.run:
-    - name: gmake
+    - name: make
     - runas: builder
     - cwd: /opt/fbsql
     - creates: /opt/fbsql/fbsql.so
