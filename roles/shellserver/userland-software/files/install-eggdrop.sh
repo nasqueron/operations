@@ -20,8 +20,8 @@
 #   TCL and eggdrop versions
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-EGGDROP_VERSION_MAJOR=1.9
-EGGDROP_VERSION=1.9.2rc2
+EGGDROP_VERSION_MAJOR=1.10
+EGGDROP_VERSION=1.10.1
 TCL_VERSION=8.6
 
 #   -------------------------------------------------------------
