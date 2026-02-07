@@ -9,3 +9,4 @@ opentofu_software:
   pkg.installed:
     - pkgs:
       - opentofu
+      - terraform # fallback for modules not compiled for FreeBSD
