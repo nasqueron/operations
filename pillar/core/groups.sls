@@ -105,6 +105,7 @@ shellgroups:
       - dereckson
       - dorianwinty
       - duranzed
+      - ptdradmin
       - sandlayth
 
   deployment:
