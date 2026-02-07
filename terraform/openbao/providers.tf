@@ -15,5 +15,5 @@ terraform {
 }
 
 provider "vault" {
-    token = file("~/.vault-token")
+    address = "https://172.27.27.7:8200"
 }
