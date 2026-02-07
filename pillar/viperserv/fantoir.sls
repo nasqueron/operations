@@ -7,6 +7,6 @@
 #   ------------------------------------------------------------
 
 fantoir:
-  dataset_url: https://www.data.gouv.fr/fr/datasets/r/66a699c0-90c4-4396-b738-cd02ee52e0b1
-  dataset_hash: f60a3b4e436b2520f8cac73807b41dd97be74fcf6a8a016174f4b04aaa2ed0a6
-  distname: FANTOIR1020
+  dataset_url: https://data.economie.gouv.fr/api/datasets/1.0/fichier-fantoir-des-voies-et-lieux-dits/attachments/fichier_national_fantoir_situation_avril_2023_zip/
+  dataset_hash: b2e8ecdb825de46c2bbd5e294e523b0a2dec48e73219211e45a0d22b151f6975
+  distname: FANTOIR0423
