@@ -278,7 +278,6 @@ nodes:
     roles:
       - devserver
       - dbserver-mysql
-      - viperserv
       - webserver-legacy
     zfs:
       pool: arcology
@@ -314,6 +313,7 @@ nodes:
       - reports
       - saas-nextcloud
       - netbox
+      - viperserv
       - webserver-alkane
       - webserver-alkane-dev
     zfs:

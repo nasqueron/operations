@@ -16,7 +16,6 @@ base:
     - roles/builder
     - roles/dbserver-mysql
     - roles/devserver
-    - roles/viperserv
     - roles/webserver-core
     - roles/webserver-legacy
     - roles/webserver-varnish
@@ -33,6 +32,7 @@ base:
     - roles/redis
     - roles/reports # depends of builder
     - roles/saas-nextcloud
+    - roles/viperserv
     - roles/webserver-alkane
     - roles/webserver-core
   'cloudhugger':

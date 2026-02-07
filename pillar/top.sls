@@ -58,8 +58,6 @@ base:
   ysul:
     - devserver.repos
     - saas.mediawiki
-    - viperserv.bots
-    - viperserv.fantoir
     - webserver.labs
     - webserver.wwwroot51
 
@@ -74,5 +72,7 @@ base:
     - netbox.netbox
     - observability.prometheus
     - packages.freebsd
+    - viperserv.bots
+    - viperserv.fantoir
     - webserver.labs
     - webserver.wwwroot51
