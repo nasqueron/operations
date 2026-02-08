@@ -13,7 +13,7 @@ variable "role_name" {
 variable "kv_mount" {
     description = "Mount path of KV v2 engine where to save the approle credentials"
     type = string
-    default = "kv"
+    default = "ops"
 }
 
 variable "kv_path" {
@@ -34,8 +34,8 @@ variable "secret_id_bound_cidrs" {
 
 variable "token_ttl" {
     description = "Default token TTL for the AppRole"
-    type = string
-    default = "300"
+    type = number
+    default = 300
 }
 
 variable "token_max_ttl" {
