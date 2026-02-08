@@ -150,11 +150,13 @@ notifications_configuration:
         - group: ops
           items:
             - Continous integration and delivery
+            - Drake network
             - IPv6
             - Mail
             - Message queues
             - Murasil
             - Nasqueron security operations squad
+            - Secure HA tunnels
             - Servers
             - Ops-sprint-*
             - Salt
