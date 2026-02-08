@@ -10,6 +10,12 @@ devserver
      8080   Free for temporary web servers, < 30 minutes
     17000   NetBox
 
+viperserv
+    18000   Eggdrop - Partyline - Humans - Dæghrefn
+    18010   Eggdrop - Partyline - Humans - Wearg
+    19000   Eggdrop - Partyline - Bots - Dæghrefn
+    19010   Eggdrop - Partyline - Bots - Wearg
+
 webserver-alkane
      9253   php-fpm metrics
 

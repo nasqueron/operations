@@ -86,6 +86,7 @@
         modules: {{ bot['modules'] | default([]) }}
         runas: {{ bot['runas'] | default('viperserv') }}
         nickserv: {{ bot['nickserv'] | default(False) }}
+        listen: {{ bot['listen'] | default(False) }}
 
 /srv/viperserv/{{ botname }}/motd:
   file.managed:

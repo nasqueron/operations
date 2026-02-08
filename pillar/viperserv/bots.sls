@@ -12,6 +12,9 @@ viperserv_accounts:
 viperserv_bots:
   Daeghrefn:
     realname: https://daeghrefn.nasqueron.org
+    listen:
+      users: 18000
+      bots: 19000
     scripts:
       - Daeghrefn/Time.tcl
       - Daeghrefn/Wolfplex.tcl
@@ -34,6 +37,9 @@ viperserv_bots:
 
   Wearg:
     realname: RabbitMQ broker client
+    listen:
+      users: 18010
+      bots: 19010
     scripts:
       - Wearg/Broker.tcl
       - Wearg/Notifications.tcl
