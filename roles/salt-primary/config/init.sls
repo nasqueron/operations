@@ -15,3 +15,15 @@
   file.managed:
     - source: salt://roles/salt-primary/config/files/pillar-tower.conf
     - file_mode: 644
+
+#   -------------------------------------------------------------
+#   Log
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/log/deploy.log:
+  file.managed:
+    - source: ~       # Empty file, not managed by Salt
+    - replace: False
+    - user: root
+    - group: ops
+    - mode: 664
