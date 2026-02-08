@@ -9,12 +9,14 @@
 #   Configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# This sls_id is declared in terraform/openbao/Makefile for secrets' rotation.
 /usr/local/etc/secrets/rhyne-wyse.yaml:
   file.managed:
     - source: salt://roles/reports/rhyne-wyse/files/secrets.conf
     - user: rhyne-wyse
     - mode: 400
     - makedirs: True
+    - show_changes: False
     - template: jinja
     - context:
         vault:

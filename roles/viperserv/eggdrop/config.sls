@@ -52,12 +52,14 @@
     - user: viperserv
     - group: nasqueron-irc
 
+# This sls_id is declared in terraform/openbao/Makefile for secrets' rotation.
 /srv/viperserv/.credentials:
   file.managed:
     - source: salt://roles/viperserv/eggdrop/files/dot.credentials
     - user: viperserv
     - group: nasqueron-irc
     - mode: 400
+    - show_changes: False
     - template: jinja
     - context:
         # Database is on cluster B

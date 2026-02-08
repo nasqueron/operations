@@ -29,12 +29,6 @@ data "vault_approle_auth_backend_role_id" "this" {
 resource "vault_approle_auth_backend_role_secret_id" "this" {
     backend = "approle"
     role_name = vault_approle_auth_backend_role.this.role_name
-
-    lifecycle {
-        ignore_changes = [
-            secret_id,
-        ]
-    }
 }
 
 #   -------------------------------------------------------------
