@@ -237,7 +237,7 @@ unium._domainkey.lists.nasqueron.org. 86400 IN TXT ( "v=DKIM1; k=rsa; p=MIIBIjAN
 unium._domainkey.nasqueron.org. 86400 IN TXT ( "v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAj2hOq4/nK8Np+kqmLtRxc29EDcdKtbWHsOTeaNCR5F25AISC6rd4BSCUqYJHD7LAhjrCXQCdBfA2V62k75plPR3OzzLWYbP9/FgmB9Nnu1bgQnpBs7zf9YNz1kgIW953tjWJb3E4QvlnIgv4S+jx4n0ajxjMaOzndb7BYvaqj6PP4Hl8PsZRUGKwtqOe41GUB"
     M0XiNTgL4471XlMwNRLg1TAjVP5TTVLgaRFWruvqUZhGEn/s+s4yZ0AVCH3dIaCSTmMxSScmkHuC2ICAalK44d4X7Oq6jmaL7ZNPhcI4F38XqQOggTg9VtooQelChAZD98xOorHGoM+CFUafz7muQIDAQAB )
 vault-notifications.integration.nasqueron.org. 86400 IN CNAME www3.nasqueron.org.
-viperserv.nasqueron.org. 86400 IN AAAA 2001:470:1f13:9e1:0:c0ff:ee:7
+viperserv.nasqueron.org. 86400 IN AAAA 2001:bc8:2e84:700:0:dead:c0de:b07
 vma.nasqueron.org. 86400 IN CNAME mailwww.nasqueron.org.
 web-001.nasqueron.org. 86400 IN A 51.255.124.10
 white-rabbit.nasqueron.org. 86400 IN CNAME app3.nasqueron.org.
