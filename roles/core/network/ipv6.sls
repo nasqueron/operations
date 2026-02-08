@@ -31,6 +31,7 @@
               interface: {{ interface['device'] }}
               ipv6_address: {{ interface['ipv6']['address'] }}
               ipv6_prefix: {{ interface['ipv6']['prefix'] | default(64) }}
+              ipv6_aliases: {{ interface['ipv6']['aliases'] | default([]) }}
               has_native_ipv6: True
 
       {% if "gateway" in interface["ipv6"] %}

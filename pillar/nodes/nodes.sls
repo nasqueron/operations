@@ -356,6 +356,8 @@ nodes:
             address: 2001:bc8:2e84:700::da7a:7001
             gateway: fe80::a293:51ff:feb7:55ef
             prefix: 56
+            aliases:
+              - 2001:bc8:2e84:700:0:dead:c0de:b07 # ViperServ
           flags:
             - ipv6_dhcp_duid
 

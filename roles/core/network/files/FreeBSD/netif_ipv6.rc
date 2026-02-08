@@ -17,3 +17,6 @@ ifconfig_{{ interface }}_ipv6="inet6 {{ ipv6_address }} prefixlen {{ ipv6_prefix
 {%- else -%}
 ifconfig_{{ interface }}_ipv6="inet6 accept_rtadv"
 {% endif -%}
+{%- for alias in ipv6_aliases %}
+ifconfig_{{ interface }}_ipv6_alias{{ loop.index }}="inet6 add {{ alias }} prefixlen {{ ipv6_prefix }}"
+{% endfor -%}
