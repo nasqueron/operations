@@ -18,6 +18,7 @@ resource "vault_approle_auth_backend_role" "this" {
     secret_id_bound_cidrs = var.secret_id_bound_cidrs
     token_policies = var.policies
     token_ttl = var.token_ttl
+    token_max_ttl = var.token_max_ttl
 }
 
 data "vault_approle_auth_backend_role_id" "this" {

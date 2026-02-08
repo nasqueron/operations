@@ -37,3 +37,9 @@ variable "token_ttl" {
     type = string
     default = "300"
 }
+
+variable "token_max_ttl" {
+    description = "Maximum token TTL for the AppRole in seconds (0 means use system default)"
+    type = number
+    default = 0
+}

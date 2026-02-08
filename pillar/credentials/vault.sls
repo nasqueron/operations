@@ -57,7 +57,6 @@ vault_policies:
   - salt-primary
   - sentry
   - vault_bootstrap
-  - viperserv
 
 #   -------------------------------------------------------------
 #   Vault policies for Salt itself
