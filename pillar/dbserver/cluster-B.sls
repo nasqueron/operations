@@ -7,7 +7,7 @@
 
 dbserver_mysql_aliases:
   hosts:
-    - &viperserv 172.27.27.33
+    - &viperserv 172.27.27.35
     - &windriver 172.27.27.35
     - &web-001 172.27.27.10
 
