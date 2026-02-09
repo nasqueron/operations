@@ -237,6 +237,21 @@ nodes:
             address: 172.27.27.1
             netmask: *intranought_netmask
 
+  router-002:
+    forest: nasqueron-infra
+    hostname: router-002.nasqueron.drake
+    roles:
+      - router
+    network:
+      ipv6_tunnel: False
+      interfaces:
+        intranought:
+          device: vmx0
+          ipv4:
+            address: 172.27.27.11
+            netmask: *intranought_netmask
+            gateway: 172.27.27.1
+
   web-001:
     forest: nasqueron-infra
     hostname: web-001.nasqueron.org
