@@ -106,6 +106,7 @@ shellgroups:
       - dorianwinty
       - duranzed
       - sandlayth
+      - yousra
 
   deployment:
     gid: 3003
