@@ -1,0 +1,14 @@
+
+    router-002                ______
+                              \     \          
+    A Nasqueron infra-         \     \           IP: {{ ipv4_address }}
+    structure server.           \     \_         GW: {{ ipv4_gateway }}
+                                _\      \
+    Drake network router        \        \
+                                 \        \
+    Manage 172.27.27.0/24        _\         \
+    Link to Drake and ICANN      \           \
+                                  \           \_
+    /// /// /// /// /// ///       _\            \
+                                  \              \
+___________________________________\              \_________mic'03
