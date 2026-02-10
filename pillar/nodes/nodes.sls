@@ -242,6 +242,8 @@ nodes:
     hostname: router-002.nasqueron.drake
     roles:
       - router
+    zfs:
+      pool: zroot
     network:
       ipv6_tunnel: False
       interfaces:
