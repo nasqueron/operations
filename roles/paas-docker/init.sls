@@ -17,6 +17,7 @@ include:
   - .systemd-timers
   - .wwwroot-502
   - .wwwroot-content
+  - .anubis
   - .nginx
   - .monitoring
   - .wrappers

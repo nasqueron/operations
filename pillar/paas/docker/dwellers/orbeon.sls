@@ -41,3 +41,11 @@ docker_containers:
       apps:
         - nasqueron-join
         - nasqueron-requests
+
+anubis_instances:
+  orbeon:
+    socket: /run/anubis/orbeon.sock
+    metrics_socket: /run/anubis/orbeon-metrics.sock
+    target:
+      service: orbeon
+      container: nasqueron_forms

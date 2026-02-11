@@ -15,11 +15,13 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-policy_module(nginx, 1.0)
+policy_module(nginx, 1.1)
 
 require {
     type httpd_t;
+    type httpd_var_run_t;
     type container_file_t;
+    type unconfined_service_t;
 }
 
 #============= httpd_t ==============
@@ -28,3 +30,7 @@ virt_read_sandbox_files(httpd_t)
 
 allow httpd_t container_file_t:lnk_file read;
 allow httpd_t container_file_t:file read;
+
+# Allow to connect to UNIX sockets
+allow httpd_t httpd_var_run_t:sock_file write;
+allow httpd_t unconfined_service_t:unix_stream_socket connectto;
