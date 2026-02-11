@@ -8,8 +8,7 @@
 
 {% from "roles/core/network/map.jinja" import gre with context %}
 {% set boot_loader = namespace(gre=false) %}
-{% set is_router = "router" in grains["roles"] %}
-
+{% set is_router = salt["node.has_role"]("router") %}
 
 #   -------------------------------------------------------------
 #   Tunnels network configuration files
