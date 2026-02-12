@@ -106,3 +106,13 @@ oidentd_service_config:
   service.running:
     - name: oidentd
     - enable: true
+
+#   -------------------------------------------------------------
+#   RC
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if services["manager"] == "rc" %}
+/etc/rc.conf.d/oidentd:
+  file.managed:
+    - source: salt://roles/shellserver/userland-software/files/oidentd.rc
+{% endif %}
