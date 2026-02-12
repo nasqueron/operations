@@ -115,3 +115,11 @@ vault write -format=json $CA_VAULT_PATH/issue/nasqueron-drake \
     >(jq -r .data.private_key > $VAULT_CERTS_PATH/private.key)
 
 cat $VAULT_CERTS_PATH/certificate.pem $VAULT_CERTS_PATH/ca.pem > $VAULT_CERTS_PATH/fullchain.pem
+
+#   -------------------------------------------------------------
+#   Vault configuration autounseal
+#
+#   :: create an encryption key
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+vault write -f transit/keys/autounseal
