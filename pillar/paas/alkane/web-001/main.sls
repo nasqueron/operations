@@ -102,6 +102,9 @@ web_php_sites:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
       DB_HOST: *db-B
       DB_USER: saas-mediawiki
+    php_values:
+      upload_max_filesize: 100M
+      post_max_size: 100M
 
   # Espace Win
   www.espace-win.org:
