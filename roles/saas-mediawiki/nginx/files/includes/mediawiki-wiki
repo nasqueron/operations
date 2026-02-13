@@ -20,6 +20,8 @@
 #   Requests for the wiki
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+client_max_body_size 100M;
+
 location /wiki {
     try_files $uri $uri/ /w/index.php?$query_string;
 }
