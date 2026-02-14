@@ -1,0 +1,59 @@
+#!/bin/sh
+
+#   -------------------------------------------------------------
+#   Detect pefs filesystem
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   License:        BSD-2-Clause
+#   -------------------------------------------------------------
+
+set -e
+
+#   -------------------------------------------------------------
+#   Parse arguments
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $(basename "$0") <mount point>" >&2
+    exit 1
+fi
+
+PEFS_MOUNT=$1
+
+#   -------------------------------------------------------------
+#   Directory check
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+if [ ! -d $PEFS_MOUNT ]; then
+    echo "Directory doesn't exist." >&2
+    exit 2
+fi
+
+#   -------------------------------------------------------------
+#   PEFS keys check
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+set +e
+PEFS_SHOWKEYS_STDOUT=$(pefs showkeys "$PEFS_MOUNT" 2>/tmp/pefs_err.$$)
+PEFS_SHOWKEYS_EXIT_CODE=$?
+PEFS_SHOWKEYS_STDERR=$(cat /tmp/pefs_err.$$)
+rm -f /tmp/pefs_err.$$
+set -e
+
+if [ "$PEFS_SHOWKEYS_STDOUT" = "No keys specified" ]; then
+    echo "[PEFS] $PEFS_MOUNT is mounted, but without any active key. To unmount: pefs unmount $PEFS_MOUNT" 
+    exit 0
+fi
+
+if [ "$PEFS_SHOWKEYS_EXIT_CODE" -eq 7 ]; then
+    # The specified mount point isn't a PEFS filesystem so all is ine
+    exit 0
+fi
+
+if [ "$PEFS_SHOWKEYS_EXIT_CODE" -ne 0 ]; then
+    echo $PEFS_SHOWKEYS_STDERR >&2
+    exit $PEFS_SHOWKEYS_EXIT_CODE
+fi
+
+echo "[PEFS] $PEFS_MOUNT is mounted and active. To unmount once you're done: pefs unmount $PEFS_MOUNT"
+exit 0

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+touch $HOME/.vault-token
+chmod 600 $HOME/.vault-token
+ssh complector sudo /opt/salt/nasqueron-operations/utils/vault/issue-admin-token.py | tr -d '\n' > $HOME/.vault-token

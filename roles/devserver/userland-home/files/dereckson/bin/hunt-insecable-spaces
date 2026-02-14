@@ -1,0 +1,5 @@
+#!/bin/sh
+rg --colors 'match:bg:yellow' -C 1 ' '
+
+# Fix
+rg -l " " | xargs gsed -i "s/ / /g"
