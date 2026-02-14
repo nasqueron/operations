@@ -37,7 +37,7 @@
 
 {% for service, instances in containers.items() %}
 
-{% if salt["paas_docker"]["is_nginx_service"](instances) %}
+{% if salt["paas_docker.is_nginx_service"](instances) %}
 /var/log/www/{{ service }}:
   file.directory:
     - user: nginx
