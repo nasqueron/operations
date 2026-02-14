@@ -1,0 +1,6 @@
+#!/bin/sh
+
+set -eu
+
+arc branches | grep -v main | grep -v master | grep Closed
+arc --no-ansi branches | grep -v main | grep -v master | grep Closed | awk '{print $2}' | xargs git branch -D

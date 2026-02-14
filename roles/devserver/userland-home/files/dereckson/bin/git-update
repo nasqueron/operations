@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+REPO=$(git rev-parse --show-toplevel)
+REPO_RETCODE=$?
+
+if [ $REPO_RETCODE -ne 0 ]
+then
+    exit $REPO_RETCODE
+fi;
+
+git fetch --all
+git reset origin/$BRANCH && git status

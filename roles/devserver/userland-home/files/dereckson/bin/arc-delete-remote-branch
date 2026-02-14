@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# Usage: arc-delete-remote-branch [branch]
+# Default value: master
+#
+
+set -e
+
+#   -------------------------------------------------------------
+#   Parse arguments
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+if [ "$#" -gt 1 ]; then
+    branch=$1
+    shift
+else
+    branch=master
+fi
+
+# Assumes origin is the Arcanist clone
+remote=origin
+
+#   -------------------------------------------------------------
+#   Find repository code on Phabricator instance
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+REPO_PATH=$(git rev-parse --show-toplevel)
+REPO_RETCODE=$?
+
+if [ $REPO_RETCODE -ne 0 ]; then
+    exit $REPO_RETCODE
+fi;
+
+ARC_CONFIG=$REPO_PATH/.arcconfig
+
+if [ ! -f $ARC_CONFIG ]; then
+    echo "Can't find Arcanist configuration: $ARC_CONFIG" >&2
+    exit 2
+fi
+
+repo_callsign=$(cat $ARC_CONFIG | jq -r '.["repository.callsign"]')
+
+jq -n --arg callsign "$repo_callsign" '{
+  transactions: [
+    {
+      type: "allowDangerousChanges",
+      value: true
+    }
+  ],
+  objectIdentifier: ("r" + $callsign)
+}' | arc call-conduit -- diffusion.repository.edit
+
+git push $remote --delete $branch
+
+jq -n --arg callsign "$repo_callsign" '{
+  transactions: [
+    {
+      type: "allowDangerousChanges",
+      value: false
+    }
+  ],
+  objectIdentifier: ("r" + $callsign)
+}' | arc call-conduit -- diffusion.repository.edit

@@ -19,4 +19,4 @@ if [ "$CALLSIGN" = "null" ]; then
 	exit
 fi
 
-echo "{ \"callsigns\": [$CALLSIGN] }" | arc call-conduit diffusion.looksoon > /dev/null
+echo "{ \"callsigns\": [$CALLSIGN] }" | arc call-conduit diffusion.looksoon -- > /dev/null

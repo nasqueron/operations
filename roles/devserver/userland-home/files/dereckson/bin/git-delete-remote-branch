@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Usage: git delete-remote-branch [remote] [branch]
+# Default values:                  origin   master
+#
+
+set -e
+
+if [ "$#" -gt 1 ]; then
+    remote=$1
+    shift
+else
+    remote=origin
+fi
+
+if [ "$#" -gt 0 ]; then
+    branch=$1
+    shift
+else
+    branch=master
+fi
+
+git push $remote --delete $branch
+

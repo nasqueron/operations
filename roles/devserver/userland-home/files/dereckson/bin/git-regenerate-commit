@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Get needed information from HEAD commit
+message=$(git rev-list --format=%B --max-count=1 HEAD | tail +2)
+files=$(git diff-tree --no-commit-id --name-only HEAD -r)
+
+# Regenerate the commit
+git reset HEAD^
+git add $files
+echo $message | git commit -F -

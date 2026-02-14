@@ -1,0 +1,39 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]
+then
+    >&2 echo "Usage: $(basename "$0") <branch name>"
+    exit 1
+fi
+
+REMOTE=origin
+EXCHANGE_REMOTE=datacube
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+DEFAULT_BRANCH=$(git get-default-branch)
+LAND_BRANCH=$1
+
+git fetch --all
+
+# Scenario A. We're on that branch we can rebase, then use arc land
+if [ "$CURRENT_BRANCH" = "$LAND_BRANCH" ]; then
+    git rebase "$DEFAULT_BRANCH" && arc land --onto "$DEFAULT_BRANCH"
+    exit $?
+fi
+
+# Scenario B. Let's try to rebase and push
+set -e
+
+git checkout "$LAND_BRANCH"
+git rebase "$REMOTE/$DEFAULT_BRANCH"
+
+git checkout "$DEFAULT_BRANCH"
+git diff-index --quiet --cached HEAD -- && \
+git diff-files --quiet && git pull
+
+git merge --ff "$LAND_BRANCH"
+git branch -d "$LAND_BRANCH"
+arc amend
+git push "$REMOTE" "$DEFAULT_BRANCH"
+
+BRANCH_EXISTS=$(git ls-remote --heads "$EXCHANGE_REMOTE" "refs/heads/$LAND_BRANCH")
+test -n "$BRANCH_EXISTS" && git push "$EXCHANGE_REMOTE" --delete "$LAND_BRANCH"

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# Recreates a pull request on GitHub / GitLab / Bitbucket
+# by cherry-pick the last commit. Allow to avoid to rebase
+# commits skipping all changes.
+
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+DEFAULT_BRANCH=$(git get-default-branch)
+
+if [ "$CURRENT_BRANCH" = "$DEFAULT_BRANCH" ]; then
+        echo "You're on the master branch. This feature is intended for feature branches."
+        exit 1
+fi
+
+# Updates default branch if there isn't any staged change and working tree is clean
+git checkout "$DEFAULT_BRANCH"
+git diff-index --quiet --cached HEAD -- && git diff-files --quiet && git pull
+
+git branch -D "$CURRENT_BRANCH"
+git checkout -b "$CURRENT_BRANCH"
+
+# Recreate branch
+git cherry-pick "origin/$CURRENT_BRANCH"
+git push origin -f "$CURRENT_BRANCH"

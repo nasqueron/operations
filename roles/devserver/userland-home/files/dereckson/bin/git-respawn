@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+DEFAULT_BRANCH=$(git get-default-branch)
 
-if [ "$BRANCH" = "master" ]; then
-	echo "You're already on the master branch."
-	exit 1
+if [ "$CURRENT_BRANCH" = "$DEFAULT_BRANCH" ]; then
+        echo "You're on the default branch '$DEFAULT_BRANCH'. This feature is intended for feature branches."
+        exit 1
 fi
 
-# Updates master branch if there isn't any staged change and working tree is clean
-git checkout master
+# Updates default branch if there isn't any staged change and working tree is clean
+git checkout "$DEFAULT_BRANCH"
 git diff-index --quiet --cached HEAD -- && git diff-files --quiet && git pull
 
 git branch -D "$BRANCH"
 
 # Fetch new branch
-if [ ${BRANCH:0:10} = "arcpatch-D" ]; then
-    arc patch ${BRANCH:9}
+if [ ${CURRENT_BRANCH:0:10} = "arcpatch-D" ]; then
+    arc patch ${CURRENT_BRANCH:9}
 fi

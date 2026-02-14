@@ -5,27 +5,10 @@ then
 	exit 1
 fi
 
-BRANCH=$1
+WORKING_BRANCH=$1
+DEFAULT_BRANCH=$(git get-default-branch)
 
-REPO=$(git rev-parse --show-toplevel)
-REPO_RETCODE=$?
-
-if [ $REPO_RETCODE -ne 0 ]
-then
-    exit $REPO_RETCODE
-fi;
-
-REPO=$(basename "$REPO")
-
-if [ "$REPO" = "puppet" ]
-then
-    MASTER=production
-else
-    MASTER=master
-fi
-
-git checkout $MASTER
+git switch "$DEFAULT_BRANCH"
 git fetch --all
-git pull
-git pull origin $MASTER
-git checkout -b "$BRANCH"
+git pull origin "$DEFAULT_BRANCH"
+git switch -c "$WORKING_BRANCH"
