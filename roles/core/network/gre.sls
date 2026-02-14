@@ -35,12 +35,12 @@
 
 /usr/local/etc/rc.d/route-drake:
   file.managed:
-    - source: roles/core/network/files/FreeBSD/route-drake.service
+    - source: salt://roles/core/network/files/FreeBSD/route-drake.service
     - mode: 755
 
 /etc/rc.conf.d/route_drake:
   file.managed:
-    - source: roles/core/network/files/FreeBSD/route_drake.rc
+    - source: salt://roles/core/network/files/FreeBSD/route_drake.rc
     - template: jinja
     - context:
         tunnel_endpoint: {{ tunnel["dst"] }}
