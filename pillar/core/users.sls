@@ -61,6 +61,12 @@ shellusers:
       - ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEA3mxUhsVuSdh7sMwKlXgUF1h9Rn/Sstt8V+mhbjRQE/joBL5K6blRzHaDEEBgYpcLexJVh7Z5GlAX7E/RU5UTF/I/fr+EfFue3pJAIGDVncjOGHO5tJGQ+InD/+dA7sPYrksBjnGHWpkilYrFwZXcNQjwacOc3OGOBjWZqnBE/rfPRAt8O/Q6BQgibAr7LeFVLepTengQx2kU0Nd9KJRf0v9NupQfU5l8MftSVKuRbjayXQTW3lg/tOdoAEo17sKuqFkRMXHgUSrjRNLFZ3shzNiXr29aNCausucIYwQ5NYs5j+k+nLVF1a8zx79ZP/zEUMiQ//hzPQMAyIKeVQ08EQ== alinap
     uid: 2031
 
+  amine:
+    fullname: amine
+    ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE5huIoF74NC65tuUKuJXjVdFchXQhsBs5yFN02Wny+R chenani.be@gmail.com
+    uid: 2043
+
   amj:
     fullname: Amaury J.
     shell: zsh

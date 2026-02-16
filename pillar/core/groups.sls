@@ -31,6 +31,7 @@ shellgroups:
       - adrien
       - akoe
       - alinap
+      - amine
       - amj
       - ariel
       - axe
@@ -87,6 +88,7 @@ shellgroups:
     description: Docker development
     members:
       - aceppaluni
+      - amine
       - dereckson
       - dorianwinty
       - duranzed
@@ -124,6 +126,7 @@ shellgroups:
         Provide an account on Nasqueron development servers.
     members:
       - aceppaluni
+      - amine
       - dereckson
       - duranzed
       - dorianwinty
