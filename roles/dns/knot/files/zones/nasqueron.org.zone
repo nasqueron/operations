@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2026020801 ;serial
+    2026022301 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
@@ -200,6 +200,7 @@ photos.nasqueron.org. 86400 IN MX 10 mxb.eu.mailgun.org.
 photos.nasqueron.org. 86400 IN TXT "v=spf1 include:eu.mailgun.org ~all"
 pic._domainkey.social.nasqueron.org. 86400 IN TXT "k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCtylWYdzNLZbGtaODNKXdBKW00P+GIQsP8qsoAhP/t5yu/M8sGG8eDvgB3q3ewOYZ3cd3MA+SNfqUSw7fnDDw3Pmv58WkilH0LKdL00CnyF7txYSyjYxtv7oUkjIcyi+Kvdl0tr4fXx5M40BE4YUt2ahUNqaepE0W/jYXQA4dhwwIDAQAB"
 planet.nasqueron.org. 86400 IN CNAME www1.nasqueron.org.
+public-vip-carp.nasqueron.org. 86400 IN A 51.68.252.230
 quantum.chromodynamics.at.nasqueron.org. 86400 IN AAAA 2001:470:1f13:896::17
 quux.nasqueron.org. 86400 IN CNAME www1.nasqueron.org.
 rain.nasqueron.org. 86400 IN CNAME www-alkane.nasqueron.org.
@@ -207,6 +208,8 @@ rain51.nasqueron.org. 86400 IN CNAME www2.nasqueron.org.
 registry.nasqueron.org. 86400 IN CNAME www5.nasqueron.org.
 rocketchat.nasqueron.org. 86400 IN CNAME app2.nasqueron.org.
 router-001.nasqueron.org. 86400 IN A 51.255.124.8
+router-002.nasqueron.org. 86400 IN A 178.32.70.110
+router-003.nasqueron.org. 86400 IN A 178.32.70.111
 saas-mediawiki.nasqueron.org. 86400 IN CNAME www-alkane.nasqueron.org.
 saas-phpbb.nasqueron.org. 86400 IN CNAME www5.nasqueron.org.
 salt.nasqueron.org. 86400 IN CNAME app1.nasqueron.org.
