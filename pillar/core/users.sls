@@ -250,6 +250,7 @@ shellusers:
   ptdradmin:
     fullname: Doba gui
     ssh_keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB2n2wxPI74EpjdpjVJHX9stxKer1BSfRlGdzxnvsZVR ptdradmin@PC-GUI
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAFtlR4OeXNHfJXNrvrLeU9nGu7ufcxc38xUGqlwiY5L doba.guimartinien@gmail.com
     uid: 2040
 
