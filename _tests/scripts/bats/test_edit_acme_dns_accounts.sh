@@ -41,7 +41,7 @@ SCRIPT="../roles/core/certificates/files/certbot/acme-dns/edit-acme-dns-accounts
     [ "$status" -eq 0 ]
 
     isValid=0
-    run jsondiff "$ACME_ACCOUNTS" data/acmedns-merged.json
+    run jdiff "$ACME_ACCOUNTS" data/acmedns-merged.json
     rm "$ACME_ACCOUNTS"
     [ "$status" -eq 0 ]
     [ "$output" = "{}" ] || isValid=1
