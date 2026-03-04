@@ -35,9 +35,9 @@ webserver_content_dotenv:
   /var/51-wwwroot/obsidian/.env:
     user: web-org-nasqueron-obsidian51
     databases:
-      - service: db-B
+      - service: db-b
         credentials: dbserver/cluster-B/users/obsidian51
-      - service: db-A
+      - service: db-a
         credentials: dbserver/cluster-A/users/obsidian
         prefix: ORBEON_
     extra_values:

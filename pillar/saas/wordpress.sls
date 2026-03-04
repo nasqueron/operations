@@ -12,7 +12,7 @@ wordpress_sites:
   dereckson:
     user: web-be-dereckson-www
     db:
-      service: db-B
+      service: db-b
       credentials: dbserver/cluster-B/users/dereckson_blog
       name: Dereckson_Blog
     secrets: dereckson/wordpress/secrets

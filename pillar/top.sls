@@ -36,10 +36,10 @@ base:
     - saas.jenkins
     - saas.phpbb
 
-  db-A-001:
+  db-a-001:
     - dbserver.cluster-A
 
-  db-B-001:
+  db-b-001:
     - dbserver.cluster-B
 
   dwellers:

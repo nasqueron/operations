@@ -30,8 +30,8 @@ nasqueron_services:
     - 172.27.27.35 # windriver
 
   # Databases
-  db-A: 172.27.27.8
-  db-B: 172.27.27.9
+  db-a: 172.27.27.8
+  db-b: 172.27.27.9
 
   # Mail
   mail:
@@ -59,7 +59,7 @@ nasqueron_services:
     - 172.27.27.4 # dwellers
     - 172.27.27.5 # docker-002
     - 172.27.27.7 # complector
-    - 172.27.27.8 # db-A-001
-    - 172.27.27.9 # db-B-001
+    - 172.27.27.8 # db-a-001
+    - 172.27.27.9 # db-b-001
     - 172.27.27.10 # web-001
     - 172.27.27.35 # windriver

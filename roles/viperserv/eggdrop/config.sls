@@ -64,7 +64,7 @@
     - context:
         # Database is on cluster B
         db:
-          host: {{ pillar["nasqueron_services"]["db-B"] }}
+          host: {{ pillar["nasqueron_services"]["db-b"] }}
           database: Nasqueron
         vault:
           approle: {{ salt['credentials.read_secret']('nasqueron/viperserv/vault') }}

@@ -26,7 +26,7 @@ docker_containers:
       app_port: 16080
       network: orbeon
       db:
-        service: db-A
+        service: db-a
         database: forms
         credential: dbserver/cluster-A/users/orbeon
       secret_key: nasqueron/orbeon/oxf.crypto.password

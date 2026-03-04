@@ -7,6 +7,6 @@
 
 postfix_config:
   db:
-    service: db-A
+    service: db-a
     database: mail
     credential: dbserver/cluster-A/users/postfix

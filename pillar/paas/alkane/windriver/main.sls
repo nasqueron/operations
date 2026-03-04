@@ -7,7 +7,7 @@
 
 web_aliases:
   services:
-    - &db-B 172.27.27.9
+    - &db-b 172.27.27.9
 
 #   -------------------------------------------------------------
 #   Domains we deploy
@@ -135,5 +135,5 @@ webserver_content_dotenv:
   /var/51-wwwroot/dereckson-www/.env:
     user: web-be-dereckson-www51
     databases:
-      - service: db-B
+      - service: db-b
         credentials: dbserver/cluster-B/users/dereckson_www51

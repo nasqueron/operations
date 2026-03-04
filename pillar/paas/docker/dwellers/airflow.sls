@@ -52,7 +52,7 @@ airflow_realms:
     network: airflow
     services:
       redis: airflow_redis
-      postgresql: 172.27.27.8 # db-A-001.nasqueron.drake
+      postgresql: 172.27.27.8 # db-a-001.nasqueron.drake
     credentials:
       admin_account: nasqueron/airflow/admin_account
       fernet_key: nasqueron/airflow/fernet

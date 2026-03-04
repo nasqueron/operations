@@ -7,7 +7,7 @@
 
 web_aliases:
   services:
-    - &db-B 172.27.27.9
+    - &db-b 172.27.27.9
 
 #   -------------------------------------------------------------
 #   Domains we deploy
@@ -100,7 +100,7 @@ web_php_sites:
     skipCreateUser: True
     env:
       MEDIAWIKI_ENTRY_POINT: /srv/mediawiki/index.php
-      DB_HOST: *db-B
+      DB_HOST: *db-b
       DB_USER: saas-mediawiki
     php_values:
       upload_max_filesize: 100M
@@ -173,7 +173,7 @@ webserver_content_dotenv:
   /var/wwwroot/dereckson.be/www/.env:
     user: web-be-dereckson-www
     databases:
-      - service: db-B
+      - service: db-b
         credentials: dbserver/cluster-B/users/dereckson_www
 
 #   -------------------------------------------------------------

@@ -37,9 +37,9 @@ base:
     - roles/webserver-core
   'cloudhugger':
     - roles/opensearch
-  'db-A-001':
+  'db-a-001':
     - roles/dbserver-pgsql
-  'db-B-001':
+  'db-b-001':
     - roles/dbserver-mysql
   'dns-001':
     - roles/dns

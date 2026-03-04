@@ -11,7 +11,7 @@
 #   Port for MariaDB 10.11 has been added in April 2023 and
 #   isn't currently available in quarterly.
 #
-#   The new cluster db-B needs it for proper Unicode collation.
+#   The new cluster db-b needs it for proper Unicode collation.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if salt['node.has_role']('dbserver-mysql') %}

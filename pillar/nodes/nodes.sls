@@ -58,9 +58,9 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
-  db-A-001:
+  db-a-001:
     forest: nasqueron-infra
-    hostname: db-A-001.nasqueron.drake
+    hostname: db-a-001.nasqueron.drake
     roles:
       - dbserver-pgsql
     zfs:
@@ -78,9 +78,9 @@ nodes:
             netmask: *intranought_netmask
             gateway: 172.27.27.1
 
-  db-B-001:
+  db-b-001:
     forest: nasqueron-infra
-    hostname: db-B-001.nasqueron.drake
+    hostname: db-b-001.nasqueron.drake
     roles:
       - dbserver-mysql
     zfs:

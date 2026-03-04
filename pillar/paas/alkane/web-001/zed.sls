@@ -43,7 +43,7 @@ webserver_content_dotenv:
   /var/wwwroot/hypership.space/www/.env:
     user: web-space-hypership-www
     databases:
-      - service: db-B
+      - service: db-b
         credentials: dbserver/cluster-B/users/zed
     extra_values:
       DB_NAME: zed_prod
