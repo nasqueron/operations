@@ -12,13 +12,25 @@ nodes:
     network:
       interfaces:
         net01:
+          device: net01
           ipv4:
             address: 1.2.3.4 #public
             gateway: 1.2.3.254
+          fhrp:
+            - protocol: carp
+              id: 1
+              vip: 1.2.3.10
+              advskew: 0
         net02:
+          device: net02
           ipv4:
             address: 172.27.27.4 #private
             gateway: 172.27.27.1
+          fhrp:
+            - protocol: no-carp
+              id: 2
+              vip: 172.27.27.6
+              advskew: 100
 
   entwash:
     forest: fangorn
@@ -28,6 +40,7 @@ nodes:
     network:
       interfaces:
         net02:
+          device: net02
           ipv4:
             address: 172.27.27.5 #private
             gateway: 172.27.27.1

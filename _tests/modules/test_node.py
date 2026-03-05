@@ -146,6 +146,22 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
             self.assertIn(k, actual)
             self.assertEqual(v, actual[k], f"Unexpected value for key {k} in {actual}")
 
+    def test_get_carp_entries_returns_expected_values_and_ignores_non_carp(self):
+        expected = [
+            {
+                "device": "net01",
+                "vhid": 1,
+                "vip": "1.2.3.10",
+                "advskew": 0,
+            }
+        ]
+
+        self.assertEqual(expected, node.get_carp_entries())
+
+    def test_get_carp_entries_fhrp_is_empty(self):
+        self.grains["id"] = "entwash"
+        self.assertEqual([], node.get_carp_entries())
+
 
 if __name__ == "__main__":
     unittest.main()

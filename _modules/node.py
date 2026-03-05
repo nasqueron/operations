@@ -12,6 +12,7 @@
 
 from salt.exceptions import CommandExecutionError, SaltCloudConfigError
 from salt._compat import ipaddress
+from collections import OrderedDict
 
 
 DEPLOY_ROLES = [
@@ -504,3 +505,26 @@ def get_routes():
     routes.update(_get_routes_for_private_networks())
 
     return routes
+
+
+def get_carp_entries():
+    network = get("network")
+
+    carp_entries = []
+
+    for interface_name, interface in network["interfaces"].items():
+        device = interface["device"]
+
+        for fhrp in interface.get("fhrp", []):
+            if fhrp["protocol"] == "carp":
+                # Salt will actually recreate a dictionary, so it won't respect the order
+                # even with OrderedDict
+                entry = OrderedDict()
+                entry["device"] = device
+                entry["vhid"] = fhrp["id"]
+                entry["vip"] = fhrp["vip"]
+                entry["advskew"] = fhrp.get("advskew", 0)
+
+                carp_entries.append(entry)
+
+    return carp_entries
