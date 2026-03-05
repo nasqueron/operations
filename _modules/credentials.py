@@ -301,6 +301,15 @@ def _build_node_policy(node, roles_policies):
     for _, vault_path in get_duid_credential_paths(node).items():
         rules.append(_get_read_rule(vault_path))
 
+    rules.append(
+        _join_document_fragments(
+            [
+                _get_read_rule(vault_path)
+                for vault_path in __pillar__["vault_secrets_ubiquity"]
+            ]
+        )
+    )
+
     policy = _join_document_fragments(rules)
 
     if not policy:

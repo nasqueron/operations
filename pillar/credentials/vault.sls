@@ -305,3 +305,9 @@ vault_secrets_by_dbserver_cluster:
   # Main MariaDB cluster - Alkane PaaS, ViperServ
   B:
     - ops/secrets/dbserver/cluster-B/users/*
+
+vault_secrets_ubiquity:
+
+  # IPsec tunnels
+
+  - ops/secrets/network/ipsec/key
