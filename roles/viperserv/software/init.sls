@@ -6,8 +6,6 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import packages with context %}
-
 #   -------------------------------------------------------------
 #   Software used by Dæghrefn
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -17,7 +15,7 @@ daeghrefn_software:
     - pkgs:
       - tcl-Trf
       - tcludp
-      - {{ packages['youtube-dl'] }}
+      - yt-dlp
 
 # Dæghrefn also need php, ps, grep
 # Gerrit code needs ssh, ssh-agent and ssh-add
