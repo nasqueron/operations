@@ -108,6 +108,7 @@ dev:
       - {{ packages.bats }}
       - cmake
       - {{ packages.cppunit }}
+      - git-absorb
       - git-lfs
       - jq
       - valgrind
