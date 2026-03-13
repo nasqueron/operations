@@ -8,7 +8,7 @@
 
 nodes_aliases:
   netmasks:
-    intranought: &intranought_netmask 255.255.255.240
+    intranought: &intranought_netmask 255.255.255.224
 
 nodes:
 
@@ -106,6 +106,10 @@ nodes:
     zfs:
       pool: arcology
     network:
+      ipv6_tunnel: False
+
+      canonical_public_ipv4: 178.32.70.109
+
       interfaces:
         public:
           device: vmx0
@@ -114,9 +118,10 @@ nodes:
             netmask: 255.255.255.255
           ipv6:
             address: 2001:41d0:303:d971::1057:da7a
-            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
             prefix: 56
+            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
           flags:
+            - ipv4_ovh_failover
             - hello_ipv6_ovh
 
         intranought:
@@ -147,8 +152,10 @@ nodes:
           uuid: 6e05ebea-f2fd-4ca1-a21f-78a778664d8c
           ipv4:
             address: 51.255.124.11
-            netmask: *intranought_netmask
+            netmask: 255.255.255.255
             gateway: 51.210.99.254
+          flags:
+            - ipv4_ovh_failover
 
         intranought:
           device: ens224
@@ -174,9 +181,11 @@ nodes:
           device: ens192
           uuid: d55e0fec-f90b-3014-a458-9067ff8f2520
           ipv4:
-            address: 51.255.124.10
-            netmask: *intranought_netmask
+            address: 51.255.124.9
+            netmask: 255.255.255.255
             gateway: 51.210.99.254
+          flags:
+            - ipv4_ovh_failover
 
         intranought:
           device: ens224
@@ -189,23 +198,28 @@ nodes:
   hervil:
     forest: nasqueron-infra
     hostname: hervil.nasqueron.drake
+    roles:
+      - mailserver
+      - webserver-core
+      - webserver-alkane
     network:
+      ipv6_tunnel: False
+
       interfaces:
-        vmx0:
+        intranought:
           device: vmx0
           ipv4:
             address: 172.27.27.3
             netmask: *intranought_netmask
             gateway: 172.27.27.1
-        vmx1:
+
+        public:
           device: vmx1
           ipv4:
             address: 178.32.70.108
             netmask: 255.255.255.255
-    roles:
-      - mailserver
-      - webserver-core
-      - webserver-alkane
+          flags:
+            - ipv4_ovh_failover
 
   router-001:
     forest: nasqueron-infra
@@ -222,14 +236,15 @@ nodes:
           device: vmx0
           ipv4:
             address: 51.255.124.8
-            netmask: *intranought_netmask
+            netmask: 255.255.255.255
             gateway: 51.210.99.254
           ipv6:
             address: 2001:41d0:303:d971::6a7e
+            prefix: 56
             gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
-            prefix: 64
           flags:
             - ipv4_ovh_failover
+            - hello_ipv6_ovh
 
         intranought:
           device: vmx1
@@ -239,37 +254,69 @@ nodes:
 
   router-002:
     forest: nasqueron-infra
-    hostname: router-002.nasqueron.drake
+    hostname: router-002.nasqueron.org
     roles:
       - router
     zfs:
       pool: zroot
+
     network:
       ipv6_tunnel: False
+
       interfaces:
         intranought:
           device: vmx0
           ipv4:
             address: 172.27.27.11
-            netmask: *intranought_netmask
+            netmask: 255.255.255.224
             gateway: 172.27.27.1
+
+        public:
+          device: vmx1
+          ipv4:
+            address: 178.32.70.110
+            netmask: 255.255.255.255
+            gateway: 51.210.99.254
+          fhrp:
+            - protocol: carp
+              id: 2
+              vip: 51.68.252.230
+              advskew: 100
+          flags:
+            - ipv4_ovh_failover
 
   router-003:
     forest: nasqueron-infra
-    hostname: router-003.nasqueron.drake
+    hostname: router-003.nasqueron.org
     roles:
       - router
     zfs:
       pool: zroot
+
     network:
       ipv6_tunnel: False
+
       interfaces:
         intranought:
           device: vmx0
           ipv4:
             address: 172.27.27.12
-            netmask: *intranought_netmask
+            netmask: 255.255.255.224
             gateway: 172.27.27.1
+
+        public:
+          device: vmx1
+          ipv4:
+            address: 178.32.70.111
+            netmask: 255.255.255.255
+            gateway: 51.210.99.254
+          fhrp:
+            - protocol: carp
+              id: 2
+              vip: 51.68.252.230
+              advskew: 0
+          flags:
+            - ipv4_ovh_failover
 
   web-001:
     forest: nasqueron-infra
@@ -300,8 +347,8 @@ nodes:
             gateway: 51.210.99.254
           ipv6:
             address: 2001:41d0:303:d971::517e:c0de
-            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
             prefix: 56
+            gateway: 2001:41d0:303:d9ff:ff:ff:ff:ff
           flags:
             - ipv4_ovh_failover
             - hello_ipv6_ovh
@@ -322,14 +369,14 @@ nodes:
       canonical_public_ipv4: 212.83.187.132
 
       interfaces:
-        igb0:
+        public:
           device: igb0
           ipv4:
             address: 163.172.49.16
             netmask: 255.255.255.0
-            gateway: 163.172.49.1
             aliases:
               - 212.83.187.132
+            gateway: 163.172.49.1
 
   windriver:
     forest: nasqueron-dev
@@ -358,12 +405,7 @@ nodes:
       canonical_public_ipv4: 195.154.30.15
 
       interfaces:
-        private_network:
-          device: ix0
-          ipv4:
-            address: 10.91.207.15
-            netmask: 255.255.255.0
-        igb0:
+        public:
           device: igb0
           ipv4:
             address: 195.154.30.15
@@ -371,12 +413,18 @@ nodes:
             gateway: 195.154.30.1
           ipv6:
             address: 2001:bc8:2e84:700::da7a:7001
-            gateway: fe80::a293:51ff:feb7:55ef
             prefix: 56
             aliases:
               - 2001:bc8:2e84:700:0:dead:c0de:b07 # ViperServ
+            gateway: fe80::a293:51ff:feb7:55ef
           flags:
             - ipv6_dhcp_duid
+
+        intranought:
+          device: ix0
+          ipv4:
+            address: 10.91.207.15
+            netmask: 255.255.255.0
 
   ##
   ## Forest:         Eglide
