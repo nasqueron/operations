@@ -250,6 +250,10 @@ vault_secrets_by_role:
   reports:
     - ops/secrets/nasqueron/rhyne-wyse/vault
 
+  router:
+    - ops/secrets/network/carp/1
+    - ops/secrets/network/carp/2
+
   saas-mediawiki:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
     - ops/secrets/dbserver/cluster-B/users/saas-mw-deploy

@@ -56,6 +56,10 @@ base:
     - roles/mailserver
     - roles/webserver-core
     - roles/webserver-alkane
+  'router-002':
+    - roles/router
+  'router-003':
+    - roles/router
   'web-001':
     - roles/webserver-core
     - roles/webserver-alkane

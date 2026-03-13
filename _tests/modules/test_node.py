@@ -150,6 +150,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
         expected = [
             {
                 "device": "net01",
+                "interface_name": "public",
                 "vhid": 1,
                 "vip": "1.2.3.10",
                 "advskew": 0,

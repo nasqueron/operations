@@ -521,6 +521,7 @@ def get_carp_entries():
                 # even with OrderedDict
                 entry = OrderedDict()
                 entry["device"] = device
+                entry["interface_name"] = interface_name
                 entry["vhid"] = fhrp["id"]
                 entry["vip"] = fhrp["vip"]
                 entry["advskew"] = fhrp.get("advskew", 0)

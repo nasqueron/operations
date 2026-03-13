@@ -11,7 +11,7 @@ nodes:
       - treecity
     network:
       interfaces:
-        net01:
+        public:
           device: net01
           ipv4:
             address: 1.2.3.4 #public
@@ -21,7 +21,7 @@ nodes:
               id: 1
               vip: 1.2.3.10
               advskew: 0
-        net02:
+        intranought:
           device: net02
           ipv4:
             address: 172.27.27.4 #private
