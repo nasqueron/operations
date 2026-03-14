@@ -14,3 +14,4 @@
 #   </auto-generated>
 
 acme ALL= NOPASSWD: {{ dirs.bin }}/acmesh-nginxCheck
+acme ALL= NOPASSWD: {{ dirs.bin }}/acmesh-dovecot_postfixReload
