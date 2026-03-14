@@ -95,3 +95,8 @@ acmesh_newsyslog_run:
   file.managed:
     - source: salt://roles/core/certificates/files/acmesh/nginxCheck.sh
     - mode: 755
+
+{{ dirs.bin }}/acmesh-dovecot_postfixReload:
+  file.managed:
+    - source: salt://roles/core/certificates/files/acmesh/acmesh-dovecot_postfixReload.sh
+    - mode: 755
