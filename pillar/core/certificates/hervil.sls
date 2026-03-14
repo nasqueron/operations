@@ -16,4 +16,5 @@ certificates_options:
   hervil.nasqueron.org:
     reload: sudo acmesh-nginxCheck
   mail.nasqueron.org:
+    reload: sudo acmesh-dovecot_postfixReload
     shared_group: mail
