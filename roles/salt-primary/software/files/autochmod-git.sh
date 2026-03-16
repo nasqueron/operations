@@ -42,5 +42,4 @@ dir=$(git rev-parse --show-toplevel)
 
 set -x
 
-find "$dir" -print0 -type d | xargs -0 chmod g+xw
-find "$dir" -print0 -type f | xargs -0 chmod g+w
+find "$dir" -print0 | xargs -0 chmod g+rwX
