@@ -55,12 +55,10 @@
 {% if boot_loader.gre %}
 
 {% if grains['os'] == 'FreeBSD' %}
-load_gre_kernel_module:
-  file.append:
-    - name: /boot/loader.conf
-    - text: |
-
-        if_gre_load="YES"
+/boot/loader.conf.d/gre.conf:
+  file.managed:
+    - source: salt://roles/core/network/files/FreeBSD/gre.conf
+    - mode: '0644'
 {% endif %}
 
 {% if grains['os_family'] == 'Debian' %}
