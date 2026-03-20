@@ -127,6 +127,9 @@ vault_secrets_by_role:
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/admin
     - ops/secrets/nasqueron/opensearch/infra-logs/internal_users/dashboards
 
+  paas-docker:
+    - ops/secrets/anubis/%%node%%
+
   paas-docker-prod:
 
     #
