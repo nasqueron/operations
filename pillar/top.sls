@@ -11,6 +11,7 @@ base:
     - core.users
     - core.groups
     - core.network
+    - core.ntp
     - nodes.nodes
     - nodes.forests
     - hotfixes.roles
