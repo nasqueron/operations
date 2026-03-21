@@ -115,6 +115,10 @@ dev:
       - valgrind
       {% if grains['os'] == 'FreeBSD' %}
       - hub
+
+      # Recent clang/llvm versions
+      - llvm22
+
       {% else %}
       - arcanist
       - clang
