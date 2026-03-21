@@ -281,6 +281,7 @@ nodes:
             - protocol: carp
               id: 2
               vip: 51.68.252.230
+              peer: 178.32.70.111
               advskew: 100
           flags:
             - ipv4_ovh_failover
@@ -314,6 +315,7 @@ nodes:
             - protocol: carp
               id: 2
               vip: 51.68.252.230
+              peer: 178.32.70.110
               advskew: 0
           flags:
             - ipv4_ovh_failover
