@@ -60,6 +60,7 @@ utilities:
       - bind-tools
       - coreutils
       - figlet-fonts
+      - findutils
       - gsed
       - sudo
       - wurf
