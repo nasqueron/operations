@@ -20,6 +20,7 @@ nodes:
             - protocol: carp
               id: 1
               vip: 1.2.3.10
+              peer: 1.2.3.5
               advskew: 0
         intranought:
           device: net02

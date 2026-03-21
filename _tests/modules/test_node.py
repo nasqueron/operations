@@ -153,6 +153,7 @@ class Testinstance(unittest.TestCase, salt_test_case.SaltTestCase):
                 "interface_name": "public",
                 "vhid": 1,
                 "vip": "1.2.3.10",
+                "peer": "1.2.3.5",
                 "advskew": 0,
             }
         ]

@@ -517,14 +517,26 @@ def get_carp_entries():
 
         for fhrp in interface.get("fhrp", []):
             if fhrp["protocol"] == "carp":
+
+                vhid = fhrp.get("id")
+
+                # ignore invalid CARP entries
+                # when vhid or vip are empty in netbox,
+                # in the pillar configuration we'll see that entry carp fhrp = []
+                if vhid is None:
+                    return []
+
                 # Salt will actually recreate a dictionary, so it won't respect the order
                 # even with OrderedDict
                 entry = OrderedDict()
                 entry["device"] = device
                 entry["interface_name"] = interface_name
-                entry["vhid"] = fhrp["id"]
+                entry["vhid"] = vhid
                 entry["vip"] = fhrp["vip"]
-                entry["advskew"] = fhrp.get("advskew", 0)
+                # peer is not always required, if we work in multicast, we won't have peer
+                if peer := fhrp.get("peer"):
+                    entry["peer"] = peer
+                entry["advskew"] = fhrp["advskew"]
 
                 carp_entries.append(entry)
 
