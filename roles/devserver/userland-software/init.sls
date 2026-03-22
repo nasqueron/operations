@@ -27,4 +27,5 @@ include:
   - .notifications
   - .phabricator
   - .psysh
+  - .tex
   - .wordpress

@@ -33,7 +33,6 @@ devserver_software_misc_text_processing:
     - pkgs:
       - antiword
       - odt2txt
-      - texlive-full
 
 devserver_software_misc_security:
   pkg.installed:
