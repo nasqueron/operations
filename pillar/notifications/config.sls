@@ -85,16 +85,26 @@ notifications_configuration:
 
         - group: devtools
           items:
+            - development_tools
+            - nasqueron_tools
             - notifications
             - notifications-cli-client
+            - resolve_hash
 
         - group: ops
           items:
+            - alkane
             - decommission
             - discourse-config
+            - drake_network
             - ftp
+            - mail
+            - monitoring_and_reporting
             - operations
+            - salt
+            - secure_ha_tunnels
             - servers-*
+            - tls_certificates
             - zemke-rhyne
 
   JenkinsPayloadAnalyzer:
