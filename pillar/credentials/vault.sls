@@ -256,6 +256,7 @@ vault_secrets_by_role:
   router:
     - ops/secrets/network/carp/1
     - ops/secrets/network/carp/2
+    - ops/secrets/network/router/vault
 
   saas-mediawiki:
     - ops/secrets/dbserver/cluster-B/users/saas-mediawiki
