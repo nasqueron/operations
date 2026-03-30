@@ -28,3 +28,15 @@ carp_switch_dependencies:
   cmd.run:
     - name: python3 -m pip install ovh secretsmith
     - creates: {{ salt['python.get_site_packages_directory']() }}/secretsmith
+
+/usr/local/etc/secrets/carp-secretsmith.yaml:
+  file.managed:
+    - source: salt://roles/router/carp/files/secrets.conf
+    - mode: 400
+    - makedirs: True
+    - show_changes: False
+    - template: jinja
+    - context:
+        vault:
+          approle: {{ salt["credentials.read_secret"]("network/router/vault") }}
+          addr: {{ pillar["nasqueron_services"]["vault_url"] }}
