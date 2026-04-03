@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 {% for port, args in pillar.get("ports", {}).items() %}
 
@@ -13,9 +13,9 @@
 #   Provision port options
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if 'options' in args %}
+{% if "options" in args %}
 
-/var/db/ports/{{ args['category'] }}_{{ args['name'] }}/options:
+/var/db/ports/{{ args["category"] }}_{{ args["name"] }}/options:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/port_options
     - template: jinja
@@ -29,7 +29,7 @@
 #   Build and install package
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if 'package_dependencies' in args %}
+{% if "package_dependencies" in args %}
 
 port_{{ port }}_dependencies:
   pkg.installed:
@@ -42,8 +42,8 @@ port_{{ port }}:
     - name: |
         make build package deinstall reinstall
         pkg lock {{ port }}
-    - cwd: /usr/ports/{{ args['category'] }}/{{ args['name'] }}
-    - creates: {{ args['creates'] }}
+    - cwd: /usr/ports/{{ args["category"] }}/{{ args["name"] }}
+    - creates: {{ args["creates"] }}
 {% endfor %}
 
 {% endif %}

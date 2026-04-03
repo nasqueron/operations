@@ -17,7 +17,7 @@
     - mode: 644
     - template: jinja
     - context:
-        directory: {{ pillar['mediawiki_saas']['directory'] }}
+        directory: {{ pillar["mediawiki_saas"]["directory"] }}
 
 #   -------------------------------------------------------------
 #   MediaWiki logs

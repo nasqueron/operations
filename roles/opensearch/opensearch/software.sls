@@ -23,7 +23,7 @@ opensearch_user:
     - uid: 835
     - gid: opensearch
     - home: /opt/opensearch
-    - shell: {{ shells['bash'] }}
+    - shell: {{ shells["bash"] }}
 
 #   -------------------------------------------------------------
 #   Download and extract tarballs
@@ -32,15 +32,15 @@ opensearch_user:
 /usr/local/dl:
   file.directory
 
-{% if grains['kernel'] == 'Linux' and grains['cpuarch'] == 'x86_64' %}
-{% for product, info in pillar['opensearch_products'].items() %}
+{% if grains["kernel"] == "Linux" and grains["cpuarch"] == "x86_64" %}
+{% for product, info in pillar["opensearch_products"].items() %}
 
-{% set distname = product + "-" + info['version'] %}
+{% set distname = product + "-" + info["version"] %}
 
 /usr/local/dl/{{ distname }}.tar.gz:
   file.managed:
-    - source: https://artifacts.opensearch.org/releases/bundle/{{ product }}/{{ info['version'] }}/{{ distname }}-linux-x64.tar.gz
-    - source_hash: {{ info['hash'] }}
+    - source: https://artifacts.opensearch.org/releases/bundle/{{ product }}/{{ info["version"] }}/{{ distname }}-linux-x64.tar.gz
+    - source_hash: {{ info["hash"] }}
 
 /opt/{{ product }}:
   file.directory:
@@ -67,7 +67,7 @@ extract_opensearch_{{ product }}:
 #   Cleanup legacy versions
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for product, versions in pillar['opensearch_legacy_products'].items() %}
+{% for product, versions in pillar["opensearch_legacy_products"].items() %}
 {% for version in versions %}
 
 /usr/local/dl/{{ product }}-{{ version }}.tar.gz:

@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['memcached'].items() %}
-{% set image = salt['paas_docker.get_image']("memcached", container) %}
+{% for instance, container in pillar["docker_containers"]["memcached"].items() %}
+{% set image = salt["paas_docker.get_image"]("memcached", container) %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -24,9 +24,9 @@
           - CMD-SHELL
           - echo stats | nc 127.0.0.1 11211
         Interval: 30000000000
-{% if 'network' in container %}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 
 {% endfor %}

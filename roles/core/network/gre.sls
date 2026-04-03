@@ -13,7 +13,7 @@
 #   Tunnels network configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for tunnel in salt['node.resolve_gre_tunnels']() %}
+{% for tunnel in salt["node.resolve_gre_tunnels"]() %}
 
 {% set boot_loader.gre = True %}
 
@@ -23,13 +23,13 @@
     - makedirs: True
     - template: jinja
     - defaults: {{ tunnel }}
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
     - context:
         interface: gre-{{ tunnel["network"] }}
 {% endif %}
 
 
-{% if not is_router and grains['os'] == 'FreeBSD' %}
+{% if not is_router and grains["os"] == "FreeBSD" %}
 # Only once iteration of the loop is expected, as it's not a router
 
 /usr/local/etc/rc.d/route-drake:
@@ -53,14 +53,14 @@
 
 {% if boot_loader.gre %}
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /boot/loader.conf.d/gre.conf:
   file.managed:
     - source: salt://roles/core/network/files/FreeBSD/gre.conf
     - mode: '0644'
 {% endif %}
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 ip_gre:
   kmod.present:
     - persist: True

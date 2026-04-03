@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 /var/wwwroot-502:
   file.recurse:

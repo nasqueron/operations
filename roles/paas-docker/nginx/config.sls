@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
-{% set containers = pillar.get('docker_containers', {}) %}
+{% set containers = pillar.get("docker_containers", {}) %}
 
 #   -------------------------------------------------------------
 #   vhosts folder
@@ -25,9 +25,9 @@
     - source: salt://roles/paas-docker/nginx/files/vhosts/base/server.conf
     - template: jinja
     - context:
-         fqdn: {{ grains['fqdn'] }}
-         ipv4: {{ grains['ipv4'] | join(" ") }}
-         ipv6: "{{ salt['node.get_ipv6_list']() }}"
+         fqdn: {{ grains["fqdn"] }}
+         ipv4: {{ grains["ipv4"] | join(" ") }}
+         ipv6: "{{ salt["node.get_ipv6_list"]() }}"
 
 /var/log/www/_server:
   file.directory:
@@ -43,7 +43,7 @@
     - group: root
 
 {% for instance, container in instances.items() %}
-{% if 'host' in container %}
+{% if "host" in container %}
 
 {% set vhost_config = salt["paas_docker.resolve_vhost_config_file"](service) %}
 
@@ -56,9 +56,9 @@
     - context:
         service: {{ service }}
         instance: {{ instance }}
-        fqdn: {{ container['host'] }}
-        app_port: {{ container['app_port'] }}
-        aliases: {{ container['aliases'] | default('', true) | join(" ") }}
+        fqdn: {{ container["host"] }}
+        app_port: {{ container["app_port"] }}
+        aliases: {{ container["aliases"] | default("", true) | join(" ") }}
         # If the nginx configuration needs more key,
         # pass directly the container dictionary.
         args: {{ container }}

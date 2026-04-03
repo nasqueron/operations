@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set config = salt['opensearch.get_config']() %}
+{% set config = salt["opensearch.get_config"]() %}
 
 #   -------------------------------------------------------------
 #   Wrapper for curl
@@ -20,7 +20,7 @@
     - mode: 755
     - template: jinja
     - context:
-        url: https://{{ config['network_host'] }}:9200
+        url: https://{{ config["network_host"] }}:9200
 
 /root/.opensearch-account:
   file.managed:
@@ -29,5 +29,5 @@
     - template: jinja
     - show_changes: False
     - context:
-        username: {{ salt['credential.get_username'](config['users']['admin']) }}
-        password: {{ salt['credential.get_password'](config['users']['admin']) }}
+        username: {{ salt["credential.get_username"](config["users"]["admin"]) }}
+        password: {{ salt["credential.get_password"](config["users"]["admin"]) }}

@@ -13,14 +13,14 @@
 
 
 def get_etc_dir():
-  if __grains__['os'] == 'FreeBSD':
+  if __grains__["os"] == 'FreeBSD':
     return "/usr/local/etc"
 
   return "/etc"
 
 
 def get_bin_dir():
-    if __grains__['os'] == 'FreeBSD':
+    if __grains__["os"] == 'FreeBSD':
         return "/usr/local/bin"
 
     return "/bin"
@@ -30,8 +30,8 @@ def get_eggdrops():
     '''Filter eggdrops to select the ones with ensure_is_live: True'''
     return [botname
             for botname, bot
-            in __pillar__['viperserv_bots'].items()
-            if 'ensure_is_live' in bot and bot['ensure_is_live']]
+            in __pillar__["viperserv_bots"].items()
+            if 'ensure_is_live' in bot and bot["ensure_is_live"]]
 
 
 #   -------------------------------------------------------------

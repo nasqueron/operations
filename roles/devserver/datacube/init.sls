@@ -17,7 +17,7 @@
 #   ZFS
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has']('zfs:pool') %}
+{% if salt["node.has"]("zfs:pool") %}
 
 {% if "datacube_zfs_pool" in pillar %}
 {% set tank = pillar["datacube_zfs_pool"] %}

@@ -35,7 +35,7 @@ knot_reload_sysctl:
     - template: jinja
     - context:
         zones: {{ pillar["dns_zones"] }}
-        all_ips: {{ [ salt['node.resolve_network']()['ipv4_address'] ] + salt['node.get_public_ipv6']() }}
+        all_ips: {{ [ salt["node.resolve_network"]()["ipv4_address"] ] + salt["node.get_public_ipv6"]() }}
         identity: {{ pillar["dns_identity"] }}
 
 #   -------------------------------------------------------------

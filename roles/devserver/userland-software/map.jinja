@@ -5,15 +5,15 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set php = salt['grains.filter_by']({
-    'Debian': {
-        'current_api': '20170718',
-        'extension_dir': '/usr/lib/php/20170718',
-        'cli_conf_dir': '/etc/php/7.2/cli/conf.d/',
+{% set php = salt["grains.filter_by"]({
+    "Debian": {
+        "current_api": "20170718",
+        "extension_dir": "/usr/lib/php/20170718",
+        "cli_conf_dir": "/etc/php/7.2/cli/conf.d/",
     },
-    'FreeBSD' : {
-        'current_api': '20170718',
-        'extension_dir': '/usr/local/lib/php/20170718',
-        'cli_conf_dir': '/usr/local/etc/php/',
+    "FreeBSD" : {
+        "current_api": "20170718",
+        "extension_dir": "/usr/local/lib/php/20170718",
+        "cli_conf_dir": "/usr/local/etc/php/",
     },
-}, default='Debian') %}
+}, default="Debian") %}

@@ -11,7 +11,7 @@
 #   Firewalld
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['firewall'] == 'firewalld' %}
+{% if services["firewall"] == "firewalld" %}
 
 {{ dirs.etc }}/firewalld/services/prometheus-docker.xml:
   file.managed:
@@ -23,6 +23,6 @@
     - source: salt://roles/paas-docker/docker/files/firewalld-zones-public.xml.jinja
     - template: jinja
     - context:
-        subnets: {{ salt['paas_docker.get_subnets']() }}
+        subnets: {{ salt["paas_docker.get_subnets"]() }}
 
 {% endif %}

@@ -10,7 +10,7 @@
 #   FreeBSD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 {% for repo in ["FreeBSD.conf", "Nasqueron.conf"] %}
 /usr/local/etc/pkg/repos/{{ repo }}:
   file.managed:
@@ -36,7 +36,7 @@ ports_tree:
 #   Redhat family
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' and grains['os'] != 'Fedora' %}
+{% if grains["os_family"] == "RedHat" and grains["os"] != "Fedora" %}
 epel-release:
   pkg.installed
 
@@ -49,13 +49,13 @@ epel-release:
 #   Debian
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'Debian' %}
+{% if grains["os"] == "Debian" %}
 /etc/apt/sources.list:
   file.managed:
     - source: salt://roles/core/userland-software/files/sources/sources.list
     - template: jinja
     - context:
-        debian_version: {{ grains['oscodename'] }}
+        debian_version: {{ grains["oscodename"] }}
 
 apt_update_debian_sources:
   cmd.run:
@@ -68,12 +68,12 @@ apt_update_debian_sources:
 #   Snapcraft
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['kernel'] == 'Linux' %}
+{% if grains["kernel"] == "Linux" %}
 snapd:
   pkg.installed
 {% endif %}
 
-{% if grains['os_family'] == 'RedHat' or grains['os'] == 'Arch' %}
+{% if grains["os_family"] == "RedHat" or grains["os"] == "Arch" %}
 snap_enable:
   cmd.run:
     - name: |

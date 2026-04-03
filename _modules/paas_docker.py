@@ -15,7 +15,7 @@ def get_image(default_image, args):
 
     State Example::
 
-        {% image = salt['paas_docker.get_image']("nasqueron/mysql", container) %}
+        {% image = salt["paas_docker.get_image"]("nasqueron/mysql", container) %}
     """
     image = default_image
 

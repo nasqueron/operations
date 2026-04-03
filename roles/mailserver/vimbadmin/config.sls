@@ -43,7 +43,7 @@ mailbox_mail_user:
     - mode: 710
     - makedirs: True
 
-{% for subdir in ['cache', 'log', 'session', 'template_c', 'tmp/captchas'] %}
+{% for subdir in ["cache", "log", "session", "template_c", "tmp/captchas"] %}
 
 /var/vimbadmin/{{ subdir }}:
   file.directory:

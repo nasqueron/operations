@@ -21,7 +21,7 @@
     - template: jinja
     - context:
         certificates_dir: {{ dirs.etc }}/certificates/vault
-        id: {{ grains['id'] }}
+        id: {{ grains["id"] }}
 
 #   -------------------------------------------------------------
 #   Vault directories
@@ -38,7 +38,7 @@
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['manager'] == 'systemd' %}
+{% if services["manager"] == "systemd" %}
 /lib/systemd/system/vault.service:
   file.managed:
     - source: salt://roles/shellserver/vault/files/vault.service

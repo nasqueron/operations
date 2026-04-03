@@ -19,7 +19,7 @@
 
 ca:
    root:
-      dn: CN=root.ca-{{ config['cluster_name'] }}.{{ domain_name }},OU=CA,DC=nasqueron,DC=org
+      dn: CN=root.ca-{{ config["cluster_name"] }}.{{ domain_name }},OU=CA,DC=nasqueron,DC=org
       keysize: 2048
       validityDays: 730
       pkPassword: none
@@ -38,11 +38,11 @@ defaults:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 nodes:
-{% for node in config['nodes_certificates'] %}
-  - name: {{ node['id'] }}
-    dn: CN={{ node['fqdn'] }},OU=Infrastructure,DC=nasqueron,DC=org
-    dns: {{ node['fqdn'] }}
-    ip: {{ node['ip'] }}
+{% for node in config["nodes_certificates"] %}
+  - name: {{ node["id"] }}
+    dn: CN={{ node["fqdn"] }},OU=Infrastructure,DC=nasqueron,DC=org
+    dns: {{ node["fqdn"] }}
+    ip: {{ node["ip"] }}
 {% endfor %}
 
 #   -------------------------------------------------------------
@@ -51,5 +51,5 @@ nodes:
 
 clients:
   - name: admin
-    dn: CN=admin.{{ config['cluster_name'] }}.{{ domain_name }},OU=CA,DC=nasqueron,DC=org
+    dn: CN=admin.{{ config["cluster_name"] }}.{{ domain_name }},OU=CA,DC=nasqueron,DC=org
     admin: True

@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['phabricator'].items() %}
-{% set create_container = "skip_container" not in container or not container['skip_container'] %}
+{% for instance, container in pillar["docker_containers"]["phabricator"].items() %}
+{% set create_container = "skip_container" not in container or not container["skip_container"] %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -91,29 +91,29 @@ selinux_context_{{ instance }}_data_applied:
         - /srv/phabricator/{{ instance }}/repo:/var/repo
         - /srv/phabricator/{{ instance }}/files:/var/files
     - environment:
-        PHABRICATOR_URL: https://{{ container['host'] }}
-        PHABRICATOR_TITLE: {{ container['title'] }}
-        PHABRICATOR_DOMAIN: {{ container['host'] }}
-        PHABRICATOR_ALT_FILE_DOMAIN: https://{{ container['static_host'] }}
+        PHABRICATOR_URL: https://{{ container["host"] }}
+        PHABRICATOR_TITLE: {{ container["title"] }}
+        PHABRICATOR_DOMAIN: {{ container["host"] }}
+        PHABRICATOR_ALT_FILE_DOMAIN: https://{{ container["static_host"] }}
 
-        DB_USER: {{ salt['credentials.get_username'](container['credentials']['mysql']) }}
-        DB_PASS: {{ salt['credentials.get_password'](container['credentials']['mysql']) }}
-        PHABRICATOR_STORAGE_NAMESPACE: {{ container['storage']['namespace'] }}
+        DB_USER: {{ salt["credentials.get_username"](container["credentials"]["mysql"]) }}
+        DB_PASS: {{ salt["credentials.get_password"](container["credentials"]["mysql"]) }}
+        PHABRICATOR_STORAGE_NAMESPACE: {{ container["storage"]["namespace"] }}
 
-        {% if container['mailer'] == 'sendgrid' %}
+        {% if container["mailer"] == "sendgrid" %}
         PHABRICATOR_USE_SENDGRID: 1
-        PHABRICATOR_SENDGRID_APIUSER: {{ salt['credentials.get_username'](container['credentials']['sendgrid']) }}
-        PHABRICATOR_SENDGRID_APIKEY: {{ salt['credentials.get_password'](container['credentials']['sendgrid']) }}
-        {% elif container['mailer'] == 'mailgun' %}
+        PHABRICATOR_SENDGRID_APIUSER: {{ salt["credentials.get_username"](container["credentials"]["sendgrid"]) }}
+        PHABRICATOR_SENDGRID_APIKEY: {{ salt["credentials.get_password"](container["credentials"]["sendgrid"]) }}
+        {% elif container["mailer"] == "mailgun" %}
         PHABRICATOR_USE_MAILGUN: 1
-        PHABRICATOR_MAILGUN_APIKEY: {{ salt['credentials.get_token'](container['credentials']['mailgun']) }}
+        PHABRICATOR_MAILGUN_APIKEY: {{ salt["credentials.get_token"](container["credentials"]["mailgun"]) }}
         {% endif %}
 
-    - links: {{ container['mysql_link'] }}:mysql
+    - links: {{ container["mysql_link"] }}:mysql
     - ports:
         - 80
     - port_bindings:
-        - {{ container['app_port'] }}:80
+        - {{ container["app_port"] }}:80
 
 {% endif %}
 

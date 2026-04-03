@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 
 nginx_enable_firewall:
   firewalld.present:

@@ -21,8 +21,8 @@ _meta:
 #   Reserved users to ensure access continuity
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ users['admin']['username'] }}:
-  hash: {{ salt['opensearch.hash_password'](users['admin']['password']) }}
+{{ users["admin"]["username"] }}:
+  hash: {{ salt["opensearch.hash_password"](users["admin"]["password"]) }}
   reserved: true
   backend_roles:
     - "admin"
@@ -35,7 +35,7 @@ _meta:
 #   instead of assign a backend role.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{{ users['dashboards']['username'] }}:
-  hash: {{ salt['opensearch.hash_password'](users['dashboards']['password']) }}
+{{ users["dashboards"]["username"] }}:
+  hash: {{ salt["opensearch.hash_password"](users["dashboards"]["password"]) }}
   reserved: true
   description: "Dashboards to OpenSearch machine user"

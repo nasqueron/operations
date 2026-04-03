@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set images = salt['paas_docker.list_images']() %}
+{% set images = salt["paas_docker.list_images"]() %}
 
 #   -------------------------------------------------------------
 #   Fetch Docker images

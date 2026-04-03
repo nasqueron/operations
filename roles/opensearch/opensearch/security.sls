@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set config = salt['opensearch.get_config']() %}
+{% set config = salt["opensearch.get_config"]() %}
 
 #   -------------------------------------------------------------
 #   Security plugin
@@ -21,16 +21,16 @@
     - show_changes: False
     - context:
         users:
-          {% for user, credential in config['users'].items() %}
+          {% for user, credential in config["users"].items() %}
           {{ user }}:
-            username: {{ salt['credentials.get_username'](credential) }}
-            password: {{ salt['credentials.get_password'](credential) }}
+            username: {{ salt["credentials.get_username"](credential) }}
+            password: {{ salt["credentials.get_password"](credential) }}
           {% endfor %}
 
 opensearch_security_initialize:
    cmd.script:
      - source: salt://roles/opensearch/opensearch/files/security_initialize.sh
-     - args: {{ config['network_host'] }}
+     - args: {{ config["network_host"] }}
      - env:
          JAVA_HOME: /opt/opensearch/jdk
      - creates: /opt/opensearch/plugins/opensearch-security/securityconfig/.initialized

@@ -9,7 +9,7 @@
 #   Enable incoming mail (T1317)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/rc.conf.d/sendmail:
   file.managed:

@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for username, user in salt['forest.get_users']().items() %}
+{% for username, user in salt["forest.get_users"]().items() %}
 
-{% if 'yubico_keys' in user %}
+{% if "yubico_keys" in user %}
 /home/{{ username }}/.yubico:
   file.directory:
     - user: {{ username }}
@@ -17,7 +17,7 @@
   file.managed:
     - user: {{ username }}
     - mode: 600
-    - contents: {{ username + ':' + ':'.join(user['yubico_keys']) }}
+    - contents: {{ username + ":" + ":".join(user["yubico_keys"]) }}
 {% endif %}
 
 {% endfor %}

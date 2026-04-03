@@ -9,9 +9,9 @@
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
-{% set instances = " ".join(pillar['php_fpm_instances'].keys()) %}
+{% set instances = " ".join(pillar["php_fpm_instances"].keys()) %}
 
 /usr/local/etc/rc.d/php-fpm:
   file.managed:
@@ -36,14 +36,14 @@
     - context:
         instances: {{ instances }}
 
-{% for instance, config in pillar['php_fpm_instances'].items() %}
+{% for instance, config in pillar["php_fpm_instances"].items() %}
 /etc/rc.conf.d/php_fpm/{{ instance }}:
   file.managed:
     - source: salt://roles/webserver-alkane/php/files/rc/per_instance
     - template: jinja
     - context:
         instance: {{ instance }}
-        command: {{ config['command'] | default('') }}
+        command: {{ config["command"] | default("") }}
 {% endfor %}
 
 {% endif %}

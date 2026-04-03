@@ -8,7 +8,7 @@
 {% from "map.jinja" import dirs with context %}
 {% from "roles/webserver-core/map.jinja" import options with context %}
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------
 #   Accounts - web group

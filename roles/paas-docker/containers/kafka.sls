@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['kafka'].items() %}
-{% set image = salt['paas_docker.get_image']("confluentinc/cp-kafka", container) %}
+{% for instance, container in pillar["docker_containers"]["kafka"].items() %}
+{% set image = salt["paas_docker.get_image"]("confluentinc/cp-kafka", container) %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -18,7 +18,7 @@
   file.directory:
     - makedirs: True
 
-{% for subdir in ['data', 'log'] %}
+{% for subdir in ["data", "log"] %}
 # There are several releases of the cp-kafka instance,
 # Some using "appuser", some "cp-kafka" and some "root".
 /srv/kafka/{{ instance }}/{{ subdir }}:
@@ -74,7 +74,7 @@ selinux_context_{{ instance }}_kafka_data_applied:
         Test: nc -z localhost 9092
         Interval: 30000000000
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 
 #   -------------------------------------------------------------
 #   Kafka topics

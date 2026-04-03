@@ -34,4 +34,4 @@ chquasselpasswd_sudo_capabilities_file:
     - context:
         dirs: {{ dirs }}
         quassel: {{ quassel }}
-        users: {{ pillar['quassel_users'] }}
+        users: {{ pillar["quassel_users"] }}

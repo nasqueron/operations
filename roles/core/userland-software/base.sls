@@ -20,7 +20,7 @@ shells:
     - pkgs:
       - bash
       - zsh
-      {% if grains['kernel'] == 'Linux' %}
+      {% if grains["kernel"] == "Linux" %}
       - tcsh
       {% endif %}
 
@@ -75,31 +75,31 @@ sysadmin_utilities:
       - ripgrep
       - tree
       - wget
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - gnu-watch
       {% else %}
       - {{ packages.netcat }}
       - net-tools
       {% endif %}
-      {% if grains['os_family'] == 'RedHat' %}
+      {% if grains["os_family"] == "RedHat" %}
       - patch
       - psmisc
       - tar
       {% endif %}
 
-{% if grains['os'] == 'Debian' %}
+{% if grains["os"] == "Debian" %}
 /usr/bin/bat:
   file.symlink:
     - target: /usr/bin/batcat
 {% endif %}
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /usr/local/bin/gwatch:
   file.symlink:
     - target: /usr/local/bin/gnu-watch
 {% endif %}
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 {{ dirs.bin }}/new-partition:
   file.managed:
     - source: salt://roles/core/userland-software/files/new-partition.sh
@@ -121,7 +121,7 @@ sysadmin_utilities:
 #   As checked 2023-04-19, it's not available on Debian and Rocky.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['file.file_exists'](dirs["share"] + "/nano/yaml.nanorc") %}
+{% if salt["file.file_exists"](dirs["share"] + "/nano/yaml.nanorc") %}
 nano_sls_support:
   file.replace:
     - name: {{ dirs.share }}/nano/yaml.nanorc

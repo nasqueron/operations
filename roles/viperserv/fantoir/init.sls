@@ -28,8 +28,8 @@
 
 /srv/viperserv/data/dist/fantoir.zip:
   file.managed:
-    - source: {{ pillar['fantoir']['dataset_url'] }}
-    - source_hash: {{ pillar['fantoir']['dataset_hash'] }}
+    - source: {{ pillar["fantoir"]["dataset_url"] }}
+    - source_hash: {{ pillar["fantoir"]["dataset_hash"] }}
     - user: viperserv
     - group: nasqueron-irc
 
@@ -45,7 +45,7 @@ viperserv_fantoir_archive:
 
 /srv/viperserv/data/FANTOIR.txt:
   file.symlink:
-    - target: /srv/viperserv/data/{{ pillar['fantoir']['distname'] }}
+    - target: /srv/viperserv/data/{{ pillar["fantoir"]["distname"] }}
     - user: viperserv
     - group: nasqueron-irc
     - require:

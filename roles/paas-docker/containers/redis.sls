@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['redis'].items() %}
-{% set image = salt['paas_docker.get_image']("library/redis", container) %}
+{% for instance, container in pillar["docker_containers"]["redis"].items() %}
+{% set image = salt["paas_docker.get_image"]("library/redis", container) %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -44,9 +44,9 @@ selinux_context_{{ instance }}_redis_data_applied:
     - healthcheck:
         Test: redis-cli ping
         Interval: 30000000000
-{% if 'network' in container %}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 {% endfor %}
 

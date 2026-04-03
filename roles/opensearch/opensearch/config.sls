@@ -4,7 +4,7 @@
 #   Project:        Nasqueron
 #   -------------------------------------------------------------
 
-{% set config = salt['opensearch.get_config']() %}
+{% set config = salt["opensearch.get_config"]() %}
 
 #   -------------------------------------------------------------
 #   OpenSearch
@@ -26,7 +26,7 @@
     - group: opensearch
     - template: jinja
     - context:
-        heap_size: {{ config['heap_size'] }}
+        heap_size: {{ config["heap_size"] }}
 
 #   -------------------------------------------------------------
 #   TLS certificates
@@ -58,8 +58,8 @@
     - template: jinja
     - context:
         config: {{ config }}
-        domain_name: {{ grains['domain'] }}
-        node_full_domain_name: {{ grains['fqdn'] }}
+        domain_name: {{ grains["domain"] }}
+        node_full_domain_name: {{ grains["fqdn"] }}
 
 opensearch_generate_certificates:
   cmd.run:
@@ -68,7 +68,7 @@ opensearch_generate_certificates:
          JAVA_HOME: /opt/opensearch/jdk
      - creates: /opt/tlstool/config/root-ca.pem
 
-{% for certificate in salt['opensearch.list_certificates']() %}
+{% for certificate in salt["opensearch.list_certificates"]() %}
 
 opensearch_deploy_certificate_{{ certificate }}:
    cmd.run:

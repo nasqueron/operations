@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['openfire'].items() %}
+{% for instance, container in pillar["docker_containers"]["openfire"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -40,21 +40,21 @@ selinux_context_openfire_data_applied:
     - interactive: True
     - image: nasqueron/openfire
     - binds: /srv/{{ instance }}:/var/lib/openfire
-    - hostname: {{ container['host'] }}
-    - ports: {{ pillar['xmpp_ports'] }}
+    - hostname: {{ container["host"] }}
+    - ports: {{ pillar["xmpp_ports"] }}
     - port_bindings:
-{% for port in pillar['xmpp_ports'] %}
-      - {{ container['ip'] }}:{{ port }}:{{ port }}
+{% for port in pillar["xmpp_ports"] %}
+      - {{ container["ip"] }}:{{ port }}:{{ port }}
 {% endfor %}
 
 #   -------------------------------------------------------------
 #   Certificate propagation
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-/srv/letsencrypt/etc/renewal/{{ container['host'] }}.conf:
+/srv/letsencrypt/etc/renewal/{{ container["host"] }}.conf:
   file.append:
     - text:
         - "# Propagate certificates to Openfire container"
-        - post-hook = openfire propagate-certificate {{ instance }} {{ container['host'] }}
+        - post-hook = openfire propagate-certificate {{ instance }} {{ container["host"] }}
 
 {% endfor %}

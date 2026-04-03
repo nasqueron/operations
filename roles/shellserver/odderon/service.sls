@@ -12,7 +12,7 @@
 #   Unit configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['manager'] == 'systemd' %}
+{% if services["manager"] == "systemd" %}
 
 odderon_unit:
   file.managed:

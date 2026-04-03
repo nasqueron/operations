@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set services = pillar.get('docker_containers', {}) %}
+{% set services = pillar.get("docker_containers", {}) %}
 
 {% if services %}
 

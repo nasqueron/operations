@@ -6,9 +6,9 @@
 #
 #   -------------------------------------------------------------
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
-{% set use_zfs = salt['node.has']('zfs:pool') %}
+{% set use_zfs = salt["node.has"]("zfs:pool") %}
 
 /etc/sysctl.conf:
   file.managed:
@@ -16,6 +16,6 @@
     - template: jinja
     - context:
         use_zfs: {{ use_zfs }}
-        mem: {{ grains['mem_total'] }}
+        mem: {{ grains["mem_total"] }}
         is_router: {{ salt[ "node.has_role" ]("router") }}
 {% endif %}

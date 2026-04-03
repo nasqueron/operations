@@ -7,8 +7,8 @@
 
 {% from "map.jinja" import dirs with context %}
 
-{% set use_zfs = salt['node.has']('zfs:pool') %}
-{% set is_devserver = salt['node.has_role']('devserver') %}
+{% set use_zfs = salt["node.has"]("zfs:pool") %}
+{% set is_devserver = salt["node.has_role"]("devserver") %}
 
 #   -------------------------------------------------------------
 #   Required directories
@@ -36,7 +36,7 @@
     - clean: True # remove wsrep.cnf values (and empty config files)
     - template: jinja
     - context:
-        nodename: {{ grains['id'] }}
+        nodename: {{ grains["id"] }}
         etc: {{ dirs.etc }}
         share: {{ dirs.share }}
         use_zfs: {{ use_zfs }}
@@ -55,7 +55,7 @@
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/rc.conf.d/mysql:
   file.managed:

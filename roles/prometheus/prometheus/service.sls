@@ -9,7 +9,7 @@
 #   Prometheus service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /usr/local/etc/rc.d/prometheus:
   file.managed:

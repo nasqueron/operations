@@ -15,8 +15,8 @@
 
 {% for entry in carp_entries %}
 
-{% set carp_pass = salt['credentials.get_password']('network/carp/' ~ entry.vhid) %}
-{% set prefix = 27 if entry.interface_name == 'intranought' else 32 %}
+{% set carp_pass = salt["credentials.get_password"]("network/carp/" ~ entry.vhid) %}
+{% set prefix = 27 if entry.interface_name == "intranought" else 32 %}
 
 ifconfig_{{ entry.device }}_alias0="inet vhid {{ entry.vhid }} advskew {{ entry.advskew }} pass {{ carp_pass }}{% if entry.peer is defined %} peer {{ entry.peer }}{% endif %} alias {{ entry.vip }}/{{ prefix }}"
 

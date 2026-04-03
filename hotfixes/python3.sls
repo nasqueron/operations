@@ -13,7 +13,7 @@
 #   it's probably best to ensure an alias by looking for an interpreter.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /usr/local/bin/python3:
  cmd.script:
    - source: salt://hotfixes/files/alias-python3-interpreter.sh

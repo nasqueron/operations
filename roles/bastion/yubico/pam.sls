@@ -14,4 +14,4 @@
 yubico_pam_software:
   pkg.installed:
     - pkgs:
-      - {{ packages['yubico-pam'] }}
+      - {{ packages["yubico-pam"] }}

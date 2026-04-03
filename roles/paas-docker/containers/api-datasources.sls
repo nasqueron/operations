@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for instance, container in pillar['docker_containers']['api-datasources'].items() %}
+{% for instance, container in pillar["docker_containers"]["api-datasources"].items() %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -17,10 +17,10 @@
     - interactive: True
     - image: nasqueron/api-datasources
     - env:
-      - API_ENTRY_POINT: {{ container['api_entry_point'] }}
+      - API_ENTRY_POINT: {{ container["api_entry_point"] }}
     - ports:
       - 80
     - port_bindings:
-      - {{ container['app_port'] }}:80
+      - {{ container["app_port"] }}:80
 
 {% endfor %}

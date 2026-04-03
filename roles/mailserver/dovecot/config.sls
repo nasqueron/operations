@@ -8,7 +8,7 @@
 {% from "map.jinja" import dirs with context %}
 {% set db = pillar["dovecot_config"]["db"] %}
 
-{% set network = salt['node.resolve_network']() %}
+{% set network = salt["node.resolve_network"]() %}
 
 
 {{ dirs.etc }}/dovecot/conf.d:

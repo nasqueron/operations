@@ -80,7 +80,7 @@ vault_salt_primary_policy:
 #   In addition to those extra policies, the vault_secrets_by_role
 #   will be parsed for the keys.
 #
-#   IMPORTANT: as grains['roles'] can be modified by the node,
+#   IMPORTANT: as grains["roles"] can be modified by the node,
 #              roles are extracted directly from the pillar.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

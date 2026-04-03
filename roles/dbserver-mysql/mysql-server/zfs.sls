@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if salt['node.has']('zfs:pool') %}
+{% if salt["node.has"]("zfs:pool") %}
 
-{% set tank = salt['node.get']("zfs:pool") %}
+{% set tank = salt["node.get"]("zfs:pool") %}
 
 {{ tank }}/mysql-root:
   zfs.filesystem_present:
@@ -17,7 +17,7 @@
         compression: lz4
         recordsize: 8K
 
-{% for mysqldir in ['innodb-data', 'innodb-logs'] %}
+{% for mysqldir in ["innodb-data", "innodb-logs"] %}
 /var/db/mysql/mysql-{{ mysqldir }}:
   file.directory:
     - user: mysql

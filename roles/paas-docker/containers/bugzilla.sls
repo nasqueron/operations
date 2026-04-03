@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for instance, container in pillar['docker_containers']['bugzilla'].items() %}
+{% for instance, container in pillar["docker_containers"]["bugzilla"].items() %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -17,16 +17,16 @@
     - interactive: True
     - image: nasqueron/bugzilla
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
     - environment:
-        DB_HOST: {{ container['mysql']['host'] }}
-        DB_DATABASE: {{ container['mysql']['db'] }}
-        DB_USER: {{ salt['credentials.get_username'](container['credential']) }}
-        DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
-        BUGZILLA_URL: https://{{ container['host'] }}/
+        DB_HOST: {{ container["mysql"]["host"] }}
+        DB_DATABASE: {{ container["mysql"]["db"] }}
+        DB_USER: {{ salt["credentials.get_username"](container["credential"]) }}
+        DB_PASSWORD: {{ salt["credentials.get_password"](container["credential"]) }}
+        BUGZILLA_URL: https://{{ container["host"] }}/
     - ports:
       - 80
     - port_bindings:
-      - {{ container['app_port'] }}:80
+      - {{ container["app_port"] }}:80
 
 {% endfor %}

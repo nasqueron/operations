@@ -8,7 +8,7 @@
 /var/dataroot:
   file.directory
 
-{% for store in pillar['mediawiki_datastores'] %}
+{% for store in pillar["mediawiki_datastores"] %}
 
 # $wgUploadDirectory
 /var/dataroot/{{ store }}/images:

@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for dir in salt['pillar.get']('web_autochmod', []) %}
+{% for dir in salt["pillar.get"]("web_autochmod", []) %}
 
 autochmod_{{ dir }}:
   cmd.run:

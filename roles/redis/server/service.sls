@@ -9,7 +9,7 @@
 #   Redis service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/rc.conf.d/redis:
   file.managed:

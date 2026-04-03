@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['notifications'].items() %}
+{% for instance, container in pillar["docker_containers"]["notifications"].items() %}
 
   #   -------------------------------------------------------------
   #   Storage directory
@@ -35,7 +35,7 @@
     - makedirs: True
     - show_changes: False
     - contents: |
-        {{ salt['notifications.get_credentials']() | json }}
+        {{ salt["notifications.get_credentials"]() | json }}
 
 /srv/{{ instance }}/storage/app/DockerHubTriggers.json:
   file.managed:
@@ -44,9 +44,9 @@
     - mode: 400
     - show_changes: False
     - contents: |
-        {{ salt['notifications.get_dockerhub_triggers']() | json }}
+        {{ salt["notifications.get_dockerhub_triggers"]() | json }}
 
-{% for folder, configs in salt['pillar.get']("notifications_configuration", {}).items() %}
+{% for folder, configs in salt["pillar.get"]("notifications_configuration", {}).items() %}
 {% for config_file, config in configs.items() %}
 /srv/{{ instance }}/storage/app/{{ folder }}/{{ config_file }}.json:
   file.managed:
@@ -80,7 +80,7 @@ selinux_context_notifications_data_applied_{{ instance }}:
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% if "network" in container %}
-{% set broker = container['broker'] %}
+{% set broker = container["broker"] %}
 {% else %}
 {% set broker = "mq" %}
 {% endif %}
@@ -93,28 +93,28 @@ selinux_context_notifications_data_applied_{{ instance }}:
     - binds: /srv/{{ instance }}/storage:/var/wwwroot/default/storage
     {% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
     {% else %}
     - links:
-        - {{ container['broker_link'] }}:mq
+        - {{ container["broker_link"] }}:mq
     {% endif %}
     - environment:
         - BROKER_HOST: {{ broker }}
-        - BROKER_USERNAME: {{ salt['credentials.get_username'](container['credentials']['broker']) }}
-        - BROKER_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['broker']) }}
+        - BROKER_USERNAME: {{ salt["credentials.get_username"](container["credentials"]["broker"]) }}
+        - BROKER_PASSWORD: {{ salt["credentials.get_password"](container["credentials"]["broker"]) }}
         - BROKER_VHOST: dev
 
         {% if "mailgun" in container["credentials"] %}
-        - MAILGUN_DOMAIN: {{ salt['credentials.get_username'](container['credentials']['mailgun']) }}
-        - MAILGUN_APIKEY: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
+        - MAILGUN_DOMAIN: {{ salt["credentials.get_username"](container["credentials"]["mailgun"]) }}
+        - MAILGUN_APIKEY: {{ salt["credentials.get_password"](container["credentials"]["mailgun"]) }}
         {% endif %}
 
-        - SENTRY_DSN: {{ salt['credentials.get_sentry_dsn'](container["sentry"]) }}
+        - SENTRY_DSN: {{ salt["credentials.get_sentry_dsn"](container["sentry"]) }}
         - SENTRY_TRACES_SAMPLE_RATE: 1.0
         - SENTRY_ENVIRONMENT: {{ container["sentry"].get("environment", "production") }}
     - ports:
         - 80
     - port_bindings:
-        - {{ container['app_port'] }}:80
+        - {{ container["app_port"] }}:80
 
 {% endfor %}

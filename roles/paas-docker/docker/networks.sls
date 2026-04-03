@@ -17,6 +17,6 @@ docker_network_{{ network }}:
   docker_network.present:
     - name: {{ network }}
     - driver: bridge
-    - subnet: {{ args['subnet'] }}
+    - subnet: {{ args["subnet"] }}
 
 {% endfor %}

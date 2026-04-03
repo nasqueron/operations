@@ -6,7 +6,7 @@
 #   Notes:          Environment follows getsentry/self-hosted
 #   -------------------------------------------------------------
 
-{% for instance, container in pillar['docker_containers']['snuba'].items() %}
+{% for instance, container in pillar["docker_containers"]["snuba"].items() %}
 {% set is_api = container.get("api", False) %}
 
 #   -------------------------------------------------------------

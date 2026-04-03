@@ -28,7 +28,7 @@ rabbitmq-tcl_repo:
     - user: builder
 
 rabbitmq-tcl_build:
-  {% if grains['os'] == 'FreeBSD' %}
+  {% if grains["os"] == "FreeBSD" %}
   file.managed:
     - name: /opt/rabbitmq-tcl/Makefile-FreeBSD.patch
     - source: salt://roles/viperserv/rabbitmq-tcl/files/Makefile-FreeBSD.patch

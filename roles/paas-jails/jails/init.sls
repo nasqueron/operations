@@ -23,7 +23,7 @@ jails_rc_jail:
     - source: salt://roles/paas-jails/jails/files/jail.rc
     - template: jinja
     - context:
-        jails: {{ salt['jails.flatlist']() }}
+        jails: {{ salt["jails.flatlist"]() }}
 
 jails_rc_netif:
   file.managed:
@@ -53,8 +53,8 @@ generate_basejail:
 #   Build applications/services jails
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for jail in salt['jails.list_jails']() %}
-{% set ips = salt['jails.get_ezjail_ips_parameter'](jail) %}
+{% for jail in salt["jails.list_jails"]() %}
+{% set ips = salt["jails.get_ezjail_ips_parameter"](jail) %}
 generate_jail_{{ jail }}:
   cmd.run:
     - name: ezjail-admin create {{ jail }} {{ ips | yaml_encode }}

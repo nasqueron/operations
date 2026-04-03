@@ -7,7 +7,7 @@
 
 {% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
-{% set is_devserver = salt['node.has_role']('devserver') %}
+{% set is_devserver = salt["node.has_role"]("devserver") %}
 
 #   -------------------------------------------------------------
 #   Install PHP through packages
@@ -94,7 +94,7 @@ php_software:
           - optimize_opcache
           {% endif %}
 
-{% for build in pillar.get('php_custom_builds', {}) %}
+{% for build in pillar.get("php_custom_builds", {}) %}
 /opt/php/{{ build }}/lib/php.ini:
   file.managed:
     - source: {{ dirs.etc }}/php.ini:

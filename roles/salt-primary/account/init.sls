@@ -68,7 +68,7 @@ deploy_account_ssh_key:
 #   Deployers should be able to sudo -u deploy <anything>
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for sudofile in ['salt', 'deploy'] %}
+{% for sudofile in ["salt", "deploy"] %}
 salt_sudo_capabilities_{{ sudofile }}:
   file.managed:
     - name: {{ dirs.etc }}/sudoers.d/{{ sudofile }}

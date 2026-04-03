@@ -29,4 +29,4 @@
     - template: jinja
     - context:
         sftp: {{ paths.sftp }}
-        print_motd: {{ not capabilities['MOTD-printed-at-login'] }}
+        print_motd: {{ not capabilities["MOTD-printed-at-login"] }}

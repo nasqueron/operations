@@ -11,7 +11,7 @@
 #   Helper executables to start and stop containers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for action in ['start', 'stop'] %}
+{% for action in ["start", "stop"] %}
 
 {{ dirs.bin }}/docker-paas-{{ action }}-containers:
   file.managed:
@@ -24,7 +24,7 @@
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['manager'] == 'systemd' %}
+{% if services["manager"] == "systemd" %}
 
 docker-containers_unit:
   file.managed:

@@ -11,7 +11,7 @@
 #   Known issue - https://bugs.ntp.org/show_bug.cgi?id=3898
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /var/db/ntpd.leap-seconds.list:
   file.managed:

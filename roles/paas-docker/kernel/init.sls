@@ -5,8 +5,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os_family'] == 'RedHat' %}
-{% if salt['file.file_exists']("/etc/tuned") %}
+{% if grains["os_family"] == "RedHat" %}
+{% if salt["file.file_exists"]("/etc/tuned") %}
 
 /etc/tuned/paas-docker:
   file.directory

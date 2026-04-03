@@ -5,12 +5,12 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['jenkins'].items() %}
+{% for instance, container in pillar["docker_containers"]["jenkins"].items() %}
 
-{% set realm = pillar['jenkins_realms'][container['realm']] %}
-{% set home = "/srv/jenkins/" + container['realm'] + "/jenkins_home" %}
+{% set realm = pillar["jenkins_realms"][container["realm"]] %}
+{% set home = "/srv/jenkins/" + container["realm"] + "/jenkins_home" %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -44,12 +44,12 @@ selinux_context_jenkins_home_applied_{{ instance }}:
     - image: jenkins/jenkins
     - binds: {{ home }}:/var/jenkins_home
     - networks:
-      - {{ realm['network'] }}
+      - {{ realm["network"] }}
     - ports:
       - 8080
       - 50000
     - port_bindings:
-      - {{ container['app_port'] }}:8080 # HTTP
-      - {{ container['jnlp_port'] }}:50000 # Jenkins controller's port for JNLP-based Jenkins agents
+      - {{ container["app_port"] }}:8080 # HTTP
+      - {{ container["jnlp_port"] }}:50000 # Jenkins controller's port for JNLP-based Jenkins agents
 
 {% endfor %}

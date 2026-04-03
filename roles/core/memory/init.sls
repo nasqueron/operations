@@ -15,7 +15,7 @@
 
 {% set swap_size = 8 * 1024 %}
 
-{% if grains['swap_total'] == 0 %}
+{% if grains["swap_total"] == 0 %}
 
 create_swap_file:
   cmd.run:

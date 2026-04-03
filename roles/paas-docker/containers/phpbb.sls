@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -28,13 +28,13 @@ selinux_context_phpbb_datastores_applied:
     - name: /srv/phpbb/data
 {% endif %}
 
-{% for store in pillar['phpbb_datastores'] %}
+{% for store in pillar["phpbb_datastores"] %}
 /srv/phpbb/data/{{ store }}:
   file.directory:
     - user: 431
     - group: 433
 
-{% for subdir in ['cache', 'config', 'ext', 'files', 'images', 'store'] %}
+{% for subdir in ["cache", "config", "ext", "files", "images", "store"] %}
 /srv/phpbb/data/{{ store }}/{{ subdir }}:
   file.recurse:
     - source: salt://software/phpbb/phpBB/{{ subdir }}

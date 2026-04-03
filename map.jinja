@@ -1,231 +1,231 @@
-{% set dirs = salt['grains.filter_by']({
-    'Debian': {
-        'etc': '/etc',
-        'bin': '/usr/bin',
-        'home': '/home',
-        'include': '/usr/include',
-        'lib': '/usr/lib',
-        'libexec': '/usr/libexec',
-        'man': '/usr/share/man',
-        'run': '/run',
-        'sbin': '/usr/sbin',
-        'share': '/usr/share',
+{% set dirs = salt["grains.filter_by"]({
+    "Debian": {
+        "etc": "/etc",
+        "bin": "/usr/bin",
+        "home": "/home",
+        "include": "/usr/include",
+        "lib": "/usr/lib",
+        "libexec": "/usr/libexec",
+        "man": "/usr/share/man",
+        "run": "/run",
+        "sbin": "/usr/sbin",
+        "share": "/usr/share",
     },
-    'FreeBSD' : {
-        'etc': '/usr/local/etc',
-        'bin': '/usr/local/bin',
-        'home': '/home',
-        'include': '/usr/local/include',
-        'lib': '/usr/local/lib',
-        'libexec': '/usr/local/libexec',
-        'man': '/usr/local/share/man',
-        'run': '/var/run',
-        'sbin': '/usr/local/sbin',
-        'share': '/usr/local/share',
+    "FreeBSD" : {
+        "etc": "/usr/local/etc",
+        "bin": "/usr/local/bin",
+        "home": "/home",
+        "include": "/usr/local/include",
+        "lib": "/usr/local/lib",
+        "libexec": "/usr/local/libexec",
+        "man": "/usr/local/share/man",
+        "run": "/var/run",
+        "sbin": "/usr/local/sbin",
+        "share": "/usr/local/share",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
-{% set services = salt['grains.filter_by']({
-    'Debian': {
-        'manager': 'systemd',
-        'firewall': 'iptables',
+{% set services = salt["grains.filter_by"]({
+    "Debian": {
+        "manager": "systemd",
+        "firewall": "iptables",
     },
-    'RedHat': {
-        'manager': 'systemd',
-        'firewall': 'firewalld',
+    "RedHat": {
+        "manager": "systemd",
+        "firewall": "firewalld",
     },
-    'FreeBSD' : {
-        'manager': 'rc',
-        'firewall': 'pf',
+    "FreeBSD" : {
+        "manager": "rc",
+        "firewall": "pf",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
-{% set shells = salt['grains.filter_by']({
-    'Debian': {
-        'bash': '/bin/bash',
-        'fish': '/usr/bin/fish',
-        'nologin': '/usr/sbin/nologin',
-        'tcsh': '/usr/bin/tcsh',
-        'zsh': '/bin/zsh',
+{% set shells = salt["grains.filter_by"]({
+    "Debian": {
+        "bash": "/bin/bash",
+        "fish": "/usr/bin/fish",
+        "nologin": "/usr/sbin/nologin",
+        "tcsh": "/usr/bin/tcsh",
+        "zsh": "/bin/zsh",
     },
-    'FreeBSD' : {
-        'bash': '/usr/local/bin/bash',
-        'fish': '/usr/local/bin/fish',
-        'nologin': '/sbin/nologin',
-        'tcsh': '/bin/tcsh',
-        'zsh': '/usr/local/bin/zsh',
+    "FreeBSD" : {
+        "bash": "/usr/local/bin/bash",
+        "fish": "/usr/local/bin/fish",
+        "nologin": "/sbin/nologin",
+        "tcsh": "/bin/tcsh",
+        "zsh": "/usr/local/bin/zsh",
     },
-    'Arch': {
-        'bash': '/bin/bash',
-        'fish': '/usr/bin/fish',
-        'nologin': '/sbin/nologin',
-        'tcsh': '/usr/bin/tcsh',
-        'zsh': '/bin/zsh',
+    "Arch": {
+        "bash": "/bin/bash",
+        "fish": "/usr/bin/fish",
+        "nologin": "/sbin/nologin",
+        "tcsh": "/usr/bin/tcsh",
+        "zsh": "/bin/zsh",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
-{% set paths = salt['grains.filter_by']({
-    'FreeBSD': {
-        'sshd': '/usr/sbin/sshd',
-        'sftp': '/usr/libexec/sftp-server',
+{% set paths = salt["grains.filter_by"]({
+    "FreeBSD": {
+        "sshd": "/usr/sbin/sshd",
+        "sftp": "/usr/libexec/sftp-server",
     },
-    'Debian': {
-        'sshd': '/usr/sbin/sshd',
-        'sftp': '/usr/lib/openssh/sftp-server',
+    "Debian": {
+        "sshd": "/usr/sbin/sshd",
+        "sftp": "/usr/lib/openssh/sftp-server",
     },
-    'RedHat': {
-        'sshd': '/sbin/sshd',
-        'sftp': '/usr/libexec/openssh/sftp-server',
+    "RedHat": {
+        "sshd": "/sbin/sshd",
+        "sftp": "/usr/libexec/openssh/sftp-server",
     },
-    'Arch': {
-        'sshd': '/usr/sbin/sshd',
-        'sftp': '/usr/lib/ssh/sftp-server',
+    "Arch": {
+        "sshd": "/usr/sbin/sshd",
+        "sftp": "/usr/lib/ssh/sftp-server",
     },
-}, default='FreeBSD') %}
+}, default="FreeBSD") %}
 
-{% set packages_prefixes = salt['grains.filter_by']({
-    'Debian': {
-        'pecl': 'php-',
-        'php': 'php7.4-',
-        'python3': 'python3-',
-        'rubygem': '',
+{% set packages_prefixes = salt["grains.filter_by"]({
+    "Debian": {
+        "pecl": "php-",
+        "php": "php7.4-",
+        "python3": "python3-",
+        "rubygem": "",
     },
-    'RedHat': {
-        'pecl': 'php-pecl-',
-        'python3': 'python3-',
-        'rubygem': 'rubygem-',
+    "RedHat": {
+        "pecl": "php-pecl-",
+        "python3": "python3-",
+        "rubygem": "rubygem-",
     },
-    'FreeBSD' : {
-        'pecl': 'php83-pecl-',
-        'php': 'php83-',
-        'python3': 'py311-',
-        'rubygem': 'rubygem-',
+    "FreeBSD" : {
+        "pecl": "php83-pecl-",
+        "php": "php83-",
+        "python3": "py311-",
+        "rubygem": "rubygem-",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
-{% set packages = salt['grains.filter_by']({
-    'Debian' : {
-        '7zip': '7zip',
-        'ag': 'silversearcher-ag',
-        'aspell-fr': 'aspell-fr',
-        'aspell-en': 'aspell-en',
-        'bats': 'bats',
-        'boost': 'libboost-all-dev',
-        'c-ares': 'libc-ares-dev',
-        'certbot': 'certbot',
-        'composer': 'composer',
-        'cppunit': 'libcppunit-dev',
-        'djvulibre': 'djvulibre-bin',
-        'exiftool': 'libimage-exiftool-perl',
-        'frrouting': 'frr',
-        'gpg': 'gpg',
-        'imagemagick': 'imagemagick',
-        'jpeg-turbo' : 'libjpeg-turbo',
-        'librabbitmq': 'librabbitmq-dev',
-        'lua': 'lua5.1',
-        'mariadb': 'mariadb-server',
-        'mtr': 'mtr',
-        'netcat': 'netcat-openbsd',
-        'node': 'nodejs',
-        'pandoc': 'pandoc',
-        'pear': 'php-pear',
-        'phpcs': 'php-codesniffer',
-        'postgresql': 'postgresql-17',
-        'prometheus-node-exporter': 'prometheus-node-exporter',
-        'sphinx': 'python3-sphinx',
-        'tcl': 'tcl8.6-dev',
-        'tcltls': 'tcl-tls',
-        'tdom': 'tdom',
-        'varnish': 'varnish',
-        'verbiste': 'verbiste',
-        'yubico-pam': 'libpam-yubico',
+{% set packages = salt["grains.filter_by"]({
+    "Debian" : {
+        "7zip": "7zip",
+        "ag": "silversearcher-ag",
+        "aspell-fr": "aspell-fr",
+        "aspell-en": "aspell-en",
+        "bats": "bats",
+        "boost": "libboost-all-dev",
+        "c-ares": "libc-ares-dev",
+        "certbot": "certbot",
+        "composer": "composer",
+        "cppunit": "libcppunit-dev",
+        "djvulibre": "djvulibre-bin",
+        "exiftool": "libimage-exiftool-perl",
+        "frrouting": "frr",
+        "gpg": "gpg",
+        "imagemagick": "imagemagick",
+        "jpeg-turbo" : "libjpeg-turbo",
+        "librabbitmq": "librabbitmq-dev",
+        "lua": "lua5.1",
+        "mariadb": "mariadb-server",
+        "mtr": "mtr",
+        "netcat": "netcat-openbsd",
+        "node": "nodejs",
+        "pandoc": "pandoc",
+        "pear": "php-pear",
+        "phpcs": "php-codesniffer",
+        "postgresql": "postgresql-17",
+        "prometheus-node-exporter": "prometheus-node-exporter",
+        "sphinx": "python3-sphinx",
+        "tcl": "tcl8.6-dev",
+        "tcltls": "tcl-tls",
+        "tdom": "tdom",
+        "varnish": "varnish",
+        "verbiste": "verbiste",
+        "yubico-pam": "libpam-yubico",
     },
-    'RedHat': {
-        'ag': 'the_silver_searcher',
-        'aspell-fr': 'aspell-fr',
-        'c-ares': 'c-ares-devel',
-        'certbot': 'python3-certbot',
-        'cppunit': 'cppunit-devel',
-        'djvulibre': 'djvulibre',
-        'exiftool': 'perl-Image-ExifTool',
-        'frrouting': 'frr',
-        'jpeg-turbo' : 'libjpeg-turbo',
-        'librabbitmq': 'librabbitmq',
-        'lua': 'lua',
-        'mariadb': 'mariadb-server',
-        'mtr': 'mtr',
-        'netcat': 'nmap-ncat',
-        'node': 'nodejs',
-        'pandoc': 'pandoc',
-        'pear': 'php-pear',
-        'phpcs': 'php-pear-PHP-CodeSniffer',
-        'prometheus-node-exporter': 'golang-github-prometheus-node-exporter',
-        'sphinx': 'python3-sphinx',
-        'tcl': 'tcl',
-        'tcltls': 'tcltls',
-        'varnish': 'varnish',
-        'yubico-pam': 'pam_yubico',
+    "RedHat": {
+        "ag": "the_silver_searcher",
+        "aspell-fr": "aspell-fr",
+        "c-ares": "c-ares-devel",
+        "certbot": "python3-certbot",
+        "cppunit": "cppunit-devel",
+        "djvulibre": "djvulibre",
+        "exiftool": "perl-Image-ExifTool",
+        "frrouting": "frr",
+        "jpeg-turbo" : "libjpeg-turbo",
+        "librabbitmq": "librabbitmq",
+        "lua": "lua",
+        "mariadb": "mariadb-server",
+        "mtr": "mtr",
+        "netcat": "nmap-ncat",
+        "node": "nodejs",
+        "pandoc": "pandoc",
+        "pear": "php-pear",
+        "phpcs": "php-pear-PHP-CodeSniffer",
+        "prometheus-node-exporter": "golang-github-prometheus-node-exporter",
+        "sphinx": "python3-sphinx",
+        "tcl": "tcl",
+        "tcltls": "tcltls",
+        "varnish": "varnish",
+        "yubico-pam": "pam_yubico",
     },
-    'Arch': {
-        'ag': 'the_silver_searcher',
-        'aspell-fr': 'aspell-fr',
-        'certbot': 'certbot',
-        'cppunit': 'cppunit',
-        'frrouting': 'frr',
-        'mariadb': 'mariadb',
-        'mtr': 'mtr',
-        'sphinx': 'python-sphinx',
-        'tcltls': 'tcltls',
-        'varnish': 'varnish',
-        'yubico-pam': 'yubico-pam',
+    "Arch": {
+        "ag": "the_silver_searcher",
+        "aspell-fr": "aspell-fr",
+        "certbot": "certbot",
+        "cppunit": "cppunit",
+        "frrouting": "frr",
+        "mariadb": "mariadb",
+        "mtr": "mtr",
+        "sphinx": "python-sphinx",
+        "tcltls": "tcltls",
+        "varnish": "varnish",
+        "yubico-pam": "yubico-pam",
     },
-    'FreeBSD' : {
-        '7zip': '7-zip',
-        'ag': 'the_silver_searcher',
-        'aspell-fr': 'fr-aspell',
-        'aspell-en': 'en-aspell',
-        'bats': 'bats-core',
-        'boost': 'boost-all',
-        'c-ares': 'c-ares',
-        'certbot': 'py311-certbot',
-        'composer': 'php83-composer',
-        'cppunit': 'cppunit',
-        'djvulibre': 'djvulibre',
-        'exiftool': 'p5-Image-ExifTool-devel',
-        'frrouting': 'frr10',
-        'gpg': 'gnupg',
-        'imagemagick': 'ImageMagick6-nox11',
-        'jpeg-turbo' : 'jpeg-turbo',
-        'librabbitmq': 'rabbitmq-c',
-        'lua': 'lua51',
-        'mariadb': 'mariadb1011-server',
-        'mariadb-client': 'mariadb1011-client',
-        'mtr': 'mtr-nox11',
-        'node': 'node',
-        'pandoc': 'hs-pandoc',
-        'pear': 'pear',
-        'phpcs': 'pear-PHP_CodeSniffer',
-        'postgresql': 'postgresql17-server',
-        'postgresql-contrib': 'postgresql17-contrib',
-        'prometheus-node-exporter': 'node_exporter',
-        'sphinx': 'py311-sphinx',
-        'tcl': 'tcl86',
-        'tcltls': 'tcltls',
-        'tdom': 'tDOM',
-        'varnish': 'varnish5',
-        'verbiste': 'fr-verbiste',
-        'yubico-pam': 'pam_yubico',
+    "FreeBSD" : {
+        "7zip": "7-zip",
+        "ag": "the_silver_searcher",
+        "aspell-fr": "fr-aspell",
+        "aspell-en": "en-aspell",
+        "bats": "bats-core",
+        "boost": "boost-all",
+        "c-ares": "c-ares",
+        "certbot": "py311-certbot",
+        "composer": "php83-composer",
+        "cppunit": "cppunit",
+        "djvulibre": "djvulibre",
+        "exiftool": "p5-Image-ExifTool-devel",
+        "frrouting": "frr10",
+        "gpg": "gnupg",
+        "imagemagick": "ImageMagick6-nox11",
+        "jpeg-turbo" : "jpeg-turbo",
+        "librabbitmq": "rabbitmq-c",
+        "lua": "lua51",
+        "mariadb": "mariadb1011-server",
+        "mariadb-client": "mariadb1011-client",
+        "mtr": "mtr-nox11",
+        "node": "node",
+        "pandoc": "hs-pandoc",
+        "pear": "pear",
+        "phpcs": "pear-PHP_CodeSniffer",
+        "postgresql": "postgresql17-server",
+        "postgresql-contrib": "postgresql17-contrib",
+        "prometheus-node-exporter": "node_exporter",
+        "sphinx": "py311-sphinx",
+        "tcl": "tcl86",
+        "tcltls": "tcltls",
+        "tdom": "tDOM",
+        "varnish": "varnish5",
+        "verbiste": "fr-verbiste",
+        "yubico-pam": "pam_yubico",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
-{% set utilities = salt['grains.filter_by']({
-    'FreeBSD': {
-        'gmake': 'gmake',
+{% set utilities = salt["grains.filter_by"]({
+    "FreeBSD": {
+        "gmake": "gmake",
     },
-    'Debian': {
-        'gmake': 'make',
+    "Debian": {
+        "gmake": "make",
     },
-}, default='Debian') %}
+}, default="Debian") %}
 
 {#  -------------------------------------------------------------
     Capabilities of OS and distributions
@@ -237,11 +237,11 @@
           When at False, OpenSSH will take care of it.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #}
 
-{% set capabilities = salt['grains.filter_by']({
-  'Debian': {
-    'MOTD-printed-at-login': True,
+{% set capabilities = salt["grains.filter_by"]({
+  "Debian": {
+    "MOTD-printed-at-login": True,
   },
-  'FreeBSD' : {
-    'MOTD-printed-at-login': False,
+  "FreeBSD" : {
+    "MOTD-printed-at-login": False,
   },
-}, default='Debian') %}
+}, default="Debian") %}

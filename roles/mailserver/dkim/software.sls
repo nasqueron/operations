@@ -15,7 +15,7 @@ opendkim_software:
   pkg.installed:
     - pkgs:
       - opendkim
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - opendkim-tools
       {% endif %}
 

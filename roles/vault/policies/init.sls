@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set policies_path = pillar['vault_policies_path'] %}
+{% set policies_path = pillar["vault_policies_path"] %}
 
 #   -------------------------------------------------------------
 #   Policies storage folder
@@ -19,7 +19,7 @@
 #   Policies from vault_policies pillar entry
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for policy in pillar['vault_policies'] %}
+{% for policy in pillar["vault_policies"] %}
 {% set policy_path = policies_path + "/" + policy + ".hcl" %}
 
 {{ policy_path }}:
@@ -52,7 +52,7 @@ vault_policy_copy_for_salt:
 #   Policies per nodes intended to be used through Salt
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for node, rules in salt['credentials.build_policies_by_node']().items() %}
+{% for node, rules in salt["credentials.build_policies_by_node"]().items() %}
 salt-node-{{ node }}:
   vault.policy_present:
     - rules: |

@@ -11,7 +11,7 @@
 #   Software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 sudo:
   pkg.installed
 {% endif %}

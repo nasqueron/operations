@@ -7,7 +7,7 @@
 
 {% from "map.jinja" import dirs, packages with context %}
 
-{% set has_nginx = salt['node']['has_nginx']() %}
+{% set has_nginx = salt["node"]["has_nginx"]() %}
 {% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------

@@ -271,4 +271,4 @@ devserver_software_dev_mediawiki:
   pkg.installed:
     - pkgs:
       - netpbm
-      - {{ packages['djvulibre'] }}
+      - {{ packages["djvulibre"] }}

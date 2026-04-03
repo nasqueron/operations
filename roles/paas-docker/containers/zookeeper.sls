@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['zookeeper'].items() %}
-{% set image = salt['paas_docker.get_image']("confluentinc/cp-zookeeper", container) %}
+{% for instance, container in pillar["docker_containers"]["zookeeper"].items() %}
+{% set image = salt["paas_docker.get_image"]("confluentinc/cp-zookeeper", container) %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -18,7 +18,7 @@
   file.directory:
     - makedirs: True
 
-{% for subdir in ['data', 'log', 'secrets'] %}
+{% for subdir in ["data", "log", "secrets"] %}
 # There are several releases of the cp-zookeeper instance,
 # Some using "appuser", some "cp-kafka" and some "root".
 /srv/zookeeper/{{ instance }}/{{ subdir }}:
@@ -66,8 +66,8 @@ selinux_context_{{ instance }}_zookeeper_data_applied:
     - healthcheck:
         Test: echo "ruok" | nc -w 2 -q 2 localhost 2181 | grep imok
         Interval: 30000000000
-{% if 'network' in container %}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 {% endfor %}

@@ -57,7 +57,7 @@ zed_content_rights:
   file.directory:
     - user: web-space-hypership-www
 
-{% for subdir in ['compiled', 'openid', 'sessions'] %}
+{% for subdir in ["compiled", "openid", "sessions"] %}
 /var/dataroot/zed/cache/{{ subdir }}:
   file.directory:
     - user: web-space-hypership-www

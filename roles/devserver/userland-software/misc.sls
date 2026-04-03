@@ -56,11 +56,11 @@ devserver_software_misc_tools:
       - primegen
       - rsync
       - unix2dos
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - gawk
       {% endif %}
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 devserver_software_misc_ports:
   pkg.installed:
     - pkgs:
@@ -131,7 +131,7 @@ devserver_software_misc_games:
     - pkgs:
       - bsdgames
       - textmaze
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - roll
       {% endif %}
 
@@ -142,7 +142,7 @@ devserver_software_misc_network:
       - getdns
       - iftop
       - trippy
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - sockstat
       {% endif %}
 
@@ -179,7 +179,7 @@ devserver_software_hardware:
     - source: salt://roles/devserver/userland-software/files/url.yml
     - mode: 644
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /etc/rc.conf.d/transmission:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/transmission.rc

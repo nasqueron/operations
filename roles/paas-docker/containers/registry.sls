@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['registry'].items() %}
+{% for instance, container in pillar["docker_containers"]["registry"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -41,6 +41,6 @@ selinux_context_{{ instance }}_applied:
     - ports:
       - 5000
     - port_bindings:
-      - 127.0.0.1:{{ container['app_port'] }}:5000 # HTTP
+      - 127.0.0.1:{{ container["app_port"] }}:5000 # HTTP
 
 {% endfor %}

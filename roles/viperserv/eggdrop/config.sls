@@ -12,11 +12,11 @@
 #   and specific configuration file.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for botname, bot in pillar['viperserv_bots'].items() %}
+{% for botname, bot in pillar["viperserv_bots"].items() %}
 
 /srv/viperserv/{{ botname }}:
   file.directory:
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
     - dir_mode: 770
 
@@ -26,16 +26,16 @@
 #   Logs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for botname, bot in pillar['viperserv_bots'].items() %}
+{% for botname, bot in pillar["viperserv_bots"].items() %}
 
 /srv/viperserv/logs/{{ botname }}:
   file.directory:
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
 
 /srv/viperserv/logs/{{ botname }}.log:
   file.managed:
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
     - mode: 660
     - replace: False
@@ -66,42 +66,42 @@
           host: {{ pillar["nasqueron_services"]["db-b"] }}
           database: Nasqueron
         vault:
-          approle: {{ salt['credentials.read_secret']('nasqueron/viperserv/vault') }}
+          approle: {{ salt["credentials.read_secret"]("nasqueron/viperserv/vault") }}
           addr: {{ pillar["nasqueron_services"]["vault_url"] }}
 
-{% for botname, bot in pillar['viperserv_bots'].items() %}
+{% for botname, bot in pillar["viperserv_bots"].items() %}
 
 /srv/viperserv/{{ botname }}/eggdrop.conf:
   file.managed:
     - source: salt://roles/viperserv/eggdrop/files/eggdrop-bot.conf
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
     - mode: 755
     - template: jinja
     - context:
         botname: {{ botname }}
-        realname: {{ bot['realname'] | default(botname) }}
-        scripts: {{ bot['scripts'] }}
-        modules: {{ bot['modules'] | default([]) }}
-        runas: {{ bot['runas'] | default('viperserv') }}
-        nickserv: {{ bot['nickserv'] | default(False) }}
+        realname: {{ bot["realname"] | default(botname) }}
+        scripts: {{ bot["scripts"] }}
+        modules: {{ bot["modules"] | default([]) }}
+        runas: {{ bot["runas"] | default("viperserv") }}
+        nickserv: {{ bot["nickserv"] | default(False) }}
         ip: {{ bot["ip"] | default(False) }}
-        listen: {{ bot['listen'] | default(False) }}
+        listen: {{ bot["listen"] | default(False) }}
 
 /srv/viperserv/{{ botname }}/motd:
   file.managed:
     - source: salt://roles/viperserv/eggdrop/files/motd/{{ botname }}
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
 
 /srv/viperserv/{{ botname }}/banner:
   file.managed:
     - source: salt://roles/viperserv/eggdrop/files/banner
-    - user: {{ bot['runas'] | default('viperserv') }}
+    - user: {{ bot["runas"] | default("viperserv") }}
     - group: nasqueron-irc
     - template: jinja
     - context:
         bot: {{ botname }}
-        server: {{ grains['id'] }}
+        server: {{ grains["id"] }}
 
 {% endfor %}

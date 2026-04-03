@@ -34,7 +34,7 @@
     <user
         username="{{ username }}"
         password="{{ user_args.password }}"
-        roles="{{ user_args.roles | join(' ') }}"
+        roles="{{ user_args.roles | join(" ") }}"
     />
     {% endfor %}
 </tomcat-users>

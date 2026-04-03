@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for instance, container in pillar['docker_containers']['cachet'].items() %}
+{% for instance, container in pillar["docker_containers"]["cachet"].items() %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -20,21 +20,21 @@
     - detach: True
     - interactive: True
     - image: nasqueron/cachet:latest
-    - links: {{ container['mysql_link'] }}:mysql
+    - links: {{ container["mysql_link"] }}:mysql
     - environment:
         - DB_DRIVER: mysql
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: cachet
-        - DB_USERNAME: {{ salt['credentials.get_username'](container['credential']) }}
-        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
+        - DB_USERNAME: {{ salt["credentials.get_username"](container["credential"]) }}
+        - DB_PASSWORD: {{ salt["credentials.get_password"](container["credential"]) }}
 
-        - APP_KEY: {{ salt['credentials.get_token'](container['app_key']) }}
+        - APP_KEY: {{ salt["credentials.get_token"](container["app_key"]) }}
         - APP_LOG: errorlog
         - APP_DEBUG: "false"
     - ports:
       - 8000
     - port_bindings:
-      - {{ container['app_port'] }}:80
+      - {{ container["app_port"] }}:80
 
 {% endfor %}

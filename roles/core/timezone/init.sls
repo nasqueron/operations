@@ -13,7 +13,7 @@
 #                                Well no, dpkg-reconfigure after
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 /etc/timezone:
   file.managed:
     - contents: Etc/UTC
@@ -29,7 +29,7 @@ update_timezone:
 #   Symbolic link style
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 /etc/localtime:
   file.symlink:
     - target: /usr/share/zoneinfo/Etc/UTC
@@ -40,7 +40,7 @@ update_timezone:
 #                     Okay, but WE need to know WHEN start this
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /var/db/zoneinfo:
   file.managed:
     - contents: Etc/UTC

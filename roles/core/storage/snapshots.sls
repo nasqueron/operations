@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set zfs_tank = salt['node.get']("zfs:pool") %}
+{% set zfs_tank = salt["node.get"]("zfs:pool") %}
 
 {% if zfs_tank %}
 zfstools:

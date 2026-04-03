@@ -17,7 +17,7 @@ irc_clients:
       - irssi
       - irssi-scripts
       - weechat
-      {% if grains['os'] != 'Debian' and grains['os'] != 'Ubuntu' %}
+      {% if grains["os"] != "Debian" and grains["os"] != "Ubuntu" %}
       # Reference: supremetechs.com/tag/bitchx-removed-from-debian
       - bitchx
       {% endif %}
@@ -37,10 +37,10 @@ shroudbnc_dependencies:
       - {{ packages["c-ares"] }}
       - libtool
       - swig
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - tcl-dev
       {% endif %}
-      {% if grains['os_family'] == 'RedHat' %}
+      {% if grains["os_family"] == "RedHat" %}
       - tcl-devel
       {% endif %}
 

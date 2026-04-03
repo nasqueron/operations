@@ -12,7 +12,7 @@
     - source: salt://roles/router/carp/files/carp.rc
     - template: jinja
     - context:
-        carp_entries: {{ salt['node.get_carp_entries']() }}
+        carp_entries: {{ salt["node.get_carp_entries"]() }}
     - mode: '0644'
 
 /boot/loader.conf.d/carp.conf:
@@ -27,7 +27,7 @@ carp_switch_pip:
 carp_switch_dependencies:
   cmd.run:
     - name: python3 -m pip install ovh secretsmith
-    - creates: {{ salt['python.get_site_packages_directory']() }}/secretsmith
+    - creates: {{ salt["python.get_site_packages_directory"]() }}/secretsmith
 
 /usr/local/etc/secrets/carp-secretsmith.yaml:
   file.managed:

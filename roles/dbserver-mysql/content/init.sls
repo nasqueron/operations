@@ -7,8 +7,8 @@
 #                   If eligible, licensed under BSD-2-Clause
 #   -------------------------------------------------------------
 
-{% set users = salt['pillar.get']("dbserver_mysql:users", {}) %}
-{% set databases = salt['pillar.get']("dbserver_mysql:databases", {}) %}
+{% set users = salt["pillar.get"]("dbserver_mysql:users", {}) %}
+{% set databases = salt["pillar.get"]("dbserver_mysql:databases", {}) %}
 
 #   -------------------------------------------------------------
 #   Users

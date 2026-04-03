@@ -14,7 +14,7 @@
 #   role can be pruned.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has_role']('shellserver') %}
+{% if salt["node.has_role"]("shellserver") %}
 
 /var/www/html:
   file.absent

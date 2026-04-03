@@ -37,8 +37,8 @@ mediawiki_core_vendor:
 #   MediaWiki extensions and skins
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for type in ['extensions', 'skins'] %}
-{% for item in salt['pillar.get']('mediawiki_' + type, []) %}
+{% for type in ["extensions", "skins"] %}
+{% for item in salt["pillar.get"]("mediawiki_" + type, []) %}
 mediawiki_{{ type }}_repository_{{ item }}:
   git.latest:
     - name: https://gerrit.wikimedia.org/r/p/mediawiki/{{ type }}/{{ item }}.git

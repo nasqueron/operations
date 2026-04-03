@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 
 # On Fedora and downstreams, SELinux restricts the capability
 # of HTTP server to connect to external servers.

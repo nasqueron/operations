@@ -5,8 +5,8 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for domain in pillar['web_static_sites'] %}
-{% for subdomain in pillar['web_static_sites'][domain] %}
+{% for domain in pillar["web_static_sites"] %}
+{% for subdomain in pillar["web_static_sites"][domain] %}
 /var/wwwroot/{{ domain }}/{{ subdomain }}:
   file.recurse:
     - source: salt://wwwroot/{{ domain }}/{{ subdomain }}

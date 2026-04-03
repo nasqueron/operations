@@ -37,4 +37,4 @@ notifications_dependencies:
     - template: jinja
     - context:
         host: {{ pillar["nasqueron_services"]["docker"]["notifications"] }}
-        password: {{ salt['credentials.get_password']("nasqueron/notifications/notifications-cli/" + grains["id"]) }}
+        password: {{ salt["credentials.get_password"]("nasqueron/notifications/notifications-cli/" + grains["id"]) }}

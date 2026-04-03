@@ -16,7 +16,7 @@
 #   :: *       / systemd
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 sshd_otp_service:
   file.managed:
@@ -35,7 +35,7 @@ sshd_otp_running:
     - watch:
       - file: sshd_otp_service
 
-{% elif services['manager'] == 'systemd' %}
+{% elif services["manager"] == "systemd" %}
 
 sshd_otp_service:
   file.managed:

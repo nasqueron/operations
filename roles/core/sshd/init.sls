@@ -21,13 +21,13 @@
         listen_private_address: {{ network["private_ipv4_address"] | default("localhost") }}
         should_listen_to_private_address: {{ network["is_private_network_stable"] | default(false) }}
         sftp: {{ paths.sftp }}
-        print_motd: {{ not capabilities['MOTD-printed-at-login'] }}
+        print_motd: {{ not capabilities["MOTD-printed-at-login"] }}
 
 #   -------------------------------------------------------------
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /etc/rc.conf.d/sshd:
   file.managed:
     - source: salt://roles/core/sshd/files/rc.conf

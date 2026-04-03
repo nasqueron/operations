@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['relay'].items() %}
+{% for instance, container in pillar["docker_containers"]["relay"].items() %}
 {% set flavour = container.get("flavour", "production") %}
 
 #   -------------------------------------------------------------
@@ -67,10 +67,10 @@ selinux_context_{{ instance }}_relay_data_applied:
     - ports:
       - 3000
     - port_bindings:
-      - {{ container['app_port'] }}:3000
+      - {{ container["app_port"] }}:3000
 {% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 
 {% endfor %}

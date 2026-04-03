@@ -9,18 +9,18 @@
 #   Sites content
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for site in pillar['web_php_sites'].values() %}
+{% for site in pillar["web_php_sites"].values() %}
 
-{% if 'target' in site %}
+{% if "target" in site %}
 
-{{ site['target'] }}:
+{{ site["target"] }}:
   file.recurse:
-    - source: salt://{{ site['source'] }}
+    - source: salt://{{ site["source"] }}
     - exclude_pat: E@.git
     - include_empty: True
     - dir_mode: 711
     - file_mode: keep
-    - user: {{ site['user'] }}
+    - user: {{ site["user"] }}
     - group: web
 
 {% endif %}

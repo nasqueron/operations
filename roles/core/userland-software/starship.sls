@@ -12,12 +12,12 @@
 #   Starship installation
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 starship:
   pkg.installed
 {% endif %}
 
-{% if grains['kernel'] == 'Linux' and grains['osarch'] == 'x86_64' %}
+{% if grains["kernel"] == "Linux" and grains["osarch"] == "x86_64" %}
 install_starship:
   cmd.run:
     - name: snap install starship
@@ -28,7 +28,7 @@ install_starship:
 #   SELinux
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 
 /usr/local/share/selinux/systemd-hostnamed.te:
   file.managed:

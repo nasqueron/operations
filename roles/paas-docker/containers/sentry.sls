@@ -5,13 +5,13 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------
 #   Data directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for realm, realm_args in pillar['sentry_realms'].items() %}
+{% for realm, realm_args in pillar["sentry_realms"].items() %}
 
 /srv/sentry/{{ realm }}:
   file.directory:
@@ -77,7 +77,7 @@ selinux_context_{{ realm }}_sentry_data_applied:
 #   Web application
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, container in pillar['docker_containers']['sentry'].items() %}
+{% for instance, container in pillar["docker_containers"]["sentry"].items() %}
 
 {{ instance }}:
   docker_container.running:
@@ -96,9 +96,9 @@ selinux_context_{{ realm }}_sentry_data_applied:
     - ports:
       - 9000
     - port_bindings:
-      - {{ container['app_port'] }}:9000
+      - {{ container["app_port"] }}:9000
     {% endif %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 
 {% endfor %}

@@ -11,7 +11,7 @@
 #   Install Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' and grains['os'] != 'Fedora' %}
+{% if grains["os_family"] == "RedHat" and grains["os"] != "Fedora" %}
 remove_legacy_docker_packages:
   pkg.removed:
     - pkgs:

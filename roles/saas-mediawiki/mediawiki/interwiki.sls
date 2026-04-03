@@ -18,7 +18,7 @@
     - mode: 644
     - template: jinja
     - context:
-        interwiki: {{ pillar['mediawiki_interwikis'] }}
+        interwiki: {{ pillar["mediawiki_interwikis"] }}
 
 mediawiki_populate_interwiki:
   cmd.run:

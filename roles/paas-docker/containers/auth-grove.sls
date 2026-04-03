@@ -9,9 +9,9 @@
 #                   Docker volume   (/data/login/storage)
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['auth-grove'].items() %}
+{% for instance, container in pillar["docker_containers"]["auth-grove"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -51,21 +51,21 @@ selinux_context_{{ instance }}_data_applied:
     - detach: True
     - interactive: True
     - image: nasqueron/auth-grove
-    - links: {{ container['mysql_link'] }}:mysql
+    - links: {{ container["mysql_link"] }}:mysql
     - environment:
         - DB_DRIVER: mysql
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: {{ instance }}
-        - DB_USERNAME: {{ salt['credentials.get_username'](container['credential']) }}
-        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
+        - DB_USERNAME: {{ salt["credentials.get_username"](container["credential"]) }}
+        - DB_PASSWORD: {{ salt["credentials.get_password"](container["credential"]) }}
 
-        - CANONICAL_URL: https://{{ container['host'] }}
+        - CANONICAL_URL: https://{{ container["host"] }}
         - TRUST_ALL_PROXIES: 1
     - binds: /srv/{{ instance }}/storage:/var/wwwroot/default/storage
     - ports:
       - 80
     - port_bindings:
-      - 127.0.0.1:{{ container['app_port'] }}:80
+      - 127.0.0.1:{{ container["app_port"] }}:80
 
 {% endfor %}

@@ -21,7 +21,7 @@ daeghrefn_wikidata_access_layer:
     - user: viperserv
     - group: nasqueron-irc
 
-{% for script in ['create_given_name', 'create_surname'] %}
+{% for script in ["create_given_name", "create_surname"] %}
 {{ dirs.share }}/viperserv/bin/{{ script }}:
   file.symlink:
     - target: /srv/wikidata-access-layer/{{ script }}

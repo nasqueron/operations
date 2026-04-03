@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set subdomains = salt['node.filter_by_role']('web_content_jenkins_cd') %}
+{% set subdomains = salt["node.filter_by_role"]("web_content_jenkins_cd") %}
 
 {% for subdomain in subdomains %}
 /var/run/deploy/{{ subdomain }}.nasqueron.org:

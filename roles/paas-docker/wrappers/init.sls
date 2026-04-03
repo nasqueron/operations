@@ -11,14 +11,14 @@
 #   Wrapper binaries
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for command in ['jenkins', 'phpbb', 'mysql', 'openfire', 'geoipupdate', 'run-report'] %}
+{% for command in ["jenkins", "phpbb", "mysql", "openfire", "geoipupdate", "run-report"] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.sh
     - mode: 755
 {% endfor %}
 
-{% for command in ['airflow', 'sentry'] %}
+{% for command in ["airflow", "sentry"] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/run-by-realm.sh.jinja
@@ -28,7 +28,7 @@
         service: {{ command }}
 {% endfor %}
 
-{% for command in ['pad-delete'] %}
+{% for command in ["pad-delete"] %}
 {{ dirs.bin }}/{{ command }}:
   file.managed:
     - source: salt://roles/paas-docker/wrappers/files/{{ command }}.py
@@ -39,7 +39,7 @@
 #   Required directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 /srv/geoip:
   file.directory

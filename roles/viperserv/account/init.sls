@@ -12,19 +12,19 @@
 #   Service accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for username, user in pillar['viperserv_accounts'].items() %}
+{% for username, user in pillar["viperserv_accounts"].items() %}
 
 viperserv_account_{{ username }}:
   user.present:
     - name: {{ username }}
-    - fullname: {{ user['fullname'] }}
-    - uid: {{ user['uid'] }}
+    - fullname: {{ user["fullname"] }}
+    - uid: {{ user["uid"] }}
     - gid: nasqueron-irc
     - home: {{ dirs.share }}/{{ username }}
 
 /var/run/{{ username }}:
   file.directory:
-    - user: {{ user['uid'] }}
+    - user: {{ user["uid"] }}
     - group: nasqueron-irc
     - dir_mode: 711
 
@@ -47,5 +47,5 @@ viperserv_sudo_capabilities_file:
     - source: salt://roles/viperserv/account/files/viperserv.sudoers
     - template: jinja
     - context:
-        accounts: {{ pillar['viperserv_accounts'] }}
-        bots: {{ pillar['viperserv_bots'] }}
+        accounts: {{ pillar["viperserv_accounts"] }}
+        bots: {{ pillar["viperserv_bots"] }}

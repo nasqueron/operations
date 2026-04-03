@@ -26,5 +26,5 @@ platform-checks:
     - template: jinja
     - context:
         checks:
-          - {{ salt['paas_docker.get_health_checks']() }}
-          - check_docker_containers: {{ salt['paas_docker.list_containers']() }}
+          - {{ salt["paas_docker.get_health_checks"]() }}
+          - check_docker_containers: {{ salt["paas_docker.list_containers"]() }}

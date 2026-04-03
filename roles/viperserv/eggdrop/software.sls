@@ -59,7 +59,7 @@ viperserv_scripts:
     - require:
       - file: /srv/viperserv
 
-{% for eggdir in ['doc', 'help', 'language'] %}
+{% for eggdir in ["doc", "help", "language"] %}
 /srv/viperserv/{{ eggdir }}:
   file.symlink:
     - target: /opt/eggdrop/{{ eggdir }}

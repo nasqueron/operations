@@ -18,7 +18,7 @@
 #   GNU grep deprecated egrep separate utility.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['kernel'] == 'Linux' %}
+{% if grains["kernel"] == "Linux" %}
 
 {% if salt["pkg.version_cmp"](grains["saltversion"], "3007") >= 0 %}
 T1991_egrep_patch:

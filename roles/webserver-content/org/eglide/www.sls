@@ -9,7 +9,7 @@
 #   Deploy /opt/staging/wwwroot/eglide.org/www to www.eglide.org
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set wwwroot = salt['node.get_wwwroot']() %}
+{% set wwwroot = salt["node.get_wwwroot"]() %}
 {% set wwwuser = "www-data" %}
 {% set wwwgroup = "www-data" %}
 

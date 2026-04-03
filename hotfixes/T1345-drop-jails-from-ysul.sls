@@ -12,9 +12,9 @@
 #   Keep jails directories' content.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['id'] in pillar['roles_disabled']['paas_jails'] %}
+{% if grains["id"] in pillar["roles_disabled"]["paas_jails"] %}
 
-{% for jail_rc_config_file in ['jail', 'netif/jails', 'ezjail'] %}
+{% for jail_rc_config_file in ["jail", "netif/jails", "ezjail"] %}
 /etc/rc.conf.d/{{ jail_rc_config_file }}:
   file.absent
 {% endfor %}

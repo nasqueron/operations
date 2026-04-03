@@ -21,7 +21,7 @@ saas_mediawiki_nginx_includes:
     - file_mode: 644
     - template: jinja
     - context:
-        saas: {{ pillar['mediawiki_saas'] }}
+        saas: {{ pillar["mediawiki_saas"] }}
 
 #   -------------------------------------------------------------
 #   vhosts folder

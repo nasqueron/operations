@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set network = salt['node.resolve_network']() %}
+{% set network = salt["node.resolve_network"]() %}
 {% set half_num_cpus = grains["num_cpus"] / 2 %}
 
 /usr/local/etc/api-exec.conf:

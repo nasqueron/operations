@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/login.conf:
   file.managed:
@@ -33,7 +33,7 @@ compile_login_db:
 #   Any being is welcome to add any locale in this section.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 
 locales_packages:
   pkg.installed:
@@ -42,7 +42,7 @@ locales_packages:
 
 {% endif %}
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 
 locales-all:
   pkg.installed

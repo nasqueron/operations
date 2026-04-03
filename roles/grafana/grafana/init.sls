@@ -71,7 +71,7 @@ ensure_grafana_user_is_in_group_web:
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/rc.conf.d/grafana:
   file.managed:

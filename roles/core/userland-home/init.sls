@@ -9,10 +9,10 @@
 
 {% from "map.jinja" import dirs with context %}
 
-{% for username, user in salt['forest.get_users']().items() %}
-{% set tasks = user.get('everywhere_tasks', []) %}
+{% for username, user in salt["forest.get_users"]().items() %}
+{% set tasks = user.get("everywhere_tasks", []) %}
 
-{% if 'deploy_dotfiles' in tasks %}
+{% if "deploy_dotfiles" in tasks %}
 dotfiles_to_core_{{ username }}:
   file.recurse:
     - name: /home/{{ username }}

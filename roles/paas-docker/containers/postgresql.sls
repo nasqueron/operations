@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['postgresql'].items() %}
-{% set image = salt['paas_docker.get_image']("library/postgres", container) %}
+{% for instance, container in pillar["docker_containers"]["postgresql"].items() %}
+{% set image = salt["paas_docker.get_image"]("library/postgres", container) %}
 
   #   -------------------------------------------------------------
   #   Home directory
@@ -44,20 +44,20 @@ selinux_context_{{ instance }}_postgresql_data_applied:
     - image: {{ image }}
     - binds: /srv/{{ instance }}/postgresql:/var/lib/postgresql/data
     - environment:
-        POSTGRES_USER: {{ salt['credentials.get_username'](container['credential']) }}
-        POSTGRES_PASSWORD: {{ salt['credentials.get_password'](container['credential']) }}
+        POSTGRES_USER: {{ salt["credentials.get_username"](container["credential"]) }}
+        POSTGRES_PASSWORD: {{ salt["credentials.get_password"](container["credential"]) }}
 
-        {% if 'db' in container %}
-        POSTGRES_DB: {{ container['db'] }}
+        {% if "db" in container %}
+        POSTGRES_DB: {{ container["db"] }}
         {% endif %}
 
-        {% if 'initdb_args' in container %}
-        POSTGRES_INITDB_ARGS: {{ container['initdb_args'] }}
+        {% if "initdb_args" in container %}
+        POSTGRES_INITDB_ARGS: {{ container["initdb_args"] }}
         {% endif %}
 
-{% if 'network' in container %}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 
 {% endfor %}

@@ -11,7 +11,7 @@
 
 /etc/vhosts:
   file.managed:
-    - source: salt://roles/shellserver/vhosts/files/vhosts.{{ grains['id'] }}
+    - source: salt://roles/shellserver/vhosts/files/vhosts.{{ grains["id"] }}
     - mode: 644
 
 #   -------------------------------------------------------------

@@ -4,7 +4,7 @@
 #   Project:        Nasqueron
 #   -------------------------------------------------------------
 
-{% set config = salt['opensearch.get_config']() %}
+{% set config = salt["opensearch.get_config"]() %}
 
 #   -------------------------------------------------------------
 #   OpenSearch
@@ -20,5 +20,5 @@
     - show_changes: False
     - context:
         config: {{ config }}
-        username: {{ salt['credentials.get_username'](config['users']['dashboards']) }}
-        password: {{ salt['credentials.get_password'](config['users']['dashboards']) }}
+        username: {{ salt["credentials.get_username"](config["users"]["dashboards"]) }}
+        password: {{ salt["credentials.get_password"](config["users"]["dashboards"]) }}

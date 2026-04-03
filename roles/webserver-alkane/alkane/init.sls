@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs, packages, services with context %}
-{% set network = salt['node.resolve_network']() %}
+{% set network = salt["node.resolve_network"]() %}
 
 #   -------------------------------------------------------------
 #   Software

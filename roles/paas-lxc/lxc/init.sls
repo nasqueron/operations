@@ -13,7 +13,7 @@ lxc_packages:
   pkg.installed:
     - pkgs:
       - lxc
-      {% if grains['os_family'] == 'RedHat' %}
+      {% if grains["os_family"] == "RedHat" %}
       - lxc-extra
       - lxc-templates
       {% endif %}

@@ -14,7 +14,7 @@
 #   The new cluster db-b needs it for proper Unicode collation.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if salt['node.has_role']('dbserver-mysql') %}
+{% if salt["node.has_role"]("dbserver-mysql") %}
 
 /etc/pkg/FreeBSD.conf:
   file.replace:

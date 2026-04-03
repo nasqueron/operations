@@ -11,7 +11,7 @@
 #   https://opensearch.org/docs/latest/opensearch/install/important-settings/
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['kernel'] == 'Linux' %}
+{% if grains["kernel"] == "Linux" %}
 
 vm.max_map_count:
   sysctl.present:

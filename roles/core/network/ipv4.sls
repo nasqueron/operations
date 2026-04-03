@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "roles/core/network/map.jinja" import interface_config with context %}
-{% set network = salt['node.get']('network') %}
+{% set network = salt["node.get"]("network") %}
 
 #   -------------------------------------------------------------
 #   Interface
@@ -27,8 +27,8 @@ network_ipv4_{{ interface_name }}:
     - template: jinja
     - defaults:
         interface: {{ interface }}
-{% if grains['os_family'] == 'RedHat' %}
-        prefix: {{ salt['network_utils.netmask_to_cidr_prefix'](interface['ipv4']['netmask']) }}
+{% if grains["os_family"] == "RedHat" %}
+        prefix: {{ salt["network_utils.netmask_to_cidr_prefix"](interface["ipv4"]["netmask"]) }}
 {% endif %}
 {% endif %}
 

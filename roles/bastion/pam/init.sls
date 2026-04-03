@@ -11,7 +11,7 @@
 #   FreeBSD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/pam.d/sshd-otp:
   file.managed:

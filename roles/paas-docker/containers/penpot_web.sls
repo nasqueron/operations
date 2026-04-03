@@ -127,6 +127,6 @@ selinux_context_penpot_cache_data_applied:
     - ports:
         - 6060
     - port_bindings:
-        - {{ container['app_port'] }}:6060
+        - {{ container["app_port"] }}:6060
 
 {% endfor %}

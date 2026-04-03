@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 #   -------------------------------------------------------------
 #   Configuration provider
@@ -17,7 +17,7 @@
     - mode: 755
 
 
-{% for instance, container in pillar['docker_containers']['hound'].items() %}
+{% for instance, container in pillar["docker_containers"]["hound"].items() %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -47,12 +47,12 @@ selinux_context_{{ instance }}_data_applied:
 
 hound_{{ instance }}_repositories:
   cmd.run:
-    - name: docker run --rm nasqueron/devtools github/list-repositories.py {{ container['github_account'] }} -b > {{ repos_path }}
+    - name: docker run --rm nasqueron/devtools github/list-repositories.py {{ container["github_account"] }} -b > {{ repos_path }}
     - creates: {{ repos_path }}
 
 hound_{{ instance }}_config:
   cmd.run:
-    - name: hound-generate-config {{ container['github_account'] }} < {{ repos_path }} > {{ config_path }}
+    - name: hound-generate-config {{ container["github_account"] }} < {{ repos_path }} > {{ config_path }}
     - creates: {{ config_path }}
 
 #   -------------------------------------------------------------
@@ -68,6 +68,6 @@ hound_{{ instance }}_config:
     - ports:
         - 6080
     - port_bindings:
-        - {{ container['app_port'] }}:6080
+        - {{ container["app_port"] }}:6080
 
 {% endfor %}

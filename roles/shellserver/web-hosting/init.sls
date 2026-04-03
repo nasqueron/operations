@@ -15,7 +15,7 @@
 nginx_config_files:
   file.recurse:
     - name: {{ dirs.etc }}/nginx
-    - source: salt://roles/shellserver/web-hosting/files/{{ grains['id'] }}/nginx
+    - source: salt://roles/shellserver/web-hosting/files/{{ grains["id"] }}/nginx
     - include_empty: True
     - clean: False
     - dir_mode: 755
@@ -51,6 +51,6 @@ nginx_config_files:
 unknown_domain_files:
   file.recurse:
     - name: /var/wwwroot/unknown_domains
-    - source: salt://roles/shellserver/web-hosting/files/{{ grains['id'] }}/wwwroot-unknown
+    - source: salt://roles/shellserver/web-hosting/files/{{ grains["id"] }}/wwwroot-unknown
     - dir_mode: 755
     - file_mode: 644

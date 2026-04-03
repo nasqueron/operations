@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['orbeon'].items() %}
+{% for instance, container in pillar["docker_containers"]["orbeon"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -101,8 +101,8 @@ selinux_context_{{ instance }}_data_applied:
     - ports:
       - 8080
     - port_bindings:
-      - 127.0.0.1:{{ container['app_port'] }}:8080
+      - 127.0.0.1:{{ container["app_port"] }}:8080
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 
 {% endfor %}

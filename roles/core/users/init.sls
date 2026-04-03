@@ -22,15 +22,15 @@
 
 {% from "map.jinja" import dirs, shells with context %}
 
-{% set users = salt['forest.get_users']() %}
-{% set zfs_tank = salt['node.get']("zfs:pool") %}
-{% set forest = salt['node.get']['forest'] %}
+{% set users = salt["forest.get_users"]() %}
+{% set zfs_tank = salt["node.get"]("zfs:pool") %}
+{% set forest = salt["node.get"]["forest"] %}
 
 #   -------------------------------------------------------------
 #   Disabled accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for username in pillar.get('revokedusers') %}
+{% for username in pillar.get("revokedusers") %}
 {{ username }}:
   user.absent
 {% endfor %}
@@ -53,7 +53,7 @@ zfs_home_permissions_sets:
     - creates: {{ dirs.home }}/.zfs-permissions-set
 
 {% for username in users %}
-{% set home_directory = zfs_tank + dirs['home'] + '/' + username %}
+{% set home_directory = zfs_tank + dirs["home"] + "/" + username %}
 
 {{ home_directory }}:
   zfs.filesystem_present:
@@ -94,22 +94,22 @@ zfs_permissions_home_descendant_{{ username }}:
 {% for username, user in users.items() %}
 {{ username }}:
   user.present:
-    - fullname: {{ user['fullname'] }}
-    - shell: {{ shells[user['shell']|default('bash')] }}
-    - uid: {{ user['uid'] }}
-    - loginclass: {{ user['class']|default('english') }}
+    - fullname: {{ user["fullname"] }}
+    - shell: {{ shells[user["shell"]|default("bash")] }}
+    - uid: {{ user["uid"] }}
+    - loginclass: {{ user["class"]|default("english") }}
 {% endfor %}
 
 #   -------------------------------------------------------------
 #   Groups
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for groupname, group in salt['forest.get_groups']().items() %}
+{% for groupname, group in salt["forest.get_groups"]().items() %}
 group_{{ groupname }}:
   group.present:
     - name: {{ groupname }}
-    - gid: {{ group['gid'] }}
-    - members: {{ group['members'] }}
+    - gid: {{ group["gid"] }}
+    - members: {{ group["members"] }}
 {% endfor %}
 
 {% if grains["os"] == "FreeBSD" %}
@@ -140,6 +140,6 @@ group_wheel:
     - mode: 600
     - template: jinja
     - context:
-        keys: {{ user['ssh_keys'] }}
+        keys: {{ user["ssh_keys"] }}
 
 {% endfor %}

@@ -45,14 +45,14 @@ utilities:
       - unrar
       - whois
       - zip
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - bsdmainutils
       - dnsutils
       - sockstat
       - sysvbanner
       - toilet-fonts
       {% endif %}
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - bind-tools
       - coreutils
       - figlet-fonts
@@ -109,7 +109,7 @@ dev:
       - git-lfs
       - jq
       - valgrind
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - hub
 
       # Recent clang/llvm versions
@@ -122,7 +122,7 @@ dev:
       - strace
       {% endif %}
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 dev_popular_libs:
   pkg.installed:
     - pkgs:
@@ -136,7 +136,7 @@ dev_popular_libs:
 languages_removed:
   pkg.removed:
     - pkgs:
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - php7.0
       - php7.1
       - php7.2
@@ -144,7 +144,7 @@ languages_removed:
       - php7.4
       - php8.0
       - php8.1
-      {% elif grains['os'] == 'FreeBSD' %}
+      {% elif grains["os"] == "FreeBSD" %}
       - php70
       - php71
       - php72
@@ -160,9 +160,9 @@ languages:
       - python3
       - name: {{ packages_prefixes.python3 }}pip
       - {{ packages.tcl }}
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - php8.2
-      {% elif grains['os'] == 'FreeBSD' %}
+      {% elif grains["os"] == "FreeBSD" %}
       - php83
       {% endif %}
 
@@ -183,7 +183,7 @@ languages_libs:
       - {{ packages_prefixes.php }}xml
       - {{ packages_prefixes.php }}xsl
 
-      {% if grains['os_family'] == 'Debian' %}
+      {% if grains["os_family"] == "Debian" %}
       - {{ packages_prefixes.php }}json
 
       # On Debian, these PDO extensions doesn't follow regular names
@@ -225,7 +225,7 @@ languages_libs:
       # PHP utilities
       - {{ packages.composer }}
 
-      {% if grains['os'] != 'FreeBSD' %}
+      {% if grains["os"] != "FreeBSD" %}
       # On FreeBSD, PEAR is still a PHP 5.6 package (last tested 2018-02-17).
       # Same for Composer (last tested 2018-02-28)
       - {{ packages.pear }}
@@ -233,7 +233,7 @@ languages_libs:
       {% endif %}
 
       # Standard Python modules
-      {% if grains['os'] == 'FreeBSD' %}
+      {% if grains["os"] == "FreeBSD" %}
       - {{ packages_prefixes.python3 }}gdbm
       - {{ packages_prefixes.python3 }}sqlite3
       {% endif %}
@@ -251,11 +251,11 @@ languages_libs_removed_files:
 #   Workaround : install phpcs on FreeBSD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /opt/phpcs:
   file.directory
 
-{% for command in ['phpcs', 'phpcbf'] %}
+{% for command in ["phpcs", "phpcbf"] %}
 /opt/phpcs/{{ command }}:
   file.managed:
     - source: https://squizlabs.github.io/PHP_CodeSniffer/{{ command }}.phar
@@ -277,8 +277,8 @@ languages_libs_removed_files:
 spelling:
   pkg.installed:
     - pkgs:
-        - {{ packages['aspell-en'] }}
-        - {{ packages['aspell-fr'] }}
+        - {{ packages["aspell-en"] }}
+        - {{ packages["aspell-fr"] }}
         - {{ packages.verbiste }}
 
 #   -------------------------------------------------------------

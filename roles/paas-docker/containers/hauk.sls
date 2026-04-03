@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['hauk'].items() %}
+{% for instance, container in pillar["docker_containers"]["hauk"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -24,7 +24,7 @@
     - template: jinja
     - mode: 644
     - context:
-        url: https://{{ container['host'] }}{{ container['api_entry_point'] }}/
+        url: https://{{ container["host"] }}{{ container["api_entry_point"] }}/
 
 {% if has_selinux %}
 selinux_context_{{ instance }}_data:
@@ -50,7 +50,7 @@ selinux_context_{{ instance }}_data_applied:
     - ports:
       - 80
     - port_bindings:
-      - {{ container['app_port'] }}:80
+      - {{ container["app_port"] }}:80
 
     # Prevent the container from using swap
     # Privacy: data is so only stored on RAM, not on disk

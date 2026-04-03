@@ -5,18 +5,18 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set motd_path = salt['motd.get_path']() %}
-{% set network = salt['node.resolve_network']() %}
+{% set motd_path = salt["motd.get_path"]() %}
+{% set network = salt["node.resolve_network"]() %}
 
 motd:
   file.managed:
     - name: {{ motd_path }}
-    - source: salt://roles/core/motd/files/{{ grains['id'] }}
+    - source: salt://roles/core/motd/files/{{ grains["id"] }}
     - template: jinja
     - context:
-        ipv4: {{ network['ipv4_address'] }}
-        private_ipv4: {{ network['private_ipv4_address'] }}
-        ipv4_gateway: {{ network['ipv4_gateway'] }}
+        ipv4: {{ network["ipv4_address"] }}
+        private_ipv4: {{ network["private_ipv4_address"] }}
+        ipv4_gateway: {{ network["ipv4_gateway"] }}
         os_info: {{ grains["osfinger"].replace("-", " ") }}
 
 #   -------------------------------------------------------------
@@ -48,7 +48,7 @@ get_rid_of_scaleway_motd:
 #   Generate MOTD from templates
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'FreeBSD' and grains['osmajorrelease'] >= 13 %}
+{% if grains["os_family"] == "FreeBSD" and grains["osmajorrelease"] >= 13 %}
 
 update_motd:
   cmd.run:

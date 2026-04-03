@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set basedir = pillar['wwwroot51_basedir'] %}
+{% set basedir = pillar["wwwroot51_basedir"] %}
 
 #   -------------------------------------------------------------
 #   Base directory
@@ -18,8 +18,8 @@
     - dir_mode: 711
     - user: deploy
 
-{% if salt['node.has']('zfs:pool') %}
-{% set tank = salt['node.get']("zfs:pool") %}
+{% if salt["node.has"]("zfs:pool") %}
+{% set tank = salt["node.get"]("zfs:pool") %}
 
 {{ tank }}/wwwroot51:
   zfs.filesystem_present:
@@ -36,19 +36,19 @@
 
 {% set identities = pillar["wwwroot_identities"] %}
 
-{% for sitename, site in pillar['wwwroot51_directories'].items() %}
+{% for sitename, site in pillar["wwwroot51_directories"].items() %}
 {{ basedir }}/{{ sitename }}:
   file.directory:
     - dir_mode: 711
-{% if 'repository' not in site %}
-    - user: {{ site['user'] }}
-    - group: {{ site['group'] }}
+{% if "repository" not in site %}
+    - user: {{ site["user"] }}
+    - group: {{ site["group"] }}
 {% else %}
     # Credentials belong to deploy user
     - user: deploy
 
   git.latest:
-    - name: {{ site['repository'] }}
+    - name: {{ site["repository"] }}
     - target: {{ basedir }}/{{ sitename }}
     - user: deploy
     - identity: {{ identities[site["identity"]]["path"] }}
@@ -57,8 +57,8 @@
 fix_rights_{{ basedir }}/{{ sitename }}:
   file.directory:
     - name: {{ basedir }}/{{ sitename }}
-    - user: {{ site['user'] }}
-    - group: {{ site['group'] }}
+    - user: {{ site["user"] }}
+    - group: {{ site["group"] }}
     - recurse:
       - user
       - group

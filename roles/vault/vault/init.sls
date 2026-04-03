@@ -6,7 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
-{% set network = salt['node.resolve_network']() %}
+{% set network = salt["node.resolve_network"]() %}
 
 #   -------------------------------------------------------------
 #   Software
@@ -34,8 +34,8 @@ extract_vault:
     - mode: 644
     - template: jinja
     - context:
-        id: {{ grains['id'] }}
-        ip: {{ network['ipv4_address'] }}
+        id: {{ grains["id"] }}
+        ip: {{ network["ipv4_address"] }}
         certificates_available: {{ salt["file.file_exists"]("/usr/local/etc/certificates/vault/fullchain.pem") }}
 
 #   -------------------------------------------------------------

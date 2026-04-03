@@ -5,14 +5,14 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['jenkins_agent'].items() %}
+{% for instance, container in pillar["docker_containers"]["jenkins_agent"].items() %}
 
-{% set realm = pillar['jenkins_realms'][container['realm']] %}
-{% set home = "/srv/jenkins/" + container['realm'] + "/agents_homes/" + instance %}
-{% set image = pillar['jenkins_images'][container['image_flavour']] %}
-{% set image = salt['paas_docker.get_image'](image, container) %}
+{% set realm = pillar["jenkins_realms"][container["realm"]] %}
+{% set home = "/srv/jenkins/" + container["realm"] + "/agents_homes/" + instance %}
+{% set image = pillar["jenkins_images"][container["image_flavour"]] %}
+{% set image = salt["paas_docker.get_image"](image, container) %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -42,7 +42,7 @@ selinux_context_jenkins_agent_{{  instance }}_home_applied:
 
 {{ home }}/.ssh/authorized_keys:
   file.managed:
-      - contents: {{ realm['ssh_key'] }}
+      - contents: {{ realm["ssh_key"] }}
       - user: 431
       - group: 433
 
@@ -57,6 +57,6 @@ selinux_context_jenkins_agent_{{  instance }}_home_applied:
     - image: {{ image }}
     - binds: {{ home }}:/home/app
     - networks:
-      - {{ realm['network'] }}
+      - {{ realm["network"] }}
 
 {% endfor %}

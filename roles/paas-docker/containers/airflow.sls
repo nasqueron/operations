@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
 
-{% for realm, realm_args in pillar['airflow_realms'].items() %}
+{% for realm, realm_args in pillar["airflow_realms"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -96,7 +96,7 @@ airflow_init_{{ realm }}:
 #   Containers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance, container in pillar['docker_containers']['airflow'].items() %}
+{% for instance, container in pillar["docker_containers"]["airflow"].items() %}
 
 {% set realm = container["realm"] %}
 
@@ -114,11 +114,11 @@ airflow_init_{{ realm }}:
       - /srv/airflow/{{ realm }}/airflow.cfg:/opt/airflow/airflow.cfg
     {% if "app_port" in container %}
     - ports:
-      - {{ container['command_port'] }}
+      - {{ container["command_port"] }}
     - port_bindings:
-      - 127.0.0.1:{{ container['app_port'] }}:{{ container['command_port'] }}
+      - 127.0.0.1:{{ container["app_port"] }}:{{ container["command_port"] }}
     {% endif %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 
 {% endfor %}

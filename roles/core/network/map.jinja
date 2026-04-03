@@ -15,18 +15,18 @@
 #   for EACH os/distro.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set interface_config = salt['grains.filter_by']({
-  'FreeBSD': {
+{% set interface_config = salt["grains.filter_by"]({
+  "FreeBSD": {
     "config_path": "/etc/rc.conf.d/netif/ipv4_",
     "source_path": "FreeBSD/netif_ipv4.rc",
     "suffix": "interface",
   },
-  'RedHat': {
+  "RedHat": {
     "config_path": "/etc/sysconfig/network-scripts/ifcfg-",
     "source_path": "RedHat/ifcfg",
     "suffix": "device",
   },
-  'Debian': {
+  "Debian": {
     "config_path": "/etc/network/interfaces.d/10-net-",
     "source_path": "Debian/10-net.jinja",
     "suffix": "device",
@@ -39,12 +39,12 @@
 #   See interface configuration for the documentation.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set gre = salt['grains.filter_by']({
-  'FreeBSD': {
+{% set gre = salt["grains.filter_by"]({
+  "FreeBSD": {
     "config_path": "/etc/rc.conf.d/netif/gre_",
     "source_path": "FreeBSD/netif_gre.rc",
   },
-  'Debian': {
+  "Debian": {
     "config_path": "/etc/network/interfaces.d/10-gre-",
     "source_path": "Debian/10-gre.jinja",
   },
@@ -54,13 +54,13 @@
 #   Routes configuration by OS/distro
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% set routes_config = salt['grains.filter_by']({
-  'FreeBSD': {
+{% set routes_config = salt["grains.filter_by"]({
+  "FreeBSD": {
     "config_path": "/etc/rc.conf.d/routing/managed",
     "source_path": "FreeBSD/routing_ipv4.rc",
     "provider": "os"
   },
-  'RedHat': {
+  "RedHat": {
     "config_path": "/etc/routes.conf",
     "source_path": "Linux/routes.conf",
     "provider": "custom-service"

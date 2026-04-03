@@ -15,7 +15,7 @@
 #   Unit configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['manager'] == 'systemd' %}
+{% if services["manager"] == "systemd" %}
 
 opensearch_dashboards_unit:
   file.managed:

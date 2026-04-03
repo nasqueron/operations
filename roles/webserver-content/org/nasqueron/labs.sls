@@ -30,7 +30,7 @@ labs_base_directory_content:
 #   Labs directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for lab in pillar['web_labs'] %}
+{% for lab in pillar["web_labs"] %}
 labs_lab_directory_{{ lab }}:
   file.recurse:
     - name: /var/wwwroot/nasqueron.org/labs/{{ lab }}

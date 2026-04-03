@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['rabbitmq'].items() %}
+{% for instance, container in pillar["docker_containers"]["rabbitmq"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -25,7 +25,7 @@
     - group: 999
     - mode: 400
     - show_changes: False
-    - contents: {{ salt['credentials.get_token'](container['credentials']['erlang_cookie']) }}
+    - contents: {{ salt["credentials.get_token"](container["credentials"]["erlang_cookie"]) }}
 
 {% if has_selinux %}
 selinux_context_rabbitmq_data_{{ instance }}:
@@ -49,11 +49,11 @@ selinux_context_rabbitmq_data_applied_{{ instance }}:
     - image: nasqueron/rabbitmq
     - binds:
         - /srv/rabbitmq/{{ instance }}/lib:/var/lib/rabbitmq
-    - hostname: {{ container['host'] }}
-    - ports: {{ pillar['rabbitmq_ports'] }}
+    - hostname: {{ container["host"] }}
+    - ports: {{ pillar["rabbitmq_ports"] }}
     - port_bindings:
-{% for port in pillar['rabbitmq_ports'] %}
-      - {{ container['ip'] }}:{{ port }}:{{ port }}
+{% for port in pillar["rabbitmq_ports"] %}
+      - {{ container["ip"] }}:{{ port }}:{{ port }}
 {% endfor %}
 
 
@@ -67,7 +67,7 @@ rabbitmq_{{ instance }}_root_password:
     - template: jinja
     - context:
         instance: {{ instance }}
-        password: {{ salt['credentials.get_token'](container['credentials']['root']) }}
+        password: {{ salt["credentials.get_token"](container["credentials"]["root"]) }}
     - require:
         - {{ instance }}
     - creates: /srv/rabbitmq/{{ instance }}/.auth-configured

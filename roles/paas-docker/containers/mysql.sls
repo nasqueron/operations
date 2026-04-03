@@ -5,10 +5,10 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['mysql'].items() %}
-{% set image = salt['paas_docker.get_image']("nasqueron/mysql", container) %}
+{% for instance, container in pillar["docker_containers"]["mysql"].items() %}
+{% set image = salt["paas_docker.get_image"]("nasqueron/mysql", container) %}
 
 #   -------------------------------------------------------------
 #   Home directory
@@ -42,10 +42,10 @@ selinux_context_{{ instance }}_mysql_data_applied:
     - image: {{ image }}
     - binds: /srv/{{ instance }}/mysql:/var/lib/mysql
     - environment:
-        MYSQL_ROOT_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['root']) }}
-{% if 'network' in container %}
+        MYSQL_ROOT_PASSWORD: {{ salt["credentials.get_password"](container["credentials"]["root"]) }}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
     - cap_add:
       - SYS_NICE          # T1672

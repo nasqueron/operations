@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-/var/wwwroot-content/{{ grains['fqdn'] }}/index.html:
+/var/wwwroot-content/{{ grains["fqdn"] }}/index.html:
   file.managed:
-    - contents: Welcome to {{ grains['fqdn'] }}.
+    - contents: Welcome to {{ grains["fqdn"] }}.
     - replace: False
     - makedirs: True
     - mode: 644

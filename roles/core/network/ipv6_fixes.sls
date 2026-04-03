@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set network = salt['node.get']('network') %}
+{% set network = salt["node.get"]("network") %}
 
 #   -------------------------------------------------------------
 #   Routes - legacy configuration for ipv6_gateway
@@ -13,7 +13,7 @@
 
 {% if "ipv6_gateway" in network %}
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /etc/rc.conf.d/routing/ipv6:
   file.managed:
     - source: salt://roles/core/network/files/FreeBSD/routing_ipv6.rc

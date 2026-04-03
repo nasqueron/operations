@@ -19,8 +19,8 @@
 #   The 9003 group matches "web" group, see webserver-core/nginx
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for domains_group in pillar['web_domains'] %}
-{% for domain in pillar['web_domains'][domains_group] %}
+{% for domains_group in pillar["web_domains"] %}
+{% for domain in pillar["web_domains"][domains_group] %}
 webserver_user_{{ domain }}:
   user.present:
     - name: {{ domain }}
@@ -36,15 +36,15 @@ webserver_user_{{ domain }}:
 #   Those accounts are intended to serve content through php-fpm.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for fqdn, site in pillar['web_php_sites'].items() %}
-{% if 'skipCreateUser' not in site or not site['skipCreateUser'] %}
+{% for fqdn, site in pillar["web_php_sites"].items() %}
+{% if "skipCreateUser" not in site or not site["skipCreateUser"] %}
 
-webserver_user_{{ site['user'] }}:
+webserver_user_{{ site["user"] }}:
   user.present:
-    - name: {{ site['user' ] }}
+    - name: {{ site["user" ] }}
     - fullname: {{ fqdn }}
-{% if 'uid' in site %}
-    - uid: {{ site['uid']  }}
+{% if "uid" in site %}
+    - uid: {{ site["uid"]  }}
 {% endif %}
     - gid: 9003
     - system: True

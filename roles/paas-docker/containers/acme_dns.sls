@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['acme_dns'].items() %}
+{% for instance, container in pillar["docker_containers"]["acme_dns"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -43,9 +43,9 @@ selinux_context_acme_dns_data_applied:
     - source: salt://roles/paas-docker/containers/files/acme/config.cfg
     - template: jinja
     - context:
-        ip: {{ container['ip'] }}
-        domain: {{ container['host'] }}
-        nsadmin: {{ container['nsadmin'] }}
+        ip: {{ container["ip"] }}
+        domain: {{ container["host"] }}
+        nsadmin: {{ container["nsadmin"] }}
 
 #   -------------------------------------------------------------
 #   Container
@@ -66,7 +66,7 @@ selinux_context_acme_dns_data_applied:
     - port_bindings:
       - 53:53
       - 53:53/udp
-      - 127.0.0.1:{{ container['app_port'] }}:80
+      - 127.0.0.1:{{ container["app_port"] }}:80
 
 {% endfor %}
 

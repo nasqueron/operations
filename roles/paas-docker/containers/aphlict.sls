@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% for instance, container in pillar['docker_containers']['aphlict'].items() %}
+{% for instance, container in pillar["docker_containers"]["aphlict"].items() %}
 
 #   -------------------------------------------------------------
 #   Container
@@ -24,7 +24,7 @@
       - 22280
       - 22281
     - port_bindings:
-      - {{ container['ports']['client'] }}:22280
-      - {{ container['ports']['admin'] }}:22281
+      - {{ container["ports"]["client"] }}:22280
+      - {{ container["ports"]["admin"] }}:22281
 
 {% endfor %}

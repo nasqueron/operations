@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
-{% set version = grains['kernelrelease'].split("-")[0] %}
+{% set version = grains["kernelrelease"].split("-")[0] %}
 
 freebsd_src:
   cmd.run:

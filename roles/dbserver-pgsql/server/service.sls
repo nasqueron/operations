@@ -9,7 +9,7 @@
 #   PostgreSQL service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 
 /etc/rc.conf.d/postgresql:
   file.managed:

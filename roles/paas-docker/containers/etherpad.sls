@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['etherpad'].items() %}
+{% for instance, container in pillar["docker_containers"]["etherpad"].items() %}
 
 #   -------------------------------------------------------------
 #   Storage directory
@@ -63,12 +63,12 @@ selinux_context_{{ instance }}_data_applied:
     - detach: True
     - interactive: True
     - image: nasqueron/etherpad:production
-    - links: {{ container['mysql_link'] }}:mysql
+    - links: {{ container["mysql_link"] }}:mysql
     - binds: /srv/{{ instance }}/var:/opt/etherpad-lite/var
     - ports:
       - 9001
     - port_bindings:
-      - {{ container['app_port'] }}:9001
+      - {{ container["app_port"] }}:9001
 
 #   -------------------------------------------------------------
 #   API key
@@ -81,7 +81,7 @@ selinux_context_{{ instance }}_data_applied:
     - mode: 400
     - user: 9001
     - show_changes: False
-    - contents: {{ salt['credentials.get_token'](container['credential']) }}
+    - contents: {{ salt["credentials.get_token"](container["credential"]) }}
 
 deploy_api_key_{{ instance }}:
   cmd.run:

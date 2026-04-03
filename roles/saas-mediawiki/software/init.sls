@@ -17,10 +17,10 @@ mediawiki_software_dependencies:
       - {{ packages.exiftool }}
       - exiv2
       - {{ packages.imagemagick }}
-      - {{ packages['jpeg-turbo'] }}
+      - {{ packages["jpeg-turbo"] }}
       - librsvg2
       - {{ packages.lua }}
-      - {{ packages['mariadb-client'] }}
+      - {{ packages["mariadb-client"] }}
       - {{ packages_prefixes.php }}opcache
       - rlwrap
 
@@ -34,4 +34,4 @@ mediawiki_software_dependencies:
     - mode: 755
     - template: jinja
     - context:
-        saas: {{ pillar['mediawiki_saas'] }}
+        saas: {{ pillar["mediawiki_saas"] }}

@@ -11,19 +11,19 @@
 salt_roles:
   grains.list_present:
     - name: roles
-    - value: {{ salt['node.get_list']("roles") }}
+    - value: {{ salt["node.get_list"]("roles") }}
 
 #   -------------------------------------------------------------
 #   Repository
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'RedHat' %}
+{% if grains["os_family"] == "RedHat" %}
 /etc/yum.repos.d/salt.repo:
   file.managed:
     - source: salt://roles/core/salt/files/salt.repo
 {% endif %}
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 /etc/apt/keyrings/salt-archive-keyring-2023.gpg:
   file.managed:
     - source: salt://roles/core/salt/files/SALT-PROJECT-GPG-PUBKEY-2023.gpg
@@ -39,7 +39,7 @@ salt_roles:
 #   Service
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /etc/rc.conf.d/salt_minion:
   file.managed:
     - source: salt://roles/core/salt/files/rc.conf

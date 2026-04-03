@@ -15,7 +15,7 @@
 #               but isn't an endorsement of such terminology.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if services['manager'] == "rc" %}
+{% if services["manager"] == "rc" %}
 
 {{ dirs.etc }}/rc.d/salt_master:
   file.patch:

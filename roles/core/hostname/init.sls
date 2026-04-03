@@ -13,7 +13,7 @@
 /etc/hostname:
   file.managed:
     - name: /etc/hostname
-    - contents: {{ salt['node.get']('hostname') }}
+    - contents: {{ salt["node.get"]("hostname") }}
 
 #   -------------------------------------------------------------
 #   When the hostname is changed, what to run afterwards?
@@ -25,7 +25,7 @@ after_hostname_change:
     - onchanges:
       - file: /etc/hostname
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 after_hostname_change_debian:
   cmd.run:
     - name: invoke-rc.d hostname.sh start

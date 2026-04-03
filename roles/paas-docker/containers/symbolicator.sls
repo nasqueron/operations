@@ -6,15 +6,15 @@
 #   Notes:          Environment follows getsentry/self-hosted
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['symbolicator'].items() %}
+{% for instance, container in pillar["docker_containers"]["symbolicator"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for subdir in ['data', 'etc'] %}
+{% for subdir in ["data", "etc"] %}
 /srv/symbolicator/{{ instance }}/{{ subdir }}:
   file.directory:
     - makedirs: True

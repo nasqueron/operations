@@ -16,7 +16,7 @@ quassel-core:
 #   Dependencies
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 libqt5sql5-psql:
   pkg.installed
 {% endif %}

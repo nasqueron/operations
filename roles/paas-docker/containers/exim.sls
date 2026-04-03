@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['exim'].items() %}
+{% for instance, container in pillar["docker_containers"]["exim"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -19,17 +19,17 @@
     - group: 101
     - makedirs: True
 
-{% for subdir in ['spool', 'log'] %}
+{% for subdir in ["spool", "log"] %}
 /srv/exim/{{ instance }}/{{ subdir }}:
   file.directory:
     - user: 101
     - group: 101
 {% endfor %}
 
-{% if 'mailname' in container %}
+{% if "mailname" in container %}
 /srv/exim/{{ instance }}/mailname:
   file.managed:
-    - contents: {{ container['mailname'] }}
+    - contents: {{ container["mailname"] }}
 {% endif %}
 
 {% if has_selinux %}
@@ -55,17 +55,17 @@ selinux_context_{{ instance }}_exim_data_applied:
     - interactive: True
     - image: tianon/exim4
     - binds:
-{% if 'mailname' in container %}
+{% if "mailname" in container %}
         - /srv/exim/{{ instance }}/mailname:/etc/mailname:ro
 {% endif %}
         - /srv/exim/{{ instance }}/spool:/var/spool/exim4
         - /srv/exim/{{ instance }}/log:/var/log/exim4
-{% if 'host' in container %}
-    - hostname: {{ container['mailname'] }}
+{% if "host" in container %}
+    - hostname: {{ container["mailname"] }}
 {% endif %}
-{% if 'network' in container %}
+{% if "network" in container %}
     - networks:
-      - {{ container['network'] }}
+      - {{ container["network"] }}
 {% endif %}
 
 {% endfor %}

@@ -5,9 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
+{% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
-{% for instance, container in pillar['docker_containers']['pixelfed'].items() %}
+{% for instance, container in pillar["docker_containers"]["pixelfed"].items() %}
 
 #   -------------------------------------------------------------
 #   Data directory
@@ -46,15 +46,15 @@ selinux_context_{{ instance }}_data_applied:
     - interactive: True
     - image: nasqueron/pixelfed
     - links:
-        - {{ container['links']['redis'] }}:redis
-        - {{ container['links']['mysql'] }}:mysql
+        - {{ container["links"]["redis"] }}:redis
+        - {{ container["links"]["mysql"] }}:mysql
     - environment:
         - DB_DRIVER: mysql
         - DB_HOST: mysql
         - DB_PORT: 3306
         - DB_DATABASE: {{ instance }}
-        - DB_USERNAME: {{ salt['credentials.get_username'](container['credentials']['mysql']) }}
-        - DB_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['mysql']) }}
+        - DB_USERNAME: {{ salt["credentials.get_username"](container["credentials"]["mysql"]) }}
+        - DB_PASSWORD: {{ salt["credentials.get_password"](container["credentials"]["mysql"]) }}
 
         # Port must be defined, as Docker link populates REDIS_PORT to tcp://...:6379
         # That gives the following rather strange connection string:
@@ -62,10 +62,10 @@ selinux_context_{{ instance }}_data_applied:
         - REDIS_HOST: redis
         - REDIS_PORT: 6379
 
-        - APP_DOMAIN: {{ container['host'] }}
-        - APP_KEY: {{ salt['credentials.get_token'](container['credentials']['app_key']) }}
-        - APP_NAME: {{ container['app']['title'] }}
-        - APP_URL: https://{{ container['host'] }}
+        - APP_DOMAIN: {{ container["host"] }}
+        - APP_KEY: {{ salt["credentials.get_token"](container["credentials"]["app_key"]) }}
+        - APP_NAME: {{ container["app"]["title"] }}
+        - APP_URL: https://{{ container["host"] }}
 
         - BROADCAST_DRIVER: redis
         - CACHE_DRIVER: redis
@@ -76,23 +76,23 @@ selinux_context_{{ instance }}_data_applied:
         - MAIL_DRIVER: smtp
         - MAIL_HOST: smtp.eu.mailgun.org
         - MAIL_PORT: 587
-        - MAIL_USERNAME: {{ salt['credentials.get_username'](container['credentials']['mailgun']) }}
-        - MAIL_PASSWORD: {{ salt['credentials.get_password'](container['credentials']['mailgun']) }}
-        - MAIL_FROM_ADDRESS: no-reply@{{ container['host'] }}
-        - MAIL_FROM_NAME: {{ container['app']['title'] }}
+        - MAIL_USERNAME: {{ salt["credentials.get_username"](container["credentials"]["mailgun"]) }}
+        - MAIL_PASSWORD: {{ salt["credentials.get_password"](container["credentials"]["mailgun"]) }}
+        - MAIL_FROM_ADDRESS: no-reply@{{ container["host"] }}
+        - MAIL_FROM_NAME: {{ container["app"]["title"] }}
 
         - SESSION_DRIVER: redis
-        - SESSION_DOMAIN: {{ container['host'] }}
+        - SESSION_DOMAIN: {{ container["host"] }}
         - SESSION_SECURE_COOKIE: true
 
         - TRUST_PROXIES: '*'
         - HTTPS: 1
 
-        - MAX_ALBUM_LENGTH: {{ container['app']['max_album_length'] }}
+        - MAX_ALBUM_LENGTH: {{ container["app"]["max_album_length"] }}
     - binds: /srv/{{ instance }}/storage:/var/wwwroot/default/storage
     - ports:
         - 80
     - port_bindings:
-        - {{ container['app_port'] }}:80
+        - {{ container["app_port"] }}:80
 
 {% endfor %}

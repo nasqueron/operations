@@ -5,13 +5,13 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% set use_zfs = salt['node.has']('zfs:pool') %}
+{% set use_zfs = salt["node.has"]("zfs:pool") %}
 
 #   -------------------------------------------------------------
 #   IPv6
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os_family'] == 'Debian' %}
+{% if grains["os_family"] == "Debian" %}
 rc:
   file.managed:
     - name : /etc/rc.local
@@ -23,7 +23,7 @@ rc:
 #   Periodic tasks configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if grains['os'] == 'FreeBSD' %}
+{% if grains["os"] == "FreeBSD" %}
 /etc/periodic.conf:
   file.managed:
     - source: salt://roles/core/rc/files/periodic.conf

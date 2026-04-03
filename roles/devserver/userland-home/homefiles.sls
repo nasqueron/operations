@@ -6,12 +6,12 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
-{% set triplet = salt['rust.get_rustc_triplet']() %}
+{% set triplet = salt["rust.get_rustc_triplet"]() %}
 
-{% for username, user in salt['forest.get_users']().items() %}
-{% set tasks = user.get('devserver_tasks', []) %}
+{% for username, user in salt["forest.get_users"]().items() %}
+{% set tasks = user.get("devserver_tasks", []) %}
 
-{% if 'deploy_dotfiles' in tasks %}
+{% if "deploy_dotfiles" in tasks %}
 dotfiles_to_devserver_{{ username }}:
   file.recurse:
     - name: /home/{{ username }}
@@ -22,7 +22,7 @@ dotfiles_to_devserver_{{ username }}:
     - group: {{ username }}
 {% endif %}
 
-{% if 'deploy_nanotab' in tasks %}
+{% if "deploy_nanotab" in tasks %}
 /home/{{ username }}/bin/nanotab:
   file.managed:
     - source: salt://roles/devserver/userland-home/files/_tasks/nanotab.sh
@@ -37,8 +37,8 @@ dotfiles_to_devserver_{{ username }}:
       - unset tabstospaces
 {% endif %}
 
-{% if 'install_rustup' in tasks %}
-{% set rustup_path = '/home/' + username + '/.cargo/bin/rustup' %}
+{% if "install_rustup" in tasks %}
+{% set rustup_path = "/home/" + username + "/.cargo/bin/rustup" %}
 
 devserver_rustup_{{ username }}:
   cmd.run:
@@ -46,7 +46,7 @@ devserver_rustup_{{ username }}:
     - runas: {{ username }}
     - creates: {{ rustup_path }}
 
-{% for toolchain in ['stable', 'nightly'] %}
+{% for toolchain in ["stable", "nightly"] %}
 devserver_rustup_{{ toolchain }}_{{ username }}:
   cmd.run:
     - name: {{ rustup_path }} install {{ toolchain }}
@@ -55,7 +55,7 @@ devserver_rustup_{{ toolchain }}_{{ username }}:
 {% endfor %}
 {% endif %}
 
-{% if 'install_diesel' in tasks %}
+{% if "install_diesel" in tasks %}
 devserver_diesel_{{ username }}:
   cmd.run:
     - name: /home/{{ username }}/.cargo/bin/cargo install diesel_cli --no-default-features --features postgres,sqlite

@@ -22,7 +22,7 @@
 #   Provision extra utilities
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% for instance in pillar['docker_containers']['mastodon_sidekiq'] %}
+{% for instance in pillar["docker_containers"]["mastodon_sidekiq"] %}
 
 provision_clear_video_queue_{{ instance }}:
   cmd.run:

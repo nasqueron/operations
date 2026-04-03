@@ -12,7 +12,7 @@
 #   on servers still using /data.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-{% if not salt['file.directory_exists']('/srv/data') and salt['file.directory_exists']('/data') %}
+{% if not salt["file.directory_exists"]("/srv/data") and salt["file.directory_exists"]("/data") %}
 srv_data_symlink:
   file.symlink:
     - name: /srv/data
