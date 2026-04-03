@@ -4,7 +4,6 @@
 #   Salt — MediaWiki farm
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-17
 #   Description:    Calls saas-mediawiki configuration directory
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/saas-mediawiki/mediawiki/init.sls

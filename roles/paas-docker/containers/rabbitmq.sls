@@ -2,7 +2,6 @@
 #   Salt — Provision Docker engine
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-09-30
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

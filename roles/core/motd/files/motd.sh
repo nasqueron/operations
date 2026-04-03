@@ -4,7 +4,6 @@
 #   MOTD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-01-10
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/core/motd/files/motd.sh
 #   -------------------------------------------------------------

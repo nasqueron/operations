@@ -2,7 +2,6 @@
 #   Salt — Users accounts list
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-08
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

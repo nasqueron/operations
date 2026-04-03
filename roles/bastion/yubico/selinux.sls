@@ -2,7 +2,6 @@
 #   Salt — Bastion - Yubikeys
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-02-18
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

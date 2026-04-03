@@ -2,7 +2,6 @@
 #   OpenSSH configuration - OTP SSHD for bastion servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-02-19
 #   Forked from:    Debian /etc/systemd/system/sshd.service
 #   Source file:    roles/bastion/sshd-otp/files/sshd.service
 #   -------------------------------------------------------------

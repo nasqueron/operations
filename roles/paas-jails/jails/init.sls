@@ -3,7 +3,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Notes:          FreeBSD-only unit
-#   Created:        2017-10-21
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

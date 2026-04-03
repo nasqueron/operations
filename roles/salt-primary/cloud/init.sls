@@ -2,7 +2,6 @@
 #   Salt — Salt configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-04-28
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

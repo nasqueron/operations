@@ -4,7 +4,6 @@
 #   Install an eggdrop
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-11-06
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/shellserver/userland-software/files/install-eggdrop.sh
 #   -------------------------------------------------------------

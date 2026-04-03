@@ -2,7 +2,6 @@
 #   Salt — LXC
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-04-29
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

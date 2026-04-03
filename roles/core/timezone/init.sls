@@ -2,7 +2,6 @@
 #   Salt — Time zone
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-23
 #   License:        Trivial work, not eligible to copyright
 #
 #   Dance, dance, to set timezone across OSes

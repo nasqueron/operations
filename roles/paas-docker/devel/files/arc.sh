@@ -5,7 +5,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
-#   Created:        2016-01-01
 #   Description:    Wrapper to run Arcanist as a Docker container
 #   License:        Trivial work, not eligible to copyright
 #                   If copyright eligible, BSD-2-Clause

@@ -2,7 +2,6 @@
 #   Salt — OpenSSH configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-02-28
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

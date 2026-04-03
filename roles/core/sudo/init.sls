@@ -2,7 +2,6 @@
 #   Salt — sudo configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-19
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

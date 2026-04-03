@@ -4,7 +4,6 @@
 #   Salt — Jails execution module
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-21
 #   Description:    Functions related to FreeBSD jails
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------

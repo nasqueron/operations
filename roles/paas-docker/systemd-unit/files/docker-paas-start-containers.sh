@@ -4,7 +4,6 @@
 #   PaaS Docker
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2015-12-29
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/systemd-unit/files/docker-paas-start-containers.sh
 #   -------------------------------------------------------------

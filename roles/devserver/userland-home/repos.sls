@@ -2,7 +2,6 @@
 #   Deploy user repositories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-09
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

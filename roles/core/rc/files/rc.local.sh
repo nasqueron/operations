@@ -4,7 +4,6 @@
 #   rc.local
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-06-15
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/core/rc/files/rc.local.sh
 #   -------------------------------------------------------------

@@ -5,7 +5,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
-#   Created:        2015-04-22
 #   Description:    Phabricator instance for Nasqueron
 #   License:        Trivial work, not eligible to copyright
 #   Image:          nasqueron/phabricator

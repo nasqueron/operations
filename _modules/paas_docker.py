@@ -4,7 +4,6 @@
 #   Salt — PaaS Docker execution module
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-10-07
 #   Description:    Functions related to data format conversions
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------

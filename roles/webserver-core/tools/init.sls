@@ -2,7 +2,6 @@
 #   Salt — Helper tools for nginx
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-24
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

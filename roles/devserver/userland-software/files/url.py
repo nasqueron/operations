@@ -5,7 +5,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Author:         Sébastien Santoro aka Dereckson
-#   Created:        2018-09-22
 #   License:        BSD-2-Clause
 #   Source file:    roles/devserver/userland-software/files/url.py
 #   -------------------------------------------------------------

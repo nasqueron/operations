@@ -2,7 +2,6 @@
 #   Nasqueron mail services
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-01-14
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/mailserver/dkim/files/etc/Makefile
 #   -------------------------------------------------------------

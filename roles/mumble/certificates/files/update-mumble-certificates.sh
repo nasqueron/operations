@@ -4,7 +4,6 @@
 #   Deploy Mumble certificate on Murmur
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-11-03
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/mumble/certificates/files/update-mumble-certificates.sh
 #   -------------------------------------------------------------

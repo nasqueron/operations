@@ -2,7 +2,6 @@
 #   Salt — Set machine hostname
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-06-15
 #   Description:    Set hostname
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------

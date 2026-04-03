@@ -2,7 +2,6 @@
 #   Salt — Forests
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-20
 #   Description:    Groups nodes by forest to allow to apply
 #                   a common configuration, like users/groups
 #                   to a set of nodes (ie servers).

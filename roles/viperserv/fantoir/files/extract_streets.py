@@ -4,7 +4,6 @@
 #   FANTOIR — Extract streets
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-14
 #   License:        Trivial work, not eligible to copyright
 #   Data license:   FANTOIR is licensed under Licence Ouverte
 #   -------------------------------------------------------------

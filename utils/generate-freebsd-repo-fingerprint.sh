@@ -4,7 +4,6 @@
 #   rOPS — regenerate FreeBSD Nasqueron repository fingerprint
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-30
 #   Description:    Read the FreeBSD Nasqueron repository public key
 #                   and regenerate the fingerprint.
 #   -------------------------------------------------------------

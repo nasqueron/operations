@@ -4,7 +4,6 @@
 #   PaaS Docker
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2015-04-21
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/wrappers/files/mysql.sh
 #   -------------------------------------------------------------

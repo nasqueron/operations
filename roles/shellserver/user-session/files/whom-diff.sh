@@ -6,7 +6,6 @@
 #   Computes the diff between two `whom` invoke.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Author:         Sébastien Santoro aka Dereckson
-#   Created:        2015-12-30
 #   Licence:        BSD-2-Clause
 #   Source file:    roles/shellserver/user-session/files/whom-diff.sh
 #   -------------------------------------------------------------

@@ -2,7 +2,6 @@
 #   Salt — MOTD
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-04-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

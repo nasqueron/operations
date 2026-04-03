@@ -2,7 +2,6 @@
 #   OpenSSH configuration - OTP SSHD for bastion servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-02-28
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/bastion/sshd-otp/files/sshd_config
 #   -------------------------------------------------------------

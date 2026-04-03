@@ -2,7 +2,6 @@
 #   Salt — rsyslog
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-09-11
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

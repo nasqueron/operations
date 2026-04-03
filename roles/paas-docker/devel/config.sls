@@ -2,7 +2,6 @@
 #   Salt — Docker development
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2022-04-15
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

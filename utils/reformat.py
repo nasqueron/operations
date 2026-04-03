@@ -4,7 +4,6 @@
 #   Salt — Reformat Salt states and source code files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-02-26
 #   License:        BSD-2-Clause
 #   Description:    This script detects multi-lines patterns
 #                   and rewrite them to apply the new style.

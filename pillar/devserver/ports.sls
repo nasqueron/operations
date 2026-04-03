@@ -2,7 +2,6 @@
 #   Salt configuration for Nasqueron servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-01-18
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

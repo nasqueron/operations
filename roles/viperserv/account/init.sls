@@ -2,7 +2,6 @@
 #   Salt — Deploy ViperServ (eggdrop)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-14
 #   Description:    Eggdrop on Libera
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------

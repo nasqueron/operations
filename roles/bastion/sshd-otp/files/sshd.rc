@@ -4,7 +4,6 @@
 #   OpenSSH configuration - OTP SSHD for bastion servers
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-02-19
 #   Forked from:    FreeBSD: releng/11.1/etc/rc.d/sshd
 #                   303770 2016-08-05 15:32:35Z des
 #   Source file:    roles/bastion/sshd-otp/files/sshd.rc

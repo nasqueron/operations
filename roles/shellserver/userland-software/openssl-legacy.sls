@@ -2,7 +2,6 @@
 #   Salt — Deploy legacy OpenSSL 1.0
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2017-02-25
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

@@ -4,7 +4,6 @@
 #   Mastodon - clear stuck video tasks from queue
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-12-08
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/containers/files/mastodon/clear-video-queue.py
 #   -------------------------------------------------------------

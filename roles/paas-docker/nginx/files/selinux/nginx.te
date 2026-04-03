@@ -2,7 +2,6 @@
 #   Configuration for Let's encrypt nginx
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-10-27
 #   Description:    SELinux policy for nginx
 #                   Allow to serve containers generated files
 #   Source file:    roles/paas-docker/nginx/files/selinux/nginx.te

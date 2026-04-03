@@ -3,7 +3,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Credit:         Jaime Crespo (@Jynus)
-#   Created:        2017-11-09
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

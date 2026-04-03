@@ -2,7 +2,6 @@
 #   PaaS Docker
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-09-18
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/docker/files/thinpool.profile
 #   -------------------------------------------------------------

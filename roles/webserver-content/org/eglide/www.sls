@@ -2,7 +2,6 @@
 #   Salt — Provision www.eglide.org website
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-09-12
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

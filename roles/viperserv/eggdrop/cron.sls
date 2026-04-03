@@ -4,7 +4,6 @@
 #   Salt — Deploy eggdrop park
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-11-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

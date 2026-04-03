@@ -2,7 +2,6 @@
 #   Salt — Provision software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2017-02-23
 #   Description:    Account to build applications from source code
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------

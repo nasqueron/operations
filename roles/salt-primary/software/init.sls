@@ -2,7 +2,6 @@
 #   Salt — Provision a salt primary server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-10-04
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

@@ -4,7 +4,6 @@
 #   List IP and reverse DNS
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2017-01-10
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/shellserver/vhosts/files/vhosts.sh
 #   -------------------------------------------------------------

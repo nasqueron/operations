@@ -4,7 +4,6 @@
 #   PaaS Docker
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2019-01-01
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/wrappers/files/openfire.sh
 #   -------------------------------------------------------------

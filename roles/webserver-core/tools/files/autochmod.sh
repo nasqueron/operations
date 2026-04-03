@@ -4,7 +4,6 @@
 #   Default permissions for a secure webserver installation
 #   Compliant with SuEXEC or php-fpm pools
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Created:        2017-01-24
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/webserver-legacy/files/autochmod.sh
 #   Usage:          autochmod [for dirs] [for files] [for scripts]

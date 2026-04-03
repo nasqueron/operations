@@ -2,7 +2,6 @@
 #   Salt — phpBB managed installations
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-27
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

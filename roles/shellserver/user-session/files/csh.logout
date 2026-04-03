@@ -2,7 +2,6 @@
 #   System-wide .logout file for csh(1)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Author:         Sébastien Santoro aka Dereckson
-#   Created:        2015-12-30
 #   Licence:        Trivial work, not eligible to copyright
 #   Source file:    roles/shellserver/user-session/files/csh.logout
 #   -------------------------------------------------------------

@@ -1,7 +1,6 @@
 #   -------------------------------------------------------------
 #   Pywikibot
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Created:        2017-11-15
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/viperserv/wikidata-access-layer/files/user-config.py
 #   -------------------------------------------------------------

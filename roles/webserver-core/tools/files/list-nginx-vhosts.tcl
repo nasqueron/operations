@@ -4,7 +4,6 @@
 #   List nginx vhosts configuration files
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-24
 #   License:        BSD-2-Clause
 #   Source file:    roles/webserver-core/tools/files/list-nginx-vhosts.tcl
 #   -------------------------------------------------------------

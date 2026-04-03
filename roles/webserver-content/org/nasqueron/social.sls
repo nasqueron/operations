@@ -2,7 +2,6 @@
 #   Salt — Provision social.nasqueron.org public directories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-13
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

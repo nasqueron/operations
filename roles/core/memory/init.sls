@@ -2,7 +2,6 @@
 #   Salt — Memory configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-02-12
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

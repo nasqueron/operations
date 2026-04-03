@@ -2,7 +2,6 @@
 #   Salt — Deploy Odderon (darkbot)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-01-24
 #   Description:    Darkbot
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------

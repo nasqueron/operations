@@ -2,7 +2,6 @@
 #   Salt — Provision web software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-06-12
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

@@ -5,7 +5,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
-#   Created:        2016-03-28
 #   Description:    Node application to get real time notifications
 #                   through websockets for Phabricator instances.
 #   License:        Trivial work, not eligible to copyright

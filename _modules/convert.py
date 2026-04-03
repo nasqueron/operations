@@ -4,7 +4,6 @@
 #   Salt — Convert execution module
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-09-08
 #   Description:    Functions related to data format conversions
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------

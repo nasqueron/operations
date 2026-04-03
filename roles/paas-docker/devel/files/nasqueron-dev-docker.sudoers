@@ -2,7 +2,6 @@
 #   SaltStack deployment
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2022-05-23
 #   License:        Trivial work, not eligible to copyright
 #   Source file:    roles/paas-docker/devel/files/nasqueron-dev-docker.sudoers
 #   -------------------------------------------------------------

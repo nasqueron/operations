@@ -4,7 +4,6 @@
 #   Salt — Forest execution module
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-10-11
 #   Description:    Functions related to forests
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------

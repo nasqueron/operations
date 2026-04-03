@@ -2,7 +2,6 @@
 #   Salt — MediaWiki farm
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-19
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

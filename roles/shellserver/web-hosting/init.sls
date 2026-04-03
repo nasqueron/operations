@@ -2,7 +2,6 @@
 #   Salt — nginx configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2016-11-08
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

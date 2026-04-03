@@ -2,7 +2,6 @@
 #   Salt — Provision users accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-09
 #   Description:    Adds and revokes user accounts, in the relevant
 #                   groups and with their stable SSH keys.
 #   License:        Trivial work, not eligible to copyright

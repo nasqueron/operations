@@ -2,7 +2,6 @@
 #   Salt — Provision a development server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-10-30
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

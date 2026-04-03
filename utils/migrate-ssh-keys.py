@@ -4,7 +4,6 @@
 #   rOPS — migrate SSH keys from file to Salt state
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2017-11-09
 #   Description:    Read a dictionary, and for each key, find in
 #                   a specified folder a data file. Add data from
 #                   this file to the dictionary. Output in YAML.

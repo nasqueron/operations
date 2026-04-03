@@ -2,7 +2,6 @@
 #   Salt — Deploy SSL certificate for Mumble server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-11-03
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

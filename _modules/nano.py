@@ -4,7 +4,6 @@
 #   Salt — Nano execution module
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2020-02-09
 #   Description:    Allow to generate a nano configuration
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------

@@ -2,7 +2,6 @@
 #   Salt — Provision www.wolfplex.org static subdirectories
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-03-22
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

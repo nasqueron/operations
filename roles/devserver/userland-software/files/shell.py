@@ -5,7 +5,6 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Author:         Sébastien Santoro aka Dereckson
-#   Created:        2018-03-08
 #   License:        BSD-2-Clause
 #   Source file:    roles/devserver/userland-software/files/shell.sh
 #   -------------------------------------------------------------

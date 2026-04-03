@@ -2,7 +2,6 @@
 #   Salt — Provision base software
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2016-04-09
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

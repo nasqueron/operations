@@ -2,7 +2,6 @@
 #   Salt — vhosts configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Eglide
-#   Created:        2017-01-10
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 

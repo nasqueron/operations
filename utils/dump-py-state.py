@@ -4,7 +4,6 @@
 #   rOPS — compile a #!py .sls file and dump the result in YAML
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Created:        2018-10-17
 #   Description:    Read the web_content_sls pillar entry
 #                   and regenerate the webserver-content include.
 #   License:        BSD-2-Clause
