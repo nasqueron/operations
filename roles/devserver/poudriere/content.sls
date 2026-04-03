@@ -52,7 +52,6 @@ def run():
                 {"creates": f"/usr/local/poudriere/jails/base{major}"},
             ]
         },
-
         "poudriere_ports_default": {
             "cmd.run": [
                 {"name": "poudriere ports -c -m git+https -B main"},
