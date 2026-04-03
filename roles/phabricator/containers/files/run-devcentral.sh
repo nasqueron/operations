@@ -5,7 +5,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Description:    Phabricator instance for Nasqueron
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #   Image:          nasqueron/phabricator
 #   Source file:    roles/phabricator/containers/files/run-devcentral.sh
 #   -------------------------------------------------------------

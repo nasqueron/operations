@@ -5,7 +5,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Description:    Wrapper to run Arcanist as a Docker container
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #                   If copyright eligible, BSD-2-Clause
 #   Image:          nasqueron/arcanist
 #   Source file:    roles/paas-docker/devel/files/arc.sh

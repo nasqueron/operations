@@ -4,7 +4,7 @@
 #   Nasqueron Docs
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #   Source file:    roles/webserver-content/org/nasqueron/files/deploy-docker-registry-api-doc.sh
 #   -------------------------------------------------------------
 #

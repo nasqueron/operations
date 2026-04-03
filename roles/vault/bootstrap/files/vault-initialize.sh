@@ -3,7 +3,7 @@
 #   Vault initialize script
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #   Description:    Recreate the engines and configure them.
 #
 #                   Should be run only once for the cluster

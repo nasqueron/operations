@@ -4,7 +4,7 @@
     Nasqueron mail services
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Project:        Nasqueron
-    License:        Trivial work, not eligible to copyright
+    License:        BSD-2-Clause
     Source file:    roles/mailserver/dkim/files/bin/get-dkim-dns-entry.php
     -------------------------------------------------------------
 

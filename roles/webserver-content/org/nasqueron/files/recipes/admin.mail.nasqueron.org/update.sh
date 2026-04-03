@@ -4,7 +4,7 @@
 #   Nasqueron PaaS :: Alkane :: Recipe for deployment
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #   Source file:    roles/webserver-content/org/nasqueron/files/recipes/admin.mail.nasqueron.org/update.sh
 #   Action:         update
 #   -------------------------------------------------------------

@@ -4,7 +4,7 @@
 #   Staging :: write a commit message for submodule update
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #
 #   Thanks to joki for the git diff-files and ls-tree hint
 #   https://stackoverflow.com/a/52908906/1930997

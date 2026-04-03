@@ -3,7 +3,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   Realm:          {{ realm }}
-#   License:        Trivial work, not eligible to copyright
+#   License:        BSD-2-Clause
 #   Source file:    roles/paas-docker/containers/files/sentry/etc/sentry.conf.py
 #   -------------------------------------------------------------
 #
