@@ -1,5 +1,7 @@
 # To regenerate the list of scripts in a folder, try `make list` from rVIPER.
 
+_viperserv_ip: &viperserv_ip 2001:bc8:2e84:700:0:dead:c0de:b07
+
 viperserv_accounts:
   viperserv:
     fullname: ViperServ
@@ -12,6 +14,7 @@ viperserv_accounts:
 viperserv_bots:
   Daeghrefn:
     realname: https://daeghrefn.nasqueron.org
+    ip: *viperserv_ip
     listen:
       users: 18000
       bots: 19000
@@ -37,6 +40,7 @@ viperserv_bots:
 
   Wearg:
     realname: RabbitMQ broker client
+    ip: *viperserv_ip
     listen:
       users: 18010
       bots: 19010
@@ -62,5 +66,6 @@ viperserv_bots:
   # For tests and QA
   Aeschere:
     realname: Æschere
+    ip: *viperserv_ip
     scripts: {}
     ensure_is_live: off
