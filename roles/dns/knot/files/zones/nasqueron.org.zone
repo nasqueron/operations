@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2026041601 ;serial
+    2026041801 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
@@ -248,6 +248,7 @@ wiki-old.nasqueron.org. 86400 IN CNAME www1.nasqueron.org.
 wiki.nasqueron.org. 86400 IN CNAME www1.nasqueron.org.
 wikis.nasqueron.org. 86400 IN CNAME www-alkane.nasqueron.org.
 windriver.nasqueron.org. 86400 IN A 195.154.30.15
+windriver.nasqueron.org. 86400 IN AAAAA 2001:bc8:2e84:700::da7a:7001
 windriver.nasqueron.org. 86400 IN SSHFP 1 1 e2c95894cf8e7d4bb4510c7df9f3c1c45effb003
 windriver.nasqueron.org. 86400 IN SSHFP 1 2 (
     ed639cf053997617957f57d647706712662dad5c002a050c6f925d18f8703572
