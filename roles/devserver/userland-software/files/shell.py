@@ -4,7 +4,6 @@
 #   Operations utilities
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Author:         Sébastien Santoro aka Dereckson
 #   License:        BSD-2-Clause
 #   Source file:    roles/devserver/userland-software/files/shell.sh
 #   -------------------------------------------------------------

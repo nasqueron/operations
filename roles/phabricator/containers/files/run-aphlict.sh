@@ -3,7 +3,6 @@
 #   -------------------------------------------------------------
 #   Phabricator — Aphlict notifications server
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
 #   Description:    Node application to get real time notifications
 #                   through websockets for Phabricator instances.

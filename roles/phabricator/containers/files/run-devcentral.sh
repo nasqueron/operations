@@ -3,7 +3,6 @@
 #   -------------------------------------------------------------
 #   Phabricator — Nasqueron instance
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
 #   Description:    Phabricator instance for Nasqueron
 #   License:        Trivial work, not eligible to copyright

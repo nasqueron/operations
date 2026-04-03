@@ -3,7 +3,6 @@
 #   -------------------------------------------------------------
 #   Phabricator — Arcanist Docker container wrapper
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Author:         Sébastien Santoro aka Dereckson
 #   Project:        Nasqueron
 #   Description:    Wrapper to run Arcanist as a Docker container
 #   License:        Trivial work, not eligible to copyright

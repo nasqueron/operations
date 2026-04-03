@@ -4,7 +4,6 @@
 #   Clean alternative to who
 #   Prints the usernames of connected users by alphabetical order
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#   Author:         Sébastien Santoro aka Dereckson
 #   Licence:        Trivial work, not eligible to copyright
 #   Source file:    roles/shellserver/user-session/files/whom.sh
 #   -------------------------------------------------------------
