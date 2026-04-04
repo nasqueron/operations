@@ -1,14 +1,13 @@
 
              )__________       hervil.nasqueron.drake
-            .'.         `.     IP: {{ ipv4_address.ljust(16) }}  OS: {{ os_info }}
+            .'.         `.     IP: {{ ipv4.ljust(16) }}  OS: {{ os_info }}
             | |  Hervil  |
             |_|__________|
               |  |    __..--   This server hosts Mail for Nasqueron projects.
-            __|  |--""     
+            __|  |--""
   __..---"""  |  |
  |\           |  |      www
  | \          |  |.     )_(
  \  \    \|/  |  |.     \|/
   \  \        |__\|/.  \\|
    \  \ jro+jgs                _\V/_
-

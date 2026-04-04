@@ -1,7 +1,7 @@
 
     router-002                ______
-                              \     \          
-    A Nasqueron infra-         \     \           IP: {{ ipv4_address }}
+                              \     \
+    A Nasqueron infra-         \     \           IP: {{ ipv4 }}
     structure server.           \     \_         GW: {{ ipv4_gateway }}
                                 _\      \
     Drake network router        \        \

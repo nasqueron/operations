@@ -16,7 +16,7 @@
  Please use dev servers for any other use.               ' !o!':\  \\        \
                                                           ( ('|  \  `._______/
  {{ os_info.ljust(16) }}             ////\\\,,\///,,,,\,/oO._*  o !*!'`  `.________/
- IP: {{ ipv4_address.ljust(16) }}           ---- -- ------- - -oO*OoOo (o''|           /
+ IP: {{ ipv4.ljust(16) }}           ---- -- ------- - -oO*OoOo (o''|           /
  GW: {{ ipv4_gateway.ljust(16) }}             --------  ------ 'oO*OoO!*|'o!!          \
                               -------  -- - ---- --* oO*OoO *!'| '         /
  “Flow the secrets, the code   ---  -   -----  ---- - oO*OoO!!':o!'       /

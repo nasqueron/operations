@@ -14,7 +14,8 @@ motd:
     - source: salt://roles/core/motd/files/{{ grains['id'] }}
     - template: jinja
     - context:
-        ipv4_address: {{ network['ipv4_address'] }}
+        ipv4: {{ network['ipv4_address'] }}
+        private_ipv4: {{ network['private_ipv4_address'] }}
         ipv4_gateway: {{ network['ipv4_gateway'] }}
         os_info: {{ grains["osfinger"].replace("-", " ") }}
 
