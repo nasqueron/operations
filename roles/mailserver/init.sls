@@ -13,3 +13,4 @@ include:
 
   # Depends on all software installed
   - .coordination
+  - .monitoring
