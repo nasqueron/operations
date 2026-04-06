@@ -13,6 +13,8 @@ API_DIR=/var/wwwroot/$(HOST_DOMAIN)/$(HOST_NAME)/datasources/infra
 RM=rm -f
 MKDIR=mkdir -p
 MV=mv
+SALT=salt
+TF=terraform
 
 #   -------------------------------------------------------------
 #   Main targets
@@ -51,3 +53,13 @@ $(API_DIR)/all-states.json:
 
 clean-api:
 	${RM} ${API_DIR}/all-states.json
+
+#   -------------------------------------------------------------
+#   Deployment targets
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+deploy-secrets:
+	(cd terraform/openbao && ${TF} init && ${TF} apply)
+	${SALT} windriver state.sls_id /usr/local/etc/secrets/rhyne-wyse.yaml roles/reports/rhyne-wyse/config
+	${SALT} windriver state.sls_id /srv/viperserv/.credentials roles/viperserv/eggdrop/config
+	${SALT} -G 'roles:router' state.sls_id /usr/local/etc/secrets/carp-secretsmith.yaml roles/router/carp
