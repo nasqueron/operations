@@ -269,7 +269,6 @@ nodes:
           ipv4:
             address: 172.27.27.11
             netmask: 255.255.255.224
-            gateway: 172.27.27.1
 
         public:
           device: vmx1
@@ -303,7 +302,6 @@ nodes:
           ipv4:
             address: 172.27.27.12
             netmask: 255.255.255.224
-            gateway: 172.27.27.1
 
         public:
           device: vmx1
