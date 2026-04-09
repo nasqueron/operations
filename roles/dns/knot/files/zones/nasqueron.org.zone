@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2026022301 ;serial
+    2026041501 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
@@ -301,17 +301,34 @@ ysul.nasqueron.org. 86400 IN SSHFP 4 2 (
 )
 _acme-challenge.admin.mail.nasqueron.org. 172800 IN CNAME 8126d33d-0579-40e8-ae45-dbf92e5710b2.acme.nasqueron.org.
 _acme-challenge.airflow.nasqueron.org. 300 IN CNAME 878f672a-53b7-4043-9425-a38589014e80.acme.nasqueron.org.
+_acme-challenge.agora.nasqueron.org CNAME c2b260a4-ca54-479d-b0c1-1dcab26907db.acme.nasqueron.org.
+_acme-challenge.assets.nasqueron.org CNAME 4610ca7d-631c-4bd0-be75-fe216acda0bb.acme.nasqueron.org.
 _acme-challenge.api.nasqueron.org. 172800 IN CNAME d3ff0494-80b1-49ae-9cba-dffb1a3be70c.acme.nasqueron.org.
+_acme-challenge.api.nasqueron.org CNAME 681c1a31-4be7-401c-97ca-f32d07767984.acme.nasqueron.org.
+_acme-challenge.autoconfig.nasqueron.org CNAME 95e90bfd-bcf9-4123-b53c-8f9d713ab168.acme.nasqueron.org.
 _acme-challenge.conference.nasqueron.org. 86400 IN CNAME 8555b4ff-b920-43d9-8f33-35e8dcb19729.acme.nasqueron.org.
 _acme-challenge.corspat.nasqueron.org. 300 IN CNAME 4c468b23-7fc6-4ae4-bbfd-723ae9651fd8.acme.nasqueron.org.
+_acme-challenge.daeghrefn.nasqueron.org CNAME 92ba1e24-ef71-4cff-82d5-ff9ce5c8e056.acme.nasqueron.org.
 _acme-challenge.docker-001.nasqueron.org. 86400 IN CNAME 46e2573d-ba6a-4832-b84a-0a4d9c3fce0a.acme.nasqueron.org.
+_acme-challenge.docker.nasqueron.org CNAME 0c90ca11-c9b0-42a4-b6b4-863ecb7422a5.acme.nasqueron.org.
+_acme-challenge.docs.nasqueron.org CNAME c288b651-2cfe-4e7f-b879-9d2af801838d.acme.nasqueron.org.
 _acme-challenge.dreadnought.nasqueron.org. 86400 IN CNAME e5a2f96b-e064-4944-a276-ad97103fc5f0.acme.nasqueron.org.
+_acme-challenge.ftp.nasqueron.org CNAME c1f19f68-5516-49fc-a204-0620122d0028.acme.nasqueron.org.
+_acme-challenge.infra.nasqueron.org CNAME 6349ffe1-3455-497c-9b25-da8059896654.acme.nasqueron.org.
 _acme-challenge.grafana.nasqueron.org. 172800 IN CNAME dadedc45-b036-4e16-825b-486ad9ef2862.acme.nasqueron.org.
 _acme-challenge.hervil.nasqueron.org. 172800 IN CNAME 6cd3e3b6-3908-4329-8f5a-7f530a219994.acme.nasqueron.org.
+_acme-challenge.join.nasqueron.org CNAME 360f8260-16e5-4ada-b20c-ca5bfcf1d684.acme.nasqueron.org.
+_acme-challenge.labs.nasqueron.org CNAME e07055ca-8c21-4ba1-954d-360dad4459fa.acme.nasqueron.org.
+_acme-challenge.launch.nasqueron.org CNAME 6cea09f4-987d-4e69-9b1f-522a53b25b17.acme.nasqueron.org.
 _acme-challenge.mail.nasqueron.org. 172800 IN CNAME 0e9567a5-f550-4707-b30f-557b2cc5b42d.acme.nasqueron.org.
 _acme-challenge.nasqueron.org. 86400 IN CNAME 0b972332-3e85-4949-98cb-a02eb3a11d80.acme.nasqueron.org.
+_acme-challenge.packages.nasqueron.org CNAME f977c866-22b2-423d-b4bf-a37bc972482f.acme.nasqueron.org.
 _acme-challenge.packages.nasqueron.org. 172800 IN CNAME 82f672a3-f626-45e8-95c0-525f2288cdcb.acme.nasqueron.org.
+_acme-challenge.rain.nasqueron.org CNAME 14045eb1-c8f1-4dda-8714-2b1af9d0bb4d.acme.nasqueron.org.
 _acme-challenge.tools.nasqueron.org. 172800 IN CNAME 2a37c286-deed-4a19-b265-89f605717695.acme.nasqueron.org.
+_acme-challenge.trustspace.nasqueron.org CNAME ef93db04-3196-43ae-b028-7263f1761e0a.acme.nasqueron.org.
+_acme-challenge.wikis.nasqueron.org CNAME fe38d9e8-9b19-4500-962f-cef2793746d1.acme.nasqueron.org.
+_acme-challenge.www.nasqueron.org CNAME d6f55ed8-9739-4c1d-8b31-e02a59271bcc.acme.nasqueron.org.
 _acme-challenge.xmpp.nasqueron.org. 86400 IN CNAME 2a578a3d-ea6e-46fb-ba23-f5beba469df4.acme.nasqueron.org.
 _github-challenge-nasqueron.www.nasqueron.org. 86400 IN TXT 08799d586f
 _https._tcp.packages.nasqueron.org. 300 IN SRV 10 10 443 www-dev.nasqueron.org.
