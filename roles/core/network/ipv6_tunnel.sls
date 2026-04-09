@@ -24,7 +24,7 @@ network_ipv6:
 /etc/systemd/system/ipv6-tunnel.service:
   file.managed:
     - source: salt://roles/core/network/files/ipv6-tunnels/ipv6-tunnel.service
-    - mode: 755
+    - mode: 644
   service.running:
     - name: ipv6-tunnel
     - enable: true
