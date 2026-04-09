@@ -46,7 +46,7 @@ base:
   'docker-002':
     - roles/paas-docker
   'dwellers':
-    - roles/paas-docker/docker
+    - roles/paas-docker
     - roles/paas-lxc/lxc
     - roles/saas-airflow
   'eglide':
