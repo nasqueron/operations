@@ -9,6 +9,11 @@
 #   MySQL (MariaDB)
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+x-mariadb-encodings:
+  unicode: &unicode
+    encoding: utf8mb4
+    collation: utf8mb4_uca1400_as_ci
+
 dbserver_mysql:
 
   server:
@@ -16,11 +21,24 @@ dbserver_mysql:
       # Account used by Salt to configure the server
       credentials: dbserver/windriver-mariadb/users/salt
 
-  # As of 2024-09, users and databases are managed manually.
+  # As of 2026-04, users and databases are mostly managed manually.
   # You're more than welcome to automate any user/db deployment here.
   # cluster-B.sls can be helpful for syntax hints
-  users: {}
-  databases: {}
+  users:
+
+    ###
+    ### Zed / HyperShip
+    ###
+
+    zed:
+      password: dbserver/windriver-mariadb/users/zed
+      host: localhost
+      privileges:
+        - database: zed
+          scope: database
+
+  databases:
+    zed: *unicode
 
 #   -------------------------------------------------------------
 #   PostgreSQL
