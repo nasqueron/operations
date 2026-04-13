@@ -43,6 +43,12 @@ wwwroot51_directories:
     repository: git@bitbucket.org:ewosp/www.espace-win.org.git
     identity: deploy-key-bitbucket-espacewin-www
 
+  keruald:
+    user: dereckson
+    group: dereckson
+    repository: ssh://vcs@devcentral.nasqueron.org:5022/source/keruald.git
+    identity: alken-orin
+
   mediawiki-dereckson:
     user: dereckson
     group: dereckson
