@@ -21,7 +21,7 @@
 
 {% set salt_credential = salt["pillar.get"]("dbserver_mysql:server:salt:credentials") %}
 
-{{ dirs.etc }}/salt/minion.d/mysql:
+{{ dirs.etc }}/salt/minion.d/mysql.conf:
   file.managed:
     - source: salt://roles/dbserver-mysql/salt/files/mysql.conf
     - user: root
