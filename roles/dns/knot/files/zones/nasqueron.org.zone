@@ -14,7 +14,7 @@
 ;   </auto-generated>
 
 @ 172800 IN SOA {{ identity }}. ops-dns.nasqueron.org. (
-    2026041501 ;serial
+    2026041502 ;serial
     10800      ;refresh
     1800       ;retry
     604800     ;expire
