@@ -18,8 +18,8 @@ devserver_software_documentation:
 
 /opt/plantuml.jar:
   file.managed:
-    - source: https://github.com/plantuml/plantuml/releases/download/v1.2022.3/plantuml-1.2022.3.jar
-    - source_hash: cb92c5ca56321911f174ac49c7e6dbfda57cf0b27bca684fda69ecb979803465
+    - source: https://github.com/plantuml/plantuml/releases/download/v1.2026.2/plantuml-1.2026.2.jar
+    - source_hash: 3cdce52133c424dea22425b947ae9d47f2167b0866dfcf99e714d4ea1689975c
     - mode: 644
 
 {{ dirs.bin }}/plantuml:
@@ -33,8 +33,8 @@ devserver_software_documentation:
 
 /opt/phpDocumentor.phar:
   file.managed:
-    - source: https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.3.1/phpDocumentor.phar
-    - source_hash: 4a93d278fd4581f17760903134d85fcde3d40d93f739c8c648f3ed02c9c3e7bb
+    - source: https://github.com/phpDocumentor/phpDocumentor/releases/download/v3.9.1/phpDocumentor.phar
+    - source_hash: ef5509af790c8e56d11fff8162f12c7c19473b9af6e79b0fb9a62aff26da2ea5
     - mode: 755
 
 {{ dirs.bin }}/phpdoc:
@@ -45,8 +45,8 @@ devserver_software_documentation:
 
 /opt/doctum.phar:
  file.managed:
-    - source: https://github.com/code-lts/doctum/releases/download/v5.5.1/doctum.phar
-    - source_hash: https://github.com/code-lts/doctum/releases/download/v5.5.1/doctum.phar.sha256
+    - source: https://github.com/code-lts/doctum/releases/download/v5.6.0/doctum.phar
+    - source_hash: https://github.com/code-lts/doctum/releases/download/v5.6.0/doctum.phar.sha256
     - mode: 755
 
 {{ dirs.bin }}/doctum:
