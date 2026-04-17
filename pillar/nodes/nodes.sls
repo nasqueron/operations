@@ -359,8 +359,7 @@ nodes:
       - devserver
       - dbserver-mysql
       - webserver-legacy
-    zfs:
-      pool: arcology
+
     network:
       ipv6_tunnel: True
       ipv6_gateway: 2001:470:1f12:9e1::1
