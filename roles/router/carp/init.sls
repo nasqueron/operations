@@ -40,3 +40,9 @@ carp_switch_dependencies:
         vault:
           approle: {{ salt["credentials.read_secret"]("network/router/vault") }}
           addr: {{ pillar["nasqueron_services"]["vault_url"] }}
+
+/usr/local/etc/devd/carp.conf:
+  file.managed:
+    - source: salt://roles/router/carp/files/carp-devd.conf
+    - makedirs: True
+    - mode: 644
