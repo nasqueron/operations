@@ -46,3 +46,24 @@ carp_switch_dependencies:
     - source: salt://roles/router/carp/files/carp-devd.conf
     - makedirs: True
     - mode: 644
+
+/usr/local/etc/syslog.d/carp.conf:
+  file.managed:
+    - source: salt://roles/router/carp/files/syslog.conf
+    - makedirs: True
+    - mode: 644
+
+/etc/newsyslog.conf.d/carp.conf:
+  file.managed:
+    - source: salt://roles/router/carp/files/newsyslog.conf
+    - mode: 644
+
+/etc/syslog.conf:
+  file.replace:
+    - pattern: '^\*\.notice;authpriv\.none;kern\.debug;lpr\.info;mail\.crit;news\.err\s+/var/log/messages$'
+    - repl: '!-carp-ovh\n*.notice;authpriv.none;kern.debug;lpr.info;mail.crit;news.err    /var/log/messages\n!*'
+    - flags:
+      - MULTILINE
+    - count: 1
+    - backup: False
+    - unless: grep -Fqx '!-carp-ovh' /etc/syslog.conf
