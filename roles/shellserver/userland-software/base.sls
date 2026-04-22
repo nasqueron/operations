@@ -7,9 +7,6 @@
 
 {% from "map.jinja" import dirs, packages, packages_prefixes with context %}
 
-/opt:
-  file.directory
-
 #   -------------------------------------------------------------
 #   Editors
 #

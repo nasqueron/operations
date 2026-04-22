@@ -8,6 +8,9 @@
 
 {% from "map.jinja" import dirs, packages with context %}
 
+/opt:
+  file.directory
+
 #   -------------------------------------------------------------
 #   Shells
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
