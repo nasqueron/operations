@@ -1,6 +1,7 @@
 dns_zones:
   - testdom2.ook.space
   - nasqueron.org
+  - wolfplex.be
 
 dns_identity: ns1.nasqueron.org
 
