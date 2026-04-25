@@ -57,6 +57,7 @@ base:
 
   ysul:
     - devserver.repos
+    - devserver.ports
     - saas.mediawiki
     - webserver.labs
     - webserver.wwwroot51
