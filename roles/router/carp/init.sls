@@ -66,4 +66,4 @@ carp_switch_dependencies:
       - MULTILINE
     - count: 1
     - backup: False
-    - unless: grep -Fqx '!-carp-ovh' /etc/syslog.conf
+    - unless: grep -Eq '^!-(carp-ovh|carp-ovh,gre-tunnels|gre-tunnels,carp-ovh)$' /etc/syslog.conf

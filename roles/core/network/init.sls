@@ -12,6 +12,7 @@ include:
   - .ipv6_fixes
   - .dhclient6
   - .gre
+  - .gre_logging
   - .routes
 
 # Drake can be configured as:
