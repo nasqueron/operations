@@ -1,0 +1,13 @@
+certificates:
+  - foo.domain.tld
+  - bar.domain.tld
+  - quux.domain.tld
+
+certificates_default_options:
+  reload: nginx -s reload
+
+certificates_options:
+  bar.domain.tld:
+    shared_group: baz
+  quux.domain.tld:
+    reload: propagate-quux-certificate

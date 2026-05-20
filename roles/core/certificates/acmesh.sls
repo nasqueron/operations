@@ -8,7 +8,7 @@
 {% from "map.jinja" import dirs with context %}
 
 {% set certificates = pillar.get("certificates", []) %}
-{% set certificates_options = pillar.get("certificates_options", {}) %}
+{% set certificates_options = salt["certificates.get_certificates_options"]() %}
 
 #   -------------------------------------------------------------
 #   Software
