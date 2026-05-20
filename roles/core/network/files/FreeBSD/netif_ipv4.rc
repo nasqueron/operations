@@ -14,6 +14,6 @@
 #   </auto-generated>
 
 ifconfig_{{ interface.device }}="inet {{ interface.ipv4.address }} netmask {{ interface.ipv4.netmask }}"
-{%- for ip in interface.get("ipv4.aliases", []) %}
+{%- for ip in interface.ipv4.get("aliases", []) %}
 ifconfig_{{ interface.device }}_alias{{ loop.index0 }}="inet {{ ip }} netmask 255.255.255.255"
 {% endfor -%}
