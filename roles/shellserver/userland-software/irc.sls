@@ -5,7 +5,7 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-{% from "map.jinja" import dirs, packages with context %}
+{% from "map.jinja" import dirs, services, packages with context %}
 
 #   -------------------------------------------------------------
 #   IRC clients
