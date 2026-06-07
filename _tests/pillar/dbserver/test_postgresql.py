@@ -14,7 +14,6 @@ from unittest_data_provider import data_provider
 
 from helpers import load_pillars
 
-
 #   -------------------------------------------------------------
 #   Connection keys
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -3,7 +3,6 @@
 import unittest
 import yaml
 
-
 PILLAR_FILE = "../pillar/core/users.sls"
 
 USER_PROPERTIES_MANDATORY = set(

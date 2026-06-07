@@ -13,7 +13,6 @@ from glob import glob
 import os
 import sys
 
-
 #   -------------------------------------------------------------
 #   Create clang-format alias
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

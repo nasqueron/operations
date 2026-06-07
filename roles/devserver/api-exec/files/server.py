@@ -24,7 +24,6 @@ import sys
 from flask import Flask, Response, abort
 import yaml
 
-
 #   -------------------------------------------------------------
 #   Parse configuration
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

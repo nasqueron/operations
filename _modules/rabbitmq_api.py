@@ -18,7 +18,6 @@ import secrets
 import requests
 from requests.auth import HTTPBasicAuth
 
-
 log = logging.getLogger(__name__)
 
 

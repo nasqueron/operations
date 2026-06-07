@@ -13,7 +13,6 @@ import hvac
 import requests
 import yaml
 
-
 VAULT_CERTIFICATE = "/usr/local/share/certs/nasqueron-vault-ca.crt"
 
 ORG = "nasqueron"

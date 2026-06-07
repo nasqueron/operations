@@ -13,7 +13,6 @@ from salt.exceptions import CommandExecutionError, SaltCloudConfigError
 from salt._compat import ipaddress
 from collections import OrderedDict
 
-
 DEPLOY_ROLES = [
     "devserver",
     "salt-primary",

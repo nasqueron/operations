@@ -9,7 +9,6 @@
 
 import yaml
 
-
 USERS_DATASOURCE = "pillar/core/users.sls"
 USERS_DATASOURCE_KEY = "shellusers"
 USERS_CUT = 5000

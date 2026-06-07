@@ -22,7 +22,6 @@ import re
 import subprocess
 import time
 
-
 CCACHE_DATE_FORMAT = "%a %b %d %H:%M:%S %Y"
 PREFIX = "ccache"
 
@@ -39,7 +38,7 @@ def format_metric(key, value, prefix):
         if not key.endswith("_info"):
             metric_key += "_info"
 
-        metric_key += "{path=\"" + value + "\"}"
+        metric_key += '{path="' + value + '"}'
         type = "info"
         value = 1
     elif key.endswith("_rate") or key.endswith("_size") or key == "files_in_cache":

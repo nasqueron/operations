@@ -5,7 +5,6 @@ import unittest
 import salt_test_case
 import nano
 
-
 DATA_DIR = "data/nanorc_dir"
 EXPECTED_INCLUDES = [
     "include data/nanorc_dir/bar.nanorc",

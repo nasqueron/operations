@@ -20,7 +20,6 @@ import json
 import subprocess
 import sys
 
-
 CONTAINER_DELIMITERS = [":"]
 
 

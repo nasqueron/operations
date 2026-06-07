@@ -23,7 +23,6 @@ import subprocess
 import sys
 import yaml
 
-
 #   -------------------------------------------------------------
 #   Configuration file locator
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -4,7 +4,6 @@
 import json
 import sys
 
-
 POLL_TIME = 3600000
 
 

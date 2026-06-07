@@ -6,7 +6,6 @@ import unittest
 
 from helpers import import_from_path
 
-
 script_path = "roles/core/certificates/files/certbot/acme-dns/edit-acme-dns-accounts.py"
 script = import_from_path("script", script_path)
 

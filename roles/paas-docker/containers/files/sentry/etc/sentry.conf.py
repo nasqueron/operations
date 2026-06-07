@@ -19,7 +19,6 @@ import hvac
 
 from sentry.conf.server import *  # NOQA
 
-
 #   -------------------------------------------------------------
 #   Helper methods
 #

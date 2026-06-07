@@ -18,7 +18,6 @@
 
 import subprocess
 
-
 PS_COLUMN_PID = 0
 PS_COLUMN_TIME = 3
 PS_COLUMN_COMMAND = 4

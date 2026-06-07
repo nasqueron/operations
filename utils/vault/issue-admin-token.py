@@ -13,7 +13,6 @@ import hvac
 import yaml
 import sys
 
-
 VAULT_TLS_CERTIFICATE_PATH = "/usr/local/share/certs/nasqueron-root-ca.crt"
 
 

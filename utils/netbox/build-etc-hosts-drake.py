@@ -16,7 +16,6 @@ import os
 import pynetbox
 import yaml
 
-
 VRF_RD_DRAKE = "nasqueron.drake"
 
 

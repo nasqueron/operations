@@ -15,7 +15,6 @@ import sys
 
 import yaml
 
-
 ROOT_TEMPLATE_DIR = "_resources/templates"
 
 

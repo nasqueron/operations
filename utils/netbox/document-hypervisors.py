@@ -20,7 +20,6 @@ import pynetbox
 import subprocess
 import yaml
 
-
 TAG_VMWARE = "VMWare ESXi"
 
 

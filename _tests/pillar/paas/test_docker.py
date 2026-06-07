@@ -5,7 +5,6 @@ import os
 import unittest
 import yaml
 
-
 PILLAR_PATH = "../pillar/paas/docker/"
 
 

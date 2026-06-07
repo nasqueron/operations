@@ -4,7 +4,6 @@ import unittest
 
 from helpers import import_from_path
 
-
 script_path = "roles/paas-docker/containers/files/mastodon/clear-video-queue.py"
 script = import_from_path("script", script_path)
 

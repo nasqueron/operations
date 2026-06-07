@@ -14,7 +14,6 @@ import distutils.spawn
 import lddcollect
 import sys
 
-
 #   -------------------------------------------------------------
 #   Dependencies
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

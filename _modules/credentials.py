@@ -14,7 +14,6 @@ import os
 
 from salt.utils.files import fopen
 
-
 VAULT_PREFIX = "ops/secrets/"
 
 
