@@ -132,11 +132,12 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGV4p25jLQQHLgKH1SawoNLKuxkfyHuERRDUN9QZ7i5m yakin.dereckson.drake
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEVY2Oeppn//0Jm4W3ejLDe+D/+4FMFZR9rzeVrnFkPE yakin.dereckson.drake
 
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICeCWiov3TpAccZTYpez+ZPxsg3+ZZMzTOE3ZvjUCdWl voxbone-laptop-20240416
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAhXyFekC8WTIn6qjguB813I79aJ6uLpu47Z8vX22ipc yggdrasil-20220419
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiur001u1XJkkKg6zBcjLttySPWSaZHDnJSKZuB8qh0 yggdrasil-20251201
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMfnieEOHNJ4a5blp8NN+O2xpK6IgyNf19dhng6H0Wxx dereckson@bluedrake
+
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMpw4f6Peh4arR8ZoWA/NHhqFW0w89aOVnzF161BAS8 work-laptop-20260701
     yubico_keys:
       - ccccccbjncrt
     devserver_tasks:
