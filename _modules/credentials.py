@@ -147,9 +147,11 @@ def get_duid_credentials():
 
 
 def _get_duid_interfaces(node):
+    interfaces = __pillar__["nodes"][node]["network"]["interfaces"]
+
     return {
-        key: interface
-        for key, interface in __pillar__["nodes"][node]["network"]["interfaces"].items()
+        interface["device"]: interface
+        for _key, interface in interfaces.items()
         if _is_duid_interface(interface)
     }
 
