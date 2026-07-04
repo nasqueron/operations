@@ -24,7 +24,7 @@ def is_valid_netmask(netmask):
     #   - ends by contiguous 0,   e.g. here 0000
     #
     # Also, as 0.0.0.0 is invalid, the netmask must start by 1.
-    return re.compile("^1+0*$").match(bits) is not None
+    return re.compile(r"^1+0*$").match(bits) is not None
 
 
 def netmask_to_cidr_prefix(netmask):

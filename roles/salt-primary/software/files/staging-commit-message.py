@@ -43,7 +43,7 @@ class SubmoduleCommit:
             cwd=self.repo_path,
             encoding="utf-8",
         )
-        matches = re.search(".*commit ([a-f0-9]*).*", output.strip())
+        matches = re.search(r".*commit ([a-f0-9]*).*", output.strip())
         return matches.group(1)
 
     def get_new_hash(self):

@@ -132,7 +132,7 @@ class ServerConnection:
     def parse_variable_fragment(self, variable):
         # {{%s-|bash}} means %s-, with bash as default value if we don't
         # have any more argument to substitute
-        matches = re.search("(.*)\|(.*)", variable)
+        matches = re.search(r"(.*)\|(.*)", variable)
         if matches:
             if not self.args:
                 return [matches.group(2)]
@@ -152,7 +152,7 @@ class ServerConnection:
 
     def parse_fragment(self, fragment):
         # If the fragment is {{something}}, this is a variable to substitute.
-        matches = re.search("{{(.*)}}", fragment)
+        matches = re.search(r"{{(.*)}}", fragment)
         if matches:
             return self.parse_variable_fragment(matches.group(1))
 
