@@ -11,6 +11,37 @@
 {% set databases = salt["pillar.get"]("dbserver_postgresql:databases", {}) %}
 
 #   -------------------------------------------------------------
+#   Data directory
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% set zfs_tank = salt["node.get"]("zfs:pool") %}
+{% set version = salt["pillar.get"]("dbserver_postgresql:server:version") %}
+{% set data_dir = "data" ~ version %}
+
+postgresql_data_zfs_dataset:
+  zfs.filesystem_present:
+    - name: {{ zfs_tank }}/postgresql/{{ data_dir }}
+    - properties:
+        mountpoint: /var/db/postgres/{{ data_dir }}
+        compression: lz4
+        atime: off
+        recordsize: "8K"
+
+postgresql_data_permissions:
+  file.directory:
+    - name: /var/db/postgres/{{ data_dir }}
+    - user: postgres
+    - group: postgres
+    - mode: 700
+    - require:
+      - zfs: postgresql_data_zfs_dataset
+
+/var/db/postgres/data:
+  file.symlink:
+    - target: {{ data_dir }}
+    - group: postgres
+
+#   -------------------------------------------------------------
 #   Users
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

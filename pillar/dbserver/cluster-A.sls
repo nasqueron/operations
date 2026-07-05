@@ -2,6 +2,7 @@ dbserver_postgresql:
 
   server:
     cluster: A
+    version: 15
 
     # Fantoir database needs the pg_trgm extension
     with_contrib: True

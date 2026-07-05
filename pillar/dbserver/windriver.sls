@@ -48,6 +48,7 @@ dbserver_postgresql:
 
   server:
     cluster: windriver
+    version: 18
 
     # Fantoir database needs the pg_trgm extension
     with_contrib: True
