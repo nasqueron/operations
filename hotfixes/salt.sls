@@ -6,6 +6,16 @@
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
+#   T2332 :: Python 3.11 / Salt 3006 LTS packages repository
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if grains["os"] == "FreeBSD" %}
+/usr/local/etc/pkg/repos/Salt.conf:
+  file.managed:
+    - source: salt://hotfixes/files/T2332-Salt.conf
+{% endif %}
+
+#   -------------------------------------------------------------
 #   T2026 :: Python 2 completions for zsh
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
