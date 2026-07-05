@@ -40,7 +40,7 @@ load_rc_config $name
 : ${netbox_user:="netbox"}
 : ${netbox_port:="17000"}
 
-procname=/srv/netbox/venv/bin/python3.11
+procname=/srv/netbox/venv/bin/python3
 pidfile=/var/run/netbox/netbox.pid
 netbox_service="/srv/netbox/service.sh"
 command="/usr/sbin/daemon"
