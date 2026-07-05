@@ -62,6 +62,13 @@ apt_update_debian_sources:
     - name: apt update
     - onchanges:
       - file: /etc/apt/sources.list
+
+/etc/apt/preferences.d/salt-pin-1001:
+  file.managed:
+    - source: salt://roles/core/userland-software/files/sources/salt-pin-1001
+    - template: jinja
+    - context:
+        version: {{ pillar["salt_version"] }}
 {% endif %}
 
 #   -------------------------------------------------------------
