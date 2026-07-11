@@ -136,6 +136,7 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiur001u1XJkkKg6zBcjLttySPWSaZHDnJSKZuB8qh0 yggdrasil-20251201
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMfnieEOHNJ4a5blp8NN+O2xpK6IgyNf19dhng6H0Wxx dereckson@bluedrake
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICpiyhmy4t0kttc9PA3tB9TQGCTCNisGy6YP1y2Rr0Yy dereckson@draugh
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMpw4f6Peh4arR8ZoWA/NHhqFW0w89aOVnzF161BAS8 work-laptop-20260701
     yubico_keys:
