@@ -29,5 +29,5 @@
     - template: jinja
     - show_changes: False
     - context:
-        username: {{ salt["credential.get_username"](config["users"]["admin"]) }}
-        password: {{ salt["credential.get_password"](config["users"]["admin"]) }}
+        username: {{ salt["credentials.get_username"](config["users"]["admin"]) }}
+        password: {{ salt["credentials.get_password"](config["users"]["admin"]) }}
