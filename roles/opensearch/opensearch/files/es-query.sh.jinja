@@ -20,4 +20,4 @@ OPENSEARCH_ACCOUNT=$(cat $HOME/.opensearch-account)
 COMMAND=$1
 shift
 
-curl {{ url }}/$COMMAND -u $OPENSEARCH_ACCOUNT -k "$@"
+curl --cacert /opt/opensearch/config/root-ca.pem {{ url }}/$COMMAND -u $OPENSEARCH_ACCOUNT "$@"
