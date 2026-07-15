@@ -22,7 +22,7 @@ AuthorizedKeysFile	.ssh/authorized_keys
 # In this SSH configuration, we can use PAM modules with challenge/response.
 # This allows to use PAM provided capabilities like OTP (Yubikey, OPIE).
 PasswordAuthentication no
-ChallengeResponseAuthentication yes
+KbdInteractiveAuthentication yes
 UsePAM yes
 
 # Misc options

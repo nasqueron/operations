@@ -39,7 +39,7 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 # Nasqueron servers authentication should only occur through SSH keys
 # but PAM can offer extra capabilities if needed like OTP.
 PasswordAuthentication no
-ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
 UsePAM yes
 
 # Once the core role has been applied to a server, ops users have been created
