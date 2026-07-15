@@ -14,7 +14,7 @@
 {{ dirs.etc }}/salt/master.d/pillar-tower.conf:
   file.managed:
     - source: salt://roles/salt-primary/config/files/pillar-tower.conf
-    - file_mode: 644
+    - mode: 644
 
 #   -------------------------------------------------------------
 #   Log
