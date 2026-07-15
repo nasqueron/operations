@@ -239,7 +239,7 @@
 
 {% set capabilities = salt["grains.filter_by"]({
   "Debian": {
-    "MOTD-printed-at-login": True,
+    "MOTD-printed-at-login": False,
   },
   "FreeBSD" : {
     "MOTD-printed-at-login": False,
