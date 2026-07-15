@@ -38,7 +38,7 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # T1194 - Debian offers a nologin pam module avoiding people
-# to log in when /run/nologin exists. OS can pop this file,
+# to log in when /etc/nologin exists. OS can pop this file,
 # for example at shutdown time or when systemd boot hasn't
 # finished.
 
