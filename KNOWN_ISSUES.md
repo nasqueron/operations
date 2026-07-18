@@ -11,6 +11,18 @@ https://devcentral.nasqueron.org/tag/servers/
 This file documents the issues where the Salt states are generally correct
 but where some situations can be troublesome, with the workaround to apply.
 
+## Role: core / unit: certificates
+
+On FreeBSD 15.1, the package py312-certbot will create a conflict between
+py311-acme and py312-acme. That will deinstall Salt.
+
+As a work around:
+  - reinstall py311-salt from Nasqueron-Salt temporary repository
+  - redeploy roles/certificates after removing the state 'letsencrypt_software'
+
+Medium-term solution is to end to migrate all certificates to acme.sh,
+and we'll be able to remove the certbot software.
+
 ## Role: devserver
 
 ### pefs-kmod and FreeBSD major versions upgrade
