@@ -305,4 +305,5 @@ office_software:
     - pkgs:
       - gcal
       - pdftk
+      - {{ packages.poppler }}
       - qpdf
