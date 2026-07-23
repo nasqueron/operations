@@ -92,3 +92,15 @@ path "transit/*" {
 path "transit/keys/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
+
+#   -------------------------------------------------------------
+#   TOTP
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+path "totp/keys/*" {
+  capabilities = ["create", "read", "update", "delete", "list"]
+}
+
+path "totp/code/*" {
+  capabilities = ["read"]
+}
