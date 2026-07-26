@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #   -------------------------------------------------------------
-#   Tmux session reattach helper
+#   tmux session reattach helper
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        Trivial work, not eligible to copyright
