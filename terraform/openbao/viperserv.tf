@@ -12,8 +12,8 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 resource "vault_policy" "viperserv" {
-    name = "viperserv"
-    policy = file("${path.module}/policies/viperserv.hcl")
+  name   = "viperserv"
+  policy = file("${path.module}/policies/viperserv.hcl")
 }
 
 #   -------------------------------------------------------------
@@ -21,20 +21,20 @@ resource "vault_policy" "viperserv" {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 module "viperserv_approle" {
-    source = "./modules/app_credentials"
+  source = "./modules/app_credentials"
 
-    role_name = "viperserv"
-    policies = ["viperserv"]
+  role_name = "viperserv"
+  policies  = ["viperserv"]
 
-    secret_id_bound_cidrs = [
-        # Windriver
-        "172.27.27.35/32"
-    ]
+  secret_id_bound_cidrs = [
+    # Windriver
+    "172.27.27.35/32"
+  ]
 
-    token_ttl = 3600        # 1h
-    token_max_ttl = 14400   # 4h
+  token_ttl     = 3600  # 1h
+  token_max_ttl = 14400 # 4h
 
-    # Save credentials to
-    kv_mount = "ops"
-    kv_path = "secrets/nasqueron/viperserv/vault"
+  # Save credentials to
+  kv_mount = "ops"
+  kv_path  = "secrets/nasqueron/viperserv/vault"
 }

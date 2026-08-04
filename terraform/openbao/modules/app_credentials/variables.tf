@@ -6,40 +6,40 @@
 #   -------------------------------------------------------------
 
 variable "role_name" {
-    description = "Name of the AppRole"
-    type = string
+  description = "Name of the AppRole"
+  type        = string
 }
 
 variable "kv_mount" {
-    description = "Mount path of KV v2 engine where to save the approle credentials"
-    type = string
-    default = "ops"
+  description = "Mount path of KV v2 engine where to save the approle credentials"
+  type        = string
+  default     = "ops"
 }
 
 variable "kv_path" {
-    description = "KV v2 secret path where to save the approle credentials"
-    type = string
+  description = "KV v2 secret path where to save the approle credentials"
+  type        = string
 }
 
 variable "policies" {
-    description = "List of policies attached to this AppRole"
-    type = list(string)
+  description = "List of policies attached to this AppRole"
+  type        = list(string)
 }
 
 variable "secret_id_bound_cidrs" {
-    description = "List of CIDR blocks of IP addresses allowed to login."
-    type = list(string)
-    default = []
+  description = "List of CIDR blocks of IP addresses allowed to login."
+  type        = list(string)
+  default     = []
 }
 
 variable "token_ttl" {
-    description = "Default token TTL for the AppRole"
-    type = number
-    default = 300
+  description = "Default token TTL for the AppRole"
+  type        = number
+  default     = 300
 }
 
 variable "token_max_ttl" {
-    description = "Maximum token TTL for the AppRole in seconds (0 means use system default)"
-    type = number
-    default = 0
+  description = "Maximum token TTL for the AppRole in seconds (0 means use system default)"
+  type        = number
+  default     = 0
 }

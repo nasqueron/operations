@@ -8,12 +8,12 @@ insert_final_newline = true
 charset = utf-8
 
 # 4 space indentation
-[*.{conf,php,py,sh,hcl,tf}]
+[*.{conf,php,py,sh,hcl}]
 indent_style = space
 indent_size = 4
 
 # 2 space indentation
-[*.{sls,jinja,json,yml,yaml}]
+[*.{sls,jinja,json,yml,yaml,tf}]
 indent_style = space
 indent_size = 2
 

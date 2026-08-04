@@ -12,8 +12,8 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 resource "vault_policy" "rhyne_wyse" {
-    name = "rhyne-wyse"
-    policy = file("${path.module}/policies/rhyne-wyse.hcl")
+  name   = "rhyne-wyse"
+  policy = file("${path.module}/policies/rhyne-wyse.hcl")
 }
 
 #   -------------------------------------------------------------
@@ -21,17 +21,17 @@ resource "vault_policy" "rhyne_wyse" {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 module "rhyne_wyse_approle" {
-    source = "./modules/app_credentials"
+  source = "./modules/app_credentials"
 
-    role_name = "rhyne-wyse"
-    policies = ["rhyne-wyse"]
+  role_name = "rhyne-wyse"
+  policies  = ["rhyne-wyse"]
 
-    secret_id_bound_cidrs = [
-        # Windriver
-        "172.27.27.35/32"
-    ]
+  secret_id_bound_cidrs = [
+    # Windriver
+    "172.27.27.35/32"
+  ]
 
-    # Save credentials to
-    kv_mount = "ops"
-    kv_path = "secrets/nasqueron/rhyne-wyse/vault"
+  # Save credentials to
+  kv_mount = "ops"
+  kv_path  = "secrets/nasqueron/rhyne-wyse/vault"
 }

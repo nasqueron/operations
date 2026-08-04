@@ -12,8 +12,8 @@
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 resource "vault_policy" "router" {
-    name = "router"
-    policy = file("${path.module}/policies/router.hcl")
+  name   = "router"
+  policy = file("${path.module}/policies/router.hcl")
 }
 
 #   -------------------------------------------------------------
@@ -21,17 +21,17 @@ resource "vault_policy" "router" {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 module "router_approle" {
-    source = "./modules/app_credentials"
+  source = "./modules/app_credentials"
 
-    role_name = "router"
-    policies = ["router"]
+  role_name = "router"
+  policies  = ["router"]
 
-    secret_id_bound_cidrs = [
-        "172.27.27.11/32", # router-002
-        "172.27.27.12/32", # router-003
-    ]
+  secret_id_bound_cidrs = [
+    "172.27.27.11/32", # router-002
+    "172.27.27.12/32", # router-003
+  ]
 
-    # Save credentials to
-    kv_mount = "ops"
-    kv_path = "secrets/network/router/vault"
+  # Save credentials to
+  kv_mount = "ops"
+  kv_path  = "secrets/network/router/vault"
 }
