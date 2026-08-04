@@ -9,6 +9,12 @@
 
 {% from "map.jinja" import dirs with context %}
 
+{% if dirs["home"] == "/home" %}
+/usr/home:
+  file.symlink:
+    - target: /home
+{% endif %}
+
 {% for username, user in salt["forest.get_users"]().items() %}
 {% set tasks = user.get("everywhere_tasks", []) %}
 
