@@ -126,6 +126,8 @@ If you add a new directory, you should add a corresponding entry in `Makefile`.
 Resources used by automated tasks to generate repository files are stored
 in `_resources/`, for example, templates for new services.
 
+It also contains JSON schemas to validate key pillar data.
+
 ### G. Utilities
 
 Scripts and other utilities to be run by Nasqueron Operations SIG members

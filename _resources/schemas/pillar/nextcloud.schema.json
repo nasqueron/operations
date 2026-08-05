@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/nextcloud.schema.json",
+  "title": "Nasqueron Nextcloud pillar",
+  "type": "object",
+  "required": ["nextcloud"],
+  "additionalProperties": false,
+  "properties": {
+    "nextcloud": {
+      "type": "object",
+      "required": ["user"],
+      "additionalProperties": false,
+      "properties": {
+        "user": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

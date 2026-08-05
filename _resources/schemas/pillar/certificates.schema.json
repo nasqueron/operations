@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/certificates.schema.json",
+  "title": "Nasqueron certificates pillar",
+  "type": "object",
+  "required": ["certificates"],
+  "additionalProperties": false,
+  "properties": {
+    "certificates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "certificates_default_options": {
+      "$ref": "#/$defs/certificateOptions"
+    },
+    "certificates_options": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/certificateOptions"
+      }
+    }
+  },
+  "$defs": {
+    "certificateOptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reload": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shared_group": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_alternative_names": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

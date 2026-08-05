@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/webserver.schema.json",
+  "title": "Nasqueron webserver content pillar",
+  "type": "object",
+  "required": ["web_content_sls"],
+  "additionalProperties": false,
+  "properties": {
+    "web_content_sls": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  }
+}

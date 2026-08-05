@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/dbserver.schema.json",
+  "title": "Nasqueron dbserver pillar",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "dbserver_mysql": {
+      "$ref": "#/$defs/mysql"
+    },
+    "dbserver_mysql_aliases": {
+      "type": "object"
+    },
+    "dbserver_mysql_privileges_templates": {
+      "type": "object"
+    },
+    "dbserver_postgresql": {
+      "$ref": "#/$defs/postgresql"
+    },
+    "x-mariadb-encodings": {
+      "type": "object"
+    }
+  },
+  "anyOf": [
+    {
+      "required": ["dbserver_mysql"]
+    },
+    {
+      "required": ["dbserver_postgresql"]
+    }
+  ],
+  "$defs": {
+    "mysql": {
+      "type": "object",
+      "required": ["server"],
+      "additionalProperties": false,
+      "properties": {
+        "databases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "collation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "encoding": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "server": {
+          "type": "object",
+          "required": ["salt"],
+          "additionalProperties": false,
+          "properties": {
+            "salt": {
+              "type": "object",
+              "required": ["credentials"],
+              "additionalProperties": false,
+              "properties": {
+                "credentials": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          }
+        },
+        "users": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["host", "password"],
+            "additionalProperties": false,
+            "properties": {
+              "host": {
+                "type": ["string", "integer"],
+                "minLength": 1
+              },
+              "password": {
+                "type": "string",
+                "minLength": 1
+              },
+              "privileges": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/mysqlPrivilege"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "mysqlPrivilege": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "database": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privileges": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "enum": ["database", "table"]
+        },
+        "tables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "required": ["database", "scope"],
+          "properties": {
+            "scope": {
+              "const": "database"
+            }
+          }
+        },
+        {
+          "required": ["database", "privileges", "scope", "tables"],
+          "properties": {
+            "scope": {
+              "const": "table"
+            }
+          }
+        }
+      ]
+    },
+    "postgresql": {
+      "type": "object",
+      "required": ["connections", "databases", "server", "users"],
+      "additionalProperties": false,
+      "properties": {
+        "connections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["db", "ips", "user"],
+            "additionalProperties": false,
+            "properties": {
+              "db": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ips": {
+                "type": "string",
+                "pattern": "^.+/.+$"
+              },
+              "method": {
+                "type": "string",
+                "minLength": 1
+              },
+              "user": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "databases": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["owner"],
+            "additionalProperties": false,
+            "properties": {
+              "collation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "ctype": {
+                "type": "string",
+                "minLength": 1
+              },
+              "encoding": {
+                "type": "string",
+                "minLength": 1
+              },
+              "extensions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "server": {
+          "type": "object",
+          "required": ["cluster", "listen_addresses", "version"],
+          "additionalProperties": false,
+          "properties": {
+            "cluster": {
+              "type": ["string", "integer"],
+              "minLength": 1
+            },
+            "listen_addresses": {
+              "type": "string",
+              "minLength": 1
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "with_contrib": {
+              "type": "boolean"
+            }
+          }
+        },
+        "users": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["password"],
+            "additionalProperties": false,
+            "properties": {
+              "password": {
+                "type": "string",
+                "minLength": 1
+              },
+              "privileges": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/postgresqlPrivilege"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "postgresqlPrivilege": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "database": {
+          "type": "string",
+          "minLength": 1
+        },
+        "privileges": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schemas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "scope": {
+          "enum": ["schema", "table"]
+        },
+        "tables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "oneOf": [
+        {
+          "required": ["database", "privileges", "scope"],
+          "properties": {
+            "scope": {
+              "const": "schema"
+            }
+          }
+        },
+        {
+          "required": ["database", "privileges", "schema", "scope", "tables"],
+          "properties": {
+            "scope": {
+              "const": "table"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

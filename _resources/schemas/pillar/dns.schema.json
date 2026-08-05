@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/dns.schema.json",
+  "title": "Nasqueron DNS pillar",
+  "type": "object",
+  "required": ["dns_identity", "dns_zones"],
+  "additionalProperties": false,
+  "properties": {
+    "dns_identity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dns_zones": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "dns_zone_variables": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": ["string", "integer", "number", "boolean", "null"]
+          }
+        }
+      }
+    }
+  }
+}

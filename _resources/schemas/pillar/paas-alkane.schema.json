@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/paas-alkane.schema.json",
+  "title": "Nasqueron PaaS Alkane pillar",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "alkane_recipes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "nginx_vhosts": {
+      "$ref": "#/$defs/stringListByName"
+    },
+    "php_fpm_instances": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["command"],
+        "additionalProperties": false,
+        "properties": {
+          "command": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "web_aliases": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/scalar"
+        }
+      }
+    },
+    "web_domains": {
+      "$ref": "#/$defs/stringListByName"
+    },
+    "web_php_sites": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/phpSite"
+      }
+    },
+    "web_static_sites": {
+      "$ref": "#/$defs/stringListByName"
+    },
+    "webserver_content_dotenv": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/dotenvFile"
+      }
+    },
+    "wwwroot_identities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["secret", "path"],
+        "additionalProperties": false,
+        "properties": {
+          "secret": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "scalar": {
+      "type": ["string", "integer", "number", "boolean", "null"]
+    },
+    "stringListByName": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uniqueItems": true
+      }
+    },
+    "phpSite": {
+      "type": "object",
+      "required": ["domain", "subdomain", "user", "php-fpm"],
+      "dependentRequired": {
+        "target": ["source"]
+      },
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "display_errors": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "env": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "php_flags": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "php_values": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "php-fpm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skipCreateUser": {
+          "type": "boolean"
+        },
+        "slow_delay": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subdomain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uid": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "user": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dotenvFile": {
+      "type": "object",
+      "required": ["user"],
+      "additionalProperties": false,
+      "properties": {
+        "databases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["service", "credentials"],
+            "additionalProperties": false,
+            "properties": {
+              "credentials": {
+                "type": "string",
+                "minLength": 1
+              },
+              "prefix": {
+                "type": "string"
+              },
+              "service": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "extra_credentials": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "extra_values": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        "user": {
+          "type": "string",
+          "minLength": 1
+        },
+        "vault": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

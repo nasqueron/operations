@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
 
+#   -------------------------------------------------------------
+#   Tests :: pillar :: paas :: Docker
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#   Project:        Nasqueron
+#   Description:    Checks for the Docker pillar: schema, coherence
+#   License:        BSD-2-Clause
+#   -------------------------------------------------------------
+
 from unittest_data_provider import data_provider
 import os
 import unittest
 import yaml
 
+from pillar.schema_helpers import assert_matches_schema
+
 PILLAR_PATH = "../pillar/paas/docker/"
+SCHEMA = "paas-docker.schema.json"
 
 
 class Testinstance(unittest.TestCase):
@@ -27,6 +38,10 @@ class Testinstance(unittest.TestCase):
 
                 entry = ":".join(["docker_containers", pillar_file, service, instance])
                 self.assertIn("app_port", container, entry + ": app_port missing")
+
+    @data_provider(pillar_files)
+    def test_pillar_matches_schema(self, pillar_file):
+        assert_matches_schema(self, pillar_file, SCHEMA)
 
 
 def find_sls_files(path):

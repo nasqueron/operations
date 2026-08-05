@@ -1,0 +1,25 @@
+{
+  "yaml.schemas": {
+    "./_resources/schemas/pillar/certificates.schema.json": [
+      "pillar/core/certificates/*.sls"
+    ],
+    "./_resources/schemas/pillar/dbserver.schema.json": [
+      "pillar/dbserver/*.sls"
+    ],
+    "./_resources/schemas/pillar/dns.schema.json": [
+      "pillar/dns/*/*.sls"
+    ],
+    "./_resources/schemas/pillar/nextcloud.schema.json": [
+      "pillar/saas/nextcloud/*/*.sls"
+    ],
+    "./_resources/schemas/pillar/paas-alkane.schema.json": [
+      "pillar/paas/alkane/*/*.sls"
+    ],
+    "./_resources/schemas/pillar/paas-docker.schema.json": [
+      "pillar/paas/docker/*/*.sls"
+    ],
+    "./_resources/schemas/pillar/webserver.schema.json": [
+      "pillar/webserver/*/*.sls"
+    ]
+  }
+}

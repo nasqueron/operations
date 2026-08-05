@@ -13,6 +13,7 @@ import unittest
 from unittest_data_provider import data_provider
 
 from helpers import load_pillars
+from pillar.schema_helpers import PILLAR_ROOT, assert_matches_schema, find_sls_files
 
 #   -------------------------------------------------------------
 #   Connection keys
@@ -38,9 +39,16 @@ ALL_CONNECTION_KEYS = MANDATORY_CONNECTION_KEYS + OPTIONAL_CONNECTION_KEYS
 
 
 pillars = load_pillars("../pillar/dbserver/")
+PILLAR_PATH = PILLAR_ROOT / "dbserver"
+SCHEMA = "dbserver.schema.json"
 
 
 class Testinstance(unittest.TestCase):
+    @staticmethod
+    def provide_pillar_files():
+        for pillar_file_path in find_sls_files(PILLAR_PATH):
+            yield (pillar_file_path,)
+
     @staticmethod
     def provide_pillars():
         for file_path, pillar in pillars.items():
@@ -69,3 +77,7 @@ class Testinstance(unittest.TestCase):
                 connection["ips"],
                 f"Connection IP range should be in CIDR notation in {pillar_file_path}.",
             )
+
+    @data_provider(provide_pillar_files)
+    def test_pillar_matches_schema(self, pillar_file_path):
+        assert_matches_schema(self, pillar_file_path, SCHEMA)

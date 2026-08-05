@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schema.nasqueron.org/operations/pillar/unversioned/paas-docker.schema.json",
+  "title": "Nasqueron PaaS Docker pillar",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "docker_aliases": {
+      "type": "array"
+    },
+    "docker_daemon": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/scalar"
+      }
+    },
+    "docker_images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "docker_networks": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["subnet"],
+        "additionalProperties": {
+          "$ref": "#/$defs/scalar"
+        },
+        "properties": {
+          "subnet": {
+            "type": "string",
+            "pattern": "^.+/.+$"
+          }
+        }
+      }
+    },
+    "docker_containers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/$defs/container"
+        }
+      }
+    },
+    "docker_containers_monitoring": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/monitoringNode"
+      }
+    }
+  },
+  "$defs": {
+    "scalar": {
+      "type": ["string", "integer", "number", "boolean", "null"]
+    },
+    "scalarOrList": {
+      "type": ["string", "integer", "number", "boolean", "null", "array"]
+    },
+    "monitoringNode": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/scalarOrList"
+          },
+          {
+            "$ref": "#/$defs/monitoringNode"
+          }
+        ]
+      }
+    },
+    "container": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "app_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "command_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowed_ips": {
+          "type": "array",
+          "items": {
+            "type": ["string", "integer"]
+          }
+        },
+        "credentials": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "credential": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ip": {
+          "type": "string",
+          "minLength": 1
+        },
+        "network": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ports": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          }
+        },
+        "realm": {
+          "type": "string",
+          "minLength": 1
+        },
+        "skip_container": {
+          "type": "boolean"
+        },
+        "version": {
+          "type": ["string", "integer", "number"],
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
