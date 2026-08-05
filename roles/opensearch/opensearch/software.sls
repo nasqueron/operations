@@ -6,6 +6,8 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import shells with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 #   -------------------------------------------------------------
 #   User account
@@ -14,14 +16,14 @@
 opensearch_group:
   group.present:
     - name: opensearch
-    - gid: 835
+    - gid: {{ gids["opensearch"] }}
 
 opensearch_user:
   user.present:
     - name: opensearch
     - fullname: OpenSearch
-    - uid: 835
-    - gid: opensearch
+    - uid: {{ uids["opensearch"] }}
+    - gid: {{ gids["opensearch"] }}
     - home: /opt/opensearch
     - shell: {{ shells["bash"] }}
 

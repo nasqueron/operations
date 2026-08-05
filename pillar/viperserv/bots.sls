@@ -5,11 +5,9 @@ _viperserv_ip: &viperserv_ip 2001:bc8:2e84:700:0:dead:c0de:b07
 viperserv_accounts:
   viperserv:
     fullname: ViperServ
-    uid: 833
 
   tc2:
     fullname: Tau Ceti Central
-    uid: 834
 
 viperserv_bots:
   Daeghrefn:

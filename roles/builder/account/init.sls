@@ -7,6 +7,8 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 #   -------------------------------------------------------------
 #   Service account
@@ -16,8 +18,8 @@ builder_account:
   user.present:
     - name: builder
     - fullname: Software builder account for configure and make
-    - uid: 831
-    - gid: deployment
+    - uid: {{ uids["builder"] }}
+    - gid: {{ gids["deployment"] }}
     - home: /var/run/builder
 
 #   -------------------------------------------------------------

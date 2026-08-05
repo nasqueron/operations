@@ -7,6 +7,8 @@
 
 {% from "map.jinja" import dirs with context %}
 {% from "roles/webserver-core/map.jinja" import options with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 {% set has_selinux = salt["grains.get"]("selinux:enabled", False) %}
 
@@ -28,14 +30,14 @@
 webserver_core_group:
   group.present:
     - name: web
-    - gid: 9003
+    - gid: {{ gids["web"] }}
     - system: True
 
 webserver_core_user:
   user.present:
     - name: web-admin
-    - uid: 8000
-    - gid: 9003
+    - uid: {{ uids["web-admin"] }}
+    - gid: {{ gids["web"] }}
 
 #   -------------------------------------------------------------
 #   Base configuration

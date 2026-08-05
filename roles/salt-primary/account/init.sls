@@ -6,6 +6,8 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 #   -------------------------------------------------------------
 #   Accounts
@@ -15,12 +17,12 @@
 salt_account:
   group.present:
     - name: salt
-    - gid: 9001
+    - gid: {{ gids["salt"] }}
   user.present:
     - name: salt
     - fullname: SaltStack primary server account
-    - uid: 9001
-    - gid: 9001
+    - uid: {{ uids["salt"] }}
+    - gid: {{ gids["salt"] }}
     - home: /var/run/salt
 
 salt_account_ownership:

@@ -7,6 +7,8 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 #   -------------------------------------------------------------
 #   Service account
@@ -16,8 +18,8 @@ odderon_account:
   user.present:
     - name: odderon
     - fullname: Odderon
-    - uid: 830
-    - gid: 829
+    - uid: {{ uids["odderon"] }}
+    - gid: {{ gids["nasqueron-irc"] }}
     - home: /opt/odderon
 
 #   -------------------------------------------------------------

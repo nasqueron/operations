@@ -16,12 +16,12 @@
 #   These mapping are defined in the forests.sls pillar file.
 #
 #   Sort the groups by GIDs.
+#   GIDs are now centralized in pillar/core/ids.sls
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 shellgroups:
 
   shell:
-    gid: 200
     title: Eglide shell users
     description: >
         Provide an account to use on the Eglide shell hosting project servers.
@@ -70,20 +70,17 @@ shellgroups:
       - yousra
 
   chaton-dev:
-    gid: 827
     description: Manage Bonjour chaton service
     members:
       - hlp
 
   nasqueron-irc:
-    gid: 829
     description: Manage IRC bots used for Nasqueron projects
     members:
       - dereckson
       - sandlayth
 
   nasqueron-dev-docker:
-    gid: 842
     description: Docker development
     members:
       - aceppaluni
@@ -97,7 +94,6 @@ shellgroups:
       - sandrine
 
   ops:
-    gid: 3001
     title: Nasqueron Operations
     description: >
         Maintain the servers infrastructure. As such, members of this
@@ -110,7 +106,6 @@ shellgroups:
       - yousra
 
   deployment:
-    gid: 3003
     title: Nasqueron Deployment
     description: >
         Build software to be installed on the servers.
@@ -119,7 +114,6 @@ shellgroups:
       - dereckson
 
   nasquenautes:
-    gid: 3005
     title: Nasqueron servers users
     description: >
         Provide an account on Nasqueron development servers.

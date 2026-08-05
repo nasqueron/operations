@@ -6,6 +6,8 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 {% set has_selinux = salt['grains.get']('selinux:enabled', False) %}
 
@@ -16,12 +18,12 @@
 anubis_group:
   group.present:
     - name: anubis
-    - gid: 9019
+    - gid: {{ gids["anubis"] }}
 
 anubis_user:
   user.present:
     - name: anubis
-    - uid: 9019
+    - uid: {{ uids["anubis"] }}
     - shell: /sbin/nologin
     - groups:
         - anubis

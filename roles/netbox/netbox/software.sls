@@ -5,6 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
+
 #   -------------------------------------------------------------
 #   NetBox
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -29,13 +32,13 @@ install_netbox:
 netbox_group:
   group.present:
     - name: netbox
-    - gid: 1001
+    - gid: {{ gids["netbox"] }}
 
 netbox_user:
   user.present:
     - name: netbox
-    - uid: 1001
-    - gid: 1001
+    - uid: {{ uids["netbox"] }}
+    - gid: {{ gids["netbox"] }}
 
 #   -------------------------------------------------------------
 #   Python environment

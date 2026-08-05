@@ -7,24 +7,26 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set uids = pillar["uids"] %}
 
 #   -------------------------------------------------------------
 #   Service accounts
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for username, user in pillar["viperserv_accounts"].items() %}
+{% set uid = uids[username] %}
 
 viperserv_account_{{ username }}:
   user.present:
     - name: {{ username }}
     - fullname: {{ user["fullname"] }}
-    - uid: {{ user["uid"] }}
+    - uid: {{ uid }}
     - gid: nasqueron-irc
     - home: {{ dirs.share }}/{{ username }}
 
 /var/run/{{ username }}:
   file.directory:
-    - user: {{ user["uid"] }}
+    - user: {{ uid }}
     - group: nasqueron-irc
     - dir_mode: 711
 

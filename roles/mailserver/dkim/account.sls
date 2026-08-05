@@ -5,14 +5,17 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
+
 #   -------------------------------------------------------------
 #   OpenDKIM user account
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 opendkim:
   group.present:
-    - gid: 836
+    - gid: {{ gids["opendkim"] }}
   user.present:
-    - uid: 836
-    - gid: 836
+    - uid: {{ uids["opendkim"] }}
+    - gid: {{ gids["opendkim"] }}
     - home: /var/run/milteropendkim

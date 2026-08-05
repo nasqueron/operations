@@ -6,14 +6,16 @@
 #   -------------------------------------------------------------
 
 {% if salt["node.has_deployment"]() %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 # Deployment account
 deploy_account:
   user.present:
     - name: deploy
     - fullname: Deployment and management of the Salt staging area
-    - uid: 9002
-    - gid: 3003
+    - uid: {{ uids["deploy"] }}
+    - gid: {{ gids["deployment"] }}
     - home: /var/run/deploy
 
 {% endif %}

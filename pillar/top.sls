@@ -7,6 +7,7 @@
 
 base:
   '*':
+    - core.ids
     - core.users
     - core.groups
     - core.network

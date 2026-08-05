@@ -100,15 +100,14 @@ The modules are stored in the following directories:
 
 As any program, modules should be tested. See section E.
 
-### D. UNIX resources assignments
+### D. UNIX resource assignments
 
-This repository is the source of truth for service accounts, groups and ports:
+This repository is the source of truth for service accounts, groups, and ports:
 
-* UIDs document unique usernames and the UIDs for system accounts
-* GIDs document the same information for the groups
-* PORTS contain the list of reserved application ports
+* `pillar/core/ids.sls` maps unique usernames and groups with their UIDs/GIDs
+* `PORTS` contains the list of reserved application ports
 
-When a service needs any of those resources, they are assigned in those files.
+When a service needs one of these resources, assign it in the corresponding file.
 
 ### E. Tests
 

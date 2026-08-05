@@ -5,6 +5,9 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
+
 #   -------------------------------------------------------------
 #   User groups for domains served
 #
@@ -16,7 +19,7 @@
 #
 #   Back-ends runs under their own separate account.
 #
-#   The 9003 group matches "web" group, see webserver-core/nginx
+#   The web group is shared with webserver-core/nginx.
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 {% for domains_group in pillar["web_domains"] %}
@@ -24,7 +27,7 @@
 webserver_user_{{ domain }}:
   user.present:
     - name: {{ domain }}
-    - gid: 9003
+    - gid: {{ gids["web"] }}
     - createhome: False
     - fullname: Websites account for {{ domain }}
 {% endfor %}
@@ -38,15 +41,16 @@ webserver_user_{{ domain }}:
 
 {% for fqdn, site in pillar["web_php_sites"].items() %}
 {% if "skipCreateUser" not in site or not site["skipCreateUser"] %}
+{% set uid = site.get("uid", uids.get(site["user"])) %}
 
 webserver_user_{{ site["user"] }}:
   user.present:
     - name: {{ site["user" ] }}
     - fullname: {{ fqdn }}
-{% if "uid" in site %}
-    - uid: {{ site["uid"]  }}
+{% if uid is not none %}
+    - uid: {{ uid }}
 {% endif %}
-    - gid: 9003
+    - gid: {{ gids["web"] }}
     - system: True
     - home: /var/run/web/{{ fqdn }}
 

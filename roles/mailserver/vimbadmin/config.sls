@@ -8,31 +8,33 @@
 {% set db = pillar["vimbadmin_config"]["db"] %}
 {% set securityCredentials = pillar["vimbadmin_config"]["security"] %}
 {% from "map.jinja" import dirs, packages_prefixes with context %}
+{% set uids = pillar["uids"] %}
+{% set gids = pillar["gids"] %}
 
 mailbox:
   group.present:
-    - gid: 6000
+    - gid: {{ gids["mailbox"] }}
     - system: True
 
 mailbox_mail_user:
   user.present:
     - name: mailbox
-    - uid: 6000
-    - gid: 6000
+    - uid: {{ uids["mailbox"] }}
+    - gid: {{ gids["mailbox"] }}
     - system: True
     - home: /var/run/web/mailbox_mail_user
 
 /var/mail/_archive:
   file.directory:
-    - user: 6000
-    - group: 6000
+    - user: {{ uids["mailbox"] }}
+    - group: {{ gids["mailbox"] }}
     - mode: 700
     - makedirs: True
 
 /var/mail/_virtual:
   file.directory:
-    - user: 6000
-    - group: 6000
+    - user: {{ uids["mailbox"] }}
+    - group: {{ gids["mailbox"] }}
     - mode: 700
     - makedirs: True
 
@@ -84,8 +86,8 @@ mailbox_mail_user:
         mailbox:
           archive: "/var/mail/_archive"
           dir: "/var/mail/_virtual"
-          GID: 6000
-          UID: 6000
+          GID: {{ gids["mailbox"] }}
+          UID: {{ uids["mailbox"] }}
         security:
           salt: {{ salt["credentials.read_secret"](securityCredentials)["salt"] | yaml_dquote }}
           osRememberMeSalt: {{ salt["credentials.read_secret"](securityCredentials)["osRememberMeSalt"] | yaml_dquote }}

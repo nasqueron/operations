@@ -31,7 +31,6 @@ web_php_sites:
     domain: nasqueron.org
     subdomain: admin.mail
     user: web-org-nasqueron-mail-admin
-    uid: 12001
     php-fpm: prod
     env:
       APPLICATION_ENV: production
@@ -40,5 +39,4 @@ web_php_sites:
     domain: nasqueron.org
     subdomain: mail
     user: web-org-nasqueron-mail
-    uid: 12000
     php-fpm: prod

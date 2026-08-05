@@ -6,6 +6,7 @@
 #   -------------------------------------------------------------
 
 {% from "map.jinja" import dirs with context %}
+{% set gids = pillar["gids"] %}
 
 #   -------------------------------------------------------------
 #   Software
@@ -26,7 +27,7 @@ grafana:
         domain: grafana.nasqueron.org
         socket:
           dir: /var/run/web/grafana
-          gid: 9003 # web
+          gid: {{ gids["web"] }}
 
 #   -------------------------------------------------------------
 #   Socket

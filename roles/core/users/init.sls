@@ -108,7 +108,7 @@ zfs_permissions_home_descendant_{{ username }}:
 group_{{ groupname }}:
   group.present:
     - name: {{ groupname }}
-    - gid: {{ group["gid"] }}
+    - gid: {{ pillar["gids"][groupname] }}
     - members: {{ group["members"] }}
 {% endfor %}
 
