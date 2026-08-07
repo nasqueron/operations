@@ -21,3 +21,8 @@ certificates:
 
 certificates_default_options:
   reload: sudo acmesh-nginxCheck
+
+certificates_options:
+  nasqueron.org:
+    subject_alternative_names:
+      - www.nasqueron.org
