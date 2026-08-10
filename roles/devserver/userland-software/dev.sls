@@ -183,6 +183,11 @@ devserver_software_dev_rust:
     - source: salt://roles/devserver/userland-software/files/rustup-init.sh
     - mode: 755
 
+{{ dirs.bin }}/cargo-index-update:
+  file.managed:
+    - source: salt://roles/devserver/userland-software/files/rust/cargo-index-update.sh
+    - mode: 755
+
 #   -------------------------------------------------------------
 #   Shell
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

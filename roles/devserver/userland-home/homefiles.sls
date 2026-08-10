@@ -53,6 +53,14 @@ devserver_rustup_{{ toolchain }}_{{ username }}:
     - runas: {{ username }}
     - creates: /home/{{ username }}/.rustup/toolchains/{{ toolchain }}-{{ triplet }}
 {% endfor %}
+
+{{ dirs.etc }}/cron.d/cargo-index-{{ username }}:
+  file.managed:
+    - contents: |
+        # Update Cargo crates index for {{ username }}
+        11 3 * * * {{ username }} {{ dirs.bin }}/cargo-index-update stable
+        27 3 * * * {{ username }} {{ dirs.bin }}/cargo-index-update nightly
+
 {% endif %}
 
 {% if "install_diesel" in tasks %}
