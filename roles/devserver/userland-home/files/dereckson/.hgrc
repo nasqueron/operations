@@ -13,5 +13,5 @@
 #       and will be lost if the state is redeployed.
 #   </auto-generated>
 
-[extensioons]
+[extensions]
 prompt = /home/dereckson/.software/hg-prompt/prompt.py
