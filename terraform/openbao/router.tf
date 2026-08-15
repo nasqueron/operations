@@ -4,7 +4,7 @@
 #   Project:        Nasqueron
 #   License:        BSD-2-Clause
 #   Provider:       Vault / OpenBao
-#   Target:         completor.nasqueron.drake
+#   Target:         complector.nasqueron.drake
 #   -------------------------------------------------------------
 
 #   -------------------------------------------------------------
