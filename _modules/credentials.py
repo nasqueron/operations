@@ -86,7 +86,7 @@ def get_password(key, prefix=None):
 
 def get_username(key, prefix=None):
     """
-    A function to fetch the username associated to a credential
+    A function to fetch the username associated with a credential
     through Vault
 
     CLI Example:

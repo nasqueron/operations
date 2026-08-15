@@ -142,8 +142,8 @@ def filter_by_role(pillar_key, nodename=None):
     A function to filter a dictionary by roles.
 
     The dictionary must respect the following structure:
-      - keys are role to check the current node against
-      - values are list of items
+      - keys are the role to check the current node against
+      - values are a list of items
 
     If a key '*' is also present, it will be included
     for every role.
@@ -518,8 +518,8 @@ def get_carp_entries():
 
                 vhid = fhrp.get("id")
 
-                # ignore invalid CARP entries
-                # when vhid or vip are empty in netbox,
+                # Ignore invalid CARP entries
+                # when vhid or vip are empty in NetBox,
                 # in the pillar configuration we'll see that entry carp fhrp = []
                 if vhid is None:
                     return []

@@ -15,7 +15,7 @@ for deployment and automation.
 Additional utilities for humans and Terraform provisioning are also provided.
 
 Nasqueron infrastructure servers support our community
-of creative people, writers, developers and thinkers.
+of creative people, writers, developers, and thinkers.
 
 Nasqueron follows the principle of *Infrastructure as Code*
 to offer documentation, reproducibility, transparency and
@@ -164,7 +164,7 @@ Inclusive terminology
 The repository uses the following terminology:
 
   - **Salt primary server**: a server that issues commands to other servers or itself
-  - **Node**: a server, baremetal or VM configured by Salt
+  - **Node**: a server, baremetal, or VM configured by Salt
 
 Nasqueron follows the inclusive language conventions to ensure that our
 community is welcoming to everyone.

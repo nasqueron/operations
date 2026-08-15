@@ -120,7 +120,7 @@ def run():
         }
 
         if build["version"] < "7":
-            # New versions of Onigurama requires a patch not merged in 5.6.38
+            # New versions of Onigurama require a patch not merged in 5.6.38
             # See https://bugs.php.net/bug.php?id=76113
             config["php_build_" + build_name + "_phase1_patch"] = {
                 "file.patch": [

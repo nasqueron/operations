@@ -16,11 +16,11 @@ but where some situations can be troublesome, with the workaround to apply.
 On FreeBSD 15.1, the package py312-certbot will create a conflict between
 py311-acme and py312-acme. That will deinstall Salt.
 
-As a work around:
+As a workaround:
   - reinstall py311-salt from Nasqueron-Salt temporary repository
   - redeploy roles/certificates after removing the state 'letsencrypt_software'
 
-Medium-term solution is to end to migrate all certificates to acme.sh,
+The medium-term solution is to end to migrate all certificates to acme.sh,
 and we'll be able to remove the certbot software.
 
 ## Role: devserver
