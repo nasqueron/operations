@@ -83,15 +83,11 @@ shellgroups:
   nasqueron-dev-docker:
     description: Docker development
     members:
-      - aceppaluni
-      - amine
       - dereckson
       - dorianwinty
       - duranzed
-      - mous
       - ptdradmin
       - sandlayth
-      - sandrine
 
   ops:
     title: Nasqueron Operations
