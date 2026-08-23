@@ -21,6 +21,13 @@
         dirs: {{ dirs }}
         postfix_dirs: {{ postfix_dirs }}
 
+{{ dirs.etc }}/postfix/blackhole.cf:
+  file.managed:
+    - source: salt://roles/mailserver/postfix/files/blackhole.cf
+    - template: jinja
+    - context:
+        discard_mailboxes: {{ pillar["postfix_config"].get("discard_mailboxes", [])
+
 {{ dirs.etc }}/postfix/postfix-to-mailman.py:
   file.managed:
     - source: salt://roles/mailserver/postfix/files/postfix-to-mailman.py

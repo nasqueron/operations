@@ -34,9 +34,13 @@ virtual_mailbox_base = /var/mail/_virtual
 virtual_uid_maps = static:6000
 virtual_gid_maps = static:6000
 
+virtual_mailbox_maps =
+    pgsql:{{ dirs.etc }}/postfix/pgsql-virtual-mailbox-maps.cf,
+    texthash:{{ dirs.etc }}/postfix/blackhole.cf
 virtual_mailbox_domains=pgsql:{{ dirs.etc }}/postfix/pgsql-virtual-mailbox-domains.cf
-virtual_mailbox_maps=pgsql:{{ dirs.etc }}/postfix/pgsql-virtual-mailbox-maps.cf
 virtual_alias_maps=pgsql:{{ dirs.etc }}/postfix/pgsql-virtual-alias-maps.cf
+
+transport_maps = texthash:{{ dirs.etc }}/postfix/blackhole.cf
 
 alias_maps = hash:/etc/mail/aliases
 alias_database = hash:/etc/mail/aliases
