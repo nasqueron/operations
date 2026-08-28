@@ -139,6 +139,7 @@ shellusers:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICpiyhmy4t0kttc9PA3tB9TQGCTCNisGy6YP1y2Rr0Yy dereckson@draugh
 
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDMpw4f6Peh4arR8ZoWA/NHhqFW0w89aOVnzF161BAS8 work-laptop-20260701
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFAib8TF1w2Monrd4KXm5k0vEuQ9LOpH9993xQ/2vAUm tt-work-001
     yubico_keys:
       - ccccccbjncrt
     devserver_tasks:
