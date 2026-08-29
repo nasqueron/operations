@@ -33,3 +33,12 @@ saas_mediawiki_nginx_vhosts:
     - source: salt://roles/saas-mediawiki/nginx/files/vhosts
     - dir_mode: 755
     - file_mode: 644
+
+#   -------------------------------------------------------------
+#   T2351 upgrade for wiki databases older than 1.39
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+/var/wwwroot/_errors/503-mediawiki-upgrade.html:
+  file.managed:
+    - makedirs: true
+    - source: salt://roles/saas-mediawiki/nginx/files/errors/503-mediawiki-upgrade.html
