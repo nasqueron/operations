@@ -34,6 +34,25 @@ path "sys/policies/acl/*" {
 }
 
 #   -------------------------------------------------------------
+#   Storage management
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Allow taking and restoring Raft snapshots
+path "sys/storage/raft/snapshot" {
+  capabilities = ["read", "update", "sudo"]
+}
+
+# Allow viewing Raft cluster configuration and peers
+path "sys/storage/raft/configuration" {
+  capabilities = ["read"]
+}
+
+# Allow managing auto-snapshots if you use them
+path "sys/storage/raft/snapshot-auto/*" {
+  capabilities = ["read", "list", "update", "sudo"]
+}
+
+#   -------------------------------------------------------------
 #   Authentication management
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
