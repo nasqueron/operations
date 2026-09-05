@@ -254,6 +254,11 @@ devserver_software_dev_terraform:
       - opentofu
       - terraform
 
+devserver_software_dev_operations:
+  pkg.installed:
+    - pkgs:
+      - ovhcloud-cli
+
 {{ dirs.bin }}/create-vault-approle:
   file.managed:
     - source: salt://roles/devserver/userland-software/files/create-vault-approle.sh
