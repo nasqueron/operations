@@ -8,35 +8,46 @@
 #   Target:         OVH Public Cloud > Nasqueron :: Operations :: Backups
 #   -------------------------------------------------------------
 
-resource "ovh_cloud_project_storage" "storage_backups" {
-  service_name = ovh_cloud_project.nasqueron-ops-backups.id
-  name         = var.bucket
-  region_name  = "EU-WEST-PAR"
-
-  # S3 Object Lock requires versioning to be enabled.
-  versioning = {
-    status = "enabled"
-  }
-
-  object_lock = {
-    status = "enabled"
-    rule = {
-      # Governance mode protects against malicious deletion.
-      # To prune old backups, a separate admin credential with
-      # s3:BypassGovernanceRetention permission must be used.
-      mode   = "governance"
-      period = "P90D" # 90 days default retention
-    }
-  }
-
-  tags = {
+locals {
+  default_tags = {
     group         = "operations"
     role          = "backup"
     encryption    = "client-side"
     privacy_level = "sensible"
   }
 
-  lifecycle {
-    prevent_destroy = true
+  backup_containers = {
+    amaris = {
+      container_name = "nasqueron-backups-amaris"
+      purpose        = "Main backup container"
+
+      tags = local.default_tags
+    }
+
+    darak = {
+      container_name = "nasqueron-backups-darak"
+      purpose        = "Dereckson backups"
+
+      tags = merge(local.default_tags, {
+        group = "user-dereckson"
+      })
+    }
+
+    vakor = {
+      container_name = "nasqueron-backups-vakor"
+      purpose        = "Vault backups"
+
+      tags = local.default_tags
+    }
   }
+}
+
+module "backup" {
+  source   = "./modules/object_storage_container"
+  for_each = local.backup_containers
+
+  service_name   = ovh_cloud_project.nasqueron-ops-backups.id
+  container_name = each.value.container_name
+
+  tags = each.value.tags
 }
