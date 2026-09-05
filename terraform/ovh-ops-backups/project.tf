@@ -25,7 +25,7 @@ data "ovh_order_cart_product_plan" "cart_product_plan" {
 }
 
 resource "ovh_cloud_project" "nasqueron-ops-backups" {
-  description = "Nasqueron :: Operations :: Backups"
+  description    = "Nasqueron :: Operations :: Backups"
   ovh_subsidiary = data.ovh_me.account.ovh_subsidiary
 
   plan {

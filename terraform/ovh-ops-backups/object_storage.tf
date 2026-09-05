@@ -11,7 +11,7 @@
 resource "ovh_cloud_project_storage" "storage_backups" {
   service_name = ovh_cloud_project.nasqueron-ops-backups.id
   name         = var.bucket
-  region_name = "EU-WEST-PAR"
+  region_name  = "EU-WEST-PAR"
 
   # S3 Object Lock requires versioning to be enabled.
   versioning = {
@@ -30,9 +30,9 @@ resource "ovh_cloud_project_storage" "storage_backups" {
   }
 
   tags = {
-    group = "operations"
-    role = "backup"
-    encryption = "client-side"
+    group         = "operations"
+    role          = "backup"
+    encryption    = "client-side"
     privacy_level = "sensible"
   }
 

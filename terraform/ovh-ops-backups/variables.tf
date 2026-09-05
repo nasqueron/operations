@@ -6,7 +6,7 @@
 #   Provider:       OVH / Vault
 #   -------------------------------------------------------------
 
-variable bucket {
+variable "bucket" {
   description = "The name of the bucket."
   type        = string
   default     = "nasqueron-backups-amaris"
