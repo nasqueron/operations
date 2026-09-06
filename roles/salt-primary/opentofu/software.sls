@@ -5,9 +5,11 @@
 #   License:        Trivial work, not eligible to copyright
 #   -------------------------------------------------------------
 
-include:
-  - .software
-  - roles/devserver/userland-software/pefs
+opentofu_software:
+  pkg.installed:
+    - pkgs:
+      - opentofu
+      - terraform # fallback for providers not compiled for FreeBSD
 
-  # Depends of pefs
-  - .config
+      # Helpers for authentication to Terraform providers
+      - ovhcloud-cli

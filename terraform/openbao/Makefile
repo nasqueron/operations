@@ -1,3 +1,4 @@
+TERRAFORM_STATES_DIR=/opt/terraform/encrypted/tf-states/openbao/
 TERRAFORM_STATES=terraform.tfstate terraform.tfstate.backup
 
 SALT=sudo -u salt salt
@@ -15,13 +16,15 @@ rotate: provision deploy clean
 	@echo "[$(AUDIT_DATE)] <$(USER)> Terraform :: Vault :: Full secrets rotation" >> $(AUDIT_LOG)
 
 provision:
-	terraform init
-	terraform plan
-	terraform apply -auto-approve
+	tf init
+	tf plan
+	tf apply -auto-approve
 
 deploy:
 	$(SALT) windriver state.sls_id /usr/local/etc/secrets/rhyne-wyse.yaml roles/reports/rhyne-wyse/config
 	$(SALT) windriver state.sls_id /srv/viperserv/.credentials roles/viperserv/eggdrop/config
 
 clean:
-	$(RM) $(TERRAFORM_STATES)
+	tf mount
+	cd $(TERRAFORM_STATES_DIR) && $(RM) $(TERRAFORM_STATES)
+	tf unmount

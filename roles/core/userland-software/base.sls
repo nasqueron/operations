@@ -8,6 +8,20 @@
 
 {% from "map.jinja" import dirs, packages with context %}
 
+#   -------------------------------------------------------------
+#   /opt directory
+#   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+{% if salt["node.has"]("zfs:pool") %}
+{% set tank = salt["node.get"]("zfs:pool") %}
+
+{{ tank }}/opt:
+  zfs.filesystem_present:
+    - properties:
+        mountpoint: /opt
+        compression: zstd
+{% endif %}
+
 /opt:
   file.directory
 

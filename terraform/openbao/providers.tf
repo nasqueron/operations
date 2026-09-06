@@ -12,6 +12,10 @@ terraform {
       version = "5.3.0"
     }
   }
+
+  backend "local" {
+    path = "/opt/terraform/encrypted/tf-states/openbao/terraform.tfstate"
+  }
 }
 
 provider "vault" {

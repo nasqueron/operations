@@ -21,6 +21,10 @@ terraform {
       version = ">= 5.11.0"
     }
   }
+
+  backend "local" {
+    path = "/opt/terraform/encrypted/tf-states/ovh-ops-backups/terraform.tfstate"
+  }
 }
 
 #   -------------------------------------------------------------

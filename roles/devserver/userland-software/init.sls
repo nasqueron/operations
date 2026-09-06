@@ -21,6 +21,7 @@ include:
   - .dev
   - .misc
   - .notifications
+  - .pefs
   - .phabricator
   - .psysh
   - .tex
