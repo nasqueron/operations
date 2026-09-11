@@ -23,7 +23,7 @@ apply_paas_docker_tuned_configuration:
 
 {% else %}
 
-# /sys/kernel allows to write settings and display the selected one in []
+# /sys/kernel allows writing settings and display the selected one in []
 restrict_hugepages:
   cmd.run:
     - name: echo madvise > /sys/kernel/mm/transparent_hugepage/enabled

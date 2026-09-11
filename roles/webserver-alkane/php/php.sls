@@ -85,7 +85,7 @@ php_software:
         tasks:
           {% if is_devserver %}
           # Since D2655, devserver uses /var/run/mysql
-          # This is not needed on production as MySQL is on another node
+          # This is not needed in production as MySQL is on another node
           - set_mysql_sockets
           {% else %}
           # Enable Opcache, with aggressive caching

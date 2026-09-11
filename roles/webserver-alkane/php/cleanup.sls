@@ -9,7 +9,7 @@
 #                   an instance, pools from other instances
 #                   should be deleted if they exist.
 #
-#                   That allows to move pools among instances.
+#                   That allows moving pools among instances.
 #   -------------------------------------------------------------
 
 

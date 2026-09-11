@@ -4,7 +4,7 @@
 
 This role provisions the `/var/wwwroot` folder with the website content,
 when there is a custom logic to prepare it, like a specific Git repository
-to clone, or a build process to follow.
+to clone or a build process to follow.
 
 These roles do NOT describe web server configuration,
 which is done in other `webserver-` roles.

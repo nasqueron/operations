@@ -60,7 +60,7 @@
         app_port: {{ container["app_port"] }}
         aliases: {{ container["aliases"] | default("", true) | join(" ") }}
         # If the nginx configuration needs more key,
-        # pass directly the container dictionary.
+        # directly pass the container dictionary.
         args: {{ container }}
 
 {% endif %}

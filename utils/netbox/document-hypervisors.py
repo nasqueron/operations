@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 #   -------------------------------------------------------------
-#   NetBox — Document hypervisors facts in NetBox
+#   NetBox — Document hypervisors' facts in NetBox
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
 #   License:        BSD-2-Clause
 #   Description:    This script connects to hypervisors,
-#                   gather facts like last version used,
-#                   and document them to NetBox config context.
+#                   gathers facts like the last version used,
+#                    and documents them to NetBox config context.
 #   Dependencies:   PyYAML, pynetbox
 #   -------------------------------------------------------------
 

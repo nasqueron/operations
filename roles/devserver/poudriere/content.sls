@@ -44,7 +44,7 @@ def run():
     version = get_kernel_version()
     arch = __grains__["cpuarch"]
 
-    # Base jail and ports tree
+    # Base jail and ports' tree
     states = {
         "poudriere_jails_base": {
             "cmd.run": [

@@ -4,7 +4,7 @@ These conventions apply to Salt state and configuration-management code in this 
 
 ### State dependencies
 
-Salt executes states in file order, so execution order within an SLS file is deterministic.
+Salt executes states in file order, so the execution order within an SLS file is deterministic.
 
 Do **not** add `require`, `watch`, `onchanges`, or similar requisites merely to express the dependency between successive states in the same file.
 
@@ -44,7 +44,7 @@ files/script.sh
 files/config.yaml
 ```
 
-If adding Jinja syntax would cause the file to be incorrectly handled by a shell, Python, YAML, or other language linter, append `.jinja` to the original extension:
+If adding Jinja syntax causes the file to be incorrectly handled by a shell, Python, YAML, or other language linter, append `.jinja` to the original extension:
 
 ```text
 files/foo.sh.jinja

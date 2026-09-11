@@ -186,7 +186,7 @@ languages_libs:
       {% if grains["os_family"] == "Debian" %}
       - {{ packages_prefixes.php }}json
 
-      # On Debian, these PDO extensions doesn't follow regular names
+      # On Debian, these PDO extensions don't follow regular names
       # but are installed if you require the legacy extension name.
       - {{ packages_prefixes.php }}mysql
       - {{ packages_prefixes.php }}pgsql
@@ -213,7 +213,7 @@ languages_libs:
       - {{ packages_prefixes.php }}xmlwriter
       - {{ packages_prefixes.php }}zip
       - {{ packages_prefixes.php }}zlib
-      # On Debian, these PDO extensions doesn't follow regular names:
+      # On Debian, these PDO extensions don't follow regular names:
       - {{ packages_prefixes.php }}pdo_mysql
       - {{ packages_prefixes.php }}pdo_pgsql
       - {{ packages_prefixes.php }}pdo_sqlite

@@ -4,7 +4,7 @@
 #   Salt — Credentials state
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #   Project:        Nasqueron
-#   Description:    Allow to declare credentials-related states
+#   Description:    Allow declaring credentials-related states
 #   License:        BSD-2-Clause
 #   -------------------------------------------------------------
 

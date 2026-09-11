@@ -50,7 +50,7 @@ Services are organized in roles and units.
 
 * **Roles:** a role is a full high-level service (e.g., mailserver, paas-docker)
 * **Units:** a unit is a component to achieve the service's goals
-  (e.g., a userland software collection, a nginx server)
+  (e.g., a userland software collection, an nginx server)
 
 Directories follow `roles/<role>/<unit>`.
 

@@ -24,7 +24,7 @@
 
     <display-name>Nasqueron Forms</display-name>
     <description>
-        Nasqueron Forms is an Orbeon Forms, a XForms web forms solutions
+        Nasqueron Forms is an Orbeon Forms, a XForms web forms solution
         to create and fill complex forms.
     </description>
     <distributable/>
@@ -320,7 +320,7 @@
         <url-pattern>/exist/xmlrpc/*</url-pattern>
     </servlet-mapping>-->
     <!-- End eXist XMLRPC support -->
-    <!-- Uncomment this for the relational persistence, and change oracle if necessary -->
+    <!-- Uncomment this for the relational persistence and change oracle if necessary -->
     <!--
     <resource-ref>
         <description>DataSource</description>
@@ -328,10 +328,10 @@
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>
     </resource-ref>-->
-    <!-- End relational persistence, and change oracle if necessary -->
+    <!-- End relational persistence and change oracle if necessary -->
 
     <!-- Form Runner authentication -->
-    <!-- Require the security role on /fr/auth by default. To protect everything this must be changed. -->
+    <!-- Require the security role on /fr/auth by default. To protect everything, this must be changed. -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Form Runner</web-resource-name>

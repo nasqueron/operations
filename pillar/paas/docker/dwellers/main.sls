@@ -120,7 +120,7 @@ docker_containers:
 
   # Mastodon is currently deployed manually through docker-compose
   # and not yet integrated to the platform. This declaration is
-  # currently only used for extra utilities deployment.
+  # currently only used for extra utilities' deployment.
 
   mastodon_sidekiq:
     mastodon_sidekiq_1:

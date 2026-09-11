@@ -9,7 +9,7 @@
 
 
 def get_cron_path(user):
-    """Get source cron path in operations repository."""
+    """Get the source cron path in operations repository."""
     return f"roles/devserver/userland-home/files/_crons/{user}"
 
 

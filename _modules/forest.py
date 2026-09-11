@@ -104,7 +104,7 @@ def _get_user(forest, username):
 def get_users(forest=None):
     """
     A function to get users for a forest as a dictionary,
-    including the users properties.
+    including the user's properties.
 
     CLI Example::
 

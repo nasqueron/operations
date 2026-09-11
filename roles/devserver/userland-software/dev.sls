@@ -226,8 +226,8 @@ devserver_software_dev_web:
 devserver_software_vim:
   pkg.installed:
     - pkgs:
-      # Vim itself is already declared in core role.
-      # FreeBSD also offers nvi in base system.
+      # Vim itself is already declared in the core role.
+      # FreeBSD also offers nvi in the base system.
 
       # Neovim
       - neovim
