@@ -27,6 +27,11 @@ devserver_software_misc_media:
       - speexdsp
       - x265
 
+devserver_software_misc_shell:
+  pkg.installed:
+    - pkgs:
+      - {{ packages_prefixes.python3 }}powerline-status
+
 devserver_software_misc_text_processing:
   pkg.installed:
     - pkgs:
