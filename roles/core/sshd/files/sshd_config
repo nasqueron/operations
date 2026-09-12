@@ -48,7 +48,7 @@ PermitRootLogin no
 
 # Misc options
 PrintMotd {{ "yes" if print_motd else "no" }}
-AcceptEnv LANG LC_*
+AcceptEnv LANG LC_* POWERLINE_SUPPORTED
 
 # SFTP
 Subsystem	sftp	{{ sftp }}
