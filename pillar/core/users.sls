@@ -145,6 +145,7 @@ shellusers:
     devserver_tasks:
       - deploy_dotfiles
       - deploy_nanotab
+      - fix_gdu
       - install_rustup
       - install_diesel
     everywhere_tasks:

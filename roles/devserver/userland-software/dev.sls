@@ -233,6 +233,29 @@ devserver_software_vim:
       - neovim
       - {{ packages_prefixes.python3 }}pynvim
 
+      # Utilities used by Vim/Neovim distributions and plugins
+      - bottom
+      - lazygit
+      - tree-sitter
+      - tree-sitter-cli
+      - universal-ctags
+
+{% if grains["os_family"] == "FreeBSD" %}
+/opt/gdu:
+  archive.extracted:
+    - source: https://github.com/dundee/gdu/releases/download/v5.37.0/gdu_freebsd_amd64.tgz
+    - source_hash: f7fe2dc7b7118016f0cd67710371b69d5bd0acf382951000844995f985155ae8
+    - enforce_toplevel: False
+    - if_missing: /opt/gdu/gdu
+
+/opt/gdu/gdu:
+  file.rename:
+    - source: /opt/gdu/gdu_freebsd_amd64
+{% else %}
+gdu:
+  pkg.installed
+{% endif %}
+
 #   -------------------------------------------------------------
 #   Tools like code review utilities
 #

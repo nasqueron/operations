@@ -2,6 +2,9 @@ __pycache__
 *.pyc
 *.pyo
 
+# Universal ctags
+/tags
+
 # Don't ignore those files - instructions for tools like ripgrep
 !.arcconfig
 !.arclint

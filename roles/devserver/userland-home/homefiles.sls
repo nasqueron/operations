@@ -11,6 +11,12 @@
 {% for username, user in salt["forest.get_users"]().items() %}
 {% set tasks = user.get("devserver_tasks", []) %}
 
+/home/{{ username }}/bin:
+  file.directory:
+    - user: {{ username }}
+    - group: {{ username }}
+    - mode: 755
+
 {% if "deploy_dotfiles" in tasks %}
 dotfiles_to_devserver_{{ username }}:
   file.recurse:
@@ -35,6 +41,12 @@ dotfiles_to_devserver_{{ username }}:
     - nanorc_dir: {{ dirs.share }}/nano
     - extra_settings:
       - unset tabstospaces
+{% endif %}
+
+{% if "fix_gdu" in tasks %}
+/home/{{ username }}/bin/gdu:
+  file.symlink:
+    - target: /opt/gdu/gdu
 {% endif %}
 
 {% if "install_rustup" in tasks %}
