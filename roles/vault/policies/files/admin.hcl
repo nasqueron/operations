@@ -93,11 +93,11 @@ path "ops/*" {
 #   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 path "pki_root/*" {
-    capabilities = ["create", "read", "update", "delete", "list"]
+    capabilities = ["create", "read", "update", "delete", "patch", "list"]
 }
 
 path "pki_vault/*" {
-    capabilities = ["create", "read", "update", "delete", "list"]
+    capabilities = ["create", "read", "update", "delete", "patch", "list"]
 }
 
 #   -------------------------------------------------------------
