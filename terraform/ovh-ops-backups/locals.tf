@@ -113,6 +113,7 @@ locals {
         windriver = {
           prefixes = [
             "windriver-home",
+            "windriver-pefs",
           ]
         }
       }
