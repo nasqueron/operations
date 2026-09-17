@@ -33,6 +33,12 @@ locals {
           ]
         }
 
+        complector = {
+          prefixes = [
+            "complector",
+          ]
+        }
+
         db-a-001 = {
           prefixes = [
             "db-a",
